@@ -10,10 +10,9 @@ Objectives
 -  To be able to use “Big-O” to describe execution time.
 
 -  To understand the “Big-O” execution time of common operations on
-   Python lists and dictionaries.
+   C++ arrays and dictionaries.
 
--  To understand how the implementation of Python data impacts algorithm
+-  To understand how the implementation of C++ data impacts algorithm
    analysis.
 
--  To understand how to benchmark simple Python programs.
-
+-  To understand how to benchmark simple C++ programs.
