@@ -3,7 +3,7 @@
 
 
 Using a Stack in C++ and Python
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now that we have clearly defined the stack as an abstract data type we
 will turn our attention to using a stack with the help of the Standard Template Library (STL) in C++. Recall
@@ -134,7 +134,6 @@ imported from the ``pythonds`` module.
    print(s.pop())
    print(s.pop())
    print(s.size())
-
 
 
 It is important to note that we could have chosen to implement the stack
