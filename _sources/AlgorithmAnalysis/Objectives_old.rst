@@ -1,10 +1,6 @@
-
-<!--
-
 ..  Copyright (C)  Brad Miller, David Ranum
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
--->
 
 Objectives
 ----------
@@ -14,9 +10,10 @@ Objectives
 -  To be able to use “Big-O” to describe execution time.
 
 -  To understand the “Big-O” execution time of common operations on
-   C++ arrays and dictionaries.
+   Python lists and dictionaries.
 
--  To understand how the implementation of C++ data impacts algorithm
+-  To understand how the implementation of Python data impacts algorithm
    analysis.
 
--  To understand how to benchmark simple C++ programs.
+-  To understand how to benchmark simple Python programs.
+
