@@ -1,7 +1,7 @@
 Problem Solving with Algorithms and Data Structures Using C++
 =============================================================
 
-This book began as a paper book, Problem Solving with Algorithms and Data Structures Using Python, first published by Franklin Beedle & Associates written by Brad Miller and David Ranum back in 2005.  It was translated to C++ by Jan Pearce and a team of excellent Berea
+This book began as a paper book, *Problem Solving with Algorithms and Data Structures Using Python*, first published by Franklin Beedle & Associates written by Brad Miller and David Ranum back in 2005.  It was translated to C++ by Jan Pearce and a team of excellent Berea
 College students in the summer of 2018. We are grateful for the vision of Jim Leisy who gave permission to take this text and publish it online as an interactive textbook.
 
 .. image:: http://bnmnetp.me:8088/buildStatus/icon?job=pythondsBuild
@@ -24,4 +24,4 @@ Licensing
 
 .. raw:: html
 
-  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Problem Solving with Algorithms and Data Structures using Python</span> by Brad Miller and David Ranum< was and is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>. This C++ edition by Brad Miller, David Ranum, and Jan Pearce is published under the same license.
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><em>Problem Solving with Algorithms and Data Structures using Python</em></span> by Brad Miller and David Ranum< was and is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>. This C++ edition by Brad Miller, David Ranum, and Jan Pearce is published under the same license.
