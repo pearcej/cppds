@@ -2,11 +2,11 @@
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
-Implementing a Stack in Python
+Using a Stack in C++ and Python
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now that we have clearly defined the stack as an abstract data type we
-will turn our attention to using Python to implement the stack. Recall
+will turn our attention to using a stack with the help of the Standard Template Library (STL) in C++. Recall
 that when we give an abstract data type a physical implementation we
 refer to the implementation as a data structure.
 
@@ -32,40 +32,89 @@ of the list. ``pop`` operations will manipulate that same end.
 
 .. _lst_stackcode1:
 
+.. tabbed:: e1
 
-.. activecode:: stack_1ac
-   :caption: Implementing a Stack class using Python lists
-   :nocodelens:
+  .. tab:: C++
 
-   class Stack:
-        def __init__(self):
-            self.items = []
+    .. activecode:: stack_1ac_cpp
+      :caption: Using the Stack methods from the STL in C++
+      :language: cpp
 
-        def isEmpty(self):
-            return self.items == []
+      #include <iostream>
+      #include <stack>    // Calling Stack from the STL
 
-        def push(self, item):
-            self.items.append(item)
+      using namespace std;
 
-        def pop(self):
-            return self.items.pop()
+      int main() {
+          stack<int> newStack;
 
-        def peek(self):
-            return self.items[len(self.items)-1]
+          newStack.push(3);
+          newStack.push(8);
+          newStack.push(15);
 
-        def size(self):
-            return len(self.items)
+          cout << "Stack Empty? " << newStack.empty() << endl;
+
+          cout << "Stack Size: " << newStack.size() << endl;
+
+          cout << "Top Element of the Stack: " << newStack.top() << endl;
+
+          newStack.pop();
+
+          cout << "Top Element of the Stack: " << newStack.top() << endl;
+      }
+
+  .. tab:: Python
+
+    .. activecode:: stack_1ac_py
+       :caption: Implementing a Stack class using Python lists
+
+       class Stack:
+            def __init__(self):
+                self.items = []
+
+            def isEmpty(self):
+                return self.items == []
+
+            def push(self, item):
+                self.items.append(item)
+
+            def pop(self):
+                return self.items.pop()
+
+            def top(self):
+                return self.items[len(self.items)-1]
+
+            def size(self):
+                return len(self.items)
+
+       newStack = Stack()
+
+       newStack.push(3)
+       newStack.push(8)
+       newStack.push(15)
+
+       print("Stack Empty? ", newStack.isEmpty())
+
+       print("Stack Size: ", newStack.size())
+
+       print("Top Element of the Stack: ", newStack.top())
+
+       newStack.pop();
+
+       print("Top Element of the Stack: ", newStack.top())
+
+
 
 Remember that nothing happens when we click the ``run`` button other than the
 definition of the class.  We must create a ``Stack`` object and then use it.
 :ref:`ActiveCode 2 <lst_stackcode1>` shows the ``Stack`` class in
 action as we perform the sequence of operations from
-:ref:`Table 1 <tbl_stackops>`.  Notice that the definition of the ``Stack`` class is 
+:ref:`Table 1 <tbl_stackops>`.  Notice that the definition of the ``Stack`` class is
 imported from the ``pythonds`` module.
 
-.. note:: 
+.. note::
     The ``pythonds`` module contains implementations of all data structures discussed in this book.  It is structured according to the sections: basic, trees, and graphs.  The module can be downloaded from `pythonworks.org <http://www.pythonworks.org/pythonds>`_.
-    
+
 
 .. activecode:: stack_ex_1
    :nocodelens:
@@ -73,7 +122,7 @@ imported from the ``pythonds`` module.
    from pythonds.basic.stack import Stack
 
    s=Stack()
-   
+
    print(s.isEmpty())
    s.push(4)
    s.push('dog')
@@ -152,9 +201,9 @@ benchmark testing.
       :feedback_d: Remember that a stack is built from the bottom up.
 
       Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?
-       
+
       .. code-block:: python
-       
+
        m = Stack()
        m.push('x')
        m.push('y')
@@ -176,7 +225,7 @@ benchmark testing.
       Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?
 
       .. code-block:: python
-  
+
         m = Stack()
         m.push('x')
         m.push('y')
@@ -208,4 +257,3 @@ benchmark testing.
 
     http://media.interactivepython.org/pythondsVideos/Stack1.mov
     http://media.interactivepython.org/pythondsVideos/Stack1.webm
-
