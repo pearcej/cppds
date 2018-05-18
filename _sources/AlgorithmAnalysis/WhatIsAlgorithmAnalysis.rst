@@ -1,7 +1,6 @@
 ..  Copyright (C)  Brad Miller, David Ranum
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
-
 What Is Algorithm Analysis?
 ---------------------------
 
@@ -28,19 +27,43 @@ sum of the first *n* integers. The algorithm uses the idea of an
 accumulator variable that is initialized to 0. The solution then
 iterates through the *n* integers, adding each to the accumulator.
 
-.. _lst_sum1:
+.. tabbed:: ec1
 
-.. activecode:: active1
-    :caption: Summation of the First n Integers
+  .. tab:: C++
 
-    def sumOfN(n):
-       theSum = 0
-       for i in range(1,n+1):
-           theSum = theSum + i
+    .. activecode:: ec1_cpp
+      :caption: Title for the C++ Code
+      :language: cpp
 
-       return theSum
+      #include <iostream>
+      using namespace std;
 
-    print(sumOfN(10))
+      int sumOfN(int n){
+          int theSum = 0;
+          for (int i = 0; i < n+1; i++){
+              theSum = theSum + i;
+        }
+        return theSum;
+      }
+
+      int main(){
+         cout << sumOfN(10);
+         return 0;
+      }
+
+  .. tab:: Python
+
+    .. activecode:: ec1_py
+       :caption: Title for the Python Code
+
+       def sumOfN(n):
+            theSum = 0
+            for i in range(1,n+1):
+               theSum = theSum + i
+
+            return theSum
+
+       print(sumOfN(10))
 
 Now look at the function in :ref:`ActiveCode 2 <lst_sum2>`. At first glance it may look
 strange, but upon further inspection you can see that this function is
@@ -51,18 +74,44 @@ during the accumulation step that was not really necessary.
 
 .. _lst_sum2:
 
-.. activecode:: active2
-    :caption: Another Summation of the First n Integers
+.. tabbed:: ec2
 
-    def foo(tom):
-        fred = 0
-        for bill in range(1,tom+1):
-           barney = bill
-           fred = fred + barney
+    .. tab:: C++
 
-        return fred
+        .. activecode:: ec2_cpp
+            :caption: Another Summation of the First n Integers in C++
 
-    print(foo(10))
+            #include <iostream>
+            using namespace std;
+
+            int foo(int tom){
+                int fred = 0;
+                for (int bill = 0; bill < tom+1; bill++){
+                    int barney = bill;
+                    fred = fred + barney;
+                }
+                return fred;
+            }
+
+            int main(){
+                cout << foo(10);
+                return 0;
+            }
+
+    .. tab:: Python
+
+        .. activecode:: ec2_py
+            :caption: Another Summation of the First n Integers in python
+
+            def foo(tom):
+                fred = 0
+                for bill in range(1,tom+1):
+                   barney = bill
+                   fred = fred + barney
+
+                return fred
+
+            print(foo(10))
 
 The question we raised earlier asked whether one function is better than
 another. The answer depends on your criteria. The function ``sumOfN`` is
@@ -97,10 +146,9 @@ measure is sometimes referred to as the “execution time” or “running
 time” of the algorithm. One way we can measure the execution time for
 the function ``sumOfN`` is to do a benchmark analysis. This means that
 we will track the actual time required for the program to compute its
-result. In Python, we can benchmark a function by noting the starting
+result. In C++, we can benchmark a function by noting the starting
 time and ending time with respect to the system we are using. In the
-``time`` module there is a function called ``time`` that will return the
-current system clock time in seconds since some arbitrary starting
+``ctime`` library there is a function called ``clock`` that will return the current system clock time in seconds since some arbitrary starting
 point. By calling this function twice, at the beginning and at the end,
 and then computing the difference, we can get an exact number of seconds
 (fractions in most cases) for execution.
@@ -109,20 +157,60 @@ and then computing the difference, we can get an exact number of seconds
 
 **Listing 1**
 
-.. sourcecode:: python
+.. tabbed:: cpp
 
-    import time
+  .. tab:: C++
 
-    def sumOfN2(n):
-       start = time.time()
+  .. sourcecode:: cpp
 
-       theSum = 0
-       for i in range(1,n+1):
-          theSum = theSum + i
+    .. activecode:: change_this_cpp
+       :caption: Title for the C++ Window
+       :language: cpp
 
-       end = time.time()
+       #include <iostream>
+       #include <ctime>
+       using namespace std;
 
-       return theSum,end-start
+       int sumofN2(int n) {
+
+       int theSum = 0;
+           clock_t begin = clock();
+           for(int i = 0; i < n+1; i++){
+               theSum = theSum + i;
+           }
+           clock_t end = clock();
+           double elapsed_secs = double(end - begin) /CLOCKS_PER_SEC;
+           cout << "Sum is " << theSum << " required "<<elapsed_secs << " seconds" << endl;
+       return theSum;
+       }
+
+       int main(){
+           for (int i = 0; i < 6; i++){
+                f(10000) << endl;
+           }
+       return 0;
+       }
+
+  .. tab:: Python
+
+  .. sourcecode:: python
+
+    .. activecode:: change_this_py
+       :caption: Title for the Python Window
+
+       import time
+
+       def sumOfN2(n):
+          start = time.time()
+
+          theSum = 0
+          for i in range(1,n+1):
+             theSum = theSum + i
+
+          end = time.time()
+
+          return theSum,end-start\
+
 
 :ref:`Listing 1 <lst_sum11>` shows the original ``sumOfN`` function with the timing
 calls embedded before and after the summation. The function returns a
@@ -134,6 +222,21 @@ the following:
 
 
 ::
+.. tabbed:: change_this
+
+  .. tab:: C++
+
+    >>>for (int i = 0; i < 6; i++){
+          f(10000);
+       }
+      Sum is 50005000 required 6e-05 seconds
+      Sum is 50005000 required 3.1e-05 seconds
+      Sum is 50005000 required 4.2e-05 seconds
+      Sum is 50005000 required 3.9e-05 seconds
+      Sum is 50005000 required 3.4e-05 seconds
+      Sum is 50005000 required 4e-05 seconds
+
+  .. tab:: Python
 
     >>>for i in range(5):
            print("Sum is %d required %10.7f seconds"%sumOfN(10000))
@@ -142,6 +245,8 @@ the following:
     Sum is 50005000 required  0.0019171 seconds
     Sum is 50005000 required  0.0019162 seconds
     Sum is 50005000 required  0.0019360 seconds
+
+<!--
 
 We discover that the time is fairly consistent and it takes on average
 about 0.0019 seconds to execute that code. What if we run the function
@@ -176,12 +281,34 @@ consistent, averaging about 10 times more seconds. For ``n`` equal to
 In this case, the average again turns out to be about 10 times the
 previous.
 
+-->
+
 Now consider :ref:`ActiveCode 3 <lst_sum3>`, which shows a different means of solving
 the summation problem. This function, ``sumOfN3``, takes advantage of a
 closed equation :math:`\sum_{i=1}^{n} i = \frac {(n)(n+1)}{2}` to
 compute the sum of the first ``n`` integers without iterating.
 
 .. _lst_sum3:
+
+
+.. activecode:: active3
+    :Laguage:: cpp
+    #include <iostream>
+    using namespace std;
+    #include <ctime>
+
+    int sumOfN3(int n){
+      clock_t begin = clock();
+      int sum_n = (n*(n+1))/2;
+      clock_t end = clock();
+      double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+      cout<<"Sum is " << sum_n << " required " << elapsed_secs <<" seconds";
+      return sum_n;
+    }
+    int main(){
+      sumOfN3(10000);
+      return 0;
+        }
 
 .. activecode:: active3
     :caption: Summation Without Iteration
@@ -191,17 +318,11 @@ compute the sum of the first ``n`` integers without iterating.
 
     print(sumOfN3(10))
 
-If we do the same benchmark measurement for ``sumOfN3``, using five
-different values for ``n`` (10,000, 100,000, 1,000,000, 10,000,000, and
-100,000,000), we get the following results:
+If we do the same benchmark measurement for ``sumOfN3``, using the value  10,000 for ``n`` and we get the following result:
 
 ::
 
-    Sum is 50005000 required 0.00000095 seconds
-    Sum is 5000050000 required 0.00000191 seconds
-    Sum is 500000500000 required 0.00000095 seconds
-    Sum is 50000005000000 required 0.00000095 seconds
-    Sum is 5000000050000000 required 0.00000119 seconds
+    Sum is 50005000 required 6e-06 seconds
 
 There are two important things to notice about this output. First, the
 times recorded above are shorter than any of the previous examples.
