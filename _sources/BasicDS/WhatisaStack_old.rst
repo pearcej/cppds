@@ -52,7 +52,7 @@ begin removing books. The order that they are removed is exactly the
 reverse of the order that they were placed. Stacks are fundamentally
 important, as they can be used to reverse the order of items. The order
 of insertion is the reverse of the order of removal.
-:ref:`Figure 3 <fig_reversal>` shows the an stack object as it was
+:ref:`Figure 3 <fig_reversal>` shows the Python data object stack as it was
 created and then again as items are removed. Note the order of the
 objects.
 
@@ -71,3 +71,4 @@ those pages are placed on a stack (actually it is the URLs that are
 going on the stack). The current page that you are viewing is on the top
 and the first page you looked at is at the base. If you click on the
 Back button, you begin to move in reverse order through the pages.
+
