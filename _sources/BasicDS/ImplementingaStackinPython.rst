@@ -56,6 +56,8 @@ of the list. ``pop`` operations will manipulate that same end.
 
           cout << "Top Element of the Stack: " << newStack.top()
           << endl;
+
+          return 0;
       }
 
   .. tab:: Python
