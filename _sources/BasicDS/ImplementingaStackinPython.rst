@@ -102,9 +102,9 @@ of the list. ``pop`` operations will manipulate that same end.
 .. admonition:: Self Check
 
    .. mchoice:: stack_1
-      :answer_a: 'x'
-      :answer_b: 'y'
-      :answer_c: 'z'
+      :answer_a: 5
+      :answer_b: 12
+      :answer_c: 27
       :answer_d: The stack is empty
       :correct: c
       :feedback_a: Remember that a stack is built from the bottom up.
@@ -114,54 +114,38 @@ of the list. ``pop`` operations will manipulate that same end.
 
       Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?
 
-      .. code-block:: python
+      .. code-block:: cpp
 
-       m = Stack()
-       m.push('x')
-       m.push('y')
-       m.pop()
-       m.push('z')
-       m.peek()
+       stack<int> m;
+       m.push(5);
+       m.push(12);
+       m.pop();
+       m.push(27);
+       cout << m.top();
 
    .. mchoice:: stack_2
-      :answer_a: 'x'
+      :answer_a: 37
       :answer_b: the stack is empty
       :answer_c: an error will occur
-      :answer_d: 'z'
+      :answer_d: 4
       :correct: c
-      :feedback_a: You may want to check out the docs for isEmpty
+      :feedback_a: You may want to check out the docs for
       :feedback_b: There is an odd number of things on the stack but each time through the loop 2 things are popped.
       :feedback_c: Good Job.
       :feedback_d: You may want to check out the docs for isEmpty
 
       Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?
 
-      .. code-block:: python
+      .. code-block:: cpp
 
-        m = Stack()
-        m.push('x')
-        m.push('y')
-        m.push('z')
-        while not m.isEmpty():
-           m.pop()
-           m.pop()
-
-   Write a function `revstring(mystr)` that uses a stack to reverse the
-   characters in a string.
-
-   .. actex:: stack_stringrev
-      :nocodelens:
-
-      from test import testEqual
-      from pythonds.basic.stack import Stack
-
-      def revstring(mystr):
-          # your code here
-
-      testEqual(revstring('apple'),'elppa')
-      testEqual(revstring('x'),'x')
-      testEqual(revstring('1234567890'),'0987654321')
-
+        stack<int> m;
+        m.push(37);
+        m.push(56);
+        m.push(4);
+        while (!m.empty()){
+            m.pop();
+            m.pop();
+        }
 
 .. video:: stack1_video
     :controls:
