@@ -5,9 +5,10 @@
 Objectives
 ----------
 
--  To understand the abstract data types stack, queue, deque, and array.
+-  To understand the abstract data types stack, queue, deque, and list.
 
-- To be able to use the ADTs stack, queue, and deque using Standard Template Library of C++
+-  To be able to implement the ADTs stack, queue, and deque using Python
+   lists.
 
 -  To understand the performance of the implementations of basic linear
    data structures.
@@ -27,4 +28,4 @@ Objectives
    using the node and reference pattern.
 
 -  To be able to compare the performance of our linked list
-   implementation with the list implementation of C++.
+   implementation with Python’s list implementation.
