@@ -38,18 +38,18 @@ far right.
 
 .. table:: **Table 1: Sample Stack Operations**
 
-    ============================ ======================== ==================
-             **Stack Operation**       **Stack Contents**   **Return Value**
-    ============================ ======================== ==================
-                 ``s.empty()``                   ``[]``           ``1``
-                   ``s.push('horse')``                  ``['horse']``
-               ``s.push('dog')``            ``['horse','dog']``
-                    ``s.top()``            ``['horse','dog']``          ``'dog'``
-                ``s.push('cat')``       ``['horse','dog','cat']``
-                    ``s.size()``       ``['horse','dog','cat']``              ``3``
-                 ``s.empty()``       ``['horse','dog','cat']``          ``False``
-                 ``s.push('turtle')``   ``['horse','dog','cat','turtle']``
-                     ``s.pop()``       ``['horse','dog','cat']``
-                     ``s.pop()``            ``['horse','dog']``
-                    ``s.size()``            ``['horse','dog']``              ``2``
-    ============================ ======================== ==================
+    ============================ ================================== ==================
+             **Stack Operation**                 **Stack Contents**   **Return Value**
+    ============================ ================================== ==================
+                   ``s.empty()``                             ``[]``              ``1``
+             ``s.push('horse')``                      ``['horse']``
+               ``s.push('dog')``                ``['horse','dog']``
+                     ``s.top()``                ``['horse','dog']``          ``'dog'``
+               ``s.push('cat')``          ``['horse','dog','cat']``
+                    ``s.size()``          ``['horse','dog','cat']``              ``3``
+                   ``s.empty()``          ``['horse','dog','cat']``              ``0``
+            ``s.push('turtle')`` ``['horse','dog','cat','turtle']``
+                     ``s.pop()``          ``['horse','dog','cat']``
+                     ``s.pop()``                ``['horse','dog']``
+                    ``s.size()``                ``['horse','dog']``              ``2``
+    ============================ ================================== ==================
