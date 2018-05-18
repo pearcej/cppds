@@ -2,114 +2,128 @@
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
-Implementing a Queue in Python
+Using a Queue in C++
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-It is again appropriate to create a new class for the implementation of
-the abstract data type queue. As before, we will use the power and
-simplicity of the list collection to build the internal representation
-of the queue.
+Now that we have clearly defined the queue as an abstract data type, similarly to the how we've previously used the Stack, we
+will turn our attention to using a queue with the help of the Standard Template Library (STL) in C++. Recall
+that when we give an abstract data type a physical implementation we
+refer to the implementation as a data structure.
 
-We need to decide which end of the list to use as the rear and which to
-use as the front. The implementation shown in :ref:`Listing 1 <lst_queuecode>`
-assumes that the rear is at position 0 in the list. This allows us to
-use the ``insert`` function on lists to add new elements to the rear of
-the queue. The ``pop`` operation can be used to remove the front element
-(the last element of the list). Recall that this also means that enqueue
-will be O(n) and dequeue will be O(1). 
+As we described in Chapter 1, in C++, as in any object-oriented
+programming language, the implementation of choice for an abstract data
+type such as a queue is the creation of a new class. The queue
+operations are implemented as methods. However, the STL already has a well
+written implementation of the Queue class.
 
-.. _lst_queuecode:
+The following queue implementation (:ref:`ActiveCode 1 <lst_queuecode1>`) assumes that
+the end of the list will hold the rear element of the queue. As the queue
+grows (as ``push`` operations occur), new items will be added on the end
+of the list. ``pop`` operations will manipulate the opposite side, the front end.
 
-**Listing 1**
+.. _lst_queuecode1:
 
-::
+.. tabbed:: sc1
 
-    class Queue:
-        def __init__(self):
-            self.items = []
+  .. tab:: C++
 
-        def isEmpty(self):
-            return self.items == []
+    .. activecode:: queue_1ac_cpp
+      :caption: Using the Queue methods from the STL in C++
+      :language: cpp
 
-        def enqueue(self, item):
-            self.items.insert(0,item)
+      #include <iostream>
+      #include <queue> // Calling Queue from the STL
 
-        def dequeue(self):
-            return self.items.pop()
+      using namespace std;
 
-        def size(self):
-            return len(self.items)
+      int main() {
+        	queue<int> newQueue;
 
-CodeLens 1 shows the ``Queue`` class in
-action as we perform the sequence of operations from
-:ref:`Table 1 <tbl_queueoperations>`.
+        	newQueue.push(3);
+        	newQueue.push(8);
+        	newQueue.push(15);
 
-.. codelens:: ququeuetest
-   :caption: Example Queue Operations
+        	cout << "Queue Empty? " << newQueue.empty() << endl;
 
-   class Queue:
-       def __init__(self):
-           self.items = []
+        	cout << "Queue Size: " << newQueue.size() << endl;
 
-       def isEmpty(self):
-           return self.items == []
+        	cout << "Top Element of the Queue: " << newQueue.front() << endl;
 
-       def enqueue(self, item):
-           self.items.insert(0,item)
+        	newQueue.pop();
 
-       def dequeue(self):
-           return self.items.pop()
+        	cout << "Top Element of the Queue " << newQueue.front() << endl;
 
-       def size(self):
-           return len(self.items)
+        	return 0;
+      }
 
-   q=Queue()
-   
-   q.enqueue(4)
-   q.enqueue('dog')
-   q.enqueue(True)
-   print(q.size())
+  .. tab:: Python
+
+    .. activecode:: queue_1ac_py
+       :caption: Implementing a Queue class using Python lists
+
+       class Queue:
+           def __init__(self):
+               self.items = []
+
+           def isEmpty(self):
+               return self.items == []
+
+           def push(self, item):
+               self.items.insert(0,item)
+
+           def pop(self):
+               return self.items.pop()
+
+           def front(self):
+               return self.items[len(self.items)-1];
+
+           def size(self):
+               return len(self.items)
+
+       q=Queue()
+
+       q.push(4)
+       q.push('dog')
+       q.push(True)
 
 
-Further manipulation of this queue would give the following results:
+       print("Queue Empty? ", q.isEmpty())
 
+       print("Queue Size: ", q.size())
 
-::
+       print("Front Element of the Queue: ", q.front())
 
-    >>> q.size()
-    3
-    >>> q.isEmpty()
-    False
-    >>> q.enqueue(8.4)
-    >>> q.dequeue()
-    4
-    >>> q.dequeue()
-    'dog'
-    >>> q.size()
-    2
+       q.pop();
+
+       print("Front Element of the Queue: ", q.front())
+
 
 .. admonition:: Self Check
 
-   .. mchoice:: queue_1
-      :correct: b
-      :answer_a: 'hello', 'dog'
-      :answer_b: 'dog', 3
-      :answer_c: 'hello', 3
-      :answer_d: 'hello', 'dog', 3
-      :feedback_a: Remember the first thing added to the queue is the first thing removed.  FIFO
-      :feedback_b: Yes, first in first out means that hello is gone
-      :feedback_c: Queues, and Stacks are both data structures where you can only access the first and the last thing.
-      :feedback_d: Ooops, maybe you missed the dequeue call at the end?
+  .. mchoice:: queue_1
+     :correct: b
+     :answer_a: 10, 20
+     :answer_b: 20, 30
+     :answer_c: 10, 30
+     :answer_d: 10, 20, 30
+     :feedback_a: Remember the first thing added to the queue is the first thing removed.  FIFO
+     :feedback_b: Yes, first in first out means that 10 is gone
+     :feedback_c: Queues, and Stacks are both data structures where you can only access the first and the last thing.
+     :feedback_d: Ooops, maybe you missed the pop call at the end?
 
-      Suppose you have the following series of queue operations.
+     Suppose you have the following series of queue operations.
 
-      ::
-      
-          q = Queue()
-          q.enqueue('hello')
-          q.enqueue('dog')
-          q.enqueue(3)
-          q.dequeue()
+     ::
 
-      What items are left on the queue?
+         queue<int> intQueue;
+         q.push(10);
+         q.push(20);
+         q.push(30);
+         q.pop();
+         q = Queue()
+         q.push('hello')
+         q.push('dog')
+         q.push(3)
+         q.pop()
 
+     What items are left on the queue?
