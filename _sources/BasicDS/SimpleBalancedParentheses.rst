@@ -84,35 +84,82 @@ this algorithm is shown in :ref:`ActiveCode 1 <lst_parcheck1>`.
 
 .. _lst_parcheck1:
 
-.. activecode:: parcheck1
-    :caption: Solving the Balanced Parentheses Problem
-    :nocodelens:
+.. tabbed:: pc1
 
-    from pythonds.basic.stack import Stack
+  .. tab:: C++
 
-    def parChecker(symbolString):
-        s = Stack()
-        balanced = True
-        index = 0
-        while index < len(symbolString) and balanced:
-            symbol = symbolString[index]
-            if symbol == "(":
-                s.push(symbol)
-            else:
-                if s.isEmpty():
-                    balanced = False
-                else:
-                    s.pop()
+    .. activecode:: parcheck1_cpp
+      :caption: Solving the Balanced Parentheses Problem
+      :language: cpp
 
-            index = index + 1
+      #include <iostream>
+      #include <stack>
+      #include <string>
 
-        if balanced and s.isEmpty():
-            return True
-        else:
-            return False
+      using namespace std;
 
-    print(parChecker('((()))'))
-    print(parChecker('(()'))
+      bool parChecker(string symbolString) {
+      	stack<string> s;
+      	bool balanced = true;
+      	int index = 0;
+
+      	while (index < symbolString.length() && balanced) {
+      		string symbol;
+      		symbol = symbolString[index];
+      		if (symbol == "(") {
+      			s.push(symbol);
+      		} else {
+      			if (s.empty()) {
+      				balanced = false;
+      			} else {
+      				s.pop();
+      			}
+      		}
+      		index = index + 1;
+      	}
+
+      	if (balanced && s.empty()) {
+      		return true;
+      	} else {
+      		return false;
+      	}
+      }
+
+      int main() {
+      	cout << parChecker("((()))") << endl;
+      	cout << parChecker("(()") << endl;
+      }
+
+  .. tab:: Python
+
+    .. activecode:: parcheck1_py
+       :caption: Solving the Balanced Parentheses Problem
+
+       from pythonds.basic.stack import Stack
+
+       def parChecker(symbolString):
+           s = Stack()
+           balanced = True
+           index = 0
+           while index < len(symbolString) and balanced:
+               symbol = symbolString[index]
+               if symbol == "(":
+                   s.push(symbol)
+               else:
+                   if s.isEmpty():
+                       balanced = False
+                   else:
+                       s.pop()
+
+               index = index + 1
+
+           if balanced and s.isEmpty():
+               return True
+           else:
+               return False
+
+       print(parChecker('((()))'))
+       print(parChecker('(()'))
 
 
 This function, ``parChecker``, assumes that a ``Stack`` class is
@@ -125,4 +172,3 @@ from the stack. The returned value is not used since we know it must be
 an opening symbol seen earlier. At the end (lines 19–22), as long as the
 expression is balanced and the stack has been completely cleaned off,
 the string represents a correctly balanced sequence of parentheses.
-
