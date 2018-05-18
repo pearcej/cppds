@@ -290,33 +290,41 @@ compute the sum of the first ``n`` integers without iterating.
 
 .. _lst_sum3:
 
+.. tabbed:: change_this
 
-.. activecode:: active3
-    :Laguage:: cpp
-    #include <iostream>
-    using namespace std;
-    #include <ctime>
+  .. tab:: C++
 
-    int sumOfN3(int n){
-      clock_t begin = clock();
-      int sum_n = (n*(n+1))/2;
-      clock_t end = clock();
-      double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
-      cout<<"Sum is " << sum_n << " required " << elapsed_secs <<" seconds";
-      return sum_n;
-    }
-    int main(){
-      sumOfN3(10000);
-      return 0;
-        }
+    .. activecode:: active3
+      :caption: Summation Without Iteration C++
+      :language: cpp
 
-.. activecode:: active3
-    :caption: Summation Without Iteration
+      #include <iostream>
+      using namespace std;
+      #include <ctime>
 
-    def sumOfN3(n):
-       return (n*(n+1))/2
+      int sumOfN3(int n){
+          clock_t begin = clock();
+          int sum_n = (n*(n+1))/2;
+          clock_t end = clock();
+          double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+          cout<<"Sum is " << sum_n << " required " << elapsed_secs <<" seconds";
+          return sum_n;
+      }
+      int main(){
+          sumOfN3(10000);
+          return 0;
+      }
 
-    print(sumOfN3(10))
+
+  .. tab:: Python
+
+    .. activecode:: active3
+       :caption: Summation Without Iteration Python
+
+       def sumOfN3(n):
+          return (n*(n+1))/2
+
+       print(sumOfN3(10))
 
 If we do the same benchmark measurement for ``sumOfN3``, using the value  10,000 for ``n`` and we get the following result:
 
