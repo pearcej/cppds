@@ -1,4 +1,4 @@
-.. Problem Solving with Algorithms and Data Structures with C++ documentation master file, originally created by
+.. Problem Solving with Algorithms and Data Structures using C++ documentation master file, originally created by
    sphinx-quickstart on Thu Oct 27 08:17:45 2011.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
