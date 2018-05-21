@@ -1,7 +1,6 @@
 ..  Copyright (C)  Brad Miller, David Ranum
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
-
 Converting Decimal Numbers to Binary Numbers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -60,27 +59,67 @@ right-hand end of the string. The binary string is then returned.
 
 .. _lst_binconverter:
 
-.. activecode:: divby2
-   :caption: Converting from Decimal to Binary
-   :nocodelens:
+.. tabbed:: sc1
 
-   from pythonds.basic.stack import Stack
+  .. tab:: C++
 
-   def divideBy2(decNumber):
-       remstack = Stack()
+    .. activecode:: queue_1ac_cpp
+      :caption: Using the Queue methods from the STL in C++
+      :language: cpp
 
-       while decNumber > 0:
-           rem = decNumber % 2
-           remstack.push(rem)
-           decNumber = decNumber // 2
+      #include <iostream>
+      #include <stack>
+      #include <string>
 
-       binString = ""
-       while not remstack.isEmpty():
-           binString = binString + str(remstack.pop())
+      using namespace std;
 
-       return binString
+      string divideBy2(int decNumber) {
+      	stack<int> remstack;
 
-   print(divideBy2(42))
+      	while (decNumber > 0) {
+      		int rem = decNumber % 2;
+      		remstack.push(rem);
+      		decNumber = decNumber / 2;
+      	}
+
+      	string binString = "";
+      	while (!remstack.empty()) {
+      		binString.append(to_string(remstack.top()));
+      		remstack.pop();
+      	}
+
+      	return binString;
+      }
+
+      int main() {
+      	cout << divideBy2(42) << endl;
+
+        return 0;
+      }
+
+  .. tab:: Python
+
+    .. activecode:: queue_1ac_py
+       :caption: Converting Decimal to Binary
+
+       from pythonds.basic.stack import Stack
+
+       def divideBy2(decNumber):
+           remstack = Stack()
+
+           while decNumber > 0:
+               rem = decNumber % 2
+               remstack.push(rem)
+               decNumber = decNumber // 2
+
+           binString = ""
+           while not remstack.isEmpty():
+               binString = binString + str(remstack.pop())
+
+           return binString
+
+       print(divideBy2(42))
+
 
 The algorithm for binary conversion can easily be extended to perform
 the conversion for any base. In computer science it is common to use a
@@ -114,30 +153,72 @@ beyond 9.
 
 .. _lst_baseconverter:
 
-.. activecode:: baseconvert
-    :caption: Converting from Decimal to any Base
-    :nocodelens:
+.. tabbed:: sc2
 
-    from pythonds.basic.stack import Stack
+  .. tab:: C++
 
-    def baseConverter(decNumber,base):
-        digits = "0123456789ABCDEF"
+    .. activecode:: baseconvertcpp
+      :caption: Converting numbers from base 10 into desired base.
+      :language: cpp
 
-        remstack = Stack()
+      #include <iostream>
+      #include <stack>
+      #include <string>
 
-        while decNumber > 0:
-            rem = decNumber % base
-            remstack.push(rem)
-            decNumber = decNumber // base
+      using namespace std;
 
-        newString = ""
-        while not remstack.isEmpty():
-            newString = newString + digits[remstack.pop()]
+      string baseConverter(int decNumber, int base) {
+      	string digits[] = {"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"};
 
-        return newString
+      	stack<int> remstack;
 
-    print(baseConverter(25,2))
-    print(baseConverter(25,16))
+      	while (decNumber > 0) {
+      		int rem = decNumber % base;
+      		remstack.push(rem);
+      		decNumber = decNumber / base;
+      	}
+
+      	string newString = "";
+      	while (!remstack.empty()) {
+      		newString.append(digits[remstack.top()]);
+      		remstack.pop();
+      	}
+
+      	return newString;
+      }
+
+      int main() {
+      	cout << baseConverter(25,2)<<endl;
+        cout << baseConverter(25,16)<<endl;
+
+        return 0;
+      }
+
+  .. tab:: Python
+
+    .. activecode:: baseconvert
+        :caption: Converting from Decimal to any Base
+
+        from pythonds.basic.stack import Stack
+
+        def baseConverter(decNumber,base):
+            digits = "0123456789ABCDEF"
+
+            remstack = Stack()
+
+            while decNumber > 0:
+                rem = decNumber % base
+                remstack.push(rem)
+                decNumber = decNumber // base
+
+            newString = ""
+            while not remstack.isEmpty():
+                newString = newString + digits[remstack.pop()]
+
+            return newString
+
+        print(baseConverter(25,2))
+        print(baseConverter(25,16))
 
 A solution to this problem is to extend the digit set to include some
 alphabet characters. For example, hexadecimal uses the ten decimal
