@@ -112,7 +112,7 @@ this algorithm is shown in :ref:`ActiveCode 1 <lst_parcheck1>`.
       		        if (s.empty()) {
                               balanced = false;
       		        } else {
-                              s.pop();
+                             s.pop();
       		        }
       		    }
       	  index = index + 1;

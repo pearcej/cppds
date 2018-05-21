@@ -54,41 +54,107 @@ mismatch occurs, the boolean variable ``balanced`` is set to ``False``.
 
 .. _lst_parcheck2:
 
-.. activecode :: parcheck2
-   :caption: Solving the General Balanced Symbol Problem
-   :nocodelens:
+.. tabbed:: parcheck2
 
-   from pythonds.basic.stack import Stack
-   
-   def parChecker(symbolString):
-       s = Stack()
-       balanced = True
-       index = 0
-       while index < len(symbolString) and balanced:
-           symbol = symbolString[index]
-           if symbol in "([{":
-               s.push(symbol)
-           else:
-               if s.isEmpty():
-                   balanced = False
+  .. tab:: C++
+
+    .. activecode:: parcheck2_cpp
+      :caption: Solving the General Balanced Symbol Problem
+      :language: cpp
+
+      #include <iostream>
+      #include <string>
+      #include <stack>
+
+      using namespace std;
+
+      bool inString(string symbol, string symbols){
+          int n = symbols.length();
+          if (symbols.find(symbol) < n){
+              return true;
+          }
+          return false;
+      }
+
+      bool matches(string open, string close){
+          string opens = "({[";
+          string closers = ")]}";
+          return inString(open, opens) == inString(close, closers);
+      }
+
+      bool parChecker(string symbolString){
+          stack<string> s;
+          bool balanced = true;
+          int index = 0;
+          while(index < symbolString.length() && balanced){
+              string symbol;
+              symbol = symbolString[index];
+              string opens = "({[";
+              if (inString(symbol, opens)){
+                  s.push(symbol);
+              } else {
+                  if (s.empty()){
+                      balanced = false;
+                  } else {
+                      string top = s.top();
+                      s.pop();
+                      if (!matches(top, symbol)){
+                          balanced = false;
+                      }
+                  }
+              }
+              index = index + 1;
+          }
+          if(balanced && s.empty()){
+              return true;
+          } else {
+              return false;
+          }
+      }
+
+      int main() {
+          cout << parChecker("{{([][])}()}") << endl;
+          cout << parChecker("[{()]") << endl;
+      }
+
+
+  .. tab:: Python
+
+    .. activecode:: parcheck2_py
+       :caption: Solving the General Balanced Symbol Problem
+
+       from pythonds.basic.stack import Stack
+
+       def parChecker(symbolString):
+           s = Stack()
+           balanced = True
+           index = 0
+           while index < len(symbolString) and balanced:
+               symbol = symbolString[index]
+               if symbol in "([{":
+                   s.push(symbol)
                else:
-                   top = s.pop()
-                   if not matches(top,symbol):
-                          balanced = False
-           index = index + 1
-       if balanced and s.isEmpty():
-           return True
-       else:
-           return False
+                   if s.isEmpty():
+                       balanced = False
+                   else:
+                       top = s.pop()
+                       if not matches(top,symbol):
+                              balanced = False
+               index = index + 1
+           if balanced and s.isEmpty():
+               return True
+           else:
+               return False
 
-   def matches(open,close):
-       opens = "([{"
-       closers = ")]}"
-       return opens.index(open) == closers.index(close)
-       
+       def matches(open,close):
+           opens = "([{"
+           closers = ")]}"
+           return opens.index(open) == closers.index(close)
 
-   print(parChecker('{{([][])}()}'))
-   print(parChecker('[{()]'))
+
+       print(parChecker('{{([][])}()}'))
+       print(parChecker('[{()]'))
+
 
 These two examples show that stacks are very important data structures
 for the processing of language constructs in computer science. Almost
@@ -96,4 +162,3 @@ any notation you can think of has some type of nested symbol that must
 be matched in a balanced order. There are a number of other important
 uses for stacks in computer science. We will continue to explore them
 in the next sections.
-
