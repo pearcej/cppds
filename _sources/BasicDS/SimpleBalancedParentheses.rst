@@ -79,7 +79,7 @@ pop the stack. As long as it is possible to pop the stack to match every
 closing symbol, the parentheses remain balanced. If at any time there is
 no opening symbol on the stack to match a closing symbol, the string is
 not balanced properly. At the end of the string, when all symbols have
-been processed, the stack should be empty. The Python code to implement
+been processed, the stack should be empty. The C++ and Python code to implement
 this algorithm is shown in :ref:`ActiveCode 1 <lst_parcheck1>`.
 
 .. _lst_parcheck1:
@@ -99,35 +99,35 @@ this algorithm is shown in :ref:`ActiveCode 1 <lst_parcheck1>`.
       using namespace std;
 
       bool parChecker(string symbolString) {
-      	stack<string> s;
-      	bool balanced = true;
-      	int index = 0;
+          stack<string> s;
+          bool balanced = true;
+          int index = 0;
 
-      	while (index < symbolString.length() && balanced) {
-      		string symbol;
-      		symbol = symbolString[index];
-      		if (symbol == "(") {
-      			s.push(symbol);
-      		} else {
-      			if (s.empty()) {
-      				balanced = false;
-      			} else {
-      				s.pop();
-      			}
-      		}
-      		index = index + 1;
-      	}
+          while (index < symbolString.length() && balanced) {
+      		    string symbol;
+      		    symbol = symbolString[index];
+      		    if (symbol == "(") {
+      		        s.push(symbol);
+      		    } else {
+      		        if (s.empty()) {
+                              balanced = false;
+      		        } else {
+                              s.pop();
+      		        }
+      		    }
+      	  index = index + 1;
+      	  }
 
-      	if (balanced && s.empty()) {
-      		return true;
-      	} else {
-      		return false;
-      	}
+          if (balanced && s.empty()) {
+      	      return true;
+      	  } else {
+              return false;
+      	  }
       }
 
       int main() {
-      	cout << parChecker("((()))") << endl;
-      	cout << parChecker("(()") << endl;
+          cout << parChecker("((()))") << endl;
+          cout << parChecker("(()") << endl;
       }
 
   .. tab:: Python
