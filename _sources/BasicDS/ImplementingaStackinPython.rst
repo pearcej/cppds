@@ -2,28 +2,19 @@
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
-Implementing a Stack in Python
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Using a Stack in C++
+~~~~~~~~~~~~~~~~~~~~
 
 Now that we have clearly defined the stack as an abstract data type we
-will turn our attention to using Python to implement the stack. Recall
+will turn our attention to using a stack with the help of the Standard Template Library (STL) in C++. Recall
 that when we give an abstract data type a physical implementation we
 refer to the implementation as a data structure.
 
-As we described in Chapter 1, in Python, as in any object-oriented
+As we described in Chapter 1, in C++, as in any object-oriented
 programming language, the implementation of choice for an abstract data
 type such as a stack is the creation of a new class. The stack
-operations are implemented as methods. Further, to implement a stack,
-which is a collection of elements, it makes sense to utilize the power
-and simplicity of the primitive collections provided by Python. We will
-use a list.
-
-Recall that the list class in Python provides an ordered collection
-mechanism and a set of methods. For example, if we have the list
-[2,5,3,6,7,4], we need only to decide which end of the list will be
-considered the top of the stack and which will be the base. Once that
-decision is made, the operations can be implemented using the list
-methods such as ``append`` and ``pop``.
+operations are implemented as methods. However, the STL already has a well
+written implementation of the Stack class.
 
 The following stack implementation (:ref:`ActiveCode 1 <lst_stackcode1>`) assumes that
 the end of the list will hold the top element of the stack. As the stack
@@ -32,118 +23,90 @@ of the list. ``pop`` operations will manipulate that same end.
 
 .. _lst_stackcode1:
 
+.. tabbed:: sc1
 
-.. activecode:: stack_1ac
-   :caption: Implementing a Stack class using Python lists
-   :nocodelens:
+  .. tab:: C++
 
-   class Stack:
-        def __init__(self):
-            self.items = []
+    .. activecode:: stack_1ac_cpp
+      :caption: Using the Stack methods from the STL in C++
+      :language: cpp
 
-        def isEmpty(self):
-            return self.items == []
+      #include <iostream>
+      #include <stack>    // Calling Stack from the STL
 
-        def push(self, item):
-            self.items.append(item)
+      using namespace std;
 
-        def pop(self):
-            return self.items.pop()
+      int main() {
+          stack<int> newStack;
 
-        def peek(self):
-            return self.items[len(self.items)-1]
+          newStack.push(3);
+          newStack.push(8);
+          newStack.push(15);
 
-        def size(self):
-            return len(self.items)
+          cout << "Stack Empty? " << newStack.empty()
+          << endl;
 
-Remember that nothing happens when we click the ``run`` button other than the
-definition of the class.  We must create a ``Stack`` object and then use it.
-:ref:`ActiveCode 2 <lst_stackcode1>` shows the ``Stack`` class in
-action as we perform the sequence of operations from
-:ref:`Table 1 <tbl_stackops>`.  Notice that the definition of the ``Stack`` class is 
-imported from the ``pythonds`` module.
+          cout << "Stack Size: " << newStack.size()
+          << endl;
 
-.. note:: 
-    The ``pythonds`` module contains implementations of all data structures discussed in this book.  It is structured according to the sections: basic, trees, and graphs.  The module can be downloaded from `pythonworks.org <http://www.pythonworks.org/pythonds>`_.
-    
+          cout << "Top Element of the Stack: " << newStack.top()
+          << endl;
 
-.. activecode:: stack_ex_1
-   :nocodelens:
+          newStack.pop();
 
-   from pythonds.basic.stack import Stack
+          cout << "Top Element of the Stack: " << newStack.top()
+          << endl;
 
-   s=Stack()
-   
-   print(s.isEmpty())
-   s.push(4)
-   s.push('dog')
-   print(s.peek())
-   s.push(True)
-   print(s.size())
-   print(s.isEmpty())
-   s.push(8.4)
-   print(s.pop())
-   print(s.pop())
-   print(s.size())
+          return 0;
+      }
 
+  .. tab:: Python
 
+    .. activecode:: stack_1ac_py
+       :caption: Implementing a Stack class using Python lists
 
-It is important to note that we could have chosen to implement the stack
-using a list where the top is at the beginning instead of at the end. In
-this case, the previous ``pop`` and ``append`` methods would no longer
-work and we would have to index position 0 (the first item in the list)
-explicitly using ``pop`` and ``insert``. The implementation is shown in
-:ref:`CodeLens 1 <lst_stackcode2>`.
+       class Stack:
+            def __init__(self):
+                self.items = []
 
-.. _lst_stackcode2:
+            def isEmpty(self):
+                return self.items == []
 
-.. codelens:: stack_cl_1
-   :caption: Alternative Implementation of the Stack class
+            def push(self, item):
+                self.items.append(item)
 
-   class Stack:
-        def __init__(self):
-            self.items = []
+            def pop(self):
+                return self.items.pop()
 
-        def isEmpty(self):
-            return self.items == []
+            def top(self):
+                return self.items[len(self.items)-1]
 
-        def push(self, item):
-            self.items.insert(0,item)
+            def size(self):
+                return len(self.items)
 
-        def pop(self):
-            return self.items.pop(0)
+       newStack = Stack()
 
-        def peek(self):
-            return self.items[0]
+       newStack.push(3)
+       newStack.push(8)
+       newStack.push(15)
 
-        def size(self):
-            return len(self.items)
+       print("Stack Empty? ", newStack.isEmpty())
 
-   s = Stack()
-   s.push('hello')
-   s.push('true')
-   print(s.pop())
+       print("Stack Size: ", newStack.size())
 
+       print("Top Element of the Stack: ", newStack.top())
 
-This ability to change the physical implementation of an abstract data
-type while maintaining the logical characteristics is an example of
-abstraction at work. However, even though the stack will work either
-way, if we consider the performance of the two implementations, there is
-definitely a difference. Recall that the ``append`` and ``pop()``
-operations were both O(1). This means that the first implementation will
-perform push and pop in constant time no matter how many items are on
-the stack. The performance of the second implementation suffers in that
-the ``insert(0)`` and ``pop(0)`` operations will both require O(n) for a
-stack of size n. Clearly, even though the implementations are logically
-equivalent, they would have very different timings when performing
-benchmark testing.
+       newStack.pop();
+
+       print("Top Element of the Stack: ", newStack.top())
+
 
 .. admonition:: Self Check
 
    .. mchoice:: stack_1
-      :answer_a: 'x'
-      :answer_b: 'y'
-      :answer_c: 'z'
+      :answer_a: 5
+      :answer_b: 12
+      :answer_c: 27
       :answer_d: The stack is empty
       :correct: c
       :feedback_a: Remember that a stack is built from the bottom up.
@@ -152,55 +115,39 @@ benchmark testing.
       :feedback_d: Remember that a stack is built from the bottom up.
 
       Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?
-       
-      .. code-block:: python
-       
-       m = Stack()
-       m.push('x')
-       m.push('y')
-       m.pop()
-       m.push('z')
-       m.peek()
+
+      .. code-block:: cpp
+
+       stack<int> m;
+       m.push(5);
+       m.push(12);
+       m.pop();
+       m.push(27);
+       cout << m.top();
 
    .. mchoice:: stack_2
-      :answer_a: 'x'
+      :answer_a: 37
       :answer_b: the stack is empty
       :answer_c: an error will occur
-      :answer_d: 'z'
+      :answer_d: 4
       :correct: c
-      :feedback_a: You may want to check out the docs for isEmpty
+      :feedback_a: You may want to check out the docs for
       :feedback_b: There is an odd number of things on the stack but each time through the loop 2 things are popped.
       :feedback_c: Good Job.
       :feedback_d: You may want to check out the docs for isEmpty
 
       Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?
 
-      .. code-block:: python
-  
-        m = Stack()
-        m.push('x')
-        m.push('y')
-        m.push('z')
-        while not m.isEmpty():
-           m.pop()
-           m.pop()
+      .. code-block:: cpp
 
-   Write a function `revstring(mystr)` that uses a stack to reverse the
-   characters in a string.
-
-   .. actex:: stack_stringrev
-      :nocodelens:
-
-      from test import testEqual
-      from pythonds.basic.stack import Stack
-
-      def revstring(mystr):
-          # your code here
-
-      testEqual(revstring('apple'),'elppa')
-      testEqual(revstring('x'),'x')
-      testEqual(revstring('1234567890'),'0987654321')
-
+        stack<int> m;
+        m.push(37);
+        m.push(56);
+        m.push(4);
+        while (!m.empty()){
+            m.pop();
+            m.pop();
+        }
 
 .. video:: stack1_video
     :controls:
@@ -208,4 +155,3 @@ benchmark testing.
 
     http://media.interactivepython.org/pythondsVideos/Stack1.mov
     http://media.interactivepython.org/pythondsVideos/Stack1.webm
-
