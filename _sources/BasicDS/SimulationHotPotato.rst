@@ -63,26 +63,68 @@ The program is shown in :ref:`ActiveCode 1 <lst_josephussim>`. A call to the
 
 .. _lst_josephussim:
 
-.. activecode:: qujosephussim
-   :caption: Hot Potato Simulation
-   :nocodelens:
+.. tabbed:: hp1
 
-   from pythonds.basic.queue import Queue
-   
-   def hotPotato(namelist, num):
-       simqueue = Queue()
-       for name in namelist:
-           simqueue.enqueue(name)
+  .. tab:: C++
 
-       while simqueue.size() > 1:
-           for i in range(num):
-               simqueue.enqueue(simqueue.dequeue())
+    .. activecode:: hot_potato_cpp
+      :caption: Using Queues in C++ to simulate Hot Pototo
+      :language: cpp
 
-           simqueue.dequeue()
+      #include <iostream>
+      #include <queue>
+      #include <string>
 
-       return simqueue.dequeue()
+      using namespace std;
 
-   print(hotPotato(["Bill","David","Susan","Jane","Kent","Brad"],7))
+      string hotPotato(string namelist[], int num) {
+          queue<string> simqueue;
+          for (int i = 0; i < namelist->length(); i++) {
+              simqueue.push(namelist[i]);
+          }
+
+      while (simqueue.size() > 1) {
+              for (int i = 0; i < num; i++) {
+                  simqueue.push(simqueue.front());
+                  simqueue.pop();
+              }
+              simqueue.pop();
+          }
+
+          return simqueue.front();
+      }
+
+      int main() {
+          string s[] = {"Bill", "David", "Susan", "Jane", "Kent", "Brad"};
+
+          cout << hotPotato(s, 7) << endl;
+
+          return 0;
+      }
+
+
+  .. tab:: Python
+
+    .. activecode:: qujosephussim
+       :caption: Hot Potato Simulation
+       :nocodelens:
+
+       from pythonds.basic.queue import Queue
+
+       def hotPotato(namelist, num):
+           simqueue = Queue()
+           for name in namelist:
+               simqueue.enqueue(name)
+
+           while simqueue.size() > 1:
+               for i in range(num):
+                   simqueue.enqueue(simqueue.dequeue())
+
+               simqueue.dequeue()
+
+           return simqueue.dequeue()
+
+       print(hotPotato(["Bill","David","Susan","Jane","Kent","Brad"],7))
 
 
 Note that in this example the value of the counting constant is greater
@@ -93,4 +135,3 @@ the queue such that the first name on the list will be at the front of
 the queue. ``Bill`` in this case is the first item in the list and
 therefore moves to the front of the queue. A variation of this
 implementation, described in the exercises, allows for a random counter.
-
