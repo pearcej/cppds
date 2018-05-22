@@ -68,7 +68,7 @@ The program is shown in :ref:`ActiveCode 1 <lst_josephussim>`. A call to the
   .. tab:: C++
 
     .. activecode:: hot_potato_cpp
-      :caption: Using Queues in C++ to simulate Hot Pototo
+      :caption: Using Queues in C++ to simulate Hot Potato
       :language: cpp
 
       #include <iostream>

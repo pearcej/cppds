@@ -35,29 +35,75 @@ was even or odd. In either case, the string must be a palindrome. The
 complete function for palindrome-checking appears in
 :ref:`ActiveCode 1 <lst_palchecker>`.
 
-.. _lst_palchecker:
+.. _lst_josephussim:
 
-.. activecode:: palchecker
-   :caption: A Palindrome Checker Using Deque
-   :nocodelens:
+.. tabbed:: pd1
 
-   from pythonds.basic.deque import Deque
-   
-   def palchecker(aString):
-       chardeque = Deque()
+  .. tab:: C++
 
-       for ch in aString:
-           chardeque.addRear(ch)
+    .. activecode:: palinedrome_cpp
+      :caption: Using a Deque to check palindromes
+      :language: cpp
 
-       stillEqual = True
+      #include <deque>
+      #include <iostream>
+      #include <string>
 
-       while chardeque.size() > 1 and stillEqual:
-           first = chardeque.removeFront()
-           last = chardeque.removeRear()
-           if first != last:
-               stillEqual = False
+      using namespace std;
 
-       return stillEqual
+      bool palchecker(string aString) {
+          deque<char> chardeque;
 
-   print(palchecker("lsdkjfskf"))
-   print(palchecker("radar"))
+          for (char i : aString) {
+              chardeque.push_back(i);
+          }
+
+          bool stillEqual = true;
+
+          while (chardeque.size() > 1 && stillEqual) {
+              char first = chardeque.front();
+              chardeque.pop_front();
+              char last = chardeque.back();
+              chardeque.pop_back();
+              if (first != last) {
+                  stillEqual = false;
+              }
+
+              return stillEqual;
+          }
+
+          return true;
+      }
+
+      int main() {
+          cout << palchecker("lsdkjfskf") << endl;
+          cout << palchecker("radar") << endl;
+      }
+
+
+  .. tab:: Python
+
+    .. activecode:: palchecker
+       :caption: A Palindrome Checker Using Deque
+       :nocodelens:
+
+       from pythonds.basic.deque import Deque
+
+       def palchecker(aString):
+           chardeque = Deque()
+
+           for ch in aString:
+               chardeque.addRear(ch)
+
+           stillEqual = True
+
+           while chardeque.size() > 1 and stillEqual:
+               first = chardeque.removeFront()
+               last = chardeque.removeRear()
+               if first != last:
+                   stillEqual = False
+
+           return stillEqual
+
+       print(palchecker("lsdkjfskf"))
+       print(palchecker("radar"))
