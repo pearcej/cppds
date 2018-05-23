@@ -65,6 +65,7 @@ hash table.
 
 **Listing 6**
 
+# Help Needed with the Code
 
 .. sourcecode:: cpp
     :linenos:
@@ -110,16 +111,16 @@ data structures can be found on the C++ website.
 .. admonition:: Self Check
 
     .. mchoice:: mccppmapperf
-       :answer_a: list.pop(0)
-       :answer_b: list.pop()
-       :answer_c: list.append()
-       :answer_d: list[10]
+       :answer_a: Popping the first index from an array.
+       :answer_b: Popping an element from the end of an array.
+       :answer_c: Adding a new element to an array.
+       :answer_d: array[10]
        :answer_e: all of the above are O(1)
        :correct: a
        :feedback_a: When you remove the first element of a list, all the other elements of the list must be shifted forward.
        :feedback_b: Removing an element from the end of the list is a constant operation.
-       :feedback_c: Appending to the end of the list is a constant operation
-       :feedback_d: Indexing a list is a constant operation
+       :feedback_c: Adding to the end of an array is a constant operation
+       :feedback_d: Indexing a array is a constant operation
        :feedback_e: There is one operation that requires all other list elements to be moved.
 
        Which of the list operations shown below is not O(1)?
