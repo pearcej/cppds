@@ -5,98 +5,138 @@
 Using a Deque in C++
 ~~~~~~~~~~~~~~~~~~~~
 
-As we have done in previous sections, we will create a new class for the
-implementation of the abstract data type deque. Again, the Python list
+As we have done in previous sections, we will use the Standard Template Library (STL)
+of C++ to use a Deque. Again, the Deque library from STL
 will provide a very nice set of methods upon which to build the details
-of the deque. Our implementation (:ref:`Listing 1 <lst_dequecode>`) will assume that
-the rear of the deque is at position 0 in the list.
+of the deque. Our code (:ref:`Listing 1 <lst_dequecode>`) will assume that
+the front of the deque is at position 0 in the list.
 
 .. _lst_dequecode:
 
-.. highlight:: python
-   :linenothreshold: 5
+.. tabbed:: deque_use
 
-**Listing 1**
+  .. tab:: C++
 
-::
+    .. activecode:: dequecode_cpp
+      :caption: Using Deque in C++
+      :language: cpp
 
-    class Deque:
-        def __init__(self):
-            self.items = []
+      #include <iostream>
+      #include <deque>
+      #include <string>
 
-        def isEmpty(self):
-            return self.items == []
+      using namespace std;
 
-        def addFront(self, item):
-            self.items.append(item)
+      int main() {
+          deque<string> d;
+          cout << "Deque Empty? " <<d.empty() << endl;
+          d.push_back("Zebra");
+          cout << "Deque Empty? " << d.empty() << endl;
 
-        def addRear(self, item):
-            self.items.insert(0,item)
+          d.push_front("Turtle");
+          d.push_front("Panda");
+          d.push_back("Catfish");
+          d.push_back("Giraffe");
 
-        def removeFront(self):
-            return self.items.pop()
+          cout << "Deque Size: " <<d.size() << endl;
+          cout << "Item at the front: " << d.front() << endl;
+          cout << "Item at the back: " << d.back() << endl;
 
-        def removeRear(self):
-            return self.items.pop(0)
+          cout << endl << "Items in the Deque: " << endl;
+          for(int i = 0; i < d.size(); i++){
+              cout << d.at(i) << " ";
+          }
 
-        def size(self):
-            return len(self.items)
+          cout << endl;
 
-.. highlight:: python
-   :linenothreshold: 500
+          d.pop_back();
+          d.pop_front();
 
-In ``removeFront`` we use the ``pop`` method to remove the last element
-from the list. However, in ``removeRear``, the ``pop(0)`` method must
-remove the first element of the list. Likewise, we need to use the
-``insert`` method (line 12) in ``addRear`` since the ``append`` method
-assumes the addition of a new element to the end of the list.
+          cout << endl << "Item at the front: " << d.front() << endl;
+          cout << "Itm at the back: " << d.back() << endl;
+          cout << "Deque Size: " << d.size() << endl;
 
-CodeLens 1 shows the ``Deque`` class in
-action as we perform the sequence of operations from
-:ref:`Table 1 <tbl_dequeoperations>`.
+          cout << endl << "Items in the Deque: " << endl;
+          for(int i = 0; i < d.size(); i++){
+              cout << d.at(i) << " ";
+          }
+      }
 
-.. codelens:: deqtest
-   :caption: Example Deque Operations
+  .. tab:: Python
 
-   class Deque:
-       def __init__(self):
-           self.items = []
+    .. activecode:: dequecode_py
+       :caption: Using Deque in Python
 
-       def isEmpty(self):
-           return self.items == []
+       class Deque:
+           def __init__(self):
+               self.items = []
 
-       def addFront(self, item):
-           self.items.append(item)
+           def empty(self):
+               return self.items == []
 
-       def addRear(self, item):
-           self.items.insert(0,item)
+           def push_back(self, item):
+               self.items.append(item)
 
-       def removeFront(self):
-           return self.items.pop()
+           def push_front(self, item):
+               self.items.insert(0,item)
 
-       def removeRear(self):
-           return self.items.pop(0)
+           def pop_back(self):
+               self.items.pop()
 
-       def size(self):
-           return len(self.items)
+           def pop_front(self):
+               self.items.pop(0)
 
-   d=Deque()
-   print(d.isEmpty())
-   d.addRear(4)
-   d.addRear('dog')
-   d.addFront('cat')
-   d.addFront(True)
-   print(d.size())
-   print(d.isEmpty())
-   d.addRear(8.4)
-   print(d.removeRear())
-   print(d.removeFront())
+           def back(self):
+               return self.items[-1]
+
+           def front(self):
+               return self.items[0]
+
+           def size(self):
+               return len(self.items)
+
+           def at(self, index):
+               return self.items[index]
+
+       d = Deque()
+
+       print("Deque Empty? ", d.empty())
+       d.push_back("Zebra")
+       print("Deque Empty? ", d.empty())
+
+       d.push_front("Turtle")
+       d.push_front("Panda")
+       d.push_back("Catfish")
+       d.push_back("Giraffe")
+
+       print("Deque Size: ", d.size())
+       print("Item at the front: ", d.front())
+       print("Item at the back: ", d.back())
+
+       print("\n")
+       print("Items in the Deque: ")
+       for i in range(d.size()):
+           print(d.at(i), end=" ")
+       print("\n")
+
+       d.pop_back()
+       d.pop_front()
+
+       print("Item at the front: ", d.front())
+       print("Item at the back: ", d.back())
+       print("Deque Size: ", d.size())
+
+       print("\n")
+       print("Items in the Deque: ")
+       for i in range(d.size()):
+           print(d.at(i), end=" ")
+       print("\n")
 
 
-You can see many similarities to Python code already described for
+You can see many similarities to C++ code already used for
 stacks and queues. You are also likely to observe that in this
-implementation adding and removing items from the front is O(1) whereas
-adding and removing from the rear is O(n). This is to be expected given
+implementation adding and removing items from the back is O(1) whereas
+adding and removing from the front is O(n). This is to be expected given
 the common operations that appear for adding and removing items. Again,
 the important thing is to be certain that we know where the front and
 rear are assigned in the implementation.
