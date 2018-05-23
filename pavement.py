@@ -7,7 +7,7 @@ from os import environ
 import pkg_resources
 
 ######## CHANGE THIS ##########
-project_name = "pythonds"
+project_name = "cppds"
 ###############################
 
 # if you want to override the master url do it here.  Otherwise setting it to None
@@ -24,7 +24,7 @@ if master_url is None:
         doctrees = './build/{}/doctrees'.format(project_name)
 
 master_app = 'runestone'
-serving_dir = './build/pythonds'
+serving_dir = './build/cppds'
 dest = '../../static'
 
 options(
@@ -46,7 +46,10 @@ options(
             'use_services': 'true',
             'python3': 'true',
             'dburl': 'postgresql://bmiller@localhost/runestone',
-            'basecourse': 'pythonds',
+            'basecourse': 'cppds',
+            'jobe_server': 'http://jobe2.cosc.canterbury.ac.nz',
+            'proxy_uri_runs': '/jobe/index.php/restapi/runs/',
+            'proxy_uri_files': '/jobe/index.php/restapi/files/'
         }
     )
 )
