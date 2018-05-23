@@ -2,8 +2,8 @@
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
-Implementing a Deque in Python
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Using a Deque in C++
+~~~~~~~~~~~~~~~~~~~~
 
 As we have done in previous sections, we will create a new class for the
 implementation of the abstract data type deque. Again, the Python list
@@ -91,7 +91,7 @@ action as we perform the sequence of operations from
    d.addRear(8.4)
    print(d.removeRear())
    print(d.removeFront())
-   
+
 
 You can see many similarities to Python code already described for
 stacks and queues. You are also likely to observe that in this
@@ -100,4 +100,3 @@ adding and removing from the rear is O(n). This is to be expected given
 the common operations that appear for adding and removing items. Again,
 the important thing is to be certain that we know where the front and
 rear are assigned in the implementation.
-
