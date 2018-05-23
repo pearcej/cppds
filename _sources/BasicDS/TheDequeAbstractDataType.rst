@@ -10,22 +10,21 @@ operations. A deque is structured, as described above, as an ordered
 collection of items where items are added and removed from either end,
 either front or rear. The deque operations are given below.
 
--  ``Deque()`` creates a new deque that is empty. It needs no parameters
-   and returns an empty deque.
+-  ``deque<dataType> dequeName`` creates a new deque that is empty. It returns an empty deque.
 
--  ``addFront(item)`` adds a new item to the front of the deque. It
+-  ``push_front(item)`` adds a new item to the front of the deque. It
    needs the item and returns nothing.
 
--  ``addRear(item)`` adds a new item to the rear of the deque. It needs
+-  ``push_back(item)`` adds a new item to the rear of the deque. It needs
    the item and returns nothing.
 
--  ``removeFront()`` removes the front item from the deque. It needs no
-   parameters and returns the item. The deque is modified.
+-  ``pop_front()`` removes the front item from the deque. It needs no
+   parameters. The deque is modified.
 
--  ``removeRear()`` removes the rear item from the deque. It needs no
-   parameters and returns the item. The deque is modified.
+-  ``pop_back()`` removes the rear item from the deque. It needs no
+   parameters. The deque is modified.
 
--  ``isEmpty()`` tests to see whether the deque is empty. It needs no
+-  ``empty()`` tests to see whether the deque is empty. It needs no
    parameters and returns a boolean value.
 
 -  ``size()`` returns the number of items in the deque. It needs no
@@ -42,19 +41,17 @@ get a bit confusing.
 
 .. table:: **Table 1: Examples of Deque Operations**
 
-    ============================ ============================ ================== 
-             **Deque Operation**           **Deque Contents**   **Return Value** 
-    ============================ ============================ ================== 
-                 ``d.isEmpty()``                       ``[]``           ``True`` 
-                ``d.addRear(4)``                      ``[4]``                    
-            ``d.addRear('dog')``               ``['dog',4,]``                    
-           ``d.addFront('cat')``          ``['dog',4,'cat']``                    
-            ``d.addFront(True)``     ``['dog',4,'cat',True]``                    
-                    ``d.size()``     ``['dog',4,'cat',True]``              ``4`` 
-                 ``d.isEmpty()``     ``['dog',4,'cat',True]``          ``False`` 
-              ``d.addRear(8.4)`` ``[8.4,'dog',4,'cat',True]``                    
-              ``d.removeRear()``     ``['dog',4,'cat',True]``            ``8.4`` 
-             ``d.removeFront()``          ``['dog',4,'cat']``           ``True`` 
-    ============================ ============================ ================== 
-
-
+    ============================ ============================ ==================
+             **Deque Operation**           **Deque Contents**   **Return Value**
+    ============================ ============================ ==================
+                   ``d.empty()``                       ``[]``           ``True``
+              ``d.push_back(4)``                      ``[4]``
+             ``d.push_back(17)``                   ``[17,4]``
+            ``d.push_front(93)``                ``[17,4,93]``
+            ``d.push_front(65)``             ``[17,4,93,65]``
+                    ``d.size()``             ``[17,4,93,65]``              ``4``
+                   ``d.empty()``             ``[17,4,93,65]``          ``False``
+             ``d.push_back(25)``          ``[25,17,4,93,65]``
+                ``d.pop_back()``             ``[17,4,93,65]``
+               ``d.pop_front()``                ``[17,4,93]``
+    ============================ ============================ ==================

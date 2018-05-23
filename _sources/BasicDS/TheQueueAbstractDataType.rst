@@ -45,7 +45,7 @@ is the first item returned by dequeue.
                    ``q.empty()``                   ``[]``           ``True``
                    ``q.push(4)``                  ``[4]``
                   ``q.push(12)``               ``[12,4]``
-                ``q.push(True)``             ``[3,12,4]``
+                   ``q.push(3)``             ``[3,12,4]``
                     ``q.size()``             ``[3,12,4]``              ``3``
                    ``q.empty()``             ``[3,12,4]``          ``False``
                   ``q.push(97)``          ``[97,3,12,4]``
