@@ -59,6 +59,8 @@ the front of the deque is at position 0 in the list.
           cout << endl << "Items in the Deque: " << endl;
           for(int i = 0; i < d.size(); i++){
               cout << d.at(i) << " ";
+
+          return 0;
           }
       }
 
