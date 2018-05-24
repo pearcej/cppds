@@ -42,7 +42,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Problem Solving with Algorithms and Data Structures'
-copyright = '2014 Brad Miller, David Ranum'
+copyright = '2018 Brad Miller, David Ranum, Jan Pearce'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -250,7 +250,7 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('index', 'ProblemSolvingwithAlgorithmsandDataStructures.tex', 'Problem Solving with Algorithms and Data Structures',
-   'Brad Miller, David Ranum', 'manual'),
+   'Brad Miller, David Ranum, Jan Pearce', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -280,7 +280,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'problemsolvingwithalgorithmsanddatastructures', 'Problem Solving with Algorithms and Data Structures Documentation',
-     ['Brad Miller, David Ranum'], 1)
+     ['Brad Miller, David Ranum, Jan Pearce'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -295,7 +295,7 @@ man_pages = [
 texinfo_documents = [
   ('index', 'PythonCourseware',
    'Python Courseware Project',
-   'Brad Miller, David Ranum',
+   'Brad Miller, David Ranum, Jan Pearce',
    'PythonCoursewareProject', 'One line description of project.', 'Miscellaneous'),
 ]
 
