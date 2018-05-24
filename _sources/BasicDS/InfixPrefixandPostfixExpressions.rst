@@ -251,13 +251,10 @@ string of tokens in postfix order.
 #. Create an empty stack called ``opstack`` for keeping operators.
    Create an empty list for output.
 
-#. Convert the input infix string to a list by using the string method
-   ``split``.
-
-#. Scan the token list from left to right.
+#. Scan the current token of the input list from left to right (using a loop).
 
    -  If the token is an operand, append it to the end of the output
-      list.
+      list(vector).
 
    -  If the token is a left parenthesis, push it on the ``opstack``.
 
@@ -288,14 +285,15 @@ operators and placing + as the last operator in the postfix expression.
 
    Figure 9: Converting A \* B + C \* D to Postfix Notation
 
-In order to code the algorithm in Python, we will use a dictionary
-called ``prec`` to hold the precedence values for the operators. This
-dictionary will map each operator to an integer that can be compared
+In order to code the algorithm in C++, we will use a map
+called ``prec`` to hold the precedence values for the operators.
+(This works similarly to a dictionary data type from Python.) This
+map will map each operator char to an integer that can be compared
 against the precedence levels of other operators (we have arbitrarily
 used the integers 3, 2, and 1). The left parenthesis will receive the
 lowest value possible. This way any operator that is compared against it
 will have higher precedence and will be placed on top of it.
-Line 15 defines the operands to be any upper-case character or digit.
+Line 18 (Line 15 in python) defines the operands to be any upper-case character or digit.
 The complete conversion function is
 shown in :ref:`ActiveCode 1 <lst_intopost>`.
 
@@ -490,12 +488,12 @@ single-digit integer values. The output will be an integer result.
 
 #. Create an empty stack called ``operandStack``.
 
-#. Convert the string to a list by using the string method ``split``.
+#. Iterate across the input using a for loop.
 
 #. Scan the token list from left to right.
 
    -  If the token is an operand, convert it from a string to an integer
-      and push the value onto the ``operandStack``.
+      and push the value onto the ``operandStack``. (Using the ASCII, you can get this by subtracting 48)
 
    -  If the token is an operator, \*, /, +, or -, it will need two
       operands. Pop the ``operandStack`` twice. The first pop is the
