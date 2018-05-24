@@ -30,11 +30,9 @@ that a hash table could be implemented.
     ================== ==================
              operation   Big-O Efficiency
     ================== ==================
-                  copy               O(n)
-              get item               O(1)
-              set item               O(1)
-           delete item               O(1)
-         contains (in)               O(1)
+                  find               O(1)
+                insert               O(1)
+                 erase               O(1)
              iteration               O(n)
     ================== ==================
 
