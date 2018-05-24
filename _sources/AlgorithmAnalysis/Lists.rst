@@ -133,15 +133,11 @@ constant even as the vector grows in size, while the time to pop from the
 beginning of the vector will continue to increase as the vector grows.
 
 :ref:`Listing 4 <lst_popmeas>` shows one attempt to measure the difference
-between the two uses of pop. As you can see from this first example,
-popping from the end takes 0.0003 milliseconds, whereas popping from the
-beginning takes 4.82 milliseconds. For a vector of two million elements
-this is a factor of 16,000.
+between the pop_back() and erase(). As you can see from this first example,
+popping from the end takes 0.000023 milliseconds, whereas popping from the
+beginning takes 0.473672 milliseconds.
 
-There are a couple of things to notice about :ref:`Listing 4 <lst_popmeas>`. The
-first is the statement ``from __main__ import x``. Although we did not
-define a function we do want to be able to use the vector object x in our
-test. This approach allows us to time just the single ``pop`` statement
+There are a couple of things to notice about :ref:`Listing 4 <lst_popmeas>`. This approach allows us to time just the single ``pop_back()`` statement
 and get the most accurate measure of the time for that single operation.
 Because the timer repeats 1000 times it is also important to point out
 that the vector is decreasing in size by 1 each time through the loop. But
@@ -153,47 +149,29 @@ the overall size by :math:`0.05\%`
 **Listing 4**
 
 ::
-    #include <iostream>
-    #include <vector>
-    #include <ctime>
-    using namespace std;
 
-    int test1(){
-        vector <int> vect;
-        for (int i = 0; i < 2000000; i++){
-            vect.push_back(i);
-            // cout << vect[i] << endl;
-        }
-        clock_t begin = clock();
+    clock_t begin = clock();
+    for (int i = 0; i < 1000; i++){
+        vect.erase(vect.begin()+0);
+    }
+    clock_t end = clock();
+    popzero 0.473672 milliseconds
+
+    clock_t begin = clock();
+    for (int i = 0; i < 1000; i++){
         vect.pop_back();
-        clock_t end = clock();
-        double elapsed_secs = double(end - begin) /CLOCKS_PER_SEC;
-        cout << "popend " << elapsed_secs << " milliseconds" << endl;
-        // cout << vect[0];
     }
+    clock_t end = clock();
+    popend 0.000023 milliseconds
 
-    int main() {
-        test1();
-    }
+.. raw:: html
 
+<!--
 
-    popzero = timeit.Timer("x.pop(0)",
-                           "from __main__ import x")
-    popend = timeit.Timer("x.pop()",
-                          "from __main__ import x")
-
-    x = list(range(2000000))
-    popzero.timeit(number=1000)
-    0.001026
-
-    x = list(range(2000000))
-    popend.timeit(number=1000)
-    7e-06
-
-While our first test does show that ``pop(0)`` is indeed slower than
-``pop()``, it does not validate the claim that ``pop(0)`` is
-:math:`O(n)` while ``pop()`` is :math:`O(1)`. To validate that claim
-we need to look at the performance of both calls over a range of list
+While our first test does show that ``erase()`` is indeed slower than
+``pop_back()``, it does not validate the claim that ``erase()`` is
+:math:`O(n)` while ``pop_back()`` is :math:`O(1)`. To validate that claim
+we need to look at the performance of both calls over a range of vector
 sizes. :ref:`Listing 5 <lst_poplists>` implements this test.
 
 .. _lst_poplists:
@@ -215,8 +193,8 @@ sizes. :ref:`Listing 5 <lst_poplists>` implements this test.
         print("%15.5f, %15.5f" %(pz,pt))
 
 :ref:`Figure 3 <fig_poptest>` shows the results of our experiment. You can see
-that as the list gets longer and longer the time it takes to ``pop(0)``
-also increases while the time for ``pop`` stays very flat. This is
+that as the vector gets longer and longer the time it takes to ``erase()``
+also increases while the time for ``pop_back()`` stays very flat. This is
 exactly what we would expect to see for a :math:`O(n)` and
 :math:`O(1)` algorithm.
 
@@ -228,8 +206,11 @@ That is why the loop runs the test one thousand times in the first place
 to statistically gather enough information to make the measurement
 reliable.
 
+
 .. _fig_poptest:
 
 .. figure:: Figures/poptime.png
 
    Figure 3: Comparing the Performance of ``pop`` and ``pop(0)``
+
+-->
