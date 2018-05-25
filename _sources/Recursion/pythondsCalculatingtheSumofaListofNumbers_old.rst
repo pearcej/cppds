@@ -3,7 +3,7 @@
 
 
 Calculating the Sum of a List of Numbers
-----------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We will begin our investigation with a simple problem that you already
 know how to solve without using recursion. Suppose that you want to
@@ -13,43 +13,17 @@ is shown in :ref:`ActiveCode 1 <lst_itsum>`. The function uses an accumulator va
 (``theSum``) to compute a running total of all the numbers in the list
 by starting with :math:`0` and adding each number in the list.
 
-.. tabbed:: change_this
 
-  .. tab:: C++
+.. activecode:: lst_itsum
+    :caption: Iterative Summation
 
-    .. activecode:: lst_itsum C++
-      :caption: Iterative Summation C++
-      :language: cpp
-
-      #include <iostream>
-      using namespace std;
-
-      int listsum(int numList[]){
-          int theSum = 0;
-          for (int i = 0; i < 5; i++){
-              theSum += numList[i];
-          }
-          return theSum;
-      }
-
-      int main() {
-          int numList[5] = {1,3,5,7,9};
-          cout << listsum(numList) << endl;
-      return 0;
-      }
-
-  .. tab:: Python
-
-    .. activecode:: lst_itsum Python
-       :caption: Iterative Summation Python
-
-       def listsum(numList):
-           theSum = 0
-           for i in numList:
-               theSum = theSum + i
-           return theSum
-
-       print(listsum([1,3,5,7,9]))
+    def listsum(numList):
+        theSum = 0
+        for i in numList:
+            theSum = theSum + i
+        return theSum
+        
+    print(listsum([1,3,5,7,9]))
 
 Pretend for a minute that you do not have ``while`` loops or ``for``
 loops. How would you compute the sum of a list of numbers? If you were a
@@ -57,18 +31,17 @@ mathematician you might start by recalling that addition is a function
 that is defined for two parameters, a pair of numbers. To redefine the
 problem from adding a list to adding pairs of numbers, we could rewrite
 the list as a fully parenthesized expression. Such an expression looks
-like this:
+like this: 
 
 .. math::
-
     ((((1 + 3) + 5) + 7) + 9)
-
+    
 We can also parenthesize
 the expression the other way around,
 
 .. math::
 
-     (1 + (3 + (5 + (7 + 9))))
+     (1 + (3 + (5 + (7 + 9)))) 
 
 Notice that the innermost set of
 parentheses, :math:`(7 + 9)`, is a problem that we can solve without a
@@ -84,10 +57,11 @@ sequence of simplifications to compute a final sum.
     total = \  25
 
 
-How can we take this idea and turn it into a C++ program? First,
-let’s restate the sum problem in terms of C++ arrays. We might say the
-the sum of the array ``numList`` is the sum of the first element of the
-array (``numList[0]``), and the sum of the numbers in the rest of the array (``numList[1:]``). To state it in a functional form:
+How can we take this idea and turn it into a Python program? First,
+let’s restate the sum problem in terms of Python lists. We might say the
+the sum of the list ``numList`` is the sum of the first element of the
+list (``numList[0]``), and the sum of the numbers in the rest of the
+list (``numList[1:]``). To state it in a functional form:
 
 .. math::
 
@@ -97,34 +71,21 @@ array (``numList[0]``), and the sum of the numbers in the rest of the array (``n
 
 
 In this equation :math:`first(numList)` returns the first element of
-the array and :math:`rest(numList)` returns an array of everything but
-the first element. This is easily expressed in C++ as shown in
+the list and :math:`rest(numList)` returns a list of everything but
+the first element. This is easily expressed in Python as shown in
 :ref:`ActiveCode 2 <lst_recsum>`.
 
-.. tabbed:: change_this
 
-  .. tab:: C++
+.. activecode:: lst_recsum
+    :caption: Recursive Summation
 
-    .. activecode:: lst_recsum C++
-      :caption: Recursion Summation C++
-      :language: cpp
-
-      // C++ code goes here
-
-
-
-  .. tab:: Python
-
-    .. activecode:: lst_recsum Python
-       :caption: Recursion Summation Python
-
-       def listsum(numList):
-          if len(numList) == 1:
-               return numList[0]
-          else:
-               return numList[0] + listsum(numList[1:])
-
-       print(listsum([1,3,5,7,9]))
+    def listsum(numList):
+       if len(numList) == 1:
+            return numList[0]
+       else:
+            return numList[0] + listsum(numList[1:])
+            
+    print(listsum([1,3,5,7,9]))
 
 There are a few key ideas in this listing to look at. First, on line 2 we are checking to see if the list is one element long. This
 check is crucial and is our escape clause from the function. The sum of

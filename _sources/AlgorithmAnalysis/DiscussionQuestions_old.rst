@@ -7,55 +7,44 @@ Discussion Questions
 
 #. Give the Big-O performance of the following code fragment:
 
-::
+   ::
 
-    for (int i = 0; i < n; i++){
-       for (int j = 0; j < n; j++){
-           k = 2 + 2;
-       }
-    }
+       for i in range(n):
+          for j in range(n):
+             k = 2 + 2
 
 #. Give the Big-O performance of the following code fragment:
 
-::
+   ::
 
-    for (int i = 0; i < n; i++){
-       k = 2 + 2;
-    }
-
-#. Give the Big-O performance of the following code fragment:
-
-::
-
-    int i = n;
-    while (i > 0){
-       k = 2 + 2
-       i = i // 2
-    }
+       for i in range(n):
+            k = 2 + 2
 
 #. Give the Big-O performance of the following code fragment:
 
-::
+   ::
 
-    for (int i = 0; i < n; i++){
-        for (int j = 0; j < n; j++){
-            for (int k = 0; k < n; k++){
-                k = 2 + 2;
-            }
-        }
-    }
-
+       i = n
+       while i > 0:
+          k = 2 + 2
+          i = i // 2
 
 #. Give the Big-O performance of the following code fragment:
 
-::
+   ::
 
-    for (int i = 0; i < n; i++){
-        k = 2 + 2;
-    }
-    for (int j = 0; j < n; j++){
-        k = 2 + 2;
-    }
-    for (int k = 0; k < n; k++){
-        k = 2 + 2;
-    }
+       for i in range(n):
+          for j in range(n):
+             for k in range(n):
+                k = 2 + 2
+
+#. Give the Big-O performance of the following code fragment:
+
+   ::
+
+       for i in range(n):
+          k = 2 + 2
+       for j in range(n):
+          k = 2 + 2
+       for k in range(n):
+          k = 2 + 2
