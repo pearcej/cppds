@@ -65,51 +65,22 @@ right side of the diagram.
 :ref:`ActiveCode 1 <lst_rectostr>` shows the Python code that implements the algorithm
 outlined above for any base between 2 and 16.
 
-.. tabbed:: Int To String
+.. activecode:: lst_rectostr
+    :caption: Recursively Converting from Integer to String
 
-  .. tab:: C++
+    def toStr(n,base):
+       convertString = "0123456789ABCDEF"
+       if n < base:
+          return convertString[n]
+       else:
+          return toStr(n//base,base) + convertString[n%base]
 
-    .. activecode:: lst_rectostr
-      :caption: Recursively Converting from Integer to String
-      :language: cpp
+    print(toStr(1453,16))
 
-      #include <iostream>
-      #include <string>
-      using namespace std;
-
-      string toStr(int n, int base) {
-          string convertString = "0123456789ABCDEF";
-          if (n < base) {
-              return string(1, convertString[n]); // converts char to string, and returns it
-          } else {
-              return toStr(n/base, base) + convertString[n%base];
-          }
-      }
-
-      int main() {
-        cout << toStr(1453, 16);
-      }
-
-
-  .. tab:: Python
-
-    .. activecode:: lst_rectostr
-       :caption: Recursively Converting from Integer to String
-
-       def toStr(n,base):
-          convertString = "0123456789ABCDEF"
-          if n < base:
-             return convertString[n]
-          else:
-             return toStr(n//base,base) + convertString[n%base]
-
-       print(toStr(1453,16))
-
-
-Notice that in line 7 we check for the base case where ``n``
+Notice that in line 3 we check for the base case where ``n``
 is less than the base we are converting to. When we detect the base
 case, we stop recursing and simply return the string from the
-``convertString`` sequence. In line 10 we satisfy both the
+``convertString`` sequence. In line 6 we satisfy both the
 second and third laws–by making the recursive call and by reducing the
 problem size–using division.
 
@@ -141,34 +112,17 @@ discussion of stacks back in the previous chapter.
    .. actex:: recursion_sc_1
       :nocodelens:
 
-      #include <iostream>
-      #include test
-      #include <string>
-
-      string reverse(s){
-          return s;
-      }
-
-      testEqual(reverse("hello"),"olleh");
-      testEqual(reverse("l"),"l");
-      testEqual(reverse("follow"),"wollof");
-      testEqual(reverse(""),"");
-
-   .. actex:: recursion_sc_1
-      :nocodelens:
-
       from test import testEqual
       def reverse(s):
           return s
-
+      
       testEqual(reverse("hello"),"olleh")
-      testEqual(reverse("l"),"l")
+      testEqual(reverse("l"),"l")      
       testEqual(reverse("follow"),"wollof")
       testEqual(reverse(""),"")
 
-
    Write a function that takes a string as a parameter and returns True if the string is a palindrome, False otherwise.  Remember that a string is a palindrome if it is spelled the same both forward and backward.  For example:  radar is a palindrome.  for bonus points palindromes can also be phrases, but you need to remove the spaces and punctuation before checking.  for example:  madam i'm adam  is a palindrome.  Other fun palindromes include:
-
+   
    * kayak
    * aibohphobia
    * Live not on evil
@@ -177,30 +131,6 @@ discussion of stacks back in the previous chapter.
    * Able was I ere I saw Elba
    * Kanakanak --  a town in Alaska
    * Wassamassaw -- a town in South Dakota
-
-
-   .. actex:: recursion_sc_2
-      :nocodelens:
-
-      #include <iostream>
-      #include <string>
-      #inlude test
-
-      string removeWhite(s) {
-          return s;
-      }
-
-      bool isPal(s) {
-          return false;
-      }
-
-      testEqual(isPal(removeWhite("x")),true);
-      testEqual(isPal(removeWhite("radar")),true);
-      testEqual(isPal(removeWhite("hello")),false);
-      testEqual(isPal(removeWhite("")),true);
-      testEqual(isPal(removeWhite("hannah")),true);
-      testEqual(isPal(removeWhite("madam i'm adam")),true);
-
 
    .. actex:: recursion_sc_2
       :nocodelens:
@@ -211,10 +141,11 @@ discussion of stacks back in the previous chapter.
 
       def isPal(s):
           return False
-
-      testEqual(isPal(removeWhite("x")),True)
+      
+      testEqual(isPal(removeWhite("x")),True)            
       testEqual(isPal(removeWhite("radar")),True)
       testEqual(isPal(removeWhite("hello")),False)
-      testEqual(isPal(removeWhite("")),True)
-      testEqual(isPal(removeWhite("hannah")),True)
+      testEqual(isPal(removeWhite("")),True)                  
+      testEqual(isPal(removeWhite("hannah")),True)      
       testEqual(isPal(removeWhite("madam i'm adam")),True)
+
