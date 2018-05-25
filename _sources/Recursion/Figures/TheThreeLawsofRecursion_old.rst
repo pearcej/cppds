@@ -55,12 +55,12 @@ problem by using the three laws of recursion.
       :answer_b: 5
       :answer_c: 4
       :answer_d: 3
-      :feedback_a: There are only five numbers on the vector, the number of recursive calls will not be greater than the size of the vector.
+      :feedback_a: There are only five numbers on the list, the number of recursive calls will not be greater than the size of the list.
       :feedback_b: The initial call to listsum is not a recursive call.
-      :feedback_c: the first recursive call passes the vector {4,6,8,10}, the second {6,8,10} and so on until [10].
-      :feedback_d: This would not be enough calls to cover all the numbers on the vector
+      :feedback_c: the first recursive call passes the list [4,6,8,10], the second [6,8,10] and so on until [10].
+      :feedback_d: This would not be enough calls to cover all the numbers on the list
 
-      How many recursive calls are made when computing the sum of the vector {2,4,6,8,10}?
+      How many recursive calls are made when computing the sum of the list [2,4,6,8,10]?
 
    .. mchoice:: question_recsimp_2
       :correct: d
@@ -70,7 +70,7 @@ problem by using the three laws of recursion.
       :answer_d: n &lt;= 1
       :feedback_a:  Although this would work there are better and slightly more efficient choices. since fact(1) and fact(0) are the same.
       :feedback_b: A good choice, but what happens if you call fact(0)?
-      :feedback_c: This base case would be true for all numbers greater than zero so fact of any positive number would be 1.
+      :feedback_c: This basecase would be true for all numbers greater than zero so fact of any positive number would be 1.
       :feedback_d: Good, this is the most efficient, and even keeps your program from crashing if you try to compute the factorial of a negative number.
 
       Suppose you are going to write a recusive function to calculate the factorial of a number.  fact(n) returns n * n-1 * n-2 * ... Where the factorial of zero is defined to be 1.  What would be the most appropriate base case?
