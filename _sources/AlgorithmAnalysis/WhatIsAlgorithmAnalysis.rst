@@ -161,8 +161,6 @@ and then computing the difference, we can get an exact number of seconds
 
   .. tab:: C++
 
-  .. sourcecode:: cpp
-
     .. activecode:: change_this_cpp
        :caption: Title for the C++ Window
        :language: cpp
@@ -171,9 +169,8 @@ and then computing the difference, we can get an exact number of seconds
        #include <ctime>
        using namespace std;
 
-       int sumofN2(int n) {
-
-       int theSum = 0;
+        int sumofN2(int n) {
+           int theSum = 0;
            clock_t begin = clock();
            for(int i = 0; i < n+1; i++){
                theSum = theSum + i;
@@ -192,8 +189,6 @@ and then computing the difference, we can get an exact number of seconds
        }
 
   .. tab:: Python
-
-  .. sourcecode:: python
 
     .. activecode:: change_this_py
        :caption: Title for the Python Window
@@ -219,69 +214,17 @@ required for the calculation. If we perform 5 invocations of the
 function, each computing the sum of the first 10,000 integers, we get
 the following:
 
-
-
-::
-.. tabbed:: change_this
-
-  .. tab:: C++
-
-    >>>for (int i = 0; i < 6; i++){
-          f(10000);
-       }
-      Sum is 50005000 required 6e-05 seconds
-      Sum is 50005000 required 3.1e-05 seconds
-      Sum is 50005000 required 4.2e-05 seconds
-      Sum is 50005000 required 3.9e-05 seconds
-      Sum is 50005000 required 3.4e-05 seconds
-      Sum is 50005000 required 4e-05 seconds
-
-  .. tab:: Python
-
-    >>>for i in range(5):
-           print("Sum is %d required %10.7f seconds"%sumOfN(10000))
-    Sum is 50005000 required  0.0018950 seconds
-    Sum is 50005000 required  0.0018620 seconds
-    Sum is 50005000 required  0.0019171 seconds
-    Sum is 50005000 required  0.0019162 seconds
-    Sum is 50005000 required  0.0019360 seconds
-
-<!--
-
-We discover that the time is fairly consistent and it takes on average
-about 0.0019 seconds to execute that code. What if we run the function
-adding the first 100,000 integers?
-
 ::
 
-    >>>for i in range(5):
-           print("Sum is %d required %10.7f seconds"%sumOfN(100000))
-    Sum is 5000050000 required  0.0199420 seconds
-    Sum is 5000050000 required  0.0180972 seconds
-    Sum is 5000050000 required  0.0194821 seconds
-    Sum is 5000050000 required  0.0178988 seconds
-    Sum is 5000050000 required  0.0188949 seconds
-    >>>
-
-Again, the time required for each run, although longer, is very
-consistent, averaging about 10 times more seconds. For ``n`` equal to
-1,000,000 we get:
-
-::
-
-    >>>for i in range(5):
-           print("Sum is %d required %10.7f seconds"%sumOfN(1000000))
-    Sum is 500000500000 required  0.1948988 seconds
-    Sum is 500000500000 required  0.1850290 seconds
-    Sum is 500000500000 required  0.1809771 seconds
-    Sum is 500000500000 required  0.1729250 seconds
-    Sum is 500000500000 required  0.1646299 seconds
-    >>>
-
-In this case, the average again turns out to be about 10 times the
-previous.
-
--->
+    for (int i = 0; i < 6; i++){
+        f(10000);
+    }
+    Sum is 50005000 required 6e-05 seconds
+    Sum is 50005000 required 3.1e-05 seconds
+    Sum is 50005000 required 4.2e-05 seconds
+    Sum is 50005000 required 3.9e-05 seconds
+    Sum is 50005000 required 3.4e-05 seconds
+    Sum is 50005000 required 4e-05 seconds
 
 Now consider :ref:`ActiveCode 3 <lst_sum3>`, which shows a different means of solving
 the summation problem. This function, ``sumOfN3``, takes advantage of a
@@ -294,7 +237,7 @@ compute the sum of the first ``n`` integers without iterating.
 
   .. tab:: C++
 
-    .. activecode:: active3
+    .. activecode:: active3cpp
       :caption: Summation Without Iteration C++
       :language: cpp
 
@@ -318,7 +261,7 @@ compute the sum of the first ``n`` integers without iterating.
 
   .. tab:: Python
 
-    .. activecode:: active3
+    .. activecode:: active3py
        :caption: Summation Without Iteration Python
 
        def sumOfN3(n):
