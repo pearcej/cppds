@@ -17,7 +17,7 @@ by starting with :math:`0` and adding each number in the vector.
 
   .. tab:: C++
 
-    .. activecode:: lst_itsum C++
+    .. activecode:: lst_itsumcpp
       :caption: Iterative Summation C++
       :language: cpp
 
@@ -40,7 +40,7 @@ by starting with :math:`0` and adding each number in the vector.
 
   .. tab:: Python
 
-    .. activecode:: lst_itsum Python
+    .. activecode:: lst_itsumpy
        :caption: Iterative Summation Python
 
        def listsum(numList):
@@ -99,35 +99,33 @@ the first element. This is easily expressed in C++ as shown in
 
   .. tab:: C++
 
-    .. activecode:: lst_recsum C++
-      :caption: Recursion Summation C++
-      :language: cpp
+    .. activecode:: lst_recsumcpp
+       :caption: Recursion Summation C++
+       :language: cpp
 
-      #include <iostream>
-      #include <vector>
-      using namespace std;
+       #include <iostream>
+       #include <vector>
+       using namespace std;
 
-      int vectsum(vector<int> numVect){
-          if (numVect.size() <= 1){
-              // cout << "s " << numVect[0] << endl;
-              return numVect[0];
-          }
-          else {
-              cout << numVect[0] << endl;
-              return numVect[0] + vectsum(numVect.erase(numVect.begin()+0));
-          }
-          // cout << numVect << endl;
-      }
+       int vectsum(vector<int> numVect){
+           if (numVect.size() <= 1){
+               return numVect[0];
+           }
+           else {
+               cout << numVect[0] << endl;
+               return numVect[0] + vectsum(numVect.erase(numVect.begin()+0));
+           }
+       }
 
-      int main() {
-          vector<int> numVect = {1,3,5,7,9};
-          cout << vectsum(numVect) << endl;
-          return 0;
-      }
+       int main() {
+           vector<int> numVect = {1,3,5,7,9};
+           cout << vectsum(numVect) << endl;
+           return 0;
+       }
 
   .. tab:: Python
 
-    .. activecode:: lst_recsum Python
+    .. activecode:: lst_recsumpy
        :caption: Recursion Summation Python
 
        def listsum(numList):

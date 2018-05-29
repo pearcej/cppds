@@ -16,42 +16,42 @@ call. The code for this modified algorithm is shown in
 
   .. tab:: C++
 
-    .. activecode:: lst_recstack
-      :caption: Converting an Integer to a String Using a Stack
-      :language: cpp
+    .. activecode:: lst_recstackcpp
+       :caption: Converting an Integer to a String  Using a Stack
+       :language: cpp
 
-      #include <iostream>
-      #include <string>
-      #include <stack>
-      using namespace std;
+       #include <iostream>
+       #include <string>
+       #include <stack>
+       using namespace std;
 
-      stack<char> rStack;
+       stack<char> rStack;
 
-      string toStr(int n, int base) {
-          string convertString = "0123456789ABCDEF";
-          while (n > 0) {
-              if (n < base) {
-                  rStack.push(convertString[n]);
-              } else {
-                  rStack.push(convertString[n % base]);
-              }
-              n = n/base;
-          }
-          string res;
-          while (!rStack.empty()) {
-              res = res + (string(1, rStack.top()));
-              rStack.pop();
-          }
-          return res;
-      }
+       string toStr(int n, int base) {
+           string convertString = "0123456789ABCDEF";
+           while (n > 0) {
+               if (n < base) {
+                   rStack.push(convertString[n]);
+               } else {
+                   rStack.push(convertString[n % base]);
+               }
+               n = n/base;
+           }
+           string res;
+           while (!rStack.empty()) {
+               res = res + (string(1,  rStack.top()));
+               rStack.pop();
+           }
+           return res;
+       }
 
-      int main() {
-        cout << toStr(1453, 16);
-      }
+       int main() {
+         cout << toStr(1453, 16);
+       }
 
   .. tab:: Python
 
-    .. activecode:: lst_recstack
+    .. activecode:: lst_recstackpy
        :caption:  Converting an Integer to a String Using a Stack
 
        from pythonds.basic.stack import Stack
