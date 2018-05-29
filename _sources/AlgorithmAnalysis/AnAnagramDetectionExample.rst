@@ -3,7 +3,7 @@
 
 
 An Anagram Detection Example
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------
 
 A good example problem for showing algorithms with different orders of
 magnitude is the classic anagram detection problem for strings. One
@@ -18,49 +18,109 @@ that will take two strings and return whether they are anagrams.
 Solution 1: Checking Off
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Our first solution to the anagram problem will check the lengths of the 
+Our first solution to the anagram problem will check the lengths of the
 strings and then to see that each character in the first string actually
 occurs in the second. If it is possible to “checkoff” each character, then
-the two strings must be anagrams. Checking off a character will be 
-accomplished by replacing it with the special Python value ``None``. 
-However, since strings in Python are immutable, the first step in the 
+the two strings must be anagrams. Checking off a character will be
+accomplished by replacing it with the special C++ value ``NULL``.
+However, since strings in C++ are immutable, the first step in the
 process will be to convert the second string to a list. Each character
 from the first string can be checked against the characters in the list
 and if found, checked off by replacement.:ref:`ActiveCode 1 <lst_anagramSolution>` shows this function.
 
 .. _lst_anagramSolution:
 
-.. activecode:: active5
-    :caption: Checking Off
+.. tabbed:: ec5
 
-    def anagramSolution1(s1,s2):
-        if len(s1) != len(s2):
-            stillOK = False
-            
-        alist = list(s2)
+  .. tab:: C++
 
-        pos1 = 0
-        stillOK = True
+    .. activecode:: active5cpp
+      :caption: Checking Off C++
+      :language: cpp
 
-        while pos1 < len(s1) and stillOK:
-            pos2 = 0
-            found = False
-            while pos2 < len(alist) and not found:
-                if s1[pos1] == alist[pos2]:
-                    found = True
-                else:
-                    pos2 = pos2 + 1
+      #include <iostream>
+      #include <string>
+      using namespace std;
 
-            if found:
-                alist[pos2] = None
-            else:
-                stillOK = False
+      bool anagramsolution1(string s1, string s2){
+        bool stillOK;
+        if (s1.length() != s2.length()) {
+          stillOK = false;
+        }
+        int n = s1.length();
+        char alist[n-1];
+        for (int i = 0; i<n; i++){
+          alist[i] = s2[i];
+        }
 
-            pos1 = pos1 + 1
+        int pos1 = 0;
+        stillOK = true;
 
-        return stillOK
+        while (pos1 < s1.length() && stillOK){
+          int pos2 = 0;
+          bool found = false;
+          while (pos2 < n && !found){
+            if (s1[pos1] == alist[pos2]){
+              found = true;
+            } else{
+                pos2 = pos2 + 1;
+            }
+          }
+          if (found){
+            alist[pos2] = 0;
+          }
+          else{
+            stillOK = false;
+          }
+          pos1 = pos1 + 1;
+        }
+        return stillOK;
+      }
 
-    print(anagramSolution1('abcd','dcba'))
+      int main(){
+        int value = anagramsolution1("abcd", "dcab");
+        if (value == 1){
+          cout << "True";
+        }
+        else{
+          cout << "False";
+        }
+        return 0;
+      }
+
+  .. tab:: Python
+
+    .. activecode:: active5py
+       :caption: Checking Off Python
+
+       def anagramSolution1(s1,s2):
+           if len(s1) != len(s2):
+               stillOK = False
+
+           alist = list(s2)
+
+           pos1 = 0
+           stillOK = True
+
+           while pos1 < len(s1) and stillOK:
+               pos2 = 0
+               found = False
+               while pos2 < len(alist) and not found:
+                   if s1[pos1] == alist[pos2]:
+                       found = True
+                   else:
+                       pos2 = pos2 + 1
+
+                   if found:
+                       alist[pos2] = None
+                   else:
+                       stillOK = False
+
+                   pos1 = pos1 + 1
+
+           return stillOK
+
+       print(anagramSolution1('abcd','dcba'))
 
 To analyze this algorithm, we need to note that each of the *n*
 characters in ``s1`` will cause an iteration through up to *n*
@@ -91,33 +151,88 @@ on lists by simply converting each string to a list at the start.
 
 .. _lst_ana2:
 
-.. activecode:: active6
-    :caption: Sort and Compare
+.. tabbed:: ec6
 
-    def anagramSolution2(s1,s2):
-        alist1 = list(s1)
-        alist2 = list(s2)
+  .. tab:: C++
 
-        alist1.sort()
-        alist2.sort()
+    .. activecode:: active6cpp
+      :caption: Sort and Compare C++
+      :language: cpp
 
-        pos = 0
-        matches = True
+      #include <iostream>
+      #include <string>
+      #include <algorithm>
+      using namespace std;
 
-        while pos < len(s1) and matches:
-            if alist1[pos]==alist2[pos]:
-                pos = pos + 1
-            else:
-                matches = False
+      bool anagramsolution2(string s1, string s2){
+        int n = s1.length();
+        char alist1[n-1];
+        for (int i = 0; i < n; i++){
+          alist1[i] = s1[i];
+        }
 
-        return matches
+        int len = s2.length();
+        char alist2[len-1];
+        for (int x = 0; x < len; x++){
+          alist2[x] = s2[x];
+        }
 
-    print(anagramSolution2('abcde','edcba'))
+        sort(alist1, alist1+n);
+        sort(alist2, alist2+len);
+
+        int pos = 0;
+        bool matches = true;
+
+        while (pos < s1.length() && matches){
+          if (alist1[pos] == alist2[pos]){
+            pos = pos + 1;
+          } else{
+            matches = false;
+          }
+        }
+        return matches;
+      }
+
+      int main(){
+        int value = anagramsolution2("abcde", "edcba");
+        if (value == 1){
+          cout << "True";
+        }
+        else{
+          cout << "False";
+        }
+        return 0;
+      }
+
+  .. tab:: Python
+
+    .. activecode:: active6py
+       :caption: Sort and Compare
+
+       def anagramSolution2(s1,s2):
+           alist1 = list(s1)
+           alist2 = list(s2)
+
+           alist1.sort()
+           alist2.sort()
+
+           pos = 0
+           matches = True
+
+           while pos < len(s1) and matches:
+               if alist1[pos]==alist2[pos]:
+                   pos = pos + 1
+               else:
+                   matches = False
+
+           return matches
+
+       print(anagramSolution2('abcde','edcba'))
 
 At first glance you may be tempted to think that this algorithm is
 :math:`O(n)`, since there is one simple iteration to compare the *n*
 characters after the sorting process. However, the two calls to the
-Python ``sort`` method are not without their own cost. As we will see in
+C++ ``sort`` function are not without their own cost. As we will see in
 a later chapter, sorting is typically either :math:`O(n^{2})` or
 :math:`O(n\log n)`, so the sorting operations dominate the iteration.
 In the end, this algorithm will have the same order of magnitude as that
@@ -160,34 +275,84 @@ anagrams. :ref:`ActiveCode 3 <lst_ana4>` shows this solution.
 
 .. _lst_ana4:
 
-.. activecode:: active7
-    :caption: Count and Compare
+.. tabbed:: Count and Compare
 
-    def anagramSolution4(s1,s2):
-        c1 = [0]*26
-        c2 = [0]*26
+  .. tab:: C++
 
-        for i in range(len(s1)):
-            pos = ord(s1[i])-ord('a')
-            c1[pos] = c1[pos] + 1
+    .. activecode:: active7cpp
+      :caption: Count and Compare C++
+      :language: cpp
 
-        for i in range(len(s2)):
-            pos = ord(s2[i])-ord('a')
-            c2[pos] = c2[pos] + 1
+      #include <iostream>
+      #include <string>
+      using namespace std;
 
-        j = 0
-        stillOK = True
-        while j<26 and stillOK:
-            if c1[j]==c2[j]:
-                j = j + 1
-            else:
-                stillOK = False
+      bool anagramSolution4(string s1, string s2){
+        int c1[26] = {0};
+        int c2[26] = {0};
 
-        return stillOK
+        int x;
+        int a = 'a';
+        for (int i = 0; i < s1.length(); i++){
+          x = s1[i] - a;
+          int pos = x;
+          c1[pos] = c1[pos] + 1;
+        }
 
-    print(anagramSolution4('apple','pleap'))
+        int y;
+        int b = 'a';
+        for (int i = 0; i < s2.length(); i++){
+          y = s2[i] - b;
+          int pos = y;
+          c2[pos] = c2[pos] + 1;
+        }
 
+        int j = 0;
+        bool stillOK = true;
+        while (j < 26 && stillOK){
+          if (c1[j] == c2[j]){
+            j = j + 1;
+          } else{
+            stillOK = false;
+          }
+        }
+        return stillOK;
+      }
 
+      int main(){
+        cout << anagramSolution4("apple", "pleap") <<endl;
+
+        return 0;
+      }
+
+  .. tab:: Python
+
+    .. activecode:: active7py
+       :caption: Count and Compare Python
+
+       def anagramSolution4(s1,s2):
+           c1 = [0]*26
+           c2 = [0]*26
+
+           for i in range(len(s1)):
+               pos = ord(s1[i])-ord('a')
+               c1[pos] = c1[pos] + 1
+
+           for i in range(len(s2)):
+               pos = ord(s2[i])-ord('a')
+               c2[pos] = c2[pos] + 1
+
+           j = 0
+           stillOK = True
+           while j<26 and stillOK:
+               if c1[j]==c2[j]:
+                   j = j + 1
+               else:
+                   stillOK = False
+
+           return stillOK
+
+       print(anagramSolution4('apple','pleap'))
 
 Again, the solution has a number of iterations. However, unlike the
 first solution, none of them are nested. The first two iterations used
@@ -226,12 +391,17 @@ problem.
 
        Given the following code fragment, what is its Big-O running time?
 
-       .. code-block:: python
+       .. code-block:: cpp
 
-         test = 0
-         for i in range(n):
-            for j in range(n):
-               test = test + i * j
+         int main(){
+             int test = 0;
+             for (int i = 0; i < n; i++){
+                 for (int j = 0; j < n; j++){
+                     test = test + i * j;
+                 }
+             }
+             return 0;
+         }
 
    .. mchoice:: analysis_2
        :answer_a: O(n)
@@ -246,14 +416,18 @@ problem.
 
        Given the following code fragment what is its Big-O running time?
 
-       .. code-block:: python
+       .. code-block:: cpp
 
-         test = 0
-         for i in range(n):
-            test = test + 1
-
-         for j in range(n):
-            test = test - 1
+         int main(){
+             int test = 0;
+             for (int i = 0; i < n; i++){
+                 test = test + 1;
+             }
+             for (int j = 0; j < n; j++){
+                 test = test - 1;
+             }
+             return 0;
+         }
 
    .. mchoice:: analysis_3
        :answer_a: O(n)
@@ -263,14 +437,18 @@ problem.
        :correct: c
        :feedback_a: Look carefully at the loop variable i.  Notice that the value of i is cut in half each time through the loop.  This is a big hint that the performance is better than O(n)
        :feedback_b: Check again, is this a nested loop?
-       :feedback_d: Check again, is this a nested loop?       
+       :feedback_d: Check again, is this a nested loop?
        :feedback_c: The value of i is cut in half each time through the loop so it will only take log n iterations.
 
        Given the following code fragment what is its Big-O running time?
 
-       .. code-block:: python
+       .. code-block:: cpp
 
-         i = n
-         while i > 0:
-            k = 2 + 2
-            i = i // 2
+         int main(){
+             int i = n;
+             while (i > 0){
+                 int k = 2 + 2;
+                 i = i // 2;
+             }
+             return 0;
+         }
