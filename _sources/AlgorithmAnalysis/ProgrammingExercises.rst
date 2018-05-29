@@ -7,19 +7,16 @@ Programming Exercises
 
 
 
-#. Devise an experiment to verify that the list index operator is
+#. Devise an experiment to verify that the vector index operator is
    :math:`O(1)`
 
-#. Devise an experiment to verify that get item and set item are
-   :math:`O(1)` for dictionaries.
+#. Devise an experiment to verify that find and insert are
+   :math:`O(1)` for hash tables.
 
-#. Devise an experiment that compares the performance of the ``del``
-   operator on lists and dictionaries.
+#. Devise an experiment that compares the performance of the ``erase()``
+   operator on vectors and hash tables.
 
-#. Given a list of numbers in random order, write an algorithm that works in :math:`O(n\log(n))`
-   to find the kth smallest number in the list.
+#. Given an array of numbers in random order, write an algorithm that works in :math:`O(n\log(n))`
+   to find the kth smallest number in the array.
 
 #. Can you improve the algorithm from the previous problem to be linear? Explain.
-
-
-

@@ -16,25 +16,23 @@ item and set item operations on a hash table is :math:`O(1)`. Another
 important hash table operation is the contains operation. Checking to
 see whether a key is in the hash table or not is also :math:`O(1)`.
 The efficiency of all hash table operations is summarized in
-:ref:`Table 3 <tbl_dictbigo>`. One important side note on hash table performance
+:ref:`Table 3 <tbl_dictbigocpp>`. One important side note on hash table performance
 is that the efficiencies we provide in the table below are for average
 performance. In some rare cases the contains, get item, and set item
 operations can degenerate into :math:`O(n)` performance but we will
 get into that in a later chapter when we talk about the different ways
 that a hash table could be implemented.
 
-.. _tbl_dictbigo:
+.. _tbl_dictbigocpp:
 
 .. table:: **Table 3: Big-O Efficiency of C++ hash table Operations**
 
     ================== ==================
              operation   Big-O Efficiency
     ================== ==================
-                  copy               O(n)
-              get item               O(1)
-              set item               O(1)
-           delete item               O(1)
-         contains (in)               O(1)
+                  find               O(1)
+                insert               O(1)
+                 erase               O(1)
              iteration               O(n)
     ================== ==================
 
@@ -56,15 +54,16 @@ whether or not a number is in the hash table is not only much faster,
 but the time it takes to check should remain constant even as the
 hash table grows larger.
 
-:ref:`Listing 6 <lst_listvdict>` implements this comparison. Notice that we are
+:ref:`Listing 6 <lst_listvdictcpp>` implements this comparison. Notice that we are
 performing exactly the same operation, ``number in container``. The
 difference is that on line 7 ``x`` is array, and on line 9 ``x`` is a
 hash table.
 
-.. _lst_listvdict:
+.. _lst_listvdictcpp:
 
 **Listing 6**
 
+# Help Needed with the Code
 
 .. sourcecode:: cpp
     :linenos:
@@ -84,8 +83,8 @@ hash table.
 
 
 
-:ref:`Figure 4 <fig_listvdict>` summarizes the results of running
-:ref:`Listing 6 <lst_listvdict>`. You can see that the hash table is consistently
+:ref:`Figure 4 <fig_listvdictcpp>` summarizes the results of running
+:ref:`Listing 6 <lst_listvdictcpp>`. You can see that the hash table is consistently
 faster. For the smallest array size of 10,000 elements a hash table is
 89.4 times faster than an array. For the largest array size of 990,000
 elements the hash table is 11,603 times faster! You can also see that
@@ -97,7 +96,7 @@ hash table size grows. In fact for a hash table size of 10,000 the
 contains operation took 0.004 milliseconds and for the hash table size
 of 990,000 it also took 0.004 milliseconds.
 
-.. _fig_listvdict:
+.. _fig_listvdictcpp:
 
 .. figure:: Figures/listvdict.png
 
@@ -110,16 +109,16 @@ data structures can be found on the C++ website.
 .. admonition:: Self Check
 
     .. mchoice:: mccppmapperf
-       :answer_a: list.pop(0)
-       :answer_b: list.pop()
-       :answer_c: list.append()
-       :answer_d: list[10]
+       :answer_a: Popping the first index from an array.
+       :answer_b: Popping an element from the end of an array.
+       :answer_c: Adding a new element to an array.
+       :answer_d: array[10]
        :answer_e: all of the above are O(1)
        :correct: a
        :feedback_a: When you remove the first element of a list, all the other elements of the list must be shifted forward.
        :feedback_b: Removing an element from the end of the list is a constant operation.
-       :feedback_c: Appending to the end of the list is a constant operation
-       :feedback_d: Indexing a list is a constant operation
+       :feedback_c: Adding to the end of an array is a constant operation
+       :feedback_d: Indexing a array is a constant operation
        :feedback_e: There is one operation that requires all other list elements to be moved.
 
        Which of the list operations shown below is not O(1)?
