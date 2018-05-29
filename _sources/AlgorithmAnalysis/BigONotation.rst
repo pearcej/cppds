@@ -3,7 +3,7 @@
 
 
 Big-O Notation
-~~~~~~~~~~~~~~
+--------------
 
 When trying to characterize an algorithm’s efficiency in terms of
 execution time, independent of any particular program or computer, it is
@@ -70,8 +70,8 @@ magnitude :math:`f(n)=n^{2}`, or simply that it is :math:`O(n^{2})`.
 Although we do not see this in the summation example, sometimes the
 performance of an algorithm depends on the exact values of the data
 rather than simply the size of the problem. For these kinds of
-algorithms we need to characterize their performance in terms of best
-case, **worst case**, or **average case** performance. The worst case
+algorithms we need to characterize their performance in terms of **best
+case**, **worst case**, or **average case** performance. The worst case
 performance refers to a particular data set where the algorithm performs
 especially poorly. Whereas a different data set for the exact same
 algorithm might have extraordinarily good performance. However, in most
@@ -81,14 +81,14 @@ these distinctions so they are not misled by one particular case.
 
 
 A number of very common order of magnitude functions will come up over
-and over as you study algorithms. These are shown in :ref:`Table 1 <tbl_fntable>`. In
+and over as you study algorithms. These are shown in :ref:`Table 1 <tbl_fntablecpp>`. In
 order to decide which of these functions is the dominant part of any
 :math:`T(n)` function, we must see how they compare with one another
 as *n* gets large.
 
-.. _tbl_fntable: 
+.. _tbl_fntablecpp:
 
-.. table:: **Table 1: Common Functions for Big-O**
+.. table:: **Table 1: Common Big-O Functions**
 
     ================= =============
              **f(n)**      **Name**
@@ -103,21 +103,21 @@ as *n* gets large.
     ================= =============
 
 
-:ref:`Figure 1 <fig_graphfigure>` shows graphs of the common
+:ref:`Figure 1 <fig_graphfigurecpp>` shows graphs of the common
 functions from :ref:`Table 1 <tbl_fntable>`. Notice that when *n* is small, the
 functions are not very well defined with respect to one another. It is
 hard to tell which is dominant. However, as *n* grows, there is a
 definite relationship and it is easy to see how they compare with one
 another.
 
-.. _fig_graphfigure:
+.. _fig_graphfigurecpp:
 
 .. figure:: Figures/newplot.png
 
-   Figure 1: Plot of Common Big-O Functions
+   Figure 1: Common Big-O Functions
 
 
-As a final example, suppose that we have the fragment of Python code
+As a final example, suppose that we have the fragment of C++ code
 shown in :ref:`Listing 2 <lst_dummycode>`. Although this program does not really do
 anything, it is instructive to see how we can take actual code and
 analyze performance.
@@ -126,20 +126,55 @@ analyze performance.
 
 **Listing 2**
 
-::
+.. tabbed:: ec4
 
-    a=5
-    b=6
-    c=10
-    for i in range(n):
-       for j in range(n):
-          x = i * i
-          y = j * j
-          z = i * j
-    for k in range(n):
-       w = a*k + 45
-       v = b*b
-    d = 33
+  .. tab:: C++
+
+    .. activecode:: active3cpp
+      :caption: C++
+      :language: cpp
+
+      #include <iostream>
+      using namespace std;
+
+      int main(){
+          int a=5;
+          int b=6;
+          int c=10;
+          for (int i=0; i<n; i++){
+              for (int j=0; j<n; j++){
+                  int x = i * i;
+                  int y = j * j;
+                  int z = i * j;
+              }
+          }
+          for (int k = 0; k < n; k++){
+              int w = a*k + 45;
+              int v = b*b;
+          }
+          int d = 33;
+      }
+
+  .. tab:: Python
+
+    .. activecode:: active3py
+       :caption: Python
+
+        a=5
+        b=6
+        c=10
+        for i in range(n):
+            for j in range(n):
+               x = i * i
+               y = j * j
+               z = i * j
+        for k in range(n):
+            w = a*k + 45
+            v = b*b
+        d = 33
+
+
+
 
 The number of assignment operations is the sum of four terms. The first
 term is the constant 3, representing the three assignment statements at
@@ -154,14 +189,14 @@ therefore this fragment of code is :math:`O(n^{2})`. Note that all of
 the other terms as well as the coefficient on the dominant term can be
 ignored as *n* grows larger.
 
-.. _fig_graphfigure2:
+.. _fig_graphfigure2cpp:
 
 .. figure:: Figures/newplot2.png
 
-   Figure 2: Comparing :math:`T(n)` with Common Big-O Functions
+   Figure 2: Comparing :math:`T(n)` with Big-O Functions
 
 
-:ref:`Figure 2 <fig_graphfigure2>` shows a few of the common Big-O functions as they
+:ref:`Figure 2 <fig_graphfigure2cpp>` shows a few of the common Big-O functions as they
 compare with the :math:`T(n)` function discussed above. Note that
 :math:`T(n)` is initially larger than the cubic function. However, as
 n grows, the cubic function quickly overtakes :math:`T(n)`. It is easy
@@ -171,7 +206,7 @@ to see that :math:`T(n)` then follows the quadratic function as
 
 .. admonition:: Self Check
 
-   Write two Python functions to find the minimum number in a list.  The first function should compare each number to every other number on the list. :math:`O(n^2)`.  The second function should be linear :math:`O(n)`.
+   Write two C++ functions to find the minimum number in a list.  The first function should compare each number to every other number on the list. :math:`O(n^2)`.  The second function should be linear :math:`O(n)`.
 
 
 .. video::  findMinVid
