@@ -61,25 +61,69 @@ a shift operation requires approximately a third of the processing work
 of an exchange since only one assignment is performed. In benchmark
 studies, insertion sort will show very good performance.
 
+.. tabbed:: lst_insertion_sort
 
-.. activecode:: lst_insertion
-    :caption: Insertion Sort
+  .. tab:: C++
 
-    def insertionSort(alist):
-       for index in range(1,len(alist)):
+    .. activecode:: lst_insertion_cpp
+      :caption: The Insertion sort
+      :language: cpp
 
-         currentvalue = alist[index]
-         position = index
+      #include <iostream>
+      #include <vector>
+      using namespace std;
 
-         while position>0 and alist[position-1]>currentvalue:
-             alist[position]=alist[position-1]
-             position = position-1
+      vector<int> insertionSort(vector<int> alist) {
+          for (int index=1; index<alist.size(); index++) {
 
-         alist[position]=currentvalue
+              int currentvalue = alist[index];
+              int position = index;
 
-    alist = [54,26,93,17,77,31,44,55,20]
-    insertionSort(alist)
-    print(alist)
+              while (position>0 && alist[position-1]>currentvalue) {
+                  alist[position] = alist[position-1];
+                  position--;
+              }
+
+              alist[position] = currentvalue;
+          }
+
+          return alist;
+      }
+
+      int main() {
+          vector<int> alist{54, 26, 93, 17, 77, 31, 44, 55, 20};
+
+          alist = insertionSort(alist);
+
+          //prints the sorted list
+          for (int i:alist) {
+              cout << i << " ";;
+          }
+          cout << endl;
+
+          return 0;
+      }
+
+  .. tab:: Python
+
+    .. activecode:: lst_insertion
+        :caption: Insertion Sort
+
+        def insertionSort(alist):
+           for index in range(1,len(alist)):
+
+             currentvalue = alist[index]
+             position = index
+
+             while position>0 and alist[position-1]>currentvalue:
+                 alist[position]=alist[position-1]
+                 position = position-1
+
+             alist[position]=currentvalue
+
+        alist = [54,26,93,17,77,31,44,55,20]
+        insertionSort(alist)
+        print(alist)
 
 .. animation:: insertion_anim
    :modelfile: sortmodels.js
@@ -124,4 +168,3 @@ studies, insertion sort will show very good performance.
 
        Suppose you have the following list of numbers to sort: <br>
        [15, 5, 4, 18, 12, 19, 14, 10, 8, 20] which list represents the partially sorted list after three complete passes of insertion sort?
-
