@@ -97,14 +97,17 @@ an insertion sort with an increment of one.
             position = i
 
             while position>=gap and alist[position-gap]>currentvalue:
-                alist[position]=alist[position-gap] 
+                alist[position]=alist[position-gap]
                 position = position-gap
 
             alist[position]=currentvalue
-            
-    alist = [54,26,93,17,77,31,44,55,20]
-    shellSort(alist)
-    print(alist)
+
+    def main():
+        alist = [54,26,93,17,77,31,44,55,20]
+        shellSort(alist)
+        print(alist)
+
+    main()
 
 
 
@@ -113,9 +116,9 @@ an insertion sort with an increment of one.
    :viewerfile: sortviewers.js
    :model: ShellSortModel
    :viewer: BarViewer
-   
-   
-   
+
+
+
 .. For more detail, CodeLens 5 allows you to step through the algorithm.
 ..
 ..
@@ -184,4 +187,3 @@ at :math:`O(n^{\frac {3}{2}})`.
 
       Given the following list of numbers:  [5, 16, 20, 12, 3, 8, 9, 17, 19, 7]
       Which answer illustrates the contents of the list after all swapping is complete for a gap size of 3?
-
