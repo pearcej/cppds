@@ -28,14 +28,15 @@ way to create a longer  vector.  You can use the push_back() method. The push_ba
 Let's look at two different ways we might generate an vector of ``n``
 numbers starting with 0.
 
-First we’ll try to the use push_back() method.  :ref:`Listing 3 <lst_mklist>` shows the code for
+First we’ll try to the use push_back() method.  :ref:`Listing 3 <lst_mklistcpp>` shows the code for
 making our vector.
 
-.. _lst_mklist:
+.. _lst_mklistcpp:
 
 **Listing 3**
 
 ::
+
     #include <iostream>
     #include <vector>
     using namespace std;
@@ -75,39 +76,23 @@ In the experiment above the statement that we are timing is the function
 call to ``test1()``. From the experiment we see that the push_back operation at 0.018
 milliseconds.
 
-.. raw:: html
-
-<!--
-
-One final observation about this little experiment is that all of the
-times that you see above include some overhead for actually calling the
-test function, but we can assume that the function call overhead is
-identical in all four cases so we still get a meaningful comparison of
-the operations. So it would not be accurate to say that the
-concatenation operation takes 6.54 milliseconds but rather the
-concatenation test function takes 6.54 milliseconds. As an exercise you
-could test the time it takes to call an empty function and subtract that
-from the numbers above.
-
--->
-
 Now that we have seen how performance can be measured concretely you can
-look at :ref:`Table 2 <tbl_listbigo>` to see the Big-O efficiency of all the
+look at :ref:`Table 2 <tbl_listbigocpp>` to see the Big-O efficiency of all the
 basic vector operations. After thinking carefully about
-:ref:`Table 2 <tbl_listbigo>`, you may be wondering about the two different times
+:ref:`Table 2 <tbl_listbigocpp>`, you may be wondering about the two different times
 for ``pop``. When ``pop`` is called on the end of the list it takes
 :math:`O(1)` but when pop is called on the first element in the list
 or anywhere in the middle it is :math:`O(n)`. The reason for this lies
 in how C++ chooses to implement vectors. When an item is taken from the
 front of the vector, in C++ implementation, all the other elements in
 the vector are shifted one position closer to the beginning. This may seem
-silly to you now, but if you look at :ref:`Table 2 <tbl_listbigo>` you will see
+silly to you now, but if you look at :ref:`Table 2 <tbl_listbigocpp>` you will see
 that this implementation also allows the index operation to be
 :math:`O(1)`. This is a tradeoff that the C++ implementers thought
 was a good one.
 
 
-.. _tbl_listbigo:
+.. _tbl_listbigocpp:
 
 .. table:: **Table 2: Big-O Efficiency of C++ Vector Operators**
 
@@ -132,19 +117,19 @@ see is that the time required to pop from the end of the vector will stay
 constant even as the vector grows in size, while the time to pop from the
 beginning of the vector will continue to increase as the vector grows.
 
-:ref:`Listing 4 <lst_popmeas>` shows one attempt to measure the difference
+:ref:`Listing 4 <lst_popmeascpp>` shows one attempt to measure the difference
 between the pop_back() and erase(). As you can see from this first example,
 popping from the end takes 0.000023 milliseconds, whereas popping from the
 beginning takes 0.473672 milliseconds.
 
-There are a couple of things to notice about :ref:`Listing 4 <lst_popmeas>`. This approach allows us to time just the single ``pop_back()`` statement
+There are a couple of things to notice about :ref:`Listing 4 <lst_popmeascpp>`. This approach allows us to time just the single ``pop_back()`` statement
 and get the most accurate measure of the time for that single operation.
 Because the timer repeats 1000 times it is also important to point out
 that the vector is decreasing in size by 1 each time through the loop. But
 since the initial list is two million elements in size we only reduce
 the overall size by :math:`0.05\%`
 
-.. _lst_popmeas:
+.. _lst_popmeascpp:
 
 **Listing 4**
 
@@ -163,54 +148,3 @@ the overall size by :math:`0.05\%`
     }
     clock_t end = clock();
     popend 0.000023 milliseconds
-
-.. raw:: html
-
-<!--
-
-While our first test does show that ``erase()`` is indeed slower than
-``pop_back()``, it does not validate the claim that ``erase()`` is
-:math:`O(n)` while ``pop_back()`` is :math:`O(1)`. To validate that claim
-we need to look at the performance of both calls over a range of vector
-sizes. :ref:`Listing 5 <lst_poplists>` implements this test.
-
-.. _lst_poplists:
-
-**Listing 5**
-
-::
-
-    popzero = Timer("x.pop(0)",
-                    "from __main__ import x")
-    popend = Timer("x.pop()",
-                   "from __main__ import x")
-    print("pop(0)   pop()")
-    for i in range(1000000,100000001,1000000):
-        x = list(range(i))
-        pt = popend.timeit(number=1000)
-        x = list(range(i))
-        pz = popzero.timeit(number=1000)
-        print("%15.5f, %15.5f" %(pz,pt))
-
-:ref:`Figure 3 <fig_poptest>` shows the results of our experiment. You can see
-that as the vector gets longer and longer the time it takes to ``erase()``
-also increases while the time for ``pop_back()`` stays very flat. This is
-exactly what we would expect to see for a :math:`O(n)` and
-:math:`O(1)` algorithm.
-
-Some sources of error in our little experiment include the fact that
-there are other processes running on the computer as we measure that may
-slow down our code, so even though we try to minimize other things
-happening on the computer there is bound to be some variation in time.
-That is why the loop runs the test one thousand times in the first place
-to statistically gather enough information to make the measurement
-reliable.
-
-
-.. _fig_poptest:
-
-.. figure:: Figures/poptime.png
-
-   Figure 3: Comparing the Performance of ``pop`` and ``pop(0)``
-
--->

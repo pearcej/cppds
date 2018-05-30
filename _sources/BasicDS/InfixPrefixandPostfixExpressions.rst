@@ -251,13 +251,10 @@ string of tokens in postfix order.
 #. Create an empty stack called ``opstack`` for keeping operators.
    Create an empty list for output.
 
-#. Convert the input infix string to a list by using the string method
-   ``split``.
-
-#. Scan the token list from left to right.
+#. Scan the current token of the input list from left to right (using a loop).
 
    -  If the token is an operand, append it to the end of the output
-      list.
+      list(vector).
 
    -  If the token is a left parenthesis, push it on the ``opstack``.
 
@@ -288,58 +285,130 @@ operators and placing + as the last operator in the postfix expression.
 
    Figure 9: Converting A \* B + C \* D to Postfix Notation
 
-In order to code the algorithm in Python, we will use a dictionary
-called ``prec`` to hold the precedence values for the operators. This
-dictionary will map each operator to an integer that can be compared
+In order to code the algorithm in C++, we will use a map
+called ``prec`` to hold the precedence values for the operators.
+(This works similarly to a dictionary data type from Python.) This
+map will map each operator char to an integer that can be compared
 against the precedence levels of other operators (we have arbitrarily
 used the integers 3, 2, and 1). The left parenthesis will receive the
 lowest value possible. This way any operator that is compared against it
 will have higher precedence and will be placed on top of it.
-Line 15 defines the operands to be any upper-case character or digit.
+Line 18 (Line 15 in python) defines the operands to be any upper-case character or digit.
 The complete conversion function is
 shown in :ref:`ActiveCode 1 <lst_intopost>`.
 
 .. _lst_intopost:
 
-.. activecode:: intopost
-   :caption: Converting Infix Expressions to Postfix Expressions
-   :nocodelens:
+.. tabbed:: hp1
 
-   from pythonds.basic.stack import Stack
+  .. tab:: C++
 
-   def infixToPostfix(infixexpr):
-       prec = {}
-       prec["*"] = 3
-       prec["/"] = 3
-       prec["+"] = 2
-       prec["-"] = 2
-       prec["("] = 1
-       opStack = Stack()
-       postfixList = []
-       tokenList = infixexpr.split()
+    .. activecode:: intpost_cpp
+      :caption: Converting Infix Expressions to Postfix Expressions
+      :language: cpp
 
-       for token in tokenList:
-           if token in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" or token in "0123456789":
-               postfixList.append(token)
-           elif token == '(':
-               opStack.push(token)
-           elif token == ')':
-               topToken = opStack.pop()
-               while topToken != '(':
-                   postfixList.append(topToken)
-                   topToken = opStack.pop()
-           else:
-               while (not opStack.isEmpty()) and \
-                  (prec[opStack.peek()] >= prec[token]):
-                     postfixList.append(opStack.pop())
-               opStack.push(token)
+      #include <iostream>
+      #include <stack>
+      #include <map>
+      #include <string>
+      #include <vector>
 
-       while not opStack.isEmpty():
-           postfixList.append(opStack.pop())
-       return " ".join(postfixList)
+      using namespace std;
 
-   print(infixToPostfix("A * B + C * D"))
-   print(infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )"))
+      string infixToPostfix(string infixexpr) {
+          map <char,int> prec;
+          prec['*']=3;
+          prec['/']=3;
+          prec['+']=2;
+          prec['-']=2;
+          prec['(']=1;
+          stack<char> opStack;
+          vector<char> postfixList;
+          string letsnums = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+          for (char token:infixexpr) {
+              if (token == ' ') {
+                  continue;
+              }
+              else if (letsnums.find(token)<=letsnums.length()) {
+                  postfixList.emplace_back(token);
+              } else if (token == '(') {
+                  opStack.push(token);
+              } else if (token == ')') {
+                  char topToken;
+                  topToken = opStack.top();
+                  opStack.pop();
+                  while (topToken != '(') {
+                      postfixList.emplace_back(topToken);
+                      topToken=opStack.top();
+                      opStack.pop();
+                  }
+              } else {
+                  while (!opStack.empty() && (prec[opStack.top()] >= prec[token])) {
+                      postfixList.emplace_back(opStack.top());
+                      opStack.pop();
+                  }
+                  opStack.push(token);
+              }
+          }
+          while (!opStack.empty()) {
+              postfixList.emplace_back(opStack.top());
+              opStack.pop();
+          }
+
+          string s(postfixList.begin(),postfixList.end());
+
+          return s;
+      }
+
+      int main() {
+          cout<<infixToPostfix("A * B + C * D")<<endl;
+          cout<<infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )")<<endl;
+
+          return 0;
+      }
+
+  .. tab:: Python
+
+    .. activecode:: intopost
+     :caption: Converting Infix Expressions to Postfix Expressions
+     :nocodelens:
+
+     from pythonds.basic.stack import Stack
+
+     def infixToPostfix(infixexpr):
+         prec = {}
+         prec["*"] = 3
+         prec["/"] = 3
+         prec["+"] = 2
+         prec["-"] = 2
+         prec["("] = 1
+         opStack = Stack()
+         postfixList = []
+         tokenList = infixexpr.split()
+
+         for token in tokenList:
+             if token in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" or token in "0123456789":
+                 postfixList.append(token)
+             elif token == '(':
+                 opStack.push(token)
+             elif token == ')':
+                 topToken = opStack.pop()
+                 while topToken != '(':
+                     postfixList.append(topToken)
+                     topToken = opStack.pop()
+             else:
+                 while (not opStack.isEmpty()) and \
+                    (prec[opStack.peek()] >= prec[token]):
+                       postfixList.append(opStack.pop())
+                 opStack.push(token)
+
+         while not opStack.isEmpty():
+             postfixList.append(opStack.pop())
+         return " ".join(postfixList)
+
+     print(infixToPostfix("A * B + C * D"))
+     print(infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )"))
 
 --------------
 
@@ -419,12 +488,12 @@ single-digit integer values. The output will be an integer result.
 
 #. Create an empty stack called ``operandStack``.
 
-#. Convert the string to a list by using the string method ``split``.
+#. Iterate across the input using a for loop.
 
 #. Scan the token list from left to right.
 
    -  If the token is an operand, convert it from a string to an integer
-      and push the value onto the ``operandStack``.
+      and push the value onto the ``operandStack``. (Using the ASCII, you can get this by subtracting 48)
 
    -  If the token is an operator, \*, /, +, or -, it will need two
       operands. Pop the ``operandStack`` twice. The first pop is the
@@ -442,37 +511,91 @@ operator and then perform the proper arithmetic operation.
 
 .. _lst_postfixeval:
 
-.. activecode:: postfixeval
-   :caption: Postfix Evaluation
-   :nocodelens:
+.. tabbed:: hp2
 
-   from pythonds.basic.stack import Stack
+  .. tab:: C++
 
-   def postfixEval(postfixExpr):
-       operandStack = Stack()
-       tokenList = postfixExpr.split()
+    .. activecode:: postfixeval_cpp
+      :caption: Postfix evaluation
+      :language: cpp
 
-       for token in tokenList:
-           if token in "0123456789":
-               operandStack.push(int(token))
+      #include <iostream>
+      #include <stack>
+      #include <string>
+
+      using namespace std;
+
+      int doMath(char op, int op1, int op2) {
+          if (op == '*') {
+              return (op1 * op2);
+          } else if (op == '/') {
+              return (op1 / op2);
+          } else if (op == '+') {
+              return (op1 + op2);
+          } else {
+              return (op1 - op2);
+          }
+      }
+
+      int postfixEval(string postfixExpr) {
+          stack<int> operandStack;
+          string nums = "0123456789";
+
+          for (char i : postfixExpr) {
+              if ((nums.find(i) <= nums.length())) { // Check if the current char is a number
+                  operandStack.push(int(i) - 48); // conversion from char to ascii
+                  // then subtract 48 to get the int value
+                  } else if (i != ' ') {
+            			int operand2 = operandStack.top();
+            			operandStack.pop();
+            			int operand1 = operandStack.top();
+            			operandStack.pop();
+            			int result = doMath(i, operand1, operand2);
+            			operandStack.push(result);
+      		        }
+      	  }
+          return operandStack.top();
+      }
+
+      int main() {
+          cout << postfixEval("17 8 + 3 2 + /") << endl;
+
+          return 0;
+      }
+
+  .. tab:: Python
+
+    .. activecode:: postfixeval
+       :caption: Postfix Evaluation
+       :nocodelens:
+
+       from pythonds.basic.stack import Stack
+
+       def postfixEval(postfixExpr):
+           operandStack = Stack()
+           tokenList = postfixExpr.split()
+
+           for token in tokenList:
+               if token in "0123456789":
+                   operandStack.push(int(token))
+               else:
+                   operand2 = operandStack.pop()
+                   operand1 = operandStack.pop()
+                   result = doMath(token,operand1,operand2)
+                   operandStack.push(result)
+           return operandStack.pop()
+
+       def doMath(op, op1, op2):
+           if op == "*":
+               return op1 * op2
+           elif op == "/":
+               return op1 / op2
+           elif op == "+":
+               return op1 + op2
            else:
-               operand2 = operandStack.pop()
-               operand1 = operandStack.pop()
-               result = doMath(token,operand1,operand2)
-               operandStack.push(result)
-       return operandStack.pop()
+               return op1 - op2
 
-   def doMath(op, op1, op2):
-       if op == "*":
-           return op1 * op2
-       elif op == "/":
-           return op1 / op2
-       elif op == "+":
-           return op1 + op2
-       else:
-           return op1 - op2
-
-   print(postfixEval('7 8 + 3 2 + /'))
+       print(postfixEval('7 8 + 3 2 + /'))
 
 It is important to note that in both the postfix conversion and the
 postfix evaluation programs we assumed that there were no errors in the

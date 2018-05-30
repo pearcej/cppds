@@ -3,7 +3,7 @@
 
 
 An Anagram Detection Example
-----
+----------------------------
 
 A good example problem for showing algorithms with different orders of
 magnitude is the classic anagram detection problem for strings. One
@@ -34,7 +34,7 @@ and if found, checked off by replacement.:ref:`ActiveCode 1 <lst_anagramSolution
 
   .. tab:: C++
 
-    .. activecode:: active5
+    .. activecode:: active5cpp
       :caption: Checking Off C++
       :language: cpp
 
@@ -90,7 +90,7 @@ and if found, checked off by replacement.:ref:`ActiveCode 1 <lst_anagramSolution
 
   .. tab:: Python
 
-    .. activecode:: active5
+    .. activecode:: active5py
        :caption: Checking Off Python
 
        def anagramSolution1(s1,s2):
@@ -155,7 +155,7 @@ on lists by simply converting each string to a list at the start.
 
   .. tab:: C++
 
-    .. activecode:: active6
+    .. activecode:: active6cpp
       :caption: Sort and Compare C++
       :language: cpp
 
@@ -206,7 +206,7 @@ on lists by simply converting each string to a list at the start.
 
   .. tab:: Python
 
-    .. activecode:: active6
+    .. activecode:: active6py
        :caption: Sort and Compare
 
        def anagramSolution2(s1,s2):
@@ -279,7 +279,7 @@ anagrams. :ref:`ActiveCode 3 <lst_ana4>` shows this solution.
 
   .. tab:: C++
 
-    .. activecode:: active7
+    .. activecode:: active7cpp
       :caption: Count and Compare C++
       :language: cpp
 
@@ -327,7 +327,7 @@ anagrams. :ref:`ActiveCode 3 <lst_ana4>` shows this solution.
 
   .. tab:: Python
 
-    .. activecode:: active7
+    .. activecode:: active7py
        :caption: Count and Compare Python
 
        def anagramSolution4(s1,s2):
