@@ -50,23 +50,23 @@ coins needed to make change for the original amount minus five cents, or
 a dime plus the number of coins needed to make change for the original
 amount minus ten cents, and so on. So the number of coins needed to make
 change for the original amount can be computed according to the
-following: 
+following:
 
 .. math::
 
       numCoins =
-   min
-   \begin{cases}
-   1 + numCoins(original amount - 1) \\
-   1 + numCoins(original amount - 5) \\
-   1 + numCoins(original amount - 10) \\
-   1 + numCoins(original amount - 25)
-   \end{cases}
-   \label{eqn_change}
+       min
+       \begin{cases}
+       1 + numCoins(original amount - 1) \\
+       1 + numCoins(original amount - 5) \\
+       1 + numCoins(original amount - 10) \\
+       1 + numCoins(original amount - 25)
+       \end{cases}
+       \label{eqn_changecpp}
 
 
 The algorithm for doing what we have just described is shown in
-:ref:`Listing 7 <lst_change1>`. In line 3 we are checking our base case;
+:ref:`Listing 7 <lst_change1cpp>`. In line 3 we are checking our base case;
 that is, we are trying to make change in the exact amount of one of our
 coins. If we do not have a coin equal to the amount of change, we make
 recursive calls for each different coin value less than the amount of
@@ -74,20 +74,53 @@ change we are trying to make. Line 6 shows how we filter the
 list of coins to those less than the current value of change using a
 list comprehension. The recursive call also reduces the total amount of
 change we need to make by the value of the coin selected. The recursive
-call is made in line 7. Notice that on that same line we add 1
+call is made in line 14. Notice that on that same line we add 1
 to our number of coins to account for the fact that we are using a coin.
 Just adding 1 is the same as if we had made a recursive call asking
 where we satisfy the base case condition immediately.
 
-.. _lst_change1:
+.. _lst_change1cpp:
 
 
-.. highlight:: python
+.. highlight:: cpp
     :linenothreshold: 5
 
 **Listing 7**
 
 ::
+.. tabbed:: coincpp
+
+  .. tab:: C++
+
+    #include <iostream>
+    #include <vector>
+    using namespace std;
+
+    int recMC(vector<int> coinValueList, int change){
+        int minCoins = change;
+        for (int i = 0; i < coinValueList.size(); i++){
+            if (coinValueList[i] == change){
+                return 1;
+            }
+        }
+        for (int i = 0; i < coinValueList.size(); i++){
+            if (coinValueList[i] <= change){
+                int numCoins = 1 + recMC(coinValueList, change-coinValueList[i]);
+                if (numCoins < minCoins){
+                    minCoins = numCoins;
+                }
+            }
+        }
+        return minCoins;
+    }
+
+    int main() {
+        vector<int> coinValueList = {1,5,10,25};
+        cout << recMC(coinValueList, 63)<<endl;
+        return 0;
+    }
+
+  .. tab:: Python
 
     def recMC(coinValueList,change):
        minCoins = change
@@ -103,13 +136,13 @@ where we satisfy the base case condition immediately.
     print(recMC([1,5,10,25],63))
 
 
-.. highlight:: python
+.. highlight:: cpp
     :linenothreshold: 500
 
-The trouble with the algorithm in :ref:`Listing 7 <lst_change1>` is that it is
+The trouble with the algorithm in :ref:`Listing 7 <lst_change1cpp>` is that it is
 extremely inefficient. In fact, it takes 67,716,925 recursive calls to
 find the optimal solution to the 4 coins, 63 cents problem! To
-understand the fatal flaw in our approach look at :ref:`Figure 5 <fig_c1ct>`,
+understand the fatal flaw in our approach look at :ref:`Figure 5 <fig_c1ctcpp>`,
 which illustrates a small fraction of the 377 function calls needed to
 find the optimal set of coins to make change for 26 cents.
 
@@ -125,7 +158,7 @@ the optimal number of coins for 15 cents itself takes 52 function calls.
 Clearly we are wasting a lot of time and effort recalculating old
 results.
 
-.. _fig_c1ct:
+.. _fig_c1ctcpp:
 
 .. figure:: Figures/callTree.png
    :align: center
@@ -140,40 +173,86 @@ A simple solution is to store the results for the minimum number of
 coins in a table when we find them. Then before we compute a new
 minimum, we first check the table to see if a result is already known.
 If there is already a result in the table, we use the value from the
-table rather than recomputing. :ref:`ActiveCode 1 <lst_change2>` shows a modified
+table rather than recomputing. :ref:`ActiveCode 1 <lst_change2cpp>` shows a modified
 algorithm to incorporate our table lookup scheme.
 
+.. tabbed:: change_this
 
-.. activecode:: lst_change2
-    :caption: Recursively Counting Coins with Table Lookup
-    :nocodelens:
+  .. tab:: C++
 
-    def recDC(coinValueList,change,knownResults):
-       minCoins = change
-       if change in coinValueList:   
-          knownResults[change] = 1
-          return 1
-       elif knownResults[change] > 0:
-          return knownResults[change]
-       else:
-           for i in [c for c in coinValueList if c <= change]:
-             numCoins = 1 + recDC(coinValueList, change-i, 
-                                  knownResults)
-             if numCoins < minCoins:
-                minCoins = numCoins
-                knownResults[change] = minCoins
-       return minCoins
+    .. activecode:: lst_change2cpp
+      :caption: Title for the C++ Window
+      :language: cpp
 
-    print(recDC([1,5,10,25],63,[0]*64))
+      #include <iostream>
+      #include <vector>
+      using namespace std;
 
-Notice that in line 6 we have added a test to see if our table
+      int recDC(vector<int> coinValueList, int change, vector<int>   knownResults){
+          int minCoins, i, c, numCoins;
+          minCoins = change;
+
+          for (int i = 0; i< coinValueList.size(); i++){
+              if (coinValueList[i] == change){
+                  knownResults[change] = 1;
+                  return 1;
+              }
+              else if(knownResults[change] > 0){
+                  return knownResults[change];
+              }
+          }
+          for (int y=0; y<coinValueList.size(); y++){
+              if (coinValueList[y] <= change){
+                  numCoins = 1 + recDC(coinValueList, change -   coinValueList[y], knownResults);
+                  if (numCoins < minCoins){
+                      minCoins = numCoins;
+                      knownResults[change] = minCoins;
+                  }
+              }
+          }
+          return minCoins;
+      }
+
+      int main(){
+          vector<int> coinValueList = {1,5,10,25};
+          int change = 63;
+          vector<int> knownResults(64, 0);
+          cout<<recDC(coinValueList,change,knownResults)<<endl;
+          return 0;
+      }
+
+  .. tab:: Python
+
+    .. activecode:: lst_change2py
+      :caption: Recursively Counting Coins with Table Lookup
+      :nocodelens:
+
+      def recDC(coinValueList,change,knownResults):
+          minCoins = change
+          if change in coinValueList:
+              knownResults[change] = 1
+              return 1
+          elif knownResults[change] > 0:
+              return knownResults[change]
+          else:
+              for i in [c for c in coinValueList if c <= change]:
+                  numCoins = 1 + recDC(coinValueList, change-i,
+                                    knownResults)
+                  if numCoins < minCoins:
+                      minCoins = numCoins
+                      knownResults[change] = minCoins
+          return minCoins
+
+      print(recDC([1,5,10,25],63,[0]*64))
+
+Notice that in line 15 we have added a test to see if our table
 contains the minimum number of coins for a certain amount of change. If
 it does not, we compute the minimum recursively and store the computed
 minimum in the table. Using this modified algorithm reduces the number
 of recursive calls we need to make for the four coin, 63 cent problem to
 221 calls!
 
-Although the algorithm in :ref:`AcitveCode 1 <lst_change2>` is correct, it looks and
+Although the algorithm in :ref:`AcitveCode 1 <lst_change2cpp>` is correct, it looks and
 feels like a bit of a hack.  Also, if we look at the ``knownResults`` lists
 we can see that there are some holes in the table. In fact the term for
 what we have done is not dynamic programming but rather we have improved
@@ -188,7 +267,7 @@ of the algorithm we already know the minimum number of coins needed to
 make change for any smaller amount.
 
 Let’s look at how we would fill in a table of minimum coins to use in
-making change for 11 cents. :ref:`Figure 4 <fig_dpcoins>` illustrates the
+making change for 11 cents. :ref:`Figure 4 <fig_dpcoinscpp>` illustrates the
 process. We start with one cent. The only solution possible is one coin
 (a penny). The next row shows the minimum for one cent and two cents.
 Again, the only solution is two pennies. The fifth row is where things
@@ -198,7 +277,7 @@ that the number of coins needed to make change for four cents is four,
 plus one more penny to make five, equals five coins. Or we can look at
 zero cents plus one more nickel to make five cents equals 1 coin. Since
 the minimum of one and five is one we store 1 in the table. Fast forward
-again to the end of the table and consider 11 cents. :ref:`Figure 5 <fig_eleven>`
+again to the end of the table and consider 11 cents. :ref:`Figure 5 <fig_elevencpp>`
 shows the three options that we have to consider:
 
 #. A penny plus the minimum number of coins to make change for
@@ -213,15 +292,15 @@ shows the three options that we have to consider:
 Either option 1 or 3 will give us a total of two coins which is the
 minimum number of coins for 11 cents.
 
-.. _fig_dpcoins:
+.. _fig_dpcoinscpp:
 
 .. figure:: Figures/changeTable.png
    :align: center
    :alt: image
-       
+
    Figure 4: Minimum Number of Coins Needed to Make Change
 
-.. _fig_eleven:
+.. _fig_elevencpp:
 
 .. figure:: Figures/elevenCents.png
    :align: center
@@ -229,14 +308,14 @@ minimum number of coins for 11 cents.
 
    Figure 5: Three Options to Consider for the Minimum Number of Coins for Eleven Cents
 
-:ref:`Listing 8 <lst_dpchange>` is a dynamic programming algorithm to solve our
+:ref:`Listing 8 <lst_dpchangecpp>` is a dynamic programming algorithm to solve our
 change-making problem. ``dpMakeChange`` takes three parameters: a list
 of valid coin values, the amount of change we want to make, and a list
 of the minimum number of coins needed to make each value. When the
 function is done ``minCoins`` will contain the solution for all values
 from 0 to the value of ``change``.
 
-.. _lst_dpchange:
+.. _lst_dpchangecpp:
 
 **Listing 8**
 
@@ -251,6 +330,38 @@ from 0 to the value of ``change``.
           minCoins[cents] = coinCount
        return minCoins[change]
 
+--------------------------------------------------------------------------
+       #include <iostream>
+       #include <vector>
+       using namespace std;
+
+       int dpMakeChange(vector<int> coinValueList, int change,vector<int> minCoins){
+           for (int i = 0; i < change+1; i++){
+               int coinCount = i;
+               // cout << coinCount<<endl;
+               for (int j=0; j<coinValueList.size(); j++){
+                 // cout << coinValueList[j] <<" "<< i << endl;
+                     if (coinValueList[j] >= i){
+                       cout << coinValueList[j] <<" "<< i << endl;
+                         if (minCoins[i-j] + 1 > coinCount){
+                             coinCount = minCoins[i-j]+1;
+                             cout << coinValueList[j] <<" "<< i << endl;
+                         }
+                     }
+               }
+               minCoins[i] = coinCount;
+           }
+           return minCoins[change];
+       }
+
+       int main(){
+           vector<int> coinValueList = {1,5,10,25};
+           int change = 63;
+           vector<int> minCoins;
+           cout<<dpMakeChange(coinValueList,change,minCoins)<<endl;
+           return 0;
+       }
+-------------------------------------------------------------------------
 Note that ``dpMakeChange`` is not a recursive function, even though we
 started with a recursive solution to this problem. It is important to
 realize that just because you can write a recursive solution to a
@@ -269,9 +380,9 @@ for each entry in the ``minCoins`` table. If we know the last coin
 added, we can simply subtract the value of the coin to find a previous
 entry in the table that tells us the last coin we added to make that
 amount. We can keep tracing back through the table until we get to the
-beginning. 
+beginning.
 
-:ref:`ActiveCode 2 <lst_dpremember>` shows the ``dpMakeChange`` algorithm
+:ref:`ActiveCode 2 <lst_dpremembercpp>` shows the ``dpMakeChange`` algorithm
 modified to keep track of the coins used, along with a function
 ``printCoins`` that walks backward through the table to print out the
 value of each coin used.
@@ -298,7 +409,7 @@ array also contains 21, giving us the three 21 cent pieces.
        for cents in range(change+1):
           coinCount = cents
           newCoin = 1
-          for j in [c for c in coinValueList if c <= cents]:  
+          for j in [c for c in coinValueList if c <= cents]:
                 if minCoins[cents-j] + 1 < coinCount:
                    coinCount = minCoins[cents-j]+1
                    newCoin = j
@@ -318,16 +429,68 @@ array also contains 21, giving us the three 21 cent pieces.
         clist = [1,5,10,21,25]
         coinsUsed = [0]*(amnt+1)
         coinCount = [0]*(amnt+1)
-        
+
         print("Making change for",amnt,"requires")
         print(dpMakeChange(clist,amnt,coinCount,coinsUsed),"coins")
         print("They are:")
         printCoins(coinsUsed,amnt)
         print("The used list is as follows:")
         print(coinsUsed)
-        
+
     main()
-        
+-------------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+using namespace std;
 
+int dpMakeChange(vector<int> coinValueList, int change, vector<int> minCoins, vector<int> coinsUsed){
+    for (int cents = 0; cents < change+1; cents++){
+        int coinCount = cents;
+        int newCoin = 1;
+        cout << "a"<< endl;
+        for (int c : coinValueList){
+            cout << "b"<< endl;
+            if (c <= cents){
+                cout << "c"<< endl;
+                if (minCoins[cents-j] + 1 < coinCount){
+                    coinCount = minCoins[cents-j]+1;
+                    newCoin = j;
+                //   cout << coinValueList[j] <<" "<< cents << endl;
+                }
+            }
+            else {
+                cout << "d"<< endl;
+            }
+        }
+        minCoins[cents] = coinCount;
+        coinsUsed[cents] = newCoin;
+    }
+    return minCoins[change];
+}
 
+int printCoins(vector<int> coinsUsed, int change){
+    int coin = change;
+    while (coin > 0){
+        int thisCoin = coinsUsed[coin];
+        cout << thisCoin << endl;
+        coin = coin - thisCoin;
+    }
+}
 
+int main(){
+    vector<int> clist = {1,5,10,21,25};
+    int amnt = 63;
+    vector<int> minCoins;
+
+    vector<int> coinsUsed(amnt+1, 0);
+    vector<int> coinCount(amnt+1, 0);
+
+    cout<<"Making change for " << amnt << " requires" << endl;
+    cout<<dpMakeChange(clist,amnt,minCoins,coinsUsed)<< " coins" << endl;
+    cout << "They are: " << endl;
+    printCoins(coinsUsed,amnt);
+    cout << "The used list is as follows: " << endl;
+    // cout << coinsUsed << endl;
+    return 0;
+}
+-------------------------------------------------------------------------
