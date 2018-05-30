@@ -62,7 +62,7 @@ this case, we need only four more shifts to complete the process.
 
 
 We said earlier that the way in which the increments are chosen is the
-unique feature of the shell sort. The function shown in :ref:`ActiveCode 1 <lst_shell>`
+unique feature of the shell sort. The function shown in :ref:`ActiveCode 1 <lst_shell_cpp>`
 uses a different set of increments. In this case, we begin with
 :math:`\frac {n}{2}` sublists. On the next pass,
 :math:`\frac {n}{4}` sublists are sorted. Eventually, a single list is
@@ -73,41 +73,102 @@ The following invocation of the ``shellSort`` function shows the
 partially sorted lists after each increment, with the final sort being
 an insertion sort with an increment of one.
 
-.. _lst_shell:
+.. tabbed:: _lst_shell:
 
-.. activecode:: lst_shellSort
-    :caption: Shell Sort
+  .. tab:: C++
 
-    def shellSort(alist):
-        sublistcount = len(alist)//2
-        while sublistcount > 0:
+    .. activecode:: lst_shell_cpp
+      :caption: The Shell Sort
+      :language: cpp
 
-          for startposition in range(sublistcount):
-            gapInsertionSort(alist,startposition,sublistcount)
+      #include <iostream>
+      #include <vector>
+      using namespace std;
 
-          print("After increments of size",sublistcount,
-                                       "The list is",alist)
+      // print the sorted list
+      void printl(vector<int> alist) {
+          for (int i : alist) {
+              cout << i << " ";
+          }
 
-          sublistcount = sublistcount // 2
+          cout << endl;
+      }
 
-    def gapInsertionSort(alist,start,gap):
-        for i in range(start+gap,len(alist),gap):
+      vector<int> gapInsertionSort(vector<int> alist, int start, int gap) {
+          for (int i = start + gap; i < alist.size(); i += gap) {
+              int currentvalue = alist[i];
+              int position = i;
 
-            currentvalue = alist[i]
-            position = i
+              while (position >= gap && alist[position - gap] > currentvalue) {
+                  alist[position] = alist[position - gap];
+                  position -= gap;
+              }
+              alist[position] = currentvalue;
+          }
+          return alist;
+      }
 
-            while position>=gap and alist[position-gap]>currentvalue:
-                alist[position]=alist[position-gap]
-                position = position-gap
+      vector<int> shellSort(vector<int> alist) {
+          int sublistcount = alist.size() / 2;
+          while (sublistcount > 0) {
+              for (int startposition = 0; startposition < sublistcount;
+                   startposition++) {
+                  alist = gapInsertionSort(alist, startposition, sublistcount);
+              }
+              cout << "After increments of size " << sublistcount
+                   << " The list is: " << endl;
+              printl(alist);
 
-            alist[position]=currentvalue
+              sublistcount = sublistcount / 2;
+          }
 
-    def main():
-        alist = [54,26,93,17,77,31,44,55,20]
-        shellSort(alist)
-        print(alist)
+          return alist;
+      }
 
-    main()
+      int main() {
+          vector<int> alist{54, 26, 93, 17, 77, 31, 44, 55, 20};
+          alist = shellSort(alist);
+
+          printl(alist);
+
+          return 0;
+      }
+
+  .. tab:: Python
+
+    .. activecode:: lst_shellSort
+        :caption: Shell Sort
+
+        def shellSort(alist):
+            sublistcount = len(alist)//2
+            while sublistcount > 0:
+
+              for startposition in range(sublistcount):
+                gapInsertionSort(alist,startposition,sublistcount)
+
+              print("After increments of size",sublistcount,
+                                           "The list is",alist)
+
+              sublistcount = sublistcount // 2
+
+        def gapInsertionSort(alist,start,gap):
+            for i in range(start+gap,len(alist),gap):
+
+                currentvalue = alist[i]
+                position = i
+
+                while position>=gap and alist[position-gap]>currentvalue:
+                    alist[position]=alist[position-gap]
+                    position = position-gap
+
+                alist[position]=currentvalue
+
+        def main():
+            alist = [54,26,93,17,77,31,44,55,20]
+            shellSort(alist)
+            print(alist)
+
+        main()
 
 
 
@@ -166,7 +227,7 @@ previous one. This makes the final pass very efficient.
 Although a general analysis of the shell sort is well beyond the scope
 of this text, we can say that it tends to fall somewhere between
 :math:`O(n)` and :math:`O(n^{2})`, based on the behavior described
-above. For the increments shown in :ref:`Listing 5 <lst_shell>`, the performance is
+above. For the increments shown in :ref:`Listing 5 <lst_shell_cpp>`, the performance is
 :math:`O(n^{2})`. By changing the increment, for example using
 :math:`2^{k}-1` (1, 3, 7, 15, 31, and so on), a shell sort can perform
 at :math:`O(n^{\frac {3}{2}})`.
