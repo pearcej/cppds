@@ -17,43 +17,83 @@ final item must be in place after the :math:`(n-1)` st pass.
 :ref:`Figure 3 <fig_selectionsort>` shows the entire sorting process. On each pass,
 the largest remaining item is selected and then placed in its proper
 location. The first pass places 93, the second pass places 77, the third
-places 55, and so on. The function is shown in
-:ref:`ActiveCode 1 <lst_selectionsortcode>`.
+places 55, and so on. The function is shown in :ref:`ActiveCode 1 <lst_selectionsortcode_cpp>` .
 
 .. _fig_selectionsort:
 
 .. figure:: Figures/selectionsortnew.png
    :align: center
 
-   
+
    Figure 3: ``selectionSort``
 
+.. tabbed:: lst_selection_sort
 
+  .. tab:: C++
 
-.. activecode:: lst_selectionsortcode
-    :caption: Selection Sort
+    .. activecode:: lst_selectionsortcode_cpp
+      :caption: The Selection Sort
+      :language: cpp
 
-    def selectionSort(alist):
-       for fillslot in range(len(alist)-1,0,-1):
-           positionOfMax=0
-           for location in range(1,fillslot+1):
-               if alist[location]>alist[positionOfMax]:
-                   positionOfMax = location
+      #include <iostream>
+      #include <vector>
+      using namespace std;
 
-           temp = alist[fillslot]
-           alist[fillslot] = alist[positionOfMax]
-           alist[positionOfMax] = temp
+      vector<int> selectionSort(vector<int> alist) {
+          for (int fillslot = (alist.size() - 1); fillslot >= 0; fillslot--) {
+              int positionOfMax = 0;
+              for (int location = 1; location < fillslot + 1; location++) {
+                  if (alist[location] > alist[positionOfMax]) {
+                      positionOfMax = location;
+                  }
+              }
 
-    alist = [54,26,93,17,77,31,44,55,20]
-    selectionSort(alist)
-    print(alist)
+              int temp = alist[fillslot];
+              alist[fillslot] = alist[positionOfMax];
+              alist[positionOfMax] = temp;
+          }
+          return alist;
+      }
+
+      int main() {
+          vector<int> alist{54, 26, 93, 17, 77, 31, 44, 55, 20};
+          alist = selectionSort(alist);
+
+          // print the list
+          for (int i = 0; i < alist.size(); i++) {
+              cout << alist[i] << " ";
+          }
+          cout << endl;
+
+          return 0;
+      }
+
+  .. tab:: Python
+
+    .. activecode:: lst_selectionsortcode
+        :caption: Selection Sort
+
+        def selectionSort(alist):
+           for fillslot in range(len(alist)-1,0,-1):
+               positionOfMax=0
+               for location in range(1,fillslot+1):
+                   if alist[location]>alist[positionOfMax]:
+                       positionOfMax = location
+
+               temp = alist[fillslot]
+               alist[fillslot] = alist[positionOfMax]
+               alist[positionOfMax] = temp
+
+        alist = [54,26,93,17,77,31,44,55,20]
+        selectionSort(alist)
+        print(alist)
 
 .. animation:: selection_anim
    :modelfile: sortmodels.js
    :viewerfile: sortviewers.js
    :model: SelectionSortModel
    :viewer: BarViewer
-   
+
 
 .. For more detail, CodeLens 3 allows you to step through the algorithm.
 ..
@@ -99,5 +139,3 @@ the bubble sort makes 20 exchanges, while the selection sort makes only
 
       Suppose you have the following list of numbers to sort:
       [11, 7, 12, 14, 19, 1, 6, 18, 8, 20] which list represents the partially sorted list after three complete passes of selection sort?
-
-
