@@ -30,7 +30,7 @@ There are :math:`n-1` items left to sort, meaning that there will be
 :math:`n-2` pairs. Since each pass places the next largest value in
 place, the total number of passes necessary will be :math:`n-1`. After
 completing the :math:`n-1` passes, the smallest item must be in the
-correct position with no further processing required. :ref:`ActiveCode 1 <lst_bubble>`
+correct position with no further processing required. :ref:`ActiveCode 1 <lst_bubble_cpp>`
 shows the complete ``bubbleSort`` function. It takes the array as a
 parameter, and modifies it by swapping items as necessary.
 
@@ -46,7 +46,7 @@ additional memory location). A code fragment such as
 will exchange the `ith` and `jth` items in the array. Without the
 temporary storage, one of the values would be overwritten.
 
-Lines 5-7 in :ref:`ActiveCode 1 <lst_bubble>` perform the exchange of the :math:`i` and
+Lines 5-7 in :ref:`ActiveCode 1 <lst_bubble_cpp>` perform the exchange of the :math:`i` and
 :math:`(i+1)th` items using the three–step procedure described
 earlier. Note that we could also have used the simultaneous assignment
 to swap the items.
@@ -179,7 +179,7 @@ know that the array must be sorted. A bubble sort can be modified to stop
 early if it finds that the array has become sorted. This means that for
 arrays that require just a few passes, a bubble sort may have an
 advantage in that it will recognize the sorted array and stop.
-:ref:`ActiveCode 2 <lst_shortbubble>` shows this modification, which is often referred
+:ref:`ActiveCode 2 <lst_shortbubbles_cpp>` shows this modification, which is often referred
 to as the **short bubble**.
 
 .. tabbed:: lst_shortbubble
