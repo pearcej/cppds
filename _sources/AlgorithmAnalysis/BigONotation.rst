@@ -81,14 +81,14 @@ these distinctions so they are not misled by one particular case.
 
 
 A number of very common order of magnitude functions will come up over
-and over as you study algorithms. These are shown in :ref:`Table 1 <tbl_fntable>`. In
+and over as you study algorithms. These are shown in :ref:`Table 1 <tbl_fntablecpp>`. In
 order to decide which of these functions is the dominant part of any
 :math:`T(n)` function, we must see how they compare with one another
 as *n* gets large.
 
-.. _tbl_fntable:
+.. _tbl_fntablecpp:
 
-.. table:: **Table 1: Common Functions for Big-O**
+.. table:: **Table 1: Common Big-O Functions**
 
     ================= =============
              **f(n)**      **Name**
@@ -103,18 +103,18 @@ as *n* gets large.
     ================= =============
 
 
-:ref:`Figure 1 <fig_graphfigure>` shows graphs of the common
+:ref:`Figure 1 <fig_graphfigurecpp>` shows graphs of the common
 functions from :ref:`Table 1 <tbl_fntable>`. Notice that when *n* is small, the
 functions are not very well defined with respect to one another. It is
 hard to tell which is dominant. However, as *n* grows, there is a
 definite relationship and it is easy to see how they compare with one
 another.
 
-.. _fig_graphfigure:
+.. _fig_graphfigurecpp:
 
 .. figure:: Figures/newplot.png
 
-   Figure 1: Plot of Common Big-O Functions
+   Figure 1: Common Big-O Functions
 
 
 As a final example, suppose that we have the fragment of C++ code
@@ -130,7 +130,7 @@ analyze performance.
 
   .. tab:: C++
 
-    .. activecode:: active3
+    .. activecode:: active3cpp
       :caption: C++
       :language: cpp
 
@@ -157,7 +157,7 @@ analyze performance.
 
   .. tab:: Python
 
-    .. activecode:: active3
+    .. activecode:: active3py
        :caption: Python
 
         a=5
@@ -189,14 +189,14 @@ therefore this fragment of code is :math:`O(n^{2})`. Note that all of
 the other terms as well as the coefficient on the dominant term can be
 ignored as *n* grows larger.
 
-.. _fig_graphfigure2:
+.. _fig_graphfigure2cpp:
 
 .. figure:: Figures/newplot2.png
 
-   Figure 2: Comparing :math:`T(n)` with Common Big-O Functions
+   Figure 2: Comparing :math:`T(n)` with Big-O Functions
 
 
-:ref:`Figure 2 <fig_graphfigure2>` shows a few of the common Big-O functions as they
+:ref:`Figure 2 <fig_graphfigure2cpp>` shows a few of the common Big-O functions as they
 compare with the :math:`T(n)` function discussed above. Note that
 :math:`T(n)` is initially larger than the cubic function. However, as
 n grows, the cubic function quickly overtakes :math:`T(n)`. It is easy
