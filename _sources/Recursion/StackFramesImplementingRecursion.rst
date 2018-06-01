@@ -9,7 +9,7 @@ Suppose that instead of concatenating the result of the recursive call
 to ``toStr`` with the string from ``convertString``, we modified our
 algorithm to push the strings onto a stack instead of making the recursive
 call. The code for this modified algorithm is shown in
-:ref:`ActiveCode 1 <lst_recstack>`.
+:ref:`ActiveCode 1 <lst_recstackcpp>`.
 
 
 .. tabbed:: change_this
@@ -107,7 +107,7 @@ Notice that the call to ``toStr(2//2,2)`` leaves a return value of
 ``"1"`` on the stack. This return value is then used in place of the
 function call (``toStr(1,2)``) in the expression ``"1" + convertString[2%2]``, which will leave the string ``"10"`` on the top of
 the stack. In this way, the C++ call stack takes the place of the
-stack we used explicitly in :ref:`Listing 4 <lst_recstack>`. In our list summing
+stack we used explicitly in :ref:`Listing 4 <lst_recstackcpp>`. In our list summing
 example, you can think of the return value on the stack taking the place
 of an accumulator variable.
 

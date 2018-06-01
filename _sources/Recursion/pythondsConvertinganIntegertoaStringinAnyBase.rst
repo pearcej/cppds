@@ -62,7 +62,7 @@ right side of the diagram.
 
    Figure 3: Converting an Integer to a String in Base 10
 
-:ref:`ActiveCode 1 <lst_rectostr>` shows the Python code that implements the algorithm
+:ref:`ActiveCode 1 <lst_rectostrcpp>` shows the Python code that implements the algorithm
 outlined above for any base between 2 and 16.
 
 .. tabbed:: Int To String

@@ -87,53 +87,61 @@ where we satisfy the base case condition immediately.
 
 **Listing 7**
 
-::
 .. tabbed:: coincpp
 
-  .. tab:: C++
+    .. tab:: C++
 
-    #include <iostream>
-    #include <vector>
-    using namespace std;
+        .. activecode:: lst_change11cpp
+           :caption: Recursively Counting Coins with Table Lookup C++
+           :language: cpp
 
-    int recMC(vector<int> coinValueList, int change){
-        int minCoins = change;
-        for (int i = 0; i < coinValueList.size(); i++){
-            if (coinValueList[i] == change){
-                return 1;
-            }
-        }
-        for (int i = 0; i < coinValueList.size(); i++){
-            if (coinValueList[i] <= change){
-                int numCoins = 1 + recMC(coinValueList, change-coinValueList[i]);
-                if (numCoins < minCoins){
-                    minCoins = numCoins;
-                }
-            }
-        }
-        return minCoins;
-    }
+           #include <iostream>
+           #include <vector>
+           using namespace std;
 
-    int main() {
-        vector<int> coinValueList = {1,5,10,25};
-        cout << recMC(coinValueList, 63)<<endl;
-        return 0;
-    }
+           int recMC(vector<int> coinValueList, int change){
+               int minCoins = change;
+               for (int i = 0; i < coinValueList.size(); i++){
+                   if (coinValueList[i] == change){
+                       return 1;
+                   }
+               }
+               for (int i = 0; i < coinValueList.size(); i++){
+                   if (coinValueList[i] <= change){
+                       int numCoins = 1 + recMC(coinValueList, change-coinValueList[i]);
+                       if (numCoins < minCoins){
+                           minCoins = numCoins;
+                       }
+                   }
+               }
+               return minCoins;
+           }
 
-  .. tab:: Python
+           int main() {
+               vector<int> coinValueList = {1,5,10,25};
+               cout << recMC(coinValueList, 63)<<endl;
+               return 0;
+           }
 
-    def recMC(coinValueList,change):
-       minCoins = change
-       if change in coinValueList:
-         return 1
-       else:
-          for i in [c for c in coinValueList if c <= change]:
-             numCoins = 1 + recMC(coinValueList,change-i)
-             if numCoins < minCoins:
-                minCoins = numCoins
-       return minCoins
+    .. tab:: Python
 
-    print(recMC([1,5,10,25],63))
+        .. activecode:: lst_change12cpp
+           :caption: Recursively Counting Coins with Table Lookup Python
+           :language: python
+
+           def recMC(coinValueList,change):
+               minCoins = change
+               if change in coinValueList:
+                   return 1
+               else:
+                   for i in [c for c in coinValueList if c <= change]:
+                       numCoins = 1 + recMC(coinValueList,change-i)
+                       if numCoins < minCoins:
+                           minCoins = numCoins
+
+               return minCoins
+
+           print(recMC([1,5,10,25],63))
 
 
 .. highlight:: cpp
@@ -176,74 +184,74 @@ If there is already a result in the table, we use the value from the
 table rather than recomputing. :ref:`ActiveCode 1 <lst_change2cpp>` shows a modified
 algorithm to incorporate our table lookup scheme.
 
-.. tabbed:: change_this
+.. tabbed:: coin2cpp
 
-  .. tab:: C++
+    .. tab:: C++
 
-    .. activecode:: lst_change2cpp
-      :caption: Title for the C++ Window
-      :language: cpp
+        .. activecode:: lst_change2cpp
+          :caption: Recursively Counting Coins with Table Lookup C++
+          :language: cpp
 
-      #include <iostream>
-      #include <vector>
-      using namespace std;
+          #include <iostream>
+          #include <vector>
+          using namespace std;
 
-      int recDC(vector<int> coinValueList, int change, vector<int>   knownResults){
-          int minCoins, i, c, numCoins;
-          minCoins = change;
+          int recDC(vector<int> coinValueList, int change, vector<int>   knownResults){
+              int minCoins, i, c, numCoins;
+              minCoins = change;
 
-          for (int i = 0; i< coinValueList.size(); i++){
-              if (coinValueList[i] == change){
-                  knownResults[change] = 1;
-                  return 1;
-              }
-              else if(knownResults[change] > 0){
-                  return knownResults[change];
-              }
-          }
-          for (int y=0; y<coinValueList.size(); y++){
-              if (coinValueList[y] <= change){
-                  numCoins = 1 + recDC(coinValueList, change -   coinValueList[y], knownResults);
-                  if (numCoins < minCoins){
-                      minCoins = numCoins;
-                      knownResults[change] = minCoins;
+              for (int i = 0; i< coinValueList.size(); i++){
+                  if (coinValueList[i] == change){
+                      knownResults[change] = 1;
+                      return 1;
+                  }
+                  else if(knownResults[change] > 0){
+                      return knownResults[change];
                   }
               }
+              for (int y=0; y<coinValueList.size(); y++){
+                  if (coinValueList[y] <= change){
+                      numCoins = 1 + recDC(coinValueList, change -   coinValueList[y], knownResults);
+                      if (numCoins < minCoins){
+                          minCoins = numCoins;
+                          knownResults[change] = minCoins;
+                      }
+                  }
+              }
+              return minCoins;
           }
-          return minCoins;
-      }
 
-      int main(){
-          vector<int> coinValueList = {1,5,10,25};
-          int change = 63;
-          vector<int> knownResults(64, 0);
-          cout<<recDC(coinValueList,change,knownResults)<<endl;
-          return 0;
-      }
+          int main(){
+              vector<int> coinValueList = {1,5,10,25};
+              int change = 63;
+              vector<int> knownResults(64, 0);
+              cout<<recDC(coinValueList,change,knownResults)<<endl;
+              return 0;
+          }
 
-  .. tab:: Python
+    .. tab:: Python
 
-    .. activecode:: lst_change2py
-      :caption: Recursively Counting Coins with Table Lookup
-      :nocodelens:
+        .. activecode:: lst_change2py
+          :caption: Recursively Counting Coins with Table Lookup Python
+          :nocodelens:
 
-      def recDC(coinValueList,change,knownResults):
-          minCoins = change
-          if change in coinValueList:
-              knownResults[change] = 1
-              return 1
-          elif knownResults[change] > 0:
-              return knownResults[change]
-          else:
-              for i in [c for c in coinValueList if c <= change]:
-                  numCoins = 1 + recDC(coinValueList, change-i,
-                                    knownResults)
-                  if numCoins < minCoins:
-                      minCoins = numCoins
-                      knownResults[change] = minCoins
-          return minCoins
+          def recDC(coinValueList,change,knownResults):
+              minCoins = change
+              if change in coinValueList:
+                  knownResults[change] = 1
+                  return 1
+              elif knownResults[change] > 0:
+                  return knownResults[change]
+              else:
+                  for i in [c for c in coinValueList if c <= change]:
+                      numCoins = 1 + recDC(coinValueList, change-i,
+                                        knownResults)
+                      if numCoins < minCoins:
+                          minCoins = numCoins
+                          knownResults[change] = minCoins
+              return minCoins
 
-      print(recDC([1,5,10,25],63,[0]*64))
+          print(recDC([1,5,10,25],63,[0]*64))
 
 Notice that in line 15 we have added a test to see if our table
 contains the minimum number of coins for a certain amount of change. If
@@ -319,49 +327,59 @@ from 0 to the value of ``change``.
 
 **Listing 8**
 
-::
+.. tabbed:: coin3cpp
 
-    def dpMakeChange(coinValueList,change,minCoins):
-       for cents in range(change+1):
-          coinCount = cents
-          for j in [c for c in coinValueList if c <= cents]:
-                if minCoins[cents-j] + 1 < coinCount:
-                   coinCount = minCoins[cents-j]+1
-          minCoins[cents] = coinCount
-       return minCoins[change]
+    .. tab:: C++
 
---------------------------------------------------------------------------
-       #include <iostream>
-       #include <vector>
-       using namespace std;
+        .. activecode:: lst_change13cpp
+           :caption: Recursively Counting Coins with Table Lookup C++
+           :language: cpp
 
-       int dpMakeChange(vector<int> coinValueList, int change,vector<int> minCoins){
-           for (int i = 0; i < change+1; i++){
-               int coinCount = i;
-               // cout << coinCount<<endl;
-               for (int j=0; j<coinValueList.size(); j++){
-                 // cout << coinValueList[j] <<" "<< i << endl;
-                     if (coinValueList[j] >= i){
-                       cout << coinValueList[j] <<" "<< i << endl;
-                         if (minCoins[i-j] + 1 > coinCount){
-                             coinCount = minCoins[i-j]+1;
-                             cout << coinValueList[j] <<" "<< i << endl;
-                         }
-                     }
-               }
-               minCoins[i] = coinCount;
-           }
-           return minCoins[change];
-       }
+            #include <iostream>
+            #include <vector>
+            using namespace std;
 
-       int main(){
-           vector<int> coinValueList = {1,5,10,25};
-           int change = 63;
-           vector<int> minCoins;
-           cout<<dpMakeChange(coinValueList,change,minCoins)<<endl;
-           return 0;
-       }
--------------------------------------------------------------------------
+            int dpMakeChange(vector<int> coinValueList, int change, vector<int> minCoins){
+                for (int cents = 0 ; cents < change+1; cents++){
+                    int coinCount = cents;
+                    for (int j : coinValueList){
+                        if (j <= cents){
+                            if (minCoins[cents-j] + 1 < coinCount){
+                                coinCount = minCoins[cents-j]+1;
+                            }
+                        }
+                    }
+                    minCoins[cents] = coinCount;
+                }
+                return minCoins[change];
+            }
+
+            int main(){
+                vector<int> coinValueList = {1,5,10,25};
+                int change = 63;
+                vector<int> minCoins(64, 0);
+                cout << dpMakeChange(coinValueList, change, minCoins) << endl;
+                return 0;
+            }
+
+    .. tab:: Python
+
+        .. activecode:: lst_change14cpp
+           :caption: Recursively Counting Coins with Table Lookup Python
+           :language: python
+
+            def dpMakeChange(coinValueList,change,minCoins):
+                for cents in range(change+1):
+                    coinCount = cents
+                    for j in [c for c in coinValueList if c <= cents]:
+                        if minCoins[cents-j] + 1 < coinCount:
+                            coinCount = minCoins[cents-j]+1
+                    minCoins[cents] = coinCount
+
+                return minCoins[change]
+
+            print([1,5,10,25], 63, [0]*64)
+
 Note that ``dpMakeChange`` is not a recursive function, even though we
 started with a recursive solution to this problem. It is important to
 realize that just because you can write a recursive solution to a
@@ -400,97 +418,121 @@ Then we take :math:`63 - 21 = 42` and look at the 42nd element of the
 list. Once again we find a 21 stored there. Finally, element 21 of the
 array also contains 21, giving us the three 21 cent pieces.
 
+.. tabbed:: coin4cpp
 
-.. activecode:: lst_dpremember
-    :caption: Complete Solution to the Change Problem
-    :nocodelens:
+    .. tab:: C++
 
-    def dpMakeChange(coinValueList,change,minCoins,coinsUsed):
-       for cents in range(change+1):
-          coinCount = cents
-          newCoin = 1
-          for j in [c for c in coinValueList if c <= cents]:
-                if minCoins[cents-j] + 1 < coinCount:
-                   coinCount = minCoins[cents-j]+1
-                   newCoin = j
-          minCoins[cents] = coinCount
-          coinsUsed[cents] = newCoin
-       return minCoins[change]
+        .. activecode:: lst_dpremembercpp
+            :caption: Complete Solution to the Change Problem C++
+            :language: cpp
 
-    def printCoins(coinsUsed,change):
-       coin = change
-       while coin > 0:
-          thisCoin = coinsUsed[coin]
-          print(thisCoin)
-          coin = coin - thisCoin
+            #include <iostream>
+            #include <vector>
+            using namespace std;
 
-    def main():
-        amnt = 63
-        clist = [1,5,10,21,25]
-        coinsUsed = [0]*(amnt+1)
-        coinCount = [0]*(amnt+1)
+            int dpMakeChange(vector<int> coinValueList, int change, vector<int> minCoins,   vector<int> coinsUsed){
+                for (int cents = 0 ; cents < change+1; cents++){
+                    int coinCount = cents;
+                    int newCoin = 1;
+                    for (int j : coinValueList){
+                        if (j <= cents){
+                            if (minCoins[cents-j] + 1 < coinCount){
+                                coinCount = minCoins[cents-j]+1;
+                                newCoin = j;
+                            }
+                        }
+                    }
+                    minCoins[cents] = coinCount;
+                    coinsUsed[cents] = newCoin;
+                }
+                return minCoins[change];
+            }
 
-        print("Making change for",amnt,"requires")
-        print(dpMakeChange(clist,amnt,coinCount,coinsUsed),"coins")
-        print("They are:")
-        printCoins(coinsUsed,amnt)
-        print("The used list is as follows:")
-        print(coinsUsed)
+            vector<int> dpMakeChange2(vector<int> coinValueList, int change, vector<int>   minCoins, vector<int> coinsUsed){
+                for (int cents = 0 ; cents < change+1; cents++){
+                    int coinCount = cents;
+                    int newCoin = 1;
+                    for (int j : coinValueList){
+                        if (j <= cents){
+                            if (minCoins[cents-j] + 1 < coinCount){
+                                coinCount = minCoins[cents-j]+1;
+                                newCoin = j;
+                            }
+                        }
+                    }
+                    minCoins[cents] = coinCount;
+                    coinsUsed[cents] = newCoin;
+                }
+                return coinsUsed;
+            }
 
-    main()
--------------------------------------------------------------------------
-#include <iostream>
-#include <vector>
-using namespace std;
-
-int dpMakeChange(vector<int> coinValueList, int change, vector<int> minCoins, vector<int> coinsUsed){
-    for (int cents = 0; cents < change+1; cents++){
-        int coinCount = cents;
-        int newCoin = 1;
-        cout << "a"<< endl;
-        for (int c : coinValueList){
-            cout << "b"<< endl;
-            if (c <= cents){
-                cout << "c"<< endl;
-                if (minCoins[cents-j] + 1 < coinCount){
-                    coinCount = minCoins[cents-j]+1;
-                    newCoin = j;
-                //   cout << coinValueList[j] <<" "<< cents << endl;
+            int printCoins(vector<int> coinsUsed, int change){
+                int coin = change;
+                while (coin > 0){
+                    int thisCoin = coinsUsed[coin];
+                    cout << thisCoin << endl;
+                    coin = coin - thisCoin;
                 }
             }
-            else {
-                cout << "d"<< endl;
+
+            int main(){
+                vector<int> clist = {1,5,10,21,25};
+                int amnt = 63;
+                vector<int> minCoins(amnt+1, 0);
+
+                vector<int> coinsUsed(amnt+1, 0);
+                vector<int> coinCount(amnt+1, 0);
+
+                cout<<"Making change for " << amnt << " requires" << endl;
+                cout<<dpMakeChange(clist,amnt,minCoins,coinsUsed)<< " coins" << endl;
+                cout << "They are: " << endl;
+                printCoins(dpMakeChange2(clist,amnt,minCoins,coinsUsed),amnt);
+                cout << "The used list is as follows: " << endl;
+                vector<int> coinsUsed2 = dpMakeChange2(clist,amnt,minCoins,coinsUsed);
+                cout << "[";
+                for (int i = 0; i<coinsUsed2.size(); i++){
+                    cout << coinsUsed2[i] << ", ";
+                }
+                cout << "]" << endl;
+                return 0;
             }
-        }
-        minCoins[cents] = coinCount;
-        coinsUsed[cents] = newCoin;
-    }
-    return minCoins[change];
-}
 
-int printCoins(vector<int> coinsUsed, int change){
-    int coin = change;
-    while (coin > 0){
-        int thisCoin = coinsUsed[coin];
-        cout << thisCoin << endl;
-        coin = coin - thisCoin;
-    }
-}
+    .. tab:: Python
 
-int main(){
-    vector<int> clist = {1,5,10,21,25};
-    int amnt = 63;
-    vector<int> minCoins;
+        .. activecode:: lst_dprememberpy
+            :caption: Complete Solution to the Change Problem Python
+            :nocodelens:
 
-    vector<int> coinsUsed(amnt+1, 0);
-    vector<int> coinCount(amnt+1, 0);
+            def dpMakeChange(coinValueList,change,minCoins,coinsUsed):
+               for cents in range(change+1):
+                  coinCount = cents
+                  newCoin = 1
+                  for j in [c for c in coinValueList if c <= cents]:
+                        if minCoins[cents-j] + 1 < coinCount:
+                           coinCount = minCoins[cents-j]+1
+                           newCoin = j
+                  minCoins[cents] = coinCount
+                  coinsUsed[cents] = newCoin
+               return minCoins[change]
 
-    cout<<"Making change for " << amnt << " requires" << endl;
-    cout<<dpMakeChange(clist,amnt,minCoins,coinsUsed)<< " coins" << endl;
-    cout << "They are: " << endl;
-    printCoins(coinsUsed,amnt);
-    cout << "The used list is as follows: " << endl;
-    // cout << coinsUsed << endl;
-    return 0;
-}
--------------------------------------------------------------------------
+            def printCoins(coinsUsed,change):
+               coin = change
+               while coin > 0:
+                  thisCoin = coinsUsed[coin]
+                  print(thisCoin)
+                  coin = coin - thisCoin
+
+            def main():
+                amnt = 63
+                clist = [1,5,10,21,25]
+                coinsUsed = [0]*(amnt+1)
+                coinCount = [0]*(amnt+1)
+
+                print("Making change for",amnt,"requires")
+                print(dpMakeChange(clist,amnt,coinCount,coinsUsed),"coins")
+                print("They are:")
+                printCoins(coinsUsed,amnt)
+                print("The used list is as follows:")
+                print(coinsUsed)
+
+            main()
