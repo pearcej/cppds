@@ -104,7 +104,7 @@ as *n* gets large.
 
 
 :ref:`Figure 1 <fig_graphfigurecpp>` shows graphs of the common
-functions from :ref:`Table 1 <tbl_fntable>`. Notice that when *n* is small, the
+functions from :ref:`Table 1 <tbl_fntablecpp>`. Notice that when *n* is small, the
 functions are not very well defined with respect to one another. It is
 hard to tell which is dominant. However, as *n* grows, there is a
 definite relationship and it is easy to see how they compare with one
