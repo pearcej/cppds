@@ -63,8 +63,8 @@ right-hand end of the string. The binary string is then returned.
 
   .. tab:: C++
 
-    .. activecode:: queue_1ac_cpp
-      :caption: Using the Queue methods from the STL in C++
+    .. activecode:: binconvert_1ac_cpp
+      :caption: Converts to Binary
       :language: cpp
 
       #include <iostream>
@@ -99,7 +99,7 @@ right-hand end of the string. The binary string is then returned.
 
   .. tab:: Python
 
-    .. activecode:: queue_1ac_py
+    .. activecode:: binconvert_py
        :caption: Converting Decimal to Binary
 
        from pythonds.basic.stack import Stack

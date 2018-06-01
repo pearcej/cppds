@@ -237,7 +237,7 @@ compute the sum of the first ``n`` integers without iterating.
 
   .. tab:: C++
 
-    .. activecode:: active3cpp
+    .. activecode:: active3_cpp
       :caption: Summation Without Iteration C++
       :language: cpp
 
@@ -261,7 +261,7 @@ compute the sum of the first ``n`` integers without iterating.
 
   .. tab:: Python
 
-    .. activecode:: active3py
+    .. activecode:: active3_py
        :caption: Summation Without Iteration Python
 
        def sumOfN3(n):
