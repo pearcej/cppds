@@ -3,7 +3,7 @@ vector..  Copyright (C)  Brad Miller, David Ranum
 
 
 Calculating the Sum of a Vector of Numbers
-----------------------------------------
+------------------------------------------
 
 We will begin our investigation with a simple problem that you already
 know how to solve without using recursion. Suppose that you want to

@@ -3,7 +3,7 @@
 
 
 Converting an Integer to a String in Any Base
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------------
 
 Suppose you want to convert an integer to a string in some base between
 binary and hexadecimal. For example, convert the integer 10 to its
@@ -138,7 +138,7 @@ discussion of stacks back in the previous chapter.
 
    Write a function that takes a string as a parameter and returns a new string that is the reverse of the old string.
 
-    .. actex:: recursion_sc_1
+    .. actex:: recursion_sc_1cpp
        :nocodelens:
 
        #include <iostream>
@@ -154,7 +154,7 @@ discussion of stacks back in the previous chapter.
        testEqual(reverse("follow"),"wollof");
        testEqual(reverse(""),"");
 
-    .. actex:: recursion_sc_1
+    .. actex:: recursion_sc_1py
        :nocodelens:
 
        from test import testEqual
@@ -179,7 +179,7 @@ discussion of stacks back in the previous chapter.
    * Wassamassaw -- a town in South Dakota
 
 
-    .. actex:: recursion_sc_2
+    .. actex:: recursion_sc_2cpp
        :nocodelens:
 
        #include <iostream>
@@ -202,7 +202,7 @@ discussion of stacks back in the previous chapter.
        testEqual(isPal(removeWhite("madam i'm adam")),true);
 
 
-    .. actex:: recursion_sc_2
+    .. actex:: recursion_sc_2py
        :nocodelens:
 
        from test import testEqual
