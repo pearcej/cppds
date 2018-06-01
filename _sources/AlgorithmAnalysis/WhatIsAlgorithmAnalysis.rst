@@ -22,7 +22,7 @@ programming language. There may be many programs for the same algorithm,
 depending on the programmer and the programming language being used.
 
 To explore this difference further, consider the function shown in
-:ref:`ActiveCode 1 <lst_sum1>`. This function solves a familiar problem, computing the
+:ref:`ActiveCode 1 <lst_sum11>`. This function solves a familiar problem, computing the
 sum of the first *n* integers. The algorithm uses the idea of an
 accumulator variable that is initialized to 0. The solution then
 iterates through the *n* integers, adding each to the accumulator.
