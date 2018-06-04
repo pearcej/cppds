@@ -87,15 +87,15 @@ an insertion sort with an increment of one.
 
       // print the sorted list
       void printl(vector<int> alist) {
-          for (int i : alist) {
-              cout << i << " ";
+          for (unsigned int i=0; i<alist.size(); i++) {
+              cout << alist[i] << " ";
           }
 
           cout << endl;
       }
 
       vector<int> gapInsertionSort(vector<int> alist, int start, int gap) {
-          for (int i = start + gap; i < alist.size(); i += gap) {
+          for (unsigned int i = start + gap; i < alist.size(); i += gap) {
               int currentvalue = alist[i];
               int position = i;
 
@@ -126,13 +126,15 @@ an insertion sort with an increment of one.
       }
 
       int main() {
-          vector<int> alist{54, 26, 93, 17, 77, 31, 44, 55, 20};
-          alist = shellSort(alist);
+          // Vector initialized using a static array
+          static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
+          vector<int> alist (arr, arr + sizeof(arr) / sizeof(arr[0]) );
 
           printl(alist);
 
           return 0;
       }
+
 
   .. tab:: Python
 
