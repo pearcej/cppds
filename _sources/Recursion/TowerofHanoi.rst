@@ -3,7 +3,7 @@
 
 
 Tower of Hanoi
-~~~~~~~~~~~~~~
+--------------
 
 The Tower of Hanoi puzzle was invented by the French mathematician
 Edouard Lucas in 1883. He was inspired by a legend that tells of a Hindu
@@ -23,20 +23,20 @@ tower of 64 disks is :math:`2^{64}-1 = 18,446,744,073,709,551,615`. At
 a rate of one move per second, that is :math:`584,942,417,355` years! Clearly
 there is more to this puzzle than meets the eye.
 
-:ref:`Figure 1 <fig_hanoi>` shows an example of a configuration of disks in the
+:ref:`Figure 1 <fig_hanoicpp>` shows an example of a configuration of disks in the
 middle of a move from the first peg to the third. Notice that, as the
 rules specify, the disks on each peg are stacked so that smaller disks
 are always on top of the larger disks. If you have not tried to solve
 this puzzle before, you should try it now. You do not need fancy disks
 and poles–a pile of books or pieces of paper will work.
 
-.. _fig_hanoi:
+.. _fig_hanoicpp:
 
 .. figure:: Figures/hanoi.png
    :align: center
    :alt: image
 
-   
+
    Figure 1: An Example Arrangement of Disks for the Tower of Hanoi
 
 How do we go about solving this problem recursively? How would you go
@@ -74,28 +74,30 @@ case. The simplest Tower of Hanoi problem is a tower of one disk. In
 this case, we need move only a single disk to its final destination. A
 tower of one disk will be our base case. In addition, the steps outlined
 above move us toward the base case by reducing the height of the tower
-in steps 1 and 3. :ref:`Listing 1 <lst_hanoi>` shows the Python code to solve the
+in steps 1 and 3. :ref:`Listing 1 <lst_hanoicpp>` shows the Python code to solve the
 Tower of Hanoi puzzle.
 
-.. _lst_hanoi:
+.. _lst_hanoicpp:
 
 **Listing 1**
 
-.. highlight:: python
+.. highlight:: cpp
     :linenothreshold: 2
 
 ::
 
-    def moveTower(height,fromPole, toPole, withPole):
-        if height >= 1:
-            moveTower(height-1,fromPole,withPole,toPole)
-            moveDisk(fromPole,toPole)
-            moveTower(height-1,withPole,toPole,fromPole)
-            
-.. highlight:: python
+    int moveTower(int height, char fromPole, char toPole, char withPole){
+        if (height >= 1){
+            moveTower(height-1, fromPole, withPole, toPole);
+            moveDisk(fromPole, toPole);
+            moveTower(height-1, withPole, toPole, fromPole);
+        }
+    }
+
+.. highlight:: cpp
     :linenothreshold: 500
 
-Notice that the code in :ref:`Listing 1 <lst_hanoi>` is almost identical to the
+Notice that the code in :ref:`Listing 1 <lst_hanoicpp>` is almost identical to the
 English description. The key to the simplicity of the algorithm is that
 we make two different recursive calls, one on line 3 and a
 second on line 5. On line 3 we move all but the bottom
@@ -108,35 +110,67 @@ simply returns. The important thing to remember about handling the base
 case this way is that simply returning from ``moveTower`` is what
 finally allows the ``moveDisk`` function to be called.
 
-The function ``moveDisk``, shown in :ref:`Listing 2 <lst_movedisk>`, is very
+The function ``moveDisk``, shown in :ref:`Listing 2 <lst_movediskcpp>`, is very
 simple. All it does is print out that it is moving a disk from one pole
 to another. If you type in and run the ``moveTower`` program you can see
 that it gives you a very efficient solution to the puzzle.
 
-.. _lst_movedisk:
+.. _lst_movediskcpp:
 
 **Listing 2**
 
 ::
 
-    def moveDisk(fp,tp):
-        print("moving disk from",fp,"to",tp)
-        
+    int moveDisk(char fp, char tp){
+        cout << "moving disk from " << fp << " to " << tp << endl;
+    }
+
 The program in ActiveCode 1 provides the entire solution for three disks.
-        
-.. activecode:: hanoi
-    :caption: Solving Tower of Hanoi Recursively
 
-    def moveTower(height,fromPole, toPole, withPole):
-        if height >= 1:
-            moveTower(height-1,fromPole,withPole,toPole)
-            moveDisk(fromPole,toPole)
-            moveTower(height-1,withPole,toPole,fromPole)
+.. tabbed:: ec1
 
-    def moveDisk(fp,tp):
-        print("moving disk from",fp,"to",tp)
-    
-    moveTower(3,"A","B","C")
+  .. tab:: C++
+
+    .. activecode:: hanoicpp
+      :caption: Solving Tower of Hanoi Recursively C++
+      :language: cpp
+
+      #include <iostream>
+      using namespace std;
+
+      int moveDisk(char fp, char tp);
+
+      int moveTower(int height, char fromPole, char toPole, char withPole){
+          if (height >= 1){
+              moveTower(height-1, fromPole, withPole, toPole);
+              moveDisk(fromPole, toPole);
+              moveTower(height-1, withPole, toPole, fromPole);
+          }
+      }
+
+      int moveDisk(char fp, char tp){
+          cout << "moving disk from " << fp << " to " << tp << endl;
+      }
+
+      int main() {
+          moveTower(3, 'A', 'B', 'C');
+      }
+
+  .. tab:: Python
+
+    .. activecode:: hanoipy
+       :caption: Solving Tower of Hanoi Recursively Python
+
+       def moveTower(height,fromPole, toPole, withPole):
+           if height >= 1:
+               moveTower(height-1,fromPole,withPole,toPole)
+               moveDisk(fromPole,toPole)
+               moveTower(height-1,withPole,toPole,fromPole)
+
+       def moveDisk(fp,tp):
+           print("moving disk from",fp,"to",tp)
+
+       moveTower(3,"A","B","C")
 
 Now that you have seen the code for both ``moveTower`` and ``moveDisk``,
 you may be wondering why we do not have a data structure that explicitly
