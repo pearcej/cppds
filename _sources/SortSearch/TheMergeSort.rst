@@ -59,8 +59,8 @@ most one.
       using namespace std;
 
       void printl(vector<int> alist) {
-          for (int i:alist) {
-              cout << i << " ";
+          for (unsigned int i=0; i<alist.size(); i++) {
+              cout << alist[i] << " ";
           }
           cout << endl;
       }
@@ -78,9 +78,9 @@ most one.
               lefthalf = mergeSort(lefthalf);
               righthalf = mergeSort(righthalf);
 
-              int i = 0;
-              int j = 0;
-              int k = 0;
+              unsigned i = 0;
+              unsigned j = 0;
+              unsigned k = 0;
               while (i < lefthalf.size() && j < righthalf.size()) {
                   if (lefthalf[i] < righthalf[j]) {
                       alist[k]=lefthalf[i];
@@ -113,13 +113,15 @@ most one.
       }
 
       int main() {
-          vector<int> alist{54,26,93,17,77,31,44,55,20};
-          alist = mergeSort(alist);
+          // Vector initialized using a static array
+          static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
+          vector<int> alist (arr, arr + sizeof(arr) / sizeof(arr[0]) );
 
           printl(alist);
 
           return 0;
       }
+
 
   .. tab:: Python
 
