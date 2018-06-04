@@ -41,19 +41,26 @@ the tree we create another instance of ``BinaryTree`` and modify
     #include <string>
     using namespace std;
 
-    class BinaryTree{
+    class BinaryTree {
+
         private:
-        string rootObj;
-        BinaryTree leftChild;
-        BinaryTree rightChild;
+        char rootObj;
+        string key;
+        char leftChild;
+        char rightChild;
 
         public:
-        BinaryTree(string rootObj){
+        BinaryTree(char rootObj){
             this->key = rootObj;
             this->leftChild = NULL;
             this->rightChild = NULL;
         }
     };
+
+    int main() {
+        BinaryTree r('a');
+        return 0;
+    }
 
     class BinaryTree:
         def __init__(self,rootObj):
