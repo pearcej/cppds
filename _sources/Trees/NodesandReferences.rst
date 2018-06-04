@@ -3,7 +3,7 @@
 
 
 Nodes and References
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 Our second method to represent a tree uses nodes and references. In this
 case we will define a class that has attributes for the root value, as
@@ -36,12 +36,31 @@ the tree we create another instance of ``BinaryTree`` and modify
 
 ::
 
+    #include <iostream>
+    #include <cstdlib>
+    #include <string>
+    using namespace std;
+
+    class BinaryTree{
+        private:
+        string rootObj;
+        BinaryTree leftChild;
+        BinaryTree rightChild;
+
+        public:
+        BinaryTree(string rootObj){
+            this->key = rootObj;
+            this->leftChild = NULL;
+            this->rightChild = NULL;
+        }
+    };
+
     class BinaryTree:
         def __init__(self,rootObj):
             self.key = rootObj
             self.leftChild = None
             self.rightChild = None
-        
+
 
 Notice that in :ref:`Listing 4 <lst_nar>`, the constructor function expects to
 get some kind of object to store in the root. Just like you can store
@@ -69,11 +88,11 @@ new object. The code for ``insertLeft`` is shown in
     def insertLeft(self,newNode):
         if self.leftChild == None:
             self.leftChild = BinaryTree(newNode)
-        else:  
+        else:
             t = BinaryTree(newNode)
             t.leftChild = self.leftChild
             self.leftChild = t
-            
+
 .. highlight:: python
     :linenothreshold: 500
 
@@ -125,7 +144,7 @@ the root values.
 
     def getRootVal(self):
         return self.key
-        
+
 
 Now that we have all the pieces to create and manipulate a binary tree,
 let’s use them to check on the structure a bit more. Let’s make a simple
@@ -153,7 +172,7 @@ tree as a binary tree itself.
         def insertLeft(self,newNode):
             if self.leftChild == None:
                 self.leftChild = BinaryTree(newNode)
-            else:  
+            else:
                 t = BinaryTree(newNode)
                 t.leftChild = self.leftChild
                 self.leftChild = t
@@ -177,7 +196,7 @@ tree as a binary tree itself.
             self.key = obj
 
         def getRootVal(self):
-            return self.key                
+            return self.key
 
 
     r = BinaryTree('a')
@@ -203,7 +222,7 @@ tree as a binary tree itself.
       .. image:: Figures/tree_ex.png
       ~~~~
       from test import testEqual
-      
+
       def buildTree():
           pass
 
