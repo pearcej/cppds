@@ -74,7 +74,7 @@ studies, insertion sort will show very good performance.
       using namespace std;
 
       vector<int> insertionSort(vector<int> alist) {
-          for (int index=1; index<alist.size(); index++) {
+          for (unsigned int index=1; index<alist.size(); index++) {
 
               int currentvalue = alist[index];
               int position = index;
@@ -91,18 +91,21 @@ studies, insertion sort will show very good performance.
       }
 
       int main() {
-          vector<int> alist{54, 26, 93, 17, 77, 31, 44, 55, 20};
+          // Vector initialized using a static array
+          static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
+          vector<int> alist (arr, arr + sizeof(arr) / sizeof(arr[0]) );
 
           alist = insertionSort(alist);
 
           //prints the sorted list
-          for (int i:alist) {
-              cout << i << " ";;
+          for (unsigned int i=0; i<alist.size(); i++) {
+              cout << alist[i] << " ";;
           }
           cout << endl;
 
           return 0;
       }
+
 
   .. tab:: Python
 
