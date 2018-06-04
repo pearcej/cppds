@@ -70,10 +70,11 @@ shown above.
       :language: cpp
 
       #include <iostream>
+      #include <vector>
       using namespace std;
 
-      int* bubbleSort(int alist[], int sizeoflist) {
-        for (int passnum = sizeoflist; passnum > 0; passnum -= 1) {
+      vector<int> bubbleSort(vector<int> alist) {
+        for (int passnum = alist.size()-1; passnum > 0; passnum -= 1) {
             for (int i = 0; i < passnum; i++) {
                 if (alist[i] > alist[i+1]) {
                     int temp = alist[i];
@@ -86,15 +87,17 @@ shown above.
       }
 
       int main() {
-          int alist[] = {54,26,93,17,77,31,44,55,20,98,34,65};
-          int sizeoflist = sizeof(alist)/sizeof(int);
+          // Vector initialized using a static array
+          static const int arr[] = {54,26,93,17,77,31,44,55,20};
+          vector<int> alist (arr, arr + sizeof(arr) / sizeof(arr[0]) );
 
-          int* blist = bubbleSort(alist, sizeoflist);
-          for (int i = 0; i < 9; i++) {
+          vector<int> blist = bubbleSort(alist);
+          for (unsigned int i = 0; i < blist.size(); i++) {
               cout<<blist[i]<< " ";
           }
           return 0;
       }
+
 
   .. tab:: Python
 
@@ -196,12 +199,13 @@ to as the **short bubble**.
       :language: cpp
 
       #include <iostream>
+      #include <vector>
 
       using namespace std;
 
-      int* shortBubbleSort(int alist[],int sizeofarr){
+      vector<int> shortBubbleSort(vector<int> alist){
           bool exchanges = true;
-          int passnum = sizeofarr;
+          int passnum = alist.size();
 
           while (passnum > 0 && exchanges) {
               exchanges = false;
@@ -220,14 +224,18 @@ to as the **short bubble**.
       }
 
       int main() {
-          int alist[10]={20,30,40,90,50,60,70,80,110,100};
-          int sizeofarr = sizeof(alist)/sizeof(int);
-          int* blist = shortBubbleSort(alist, sizeofarr);
-          for(int i = 0; i < 10; i++){
+          // Vector initialized using a static array
+          static const int arr[] = {20,30,40,90,50,60,70,80,110,100};
+          vector<int> alist (arr, arr+ sizeof(arr)/sizeof(arr[0]));
+
+          vector<int> blist = shortBubbleSort(alist);
+
+          for(unsigned int i = 0; i < blist.size(); i++){
             cout<< blist[i] << " ";
           }
           return 0;
       }
+
 
 
   .. tab:: Python
