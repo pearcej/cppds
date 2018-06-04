@@ -14,18 +14,10 @@ After the second pass, the next largest is in place. This process
 continues and requires :math:`n-1` passes to sort *n* items, since the
 final item must be in place after the :math:`(n-1)` st pass.
 
-:ref:`Figure 3 <fig_selectionsort>` shows the entire sorting process. On each pass,
+On each pass,
 the largest remaining item is selected and then placed in its proper
 location. The first pass places 93, the second pass places 77, the third
 places 55, and so on. The function is shown in :ref:`ActiveCode 1 <lst_selectionsortcode_cpp>` .
-
-.. _fig_selectionsort:
-
-.. figure:: Figures/selectionsortnew.png
-   :align: center
-
-
-   Figure 3: ``selectionSort``
 
 .. tabbed:: lst_selection_sort
 
@@ -56,17 +48,19 @@ places 55, and so on. The function is shown in :ref:`ActiveCode 1 <lst_selection
       }
 
       int main() {
-          vector<int> alist{54, 26, 93, 17, 77, 31, 44, 55, 20};
-          alist = selectionSort(alist);
+          // Vector initialized using a static array
+          static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
+          vector<int> alist (arr, arr + sizeof(arr) / sizeof(arr[0]) );
 
           // print the list
-          for (int i = 0; i < alist.size(); i++) {
+          for (unsigned int i = 0; i < alist.size(); i++) {
               cout << alist[i] << " ";
           }
           cout << endl;
 
           return 0;
       }
+
 
   .. tab:: Python
 
