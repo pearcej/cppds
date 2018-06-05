@@ -112,14 +112,15 @@ the first element. This is easily expressed in C++ as shown in
                return numVect[0];
            }
            else {
-               cout << numVect[0] << endl;
-               return numVect[0] + vectsum(numVect.erase(numVect.begin()+0));
+               vector<int> slice(numVect.begin()+1, numVect.begin()+numVect.size());
+               return numVect[0] + vectsum(slice);
            }
        }
 
        int main() {
            vector<int> numVect = {1,3,5,7,9};
            cout << vectsum(numVect) << endl;
+
            return 0;
        }
 
