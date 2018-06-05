@@ -3,13 +3,13 @@ vector..  Copyright (C)  Brad Miller, David Ranum
 
 
 Calculating the Sum of a Vector of Numbers
-----------------------------------------
+------------------------------------------
 
 We will begin our investigation with a simple problem that you already
 know how to solve without using recursion. Suppose that you want to
 calculate the sum of a vector of numbers such as:
 :math:`[1, 3, 5, 7, 9]`. An iterative function that computes the sum
-is shown in :ref:`ActiveCode 1 <lst_itsum>`. The function uses an accumulator variable
+is shown in :ref:`ActiveCode 1 <lst_itsumcpp>`. The function uses an accumulator variable
 (``theSum``) to compute a running total of all the numbers in the vector
 by starting with :math:`0` and adding each number in the vector.
 
@@ -93,7 +93,7 @@ vector (``numVect[0]``), and the sum of the numbers in the rest of the array (``
 In this equation :math:`first(numVect)` returns the first element of
 the array and :math:`rest(numVect)` returns an array of everything but
 the first element. This is easily expressed in C++ as shown in
-:ref:`ActiveCode 2 <lst_recsum>`.
+:ref:`ActiveCode 2 <lst_recsumcpp>`.
 
 .. tabbed:: change_this
 
@@ -112,14 +112,15 @@ the first element. This is easily expressed in C++ as shown in
                return numVect[0];
            }
            else {
-               cout << numVect[0] << endl;
-               return numVect[0] + vectsum(numVect.erase(numVect.begin()+0));
+               vector<int> slice(numVect.begin()+1, numVect.begin()+numVect.size());
+               return numVect[0] + vectsum(slice);
            }
        }
 
        int main() {
            vector<int> numVect = {1,3,5,7,9};
            cout << vectsum(numVect) << endl;
+
            return 0;
        }
 
