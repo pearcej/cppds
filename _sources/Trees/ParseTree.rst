@@ -3,7 +3,7 @@
 
 
 Parse Tree
-~~~~~~~~~~
+----------
 
 With the implementation of our tree data structure
 complete, we now look at an example of how a tree can be used to solve
@@ -200,50 +200,201 @@ in :ref:`ActiveCode 1 <lst_buildparse>`.
 
 .. _lst_buildparse:
 
+.. tabbed:: change_this
 
+  .. tab:: C++
 
-.. activecode::  parsebuild
-    :caption: Building a Parse Tree
-    :nocodelens:
+    .. activecode:: parsebuildcpp
+        :caption: Building a Parse Tree C++
+        :language: cpp
 
-    from pythonds.basic.stack import Stack
-    from pythonds.trees.binaryTree import BinaryTree
+        #include <iostream>
+        #include <cstdlib>
+        #include <stack>
+        #include <sstream>
+        #include <string>
+        #include <vector>
+        #include <algorithm>
+        using namespace std;
 
-    def buildParseTree(fpexp):
-        fplist = fpexp.split()
-        pStack = Stack()
-        eTree = BinaryTree('')
-        pStack.push(eTree)
-        currentTree = eTree
+        // struct BinaryTreePtr(){
+        //     return
+        // }
 
-        for i in fplist:
-            if i == '(':
-                currentTree.insertLeft('')
-                pStack.push(currentTree)
-                currentTree = currentTree.getLeftChild()
+        class BinaryTree {
 
-            elif i in ['+', '-', '*', '/']:
-                currentTree.setRootVal(i)
-                currentTree.insertRight('')
-                pStack.push(currentTree)
-                currentTree = currentTree.getRightChild()
+            private:
+            string key;
+            BinaryTree *leftChild;
+            BinaryTree *rightChild;
 
-            elif i == ')':
-                currentTree = pStack.pop()
+            public:
+            BinaryTree(string rootObj){
+                this->key = rootObj;
+                this->leftChild = NULL;
+                this->rightChild = NULL;
+            }
 
-            elif i not in ['+', '-', '*', '/', ')']:
-                try:
-                    currentTree.setRootVal(int(i))
-                    parent = pStack.pop()
-                    currentTree = parent
+            void insertLeft(string newNode){
+                if (this->leftChild == NULL){
+                this->leftChild = new BinaryTree(newNode);
+                }
+                else {
+                BinaryTree *t = new BinaryTree(newNode);
+                t->leftChild = this->leftChild;
+                this->leftChild = t;
+                }
+            }
 
-                except ValueError:
-                    raise ValueError("token '{}' is not a valid integer".format(i))
+            void insertRight(string newNode){
+                if (this->rightChild == NULL){
+                this->rightChild = new BinaryTree(newNode);
+                }
+                else {
+                BinaryTree *t = new BinaryTree(newNode);
+                t->rightChild = this->rightChild;
+                this->rightChild = t;
+                }
+            }
 
-        return eTree
+            BinaryTree *getRightChild(){
+                return this->rightChild;
+            }
 
-    pt = buildParseTree("( ( 10 + 5 ) * 3 )")
-    pt.postorder()  #defined and explained in the next section
+            BinaryTree *getLeftChild(){
+                return this->leftChild;
+            }
+
+            void setRootVal(string obj){
+                this->key = obj;
+            }
+
+            string getRootVal(){
+                return this->key;
+            }
+        };
+
+        BinaryTree* buildParseTree(string fpexp){
+            string buf;
+            stringstream ss(fpexp);
+            vector<string> fplist;
+            while (ss >> buf){
+                fplist.push_back(buf);
+            }
+            stack<BinaryTree> pStack;
+            BinaryTree *eTree = new BinaryTree("");
+            pStack.push(*eTree);
+            BinaryTree *currentTree = eTree;
+
+            for (string i : fplist){
+                vector<string> arr = {"+", "-", "*", "/"};
+                vector<string> arr2 = {"+", "-", "*", "/", ")"};
+                if (i == "("){
+                    currentTree->insertLeft("");
+                    pStack.push(*currentTree);
+                    currentTree = currentTree->getLeftChild();
+                }
+
+                else if (find(arr.begin(), arr.end(), i) != arr.end()){
+                    currentTree->setRootVal(i);
+                    currentTree->insertRight("");
+                    pStack.push(*currentTree);
+                    currentTree = currentTree->getRightChild();
+                }
+
+                else if (i == ")"){
+                    *currentTree = pStack.top();
+                    pStack.pop();
+                }
+
+                else if (find(arr2.begin(), arr2.end(), i) != arr2.end()) {
+                    try {
+                        currentTree->setRootVal(i);
+                        BinaryTree parent = pStack.top();
+                        pStack.pop();
+                        *currentTree = parent;
+                    }
+
+                    catch (string ValueError ){
+                        cerr <<"token " << i << " is not a valid integer"<<endl;
+                    }
+                }
+
+                // elif i not in ['+', '-', '*', '/', ')']:
+                //             try:
+                //                 currentTree.setRootVal(int(i))
+                //                 parent = pStack.pop()
+                //                 currentTree = parent
+
+                //             except ValueError:
+                //                 raise ValueError("token '{}' is not a valid integer".format(i))
+
+            }
+            return eTree;
+        }
+
+        int main() {
+            // BinaryTree *r = new BinaryTree("a");
+            // cout << r->getRootVal() << endl;
+            // cout << r->getLeftChild() << endl;
+            // r->insertLeft("b");
+            // cout << r->getLeftChild() << endl;
+            // cout << r->getLeftChild()->getRootVal() << endl;
+            // r->insertRight("c");
+            // cout << r->getRightChild() << endl;
+            // cout << r->getRightChild()->getRootVal() << endl;
+            // r->getRightChild()->setRootVal("d");
+            // cout << r->getRightChild()->getRootVal() << endl;
+
+            buildParseTree("( ( 10 + 5 ) * 3)");
+
+            return 0;
+        }
+
+  .. tab:: Python
+
+    .. activecode::  parsebuildpy
+        :caption: Building a Parse Tree Python
+        :nocodelens:
+
+        from pythonds.basic.stack import Stack
+        from pythonds.trees.binaryTree import BinaryTree
+
+        def buildParseTree(fpexp):
+            fplist = fpexp.split()
+            pStack = Stack()
+            eTree = BinaryTree('')
+            pStack.push(eTree)
+            currentTree = eTree
+
+            for i in fplist:
+                if i == '(':
+                    currentTree.insertLeft('')
+                    pStack.push(currentTree)
+                    currentTree = currentTree.getLeftChild()
+
+                elif i in ['+', '-', '*', '/']:
+                    currentTree.setRootVal(i)
+                    currentTree.insertRight('')
+                    pStack.push(currentTree)
+                    currentTree = currentTree.getRightChild()
+
+                elif i == ')':
+                    currentTree = pStack.pop()
+
+                elif i not in ['+', '-', '*', '/', ')']:
+                    try:
+                        currentTree.setRootVal(int(i))
+                        parent = pStack.pop()
+                        currentTree = parent
+
+                    except ValueError:
+                        raise ValueError("token '{}' is not a valid integer".format(i))
+
+            return eTree
+
+        pt = buildParseTree("( ( 10 + 5 ) * 3 )")
+        pt.postorder()  #defined and explained in the next section
 
 
 The four rules for building a parse tree are coded as the first four
@@ -303,7 +454,67 @@ equivalent to ``operator.add(2,2)``.
 
 **Listing 1**
 
-.. sourcecode:: python
+.. sourcecode:: cpp
+
+
+    class Operator {
+        public:
+        int add(int x, int y){
+            return x + y;
+        }
+
+        int sub(int x, int y){
+            return x - y;
+        }
+
+        int mul(int x, int y){
+            return x * y;
+        }
+
+        int div(int x, int y){
+            return x / y;
+        }
+    };
+
+
+    string evaluate(BinaryTree *parseTree) {
+        Operator *Oper;
+        // unordered_map<string, int> opers;
+        // opers["+"] = Oper->add;
+        // opers["-"] = Oper->sub;
+        // opers["*"] = Oper->mul;
+        // opers["/"] = Oper->div;
+
+        BinaryTree *leftC = parseTree->getLeftChild();
+        BinaryTree *rightC = parseTree->getRightChild();
+
+        if (leftC && rightC){
+            if (parseTree->getRootVal() == "+") {
+                return Oper->add(stoi(evaluate(leftC)), stoi(evaluate(rightC)));
+            } else if (parseTree->getRootVal() == "-") {
+                return Oper->sub(evaluate(leftC), evaluate(rightC));
+            } else if (parseTree->getRootVal() == "*") {
+                return Oper->mul(evaluate(leftC), evaluate(rightC));
+            }   else {
+                return Oper->div(evaluate(leftC), evaluate(rightC));
+            }
+
+            // Operator fn = opers[parseTree->getRootVal()];
+            // return fn(evaluate(leftC), evaluate(rightC));
+        }
+
+        else {
+            return parseTree->getRootVal();
+        }
+
+    }
+
+    int main(){
+
+        return 0;
+    }
+
+.. sourcecode:: Python
 
     def evaluate(parseTree):
         opers = {'+':operator.add, '-':operator.sub, '*':operator.mul, '/':operator.truediv}
