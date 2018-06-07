@@ -217,136 +217,132 @@ in :ref:`ActiveCode 1 <lst_buildparse>`.
         #include <algorithm>
         using namespace std;
 
-        // struct BinaryTreePtr(){
-        //     return
-        // }
 
         class BinaryTree {
 
             private:
-            string key;
-            BinaryTree *leftChild;
-            BinaryTree *rightChild;
-
+                string key;
+                BinaryTree *leftChild;
+                BinaryTree *rightChild;
             public:
-            BinaryTree(string rootObj){
-                this->key = rootObj;
-                this->leftChild = NULL;
-                this->rightChild = NULL;
-            }
-
-            void insertLeft(string newNode){
-                if (this->leftChild == NULL){
-                this->leftChild = new BinaryTree(newNode);
+                BinaryTree(string rootObj){
+                    this->key = rootObj;
+                    this->leftChild = NULL;
+                    this->rightChild = NULL;
                 }
-                else {
-                BinaryTree *t = new BinaryTree(newNode);
-                t->leftChild = this->leftChild;
-                this->leftChild = t;
+
+                void insertLeft(string newNode){
+                    if (this->leftChild == NULL){
+                    this->leftChild = new BinaryTree(newNode);
+                    }
+                    else {
+                    BinaryTree *t = new BinaryTree(newNode);
+                    t->leftChild = this->leftChild;
+                    this->leftChild = t;
+                    }
                 }
-            }
 
-            void insertRight(string newNode){
-                if (this->rightChild == NULL){
-                this->rightChild = new BinaryTree(newNode);
+                void insertRight(string newNode){
+                    if (this->rightChild == NULL){
+                    this->rightChild = new BinaryTree(newNode);
+                    }
+                    else {
+                    BinaryTree *t = new BinaryTree(newNode);
+                    t->rightChild = this->rightChild;
+                    this->rightChild = t;
+                    }
                 }
-                else {
-                BinaryTree *t = new BinaryTree(newNode);
-                t->rightChild = this->rightChild;
-                this->rightChild = t;
+
+                BinaryTree *getRightChild(){
+                    return this->rightChild;
                 }
-            }
 
-            BinaryTree *getRightChild(){
-                return this->rightChild;
-            }
+                BinaryTree *getLeftChild(){
+                    return this->leftChild;
+                }
 
-            BinaryTree *getLeftChild(){
-                return this->leftChild;
-            }
+                void setRootVal(string obj){
+                    this->key = obj;
+                }
 
-            void setRootVal(string obj){
-                this->key = obj;
-            }
-
-            string getRootVal(){
-                return this->key;
-            }
+                string getRootVal(){
+                    return this->key;
+                }
         };
 
-        BinaryTree* buildParseTree(string fpexp){
+        BinaryTree *buildParseTree(string fpexp){
             string buf;
             stringstream ss(fpexp);
             vector<string> fplist;
             while (ss >> buf){
                 fplist.push_back(buf);
             }
-            stack<BinaryTree> pStack;
+            stack<BinaryTree*> pStack;
             BinaryTree *eTree = new BinaryTree("");
-            pStack.push(*eTree);
+            pStack.push(eTree);
             BinaryTree *currentTree = eTree;
 
-            for (string i : fplist){
-                vector<string> arr = {"+", "-", "*", "/"};
-                vector<string> arr2 = {"+", "-", "*", "/", ")"};
-                if (i == "("){
+            vector<string> arr;
+            arr.push_back("+");
+            arr.push_back("-");
+            arr.push_back("*");
+            arr.push_back("/");
+
+            vector<string> arr2;
+            arr2.push_back("+");
+            arr2.push_back("-");
+            arr2.push_back("*");
+            arr2.push_back("/");
+            arr2.push_back(")");
+
+            for (unsigned int i = 0; i<fplist.size(); i++){
+
+                if (fplist[i] == "("){
                     currentTree->insertLeft("");
-                    pStack.push(*currentTree);
+                    pStack.push(currentTree);
                     currentTree = currentTree->getLeftChild();
                 }
 
-                else if (find(arr.begin(), arr.end(), i) != arr.end()){
-                    currentTree->setRootVal(i);
+                else if (find(arr.begin(), arr.end(), fplist[i]) != arr.end()){
+                    currentTree->setRootVal(fplist[i]);
                     currentTree->insertRight("");
-                    pStack.push(*currentTree);
+                    pStack.push(currentTree);
                     currentTree = currentTree->getRightChild();
                 }
 
-                else if (i == ")"){
-                    *currentTree = pStack.top();
+                else if (fplist[i] == ")"){
+                    currentTree = pStack.top();
                     pStack.pop();
                 }
 
-                else if (find(arr2.begin(), arr2.end(), i) != arr2.end()) {
+                else if (find(arr2.begin(), arr2.end(), fplist[i]) == arr2.end()) {
                     try {
-                        currentTree->setRootVal(i);
-                        BinaryTree parent = pStack.top();
+                        currentTree->setRootVal(fplist[i]);
+                        BinaryTree *parent = pStack.top();
                         pStack.pop();
-                        *currentTree = parent;
+                        currentTree = parent;
                     }
 
                     catch (string ValueError ){
-                        cerr <<"token " << i << " is not a valid integer"<<endl;
+                        cerr <<"token " << fplist[i] << " is not a valid integer"<<endl;
                     }
                 }
-
-                // elif i not in ['+', '-', '*', '/', ')']:
-                //             try:
-                //                 currentTree.setRootVal(int(i))
-                //                 parent = pStack.pop()
-                //                 currentTree = parent
-
-                //             except ValueError:
-                //                 raise ValueError("token '{}' is not a valid integer".format(i))
-
             }
             return eTree;
         }
 
-        int main() {
-            // BinaryTree *r = new BinaryTree("a");
-            // cout << r->getRootVal() << endl;
-            // cout << r->getLeftChild() << endl;
-            // r->insertLeft("b");
-            // cout << r->getLeftChild() << endl;
-            // cout << r->getLeftChild()->getRootVal() << endl;
-            // r->insertRight("c");
-            // cout << r->getRightChild() << endl;
-            // cout << r->getRightChild()->getRootVal() << endl;
-            // r->getRightChild()->setRootVal("d");
-            // cout << r->getRightChild()->getRootVal() << endl;
+        void postorder(BinaryTree *tree){
+            if (tree != NULL){
+                postorder(tree->getLeftChild());
+                postorder(tree->getRightChild());
+                cout << tree->getRootVal() << endl;
+            }
+        }
 
-            buildParseTree("( ( 10 + 5 ) * 3)");
+        int main() {
+
+            BinaryTree *pt = buildParseTree("( ( 10 + 5 ) * 3 ) )");
+            postorder(pt);
 
             return 0;
         }
@@ -456,63 +452,63 @@ equivalent to ``operator.add(2,2)``.
 
 .. sourcecode:: cpp
 
-
     class Operator {
-        public:
-        int add(int x, int y){
-            return x + y;
-        }
+    public:
+    int add(int x, int y){
+        return x + y;
+    }
 
-        int sub(int x, int y){
-            return x - y;
-        }
+    int sub(int x, int y){
+        return x - y;
+    }
 
-        int mul(int x, int y){
-            return x * y;
-        }
+    int mul(int x, int y){
+        return x * y;
+    }
 
-        int div(int x, int y){
-            return x / y;
-        }
+    int div(int x, int y){
+        return x / y;
+    }
     };
 
 
     string evaluate(BinaryTree *parseTree) {
-        Operator *Oper;
-        // unordered_map<string, int> opers;
-        // opers["+"] = Oper->add;
-        // opers["-"] = Oper->sub;
-        // opers["*"] = Oper->mul;
-        // opers["/"] = Oper->div;
+    Operator *Oper;
+    // unordered_map<string, int> opers;
+    // opers["+"] = Oper->add;
+    // opers["-"] = Oper->sub;
+    // opers["*"] = Oper->mul;
+    // opers["/"] = Oper->div;
 
-        BinaryTree *leftC = parseTree->getLeftChild();
-        BinaryTree *rightC = parseTree->getRightChild();
+    BinaryTree *leftC = parseTree->getLeftChild();
+    BinaryTree *rightC = parseTree->getRightChild();
 
-        if (leftC && rightC){
-            if (parseTree->getRootVal() == "+") {
-                return Oper->add(stoi(evaluate(leftC)), stoi(evaluate(rightC)));
-            } else if (parseTree->getRootVal() == "-") {
-                return Oper->sub(evaluate(leftC), evaluate(rightC));
-            } else if (parseTree->getRootVal() == "*") {
-                return Oper->mul(evaluate(leftC), evaluate(rightC));
-            }   else {
-                return Oper->div(evaluate(leftC), evaluate(rightC));
-            }
-
-            // Operator fn = opers[parseTree->getRootVal()];
-            // return fn(evaluate(leftC), evaluate(rightC));
+    if (leftC && rightC){
+        if (parseTree->getRootVal() == "+") {
+            return Oper->add(stoi(evaluate(leftC)), stoi(evaluate(rightC)));
+        } else if (parseTree->getRootVal() == "-") {
+            return Oper->sub(evaluate(leftC), evaluate(rightC));
+        } else if (parseTree->getRootVal() == "*") {
+            return Oper->mul(evaluate(leftC), evaluate(rightC));
+        }   else {
+            return Oper->div(evaluate(leftC), evaluate(rightC));
         }
 
-        else {
-            return parseTree->getRootVal();
-        }
+        // Operator fn = opers[parseTree->getRootVal()];
+        // return fn(evaluate(leftC), evaluate(rightC));
+    }
+
+    else {
+        return parseTree->getRootVal();
+    }
 
     }
 
     int main(){
 
-        return 0;
+    return 0;
     }
+
 
 .. sourcecode:: Python
 
