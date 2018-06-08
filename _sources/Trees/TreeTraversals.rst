@@ -87,7 +87,7 @@ then the function returns without taking any action.
         if tree:
             print(tree.getRootVal())
             preorder(tree.getLeftChild())
-            preorder(tree.getRightChild())  
+            preorder(tree.getRightChild())
 
 
 We can also implement ``preorder`` as a method of the ``BinaryTree``
@@ -153,7 +153,71 @@ closely on the ``postorder`` code in :ref:`Listing 4 <lst_postorder1>` (see :ref
 
 **Listing 5**
 
-::
+.. sourcecode:: cpp
+
+
+    class Operator {
+        public:
+            int add(int x, int y){
+                return x + y;
+            }
+
+            int sub(int x, int y){
+                return x - y;
+            }
+
+            int mul(int x, int y){
+                return x * y;
+            }
+
+            int div(int x, int y){
+                return x / y;
+            }
+    };
+
+    int to_int(string str) {
+        stringstream convert(str);
+        int x = 0;
+        convert >> x;
+        return x;
+    }
+
+    string to_string(int num) {
+        string str;
+        ostringstream convert;
+        convert << num;
+        str = convert.str();
+        return str;
+    }
+
+    string evaluate(BinaryTree *parseTree) {
+        Operator Oper;
+
+        BinaryTree *leftC = parseTree->getLeftChild();
+        BinaryTree *rightC = parseTree->getRightChild();
+
+        if (leftC && rightC) {
+            if (parseTree->getRootVal() == "+") {
+                return to_string(Oper.add(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
+            } else if (parseTree->getRootVal() == "-") {
+                return to_string(Oper.sub(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
+            } else if (parseTree->getRootVal() == "*") {
+                return to_string(Oper.mul(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
+            } else {
+                return to_string(Oper.div(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
+            }
+        } else {
+            return parseTree->getRootVal();
+        }
+    }
+
+    int main(){
+
+        return 0;
+    }
+
+
+.. sourcecode:: Python
 
     def postordereval(tree):
         opers = {'+':operator.add, '-':operator.sub, '*':operator.mul, '/':operator.truediv}
@@ -166,7 +230,7 @@ closely on the ``postorder`` code in :ref:`Listing 4 <lst_postorder1>` (see :ref
                 return opers[tree.getRootVal()](res1,res2)
             else:
                 return tree.getRootVal()
-                
+
 
 .. highlight:: python
     :linenothreshold: 500
