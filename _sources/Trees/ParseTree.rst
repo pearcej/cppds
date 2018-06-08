@@ -452,61 +452,65 @@ equivalent to ``operator.add(2,2)``.
 
 .. sourcecode:: cpp
 
+
     class Operator {
-    public:
-    int add(int x, int y){
-        return x + y;
-    }
+        public:
+            int add(int x, int y){
+                return x + y;
+            }
 
-    int sub(int x, int y){
-        return x - y;
-    }
+            int sub(int x, int y){
+                return x - y;
+            }
 
-    int mul(int x, int y){
-        return x * y;
-    }
+            int mul(int x, int y){
+                return x * y;
+            }
 
-    int div(int x, int y){
-        return x / y;
-    }
+            int div(int x, int y){
+                return x / y;
+            }
     };
 
+    int to_int(string str) {
+        stringstream convert(str);
+        int x = 0;
+        convert >> x;
+        return x;
+    }
+
+    string to_string(int num) {
+        string str;
+        ostringstream convert;
+        convert << num;
+        str = convert.str();
+        return str;
+    }
 
     string evaluate(BinaryTree *parseTree) {
-    Operator *Oper;
-    // unordered_map<string, int> opers;
-    // opers["+"] = Oper->add;
-    // opers["-"] = Oper->sub;
-    // opers["*"] = Oper->mul;
-    // opers["/"] = Oper->div;
+        Operator Oper;
 
-    BinaryTree *leftC = parseTree->getLeftChild();
-    BinaryTree *rightC = parseTree->getRightChild();
+        BinaryTree *leftC = parseTree->getLeftChild();
+        BinaryTree *rightC = parseTree->getRightChild();
 
-    if (leftC && rightC){
-        if (parseTree->getRootVal() == "+") {
-            return Oper->add(stoi(evaluate(leftC)), stoi(evaluate(rightC)));
-        } else if (parseTree->getRootVal() == "-") {
-            return Oper->sub(evaluate(leftC), evaluate(rightC));
-        } else if (parseTree->getRootVal() == "*") {
-            return Oper->mul(evaluate(leftC), evaluate(rightC));
-        }   else {
-            return Oper->div(evaluate(leftC), evaluate(rightC));
+        if (leftC && rightC) {
+            if (parseTree->getRootVal() == "+") {
+                return to_string(Oper.add(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
+            } else if (parseTree->getRootVal() == "-") {
+                return to_string(Oper.sub(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
+            } else if (parseTree->getRootVal() == "*") {
+                return to_string(Oper.mul(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
+            } else {
+                return to_string(Oper.div(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
+            }
+        } else {
+            return parseTree->getRootVal();
         }
-
-        // Operator fn = opers[parseTree->getRootVal()];
-        // return fn(evaluate(leftC), evaluate(rightC));
-    }
-
-    else {
-        return parseTree->getRootVal();
-    }
-
     }
 
     int main(){
 
-    return 0;
+        return 0;
     }
 
 
