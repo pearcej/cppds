@@ -106,7 +106,8 @@ instance of a ``Vertex``. Next, we add the edges that connect the
 vertices together. Finally, a nested loop verifies that each edge in the
 graph is properly stored. You should check the output of the edge list
 at the end of this session against :ref:`Figure 2 <fig_dgsimple>`.
-.. tabbed::
+
+.. tabbed:: graph_adt
 
   .. tab:: C++
 
