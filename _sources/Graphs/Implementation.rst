@@ -20,9 +20,9 @@ the adjacency list, as represented by the ``connectedTo`` instance
 variable. The ``getWeight`` method returns the weight of the edge from
 this vertex to the vertex passed as a parameter.
 
-We use operator overloading so that when we print our Vertex using the cout<< function
+We use ``operator overloading`` so that when we print our Vertex using the ``cout <<`` function
 we get a list of it's connections, instead of an error. This function must be initialized
-as a friend function within the class definition, but is required to be defined outside of the class. This is specific to operator overloading in C++.
+as a ``friend function`` within the class definition, but is required to be defined outside of the class. This is specific to ``operator overloading`` in C++.
 
 .. _lst_vertex:
 
@@ -30,34 +30,60 @@ as a friend function within the class definition, but is required to be defined 
 
 ::
 
-    class Vertex:
-        def __init__(self,key):
-            self.id = key
-            self.connectedTo = {}
+          class Vertex {
+            public:
+            int id;
+            map<int, int> connectedTo;
 
-        def addNeighbor(self,nbr,weight=0):
-            self.connectedTo[nbr] = weight
+          Vertex() {
+          }
 
-        def __str__(self):
-            return str(self.id) + ' connectedTo: ' + str([x.id for x in self.connectedTo])
+          Vertex(int key) {
+            id = key;
+          }
 
-        def getConnections(self):
-            return self.connectedTo.keys()
+          void addNeighbor(int nbr, int weight = 0) {
+            connectedTo[nbr] = weight;
+          }
 
-        def getId(self):
-            return self.id
+          vector<int> getConnections() {
+            vector<int> keys;
+            // Use of iterator to find all keys
+            for (map<int, int>::iterator it = connectedTo.begin();
+               it != connectedTo.end();
+               ++it) {
+              keys.push_back(it->first);
+            }
+            return keys;
+          }
 
-        def getWeight(self,nbr):
-            return self.connectedTo[nbr]
+          int getId() {
+            return id;
+          }
+
+          int getWeight(int nbr) {
+            return connectedTo[nbr];
+          }
+
+          friend ostream &operator<<(ostream &, Vertex &);
+        };
+
+        ostream &operator<<(ostream &stream, Vertex &vert) {
+          vector<int> connects = vert.getConnections();
+          for (unsigned int i = 0; i < connects.size(); i++) {
+            stream << "( " << vert.id << " , " << connects[i] << " ) \n";
+          }
+
+          return stream;
+        }
+
 
 The ``Graph`` class, shown in the next listing, contains a map
 that maps vertex names (int) to vertex objects (Vertex). In :ref:`Figure 4 <fig_adjlist>` this
 map object is represented by the shaded gray box. ``Graph`` also
 provides methods for adding vertices to a graph and connecting one
 vertex to another. The ``getVertices`` method returns the names of all
-of the vertices in the graph. In addition, we have implemented the
-``__iter__`` method to make it easy to iterate over all the vertex
-objects in a particular graph.
+of the vertices in the graph.
 
 .. _lst_graph:
 
@@ -65,38 +91,79 @@ objects in a particular graph.
 
 ::
 
-    class Graph:
-        def __init__(self):
-            self.vertList = {}
-            self.numVertices = 0
+        class Graph {
+          public:
+          map<int, Vertex> vertList;
+          int numVertices;
 
-        def addVertex(self,key):
-            self.numVertices = self.numVertices + 1
-            newVertex = Vertex(key)
-            self.vertList[key] = newVertex
-            return newVertex
+          Graph() {
+            numVertices = 0;
+          }
 
-        def getVertex(self,n):
-            if n in self.vertList:
-                return self.vertList[n]
-            else:
-                return None
+          Vertex addVertex(int key) {
+            numVertices++;
+            Vertex newVertex = Vertex(key);
+            this->vertList[key] = newVertex;
+            return newVertex;
+          }
 
-        def __contains__(self,n):
-            return n in self.vertList
+          Vertex *getVertex(int n) {
+            for (map<int, Vertex>::iterator it = vertList.begin();
+               it != vertList.end();
+               ++it) {
+              if (it->first == n) {
+                // Forced to use pntr due to possibility of returning NULL
+                Vertex *vpntr = &vertList[n];
+                return vpntr;
+              } else {
+                return NULL;
+              }
+            }
+          }
 
-        def addEdge(self,f,t,cost=0):
-            if f not in self.vertList:
-                nv = self.addVertex(f)
-            if t not in self.vertList:
-                nv = self.addVertex(t)
-            self.vertList[f].addNeighbor(self.vertList[t], cost)
+          bool contains(int n) {
+            for (map<int, Vertex>::iterator it = vertList.begin();
+               it != vertList.end();
+               ++it) {
+              if (it->first == n) {
+                return true;
+              }
+            }
+            return false;
+          }
 
-        def getVertices(self):
-            return self.vertList.keys()
+          void addEdge(int f, int t, int cost = 0) {
+            if (!this->contains(f)) {
+              cout << f << " was not found, adding!" << endl;
+              this->addVertex(f);
+            }
+            if (!this->contains(t)) {
+              cout << t << " was not found, adding!" << endl;
+            }
+            vertList[f].addNeighbor(t, cost);
+          }
 
-        def __iter__(self):
-            return iter(self.vertList.values())
+          vector<int> getVertices() {
+            vector<int> verts;
+
+            for (map<int, Vertex>::iterator it = vertList.begin();
+               it != vertList.end();
+               ++it) {
+              verts.push_back(it->first);
+            }
+            return verts;
+          }
+
+          friend ostream &operator<<(ostream &, Graph &);
+        };
+
+        ostream &operator<<(ostream &stream, Graph &grph) {
+          for (unsigned int i = 0; i < grph.vertList.size(); i++) {
+            stream << grph.vertList[i];
+          }
+
+          return stream;
+        }
 
 Using the ``Graph`` and ``Vertex`` classes just defined, the following
 Python session creates the graph in :ref:`Figure 2 <fig_dgsimple>`. First we
@@ -262,6 +329,8 @@ at the end of this session against :ref:`Figure 2 <fig_dgsimple>`.
 
       	return 0;
       }
+
+
   .. tab:: Python
 
     .. activecode:: graph_implementation_py
