@@ -107,6 +107,240 @@ vertices together. Finally, a nested loop verifies that each edge in the
 graph is properly stored. You should check the output of the edge list
 at the end of this session against :ref:`Figure 2 <fig_dgsimple>`.
 
+.. activecode:: graph_implementation_cpp
+  :caption: C++ Graph and Vertex implementation
+  :language: cpp
+
+  #include <iostream>
+  #include <map>
+  #include <vector>
+  using namespace std;
+
+  class Vertex {
+  public:
+  	int id;
+  	map<int, int> connectedTo;
+
+  	Vertex() {
+  	}
+
+  	Vertex(int key) {
+  		id = key;
+  	}
+
+  	void addNeighbor(int nbr, int weight = 0) {
+  		connectedTo[nbr] = weight;
+  	}
+
+  	vector<int> getConnections() {
+  		vector<int> keys;
+  		// Use of iterator to find all keys
+  		for (map<int, int>::iterator it = connectedTo.begin();
+  			 it != connectedTo.end();
+  			 ++it) {
+  			keys.push_back(it->first);
+  		}
+  		return keys;
+  	}
+
+  	int getId() {
+  		return id;
+  	}
+
+  	int getWeight(int nbr) {
+  		return connectedTo[nbr];
+  	}
+
+  	friend ostream &operator<<(ostream &, Vertex &);
+  };
+
+  ostream &operator<<(ostream &stream, Vertex &vert) {
+  	vector<int> connects = vert.getConnections();
+  	for (int i = 0; i < connects.size(); i++) {
+  		stream << "( " << vert.id << " , " << connects[i] << " ) \n";
+  	}
+
+  	return stream;
+  }
+
+  class Graph {
+  public:
+  	map<int, Vertex> vertList;
+  	int numVertices;
+
+  	Graph() {
+  		numVertices = 0;
+  	}
+
+  	Vertex addVertex(int key) {
+  		numVertices++;
+  		Vertex newVertex = Vertex(key);
+  		this->vertList[key] = newVertex;
+  		return newVertex;
+  	}
+
+  	Vertex *getVertex(int n) {
+  		for (map<int, Vertex>::iterator it = vertList.begin();
+  			 it != vertList.end();
+  			 ++it) {
+  			if (it->first == n) {
+  				// Forced to use pntr due to possibility of returning NULL
+  				Vertex *vpntr = &vertList[n];
+  				return vpntr;
+  			} else {
+  				return NULL;
+  			}
+  		}
+  	}
+
+  	bool contains(int n) {
+  		for (map<int, Vertex>::iterator it = vertList.begin();
+  			 it != vertList.end();
+  			 ++it) {
+  			if (it->first == n) {
+  				return true;
+  			}
+  		}
+  		return false;
+  	}
+
+  	void addEdge(int f, int t, int cost = 0) {
+  		if (!this->contains(f)) {
+  			cout << f << " was not found, adding!" << endl;
+  			this->addVertex(f);
+  		}
+  		if (!this->contains(t)) {
+  			cout << t << " was not found, adding!" << endl;
+  		}
+  		vertList[f].addNeighbor(t, cost);
+  	}
+
+  	vector<int> getVertices() {
+  		vector<int> verts;
+
+  		for (map<int, Vertex>::iterator it = vertList.begin();
+  			 it != vertList.end();
+  			 ++it) {
+  			verts.push_back(it->first);
+  		}
+  		return verts;
+  	}
+
+  	friend ostream &operator<<(ostream &, Graph &);
+  };
+
+  ostream &operator<<(ostream &stream, Graph &grph) {
+  	for (int i = 0; i < grph.vertList.size(); i++) {
+  		stream << grph.vertList[i];
+  	}
+
+  	return stream;
+  }
+
+  int main() {
+  	Graph g;
+
+  	for (int i = 0; i < 6; i++) {
+  		g.addVertex(i);
+  	}
+
+  	g.addEdge(0, 1, 5);
+  	g.addEdge(0, 5, 2);
+  	g.addEdge(1, 2, 4);
+  	g.addEdge(2, 3, 9);
+  	g.addEdge(3, 4, 7);
+  	g.addEdge(3, 5, 3);
+  	g.addEdge(4, 0, 1);
+  	g.addEdge(5, 4, 8);
+  	g.addEdge(5, 2, 1);
+
+  	cout << g << endl;
+
+  	return 0;
+  }
+
+.. activecode:: graph_implementation_py
+  :caption: Graph and Vertex implementation
+
+  class Vertex:
+  	def __init__(self, key):
+  		self.id = key
+  		self.connectedTo = {}
+
+  	def addNeighbor(self, nbr, weight=0):
+  		self.connectedTo[nbr] = weight
+
+  	def __str__(self):
+  		return str(self.id) + ' connectedTo: ' + str(
+  		    [x.id for x in self.connectedTo])
+
+  	def getConnections(self):
+  		return self.connectedTo.keys()
+
+  	def getId(self):
+  		return self.id
+
+  	def getWeight(self, nbr):
+  		return self.connectedTo[nbr]
+
+
+  class Graph:
+  	def __init__(self):
+  		self.vertList = {}
+  		self.numVertices = 0
+
+  	def addVertex(self, key):
+  		self.numVertices = self.numVertices + 1
+  		newVertex = Vertex(key)
+  		self.vertList[key] = newVertex
+  		return newVertex
+
+  	def getVertex(self, n):
+  		if n in self.vertList:
+  			return self.vertList[n]
+  		else:
+  			return None
+
+  	def __contains__(self, n):
+  		return n in self.vertList
+
+  	def addEdge(self, f, t, cost=0):
+  		if f not in self.vertList:
+  			self.addVertex(f)
+  		if t not in self.vertList:
+  			self.addVertex(t)
+  		self.vertList[f].addNeighbor(self.vertList[t], cost)
+
+  	def getVertices(self):
+  		return self.vertList.keys()
+
+  	def __iter__(self):
+  		return iter(self.vertList.values())
+
+
+  def main():
+  	g = Graph()
+  	for i in range(6):
+  		g.addVertex(i)
+
+  	g.addEdge(0, 1, 5)
+  	g.addEdge(0, 5, 2)
+  	g.addEdge(1, 2, 4)
+  	g.addEdge(2, 3, 9)
+  	g.addEdge(3, 4, 7)
+  	g.addEdge(3, 5, 3)
+  	g.addEdge(4, 0, 1)
+  	g.addEdge(5, 4, 8)
+  	g.addEdge(5, 2, 1)
+
+  	for v in g:
+  		for w in v.getConnections():
+  			print("( %s , %s )" % (v.getId(), w.getId()))
+
+
+  main()
+
+
 <!-- Replaced by ActiveCode
 ::
 
