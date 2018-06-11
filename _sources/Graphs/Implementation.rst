@@ -376,4 +376,5 @@ at the end of this session against :ref:`Figure 2 <fig_dgsimple>`.
     ( 4 , 0 )
     ( 5 , 4 )
     ( 5 , 2 )
+
 -->
