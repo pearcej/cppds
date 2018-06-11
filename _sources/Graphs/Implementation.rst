@@ -156,7 +156,7 @@ at the end of this session against :ref:`Figure 2 <fig_dgsimple>`.
 
   ostream &operator<<(ostream &stream, Vertex &vert) {
   	vector<int> connects = vert.getConnections();
-  	for (int i = 0; i < connects.size(); i++) {
+  	for (unsigned int i = 0; i < connects.size(); i++) {
   		stream << "( " << vert.id << " , " << connects[i] << " ) \n";
   	}
 
@@ -230,7 +230,7 @@ at the end of this session against :ref:`Figure 2 <fig_dgsimple>`.
   };
 
   ostream &operator<<(ostream &stream, Graph &grph) {
-  	for (int i = 0; i < grph.vertList.size(); i++) {
+  	for (unsigned int i = 0; i < grph.vertList.size(); i++) {
   		stream << grph.vertList[i];
   	}
 
