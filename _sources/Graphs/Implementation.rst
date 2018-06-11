@@ -5,21 +5,24 @@
 Implementation
 ~~~~~~~~~~~~~~
 
-Using dictionaries, it is easy to implement the adjacency list in
-Python. In our implementation of the Graph abstract data type we will
+Using a map, or dictionaries in Python, it is easy to implement the adjacency list. In our implementation of the Graph abstract data type we will
 create two classes (see :ref:`Listing 1 <lst_vertex>` and :ref:`Listing 2 <lst_graph>`), ``Graph``, which holds the master list of vertices,
 and ``Vertex``, which will represent each vertex in the graph.
 
-Each ``Vertex`` uses a dictionary to keep track of the vertices to which
-it is connected, and the weight of each edge. This dictionary is called
+Each ``Vertex`` uses a map to keep track of the vertices to which
+it is connected, and the weight of each edge. This map is called
 ``connectedTo``. The listing below shows the code for the ``Vertex``
-class. The constructor simply initializes the ``id``, which will
-typically be a string, and the ``connectedTo`` dictionary. The
+class. The constructor simply initializes the ``id``,
+which will be an integer, and the ``connectedTo`` map. The
 ``addNeighbor`` method is used add a connection from this vertex to
 another. The ``getConnections`` method returns all of the vertices in
 the adjacency list, as represented by the ``connectedTo`` instance
 variable. The ``getWeight`` method returns the weight of the edge from
 this vertex to the vertex passed as a parameter.
+
+We use operator overloading so that when we print our Vertex using the cout<< function
+we get a list of it's connections, instead of an error. This function must be initialized
+as a friend function within the class definition, but is required to be defined outside of the class. This is specific to operator overloading in C++.
 
 .. _lst_vertex:
 
@@ -47,16 +50,14 @@ this vertex to the vertex passed as a parameter.
         def getWeight(self,nbr):
             return self.connectedTo[nbr]
 
-The ``Graph`` class, shown in the next listing, contains a dictionary
-that maps vertex names to vertex objects. In :ref:`Figure 4 <fig_adjlist>` this
-dictionary object is represented by the shaded gray box. ``Graph`` also
+The ``Graph`` class, shown in the next listing, contains a map
+that maps vertex names (int) to vertex objects (Vertex). In :ref:`Figure 4 <fig_adjlist>` this
+map object is represented by the shaded gray box. ``Graph`` also
 provides methods for adding vertices to a graph and connecting one
 vertex to another. The ``getVertices`` method returns the names of all
 of the vertices in the graph. In addition, we have implemented the
 ``__iter__`` method to make it easy to iterate over all the vertex
-objects in a particular graph. Together, the two methods allow you to
-iterate over the vertices in a graph by name, or by the objects
-themselves.
+objects in a particular graph.
 
 .. _lst_graph:
 
@@ -68,13 +69,13 @@ themselves.
         def __init__(self):
             self.vertList = {}
             self.numVertices = 0
-            
+
         def addVertex(self,key):
             self.numVertices = self.numVertices + 1
             newVertex = Vertex(key)
             self.vertList[key] = newVertex
             return newVertex
-        
+
         def getVertex(self,n):
             if n in self.vertList:
                 return self.vertList[n]
@@ -83,17 +84,17 @@ themselves.
 
         def __contains__(self,n):
             return n in self.vertList
-        
+
         def addEdge(self,f,t,cost=0):
             if f not in self.vertList:
                 nv = self.addVertex(f)
             if t not in self.vertList:
                 nv = self.addVertex(t)
             self.vertList[f].addNeighbor(self.vertList[t], cost)
-        
+
         def getVertices(self):
             return self.vertList.keys()
-            
+
         def __iter__(self):
             return iter(self.vertList.values())
 
@@ -106,17 +107,18 @@ vertices together. Finally, a nested loop verifies that each edge in the
 graph is properly stored. You should check the output of the edge list
 at the end of this session against :ref:`Figure 2 <fig_dgsimple>`.
 
+<!-- Replaced by ActiveCode
 ::
 
     >>> g = Graph()
     >>> for i in range(6):
     ...    g.addVertex(i)
     >>> g.vertList
-    {0: <adjGraph.Vertex instance at 0x41e18>, 
-     1: <adjGraph.Vertex instance at 0x7f2b0>, 
-     2: <adjGraph.Vertex instance at 0x7f288>, 
-     3: <adjGraph.Vertex instance at 0x7f350>, 
-     4: <adjGraph.Vertex instance at 0x7f328>, 
+    {0: <adjGraph.Vertex instance at 0x41e18>,
+     1: <adjGraph.Vertex instance at 0x7f2b0>,
+     2: <adjGraph.Vertex instance at 0x7f288>,
+     3: <adjGraph.Vertex instance at 0x7f350>,
+     4: <adjGraph.Vertex instance at 0x7f328>,
      5: <adjGraph.Vertex instance at 0x7f300>}
     >>> g.addEdge(0,1,5)
     >>> g.addEdge(0,5,2)
@@ -128,9 +130,9 @@ at the end of this session against :ref:`Figure 2 <fig_dgsimple>`.
     >>> g.addEdge(5,4,8)
     >>> g.addEdge(5,2,1)
     >>> for v in g:
-    ...    for w in v.getConnections(): 
+    ...    for w in v.getConnections():
     ...        print("( %s , %s )" % (v.getId(), w.getId()))
-    ... 
+    ...
     ( 0 , 5 )
     ( 0 , 1 )
     ( 1 , 2 )
@@ -140,3 +142,4 @@ at the end of this session against :ref:`Figure 2 <fig_dgsimple>`.
     ( 4 , 0 )
     ( 5 , 4 )
     ( 5 , 2 )
+-->
