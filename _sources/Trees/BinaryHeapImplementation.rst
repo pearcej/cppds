@@ -317,7 +317,7 @@ vector representation of this series of swaps as shown in
 
 The complete binary heap implementation can be seen in ActiveCode 1.
 
-.. tabbed:: binary heap
+.. tabbed:: binaryheap
 
   .. tab:: C++
 
@@ -331,88 +331,89 @@ The complete binary heap implementation can be seen in ActiveCode 1.
 
         class BinHeap{
 
-            private:
-                vector<int> heapList;
-                int currentSize;
+        private:
+            vector<int> heapList;
+            int currentSize;
 
-            public:
-                BinHeap(vector<int> heapList){
-                    this->heapList = heapList;
-                    this->currentSize = 0;
-                }
+        public:
+            BinHeap(vector<int> heapList){
+                this->heapList = heapList;
+                this->currentSize = 0;
+            }
 
-                void percUp(int i){
-                    while ((i / 2) > 0){
-                        if (this->heapList[i] < this->heapList[i/2]){
-                            int tmp = this->heapList[i/2];
-                            this->heapList[i/2] = this->heapList[i];
-                            this->heapList[i] = tmp;
-                        }
-                        i = i/2;
+            void percUp(int i){
+                while ((i / 2) > 0){
+                    if (this->heapList[i] < this->heapList[i/2]){
+                        int tmp = this->heapList[i/2];
+                        this->heapList[i/2] = this->heapList[i];
+                        this->heapList[i] = tmp;
                     }
-
+                    i = i/2;
                 }
 
-                void insert(int k){
-                    this->heapList.push_back(k);
-                    this->currentSize = this->currentSize + 1;
-                    this->percUp(this->currentSize);
-                }
+            }
 
-                void percDown(int i){
-                    while ((i*2) <= this->currentSize){
-                        int mc = this->minChild(i);
-                        if (this->heapList[i] > this->heapList[mc]){
-                            int tmp = this->heapList[i];
-                            this->heapList[i] = this->heapList[mc];
-                            this->heapList[mc] = tmp;
-                        }
-                        i = mc;
+            void insert(int k){
+                this->heapList.push_back(k);
+                this->currentSize = this->currentSize + 1;
+                this->percUp(this->currentSize);
+            }
+
+            void percDown(int i){
+                while ((i*2) <= this->currentSize){
+                    int mc = this->minChild(i);
+                    if (this->heapList[i] > this->heapList[mc]){
+                        int tmp = this->heapList[i];
+                        this->heapList[i] = this->heapList[mc];
+                        this->heapList[mc] = tmp;
                     }
+                    i = mc;
                 }
+            }
 
-                int minChild(int i){
-                    if (((i*2)+1) > this->currentSize){
+            int minChild(int i){
+                if (((i*2)+1) > this->currentSize){
+                    return i * 2;
+                }
+                else{
+                    if (this->heapList[i*2] < this->heapList[(i*2)+1]){
                         return i * 2;
                     }
                     else{
-                        if (this->heapList[i*2] < this->heapList[(i*2)+1]){
-                            return i * 2;
-                        }
-                        else{
-                            return (i * 2) + 1;
-                        }
+                        return (i * 2) + 1;
                     }
                 }
+            }
 
-                int delMin(){
-                    if (this->currentSize > 1){
-                        int retval = this->heapList[1];
-                        this->heapList[1] = this->heapList[this->currentSize];
-                        this->currentSize = this->currentSize - 1;
-                        this->heapList.pop_back();
-                        this->percDown(1);
-                        return retval;
-                    }
-                    else{
-                        int retval = this->heapList[0];
-                        this->heapList[1] = this->heapList[this->currentSize];
-                        this->currentSize = this->currentSize - 1;
-                        this->heapList.pop_back();
-                        this->percDown(1);
-                        return retval;
-                    }
-                }
+            int delMin(){
+                int retval = this->heapList[1];
+                this->heapList[1] = this->heapList[this->currentSize];
+                this->currentSize = this->currentSize - 1;
+                this->heapList.pop_back();
+                this->percDown(1);
+                return retval;
+            }
 
-                void buildheap(vector<int> alist){
-                    int i = alist.size() / 2;
-                    this->currentSize = alist.size();
-                    this->heapList = alist;
-                    while (i > 0){
-                        this->percDown(i);
-                        i = i - 1;
-                    }
+            void buildheap(vector<int> alist){
+                int i = alist.size() / 2;
+                this->currentSize = alist.size();
+                this->heapList.insert(this->heapList.end(), alist.begin(), alist.end());
+                while (i > 0){
+                    this->percDown(i);
+                    i = i - 1;
                 }
+            }
+
+            bool isEmpty(){
+                if (this->heapList.size()>0){
+                    return false;
+                }
+                return true;
+            }
+
+            int findMin(){
+                return this->heapList[1];
+            }
         };
 
 
@@ -420,7 +421,10 @@ The complete binary heap implementation can be seen in ActiveCode 1.
             int arr[] = {9, 5, 6, 2, 3};
             vector<int> a(arr,arr+(sizeof(arr)/ sizeof(arr[0])));
 
-            BinHeap *bh = new BinHeap(a);
+            vector<int> vec;
+            vec.push_back(0);
+
+            BinHeap *bh = new BinHeap(vec);
             bh->buildheap(a);
 
             cout << bh->delMin() << endl;
@@ -460,10 +464,10 @@ The complete binary heap implementation can be seen in ActiveCode 1.
             def percDown(self,i):
                 while (i * 2) <= self.currentSize:
                     mc = self.minChild(i)
-                        if self.heapList[i] > self.heapList[mc]:
-                            tmp = self.heapList[i]
-                            self.heapList[i] = self.heapList[mc]
-                            self.heapList[mc] = tmp
+                    if self.heapList[i] > self.heapList[mc]:
+                        tmp = self.heapList[i]
+                        self.heapList[i] = self.heapList[mc]
+                        self.heapList[mc] = tmp
                     i = mc
 
             def minChild(self,i):
@@ -491,17 +495,18 @@ The complete binary heap implementation can be seen in ActiveCode 1.
                     self.percDown(i)
                     i = i - 1
 
-        bh = BinHeap()
-        bh.buildHeap([9,5,6,2,3])
+        def main():
 
-        print(bh.delMin())
-        print(bh.delMin())
-        print(bh.delMin())
-        print(bh.delMin())
-        print(bh.delMin())
+            bh = BinHeap()
+            bh.buildHeap([9,5,6,2,3])
 
+            print(bh.delMin())
+            print(bh.delMin())
+            print(bh.delMin())
+            print(bh.delMin())
+            print(bh.delMin())
 
-
+        main()
 
 The assertion that we can build the heap in :math:`O(n)` may seem a
 bit mysterious at first, and a proof is beyond the scope of this book.
