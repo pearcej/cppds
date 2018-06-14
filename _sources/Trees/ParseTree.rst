@@ -67,7 +67,7 @@ detail. In particular we will look at
    tree.
 
 The first step in building a parse tree is to break up the expression
-string into a list of tokens. There are four different kinds of tokens
+string into a vector of tokens. There are four different kinds of tokens
 to consider: left parentheses, right parentheses, operators, and
 operands. We know that whenever we read a left parenthesis we are
 starting a new expression, and hence we should create a new tree to
@@ -81,7 +81,7 @@ Using the information from above we can define four rules as follows:
 #. If the current token is a ``'('``, add a new node as the left child
    of the current node, and descend to the left child.
 
-#. If the current token is in the list ``['+','-','/','*']``, set the
+#. If the current token is in the vector ``['+','-','/','*']``, set the
    root value of the current node to the operator represented by the
    current token. Add a new node as the right child of the current node
    and descend to the right child.
@@ -92,10 +92,10 @@ Using the information from above we can define four rules as follows:
 #. If the current token is a ``')'``, go to the parent of the current
    node.
 
-Before writing the Python code, let’s look at an example of the rules
+Before writing the C++ code, let’s look at an example of the rules
 outlined above in action. We will use the expression
 :math:`(3 + (4 * 5))`. We will parse this expression into the
-following list of character tokens ``['(', '3', '+',``
+following vector of character tokens ``['(', '3', '+',``
 ``'(', '4', '*', '5' ,')',')']``. Initially we will start out with a
 parse tree that consists of an empty root node. :ref:`Figure 4 <fig_bldExpstep>`
 illustrates the structure and contents of the parse tree, as each new
@@ -194,7 +194,7 @@ When we want to return to the parent of the current node, we pop the
 parent off the stack.
 
 Using the rules described above, along with the ``Stack`` and
-``BinaryTree`` operations, we are now ready to write a Python function
+``BinaryTree`` operations, we are now ready to write a C++ function
 to create a parse tree. The code for our parse tree builder is presented
 in :ref:`ActiveCode 1 <lst_buildparse>`.
 
@@ -282,18 +282,11 @@ in :ref:`ActiveCode 1 <lst_buildparse>`.
             pStack.push(eTree);
             BinaryTree *currentTree = eTree;
 
-            vector<string> arr;
-            arr.push_back("+");
-            arr.push_back("-");
-            arr.push_back("*");
-            arr.push_back("/");
+            string arr[] = {"+", "-", "*", "/"};
+            vector<string> vect(arr,arr+(sizeof(arr)/ sizeof(arr[0])));
 
-            vector<string> arr2;
-            arr2.push_back("+");
-            arr2.push_back("-");
-            arr2.push_back("*");
-            arr2.push_back("/");
-            arr2.push_back(")");
+            string arr2[] = {"+", "-", "*", "/", ")"};
+            vector<string> vect2(arr2,arr2+(sizeof(arr2)/ sizeof(arr2[0])));
 
             for (unsigned int i = 0; i<fplist.size(); i++){
 
@@ -303,7 +296,7 @@ in :ref:`ActiveCode 1 <lst_buildparse>`.
                     currentTree = currentTree->getLeftChild();
                 }
 
-                else if (find(arr.begin(), arr.end(), fplist[i]) != arr.end()){
+                else if (find(vect.begin(), vect.end(), fplist[i]) != vect.end()){
                     currentTree->setRootVal(fplist[i]);
                     currentTree->insertRight("");
                     pStack.push(currentTree);
@@ -315,7 +308,7 @@ in :ref:`ActiveCode 1 <lst_buildparse>`.
                     pStack.pop();
                 }
 
-                else if (find(arr2.begin(), arr2.end(), fplist[i]) == arr2.end()) {
+                else if (find(vect2.begin(), vect2.end(), fplist[i]) == vect2.end()) {
                     try {
                         currentTree->setRootVal(fplist[i]);
                         BinaryTree *parent = pStack.top();
@@ -399,7 +392,7 @@ clauses of the ``if`` statement on lines 12, 17,
 can see that the code implements the rule, as described above, with a
 few calls to the ``BinaryTree`` or ``Stack`` methods. The only error
 checking we do in this function is in the ``else`` clause where a
-``ValueError`` exception will be raised if we get a token from the list
+``ValueError`` exception will be raised if we get a token from the vector
 that we do not recognize.
 
 Now that we have built a parse tree, what can we do with it? As a first
@@ -438,7 +431,7 @@ a leaf node, look up the operator in the current node and apply it to
 the results from recursively evaluating the left and right children.
 
 To implement the arithmetic, we use a dictionary with the keys ``'+', '-', '*'``, and
-``'/'``. The values stored in the dictionary are functions from Python’s
+``'/'``. The values stored in the dictionary are functions from C++’s
 operator module. The operator module provides us with the functional
 versions of many commonly used operators. When we look up an operator in
 the dictionary, the corresponding function object is retrieved. Since
@@ -539,8 +532,8 @@ obtain references to the left and right children to make sure they
 exist. The recursive call takes place on line 9. We begin
 by looking up the operator in the root of the tree, which is ``'+'``.
 The ``'+'`` operator maps to the ``operator.add`` function call, which
-takes two parameters. As usual for a Python function call, the first
-thing Python does is to evaluate the parameters that are passed to the
+takes two parameters. As usual for a C++ function call, the first
+thing C++ does is to evaluate the parameters that are passed to the
 function. In this case both parameters are recursive function calls to
 our ``evaluate`` function. Using left-to-right evaluation, the first
 recursive call goes to the left. In the first recursive call the

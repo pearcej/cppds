@@ -3,7 +3,7 @@
 
 
 Binary Heap Implementation
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 
 The Structure Property
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -27,16 +27,16 @@ shows an example of a complete binary tree.
    Figure 1: A Complete Binary Tree
 
 Another interesting property of a complete tree is that we can represent
-it using a single list. We do not need to use nodes and references or
-even lists of lists. Because the tree is complete, the left child of a
+it using a single vector. We do not need to use nodes and references or
+even vectors of vectors. Because the tree is complete, the left child of a
 parent (at position :math:`p`) is the node that is found in position
-:math:`2p` in the list. Similarly, the right child of the parent is at
-position :math:`2p + 1` in the list. To find the parent of any node in
+:math:`2p` in the vector. Similarly, the right child of the parent is at
+position :math:`2p + 1` in the vector. To find the parent of any node in
 the tree, we can simply use Python’s integer division. Given that a node
-is at position :math:`n` in the list, the parent is at position
+is at position :math:`n` in the vector, the parent is at position
 :math:`n/2`. :ref:`Figure 2 <fig_heapOrder>` shows a complete binary tree
-and also gives the list representation of the tree.  Note the :math:`2p` and :math:`2p+1` relationship between
-parent and children. The list
+and also gives the vector representation of the tree.  Note the :math:`2p` and :math:`2p+1` relationship between
+parent and children. The vector
 representation of the tree, along with the full structure property,
 allows us to efficiently traverse a complete binary tree using only a
 few simple mathematical operations. We will see that this also leads to
@@ -58,17 +58,17 @@ tree that has the heap order property.
    :align: center
    :alt: image
 
-   Figure 2: A Complete Binary Tree, along with its List Representation
+   Figure 2: A Complete Binary Tree, along with its Vector Representation
 
 
 Heap Operations
 ^^^^^^^^^^^^^^^
 
 We will begin our implementation of a binary heap with the constructor.
-Since the entire binary heap can be represented by a single list, all
-the constructor will do is initialize the list and an attribute
+Since the entire binary heap can be represented by a single vector, all
+the constructor will do is initialize the vector and an attribute
 ``currentSize`` to keep track of the current size of the heap.
-:ref:`Listing 1 <lst_heap1a>` shows the Python code for the constructor. You
+:ref:`Listing 1 <lst_heap1a>` shows the C++ code for the constructor. You
 will notice that an empty binary heap has a single zero as the first
 element of ``heapList`` and that this zero is not used, but is there so
 that simple integer division can be used in later methods.
@@ -79,15 +79,22 @@ that simple integer division can be used in later methods.
 **Listing 1**
 
 ::
-    
-    class BinHeap:
-        def __init__(self):
-            self.heapList = [0]
-            self.currentSize = 0
+
+    class BinHeap{
+
+        private:
+            vector<int> heapList;
+            int currentSize;
+
+        public:
+            BinHeap(vector<int> heapList){
+                this->heapList = heapList;
+                this->currentSize = 0;
+            }
 
 The next method we will implement is ``insert``. The easiest, and most
-efficient, way to add an item to a list is to simply append the item to
-the end of the list. The good news about appending is that it guarantees
+efficient, way to add an item to a vector is to simply append the item to
+the end of the vector. The good news about appending is that it guarantees
 that we will maintain the complete tree property. The bad news about
 appending is that we will very likely violate the heap structure
 property. However, it is possible to write a method that will allow us
@@ -128,14 +135,17 @@ properly.
 
 ::
 
-    def percUp(self,i):
-        while i // 2 > 0:
-          if self.heapList[i] < self.heapList[i // 2]:
-             tmp = self.heapList[i // 2]
-             self.heapList[i // 2] = self.heapList[i]
-             self.heapList[i] = tmp
-          i = i // 2
+    void percUp(int i){
+        while ((i / 2) > 0){
+            if (this->heapList[i] < this->heapList[i/2]){
+                int tmp = this->heapList[i/2];
+                this->heapList[i/2] = this->heapList[i];
+                this->heapList[i] = tmp;
+            }
+            i = i/2;
+        }
 
+    }
 
 .. _lst_heap3:
 
@@ -143,12 +153,11 @@ properly.
 
 ::
 
-    def insert(self,k):
-        self.heapList.append(k)
-        self.currentSize = self.currentSize + 1
-        self.percUp(self.currentSize)
-        
-        
+    void insert(int k){
+        this->heapList.push_back(k);
+        this->currentSize = this->currentSize + 1;
+        this->percUp(this->currentSize);
+    }
 
 With the ``insert`` method properly defined, we can now look at the
 ``delMin`` method. Since the heap property requires that the root of the
@@ -156,7 +165,7 @@ tree be the smallest item in the tree, finding the minimum item is easy.
 The hard part of ``delMin`` is restoring full compliance with the heap
 structure and heap order properties after the root has been removed. We
 can restore our heap in two steps. First, we will restore the root item
-by taking the last item in the list and moving it to the root position.
+by taking the last item in the vector and moving it to the root position.
 Moving the last item maintains our heap structure property. However, we
 have probably destroyed the heap order property of our binary heap.
 Second, we will restore the heap order property by pushing the new root
@@ -187,23 +196,31 @@ the tree is found in the ``percDown`` and ``minChild`` methods in
 
 ::
 
-    def percDown(self,i):
-        while (i * 2) <= self.currentSize:
-            mc = self.minChild(i)
-            if self.heapList[i] > self.heapList[mc]:
-                tmp = self.heapList[i]
-                self.heapList[i] = self.heapList[mc]
-                self.heapList[mc] = tmp
-            i = mc
+    void percDown(int i){
+        while ((i*2) <= this->currentSize){
+            int mc = this->minChild(i);
+            if (this->heapList[i] > this->heapList[mc]){
+                int tmp = this->heapList[i];
+                this->heapList[i] = this->heapList[mc];
+                this->heapList[mc] = tmp;
+            }
+            i = mc;
+        }
+    }
 
-    def minChild(self,i):
-        if i * 2 + 1 > self.currentSize:
-            return i * 2
-        else:
-            if self.heapList[i*2] < self.heapList[i*2+1]:
-                return i * 2
-            else:
-                return i * 2 + 1
+    int minChild(int i){
+        if (((i*2)+1) > this->currentSize){
+            return i * 2;
+        }
+        else{
+            if (this->heapList[i*2] < this->heapList[(i*2)+1]){
+                return i * 2;
+            }
+            else{
+                return (i * 2) + 1;
+            }
+        }
+    }
 
 The code for the ``delmin`` operation is in :ref:`Listing 5 <lst_heap5>`. Note
 that once again the hard work is handled by a helper function, in this
@@ -215,26 +232,37 @@ case ``percDown``.
 
 ::
 
-    def delMin(self):
-        retval = self.heapList[1]
-        self.heapList[1] = self.heapList[self.currentSize]
-        self.currentSize = self.currentSize - 1
-        self.heapList.pop()
-        self.percDown(1)
-        return retval
+    int delMin(){
+        if (this->currentSize > 1){
+            int retval = this->heapList[1];
+            this->heapList[1] = this->heapList[this->currentSize];
+            this->currentSize = this->currentSize - 1;
+            this->heapList.pop_back();
+            this->percDown(1);
+            return retval;
+        }
+        else{
+            int retval = this->heapList[0];
+            this->heapList[1] = this->heapList[this->currentSize];
+            this->currentSize = this->currentSize - 1;
+            this->heapList.pop_back();
+            this->percDown(1);
+            return retval;
+        }
+    }
 
 To finish our discussion of binary heaps, we will look at a method to
-build an entire heap from a list of keys. The first method you might
-think of may be like the following. Given a list of keys, you could
+build an entire heap from a vector of keys. The first method you might
+think of may be like the following. Given a vector of keys, you could
 easily build a heap by inserting each key one at a time. Since you are
-starting with a list of one item, the list is sorted and you could use
+starting with a vector of one item, the vector is sorted and you could use
 binary search to find the right position to insert the next key at a
 cost of approximately :math:`O(\log{n})` operations. However, remember
-that inserting an item in the middle of the list may require
-:math:`O(n)` operations to shift the rest of the list over to make
+that inserting an item in the middle of the vector may require
+:math:`O(n)` operations to shift the rest of the vector over to make
 room for the new key. Therefore, to insert :math:`n` keys into the
 heap would require a total of :math:`O(n \log{n})` operations.
-However, if we start with an entire list then we can build the whole
+However, if we start with an entire vector then we can build the whole
 heap in :math:`O(n)` operations. :ref:`Listing 6 <lst_heap6>` shows the code
 to build the entire heap.
 
@@ -244,14 +272,15 @@ to build the entire heap.
 
 ::
 
-    def buildHeap(self,alist):
-        i = len(alist) // 2
-        self.currentSize = len(alist)
-        self.heapList = [0] + alist[:]
-        while (i > 0):
-            self.percDown(i)
-            i = i - 1
-
+    void buildheap(vector<int> alist){
+        int i = alist.size() / 2;
+        this->currentSize = alist.size();
+        this->heapList = alist;
+        while (i > 0){
+            this->percDown(i);
+            i = i - 1;
+        }
+    }
 
 .. _fig_buildheap:
 
@@ -259,7 +288,7 @@ to build the entire heap.
    :align: center
    :alt: image
 
-   Figure 4: Building a Heap from the List [9, 6, 5, 2, 3]
+   Figure 4: Building a Heap from the vector [9, 6, 5, 2, 3]
 
 :ref:`Figure 4 <fig_buildheap>` shows the swaps that the ``buildHeap`` method
 makes as it moves the nodes in an initial tree of [9, 6, 5, 2, 3] into
@@ -276,7 +305,7 @@ that we check the next set of children farther down in the tree to
 ensure that it is pushed as low as it can go. In this case it results in
 a second swap with 3. Now that 9 has been moved to the lowest level of
 the tree, no further swapping can be done. It is useful to compare the
-list representation of this series of swaps as shown in
+vector representation of this series of swaps as shown in
 :ref:`Figure 4 <fig_buildheap>` with the tree representation.
 
 ::
@@ -284,80 +313,200 @@ list representation of this series of swaps as shown in
           i = 2  [0, 9, 5, 6, 2, 3]
           i = 1  [0, 9, 2, 6, 5, 3]
           i = 0  [0, 2, 3, 6, 5, 9]
-          
+
 
 The complete binary heap implementation can be seen in ActiveCode 1.
 
+.. tabbed:: binaryheap
+
+  .. tab:: C++
+
+    .. activecode:: completeheapcpp
+        :caption: The Complete Binary Heap Example C++
+        :language: cpp
+
+        #include <iostream>
+        #include <vector>
+        using namespace std;
+
+        class BinHeap{
+
+        private:
+            vector<int> heapList;
+            int currentSize;
+
+        public:
+            BinHeap(vector<int> heapList){
+                this->heapList = heapList;
+                this->currentSize = 0;
+            }
+
+            void percUp(int i){
+                while ((i / 2) > 0){
+                    if (this->heapList[i] < this->heapList[i/2]){
+                        int tmp = this->heapList[i/2];
+                        this->heapList[i/2] = this->heapList[i];
+                        this->heapList[i] = tmp;
+                    }
+                    i = i/2;
+                }
+
+            }
+
+            void insert(int k){
+                this->heapList.push_back(k);
+                this->currentSize = this->currentSize + 1;
+                this->percUp(this->currentSize);
+            }
+
+            void percDown(int i){
+                while ((i*2) <= this->currentSize){
+                    int mc = this->minChild(i);
+                    if (this->heapList[i] > this->heapList[mc]){
+                        int tmp = this->heapList[i];
+                        this->heapList[i] = this->heapList[mc];
+                        this->heapList[mc] = tmp;
+                    }
+                    i = mc;
+                }
+            }
+
+            int minChild(int i){
+                if (((i*2)+1) > this->currentSize){
+                    return i * 2;
+                }
+                else{
+                    if (this->heapList[i*2] < this->heapList[(i*2)+1]){
+                        return i * 2;
+                    }
+                    else{
+                        return (i * 2) + 1;
+                    }
+                }
+            }
+
+            int delMin(){
+                int retval = this->heapList[1];
+                this->heapList[1] = this->heapList[this->currentSize];
+                this->currentSize = this->currentSize - 1;
+                this->heapList.pop_back();
+                this->percDown(1);
+                return retval;
+            }
+
+            void buildheap(vector<int> alist){
+                int i = alist.size() / 2;
+                this->currentSize = alist.size();
+                this->heapList.insert(this->heapList.end(), alist.begin(), alist.end());
+                while (i > 0){
+                    this->percDown(i);
+                    i = i - 1;
+                }
+            }
+
+            bool isEmpty(){
+                if (this->heapList.size()>0){
+                    return false;
+                }
+                return true;
+            }
+
+            int findMin(){
+                return this->heapList[1];
+            }
+        };
 
 
-.. activecode:: completeheap
-   :caption: The Complete Binary Heap Example
-   :hidecode:
-   
-   class BinHeap:
-       def __init__(self):
-           self.heapList = [0]
-           self.currentSize = 0
+        int main(){
+            int arr[] = {9, 5, 6, 2, 3};
+            vector<int> a(arr,arr+(sizeof(arr)/ sizeof(arr[0])));
+
+            vector<int> vec;
+            vec.push_back(0);
+
+            BinHeap *bh = new BinHeap(vec);
+            bh->buildheap(a);
+
+            cout << bh->delMin() << endl;
+            cout << bh->delMin() << endl;
+            cout << bh->delMin() << endl;
+            cout << bh->delMin() << endl;
+            cout << bh->delMin() << endl;
+
+            return 0;
+        }
+
+  .. tab:: Python
+
+    .. activecode:: completeheappy
+        :caption: The Complete Binary Heap Example Python
+        :language: python
+
+        class BinHeap:
+            def __init__(self):
+                self.heapList = [0]
+                self.currentSize = 0
 
 
-       def percUp(self,i):
-           while i // 2 > 0:
-             if self.heapList[i] < self.heapList[i // 2]:
-                tmp = self.heapList[i // 2]
-                self.heapList[i // 2] = self.heapList[i]
-                self.heapList[i] = tmp
-             i = i // 2
+            def percUp(self,i):
+                while i // 2 > 0:
+                    if self.heapList[i] < self.heapList[i // 2]:
+                        tmp = self.heapList[i // 2]
+                        self.heapList[i // 2] = self.heapList[i]
+                        self.heapList[i] = tmp
+                    i = i // 2
 
-       def insert(self,k):
-         self.heapList.append(k)
-         self.currentSize = self.currentSize + 1
-         self.percUp(self.currentSize)
+            def insert(self,k):
+                self.heapList.append(k)
+                self.currentSize = self.currentSize + 1
+                self.percUp(self.currentSize)
 
-       def percDown(self,i):
-         while (i * 2) <= self.currentSize:
-             mc = self.minChild(i)
-             if self.heapList[i] > self.heapList[mc]:
-                 tmp = self.heapList[i]
-                 self.heapList[i] = self.heapList[mc]
-                 self.heapList[mc] = tmp
-             i = mc
+            def percDown(self,i):
+                while (i * 2) <= self.currentSize:
+                    mc = self.minChild(i)
+                    if self.heapList[i] > self.heapList[mc]:
+                        tmp = self.heapList[i]
+                        self.heapList[i] = self.heapList[mc]
+                        self.heapList[mc] = tmp
+                    i = mc
 
-       def minChild(self,i):
-         if i * 2 + 1 > self.currentSize:
-             return i * 2
-         else:
-             if self.heapList[i*2] < self.heapList[i*2+1]:
-                 return i * 2
-             else:
-                 return i * 2 + 1
+            def minChild(self,i):
+                if i * 2 + 1 > self.currentSize:
+                    return i * 2
+                else:
+                    if self.heapList[i*2] < self.heapList[i*2+1]:
+                        return i * 2
+                    else:
+                        return i * 2 + 1
 
-       def delMin(self):
-         retval = self.heapList[1]
-         self.heapList[1] = self.heapList[self.currentSize]
-         self.currentSize = self.currentSize - 1
-         self.heapList.pop()
-         self.percDown(1)
-         return retval
+            def delMin(self):
+                retval = self.heapList[1]
+                self.heapList[1] = self.heapList[self.currentSize]
+                self.currentSize = self.currentSize - 1
+                self.heapList.pop()
+                self.percDown(1)
+                return retval
 
-       def buildHeap(self,alist):
-         i = len(alist) // 2
-         self.currentSize = len(alist)
-         self.heapList = [0] + alist[:]
-         while (i > 0):
-             self.percDown(i)
-             i = i - 1
+            def buildHeap(self,alist):
+                i = len(alist) // 2
+                self.currentSize = len(alist)
+                self.heapList = [0] + alist[:]
+                while (i > 0):
+                    self.percDown(i)
+                    i = i - 1
 
-   bh = BinHeap()
-   bh.buildHeap([9,5,6,2,3])
+        def main():
 
-   print(bh.delMin())
-   print(bh.delMin())
-   print(bh.delMin())
-   print(bh.delMin())
-   print(bh.delMin())
-   
-   
-   
+            bh = BinHeap()
+            bh.buildHeap([9,5,6,2,3])
+
+            print(bh.delMin())
+            print(bh.delMin())
+            print(bh.delMin())
+            print(bh.delMin())
+            print(bh.delMin())
+
+        main()
 
 The assertion that we can build the heap in :math:`O(n)` may seem a
 bit mysterious at first, and a proof is beyond the scope of this book.
@@ -366,7 +515,7 @@ However, the key to understanding that you can build the heap in
 derived from the height of the tree. For most of the work in
 ``buildHeap``, the tree is shorter than :math:`\log{n}`.
 
-Using the fact that you can build a heap from a list in :math:`O(n)`
+Using the fact that you can build a heap from a vector in :math:`O(n)`
 time, you will construct a sorting algorithm that uses a heap and sorts
-a list in :math:`O(n\log{n}))` as an exercise at the end of this
+a vector in :math:`O(n\log{n}))` as an exercise at the end of this
 chapter.
