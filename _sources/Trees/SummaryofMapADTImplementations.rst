@@ -3,7 +3,7 @@
 
 
 Summary of Map ADT Implementations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------
 
 
 Over the past two chapters we have looked at several data structures
@@ -19,10 +19,10 @@ map ADT (see :ref:`Table 1 <tab_compare>`).
 .. table:: **Table 1: Comparing the Performance of Different Map Implementations**
 
     =========== ======================  ============   ==================  ====================
-    operation   Sorted List             Hash Table     Binary Search Tree     AVL Tree
+    operation   Sorted Array             Hash Table     Binary Search Tree     AVL Tree
     =========== ======================  ============   ==================  ====================
-         put    :math:`O(n)`            :math:`O(1)`       :math:`O(n)`    :math:`O(\log_2{n})`   
-         get    :math:`O(\log_2{n})`    :math:`O(1)`       :math:`O(n)`    :math:`O(\log_2{n})`   
-         in     :math:`O(\log_2{n})`    :math:`O(1)`       :math:`O(n)`    :math:`O(\log_2{n})`   
+         put    :math:`O(n)`            :math:`O(1)`       :math:`O(n)`    :math:`O(\log_2{n})`
+         get    :math:`O(\log_2{n})`    :math:`O(1)`       :math:`O(n)`    :math:`O(\log_2{n})`
+         in     :math:`O(\log_2{n})`    :math:`O(1)`       :math:`O(n)`    :math:`O(\log_2{n})`
          del    :math:`O(n)`            :math:`O(1)`       :math:`O(n)`    :math:`O(\log_2{n})`
     =========== ======================  ============   ==================  ====================
