@@ -77,14 +77,6 @@ miscellaneous functions is shown in :ref:`Listing 1 <lst_bst1>`.
                 return this->size;
             }
 
-
-        def __len__(self):
-    	    return self.size
-
-        def __iter__(self):
-    	    return self.root.__iter__()
-
-
 The ``TreeNode`` class provides many helper functions that make the work
 done in the ``BinarySearchTree`` class methods much easier. The
 constructor for a ``TreeNode``, along with these helper functions, is
@@ -1083,7 +1075,7 @@ full version of the ``BinarySearchTree`` and ``TreeNode`` classes.
                #else:
                 #   return False
 
-            def del(self,key):
+            def delete(self,key):
               if self.size > 1:
                  nodeToRemove = self._get(key,self.root)
                  if nodeToRemove:
