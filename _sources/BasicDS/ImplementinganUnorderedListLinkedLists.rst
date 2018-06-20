@@ -51,11 +51,12 @@ a node object containing the value 93 (see :ref:`Figure 3 <fig_node>`). You
 should note that we will typically represent a node object as shown in
 :ref:`Figure 4 <fig_node2>`. The ``Node`` class also includes the usual methods
 to access and modify the data and the next reference.
-  .. _lst_nodeclass:
+
+.. _lst_nodeclass:
 
   **Listing 1**
 
-  .. sourcecode:: cplusplus
+  .. sourcecode:: cpp
 
 
     #include <iostream>
@@ -89,6 +90,8 @@ to access and modify the data and the next reference.
 
 We create ``Node`` objects in the usual way.
 
+::
+
     int main(){
 
        Node* temp = new Node(93);
@@ -96,7 +99,7 @@ We create ``Node`` objects in the usual way.
           return 0;
     }
 
-.. _lst_nodeclass:
+.. _lst_nodeclass_py:
 
 **Listing 1**
 
@@ -167,7 +170,7 @@ to the head of the list.
 
 **Listing 2**
 
-.. sourcecode:: cplusplus
+.. sourcecode:: cpp
 
     class UnorderedList{
 
@@ -199,7 +202,7 @@ important to note that the list class itself does not contain any node
 objects. Instead it contains a single pointer to only the first node
 in the linked structure.
 
-.. _lst_listclass:
+.. _lst_listclass_py:
 
 **Listing 2**
 
