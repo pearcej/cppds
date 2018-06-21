@@ -3,7 +3,7 @@
 
 
 What is a Stack?
----------------
+----------------
 
 A **stack** (sometimes called a “push-down stack”) is an ordered
 collection of items where the addition of new items and the removal of
