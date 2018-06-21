@@ -22,7 +22,7 @@ programming language. There may be many programs for the same algorithm,
 depending on the programmer and the programming language being used.
 
 To explore this difference further, consider the function shown in
-:ref:`ActiveCode 1 <lst_sum1>`. This function solves a familiar problem, computing the
+:ref:`ActiveCode 1 <lst_sum11>`. This function solves a familiar problem, computing the
 sum of the first *n* integers. The algorithm uses the idea of an
 accumulator variable that is initialized to 0. The solution then
 iterates through the *n* integers, adding each to the accumulator.
@@ -32,38 +32,40 @@ iterates through the *n* integers, adding each to the accumulator.
   .. tab:: C++
 
     .. activecode:: ec1_cpp
-      :caption: Title for the C++ Code
-      :language: cpp
+        :caption: C++
+        :language: cpp
 
-      #include <iostream>
-      using namespace std;
+        #include <iostream>
+        using namespace std;
 
-      int sumOfN(int n){
-          int theSum = 0;
-          for (int i = 0; i < n+1; i++){
-              theSum = theSum + i;
+        int sumOfN(int n){
+            int theSum = 0;
+            for (int i = 0; i < n+1; i++){
+                theSum = theSum + i;
+            }
+            return theSum;
         }
-        return theSum;
-      }
 
-      int main(){
-         cout << sumOfN(10);
-         return 0;
-      }
+        int main(){
+            cout << sumOfN(10);
+            return 0;
+        }
 
   .. tab:: Python
 
     .. activecode:: ec1_py
-       :caption: Title for the Python Code
+       :caption: Python
 
-       def sumOfN(n):
+        def sumOfN(n):
             theSum = 0
             for i in range(1,n+1):
-               theSum = theSum + i
+                theSum = theSum + i
 
             return theSum
 
-       print(sumOfN(10))
+        def main():
+            print(sumOfN(10))
+        main()
 
 Now look at the function in :ref:`ActiveCode 2 <lst_sum2>`. At first glance it may look
 strange, but upon further inspection you can see that this function is
@@ -80,6 +82,7 @@ during the accumulation step that was not really necessary.
 
         .. activecode:: ec2_cpp
             :caption: Another Summation of the First n Integers in C++
+            :language: cpp
 
             #include <iostream>
             using namespace std;
@@ -106,12 +109,14 @@ during the accumulation step that was not really necessary.
             def foo(tom):
                 fred = 0
                 for bill in range(1,tom+1):
-                   barney = bill
-                   fred = fred + barney
+                    barney = bill
+                    fred = fred + barney
 
                 return fred
 
-            print(foo(10))
+            def main():
+                print(foo(10))
+            main()
 
 The question we raised earlier asked whether one function is better than
 another. The answer depends on your criteria. The function ``sumOfN`` is
@@ -161,50 +166,54 @@ and then computing the difference, we can get an exact number of seconds
 
   .. tab:: C++
 
-    .. activecode:: change_this_cpp
-       :caption: Title for the C++ Window
+    .. activecode:: ec2cpp
+       :caption: C++
        :language: cpp
 
-       #include <iostream>
-       #include <ctime>
-       using namespace std;
+        #include <iostream>
+        #include <ctime>
+        using namespace std;
 
         int sumofN2(int n) {
-           int theSum = 0;
-           clock_t begin = clock();
-           for(int i = 0; i < n+1; i++){
-               theSum = theSum + i;
-           }
-           clock_t end = clock();
-           double elapsed_secs = double(end - begin) /CLOCKS_PER_SEC;
-           cout << "Sum is " << theSum << " required "<<elapsed_secs << " seconds" << endl;
-       return theSum;
+            clock_t begin = clock();
+            int theSum = 0;
+            for(int i = 0; i < n+1; i++){
+                theSum = theSum + i;
+            }
+            clock_t end = clock();
+            double elapsed_secs = double(end - begin) /CLOCKS_PER_SEC;
+            cout << "Sum is " << theSum << " required "<<elapsed_secs << " seconds" << endl;
+            return theSum;
        }
 
        int main(){
            for (int i = 0; i < 6; i++){
-                f(10000) << endl;
+                sumofN2(10000);
            }
-       return 0;
+           return 0;
        }
 
   .. tab:: Python
 
-    .. activecode:: change_this_py
-       :caption: Title for the Python Window
+    .. activecode:: ec2py
+        :caption: Python
 
-       import time
+        import time
 
-       def sumOfN2(n):
-          start = time.time()
+        def sumOfN2(n):
+            start = time.time()
 
-          theSum = 0
-          for i in range(1,n+1):
-             theSum = theSum + i
+            theSum = 0
+            for i in range(1,n+1):
+                theSum = theSum + i
 
-          end = time.time()
+            end = time.time()
 
-          return theSum,end-start\
+            return end-start
+
+        def main():
+            print(sumOfN2(10000))
+        main()
 
 
 :ref:`Listing 1 <lst_sum11>` shows the original ``sumOfN`` function with the timing
@@ -217,7 +226,7 @@ the following:
 ::
 
     for (int i = 0; i < 6; i++){
-        f(10000);
+        sumOfN2(10000);
     }
     Sum is 50005000 required 6e-05 seconds
     Sum is 50005000 required 3.1e-05 seconds
@@ -238,25 +247,24 @@ compute the sum of the first ``n`` integers without iterating.
   .. tab:: C++
 
     .. activecode:: active3cpp
-      :caption: Summation Without Iteration C++
-      :language: cpp
+        :caption: Summation Without Iteration C++
+        :language: cpp
 
-      #include <iostream>
-      using namespace std;
-      #include <ctime>
+        #include <iostream>
+        using namespace std;
+        #include <ctime>
 
-      int sumOfN3(int n){
-          clock_t begin = clock();
-          int sum_n = (n*(n+1))/2;
-          clock_t end = clock();
-          double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
-          cout<<"Sum is " << sum_n << " required " << elapsed_secs <<" seconds";
-          return sum_n;
-      }
-      int main(){
-          sumOfN3(10000);
-          return 0;
-      }
+        int sumOfN3(int n){
+
+            int sum_n = (n*(n+1))/2;
+
+            return sum_n;
+        }
+
+        int main(){
+            cout << sumOfN3(10);
+            return 0;
+        }
 
 
   .. tab:: Python
@@ -264,16 +272,18 @@ compute the sum of the first ``n`` integers without iterating.
     .. activecode:: active3py
        :caption: Summation Without Iteration Python
 
-       def sumOfN3(n):
-          return (n*(n+1))/2
+        def sumOfN3(n):
+            return (n*(n+1))/2
 
-       print(sumOfN3(10))
+        def main():
+            print(sumOfN3(10))
+        main()
 
 If we do the same benchmark measurement for ``sumOfN3``, using the value  10,000 for ``n`` and we get the following result:
 
 ::
 
-    Sum is 50005000 required 6e-06 seconds
+    Sum is 50005000 required 1e-06 seconds
 
 There are two important things to notice about this output. First, the
 times recorded above are shorter than any of the previous examples.

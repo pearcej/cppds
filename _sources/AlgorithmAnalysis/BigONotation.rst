@@ -104,7 +104,7 @@ as *n* gets large.
 
 
 :ref:`Figure 1 <fig_graphfigurecpp>` shows graphs of the common
-functions from :ref:`Table 1 <tbl_fntable>`. Notice that when *n* is small, the
+functions from :ref:`Table 1 <tbl_fntablecpp>`. Notice that when *n* is small, the
 functions are not very well defined with respect to one another. It is
 hard to tell which is dominant. However, as *n* grows, there is a
 definite relationship and it is easy to see how they compare with one
@@ -126,39 +126,38 @@ analyze performance.
 
 **Listing 2**
 
-.. tabbed:: ec4
+**C++ Implementation**
 
-  .. tab:: C++
+    #include <iostream>
+    using namespace std;
 
-    .. activecode:: active3cpp
-      :caption: C++
-      :language: cpp
+    int main(){
+        int a=5;
+        int b=6;
+        int c=10;
+        for (int i=0; i<n; i++){
+        
+            for (int j=0; j<n; j++){
+                int x = i * i;
+                int y = j * j;
+                int z = i * j;
 
-      #include <iostream>
-      using namespace std;
+            }
 
-      int main(){
-          int a=5;
-          int b=6;
-          int c=10;
-          for (int i=0; i<n; i++){
-              for (int j=0; j<n; j++){
-                  int x = i * i;
-                  int y = j * j;
-                  int z = i * j;
-              }
-          }
-          for (int k = 0; k < n; k++){
-              int w = a*k + 45;
-              int v = b*b;
-          }
-          int d = 33;
-      }
+        }
 
-  .. tab:: Python
+        for (int k = 0; k < n; k++){
+            int w = a*k + 45;
+            int v = b*b;
 
-    .. activecode:: active3py
-       :caption: Python
+        }
+        int d = 33;
+
+    }
+
+**Python Implementation**
+
+::
 
         a=5
         b=6

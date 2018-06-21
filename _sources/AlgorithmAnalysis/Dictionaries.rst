@@ -16,14 +16,14 @@ item and set item operations on a hash table is :math:`O(1)`. Another
 important hash table operation is the contains operation. Checking to
 see whether a key is in the hash table or not is also :math:`O(1)`.
 The efficiency of all hash table operations is summarized in
-:ref:`Table 3 <tbl_dictbigocpp>`. One important side note on hash table performance
+:ref:`Table 3 <tbl_dictbigo_cpp>`. One important side note on hash table performance
 is that the efficiencies we provide in the table below are for average
 performance. In some rare cases the contains, get item, and set item
 operations can degenerate into :math:`O(n)` performance but we will
 get into that in a later chapter when we talk about the different ways
 that a hash table could be implemented.
 
-.. _tbl_dictbigocpp:
+.. _tbl_dictbigo_cpp:
 
 .. table:: **Table 3: Big-O Efficiency of C++ hash table Operations**
 
@@ -54,12 +54,12 @@ whether or not a number is in the hash table is not only much faster,
 but the time it takes to check should remain constant even as the
 hash table grows larger.
 
-:ref:`Listing 6 <lst_listvdictcpp>` implements this comparison. Notice that we are
+:ref:`Listing 6 <lst_listvdict_cpp>` implements this comparison. Notice that we are
 performing exactly the same operation, ``number in container``. The
 difference is that on line 7 ``x`` is array, and on line 9 ``x`` is a
 hash table.
 
-.. _lst_listvdictcpp:
+.. _lst_listvdict_cpp:
 
 **Listing 6**
 
@@ -83,8 +83,8 @@ hash table.
 
 
 
-:ref:`Figure 4 <fig_listvdictcpp>` summarizes the results of running
-:ref:`Listing 6 <lst_listvdictcpp>`. You can see that the hash table is consistently
+:ref:`Figure 4 <fig_listvdict_cpp>` summarizes the results of running
+:ref:`Listing 6 <lst_listvdict_cpp>`. You can see that the hash table is consistently
 faster. For the smallest array size of 10,000 elements a hash table is
 89.4 times faster than an array. For the largest array size of 990,000
 elements the hash table is 11,603 times faster! You can also see that
@@ -96,7 +96,7 @@ hash table size grows. In fact for a hash table size of 10,000 the
 contains operation took 0.004 milliseconds and for the hash table size
 of 990,000 it also took 0.004 milliseconds.
 
-.. _fig_listvdictcpp:
+.. _fig_listvdict_cpp:
 
 .. figure:: Figures/listvdict.png
 
@@ -108,7 +108,7 @@ data structures can be found on the C++ website.
 
 .. admonition:: Self Check
 
-    .. mchoice:: mccppmapperf
+    .. mchoice:: mccppmapperfcpp
        :answer_a: Popping the first index from an array.
        :answer_b: Popping an element from the end of an array.
        :answer_c: Adding a new element to an array.
@@ -123,7 +123,7 @@ data structures can be found on the C++ website.
 
        Which of the list operations shown below is not O(1)?
 
-    .. mchoice:: mccppmapperf
+    .. mchoice:: mccppmapperfcpp1
       :answer_a: mymap.count('x')
       :answer_b: mymap.erase('x')
       :answer_c: mymap['x'] = 10;
