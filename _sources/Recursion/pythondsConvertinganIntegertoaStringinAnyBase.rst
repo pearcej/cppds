@@ -1,4 +1,4 @@
- ..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -65,7 +65,7 @@ right side of the diagram.
 :ref:`ActiveCode 1 <lst_rectostrcpp>` shows the Python code that implements the algorithm
 outlined above for any base between 2 and 16.
 
-.. tabbed:: Int To String
+.. tabbed:: IntToString
 
   .. tab:: C++
 
