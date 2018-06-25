@@ -99,8 +99,8 @@ Here is the main simulation.
 #. After the simulation is complete, compute the average waiting time
    from the list of waiting times generated.
 
-Python Implementation
-^^^^^^^^^^^^^^^^^^^^^
+C++ Implementation
+^^^^^^^^^^^^^^^^^^
 
 To design this simulation we will create classes for the three
 real-world objects described above: ``Printer``, ``Task``, and
@@ -117,49 +117,63 @@ the printer to idle (line 11) if the task is completed.
 
 **Listing 2**
 
-.. highlight:: python
+.. highlight:: cpp
     :linenothreshold: 5
 
 ::
 
-   class Printer:
-       def __init__(self, ppm):
-           self.pagerate = ppm
-           self.currentTask = None
-           self.timeRemaining = 0
+    class Printer {
+        public:
+        int pagerate;
+        Task *currentTask;
+        int timeRemaining;
 
-       def tick(self):
-           if self.currentTask != None:
-               self.timeRemaining = self.timeRemaining - 1
-               if self.timeRemaining <= 0:
-                   self.currentTask = None
+        Printer(int ppm) {
+            pagerate=ppm;
+            currentTask=NULL;
+            timeRemaining=0;
+        }
 
-       def busy(self):
-           if self.currentTask != None:
-               return True
-           else:
-               return False
+        void tick() {
+            if (currentTask != NULL) {
+                timeRemaining--;
+                if (timeRemaining <= 0) {
+                    currentTask=NULL;
+                }
+            }
+        }
 
-       def startNext(self,newtask):
-           self.currentTask = newtask
-           self.timeRemaining = newtask.getPages() * 60/self.pagerate
-                                
+        bool busy() {
+            if (currentTask != NULL) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        void startNext(Task *newtask) {
+            currentTask=newtask;
+            timeRemaining=newtask->getPages()*60/pagerate;
+        }
+    };
+
 .. highlight:: python
     :linenothreshold: 500
 
 The Task class (:ref:`Listing 3 <lst_task>`) will represent a single printing
 task. When the task is created, a random number generator will provide a
-length from 1 to 20 pages. We have chosen to use the ``randrange``
-function from the ``random`` module.
+length from 1 to 20 pages. We have chosen to use the ``rand()``
+function to provide the random number using the format below. ``srand()`` is used
+to give different random numbers each time the program is executed by setting the random
+numbers based on the computer's current time.
 
 ::
-
-    >>> import random
-    >>> random.randrange(1,21)
+    >>srand(time(NULL));
+    >>> rand()%21+1;
     18
-    >>> random.randrange(1,21)
+    >>> rand()%21+1;
     8
-    >>> 
+    >>>
 
 Each task will also need to keep a timestamp to be used for computing
 waiting time. This timestamp will represent the time that the task was
@@ -175,21 +189,29 @@ printing begins.
 
 .. sourcecode:: python
 
-   import random
-   
-   class Task:
-       def __init__(self,time):
-           self.timestamp = time
-           self.pages = random.randrange(1,21)
+   class Task {
+       private:
+       int timestamp;
+       int pages;
 
-       def getStamp(self):
-           return self.timestamp
+       public:
+       Task(int time) {
+           timestamp = time;
+           pages=(rand()%21)+1;
+       }
 
-       def getPages(self):
-           return self.pages
+       int getStamp() {
+           return timestamp;
+       }
 
-       def waitTime(self, currenttime):
-           return currenttime - self.timestamp
+       int getPages() {
+           return pages;
+       }
+
+       int waitTime(int currenttime) {
+           return (currenttime - timestamp);
+       }
+   };
 
 The main simulation (:ref:`Listing 4 <lst_qumainsim>`) implements the algorithm
 described above. The ``printQueue`` object is an instance of our
@@ -202,51 +224,124 @@ seconds. By arbitrarily choosing 180 from the range of random integers
 allows us to set the total time and the pages per minute for the
 printer.
 
-.. highlight:: python
+.. highlight:: cpp
     :linenothreshold: 5
 
 .. _lst_qumainsim:
 
 **Listing 4**
 
-.. code-block:: python
+.. code-block:: cpp
 
-   from pythonds.basic.queue import Queue
+    #include <iostream>
+    #include <queue>
+    #include <vector>
+    #include <random>
+    using namespace std;
 
-   import random
+    class Task {
+        private:
+        int timestamp;
+        int pages;
 
-   def simulation(numSeconds, pagesPerMinute):
+        public:
+        Task(int time) {
+            timestamp = time;
+            pages=(rand()%21)+1;
+        }
 
-       labprinter = Printer(pagesPerMinute)
-       printQueue = Queue()
-       waitingtimes = []
+        int getStamp() {
+            return timestamp;
+        }
 
-       for currentSecond in range(numSeconds):
+        int getPages() {
+            return pages;
+        }
 
-         if newPrintTask():
-            task = Task(currentSecond)
-            printQueue.enqueue(task)
+        int waitTime(int currenttime) {
+            return (currenttime - timestamp);
+        }
+    };
 
-         if (not labprinter.busy()) and (not printQueue.isEmpty()):
-           nexttask = printQueue.dequeue()
-           waitingtimes.append(nexttask.waitTime(currentSecond))
-           labprinter.startNext(nexttask)
+    class Printer {
+        public:
+        int pagerate;
+        Task *currentTask;
+        int timeRemaining;
 
-         labprinter.tick()
+        Printer(int ppm) {
+            pagerate=ppm;
+            currentTask=NULL;
+            timeRemaining=0;
+        }
 
-       averageWait=sum(waitingtimes)/len(waitingtimes)
-       print("Average Wait %6.2f secs %3d tasks remaining."%(averageWait,printQueue.size()))
+        void tick() {
+            if (currentTask != NULL) {
+                timeRemaining--;
+                if (timeRemaining <= 0) {
+                    currentTask=NULL;
+                }
+            }
+        }
 
-   def newPrintTask():
-       num = random.randrange(1,181)
-       if num == 180:
-           return True
-       else:
-           return False
+        bool busy() {
+            if (currentTask != NULL) {
+                return true;
+            } else {
+                return false;
+            }
+        }
 
-   for i in range(10):
-       simulation(3600,5)
-       
+        void startNext(Task *newtask) {
+            currentTask=newtask;
+            timeRemaining=newtask->getPages()*60/pagerate;
+        }
+    };
+
+    bool newPrintTask() {
+        int num = rand()%180+1;
+        if (num==180) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    void simulation(int numSeconds, int pagesPerMinute) {
+        Printer labprinter(pagesPerMinute);
+        queue<Task*> printQueue;
+        vector<int> waitingTimes;
+
+        for (int i=0; i<numSeconds; i++) {
+            if (newPrintTask()) {
+                Task *task = new Task(i);
+                printQueue.push(task);
+            }
+            if (!labprinter.busy() &&!printQueue.empty()) {
+                Task *nexttask = printQueue.front();
+                printQueue.pop();
+                waitingTimes.push_back(nexttask->waitTime(i));
+                labprinter.startNext(nexttask);
+            }
+            labprinter.tick();
+        }
+        float total=0;
+        for (int i=0; i<waitingTimes.size(); i++) {
+            total+=waitingTimes[i];
+        }
+        cout<<"Average Wait "<<total/waitingTimes.size()<<" secs "<<printQueue.size()<<" tasks remaining."<<endl;
+    }
+
+    int main() {
+        srand(time(NULL));
+
+        for (int i=0; i<10; i++) {
+            simulation(3600, 10);
+        }
+
+        return 0;
+    }
+
 .. highlight:: python
    :linenothreshold: 500
 
@@ -263,8 +358,9 @@ works with random numbers each run will return different results.
 
 ::
 
-    >>>for i in range(10):
-          simulation(3600,5)
+    >>>for (int i=0; i<10; i++) {
+      simulation(3600,5);
+    }
 
     Average Wait 165.38 secs 2 tasks remaining.
     Average Wait  95.07 secs 1 tasks remaining.
@@ -289,8 +385,9 @@ would be completed in the one hour time frame.
 
 ::
 
-    >>>for i in range(10):
-          simulation(3600,10)
+    >>>for (int i=0; i<10; i++) {
+      simulation(3600,10);
+    }
 
     Average Wait   1.29 secs 0 tasks remaining.
     Average Wait   7.00 secs 0 tasks remaining.
@@ -302,86 +399,123 @@ would be completed in the one hour time frame.
     Average Wait  12.39 secs 0 tasks remaining.
     Average Wait   7.27 secs 0 tasks remaining.
     Average Wait  18.17 secs 0 tasks remaining.
-    
-    
+
+
 You can run the simulation for yourself in ActiveCode 2.
 
 .. activecode:: qumainsim
    :caption: Printer Queue Simulation
-   :nocodelens:
+   :language: cpp
 
-   from pythonds.basic.queue import Queue
+   #include <iostream>
+   #include <queue>
+   #include <vector>
+   #include <cstdlib>
+   using namespace std;
 
-   import random
-   
-   class Printer:
-       def __init__(self, ppm):
-           self.pagerate = ppm
-           self.currentTask = None
-           self.timeRemaining = 0
+   class Task {
+       private:
+       int timestamp;
+       int pages;
 
-       def tick(self):
-           if self.currentTask != None:
-               self.timeRemaining = self.timeRemaining - 1
-               if self.timeRemaining <= 0:
-                   self.currentTask = None
+       public:
+       Task(int time) {
+           timestamp = time;
+           pages=(rand()%21)+1;
+       }
 
-       def busy(self):
-           if self.currentTask != None:
-               return True
-           else:
-               return False
+       int getStamp() {
+           return timestamp;
+       }
 
-       def startNext(self,newtask):
-           self.currentTask = newtask
-           self.timeRemaining = newtask.getPages() * 60/self.pagerate   
+       int getPages() {
+           return pages;
+       }
 
-   class Task:
-       def __init__(self,time):
-           self.timestamp = time
-           self.pages = random.randrange(1,21)
+       int waitTime(int currenttime) {
+           return (currenttime - timestamp);
+       }
+   };
 
-       def getStamp(self):
-           return self.timestamp
+   class Printer {
+       public:
+       int pagerate;
+       Task *currentTask;
+       int timeRemaining;
 
-       def getPages(self):
-           return self.pages
+       Printer(int ppm) {
+           pagerate=ppm;
+           currentTask=NULL;
+           timeRemaining=0;
+       }
 
-       def waitTime(self, currenttime):
-           return currenttime - self.timestamp
+       void tick() {
+           if (currentTask != NULL) {
+               timeRemaining--;
+               if (timeRemaining <= 0) {
+                   currentTask=NULL;
+               }
+           }
+       }
 
+       bool busy() {
+           if (currentTask != NULL) {
+               return true;
+           } else {
+               return false;
+           }
+       }
 
-   def simulation(numSeconds, pagesPerMinute):
+       void startNext(Task *newtask) {
+           currentTask=newtask;
+           timeRemaining=newtask->getPages()*60/pagerate;
+       }
+   };
 
-       labprinter = Printer(pagesPerMinute)
-       printQueue = Queue()
-       waitingtimes = []
+   bool newPrintTask() {
+       int num = rand()%180+1;
+       if (num==180) {
+           return true;
+       } else {
+           return false;
+       }
+   }
 
-       for currentSecond in range(numSeconds):
+   void simulation(int numSeconds, int pagesPerMinute) {
+       Printer labprinter(pagesPerMinute);
+       queue<Task*> printQueue;
+       vector<int> waitingTimes;
 
-         if newPrintTask():
-            task = Task(currentSecond)
-            printQueue.enqueue(task)
+       for (int i=0; i<numSeconds; i++) {
+           if (newPrintTask()) {
+               Task *task = new Task(i);
+               printQueue.push(task);
+           }
+           if (!labprinter.busy() &&!printQueue.empty()) {
+               Task *nexttask = printQueue.front();
+               printQueue.pop();
+               waitingTimes.push_back(nexttask->waitTime(i));
+               labprinter.startNext(nexttask);
+           }
+           labprinter.tick();
+       }
+       float total=0;
+       for (unsigned int i=0; i<waitingTimes.size(); i++) {
+           total+=waitingTimes[i];
+       }
+       cout<<"Average Wait "<<total/waitingTimes.size()<<" secs "<<printQueue.size()<<" tasks remaining."<<endl;
+   }
 
-         if (not labprinter.busy()) and (not printQueue.isEmpty()):
-           nexttask = printQueue.dequeue()
-           waitingtimes.append( nexttask.waitTime(currentSecond))
-           labprinter.startNext(nexttask)
+   int main() {
+       srand(time(NULL));
 
-         labprinter.tick()
+       for (int i=0; i<10; i++) {
+           simulation(3600, 5);
+       }
 
-       averageWait=sum(waitingtimes)/len(waitingtimes)
-       print("Average Wait %6.2f secs %3d tasks remaining."%(averageWait,printQueue.size()))
+       return 0;
+   }
 
-   def newPrintTask():
-       num = random.randrange(1,181)
-       if num == 180:
-           return True
-       else:
-           return False
-
-   for i in range(10):
-       simulation(3600,5)
 
 Discussion
 ^^^^^^^^^^
@@ -425,83 +559,6 @@ of print tasks per hour and the number of students per hour was
 necessary to construct a robust simulation.
 
 .. admonition:: Self Check
-   
+
    How would you modify the printer simulation to reflect a larger number of students?  Suppose that the number of students was doubled.  You make need to make some reasonable assumptions about how this simulation was put together but what would you change?  Modify the code.  Also suppose that the length of the average print task was cut in half.  Change the code to reflect that change.  Finally How would you parametertize the number of students, rather than changing the code we would like
    to make the number of students a parameter of the simulation.
-
-   .. actex:: print_sim_selfcheck
-         :nocodelens:
-
-         from pythonds.basic.queue import Queue
-
-         import random
-
-         class Printer:
-             def __init__(self, ppm):
-                 self.pagerate = ppm
-                 self.currentTask = None
-                 self.timeRemaining = 0
-
-             def tick(self):
-                 if self.currentTask != None:
-                     self.timeRemaining = self.timeRemaining - 1
-                     if self.timeRemaining <= 0:
-                         self.currentTask = None
-
-             def busy(self):
-                 if self.currentTask != None:
-                     return True
-                 else:
-                     return False
-
-             def startNext(self,newtask):
-                 self.currentTask = newtask
-                 self.timeRemaining = newtask.getPages() * 60/self.pagerate
-
-         class Task:
-             def __init__(self,time):
-                 self.timestamp = time
-                 self.pages = random.randrange(1,21)
-
-             def getStamp(self):
-                 return self.timestamp
-
-             def getPages(self):
-                 return self.pages
-
-             def waitTime(self, currenttime):
-                 return currenttime - self.timestamp
-
-
-         def simulation(numSeconds, pagesPerMinute):
-
-             labprinter = Printer(pagesPerMinute)
-             printQueue = Queue()
-             waitingtimes = []
-
-             for currentSecond in range(numSeconds):
-
-               if newPrintTask():
-                  task = Task(currentSecond)
-                  printQueue.enqueue(task)
-
-               if (not labprinter.busy()) and (not printQueue.isEmpty()):
-                 nexttask = printQueue.dequeue()
-                 waitingtimes.append(nexttask.waitTime(currentSecond))
-                 labprinter.startNext(nexttask)
-
-               labprinter.tick()
-
-             averageWait=sum(waitingtimes)/len(waitingtimes)
-             print("Average Wait %6.2f secs %3d tasks remaining." % (averageWait,printQueue.size()))
-
-         def newPrintTask():
-             num = random.randrange(1,181)
-             if num == 180:
-                 return True
-             else:
-                 return False
-
-         for i in range(10):
-             simulation(3600,5)
-
