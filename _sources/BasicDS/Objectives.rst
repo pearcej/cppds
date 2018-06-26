@@ -27,4 +27,4 @@ Objectives
    using the node and reference pattern.
 
 -  To be able to compare the performance of our linked list
-   implementation with the list implementation of C++.
+   implementation with the list implementation of Python.

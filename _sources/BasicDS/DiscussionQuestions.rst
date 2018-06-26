@@ -51,4 +51,3 @@ Discussion Questions
 
 #. Explain how the ``remove`` method works when the item is in the
    *only* node in the linked list.
-
