@@ -5,10 +5,10 @@
 The Sequential Search
 ~~~~~~~~~~~~~~~~~~~~~
 
-When data items are stored in a collection such as a list, we say that
+When data items are stored in a container type such as a Python list or C++ array or vector, we say that
 they have a linear or sequential relationship. Each data item is stored
 in a position relative to the others. In Python lists, these relative
-positions are the index values of the individual items. Since these
+positions are the index values of the individual items. In C++ arrays, these are simply adjacent memory locations each equally sized to fit the data type of the container. Since these
 index values are ordered, it is possible for us to visit them in
 sequence. This process gives rise to our first searching technique, the
 **sequential search**.
@@ -28,11 +28,11 @@ the item we were searching for was not present.
    Figure 1: Sequential Search of a List of Integers
 
 
-The Python implementation for this algorithm is shown in
-:ref:`CodeLens 1 <lst_seqsearchpython>`. The function needs the list and the item we
+Both the Python and C++ implementations for this algorithm are shown in
+:ref:`CodeLens 1 <lst_seqsearchpython>` and :ref:`ActiveCode 1 <lst_seqsearchcpp>` respectively. The function needs the list and the item we
 are looking for and returns a boolean value as to whether it is present.
 The boolean variable ``found`` is initialized to ``False`` and is
-assigned the value ``True`` if we discover the item in the list.
+assigned the value ``True`` if we discover the item in the list (Or vector, in the case of C++).
 
 .. _lst_seqsearchpython:
 
@@ -42,7 +42,7 @@ assigned the value ``True`` if we discover the item in the list.
     def sequentialSearch(alist, item):
         pos = 0
         found = False
-        
+
         while pos < len(alist) and not found:
             if alist[pos] == item:
                 found = True
@@ -54,6 +54,42 @@ assigned the value ``True`` if we discover the item in the list.
     testlist = [1, 2, 32, 8, 17, 19, 42, 13, 0]
     print(sequentialSearch(testlist, 3))
     print(sequentialSearch(testlist, 13))
+
+.. _lst_seqsearchcpp:
+
+.. activecode:: search1_cpp
+  :caption: C++ Sequential Search of an Unordered list
+  :language: cpp
+
+  #include <iostream>
+  #include <vector>
+  using namespace std;
+
+  bool sequentialSearch(vector<int> alist, int item) {
+      unsigned int pos = 0;
+      bool found = false;
+
+      while (pos < alist.size() && !found) {
+          if (alist[pos] == item) {
+              found = true;
+          } else {
+              pos++;
+          }
+      }
+
+      return found;
+  }
+
+  int main() {
+      // Vector initialized using an array
+      int arr[] = {1, 2, 32, 8, 17, 19, 42, 13, 0};
+      vector<int> testlist(arr,arr+(sizeof(arr)/sizeof(arr[0])));
+
+      cout << sequentialSearch(testlist, 3) << endl;
+      cout << sequentialSearch(testlist, 13) << endl;
+
+      return 0;
+  }
 
 Analysis of Sequential Search
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -153,6 +189,44 @@ sequential search function.
     print(orderedSequentialSearch(testlist, 3))
     print(orderedSequentialSearch(testlist, 13))
 
+.. activecode:: search2_cpp
+  :caption: C++ Sequential Search of an Ordered List
+  :language: cpp
+
+  #include <iostream>
+  #include <vector>
+  using namespace std;
+
+  bool orderedSequentialSearch(vector<int> alist, int item) {
+      unsigned int pos = 0;
+      bool found = false;
+      bool stop = false;
+      while (pos < alist.size() && !found && !stop) {
+          if (alist[pos] == item) {
+              found = true;
+          } else {
+              if (alist[pos] > item) {
+                  stop = true;
+              } else {
+                  pos++;
+              }
+          }
+      }
+
+      return found;
+  }
+
+  int main() {
+      // Vector initialized using an array
+      int arr[] = {0, 1, 2, 8, 13, 17, 19, 32, 42};
+      vector<int> testlist(arr,arr+(sizeof(arr)/sizeof(arr[0])));
+
+      cout << orderedSequentialSearch(testlist, 3) << endl;
+      cout << orderedSequentialSearch(testlist, 13) << endl;
+
+      return 0;
+  }
+
 :ref:`Table 2 <tbl_seqsearchtable2>` summarizes these results. Note that in the best
 case we might discover that the item is not in the list by looking at
 only one item. On average, we will know after looking through only
@@ -200,4 +274,3 @@ the list only in the case where we do not find the item.
       :feedback_d: Because 12 is less than the key value 13 you need to keep going.
 
       Suppose you are doing a sequential search of the ordered list [3, 5, 6, 8, 11, 12, 14, 15, 17, 18].  How many comparisons would you need to do in order to find the key 13?
-
