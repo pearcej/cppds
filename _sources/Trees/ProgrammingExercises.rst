@@ -34,7 +34,7 @@ Programming Exercises
    ‘extra’ set of parentheses around each number.
 
 #. Using the ``buildHeap`` method, write a sorting function that can
-   sort a list in :math:`O(n\log{n})` time.
+   sort a array in :math:`O(n\log{n})` time.
 
 #. Write a function that takes a parse tree for a mathematical
    expression and calculates the derivative of the expression with
@@ -45,4 +45,3 @@ Programming Exercises
 #. Using the ``BinaryHeap`` class, implement a new class called
    ``PriorityQueue``. Your ``PriorityQueue`` class should implement the
    constructor, plus the ``enqueue`` and ``dequeue`` methods.
-
