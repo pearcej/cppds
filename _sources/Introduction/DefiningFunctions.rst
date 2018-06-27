@@ -3,7 +3,7 @@
 
 
 Defining Functions
-~~~~~~~~~~~~~~~~~~
+------------------
 
 The earlier example of procedural abstraction called upon a Python
 function called ``sqrt`` from the math module to compute the square
@@ -75,6 +75,133 @@ marker. Any characters that follow the # on a line are ignored.
     67.549981495186216
     >>>
 
+Functions that Pass by Value versus Pass By Reference
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+In all of the functions we have written thus far, we have used a function calling mechanism called **pass by value**. The memory location that stores the values of the arguments when a function is called is different from the location referenced by the function parameters. Calling a function by value involves copying the contents of the arguments into the memory locations of the corresponding formal parameters. If the function changes the values in the parameters, the contents in memory referenced by the arguments of the calling function do not change.
+
+Consider the following two function definitions:
+
+::
+
+    void functionExample( int inputVar ) {
+        int nextVar = inputVar * 2;
+
+        inputVar = 4;
+
+        cout << "nextVar = " << nextVar << " inputVar = " << inputVar;
+    }
+
+    void callingFunction() {
+        int myVar = 10;
+
+        functionExample( myVar );
+        cout << "myVar = " << myVar;
+    }
+
+When the function ``callingFunction()`` executes, it calls ``functionExample(...)`` with the variable *myVar* having the value 10. Within ``functionExample(...)``, the value of 10 is copied from *myVar* to the formal parameter *inputVar*, so the value of *nextVar* is 10x2, or 20. The next statement changes the contents of *inputVar* to 4, so the ``cout`` statement within this function produces the output:
+
+::
+
+    nextVar = 20 inputVar = 4
+
+Notice what happens when ``functionExample(...)`` ends and execution returns to ``callingFunction()``. The contents of *myVar* is **still the same**, as the location for *myVar* differs from where *inputVar* is stored. Thus, *myVar* still has the value 10, and the ``cout`` statement after the function call will produce the output:
+
+::
+
+    myVar = 10
+
+In other words, any changes to the variables are local to the function, which is exactly what we want.
+
+--------------
+
+However, there is a problem.
+
+We have seen examples of C++ functions that return no value or a single value. How about when we want the function to return **more** than one value? We need another function calling mechanism called **pass by reference**. When using this mechanism, the actual location in memory referenced by the arguments are sent rather than the values in that location. To let the compiler know that you intend to use pass by reference, you attach an "&" to the end of the type name in the formal parameter list in the function declaration and header. When you do this, any changes to the values of the parameters will change the value of the arguments as well.
+
+An example of a function where this is useful is a function that takes two values as input and swaps their order. Consider the following program fragment of a function called ``swap_values(...)`` that swaps its two inputs and the ``main()`` function that calls ``swap_values(...)``.
+
+.. _lst_swap_inputs:
+
+    .. activecode:: activepassrefcpp
+        :caption: Pass by Reference
+        :language: cpp
+
+        #include <iostream>
+        using namespace std;
+
+        // swap_values() function definition
+        // Interchanges the values located by variable1 and variable2.
+
+        void swap_values(int &variable1, int &variable2);
+
+        // Notice that this function does not return anything!
+        void swap_values(int &variable1, int &variable2) {
+            int temp; 		// temporary storage for swap
+
+            temp = variable1;
+            variable1 = variable2;
+            variable2 = temp;
+        }
+
+        int main( ) {
+            int first_num, second_num;
+
+            cout << "Enter two integers, separated by a space: ";
+            cin >> first_num >> second_num;
+            swap_values(first_num, second_num);
+            cout << "the numbers are 1) " << first_num << " 2) " << second_num;
+
+            return 0;
+        }
+
+
+For this program :ref:`Swap Inputs <lst_swap_inputs>` to reverse the order of the integers the users types in, the function ``swap_values(...)`` must be able to change the values of the arguments. Try removing one or both of the "&" 's in this code to see what happens.
+
+-----------------------------------------------------------------
+
+Arrays as Parameters in Functions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Functions can be used with **array parameters** to maintain a structured design. However, a formal parameter for an array is neither a call-by-value nor a call-by-reference, but a new type of parameter pass called an array parameter. In a function definition, an array parameter looks like a pass-by-value parameter because there is no ampersand symbol (&), but the variable name is instead followed by a set of square brackets ([ and ]).
+
+The following example function returns the average hours worked over the array of integers (note that we need to also pass in the number of elements in that array because the array parameter *list[]* does not include that information):
+
+::
+
+    double average( int list[], int length ) {	// It is correct     syntax to omit the array length on the array itself.
+        double total = 0;
+        int count;
+        for( count = 0; count < length; count++ )
+            total += double(list[count]);
+        return (total / length);
+    }
+
+Array parameters look like pass by value, but they are effectively like call by reference parameters. When they execute, the functions with these parameters do not make private copies of the arrays they are passed because doing so this could potentially be very expensive in terms of memory. Arrays can therefore always be permanently changed when passed as arguments to functions.
+
+After a call to the following function, each element in the third array argument is equal to the sum of the corresponding two elements in the first and second arguments:
+
+::
+
+    void add_lists( int first[], int second[], int total[], int length ) {
+        int count;
+        for( count = 0; count < length; count++ )
+            total[count] = first[count] + second[count];
+    }
+
+Upon further examination, we can see that the first two arrays do not change values. To prevent ourselves from accidentally modifying any of these arrays, we can add the modifier ``const`` in the function head:
+
+::
+
+    void add_lists( const int first[], const int second[], int total[], int length ) {
+        int count;
+        for( count = 0; count < length; count++ )
+            total[count] = first[count] + second[count];
+    }
+
+These changes would ensure that the compiler will then not accept any statements within the function's definition that potentially modify the elements of the arrays *first* or *second*.
+
 .. admonition:: Self Check
 
    Here's a self check that really covers everything so far.  You may have
@@ -95,5 +222,3 @@ marker. Any characters that follow the # on a line are ignored.
 
    http://media.interactivepython.org/pythondsVideos/monkeys.mov
    http://media.interactivepython.org/pythondsVideos/monkeys.webm
-
-
