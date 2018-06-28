@@ -5,9 +5,9 @@
 Getting Started with Data
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We stated above that Python supports the object-oriented programming
-paradigm. This means that Python considers data to be the focal point of
-the problem-solving process. In Python, as well as in any other
+We stated above that C++ supports the object-oriented programming
+paradigm. This means that C++ considers data to be the focal point of
+the problem-solving process. In C++, as well as in any other
 object-oriented programming language, we define a **class** to be a
 description of what the data look like (the state) and what the data can
 do (the behavior). Classes are analogous to abstract data types because
@@ -18,10 +18,10 @@ is an instance of a class.
 Built-in Atomic Data Types
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We will begin our review by considering the atomic data types. Python
-has two main built-in numeric classes that implement the integer and
-floating point data types. These Python classes are called ``int`` and
-``float``. The standard arithmetic operations, +, -, \*, /, and \*\*
+We will begin our review by considering the atomic data types. C++
+has four main built-in numeric classes that implement the integer and
+floating point data types. These C++ classes are called ``int``, ``float``, ``double``,
+and ``long``. The standard arithmetic operations, +, -, \*, /, and \*\*
 (exponentiation), can be used with parentheses forcing the order of
 operations away from normal operator precedence. Other very useful
 operations are the remainder (modulo) operator, %, and integer division,
@@ -82,9 +82,9 @@ and logical operators with examples shown in the session that follows.
           greater than or equal   :math:`>=`                                 Greater than or equal to operator
                           equal   :math:`==`                                                 Equality operator
                       not equal   :math:`!=`                                                Not equal operator
-                    logical and  :math:`and`                          Both operands True for result to be True
-                     logical or   :math:`or`        One or the other operand is True for the result to be True
-                    logical not  :math:`not`   Negates the truth value, False becomes True, True becomes False
+                    logical and  :math:`&&`                          Both operands True for result to be True
+                     logical or   :math:`||`        One or the other operand is True for the result to be True
+                    logical not  :math:`!`   Negates the truth value, False becomes True, True becomes False
     =========================== ============== =================================================================
 
 
@@ -146,6 +146,190 @@ same variable can refer to many different types of data.
    :align: center
 
    Figure 4: Assignment Changes the Reference
+
+Introduction to Pointers
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+The kind of variables we have already used are really identifiers that refer to where in memory we store information. We can store things as basic as integers and double precision floating point numbers, or things more complicated as structure and classes. Whenever we want the information, we can simply use the identifier to access it.
+
+Let's look at a simple example of storing an integer. The following code declares a variable called *varName* that has in it a value of 100.
+
+::
+
+    // variable declaration for a single integer value
+    int varName = 100;
+
+The results of this code may look like the diagram below:
+
+.. _fig_point1:
+
+.. figure:: Figures/point1.gif
+  :align: center
+  :alt: image
+
+When we want to output the value to the console, we use the variable name to do so:
+
+::
+
+    // print out the value we stored to the console, assuming that we
+    // included the correct headers that define what cout does
+    cout << varName << endl;
+
+An important question is: Is this method of declaring variables sophisticated enough to handle all the problems we want to solve using programs?
+
+The answer to that question is due to the way that arrays are stored in memory. Although the full details are complicated, the simple answer is that each program is given a specific amount of memory space to run. All statically allocated and locally declared variables are stored in this region, as well as all occurrences of the functions as the program is running. There is enough storage room available for simple variables, but arrays can be of arbitrary size, so there is a limit to how large they can be...otherwise they could crowd out the other variables and executable code in the program.
+
+So where do large arrays get stored? In a region of memory called the heap, where space can be allocated when needed and then freed when you are done.
+
+Once we reserve space to hold data, we store the location of this data in a special variable called a pointer.
+
+We will talk about how to declare a variable to be a pointer first and then show pictorially what is happening.
+
+Pointer Syntax
+--------------
+
+When declaring a pointer that will "point" to an the memory address of some data type, you use the same rules of declaring variables and data types. The key difference is that there is an asterisk (*) between the data type and the identifier.
+
+::
+
+    variableType *identifier; // syntax to declare a pointer
+    int *ptrx; // example of a pointer to an integer
+
+White space in C++ generally does not matter, so the following pointer declarations are identical:
+
+::
+
+    SOMETYPE *variablename;
+    SOMETYPE * variablename;
+    SOMETYPE* variablename;
+
+However, the first declaration is preferable in each case, as it is clear to the programmer that the variable is in fact a pointer because the asterix is closer to the variable name.
+
+The Address Operator: One simple way to get the pointer information into a pointer
+----------------------------------------------------------------------------------
+
+Ok, now that we know how to declare pointers, how do we give them the address of where the value is going to be stored? One way to do this is to have a pointer refer to another variable by using the address operator, which is denoted by the ampersand symbol, &. The address operator does exactly what it indicates, namely it returns the address of either (1) a variable, (2) a symbolic constant or (3) a element in an array.
+
+The syntax is shown below, where varName stores the value, and varPntr stores the address of where varName is located:
+
+::
+
+    variableType value;  // a variable to hold the value
+    variableType *pointer = &value;  // a variable to hold the address for varName
+
+Keep in mind that when declaring a pointer, the pointer needs to be of the same type as the variable or constant to which it points.
+
+Expanding on the example above where varName has the value of 100.
+
+::
+
+    //variable declaration for a single integer value
+    int varName = 100;
+    int* varPntr;
+    varPntr = &varName;
+
+The results of this code may look like the diagram below.
+
+.. _fig_point2:
+
+.. figure:: Figures/point2.gif
+  :align: center
+  :alt: image
+
+Accessing Values from SIMPLE Pointers
+-------------------------------------
+
+So, once you have a pointer, how do you access the values associated with that location? You use the asterix before the pointer variable, which dereferences the pointer, meaning that it will find the location of the value stored where the pointer was referencing.
+
+In other words, varName and \*varPntr (note the asterix in front!) is the __same thing__ in the code above.
+
+Let's extend the example above to output the value of a variable and its address in memory:
+
+.. _lst_cppcode1:
+
+    .. activecode:: examplecpp
+        :language: cpp
+
+        #include <iostream>
+        using namespace std;
+
+        int main( ) {
+            int varName = 100;
+            int *varPntr = &varName;
+
+            cout << "the variable varName has the value: " << varName << endl;
+            cout << "varPntr says varName is located at: " << varPntr << endl;
+            cout << "the thing that varPntr is pointing to (varName) has the value: " << *varPntr << "\n\n";
+
+            varName = 50;
+
+            cout << "After changing varName, its value is now: " << varName << endl;
+            cout << "varPntr is now pointing to a variable that has the value: " << *varPntr << "\n\n";
+
+            *varPntr = 2000;
+            cout << "After changing *varPntr, varName now has: " << varName << endl;
+            cout << "varPntr is now pointing to a variable that has the value: " << *varPntr << endl;
+
+            return 0;
+        }
+
+Compiling and running the above code will have the program output the value in varName, what is in varPntr (the memory address of varName), and what value is located at that memory location.
+
+The second output sentence is the address of varName, which would most likely be different if you run the program on your machine.
+
+WARNING What happens if you forget the asterix when assigning a value to a pointer and had the following instructions instead?
+
+varPntr = 2000; // Notice that I forgot the asterix, so varPntr is now referring
+
+// to position 2000 in memory, whatever happens to be there
+cout << "After changing \*varPntr, varName now has: " << varName << endl; cout << "varPntr is now pointing to a variable that has the value: " << \*varPntr << endl;
+
+**This is BAD BAD!**
+
+.. _fig_point3:
+
+.. figure:: Figures/point3.gif
+  :align: center
+  :alt: image
+
+If your compiler does not catch that error (the one for this class may), the first cout instruction outputs
+
+::
+
+    After changing *varPntr, varName now has: 50
+
+which is expected because you changed where varPntr pointing to and NOT the contents of where it is pointing.
+
+The second cout instruction is a disaster because (1) You don't know what is stored in location 2000 in memory, and (2) that location is outside of your segment (area in memory reserved for your program), so the operating system will jump in with a message about a "segmentation fault". Although such an error message looks bad, a "seg fault" is in fact a helpful error because unlike the elusive logical errors, the reason is fairly localized.
+
+The Null pointer; another simple way to get the pointer information into a pointer
+----------------------------------------------------------------------------------
+
+The null pointer points to nothing and is often denoted by 0 or the keyword null. The null pointer is often used in conditions and/or in logical operations.
+
+The following example demonstrates how the null pointer works. The variable ptrx initially has the address of x when it is declared. On the first iteration of the loop, it is assigned the value of zero (i.e. null) thereby ending the loop:
+
+.. _lst_cppcode2:
+
+    .. activecode:: examplecpp2
+        :language: cpp
+
+        #include <iostream>
+        using namespace std;
+
+        int main( ) {
+            int x = 12345;
+            int *ptrx = &x;
+
+            while( ptrx ) {
+            cout << "Pointer ptrx points to something\n";
+            ptrx = 0;
+            }
+
+            cout << "Pointer ptrx points to nothing!\n";
+        }
+
+Helpful Tip: The null pointer becomes very useful when you must test the state of a pointer, such as whether the assignment to an address was valid or not.
 
 Built-in Collection Data Types
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -656,5 +840,3 @@ specify a return value instead.
     This workspace is provided for your convenience.  You can use this activecode window to try out anything you like.
 
     .. activecode:: scratch_01_01
-
-
