@@ -76,15 +76,34 @@ abstraction, sometimes also called the client, does not need to know the
 details as long as the user is aware of the way the interface works.
 This interface is the way we as users communicate with the underlying
 complexities of the implementation. As another example of abstraction,
-consider the Python ``math`` module. Once we import the module, we can
+consider the C++ ``cmath`` module. Once we import the module, we can
 perform computations such as
 
-::
+.. tabbed:: Code Sample
 
-    >>> import math
-    >>> math.sqrt(16)
-    4.0
-    >>>
+  .. tab:: C++
+
+    .. activecode:: C++
+      :caption: Sqrt in C++
+      :language: cpp
+
+      #include <iostream>
+      #include <cmath>
+      using namespace std;
+
+      int main() {
+          cout<<sqrt (16);
+      }
+
+  .. tab:: Python
+
+    .. activecode:: Python
+       :caption: Sqrt in Python
+
+       import math
+
+       print(math.sqrt(16))
+
 
 This is an example of **procedural abstraction**. We do not necessarily
 know how the square root is being calculated, but we know what the
@@ -104,4 +123,3 @@ parameters), and what will be returned. The details are hidden inside
    :align: center
 
    Figure 1: Procedural Abstraction
-
