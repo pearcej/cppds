@@ -79,7 +79,7 @@ complexities of the implementation. As another example of abstraction,
 consider the C++ ``cmath`` module. Once we import the module, we can
 perform computations such as
 
-.. tabbed:: Code Sample
+.. tabbed:: Code_Sample
 
   .. tab:: C++
 
