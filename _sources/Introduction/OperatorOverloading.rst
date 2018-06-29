@@ -17,59 +17,119 @@ Note that the input includes both the dollar sign and the decimal point.  Wouldn
       :caption: C++ Code
       :language: cpp
 
+      //Program to demonstrate a simpler version of the class Money.
+      #include <iostream>
+      #include <fstream>
+      #include <cstdlib>
+      #include <cctype>
+      using namespace std;
+
+      //Class for amounts of money in U.S. currency.
+      class Money
+      {
+      public:
+          Money( );
+          Money(long dollars);
+          Money(long dollars, int cents);
+
+          double get_value( ) const;
+
+          friend bool operator ==(const Money& amount1, const Money& amount2);
+          friend Money operator +(const Money& amount1, const Money& amount2);
+          friend Money operator -(const Money& amount1, const Money& amount2);
+          friend Money operator -(const Money& amount);
+
+          friend istream& operator >>(istream& ins, Money& amount);
+          //Overloads the >> operator so it can be used to input values of type Money.
+          //Note that Money may not be negative in this version of the class
+          //Precondition: If ins is a file input stream, then ins has already been
+          //connected to a file.
+
+          friend ostream& operator <<(ostream& outs, const Money& amount);
+          //Overloads the << operator so it can be used to output values of type Money.
+          //Precedes each output value of type Money with a dollar sign.
+          //Precondition: If outs is a file output stream,
+          //then outs has already been connected to a file.
+      private:
+          long all_cents;
+      };
+
+      int digit_to_int(char c);
+      //Used in the definition of the overloaded input operator >>.
+      //Precondition: c is one of the digits '0' through '9'.
+      //Returns the integer for the digit; for example, digit_to_int('3') returns 3.
+
       int main( )
       {
           Money amount1, amount2;
 
-          cout << "Enter some amount of money in the form $125.50: ";
+          cout << "Enter some amount of money in the form $125.50, \nbeing sure to include the dollar sign: ";
           cin >> amount1;
 
-          cout << "Enter another amount of money in the form $125.50: ";
+          cout << "\nEnter another amount of money in the form $125.50, \nbeing sure to include the dollar sign: ";
           cin >> amount2;
 
-          if (amount1==amount2) {
-              cout << "\n" << "The two amounts entered are both equal to " << amount1 << ".\n"<< endl;
-          } else {
-              cout <<"\n" << amount1 << " is not the same as " << amount2 << ".\n"<< endl;
-          }
+          if (amount1==amount2)
+             {cout << "\nThe two amounts entered are both equal to " << amount1 << ".\n"<< endl;}
+          else
+              {cout <<"\n" << amount1 << " is not the same as " << amount2 << ".\n"<< endl;}
 
           return 0;
       }
 
-\
-
-    .. activecode:: Cpp2
-      :caption: C++ Code
-      :language: cpp
-
-      int main( )
+      Money::Money( ) : all_cents(0)
       {
-          Money amount1, amount2;
+          //Body intentionally blank.
+      }
 
-          cout << "Enter some amount of money in the form $125.50: ";
-          cin >> amount1;
+      Money::Money(long dollars) : all_cents(dollars*100)
+      {
+          //Body intentionally blank.
+      }
 
-          cout << "Enter another amount of money in the form $125.50: ";
-          cin >> amount2;
-
-          if (amount1==amount2) {
-              cout << "\n" << "The two amounts entered are both equal to " << amount1 << ".\n"<< endl;
-          } else {
-              cout <<"\n" << amount1 << " is not the same as " << amount2 << ".\n"<< endl;
+      Money::Money(long dollars, int cents)
+      {
+          if(dollars*cents < 0) //If one is negative and one is positive
+          {
+              cout << "Illegal values for dollars and cents.\n";
+              exit(1);
           }
-
-          return 0;
+          all_cents = dollars*100 + cents;
       }
 
 
-Let's look at the overloaded operator we use in this example.  The most complicated of the bunch is the overloaded instream operator, which is a friend of the class:
+      double Money::get_value( ) const
+      {
+          return (all_cents * 0.01);
+      }
 
+      bool operator ==(const Money& amount1, const Money& amount2)
+      {
+          return (amount1.all_cents == amount2.all_cents);
+      }
 
-    .. activecode:: Cpp3
-      :caption: C++ Code
-      :language: cpp
+      Money operator -(const Money& amount1, const Money& amount2)
+      {
+          Money temp;
+          temp.all_cents = amount1.all_cents - amount2.all_cents;
+          return temp;
+      }
 
+      Money operator -(const Money& amount)
+      {
+          Money temp;
+          temp.all_cents = -amount.all_cents;
+          return temp;
+      }
 
+      Money operator +(const Money& amount1, const Money& amount2)
+      {
+          Money temp;
+          temp.all_cents = amount1.all_cents + amount2.all_cents;
+          return temp;
+      }
+
+      //Uses iostream, cctype, cstdlib:
       istream& operator >>(istream& ins, Money& amount)
       {
           char one_char, decimal_point,
@@ -87,9 +147,64 @@ Let's look at the overloaded operator we use in this example.  The most complica
           }
 
           cents = digit_to_int(digit1)*10 + digit_to_int(digit2);//Here we convert the cents
-          amount.all_cents = dollars*100 + cents;  //Here we convert the money to all cents and store in the private member variable
-                                                   //We need this operator to be a friend so it can access this member variable.
+          amount.all_cents = dollars*100 + cents;  //Here we convert the money to all cents and store it in the private member variable
+                                                   //The reason which we need this operator to be a friend is so it can access this member variable.
           return ins;
+      }
+
+      int digit_to_int(char c)
+      {
+          return ( int(c) - int('0') );
+      }
+
+      //Uses cstdlib and iostream:
+      ostream& operator <<(ostream& outs, const Money& amount)
+      {
+          long positive_cents, dollars, cents;
+          positive_cents = amount.all_cents;
+          dollars = positive_cents/100;
+          cents = positive_cents%100;
+
+          outs << "$" << dollars << '.';
+
+          if (cents < 10)
+              outs << '0';
+          outs << cents;
+
+          return outs;
+      }
+
+.. datafile::  myid
+    :edit:
+    :rows: 20
+    :cols: 65
+    <iframe frameborder="0" width="100%" height="500px" src="https://repl.it/repls/StainedOffensiveTechnology"></iframe>
+
+
+Let's look at the overloaded operator we use in this example.  The most complicated of the bunch is the overloaded instream operator, which is a friend of the class:
+
+::
+
+    istream& operator >>(istream& ins, Money& amount)
+    {
+        char one_char, decimal_point,
+            digit1, digit2; //digits for the amount of cents
+        long dollars;
+        int cents;
+
+        ins >> one_char; //if input is legal, then one_char == '$' and we do not store it
+        ins >> dollars >> decimal_point >> digit1 >> digit2;
+
+        if ( one_char != '$' || decimal_point != '.' || !isdigit(digit1) || !isdigit(digit2) )
+        {
+            cout << "Error illegal form for money input.\n";
+            exit(1);
+        }
+
+        cents = digit_to_int(digit1)*10 + digit_to_int(digit2);//Here we convert the cents
+        amount.all_cents = dollars*100 + cents;  //Here we convert the money to all cents and store in the private member variable
+                                                 //We need this operator to be a friend so it can access this member variable.
+        return ins;
       }
 
 Overloaded stream operators always have the stream both as a call-by-reference input as well as send-by-reference output.  This may seem weird, but the issue is that reading or writing a stream changes it.  The structure used the above example  will work BOTH for reading from the keyboard as well as from a file!
@@ -116,18 +231,16 @@ The overloaded outstream operator is also a friend, but is a bit simpler.  It ca
           outs << cents;
 
           return outs;
-
+      }
 
 Once the Money is stored in the private member variable as all_cents, the boolean comparison, which is also a friend, is very simple:
 
-    .. activecode:: Cpp5
-      :caption: C++ Code
-      :language: cpp
+::
 
-      bool operator ==(const Money& amount1, const Money& amount2)
-      {
-          return (amount1.all_cents == amount2.all_cents);
-      }
+    bool operator ==(const Money& amount1, const Money& amount2)
+    {
+      return (amount1.all_cents == amount2.all_cents);
+    }
 
 
 **General Rules**
