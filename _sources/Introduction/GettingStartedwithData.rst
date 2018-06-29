@@ -21,47 +21,81 @@ Built-in Atomic Data Types
 We will begin our review by considering the atomic data types. C++
 has four main built-in numeric classes that implement the integer and
 floating point data types. These C++ classes are called ``int``, ``float``, ``double``,
-and ``long``. The standard arithmetic operations, +, -, \*, /, and \*\*
-(exponentiation), can be used with parentheses forcing the order of
+and ``long``. The standard arithmetic operations, +, -, \*, and /
+(exponentiation can be done using ``pow()`` from the ``cmath`` library) can be used with parentheses forcing the order of
 operations away from normal operator precedence. Other very useful
-operations are the remainder (modulo) operator, %, and integer division,
-//. Note that when two integers are divided, the result is a floating
-point. The integer division operator returns the integer portion of the
-quotient by truncating any fractional part.
+operations are the remainder (modulo) operator, %. Note that when two integers are divided, the integer portion of the
+quotient is returned and the fractional portion is removed. To get the whole quotient, you must declare one of the numbers as a float.
 
-.. activecode:: intro_1
-    :caption: Basic Arithmetic Operators
+.. tabbed:: intro
 
-    print(2+3*4)
-    print((2+3)*4)
-    print(2**10)
-    print(6/3)
-    print(7/3)
-    print(7//3)
-    print(7%3)
-    print(3/6)
-    print(3//6)
-    print(3%6)
-    print(2**100)
+  .. tab:: C++
+
+    .. activecode:: intro_1cpp
+        :caption: Basic Arithmetic Operators C++
+        :language: cpp
+
+        #include <iostream>
+        #include <cmath>
+        using namespace std;
+
+        int main(){
+
+            cout << (2+3*4) << endl;
+            cout << (2+3)*4 << endl;
+            cout << pow(2, 10) << endl;
+            cout << float(6)/3 << endl;
+            cout << float(7)/3 << endl;
+            cout << 7/3 << endl;
+            cout << 7%3 << endl;
+            cout << float(3)/6 << endl;
+            cout << 3/6 << endl;
+            cout << 3%6 << endl;
+            cout << pow(2, 100) << endl;
+
+            return 0;
+        }
+
+  .. tab:: Python
+
+    .. activecode:: intro_1py
+        :caption: Basic Arithmetic Operators Python
+
+        def main():
+
+            print(2+3*4)
+            print((2+3)*4)
+            print(2**10)
+            print(6/3)
+            print(7/3)
+            print(7//3)
+            print(7%3)
+            print(3/6)
+            print(3//6)
+            print(3%6)
+            print(2**100)
+
+        main()
 
 
-The boolean data type, implemented as the Python ``bool`` class, will be
+The boolean data type, implemented as the C++ ``bool`` class, will be
 quite useful for representing truth values. The possible state values
-for a boolean object are ``True`` and ``False`` with the standard
-boolean operators, ``and``, ``or``, and ``not``.
+for a boolean object are ``true`` and ``false`` with the standard
+boolean operators, ``&&``(and), ``||``(or), and ``!``(not). Note that
+output values for ``true`` and ``false`` are ``1`` and ``0`` respectively.
 
 ::
 
-    >>> True
-    True
-    >>> False
-    False
-    >>> False or True
-    True
-    >>> not (False or True)
-    False
-    >>> True and True
-    True
+    >>> true
+    1
+    >>> false
+    0
+    >>> false or true
+    1
+    >>> !(false || true)
+    0
+    >>> true and true
+    1
 
 Boolean data objects are also used as results for comparison operators
 such as equality (==) and greater than (:math:`>`). In addition,
@@ -88,64 +122,85 @@ and logical operators with examples shown in the session that follows.
     =========================== ============== =================================================================
 
 
+.. tabbed:: change_this
 
-.. activecode:: intro_2
-    :caption: Basic Relational and Logical Operators
+  .. tab:: C++
 
-    print(5==10)
-    print(10 > 5)
-    print((5 >= 1) and (5 <= 10))
+    .. activecode:: intro_1cpp
+        :caption: Basic Relational and Logical Operators C++
+        :language: cpp
 
-Identifiers are used in programming languages as names. In Python,
-identifiers start with a letter or an underscore (_), are case
-sensitive, and can be of any length. Remember that it is always a good
-idea to use names that convey meaning so that your program code is
-easier to read and understand.
+        #include <iostream>
+        #include <cmath>
+        using namespace std;
 
-A Python variable is created when a name is used for the first time on
+        int main(){
+
+            cout << 5==10 << endl;
+            cout << 10 > 5 << endl;
+            cout << (5 >= 1 && 5 <= 10) << endl;
+
+            return 0;
+        }
+
+  .. tab:: Python
+
+    .. activecode:: intro_2py
+        :caption: Basic Relational and Logical Operators Python
+
+        def main():
+
+            print(5==10)
+            print(10 > 5)
+            print((5 >= 1) and (5 <= 10))
+
+        main()
+
+A C++ variable is created when a name is used for the first time after declaring a type on
 the left-hand side of an assignment statement. Assignment statements
 provide a way to associate a name with a value. The variable will hold a
-reference to a piece of data and not the data itself. Consider the
+piece of data. Consider the
 following session:
 
-::
+.. activecode:: introcpp
+    :language: cpp
 
-    >>> theSum = 0
-    >>> theSum
-    0
-    >>> theSum = theSum + 1
-    >>> theSum
-    1
-    >>> theSum = True
-    >>> theSum
-    True
+    #include <iostream>
+    using namespace std;
 
-The assignment statement ``theSum = 0`` creates a variable called
-``theSum`` and lets it hold the reference to the data object ``0`` (see
+    int main(){
+
+        int theSum = 0;
+        cout << theSum << endl;
+
+        theSum = theSum + 1;
+        cout << theSum << endl;
+
+        bool theBool = true;
+        cout << theBool << endl;
+
+        return 0;
+    }
+
+The assignment statement ``int theSum = 0;`` creates a variable called
+``theSum`` and lets it hold the data object ``0`` (see
 :ref:`Figure 3 <fig_assignment1>`). In general, the right-hand side of the assignment
-statement is evaluated and a reference to the resulting data object is
+statement is evaluated and the resulting data object is
 “assigned” to the name on the left-hand side. At this point in our
 example, the type of the variable is integer as that is the type of the
 data currently being referred to by ``theSum``. If the type of the data
-changes (see :ref:`Figure 4 <fig_assignment2>`), as shown above with the boolean
+changes, as shown above with the boolean
 value ``True``, so does the type of the variable (``theSum`` is now of
-the type boolean). The assignment statement changes the reference being
-held by the variable. This is a dynamic characteristic of Python. The
-same variable can refer to many different types of data.
+the type boolean). The assignment statement changes value being
+held by the variable. This is a static characteristic of C++. A
+variable can hold only one type of data.
 
 .. _fig_assignment1:
 
 .. figure:: Figures/assignment1.png
    :align: center
 
-   Figure 3: Variables Hold References to Data Objects
-
-.. _fig_assignment2:
-
-.. figure:: Figures/assignment2.png
-   :align: center
-
-   Figure 4: Assignment Changes the Reference
+   Figure 3: Variables Hold Data Objects
 
 Introduction to Pointers
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -334,8 +389,8 @@ Helpful Tip: The null pointer becomes very useful when you must test the state o
 Built-in Collection Data Types
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In addition to the numeric and boolean classes, Python has a number of
-very powerful built-in collection classes. Lists, strings, and tuples
+In addition to the numeric and boolean classes, C++ has a number of
+very powerful built-in collection classes. Arrays, strings, and tuples
 are ordered collections that are very similar in general structure but
 have specific differences that must be understood for them to be used
 properly. Sets and dictionaries are unordered collections.
