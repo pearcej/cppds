@@ -5,7 +5,7 @@
 Input and Output
 ~~~~~~~~~~~~~~~~
 
-(Due to the limitation of ActiveCode not being able to handle dynamic input and file I/O, the code in this chapter will need to be ran in your own IDE to function correctly.)
+``(In the following code snippets, press the icon on the left that looks like a piece of paper to see the multiple files being used)``
 
 We often have a need to interact with users,
 either to get data or to provide some sort of result. The C++ ``<iostream>`` library provides us with the functionality to get information as console input and to output information to the console. This input and output is handled in what is known a ``stream``.
@@ -13,26 +13,11 @@ either to get data or to provide some sort of result. The C++ ``<iostream>`` lib
 A ``stream`` is essentially a channel in which data flows from the source to a destination.
 Input streams direct data from a source, such as the keyboard or a file. The standard input stream, ``cin``, is an input stream from the keyboard. Output streams send data out, and the standard output stream ``cout`` sends data to the screen.
 
-::
+.. raw :: html
 
-    #include <iostream>
-    using namespace std;
-
-    int main() {
-    int num;
-
-    // Displays this text to the console
-    cout << "Give me a number: ";
-
-    // Takes the user's input and stores it in num
-    cin >> num;
-
-    // Displays these statements in order to the console
-    //and ends with endl to start a new line
-    cout << "This is that number doubled: " << num*2 << endl;
-
-    return 0;
-    }
+    <div>
+    <iframe height="600px" width="100%" src="https://repl.it/@CodyWMitchell/Stream-Code?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+    </div>
 
 Now whatever the user types will be stored in the
 ``num`` variable. Using the cout function, we can easily write
@@ -129,23 +114,11 @@ This function returns ``true`` only if the previous stream operation for in_stre
 
 The following example code fragment safely quits the program entirely in case an I/O operation fails:
 
-::
+.. raw :: html
 
-    #include <iostream> // for cout definition
-    #include <fstream>  // for file I/O definitions
-    #include <cstdlib>  // for the fail member function
-    using namespace std;
-
-    int main() {
-    ifstream in_stream;
-    in_stream.open("myFile.txt");
-    if( in_stream.fail() ) {
-    cout << "Sorry, the file couldn't be opened!\n";
-    exit(1);	// This exit value indicates an error happened (usual exit value is 0)
-    }
-
-    // the rest of the main function using in_stream defined here...
-    } 	// end of the main function
+    <div>
+        <iframe height="400px" width="100%" src="https://repl.it/@CodyWMitchell/File-Handling-1?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+    </div>
 
 After opening the "myFile.txt" file, the ``if`` conditional checks to see if there was an error. If so, the program will output the apologetic error message and then exit. The ``exit(1)`` function from the library ``cstdlib`` enables the program to terminate at that point and have it return a "1" versus a "0", indicating an Error has occurred.
 
@@ -202,59 +175,11 @@ Using the >> operator
 
 Here is an example of a program that essentially uses the second technique mentioned above to read all the numbers in a file and output them in a neater format. The ``while`` loop to scan through a file is located in the ``make_neat(...)`` function.
 
-::
+.. raw :: html
 
-    // Illustrates output formatting instructions.
-    // Read all the numbers in the file rawdata.dat and write the numbers
-    // to the screen and to the file neat.dat in a neatly formatted way.
-    #include <iostream> // for cout
-    #include <fstream>  // for I/O member functions
-    #include <cstdlib>  // for the exit function
-    #include <iomanip>  // for the setw function
-    using namespace std;
-    void make_neat(ifstream& messy_file, ofstream& neat_file, int number_after_decimalpoint, int field_width);
-
-    int main() {
-       ifstream fin;
-       ofstream fout;
-
-       fin.open("rawdata.txt");
-       if( fin.fail() ) {	// oops the file did not exist for reading?
-    	cout << "Input file opening failed." << endl;
-    	exit(1);
-       }
-
-       fout.open("neat.txt");
-       if( fout.fail() ) {	// oops the output file open failed!
-    	cout << "Output file opening failed.\n";
-    	exit(1);
-       }
-       make_neat(fin, fout, 5, 12);
-
-       fin.close( );
-       fout.close( );
-       cout << "End of program." << endl;
-       return 0;
-    }
-    // Uses iostreams, streams to the screen, and iomanip:
-    void make_neat(ifstream& messy_file, ofstream& neat_file,
-    	int number_after_decimalpoint, int field_width) {
-       // set the format for the neater output file.
-       neat_file.setf(ios::fixed);
-       neat_file.setf(ios::showpoint);
-       neat_file.setf(ios::showpos);
-       neat_file.precision(number_after_decimalpoint);
-       // set the format for the output to the screen too.
-       cout.setf(ios::fixed);
-       cout.setf(ios::showpoint);
-       cout.setf(ios::showpos);
-       cout.precision(number_after_decimalpoint);
-       double next;
-       while( messy_file >> next ) { // while there is still stuff to read
-    	cout << setw(field_width) << next << endl;
-    	neat_file << setw(field_width) << next << endl;
-       }
-    }
+    <div>
+        <iframe height="400px" width="100%" src="https://repl.it/@CodyWMitchell/File-Handling-2?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+    </div>
 
 The input file ``rawdata.txt`` must be in the same directory (folder) as the program in order for it to open successfully. The program will create a file called "neat.dat" to output the results.
 
@@ -292,53 +217,8 @@ Putting it all Together
 
 The following program combines all of the elements above and asks the user for the input and output filenames. After testing for open failures, it will read three numbers from the input file and write the sum into the output file.
 
-::
+.. raw :: html
 
-    #include <iostream> // for cout
-    #include <fstream>  // for I/O member functions
-    #include <cstdlib>  // for the exit function
-    using namespace std;
-
-    int main() {
-       char in_file_name[16], out_file_name[16]; // the filenames can have at most 15 chars
-       ifstream in_stream;
-       ofstream out_stream;
-
-       cout << "This program will sum three numbers taken from an input\n" << "file and write the sum to an output file." << endl;
-       cout << "Enter the input file name (maximum of 15 characters):\n";
-       cin >> in_file_name;
-       cout << "\nEnter the output file name (maximum of 15 characters):\n";
-       cin >> out_file_name;
-       cout << endl;
-
-       // Condensed input and output file opening and checking.
-       in_stream.open(in_file_name);
-       out_stream.open(out_file_name);
-
-       if( in_stream.fail() || out_stream.fail() ) {
-    	cout << "Input or output file opening failed.\n";
-    	exit(1);
-       }
-
-       double firstn, secondn, thirdn, sum = 0.0;
-       cout << "Reading numbers from the file " << in_file_name << endl;
-       in_stream >> firstn >> secondn >> thirdn;
-       sum = firstn + secondn + thirdn;
-
-       // The following set of lines will write to the screen
-       cout << "The sum of the first 3 numbers from " << in_file_name
-    	<< " is " << sum << endl;
-
-       cout << "Placing the sum into the file " << out_file_name << endl;
-
-       // The following set of lines will write to the output file
-       out_stream << "The sum of the first 3 numbers from " <<
-       in_file_name << " is " << sum << endl;
-
-       in_stream.close( );
-       out_stream.close( );
-
-       cout << "End of Program." << endl;
-
-       return 0;
-    }
+    <div>
+        <iframe height="400px" width="100%" src="https://repl.it/@CodyWMitchell/File-Handling-3?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+    </div>
