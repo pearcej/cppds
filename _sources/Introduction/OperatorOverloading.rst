@@ -12,122 +12,68 @@ Let's consider an example of  a class called Money which will allow input and ou
 Note that the input includes both the dollar sign and the decimal point.  Wouldn't it be nice to be able to have a main program which works with Money just as it it were a more simple data type?  Maybe with something as follows:
 
 
+.. raw :: html
 
-    .. activecode:: Cpp
-      :caption: C++ Code
-      :language: cpp
-
-      int main( )
-      {
-          Money amount1, amount2;
-
-          cout << "Enter some amount of money in the form $125.50: ";
-          cin >> amount1;
-
-          cout << "Enter another amount of money in the form $125.50: ";
-          cin >> amount2;
-
-          if (amount1==amount2) {
-              cout << "\n" << "The two amounts entered are both equal to " << amount1 << ".\n"<< endl;
-          } else {
-              cout <<"\n" << amount1 << " is not the same as " << amount2 << ".\n"<< endl;
-          }
-
-          return 0;
-      }
-
-\
-
-    .. activecode:: Cpp2
-      :caption: C++ Code
-      :language: cpp
-
-      int main( )
-      {
-          Money amount1, amount2;
-
-          cout << "Enter some amount of money in the form $125.50: ";
-          cin >> amount1;
-
-          cout << "Enter another amount of money in the form $125.50: ";
-          cin >> amount2;
-
-          if (amount1==amount2) {
-              cout << "\n" << "The two amounts entered are both equal to " << amount1 << ".\n"<< endl;
-          } else {
-              cout <<"\n" << amount1 << " is not the same as " << amount2 << ".\n"<< endl;
-          }
-
-          return 0;
-      }
-
+    <div>
+    <iframe height="700px" width="100%" src="https://repl.it/@Dostonbek1/StainedOffensiveTechnology?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+    </div>
 
 Let's look at the overloaded operator we use in this example.  The most complicated of the bunch is the overloaded instream operator, which is a friend of the class:
 
+::
 
-    .. activecode:: Cpp3
-      :caption: C++ Code
-      :language: cpp
+    istream& operator >>(istream& ins, Money& amount)
+    {
+        char one_char, decimal_point,
+            digit1, digit2; //digits for the amount of cents
+        long dollars;
+        int cents;
 
+        ins >> one_char; //if input is legal, then one_char == '$' and we do not store it
+        ins >> dollars >> decimal_point >> digit1 >> digit2;
 
-      istream& operator >>(istream& ins, Money& amount)
-      {
-          char one_char, decimal_point,
-               digit1, digit2; //digits for the amount of cents
-          long dollars;
-          int cents;
+        if ( one_char != '$' || decimal_point != '.' || !isdigit(digit1) || !isdigit(digit2) )
+        {
+            cout << "Error illegal form for money input.\n";
+            exit(1);
+        }
 
-          ins >> one_char; //if input is legal, then one_char == '$' and we do not store it
-          ins >> dollars >> decimal_point >> digit1 >> digit2;
-
-          if ( one_char != '$' || decimal_point != '.' || !isdigit(digit1) || !isdigit(digit2) )
-          {
-              cout << "Error illegal form for money input.\n";
-              exit(1);
-          }
-
-          cents = digit_to_int(digit1)*10 + digit_to_int(digit2);//Here we convert the cents
-          amount.all_cents = dollars*100 + cents;  //Here we convert the money to all cents and store in the private member variable
-                                                   //We need this operator to be a friend so it can access this member variable.
-          return ins;
+        cents = digit_to_int(digit1)*10 + digit_to_int(digit2);//Here we convert the cents
+        amount.all_cents = dollars*100 + cents;  //Here we convert the money to all cents and store in the private member variable
+                                                 //We need this operator to be a friend so it can access this member variable.
+        return ins;
       }
 
 Overloaded stream operators always have the stream both as a call-by-reference input as well as send-by-reference output.  This may seem weird, but the issue is that reading or writing a stream changes it.  The structure used the above example  will work BOTH for reading from the keyboard as well as from a file!
 
 The overloaded outstream operator is also a friend, but is a bit simpler.  It can also be used as is to write to the screen or to a file!
 
+::
 
-    .. activecode:: Cpp4
-      :caption: C++ Code
-      :language: cpp
+    ostream& operator <<(ostream& outs, const Money& amount)
+    {
+        long positive_cents, dollars, cents;
+        positive_cents = amount.all_cents;
+        dollars = positive_cents/100;
+        cents = positive_cents%100;
 
+        outs << "$" << dollars << '.';
 
-      ostream& operator <<(ostream& outs, const Money& amount)
-      {
-          long positive_cents, dollars, cents;
-          positive_cents = amount.all_cents;
-          dollars = positive_cents/100;
-          cents = positive_cents%100;
+        if (cents < 10)
+            outs << '0';
+        outs << cents;
 
-          outs << "$" << dollars << '.';
-
-          if (cents < 10)
-              outs << '0';
-          outs << cents;
-
-          return outs;
-
+        return outs;
+    }
 
 Once the Money is stored in the private member variable as all_cents, the boolean comparison, which is also a friend, is very simple:
 
-    .. activecode:: Cpp5
-      :caption: C++ Code
-      :language: cpp
+::
 
-      bool operator ==(const Money& amount1, const Money& amount2)
-      {
-          return (amount1.all_cents == amount2.all_cents);
-      }
+    bool operator ==(const Money& amount1, const Money& amount2)
+    {
+        return (amount1.all_cents == amount2.all_cents);
+    }
 
 
 **General Rules**
@@ -137,13 +83,13 @@ Once the Money is stored in the private member variable as all_cents, the boolea
 3. Some operators such as =, [], () and -> can only be overloaded as member functions of a class and not as global functions.
 4. At least one operand for any overload must be a class or enumeration type. In other words, it is not possible to overload operators involving only built-in data types. For example, trying to overload the addition operator for the int data type would result in a compiler error:
 
-    int operator +( int i, int j );  // This is not allowed
+    `int operator +( int i, int j );  // This is not allowed`
 
 5. The number of operands for an operator may not be changed.
 6. Operator precedence cannot be changed by overloading.
 
 
-It is a good idea to match the overloaded operator implementation with the original meaning, even though mismatching is possible. In other words, it would be confusing if the + operator is overloaded to subtract values or if the << operator gets input from the stream.
+It is a good idea to match the overloaded operator implementation with the original meaning, even though mismatching is possible. In other words, it would be confusing if the `+` operator is overloaded to subtract values or if the ``<<`` operator gets input from the stream.
 
 In addition to being defined in within the class scope, overloaded operators may be defined in global or namespace scope or as friends of the class. Global scope means that the operator is defined outside of any function (including the main) or class. Namespace scope means that the operator is defined outside of any class but within a namespace, possibly within the main program.
 
