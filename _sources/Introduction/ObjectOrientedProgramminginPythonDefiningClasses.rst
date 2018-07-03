@@ -217,7 +217,7 @@ does needs to return a stream in this case. The resulting output will be returne
   };
 
   ostream & operator<<(ostream& stream, const Fraction& fraction) {
-      stream<<fraction.den<<" / "<<fraction.num;
+      stream<<fraction.num<<" / "<<fraction.den;
 
       return stream;
   }
@@ -355,7 +355,11 @@ represented by a negative numerator.
 .. _lst_gcd:
 
 .. activecode::  gcd_cl
+    :language: cpp
     :caption: The Greatest Common Divisor Function
+
+    #include <iostream>
+    using namespace std;
 
     int gcd(int m, int n) {
         while (m%n != 0) {
@@ -441,7 +445,7 @@ the bottom by 2 creates a new fraction, :math:`3/4` (see
       Fraction f2(1,2);
       Fraction f3=f1+f2;
 
-      cout << f1+f2 << endl;
+      cout << f3 << endl;
 
       return 0;
   }
