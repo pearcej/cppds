@@ -54,16 +54,16 @@ functions, since the result must be in the range of slot names.
 .. table:: **Table 4: Simple Hash Function Using Remainders**
 
 
-    ================= ================ 
-             **Item**   **Hash Value** 
-    ================= ================ 
-                   54               10 
-                   26                4 
-                   93                5 
-                   17                6 
-                   77                0 
-                   31                9 
-    ================= ================ 
+    ================= ================
+             **Item**   **Hash Value**
+    ================= ================
+                   54               10
+                   26                4
+                   93                5
+                   17                6
+                   77                0
+                   31                9
+    ================= ================
 
 
 Once the hash values have been computed, we can insert each item into
@@ -152,30 +152,36 @@ understand how these values were computed.
 .. table:: **Table 5: Comparison of Remainder and Mid-Square Methods**
 
 
-    ================= =============== ================ 
-             **Item**   **Remainder**   **Mid-Square** 
-    ================= =============== ================ 
-                   54              10                3 
-                   26               4                7 
-                   93               5                9 
-                   17               6                8 
-                   77               0                4 
-                   31               9                6 
-    ================= =============== ================ 
+    ================= =============== ================
+             **Item**   **Remainder**   **Mid-Square**
+    ================= =============== ================
+                   54              10                3
+                   26               4                7
+                   93               5                9
+                   17               6                8
+                   77               0                4
+                   31               9                6
+    ================= =============== ================
 
 
 We can also create hash functions for character-based items such as
-strings. The word “cat” can be thought of as a sequence of ordinal
-values.
+strings. The word “cat” can be thought of as a sequence of int
+values. The corresponding int value can be found by declaring an int and using
+it to store a char. You can also cast the value as an int using **int()**
 
 ::
 
-    >>> ord('c')
-    99
-    >>> ord('a')
-    97
-    >>> ord('t')
-    116
+   string h = "hello";
+    char c = h[0];
+    int i = c;
+
+    cout<<h<<endl;
+    cout<<c<<endl;
+    cout<<i<<endl;
+
+    >>hello
+    >>h
+    >>104
 
 We can then take these three ordinal values, add them up, and use the
 remainder method to get a hash value (see :ref:`Figure 6 <fig_stringhash>`).
@@ -196,15 +202,30 @@ to ``tablesize``-1.
 
 **Listing 1**
 
-::
+.. activecode:: simplehash
+  :language: cpp
+  :caption: A simple C++ string hash function
 
-    def hash(astring, tablesize):
-        sum = 0
-        for pos in range(len(astring)):
-            sum = sum + ord(astring[pos])
+  #include <iostream>
+  #include <string>
+  using namespace std;
 
-        return sum%tablesize
-        
+  int hashfunc(string a, int tablesize) {
+      int sum=0;
+      for (int pos=0; pos<a.length(); pos++) {
+          sum += int(a[pos]);
+      }
+
+      return sum%tablesize;
+  }
+
+  int main()
+  {
+      cout<<hashfunc("First!" , 10)<<endl;
+      cout<<hashfunc("Second!", 10)<<endl;
+      cout<<hashfunc("Third!" , 10)<<endl;
+  }
+
 
 It is interesting to note that when using this hash function, anagrams
 will always be given the same hash value. To remedy this, we could use
@@ -547,13 +568,13 @@ be available. We leave the remaining methods as exercises.
 
     def __setitem__(self,key,data):
         self.put(key,data)
-        
-        
-        
+
+
+
 .. highlight:: python
     :linenothreshold: 500
-    
-    
+
+
 
 The following session shows the ``HashTable`` class in action. First we
 will create a hash table and store some items with integer keys and
@@ -601,7 +622,7 @@ The complete hash table example can be found in ActiveCode 1.
 .. activecode:: hashtablecomplete
    :caption: Complete Hash Table Example
    :hidecode:
-   
+
    class HashTable:
        def __init__(self):
            self.size = 11
@@ -678,8 +699,8 @@ The complete hash table example can be found in ActiveCode 1.
    H[20]='duck'
    print(H[20])
    print(H[99])
-   
-    
+
+
 
 Analysis of Hashing
 ^^^^^^^^^^^^^^^^^^^
