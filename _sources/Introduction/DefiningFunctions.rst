@@ -5,36 +5,49 @@
 Defining Functions
 ------------------
 
-The earlier example of procedural abstraction called upon a Python
-function called ``sqrt`` from the math module to compute the square
-root. In general, we can hide the details of any computation by defining
+In general, we can hide the details of any computation by defining
 a function. A function definition requires a name, a group of
-parameters, and a body. It may also explicitly return a value. For
-example, the simple function defined below returns the square of the
+parameters, a return type, and a body. It may either return a variable, value, or nothing (specified by the keyword void). For
+example, the simple function defined below returns the double of the
 value you pass into it.
 
 ::
 
-    >>> def square(n):
-    ...    return n**2
-    ...
-    >>> square(3)
-    9
-    >>> square(square(3))
-    81
-    >>>
+    int timesTwo(int num) {
+        return num*2;
+    }
 
-The syntax for this function definition includes the name, ``square``,
-and a parenthesized list of formal parameters. For this function, ``n``
-is the only formal parameter, which suggests that ``square`` needs only
+The syntax for this function definition includes the name, ``timesTwo``,
+and a parenthesized list of formal parameters and their types. For this function an ``int`` named ``num``
+is the only formal parameter, which suggests that ``timesTwo`` needs only
 one piece of data to do its work. The details, hidden “inside the box,”
-simply compute the result of ``n**2`` and return it. We can invoke or
-call the ``square`` function by asking the Python environment to
+simply compute the result of ``num*2`` and return it. We can invoke or
+call the ``timesTwo`` function by asking the C++ to
 evaluate it, passing an actual parameter value, in this case, ``3``.
-Note that the call to ``square`` returns an integer that can in turn be
+Note that the call to ``timeTwo`` returns an integer that can in turn be
 passed to another invocation.
 
-We could implement our own square root function by using a well-known
+
+.. _lst_timesTwo:
+
+  .. activecode:: timesTwo
+    :language: cpp
+    :caption: Implementation of the timesTwo function
+
+    #include <iostream>
+    using namespace std;
+
+    int timesTwo(int num) {
+        return num*2;
+    }
+
+    int main() {
+        cout<<timesTwo(5)<<endl;
+
+        return 0;
+    }
+
+We could a step further and implement our own square root function by using a well-known
 technique called “Newton’s Method.” Newton’s Method for approximating
 square roots performs an iterative computation that converges on the
 correct value. The equation
@@ -47,8 +60,8 @@ iteration. The initial guess used here is :math:`\frac {n}{2}`.
 guesses. Again, the details of Newton’s Method are hidden inside the
 function definition and the user does not have to know anything about
 the implementation to use the function for its intended purpose.
-:ref:`Listing 1 <lst_root>` also shows the use of the # character as a comment
-marker. Any characters that follow the # on a line are ignored.
+:ref:`Listing 1 <lst_root>` also shows the use of the // characters as a comment
+marker. Any characters that follow the // on a line are ignored.
 
 
 
@@ -57,23 +70,29 @@ marker. Any characters that follow the # on a line are ignored.
 
 **Listing 1**
 
-.. sourcecode:: python
+.. activecode:: newtonsmethod
+  :language: cpp
+  :caption: Newton's Method for finding Square Root
 
-    def squareroot(n):
-        root = n/2    #initial guess will be 1/2 of n
-        for k in range(20):
-            root = (1/2)*(root + (n / root))
+  #include <iostream>
+  using namespace std;
 
-        return root
+  double squareroot(double n) {
+  	double root = n / 2;
 
+  	for (int i = 0; i < 20; i++) {
+  		root = (.5) * (root + (n / root));
+  	}
 
-::
+  	return root;
+  }
 
-    >>>squareroot(9)
-    3.0
-    >>>squareroot(4563)
-    67.549981495186216
-    >>>
+  int main() {
+  	cout << squareroot(9) << endl;
+  	cout << squareroot(4563) << endl;
+
+  	return 0;
+  }
 
 Functions that Pass by Value versus Pass By Reference
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
