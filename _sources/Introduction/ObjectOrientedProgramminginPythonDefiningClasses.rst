@@ -95,6 +95,22 @@ keyword will only be able to be accessed by the objects functions, not the user.
 ``public`` methods and variables can be accessed and used by the user. Because we
 want our user to be able to call our constructor directly, we put it under ``public``.
 
+We can also overload a constructor with different numbers and types of arguements
+to give us more optional ways to create an instance of the class in question. For example,
+we could add an optional secondary constructor to handle whole numbers:
+
+::
+
+    Fraction(int top, int bottom) {
+        num = top;
+        den = bottom;
+    }
+
+    Fraction (int top) {
+        num = top;
+        den = 1;
+    }
+
 To create an instance of the ``Fraction`` class, we must invoke the
 constructor. This happens by using the name of the class and passing
 actual values for the necessary state after the variable name. For example,
@@ -462,7 +478,7 @@ Our ``Fraction`` object now has two very useful methods and looks
 like :ref:`Figure 6 <fig_fraction2>`. An additional group of methods that we need to
 include in our example ``Fraction`` class will allow two fractions to
 compare themselves to one another. Assume we have two ``Fraction``
-objects, ``f1`` and ``f2``. ``f1==f2`` will only be ``True`` if they are
+objects, ``f1`` and ``f2``. ``f1==f2`` will only be ``true`` if they are
 references to the same object. Two different objects with the same
 numerators and denominators would not be equal under this
 implementation. This is called **shallow equality** (see
@@ -588,7 +604,7 @@ Inheritance: Logic Gates and Circuits
 
 Our final section will introduce another important aspect of
 object-oriented programming. **Inheritance** is the ability for one
-class to be related to another class in much the same way that people
+class to be related to another class  n much the same way that people
 can be related to one another. Children inherit characteristics from
 their parents. Similarly, C++ child classes can inherit
 characteristic data and behavior from a parent class. These classes are
@@ -612,7 +628,7 @@ data and operations such as concatenation, repetition, and indexing.
    Figure 8: An Inheritance Hierarchy for C++ Collections
 
 
-Lists, tuples, and strings are all types of sequential collections. They
+Vectors, arrays, and strings are all types of sequential collections. They
 all inherit common data organization and operations. However, each of
 them is distinct based on whether the data is homogeneous and whether
 the collection is immutable. The children all gain from their parents
@@ -633,7 +649,7 @@ output. In general, gates have a single output line. The value of the
 output is dependent on the values given on the input lines.
 
 AND gates have two input lines, each of which can be either 0 or 1
-(representing ``False`` or ``True``, repectively). If both of the input
+(representing ``false`` or ``true``, repectively). If both of the input
 lines have the value 1, the resulting output is 1. However, if either or
 both of the input lines is 0, the result is 0. OR gates also have two
 input lines and produce a 1 if one or both of the input values is a 1.
