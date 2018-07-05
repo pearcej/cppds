@@ -11,14 +11,14 @@ Programming Exercises
 #. In many ways it would be better if all fractions were maintained in
    lowest terms right from the start. Modify the constructor for the
    ``Fraction`` class so that ``GCD`` is used to reduce fractions
-   immediately. Notice that this means the ``__add__`` function no
+   immediately. Notice that this means the ``+`` function no
    longer needs to reduce. Make the necessary modifications.
 
-#. Implement the remaining simple arithmetic operators (``__sub__``,
-   ``__mul__``, and ``__truediv__``).
+#. Implement the remaining simple arithmetic operators (``-``,
+   ``*``, and ``/``).
 
-#. Implement the remaining relational operators (``__gt__``,
-   ``__ge__``, ``__lt__``, ``__le__``, and ``__ne__``)
+#. Implement the remaining relational operators (``>``,
+   ``>=``, ``<``, ``<=``, and ``!=``)
 
 #. Modify the constructor for the fraction class so that it checks to
    make sure that the numerator and denominator are both integers. If
@@ -32,14 +32,8 @@ Programming Exercises
    negative denominator so that all of the operators continue to work
    properly.
 
-#. Research the ``__radd__`` method. How does it differ from
-   ``__add__``? When is it used? Implement ``__radd__``.
-
-#. Repeat the last question but this time consider the ``__iadd__``
+#. Repeat the last question but this time consider the ``+=``
    method.
-
-#. Research the ``__repr__`` method. How does it differ from
-   ``__str__``? When is it used? Implement ``__repr__``.
 
 #. Research other types of gates that exist (such as NAND, NOR, and
    XOR). Add them to the circuit hierarchy. How much additional coding
@@ -64,5 +58,3 @@ Programming Exercises
 
 #. Find a Sudoku puzzle in the local newspaper. Write a program to solve
    the puzzle.
-
-
