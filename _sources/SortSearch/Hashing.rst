@@ -25,16 +25,16 @@ often called a **slot**, can hold an item and is named by an integer
 value starting at 0. For example, we will have a slot named 0, a slot
 named 1, a slot named 2, and so on. Initially, the hash table contains
 no items so every slot is empty. We can implement a hash table by using
-a list with each element initialized to the special Python value
-``None``. :ref:`Figure 4 <fig_hashtable1>` shows a hash table of size :math:`m=11`.
+a list with each value intialized to an empty string.
+:ref:`Figure 4 <fig_hashtable1>` shows a hash table of size :math:`m=11`.
 In other words, there are *m* slots in the table, named 0 through 10.
 
 .. _fig_hashtable1:
 
-.. figure:: Figures/hashtable.png
-   :align: center
+  .. figure:: Figures/hashtable.png
+     :align: center
 
-   Figure 4: Hash Table with 11 Empty Slots
+     Figure 4: Hash Table with 11 Empty Slots
 
 
 The mapping between an item and the slot where that item belongs in the
@@ -171,7 +171,7 @@ it to store a char. You can also cast the value as an int using **int()**
 
 ::
 
-   string h = "hello";
+    string h = "hello";
     char c = h[0];
     int i = c;
 
@@ -182,6 +182,7 @@ it to store a char. You can also cast the value as an int using **int()**
     >>hello
     >>h
     >>104
+
 
 We can then take these three ordinal values, add them up, and use the
 remainder method to get a hash value (see :ref:`Figure 6 <fig_stringhash>`).
@@ -212,7 +213,7 @@ to ``tablesize``-1.
 
   int hashfunc(string a, int tablesize) {
       int sum=0;
-      for (int pos=0; pos<a.length(); pos++) {
+      for (unsigned int pos=0; pos<a.length(); pos++) {
           sum += int(a[pos]);
       }
 
@@ -419,10 +420,9 @@ the analysis for hashing at the end of this section.
 Implementing the ``Map`` Abstract Data Type
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-One of the most useful Python collections is the dictionary. Recall that
-a dictionary is an associative data type where you can store key–data
-pairs. The key is used to look up the associated data value. We often
-refer to this idea as a **map**.
+One of the most useful C++ data structures is the **map**. Recall that
+a map is an associative data type where you can store key–data
+pairs. The key is used to look up the associated data value.
 
 The map abstract data type is defined as follows. The structure is an
 unordered collection of associations between a key and a data value. The
@@ -446,7 +446,7 @@ between a key and a value. The operations are given below.
 -  ``in`` Return ``True`` for a statement of the form ``key in map``, if
    the given key is in the map, ``False`` otherwise.
 
-One of the great benefits of a dictionary is the fact that given a key,
+One of the great benefits of a map is the fact that given a key,
 we can look up the associated data value very quickly. In order to
 provide this fast look up capability, we need an implementation that
 supports an efficient search. We could use a list with sequential or
@@ -471,11 +471,11 @@ can be as efficient as possible.
 
 ::
 
-    class HashTable:
-        def __init__(self):
-            self.size = 11
-            self.slots = [None] * self.size
-            self.data = [None] * self.size
+    class HashTable{
+        public:
+        static const int size=11;
+        int slots[size];
+        string data[size];
 
 
 ``hashfunction`` implements the simple remainder method. The collision
@@ -494,32 +494,45 @@ no empty slots left is an exercise.
 
 ::
 
-    def put(self,key,data):
-      hashvalue = self.hashfunction(key,len(self.slots))
+    int hashfunction(int key) {
+        return key%size;
+    }
 
-      if self.slots[hashvalue] == None:
-        self.slots[hashvalue] = key
-        self.data[hashvalue] = data
-      else:
-        if self.slots[hashvalue] == key:
-          self.data[hashvalue] = data  #replace
-        else:
-          nextslot = self.rehash(hashvalue,len(self.slots))
-          while self.slots[nextslot] != None and \
-                          self.slots[nextslot] != key:
-            nextslot = self.rehash(nextslot,len(self.slots))
+    int rehash(int oldhash) {
+        return (oldhash+1)%size;
+    }
 
-          if self.slots[nextslot] == None:
-            self.slots[nextslot]=key
-            self.data[nextslot]=data
-          else:
-            self.data[nextslot] = data #replace
+    void put(int key, string val){
+        int hashvalue = hashfunction(key);
+        int count = 0;
 
-    def hashfunction(self,key,size):
-         return key%size
+        if (data[hashvalue]=="") {
+            slots[hashvalue] = key;
+            data[hashvalue] = val;
+        } else {
+            if (slots[hashvalue] == key) {
+                data[hashvalue] = val;
+            } else {
+                int nextslot = rehash(hashvalue);
 
-    def rehash(self,oldhash,size):
-        return (oldhash+1)%size
+                while (data[nextslot]!="" && slots[nextslot] != key) {
+                    nextslot = rehash(nextslot);
+
+                    count++;
+                    if (count>size) {
+                        cout<<"TABLE FULL"<<endl;
+                        return;
+                    }
+                }
+                if (data[nextslot]=="") {
+                    slots[nextslot]=key;
+                    data[nextslot]=val;
+                } else {
+                    data[nextslot] = val;
+                }
+            }
+        }
+    }
 
 
 Likewise, the ``get`` function (see :ref:`Listing 4 <lst_hashtablecodesearch>`)
@@ -531,7 +544,7 @@ that happens, we have exhausted all possible slots and the item must not
 be present.
 
 The final methods of the ``HashTable`` class provide additional
-dictionary functionality. We overload the __getitem__ and
+map functionality. We overload the __getitem__ and
 __setitem__ methods to allow access using``[]``. This means that
 once a ``HashTable`` has been created, the familiar index operator will
 be available. We leave the remaining methods as exercises.
@@ -540,38 +553,36 @@ be available. We leave the remaining methods as exercises.
 
 **Listing 4**
 
-.. highlight:: python
+.. highlight:: cpp
     :linenothreshold: 5
 
 ::
 
-    def get(self,key):
-      startslot = self.hashfunction(key,len(self.slots))
+    string get(int key) {
+        int startslot = hashfunction(key);
 
-      data = None
-      stop = False
-      found = False
-      position = startslot
-      while self.slots[position] != None and  \
-                           not found and not stop:
-         if self.slots[position] == key:
-           found = True
-           data = self.data[position]
-         else:
-           position=self.rehash(position,len(self.slots))
-           if position == startslot:
-               stop = True
-      return data
+        string val;
+        bool stop=false;
+        bool found=false;
+        int position = startslot;
+        while(data[position]!="" && !found && !stop) {
+            if (slots[position]==key) {
+                found = true;
+                val = data[position];
+            } else {
+                position=rehash(position);
+                if (position==startslot) {
+                    stop=true;
+                }
+            }
 
-    def __getitem__(self,key):
-        return self.get(key)
-
-    def __setitem__(self,key,data):
-        self.put(key,data)
+        }
+        return val;
+    }
 
 
 
-.. highlight:: python
+.. highlight:: cpp
     :linenothreshold: 500
 
 
@@ -582,125 +593,175 @@ string data values.
 
 ::
 
-    >>> H=HashTable()
-    >>> H[54]="cat"
-    >>> H[26]="dog"
-    >>> H[93]="lion"
-    >>> H[17]="tiger"
-    >>> H[77]="bird"
-    >>> H[31]="cow"
-    >>> H[44]="goat"
-    >>> H[55]="pig"
-    >>> H[20]="chicken"
-    >>> H.slots
-    [77, 44, 55, 20, 26, 93, 17, None, None, 31, 54]
-    >>> H.data
-    ['bird', 'goat', 'pig', 'chicken', 'dog', 'lion',
-           'tiger', None, None, 'cow', 'cat']
+    int main() {
+        HashTable h;
+
+        h.put(54, "cat");
+        h.put(26, "dog");
+        h.put(93, "lion");
+        h.put(17, "tiger");
+        h.put(77, "bird");
+        h.put(31, "cow");
+        h.put(44, "goat");
+        h.put(55, "pig");
+        h.put(20, "chicken");
+        cout<<h<<endl;
+
+        return 0;
+    }
+
+    >> Output:
+      77: bird
+      44: goat
+      55: pig
+      20: chicken
+      26: dog
+      93: lion
+      17: tiger
+      0:
+      0:
+      31: cow
+      54: cat
+
 
 Next we will access and modify some items in the hash table. Note that
 the value for the key 20 is being replaced.
 
 ::
+    ...
+    h.put(20,"chicken");
+    h.put(17,"tiger");
+    h.put(20,"duck");
+    cout<<h<<endl;
+    ...
 
-    >>> H[20]
-    'chicken'
-    >>> H[17]
-    'tiger'
-    >>> H[20]='duck'
-    >>> H[20]
-    'duck'
-    >>> H.data
-    ['bird', 'goat', 'pig', 'duck', 'dog', 'lion',
-           'tiger', None, None, 'cow', 'cat']
-    >> print(H[99])
-    None
+    >> Output:
+    77: bird
+    44: goat
+    55: pig
+    20: duck
+    26: dog
+    93: lion
+    17: tiger
+    65535:
+    0:
+    31: cow
+    54: cat
 
 
 The complete hash table example can be found in ActiveCode 1.
 
 .. activecode:: hashtablecomplete
-   :caption: Complete Hash Table Example
-   :hidecode:
+    :language: cpp
+    :caption: Complete Hash Table Example
 
-   class HashTable:
-       def __init__(self):
-           self.size = 11
-           self.slots = [None] * self.size
-           self.data = [None] * self.size
+    #include <iostream>
+    #include <string>
+    using namespace std;
 
-       def put(self,key,data):
-         hashvalue = self.hashfunction(key,len(self.slots))
+    class HashTable{
+        public:
+        static const int size=11;
+        int slots[size];
+        string data[size];
 
-         if self.slots[hashvalue] == None:
-           self.slots[hashvalue] = key
-           self.data[hashvalue] = data
-         else:
-           if self.slots[hashvalue] == key:
-             self.data[hashvalue] = data  #replace
-           else:
-             nextslot = self.rehash(hashvalue,len(self.slots))
-             while self.slots[nextslot] != None and \
-                             self.slots[nextslot] != key:
-               nextslot = self.rehash(nextslot,len(self.slots))
+        int hashfunction(int key) {
+            return key%size;
+        }
 
-             if self.slots[nextslot] == None:
-               self.slots[nextslot]=key
-               self.data[nextslot]=data
-             else:
-               self.data[nextslot] = data #replace
+        int rehash(int oldhash) {
+            return (oldhash+1)%size;
+        }
 
-       def hashfunction(self,key,size):
-            return key%size
+        void put(int key, string val){
+            int hashvalue = hashfunction(key);
+            int count = 0;
 
-       def rehash(self,oldhash,size):
-           return (oldhash+1)%size
+            if (data[hashvalue]=="") {
+                slots[hashvalue] = key;
+                data[hashvalue] = val;
+            } else {
+                if (slots[hashvalue] == key) {
+                    data[hashvalue] = val;
+                } else {
+                    int nextslot = rehash(hashvalue);
 
-       def get(self,key):
-         startslot = self.hashfunction(key,len(self.slots))
+                    while (data[nextslot]!="" && slots[nextslot] != key) {
+                        nextslot = rehash(nextslot);
 
-         data = None
-         stop = False
-         found = False
-         position = startslot
-         while self.slots[position] != None and  \
-                              not found and not stop:
-            if self.slots[position] == key:
-              found = True
-              data = self.data[position]
-            else:
-              position=self.rehash(position,len(self.slots))
-              if position == startslot:
-                  stop = True
-         return data
+                        count++;
+                        if (count>size) {
+                            cout<<"TABLE FULL"<<endl;
+                            return;
+                        }
+                    }
+                    if (data[nextslot]=="") {
+                        slots[nextslot]=key;
+                        data[nextslot]=val;
+                    } else {
+                        data[nextslot] = val;
+                    }
+                }
+            }
+        }
 
-       def __getitem__(self,key):
-           return self.get(key)
+        string get(int key) {
+            int startslot = hashfunction(key);
 
-       def __setitem__(self,key,data):
-           self.put(key,data)
+            string val;
+            bool stop=false;
+            bool found=false;
+            int position = startslot;
+            while(data[position]!="" && !found && !stop) {
+                if (slots[position]==key) {
+                    found = true;
+                    val = data[position];
+                } else {
+                    position=rehash(position);
+                    if (position==startslot) {
+                        stop=true;
+                    }
+                }
 
-   H=HashTable()
-   H[54]="cat"
-   H[26]="dog"
-   H[93]="lion"
-   H[17]="tiger"
-   H[77]="bird"
-   H[31]="cow"
-   H[44]="goat"
-   H[55]="pig"
-   H[20]="chicken"
-   print(H.slots)
-   print(H.data)
+            }
+            return val;
+        }
 
-   print(H[20])
-
-   print(H[17])
-   H[20]='duck'
-   print(H[20])
-   print(H[99])
+        friend ostream& operator<<(ostream& stream, HashTable& hash);
+    };
 
 
+
+    ostream& operator<<(ostream& stream, HashTable& hash) {
+        for (int i=0; i<hash.size; i++) {
+            stream<<hash.slots[i]<<": "<<hash.data[i]<<endl;
+        }
+
+        return stream;
+    }
+
+    int main() {
+        HashTable h;
+
+        h.put(54, "cat");
+        h.put(26, "dog");
+        h.put(93, "lion");
+        h.put(17, "tiger");
+        h.put(77, "bird");
+        h.put(31, "cow");
+        h.put(44, "goat");
+        h.put(55, "pig");
+        h.put(20, "chicken");
+        cout<<h<<endl;
+
+        h.put(20,"chicken");
+        h.put(17,"tiger");
+        h.put(20,"duck");
+        cout<<h.get(20)<<endl;
+        cout<<h.get(99)<<endl;
+
+        return 0;
+    }
 
 Analysis of Hashing
 ^^^^^^^^^^^^^^^^^^^
