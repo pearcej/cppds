@@ -66,7 +66,9 @@ the window, after which the program cleans up and exits.
     drawSpiral(myTurtle,100)
     myWin.exitonclick()
 
-C++ Code:
+::
+
+    //C++ code
 
     void drawSpiral(Turtle myTurtle, int lineLen) {
     // Compare with ActiveCode 2
@@ -175,7 +177,9 @@ shape simultaneously? Will it be drawn right side first then left side?
 
     main()
 
-C++ code:
+::
+
+    //C++ code
 
     void tree(double branchLen, Turtle t) {
     	//Compare with ActiveCode 1
