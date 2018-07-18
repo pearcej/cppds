@@ -219,8 +219,10 @@ The results of this code may look like the diagram below:
 .. _fig_point1:
 
 .. figure:: Figures/point1.gif
-  :align: center
-  :alt: image
+   :align: center
+   :alt: image
+
+   Figure 4: FIXME
 
 When we want to output the value to the console, we use the variable name to do so:
 
@@ -258,7 +260,7 @@ White space in C++ generally does not matter, so the following pointer declarati
     SOMETYPE * variablename;
     SOMETYPE* variablename;
 
-However, the first declaration is preferable in each case, as it is clear to the programmer that the variable is in fact a pointer because the asterix is closer to the variable name.
+However, the first declaration is preferable in each case, as it is clear to the programmer that the variable is in fact a pointer because the asterisk is closer to the variable name.
 
 The Address Operator: One simple way to get the pointer information into a pointer
 ----------------------------------------------------------------------------------
@@ -288,8 +290,10 @@ The results of this code may look like the diagram below.
 .. _fig_point2:
 
 .. figure:: Figures/point2.gif
-  :align: center
-  :alt: image
+   :align: center
+   :alt: image
+
+   Figure 5: FIXME2
 
 Accessing Values from SIMPLE Pointers
 -------------------------------------
@@ -344,8 +348,10 @@ cout << "After changing \*varPntr, varName now has: " << varName << endl; cout <
 .. _fig_point3:
 
 .. figure:: Figures/point3.gif
-  :align: center
-  :alt: image
+   :align: center
+   :alt: image
+
+   Figure 6: FIXME3
 
 If your compiler does not catch that error (the one for this class may), the first ``cout`` instruction outputs
 
