@@ -23,11 +23,11 @@ of the list. ``pop`` operations will manipulate the opposite side, the front end
 
 .. _lst_queuecode1:
 
-.. tabbed:: sc1
+.. tabbed:: sc10
 
   .. tab:: C++
 
-    .. activecode:: queue_1ac_cpp
+    .. activecode:: queue1accpp
       :caption: Using the Queue methods from the STL in C++
       :language: cpp
 
@@ -58,7 +58,7 @@ of the list. ``pop`` operations will manipulate the opposite side, the front end
 
   .. tab:: Python
 
-    .. activecode:: queue_1ac_py
+    .. activecode:: queue1acpy
        :caption: Implementing a Queue class using Python lists
 
        class Queue:
