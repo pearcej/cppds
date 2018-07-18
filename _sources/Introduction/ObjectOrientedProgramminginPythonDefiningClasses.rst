@@ -608,7 +608,7 @@ class to be related to another class  n much the same way that people
 can be related to one another. Children inherit characteristics from
 their parents. Similarly, C++ child classes can inherit
 characteristic data and behavior from a parent class. These classes are
-often referred to as **subclasses** and **superclasses**.
+often referred to as **subclasses** and **base classes**.
 
 :ref:`Figure 8 <fig_inherit1>` shows the built-in C++ collections and their
 relationships to one another. We call a relationship structure such as
@@ -721,25 +721,32 @@ class is shown in :ref:`Listing 8 <lst_logicgateclass>`.
 
 .. sourcecode:: cpp
 
-    class LogicGate:
+    class LogicGate {
+        private:
+          	string label;
+          	bool output;
 
-        def __init__(self,n):
-            self.label = n
-            self.output = None
+        public:
+        	LogicGate(string n) {
+          		label = n;
+        	}
 
-        def getLabel(self):
-            return self.label
+        	string getLabel() {
+          		return label;
+        	}
 
-        def getOutput(self):
-            self.output = self.performGateLogic()
-            return self.output
+        	bool getOutput() {
+          		output = performGateLogic();
+          		return output;
+    	}
+      };
 
 At this point, we will not implement the ``performGateLogic`` function.
 The reason for this is that we do not know how each gate will perform
 its own logic operation. Those details will be included by each
 individual gate that is added to the hierarchy. This is a very powerful
 idea in object-oriented programming. We are writing a method that will
-use code that does not exist yet. The parameter ``self`` is a reference
+use code that does not exist yet. The parameter ``virtual`` is a reference
 to the actual gate object invoking the method. Any new logic gate that
 gets added to the hierarchy will simply need to implement the
 ``performGateLogic`` function and it will be used at the appropriate
@@ -762,19 +769,37 @@ we will use that terminology in our implementation.
 
 .. sourcecode:: cpp
 
-    class BinaryGate(LogicGate):
+    class BinaryGate : public LogicGate {
+        private:
+        bool pinA;
+        bool pinATaken;
+        bool pinB;
+        bool pinBTaken;
 
-        def __init__(self,n):
-            LogicGate.__init__(self,n)
+        public:
+            BinaryGate(string n) : LogicGate(n) {
+            pinATaken = false;
+            pinBTaken = false;
+        }
 
-            self.pinA = None
-            self.pinB = None
+        bool getPinA() {
+            if (pinATaken==false) {
+              cout << "Enter Pin input for gate " << getLabel() << " -->";
+              cin >> pinA;
+              pinATaken = true;
+            }
+            return pinA;
+        }
 
-        def getPinA(self):
-            return int(input("Enter Pin A input for gate "+ self.getLabel()+"-->"))
-
-        def getPinB(self):
-            return int(input("Enter Pin B input for gate "+ self.getLabel()+"-->"))
+        bool getPinB() {
+            if (pinBTaken==false ) {
+            cout << "Enter Pin input for gate " << getLabel() << " -->";
+            cin >> pinB;
+            pinBTaken = true;
+            }
+        return pinB;
+        }
+        };
 
 .. _lst_unarygateclass:
 
@@ -782,21 +807,31 @@ we will use that terminology in our implementation.
 
 .. sourcecode:: cpp
 
-    class UnaryGate(LogicGate):
+    class UnaryGate : public LogicGate {
+    private:
+    bool pin;
+    bool pinTaken;
 
-        def __init__(self,n):
-            LogicGate.__init__(self,n)
+    public:
+    UnaryGate(string n) : LogicGate(n) {
+        pinTaken = false;
+    }
 
-            self.pin = None
-
-        def getPin(self):
-            return int(input("Enter Pin input for gate "+ self.getLabel()+"-->"))
+    bool getPin() {
+      if (pinTaken==false) {
+        cout << "Enter Pin input for gate " << getLabel() << " -->";
+        cin >> pin;
+        pinTaken = true;
+      }
+    return pin;
+    }
+    };
 
 
 
 :ref:`Listing 9 <lst_logicgateclass>` and :ref:`Listing 10 <lst_logicgateclass>` implement these two
 classes. The constructors in both of these classes start with an
-explicit call to the constructor of the parent class using the parent's ``__init__``
+explicit call to the constructor of the parent class using the parent's name
 method. When creating an instance of the ``BinaryGate`` class, we
 first want to initialize any data items that are inherited from
 ``LogicGate``. In this case, that means the label for the gate. The
@@ -805,12 +840,46 @@ constructor then goes on to add the two input lines (``pinA`` and
 building class hierarchies. Child class constructors need to call parent
 class constructors and then move on to their own distinguishing data.
 
-C++
-also has a function called ``super`` which can be used in place of explicitly
-naming the parent class.  This is a more general mechanism, and is widely
-used, especially when a class has more than one parent.  But, this is not something
-we are going to discuss in this introduction.  For example in our example above
-``LogicGate.__init__(self,n)`` could be replaced with ``super(UnaryGate,self).__init__(n)``.
+A simple example of using a virtual function in C++ is shown below.
+
+.. activecode:: virtualfunction
+  :language: cpp
+  :caption: Using a virtual function with inheritence
+
+  #include <iostream>
+  using namespace std;
+
+  class Base {
+      public:
+      virtual void printType() {
+          subfunction();
+          cout << "I'm inherited!" << endl << endl;
+      };
+
+      virtual void subfunction() {};
+  };
+
+  class SubFirst : public Base {
+      virtual void subfunction() {
+          cout << "I'm one type of sub-class!" << endl;
+      }
+  };
+
+  class SubSecond : public Base {
+      virtual void subfunction() {
+          cout << "I'm another type of sub class!" << endl;
+      }
+  };
+
+  int main() {
+      SubFirst first;
+      first.printType();
+
+      SubSecond second;
+      second.printType();
+
+      return 0;
+  }
 
 The only behavior that the ``BinaryGate`` class adds is the ability to
 get the values from the two input lines. Since these values come from
@@ -833,19 +902,22 @@ inherits two input lines, one output line, and a label.
 
 .. sourcecode:: cpp
 
-    class AndGate(BinaryGate):
+    class AndGate : public BinaryGate {
+        public:
+        AndGate(string n) : BinaryGate(n) {};
 
-        def __init__(self,n):
-            super(AndGate,self).__init__(self,n)
+        virtual bool performGateLogic() {
+            bool a = getPinA();
+            bool b = getPinB();
+            if (a == 1 && b == 1) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    };
 
-        def performGateLogic(self):
-
-            a = self.getPinA()
-            b = self.getPinB()
-            if a==1 and b==1:
-                return 1
-            else:
-                return 0
 
 The only thing ``AndGate`` needs to add is the specific behavior that
 performs the boolean operation that was described earlier. This is the
@@ -863,7 +935,7 @@ Once the values are provided, the correct output is shown.
 
 ::
 
-   >>> g1 = AndGate("G1")
+   >>> AndGate g1("G1")
    >>> g1.getOutput()
    Enter Pin A input for gate G1-->1
    Enter Pin B input for gate G1-->0
@@ -882,7 +954,7 @@ need inputs to be provided). For example:
 
 ::
 
-    >>> g2 = OrGate("G2")
+    >>> OrGate g2("G2")
     >>> g2.getOutput()
     Enter Pin A input for gate G2-->1
     Enter Pin B input for gate G2-->1
@@ -891,7 +963,7 @@ need inputs to be provided). For example:
     Enter Pin A input for gate G2-->0
     Enter Pin B input for gate G2-->0
     0
-    >>> g3 = NotGate("G3")
+    >>> NotGate g3("G3")
     >>> g3.getOutput()
     Enter Pin input for gate G3-->0
     1
@@ -938,19 +1010,26 @@ connection.
 
 .. sourcecode:: cpp
 
-    class Connector:
+    class Connector {
+    private:
+    	LogicGate *fromgate;
+    	LogicGate *togate;
 
-        def __init__(self, fgate, tgate):
-            self.fromgate = fgate
-            self.togate = tgate
+    public:
+    	Connector(LogicGate *fgate, LogicGate *tgate) {
+    		fromgate = fgate;
+    		togate = tgate;
+    		tgate->setNextPin(fromgate->getOutput());
+    	}
 
-            tgate.setNextPin(self)
+    	LogicGate *getFrom() {
+    		return fromgate;
+    	}
 
-        def getFrom(self):
-            return self.fromgate
-
-        def getTo(self):
-            return self.togate
+    	LogicGate *getTo() {
+    		return togate;
+    	}
+    };
 
 In the ``BinaryGate`` class, for gates with two possible input lines,
 the connector must be connected to only one line. If both of them are
@@ -964,14 +1043,21 @@ to a gate with no available input lines.
 
 .. sourcecode:: cpp
 
-        def setNextPin(self,source):
-            if self.pinA == None:
-                self.pinA = source
-            else:
-                if self.pinB == None:
-                    self.pinB = source
-                else:
-                   raise RuntimeError("Error: NO EMPTY PINS")
+    virtual void setNextPin(bool source) {
+        if (pinATaken == false) {
+            pinA = source;
+            pinATaken=true;
+            return;
+        }
+        else if (pinBTaken == false) {
+            pinB = source;
+            pinBTaken=true;
+            return;
+        }
+        else {
+            cout << "ERROR: ALL PINS TAKEN" << endl;
+        }
+    }
 
 Now it is possible to get input from two places: externally, as before,
 and from the output of a gate that is connected to that input line. This
@@ -991,24 +1077,27 @@ output.
 
 .. sourcecode:: cpp
 
-        def getPinA(self):
-            if self.pinA == None:
-                return input("Enter Pin A input for gate " + self.getLabel()+"-->")
-            else:
-                return self.pinA.getFrom().getOutput()
+    bool getPinA() {
+        if (pinATaken==false) {
+            cout << "Enter Pin input for gate " << getLabel() << " -->";
+            cin >> pinA;
+            pinATaken = true;
+        }
+        return pinA;
+    }
 
 The following fragment constructs the circuit shown earlier in the
 section:
 
 ::
 
-    >>> g1 = AndGate("G1")
-    >>> g2 = AndGate("G2")
-    >>> g3 = OrGate("G3")
-    >>> g4 = NotGate("G4")
-    >>> c1 = Connector(g1,g3)
-    >>> c2 = Connector(g2,g3)
-    >>> c3 = Connector(g3,g4)
+    AndGate g1("AND1");
+  	AndGate g2("AND2");
+  	OrGate g3("OR3");
+  	NotGate g4("NOT4");
+  	Connector c1(&g1, &g2);
+  	Connector c2(&g2, &g3);
+  	Connector c3(&g3, &g4);
 
 The outputs from the two AND gates (``g1`` and ``g2``) are connected to
 the OR gate (``g3``) and that output is connected to the NOT gate
@@ -1027,275 +1116,197 @@ circuit. For example:
 Try it yourself using ActiveCode 4.
 
 .. activecode:: complete_cuircuit
+    :language: cpp
     :caption: The Complete Circuit Program.
 
-    class LogicGate:
-
-        def __init__(self,n):
-            self.name = n
-            self.output = None
-
-        def getLabel(self):
-            return self.name
-
-        def getOutput(self):
-            self.output = self.performGateLogic()
-            return self.output
-
-
-    class BinaryGate(LogicGate):
-
-        def __init__(self,n):
-            super().__init__(self,n)
-
-            self.pinA = None
-            self.pinB = None
-
-        def getPinA(self):
-            if self.pinA == None:
-                return int(input("Enter Pin A input for gate "+self.getLabel()+"-->"))
-            else:
-                return self.pinA.getFrom().getOutput()
-
-        def getPinB(self):
-            if self.pinB == None:
-                return int(input("Enter Pin B input for gate "+self.getLabel()+"-->"))
-            else:
-                return self.pinB.getFrom().getOutput()
-
-        def setNextPin(self,source):
-            if self.pinA == None:
-                self.pinA = source
-            else:
-                if self.pinB == None:
-                    self.pinB = source
-                else:
-                    print("Cannot Connect: NO EMPTY PINS on this gate")
-
-
-    class AndGate(BinaryGate):
-
-        def __init__(self,n):
-            BinaryGate.__init__(self,n)
-
-        def performGateLogic(self):
-
-            a = self.getPinA()
-            b = self.getPinB()
-            if a==1 and b==1:
-                return 1
-            else:
-                return 0
-
-    class OrGate(BinaryGate):
-
-        def __init__(self,n):
-            BinaryGate.__init__(self,n)
-
-        def performGateLogic(self):
-
-            a = self.getPinA()
-            b = self.getPinB()
-            if a ==1 or b==1:
-                return 1
-            else:
-                return 0
-
-    class UnaryGate(LogicGate):
-
-        def __init__(self,n):
-            LogicGate.__init__(self,n)
-
-            self.pin = None
-
-        def getPin(self):
-            if self.pin == None:
-                return int(input("Enter Pin input for gate "+self.getLabel()+"-->"))
-            else:
-                return self.pin.getFrom().getOutput()
-
-        def setNextPin(self,source):
-            if self.pin == None:
-                self.pin = source
-            else:
-                print("Cannot Connect: NO EMPTY PINS on this gate")
-
-
-    class NotGate(UnaryGate):
-
-        def __init__(self,n):
-            UnaryGate.__init__(self,n)
-
-        def performGateLogic(self):
-            if self.getPin():
-                return 0
-            else:
-                return 1
-
-
-    class Connector:
-
-        def __init__(self, fgate, tgate):
-            self.fromgate = fgate
-            self.togate = tgate
-
-            tgate.setNextPin(self)
-
-        def getFrom(self):
-            return self.fromgate
-
-        def getTo(self):
-            return self.togate
-
-
-    def main():
-       g1 = AndGate("G1")
-       g2 = AndGate("G2")
-       g3 = OrGate("G3")
-       g4 = NotGate("G4")
-       c1 = Connector(g1,g3)
-       c2 = Connector(g2,g3)
-       c3 = Connector(g3,g4)
-       print(g4.getOutput())
-
-    main()
-
-
-
-.. admonition:: Self Check
-
-   Create a two new gate classes,  one called NorGate the other called NandGate.  NandGates work like AndGates that have a Not attached to the output.  NorGates work lake OrGates that have a Not attached to the output.
-
-   Create a series of gates that prove the following equality NOT (( A and B) or (C and D)) is that same as NOT( A and B ) and NOT (C and D).  Make sure to use some of your new gates in the simulation.
-
-   .. actex:: self_check_5
-
-      class LogicGate:
-
-          def __init__(self,n):
-              self.name = n
-              self.output = None
-
-          def getLabel(self):
-              return self.name
-
-          def getOutput(self):
-              self.output = self.performGateLogic()
-              return self.output
-
-
-      class BinaryGate(LogicGate):
-
-          def __init__(self,n):
-              LogicGate.__init__(self,n)
-
-              self.pinA = None
-              self.pinB = None
-
-          def getPinA(self):
-              if self.pinA == None:
-                  return int(input("Enter Pin A input for gate "+self.getLabel()+"-->"))
-              else:
-                  return self.pinA.getFrom().getOutput()
-
-          def getPinB(self):
-              if self.pinB == None:
-                  return int(input("Enter Pin B input for gate "+self.getLabel()+"-->"))
-              else:
-                  return self.pinB.getFrom().getOutput()
-
-          def setNextPin(self,source):
-              if self.pinA == None:
-                  self.pinA = source
-              else:
-                  if self.pinB == None:
-                      self.pinB = source
-                  else:
-                      print("Cannot Connect: NO EMPTY PINS on this gate")
-
-
-      class AndGate(BinaryGate):
-
-          def __init__(self,n):
-              BinaryGate.__init__(self,n)
-
-          def performGateLogic(self):
-
-              a = self.getPinA()
-              b = self.getPinB()
-              if a==1 and b==1:
-                  return 1
-              else:
-                  return 0
-
-      class OrGate(BinaryGate):
-
-          def __init__(self,n):
-              BinaryGate.__init__(self,n)
-
-          def performGateLogic(self):
-
-              a = self.getPinA()
-              b = self.getPinB()
-              if a ==1 or b==1:
-                  return 1
-              else:
-                  return 0
-
-      class UnaryGate(LogicGate):
-
-          def __init__(self,n):
-              LogicGate.__init__(self,n)
-
-              self.pin = None
-
-          def getPin(self):
-              if self.pin == None:
-                  return int(input("Enter Pin input for gate "+self.getLabel()+"-->"))
-              else:
-                  return self.pin.getFrom().getOutput()
-
-          def setNextPin(self,source):
-              if self.pin == None:
-                  self.pin = source
-              else:
-                  print("Cannot Connect: NO EMPTY PINS on this gate")
-
-
-      class NotGate(UnaryGate):
-
-          def __init__(self,n):
-              UnaryGate.__init__(self,n)
-
-          def performGateLogic(self):
-              if self.getPin():
-                  return 0
-              else:
-                  return 1
-
-
-      class Connector:
-
-          def __init__(self, fgate, tgate):
-              self.fromgate = fgate
-              self.togate = tgate
-
-              tgate.setNextPin(self)
-
-          def getFrom(self):
-              return self.fromgate
-
-          def getTo(self):
-              return self.togate
-
-
-
-      def main():
-         g1 = AndGate("G1")
-
-         print(g1.getOutput())
-
-      main()
+    #include <iostream>
+    #include <string>
+    using namespace std;
+
+    class LogicGate {
+    private:
+    	string label;
+    	bool output;
+
+    public:
+    	LogicGate(string n) {
+    		label = n;
+    	}
+
+    	string getLabel() {
+    		return label;
+    	}
+
+    	bool getOutput() {
+    		output = performGateLogic();
+    		return output;
+    	}
+
+    	virtual bool performGateLogic() { cout << "ERROR! performGateLogic BASE" << endl; return false; };
+
+    	virtual void setNextPin(bool source) { cout << "ERROR! setNextPin BASE" << endl; };
+    };
+
+    class BinaryGate : public LogicGate {
+    private:
+    	bool pinA;
+    	bool pinATaken;
+    	bool pinB;
+    	bool pinBTaken;
+
+    public:
+    	BinaryGate(string n) : LogicGate(n) {
+    		pinATaken = false;
+    		pinBTaken = false;
+    	}
+
+    	bool getPinA() {
+    	    if (pinATaken==false) {
+        		cout << "Enter Pin A input for gate " << getLabel() << " -->";
+        		cin >> pinA;
+        		pinATaken = true;
+    	    }
+    		return pinA;
+    	}
+
+    	bool getPinB() {
+            if (pinBTaken==false ) {
+        		cout << "Enter Pin B input for gate " << getLabel() << " -->";
+        		cin >> pinB;
+        		pinBTaken = true;
+            }
+    		return pinB;
+    	}
+
+    	virtual void setNextPin(bool source) {
+    		if (pinATaken == false) {
+    			pinA = source;
+    			this->pinATaken=true;
+    		}
+    		else if (pinBTaken == false) {
+    			pinB = source;
+    			this->pinBTaken=true;
+    		}
+    	}
+    };
+
+    class UnaryGate : public LogicGate {
+    private:
+    	bool pin;
+    	bool pinTaken;
+
+    public:
+    	UnaryGate(string n) : LogicGate(n) {
+    		pinTaken = false;
+    	}
+
+    	bool getPin() {
+    	    if (pinTaken==false) {
+        		cout << "Enter Pin input for gate " << getLabel() << " -->";
+        		cin >> pin;
+        		pinTaken = true;
+    	    }
+    		return pin;
+    	}
+
+    	virtual void setNextPin(bool source) {
+    		if (pinTaken == false) {
+    			pin = source;
+    			pinTaken=true;
+    		}
+    		else {
+    			return;
+    		}
+    	}
+    };
+
+    class AndGate : public BinaryGate {
+    public:
+    	AndGate(string n) : BinaryGate(n) {};
+
+    	virtual bool performGateLogic() {
+    		bool a = getPinA();
+    		bool b = getPinB();
+    		if (a == 1 && b == 1) {
+    			return true;
+    		}
+    		else {
+    			return false;
+    		}
+    	}
+    };
+
+    class OrGate : public BinaryGate {
+    public:
+    	OrGate(string n) : BinaryGate(n) {};
+
+    	virtual bool performGateLogic() {
+    		bool a = getPinA();
+    		bool b = getPinB();
+    		if (a == 1 || b == 1) {
+    			return true;
+    		}
+    		else {
+    			return false;
+    		}
+    	}
+    };
+
+    class NotGate : public UnaryGate {
+    public:
+    	NotGate(string n) : UnaryGate(n) {};
+
+    	virtual bool performGateLogic() {
+    		if (getPin()) {
+    			return false;
+    		}
+    		else {
+    			return true;
+    		}
+    	}
+    };
+
+    class Connector {
+    private:
+    	LogicGate *fromgate;
+    	LogicGate *togate;
+
+    public:
+    	Connector(LogicGate *fgate, LogicGate *tgate) {
+    		fromgate = fgate;
+    		togate = tgate;
+    		tgate->setNextPin(fromgate->getOutput());
+    	}
+
+    	LogicGate *getFrom() {
+    		return fromgate;
+    	}
+
+    	LogicGate *getTo() {
+    		return togate;
+    	}
+    };
+
+    int main() {
+    	AndGate g1("AND1");
+    	AndGate g2("AND2");
+    	OrGate g3("OR3");
+    	NotGate g4("NOT4");
+
+      // The inputs can be changed here!
+        g1.setNextPin(1);
+        g1.setNextPin(0);
+        g2.setNextPin(1);
+        g2.setNextPin(0);
+
+    	Connector c1(&g1, &g3);
+    	Connector c2(&g2, &g3);
+    	Connector c3(&g3, &g4);
+
+    	cout << g4.getOutput();
+
+    	return 0;
+    }
 
 
 .. video:: logicgates
