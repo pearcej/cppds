@@ -347,7 +347,7 @@ cout << "After changing \*varPntr, varName now has: " << varName << endl; cout <
   :align: center
   :alt: image
 
-If your compiler does not catch that error (the one for this class may), the first cout instruction outputs
+If your compiler does not catch that error (the one for this class may), the first ``cout`` instruction outputs
 
 ::
 
@@ -387,7 +387,7 @@ The following example demonstrates how the null pointer works. The variable ptrx
 Helpful Tip: The null pointer becomes very useful when you must test the state of a pointer, such as whether the assignment to an address was valid or not.
 
 Collection Data Types
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 In addition to the numeric and boolean classes, C++ has a number of
 very powerful built-in collection classes. Arrays, strings, and tuples
@@ -549,7 +549,7 @@ use the key value. To add a new value is similar.
 
     .. tab:: Python
 
-        .. activecode:: intro_7
+        .. activecode:: intro_7py
             :caption: Using a Dictionary
 
             capitals = {'Iowa':'DesMoines','Wisconsin':'Madison'}
@@ -586,9 +586,3 @@ specify a return value instead.
                 ``count``     ``myDict.count(key)``   Returns ``True`` if key is in the   dictionary, ``False`` otherwise
                 ``erase``     ``myDict.erase(key)``                                Removes the entry from the  dictionary
     ===================== ========================= =====================================================================
-
-.. note::
-
-    This workspace is provided for your convenience.  You can use this activecode window to try out anything you like.
-
-    .. activecode:: scratch_01_01
