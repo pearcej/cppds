@@ -34,93 +34,95 @@ and if found, checked off by replacement.:ref:`ActiveCode 1 <lst_anagramSolution
 
   .. tab:: C++
 
-    .. activecode:: active5cpp
-      :caption: Checking Off C++
-      :language: cpp
+    .. activecode:: active0cpp
+        :caption: Checking Off C++
+        :language: cpp
 
-      #include <iostream>
-      #include <string>
-      using namespace std;
+        #include <iostream>
+        #include <string>
+        using namespace std;
 
-      bool anagramsolution1(string s1, string s2){
-        bool stillOK;
-        if (s1.length() != s2.length()) {
-          stillOK = false;
-        }
-        int n = s1.length();
-        char alist[n-1];
-        for (int i = 0; i<n; i++){
-          alist[i] = s2[i];
-        }
-
-        int pos1 = 0;
-        stillOK = true;
-
-        while (pos1 < s1.length() && stillOK){
-          int pos2 = 0;
-          bool found = false;
-          while (pos2 < n && !found){
-            if (s1[pos1] == alist[pos2]){
-              found = true;
-            } else{
-                pos2 = pos2 + 1;
+        bool anagramsolution1(string s1, string s2){
+            bool stillOK;
+            if (s1.length() != s2.length()) {
+                stillOK = false;
             }
-          }
-          if (found){
-            alist[pos2] = 0;
-          }
-          else{
-            stillOK = false;
-          }
-          pos1 = pos1 + 1;
-        }
-        return stillOK;
-      }
+            int n = s1.length();
+            char alist[n-1];
+            for (int i = 0; i<n; i++){
+                alist[i] = s2[i];
+            }
 
-      int main(){
-        int value = anagramsolution1("abcd", "dcab");
-        if (value == 1){
-          cout << "True";
+            unsigned int pos1 = 0;
+            stillOK = true;
+
+            while (pos1 < s1.length() && stillOK){
+                int pos2 = 0;
+                bool found = false;
+                while (pos2 < n && !found){
+                    if (s1[pos1] == alist[pos2]){
+                        found = true;
+                    } else{
+                        pos2 = pos2 + 1;
+                    }
+                }
+                if (found){
+                    alist[pos2] = 0;
+                }
+                else{
+                    stillOK = false;
+                }
+                pos1 = pos1 + 1;
+            }
+            return stillOK;
         }
-        else{
-          cout << "False";
+
+        int main(){
+            int value = anagramsolution1("abcd", "dcab");
+            if (value == 1){
+                cout << "True";
+            }
+            else{
+                cout << "False";
+            }
+            return 0;
         }
-        return 0;
-      }
 
   .. tab:: Python
 
-    .. activecode:: active5py
+    .. activecode:: active0py
        :caption: Checking Off Python
 
-       def anagramSolution1(s1,s2):
-           if len(s1) != len(s2):
-               stillOK = False
+        def anagramSolution1(s1,s2):
+            if len(s1) != len(s2):
+                stillOK = False
 
-           alist = list(s2)
+            alist = list(s2)
 
-           pos1 = 0
-           stillOK = True
+            pos1 = 0
+            stillOK = True
 
-           while pos1 < len(s1) and stillOK:
-               pos2 = 0
-               found = False
-               while pos2 < len(alist) and not found:
-                   if s1[pos1] == alist[pos2]:
-                       found = True
-                   else:
-                       pos2 = pos2 + 1
+            while pos1 < len(s1) and stillOK:
+                pos2 = 0
+                found = False
+                while pos2 < len(alist) and not found:
+                    if s1[pos1] == alist[pos2]:
+                        found = True
+                    else:
+                        pos2 = pos2 + 1
 
-                   if found:
-                       alist[pos2] = None
-                   else:
-                       stillOK = False
+                if found:
+                    alist[pos2] = None
+                else:
+                    stillOK = False
 
-                   pos1 = pos1 + 1
+                pos1 = pos1 + 1
 
-           return stillOK
+            return stillOK
 
-       print(anagramSolution1('abcd','dcba'))
+        def main():
+            print(anagramSolution1('abcd','dcba'))
+        main()
 
 To analyze this algorithm, we need to note that each of the *n*
 characters in ``s1`` will cause an iteration through up to *n*
@@ -156,78 +158,80 @@ on lists by simply converting each string to a list at the start.
   .. tab:: C++
 
     .. activecode:: active6cpp
-      :caption: Sort and Compare C++
-      :language: cpp
+        :caption: Sort and Compare C++
+        :language: cpp
 
-      #include <iostream>
-      #include <string>
-      #include <algorithm>
-      using namespace std;
+        #include <iostream>
+        #include <string>
+        #include <algorithm>
+        using namespace std;
 
-      bool anagramsolution2(string s1, string s2){
-        int n = s1.length();
-        char alist1[n-1];
-        for (int i = 0; i < n; i++){
-          alist1[i] = s1[i];
+        bool anagramsolution2(string s1, string s2){
+            int n = s1.length();
+            char alist1[n-1];
+            for (unsigned int i = 0; i < n; i++){
+                alist1[i] = s1[i];
+            }
+
+            int len = s2.length();
+            char alist2[len-1];
+            for (unsigned int x = 0; x < len; x++){
+                alist2[x] = s2[x];
+            }
+
+            sort(alist1, alist1+n);
+            sort(alist2, alist2+len);
+
+            unsigned int pos = 0;
+            bool matches = true;
+
+            while (pos < s1.length() && matches){
+                if (alist1[pos] == alist2[pos]){
+                    pos = pos + 1;
+                } else{
+                    matches = false;
+                }
+            }
+            return matches;
         }
 
-        int len = s2.length();
-        char alist2[len-1];
-        for (int x = 0; x < len; x++){
-          alist2[x] = s2[x];
+        int main(){
+            int value = anagramsolution2("abcde", "edcba");
+            if (value == 1){
+                cout << "True";
+            }
+            else{
+                cout << "False";
+            }
+            return 0;
         }
-
-        sort(alist1, alist1+n);
-        sort(alist2, alist2+len);
-
-        int pos = 0;
-        bool matches = true;
-
-        while (pos < s1.length() && matches){
-          if (alist1[pos] == alist2[pos]){
-            pos = pos + 1;
-          } else{
-            matches = false;
-          }
-        }
-        return matches;
-      }
-
-      int main(){
-        int value = anagramsolution2("abcde", "edcba");
-        if (value == 1){
-          cout << "True";
-        }
-        else{
-          cout << "False";
-        }
-        return 0;
-      }
 
   .. tab:: Python
 
     .. activecode:: active6py
        :caption: Sort and Compare
 
-       def anagramSolution2(s1,s2):
-           alist1 = list(s1)
-           alist2 = list(s2)
+        def anagramSolution2(s1,s2):
+            alist1 = list(s1)
+            alist2 = list(s2)
 
-           alist1.sort()
-           alist2.sort()
+            alist1.sort()
+            alist2.sort()
 
-           pos = 0
-           matches = True
+            pos = 0
+            matches = True
 
-           while pos < len(s1) and matches:
-               if alist1[pos]==alist2[pos]:
-                   pos = pos + 1
-               else:
-                   matches = False
+            while pos < len(s1) and matches:
+                if alist1[pos]==alist2[pos]:
+                    pos = pos + 1
+                else:
+                    matches = False
 
-           return matches
+            return matches
 
-       print(anagramSolution2('abcde','edcba'))
+        def main():
+            print(anagramSolution2('abcde','edcba'))
+        main()
 
 At first glance you may be tempted to think that this algorithm is
 :math:`O(n)`, since there is one simple iteration to compare the *n*
@@ -275,84 +279,91 @@ anagrams. :ref:`ActiveCode 3 <lst_ana4>` shows this solution.
 
 .. _lst_ana4:
 
-.. tabbed:: Count and Compare
+.. tabbed:: Count_and_Compare
 
   .. tab:: C++
 
     .. activecode:: active7cpp
-      :caption: Count and Compare C++
-      :language: cpp
+        :caption: Count and Compare C++
+        :language: cpp
 
-      #include <iostream>
-      #include <string>
-      using namespace std;
+        #include <iostream>
+        #include <string>
+        using namespace std;
 
-      bool anagramSolution4(string s1, string s2){
-        int c1[26] = {0};
-        int c2[26] = {0};
+        bool anagramSolution4(string s1, string s2){
+            int c1[26] = {0};
+            int c2[26] = {0};
 
-        int x;
-        int a = 'a';
-        for (int i = 0; i < s1.length(); i++){
-          x = s1[i] - a;
-          int pos = x;
-          c1[pos] = c1[pos] + 1;
+            int x;
+            int a = 'a';
+            for (unsigned int i = 0; i < s1.length(); i++){
+                x = s1[i] - a;
+                int pos = x;
+                c1[pos] = c1[pos] + 1;
+            }
+
+            int y;
+            int b = 'a';
+            for (unsigned int i = 0; i < s2.length(); i++){
+                y = s2[i] - b;
+                int pos = y;
+                c2[pos] = c2[pos] + 1;
+            }
+
+            int j = 0;
+            bool stillOK = true;
+            while (j < 26 && stillOK){
+                if (c1[j] == c2[j]){
+                    j = j + 1;
+                } else{
+                    stillOK = false;
+                }
+            }
+            return stillOK;
         }
 
-        int y;
-        int b = 'a';
-        for (int i = 0; i < s2.length(); i++){
-          y = s2[i] - b;
-          int pos = y;
-          c2[pos] = c2[pos] + 1;
+        int main(){
+            int value = anagramSolution4("apple", "pleap");
+            if (value == 1){
+                cout << "True";
+            }
+            else{
+                cout << "False";
+            }
+            return 0;
         }
-
-        int j = 0;
-        bool stillOK = true;
-        while (j < 26 && stillOK){
-          if (c1[j] == c2[j]){
-            j = j + 1;
-          } else{
-            stillOK = false;
-          }
-        }
-        return stillOK;
-      }
-
-      int main(){
-        cout << anagramSolution4("apple", "pleap") <<endl;
-
-        return 0;
-      }
 
   .. tab:: Python
 
     .. activecode:: active7py
-       :caption: Count and Compare Python
+        :caption: Count and Compare Python
 
-       def anagramSolution4(s1,s2):
-           c1 = [0]*26
-           c2 = [0]*26
+        def anagramSolution4(s1,s2):
+            c1 = [0]*26
+            c2 = [0]*26
 
-           for i in range(len(s1)):
-               pos = ord(s1[i])-ord('a')
-               c1[pos] = c1[pos] + 1
+            for i in range(len(s1)):
+                pos = ord(s1[i])-ord('a')
+                c1[pos] = c1[pos] + 1
 
-           for i in range(len(s2)):
-               pos = ord(s2[i])-ord('a')
-               c2[pos] = c2[pos] + 1
+            for i in range(len(s2)):
+                pos = ord(s2[i])-ord('a')
+                c2[pos] = c2[pos] + 1
 
-           j = 0
-           stillOK = True
-           while j<26 and stillOK:
-               if c1[j]==c2[j]:
-                   j = j + 1
-               else:
-                   stillOK = False
+            j = 0
+            stillOK = True
+            while j<26 and stillOK:
+                if c1[j]==c2[j]:
+                    j = j + 1
+                else:
+                    stillOK = False
 
-           return stillOK
+            return stillOK
 
-       print(anagramSolution4('apple','pleap'))
+        def main():
+            print(anagramSolution4('apple','pleap'))
+        main()
 
 Again, the solution has a number of iterations. However, unlike the
 first solution, none of them are nested. The first two iterations used
