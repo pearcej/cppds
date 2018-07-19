@@ -3,7 +3,7 @@
 
 
 Implementing an Unordered List: Linked Lists
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------
 
 In order to implement an unordered list, we will construct what is
 commonly known as a **linked list**. Recall that we need to be sure that
@@ -38,13 +38,13 @@ reference is often referred to as the **head** of the list. Similarly,
 the last item needs to know that there is no next item.
 
 The ``Node`` Class
-^^^^^^^^^^^^^^^^^^
+------------------
 
 The basic building block for the linked list implementation is the
 **node**. Each node object must hold at least two pieces of information.
 First, the node must contain the list item itself. We will call this the
 **data field** of the node. In addition, each node must hold a reference
-to the next node. :ref:`Listing 1 <lst_nodeclass>` shows the Python
+to the next node. :ref:`Listing 1 <lst_nodeclass>` shows the C++
 implementation. To construct a node, you need to supply the initial data
 value for the node. Evaluating the assignment statement below will yield
 a node object containing the value 93 (see :ref:`Figure 3 <fig_node>`). You
@@ -52,31 +52,43 @@ should note that we will typically represent a node object as shown in
 :ref:`Figure 4 <fig_node2>`. The ``Node`` class also includes the usual methods
 to access and modify the data and the next reference.
 
-
 .. _lst_nodeclass:
 
-**Listing 1**
+  **Listing 1**
 
-.. sourcecode:: python
+  .. sourcecode:: cpp
 
-   class Node:
-       def __init__(self,initdata):
-           self.data = initdata
-           self.next = None
 
-       def getData(self):
-           return self.data
+    #include <iostream>
+    using namespace std;
 
-       def getNext(self):
-           return self.next
+    class Node {
+    private:
+    	int data;
+    	Node *next;
 
-       def setData(self,newdata):
-           self.data = newdata
+    public:
+    	Node(int initdata) {
+    		data = initdata;
+    		next = NULL;
+    	}
 
-       def setNext(self,newnext):
-           self.next = newnext
-           
-We create ``Node`` objects in the usual way.
+    	int getData() {
+    		return data;
+    	}
+
+    	Node *getNext() {
+    		return next;
+    	}
+
+    	void setData(int newData) {
+    		data = newData;
+    	}
+
+    	void setNext(Node *newnext) {
+    		next = newnext;
+    	}
+    };
 
 ::
 
@@ -84,15 +96,13 @@ We create ``Node`` objects in the usual way.
         >>> temp.getData()
         93
 
-The special Python reference value ``None`` will play an important role
+The special C++ reference value ``NULL`` will play an important role
 in the ``Node`` class and later in the linked list itself. A reference
-to ``None`` will denote the fact that there is no next node. Note in the
-constructor that a node is initially created with ``next`` set to
-``None``. Since this is sometimes referred to as “grounding the node,”
+to ``NULL`` will denote the fact that there is no next node. Note in the
+constructor that a node is initially created with ``next`` and a pointer to
+``NULL``. Since this is sometimes referred to as “grounding the node,”
 we will use the standard ground symbol to denote a reference that is
-referring to ``None``. It is always a good idea to explicitly assign
-``None`` to your initial next reference values.
-
+referring to ``NULL``.
 
 
 .. _fig_node:
@@ -111,10 +121,10 @@ referring to ``None``. It is always a good idea to explicitly assign
 
 
 The ``Unordered List`` Class
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------
 
 As we suggested above, the unordered list will be built from a
-collection of nodes, each linked to the next by explicit references. As
+collection of nodes, each linked to the next by explicit pointers. As
 long as we know where to find the first node (containing the first
 item), each item after that can be found by successively following the
 next links. With this in mind, the ``UnorderedList`` class must maintain
@@ -126,12 +136,38 @@ to the head of the list.
 
 **Listing 2**
 
-.. sourcecode:: python
+.. sourcecode:: cpp
 
-    class UnorderedList:
-    
-        def __init__(self):
-            self.head = None
+    class UnorderedList {
+        public:
+    	  Node *head;
+
+    	  UnorderedList() {
+    		   head = NULL;
+    }
+
+Initially when we construct a list, there are no items. The assignment
+statement
+
+::
+
+    UnorderedList myList;
+
+creates the linked list representation shown in
+:ref:`Figure 5 <fig_initlinkedlist>`. As we discussed in the ``Node`` class, the
+special reference ``NULL`` will again be used to state that the head of
+the list does not refer to anything. Eventually, the example list given
+earlier will be represented by a linked list as shown in
+:ref:`Figure 6 <fig_linkedlist>`. The head of the list points to the first node
+which contains the first item of the list. In turn, that node holds a
+reference to the next node (the next item) and so on. It is very
+important to note that the list class itself does not contain any node
+objects. Instead it contains a single pointer to only the first node
+in the linked structure.
+
+.. _lst_listclass_py:
+
+**Listing 2**
 
 Initially when we construct a list, there are no items. The assignment
 statement
@@ -139,18 +175,6 @@ statement
 ::
 
     >>> mylist = UnorderedList()
-
-creates the linked list representation shown in
-:ref:`Figure 5 <fig_initlinkedlist>`. As we discussed in the ``Node`` class, the
-special reference ``None`` will again be used to state that the head of
-the list does not refer to anything. Eventually, the example list given
-earlier will be represented by a linked list as shown in
-:ref:`Figure 6 <fig_linkedlist>`. The head of the list refers to the first node
-which contains the first item of the list. In turn, that node holds a
-reference to the next node (the next item) and so on. It is very
-important to note that the list class itself does not contain any node
-objects. Instead it contains a single reference to only the first node
-in the linked structure.
 
 .. _fig_initlinkedlist:
 
@@ -171,14 +195,16 @@ in the linked structure.
 
 
 The ``isEmpty`` method, shown in :ref:`Listing 3 <lst_isempty>`, simply checks to
-see if the head of the list is a reference to ``None``. The result of
-the boolean expression ``self.head==None`` will only be true if there
+see if the head of the list is a reference to ``NULL``. The result of
+the boolean expression ``this->head==NULL`` will only be true if there
 are no nodes in the linked list. Since a new list is empty, the
 constructor and the check for empty must be consistent with one another.
-This shows the advantage to using the reference ``None`` to denote the
+This shows the advantage to using the reference ``NULL`` to denote the
 “end” of the linked structure. In Python, ``None`` can be compared to
 any reference. Two references are equal if they both refer to the same
 object. We will use this often in our remaining methods.
+
+^^^^^^^^^^^^^^^^^^^
 
 .. _lst_isempty:
 
@@ -186,8 +212,9 @@ object. We will use this often in our remaining methods.
 
 ::
 
-    def isEmpty(self):
-        return self.head == None
+    bool isEmpty() {
+      return head==NULL;
+    }
 
 So, how do we get items into our list? We need to implement the ``add``
 method. However, before we can do that, we need to address the important
@@ -245,10 +272,11 @@ no longer be accessed.
 
 ::
 
-    def add(self,item):
-        temp = Node(item)
-        temp.setNext(self.head)
-        self.head = temp
+    void add(int item) {
+        Node *temp = new Node(item);
+        temp->setNext(head);
+        head=temp;
+    }
 
 .. _fig_addtohead:
 
@@ -290,20 +318,19 @@ Finally, ``count`` gets returned after the iteration stops.
 
 **Listing 5**
 
-.. highlight:: python
-  :linenothreshold: 5
-
 ::
 
-    def size(self):
-        current = self.head
-        count = 0
-        while current != None:
-            count = count + 1
-            current = current.getNext()
+    int size() {
+        Node *current = head;
+        int count = 0;
+        while (current!=NULL) {
+            count++;
+            current=current->getNext();
+        }
 
-        return count
-        
+        return count;
+    }
+
 
 
 .. _fig_traversal:
@@ -340,16 +367,17 @@ set to ``True``.
 
 ::
 
-    def search(self,item):
-        current = self.head
-        found = False
-        while current != None and not found:
-            if current.getData() == item:
-                found = True
-            else:
-                current = current.getNext()
-
-        return found
+    bool search(int item) {
+        Node *current = head;
+        while (current!=NULL) {
+            if (current->getData()==item) {
+                return true;
+            } else {
+                current=current->getNext();
+            }
+        }
+        return false;
+    }
 
 As an example, consider invoking the ``search`` method looking for the
 item 17.
@@ -357,7 +385,7 @@ item 17.
 ::
 
     >>> mylist.search(17)
-    True
+    1
 
 Since 17 is in the list, the traversal process needs to move only to the
 node containing 17. At that point, the variable ``found`` is set to
@@ -431,21 +459,24 @@ list looking for the node containing the value 17.
 
 ::
 
-    def remove(self,item):
-        current = self.head
-        previous = None
-        found = False
-        while not found:
-            if current.getData() == item:
-                found = True
-            else:
-                previous = current
-                current = current.getNext()
-
-        if previous == None:
-            self.head = current.getNext()
-        else:
-            previous.setNext(current.getNext())
+    void remove(int item) {
+        Node *current = head;
+        Node *previous = NULL;
+        bool found = false;
+        while (!found) {
+            if (current->getData()==item) {
+                found=true;
+            } else {
+                previous=current;
+                current=current->getNext();
+            }
+        }
+        if (previous==NULL) {
+            head=current->getNext();
+        } else {
+            previous->setNext(current->getNext());
+        }
+    }
 
 .. _fig_removeinit:
 
@@ -505,104 +536,144 @@ arises is whether the two cases shown here will also handle the
 situation where the item to be removed is in the last node of the linked
 list. We leave that for you to consider.
 
-You can try out the ``UnorderedList`` class in ActiveCode 1.  
+You can try out the ``UnorderedList`` class in ActiveCode 1.
 
 .. activecode:: unorderedlistcomplete
    :caption: The Complete UnorderedList Class
-   :hidecode:
-   :nocodelens:
-   
-   class Node:
-       def __init__(self,initdata):
-           self.data = initdata
-           self.next = None
+   :language: cpp
 
-       def getData(self):
-           return self.data
+   #include <iostream>
+   using namespace std;
 
-       def getNext(self):
-           return self.next
+   class Node {
+   private:
+   	int data;
+   	Node *next;
 
-       def setData(self,newdata):
-           self.data = newdata
+   public:
+   	Node(int initdata) {
+   		data = initdata;
+   		next = NULL;
+   	}
 
-       def setNext(self,newnext):
-           self.next = newnext
+   	int getData() {
+   		return data;
+   	}
+
+   	Node *getNext() {
+   		return next;
+   	}
+
+   	void setData(int newData) {
+   		data = newData;
+   	}
+
+   	void setNext(Node *newnext) {
+   		next = newnext;
+   	}
+   };
+
+   class UnorderedList {
+       public:
+   	Node *head;
+
+   	UnorderedList() {
+   		head = NULL;
+   	}
+
+       bool isEmpty() {
+           return head==NULL;
+       }
+
+       void add(int item) {
+           Node *temp = new Node(item);
+           temp->setNext(head);
+           head=temp;
+       }
+
+       int size() {
+           Node *current = head;
+           int count = 0;
+           while (current!=NULL) {
+               count++;
+               current=current->getNext();
+           }
+
+           return count;
+       }
+
+       bool search(int item) {
+           Node *current = head;
+           while (current!=NULL) {
+               if (current->getData()==item) {
+                   return true;
+               } else {
+                   current=current->getNext();
+               }
+           }
+           return false;
+       }
+
+       void remove(int item) {
+           Node *current = head;
+           Node *previous = NULL;
+           bool found = false;
+           while (!found) {
+               if (current->getData()==item) {
+                   found=true;
+               } else {
+                   previous=current;
+                   current=current->getNext();
+               }
+           }
+           if (previous==NULL) {
+               head=current->getNext();
+           } else {
+               previous->setNext(current->getNext());
+           }
+       }
+
+       friend ostream& operator<<(ostream& os, const UnorderedList& ol);
+   };
+
+   ostream& operator<<(ostream& os, const UnorderedList& ol) {
+       Node *current = ol.head;
+       while (current!=NULL) {
+           os<<current->getData()<<endl;
+           current=current->getNext();
+       }
+       return os;
+   }
 
 
-   class UnorderedList:
+   int main() {
+   	UnorderedList mylist;
+       mylist.add(31);
+       mylist.add(77);
+       mylist.add(17);
+       mylist.add(93);
+       mylist.add(26);
+       mylist.add(54);
 
-       def __init__(self):
-           self.head = None
+       cout<<"SIZE: "<<mylist.size()<<endl;
+       cout<<"contains 93?\t"<<mylist.search(93)<<endl;
+       cout<<"contains 100?\t"<<mylist.search(100)<<endl<<endl;
 
-       def isEmpty(self):
-           return self.head == None
+       mylist.add(100);
+       cout<<"contains 100?\t"<<mylist.search(100)<<endl<<endl;
+       cout<<"SIZE: "<<mylist.size()<<endl;
 
-       def add(self,item):
-           temp = Node(item)
-           temp.setNext(self.head)
-           self.head = temp
+       mylist.remove(54);
+       cout<<"SIZE: "<<mylist.size()<<endl;
+       mylist.remove(93);
+       cout<<"SIZE: "<<mylist.size()<<endl;
+       mylist.remove(31);
+       cout<<"SIZE: "<<mylist.size()<<endl;
+       mylist.search(93);
 
-       def size(self):
-           current = self.head
-           count = 0
-           while current != None:
-               count = count + 1
-               current = current.getNext()
-
-           return count
-
-       def search(self,item):
-           current = self.head
-           found = False
-           while current != None and not found:
-               if current.getData() == item:
-                   found = True
-               else:
-                   current = current.getNext()
-
-           return found
-
-       def remove(self,item):
-           current = self.head
-           previous = None
-           found = False
-           while not found:
-               if current.getData() == item:
-                   found = True
-               else:
-                   previous = current
-                   current = current.getNext()
-
-           if previous == None:
-               self.head = current.getNext()
-           else:
-               previous.setNext(current.getNext())
-
-   mylist = UnorderedList()
-
-   mylist.add(31)
-   mylist.add(77)
-   mylist.add(17)
-   mylist.add(93)
-   mylist.add(26)
-   mylist.add(54)
-
-   print(mylist.size())
-   print(mylist.search(93))
-   print(mylist.search(100))
-
-   mylist.add(100)
-   print(mylist.search(100))
-   print(mylist.size())
-
-   mylist.remove(54)
-   print(mylist.size())
-   mylist.remove(93)
-   print(mylist.size())
-   mylist.remove(31)
-   print(mylist.size())
-   print(mylist.search(93))
+       cout<<"MY LIST: "<<endl<<mylist;
+   	return 0;
+   }
 
 The remaining methods ``append``, ``insert``, ``index``, and ``pop`` are
 left as exercises. Remember that each of these must take into account
@@ -612,156 +683,7 @@ positions of the list. We will assume that position names are integers
 starting with 0.
 
 .. admonition:: Self Check
-   
+
    Part I:  Implement the append method for UnorderedList.  What is the time complexity of the method you created?
 
-   .. actex:: self_check_list1
-       :nocodelens:
-   
-       class Node:
-           def __init__(self,initdata):
-               self.data = initdata
-               self.next = None
-
-           def getData(self):
-               return self.data
-
-           def getNext(self):
-               return self.next
-
-           def setData(self,newdata):
-               self.data = newdata
-
-           def setNext(self,newnext):
-               self.next = newnext
-
-
-       class UnorderedList:
-
-           def __init__(self):
-               self.head = None
-
-           def isEmpty(self):
-               return self.head == None
-
-           def add(self,item):
-               temp = Node(item)
-               temp.setNext(self.head)
-               self.head = temp
-
-           def size(self):
-               current = self.head
-               count = 0
-               while current != None:
-                   count = count + 1
-                   current = current.getNext()
-
-               return count
-
-           def search(self,item):
-               current = self.head
-               found = False
-               while current != None and not found:
-                   if current.getData() == item:
-                       found = True
-                   else:
-                       current = current.getNext()
-
-               return found
-
-           def remove(self,item):
-               current = self.head
-               previous = None
-               found = False
-               while not found:
-                   if current.getData() == item:
-                       found = True
-                   else:
-                       previous = current
-                       current = current.getNext()
-
-               if previous == None:
-                   self.head = current.getNext()
-               else:
-                   previous.setNext(current.getNext())
-
-       mylist = UnorderedList()
-   
-   
-
    Part II:  In the previous problem, you most likely created an append method that was :math:`O(n)`  If you add an instance variable to the UnorderedList class you can create an append method that is :math:`O(1)`.  Modify your append method to be :math:`O(1)`  Be Careful!  To really do this correctly you will need to consider a couple of special cases that may require you to make a modification to the add method as well.
-
-   .. actex:: self_check_list2
-       :nocodelens:
-   
-       class Node:
-           def __init__(self,initdata):
-               self.data = initdata
-               self.next = None
-
-           def getData(self):
-               return self.data
-
-           def getNext(self):
-               return self.next
-
-           def setData(self,newdata):
-               self.data = newdata
-
-           def setNext(self,newnext):
-               self.next = newnext
-
-
-       class UnorderedList:
-
-           def __init__(self):
-               self.head = None
-
-           def isEmpty(self):
-               return self.head == None
-
-           def add(self,item):
-               temp = Node(item)
-               temp.setNext(self.head)
-               self.head = temp
-
-           def size(self):
-               current = self.head
-               count = 0
-               while current != None:
-                   count = count + 1
-                   current = current.getNext()
-
-               return count
-
-           def search(self,item):
-               current = self.head
-               found = False
-               while current != None and not found:
-                   if current.getData() == item:
-                       found = True
-                   else:
-                       current = current.getNext()
-
-               return found
-
-           def remove(self,item):
-               current = self.head
-               previous = None
-               found = False
-               while not found:
-                   if current.getData() == item:
-                       found = True
-                   else:
-                       previous = current
-                       current = current.getNext()
-
-               if previous == None:
-                   self.head = current.getNext()
-               else:
-                   previous.setNext(current.getNext())
-
-       mylist = UnorderedList()
-   
-
-

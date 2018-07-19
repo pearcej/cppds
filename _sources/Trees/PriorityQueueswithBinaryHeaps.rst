@@ -17,17 +17,16 @@ will see that the priority queue is a useful data structure for some of
 the graph algorithms we will study in the next chapter.
 
 You can probably think of a couple of easy ways to implement a priority
-queue using sorting functions and lists. However, inserting into a list
-is :math:`O(n)` and sorting a list is :math:`O(n \log{n})`. We can
+queue using sorting functions and vectors. However, inserting into a vector
+is :math:`O(n)` and sorting a vector is :math:`O(n \log{n})`. We can
 do better. The classic way to implement a priority queue is using a data
 structure called a **binary heap**. A binary heap will allow us both
 enqueue and dequeue items in :math:`O(\log{n})`.
 
 The binary heap is interesting to study because when we diagram the heap
 it looks a lot like a tree, but when we implement it we use only a
-single list as an internal representation. The binary heap has two
+single vector as an internal representation. The binary heap has two
 common variations: the **min heap**, in which the smallest key is always
 at the front, and the **max heap**, in which the largest key value is
 always at the front. In this section we will implement the min heap. We
 leave a max heap implementation as an exercise.
-

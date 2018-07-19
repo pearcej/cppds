@@ -15,12 +15,9 @@ Key Terms
                 format operator   formatted strings       HAS-A relationship
      implementation-independent  information hiding              inheritance
           inheritance hierarchy           interface        IS-A relationship
-                           list  list comprehension                   method
+                         method         truth table                   string
                      mutability              object   procedural abstraction
-                    programming              prompt                 ``self``
-               shallow equality          simulation                   string
-                       subclass          superclass              truth table
+                    programming              prompt                 ``this``
+               shallow equality          simulation
+                       subclass          superclass
     =========================== =================== ========================
-
-
-

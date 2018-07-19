@@ -44,4 +44,3 @@ Summary
    requiring physical storage requirements.
 
 -  Modification to the head of the linked list is a special case.
-

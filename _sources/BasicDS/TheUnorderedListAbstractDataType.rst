@@ -2,45 +2,43 @@
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
-The Unordered List Abstract Data Type
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The Unordered Array Abstract Data Type
+--------------------------------------
 
-The structure of an unordered list, as described above, is a collection
+The structure of an unordered array, as described above, is a collection
 of items where each item holds a relative position with respect to the
-others. Some possible unordered list operations are given below.
+others. Some possible unordered array operations are given below.
 
--  ``List()`` creates a new list that is empty. It needs no parameters
-   and returns an empty list.
+-  ``int list[100]`` creates a new list that is a size of 100, and stores elements of integer data.
 
--  ``add(item)`` adds a new item to the list. It needs the item and
-   returns nothing. Assume the item is not already in the list.
+-  ``front()`` accesses first element. Returns a reference to the first element in the array container.
 
--  ``remove(item)`` removes the item from the list. It needs the item
-   and modifies the list. Assume the item is present in the list.
+-  ``back()`` accesses last element. Returns a reference to the last element in the array container.
 
--  ``search(item)`` searches for the item in the list. It needs the item
-   and returns a boolean value.
+-  ``empty()`` Test whether array is empty, and returns a boolean value showing whether the array is empty or not.
 
--  ``isEmpty()`` tests to see whether the list is empty. It needs no
-   parameters and returns a boolean value.
+-  ``size()`` returns size (the number of elements) in the array.
 
--  ``size()`` returns the number of items in the list. It needs no
-   parameters and returns an integer.
+-  ``fill(val)`` Sets *val* as the value for all the elements in the array object.
 
--  ``append(item)`` adds a new item to the end of the list making it the
-   last item in the collection. It needs the item and returns nothing.
-   Assume the item is not already in the list.
 
--  ``index(item)`` returns the position of item in the list. It needs
-   the item and returns the index. Assume the item is in the list.
+Vectors
+-------
 
--  ``insert(pos,item)`` adds a new item to the list at position pos. It
-   needs the item and returns nothing. Assume the item is not already in
-   the list and there are enough existing items to have position pos.
+Vectors are more similar to lists in Python than arrays, in way that they have dynamic
+size. Some operations with vectors are given below:
+-   ``#include <vector>;`` imports the vector to be used
 
--  ``pop()`` removes and returns the last item in the list. It needs
-   nothing and returns an item. Assume the list has at least one item.
+-   ``vector<int> integerList;`` declares integerList as a vector, and its elements to be a type of int.
 
--  ``pop(pos)`` removes and returns the item at position pos. It needs
-   the position and returns the item. Assume the item is in the list.
+-   ``vector<string> stringList;`` declares stringList as a vector, and its elements to be a type of string.
 
+-   ``clear()`` deletes all the items in the vector.
+
+-   ``erase(pos)`` deletes the item at a defined position.
+
+-   ``insert(pos, elem)`` inserts the copy of *elem* into a *pos* position in the vector.
+
+-   ``size()`` returns the size (the number of items) of the vector.
+
+More found<a href="http://www.cplusplus.com/reference/vector/vector/" target="_blank"> here.</a>

@@ -39,15 +39,11 @@ a crucial point as we will see, to decide which vertex to explore next.
 
 In addition the BFS algorithm uses an extended version of the ``Vertex``
 class. This new vertex class adds three new instance variables:
-distance, predecessor, and color. Each of these instance variables also
-has the appropriate getter and setter methods. The code for this
-expanded Vertex class is included in the ``pythonds`` package, but we
-will not show it to you here as there is nothing new to learn by seeing
-the additional instance variables.
+distance, predecessor, and color.
 
 BFS begins at the starting vertex ``s`` and colors ``start`` gray to
 show that it is currently being explored. Two other values, the distance
-and the predecessor, are initialized to 0 and ``None`` respectively for
+and the predecessor, are initialized to 0 and ``NULL`` respectively for
 the starting vertex. Finally, ``start`` is placed on a ``Queue``. The
 next step is to begin to systematically explore vertices at the front of
 the queue. We explore each new node at the front of the queue by
@@ -65,31 +61,35 @@ and four things happen:
    the queue effectively schedules this node for further exploration,
    but not until all the other vertices on the adjacency list of
    ``currentVert`` have been explored.
-   
-   
+
+
 .. _lst_wordbucket2:
 
 **Listing 2**
 
 ::
 
-    from pythonds.graphs import Graph, Vertex
-    from pythonds.basic import Queue
-    
-    def bfs(g,start):
-      start.setDistance(0)
-      start.setPred(None)
-      vertQueue = Queue()
-      vertQueue.enqueue(start)
-      while (vertQueue.size() > 0):
-        currentVert = vertQueue.dequeue()
-        for nbr in currentVert.getConnections():
-          if (nbr.getColor() == 'white'):
-            nbr.setColor('gray')
-            nbr.setDistance(currentVert.getDistance() + 1)
-            nbr.setPred(currentVert)
-            vertQueue.enqueue(nbr)
-        currentVert.setColor('black')
+    Graph bfs(Graph g, Vertex *start) {
+        start->dist = 0;
+        start->pred = NULL;
+        queue<Vertex *> vertQueue;
+        vertQueue.push(start);
+        while (vertQueue.size() > 0) {
+            Vertex *currentVert = vertQueue.front();
+            vertQueue.pop();
+        // For each neighbor of the current vertex
+            for (unsigned int nbr = 0; nbr < currentVert->getConnections().size(); nbr++) {
+                if (g.vertList[currentVert->getConnections()[nbr]].color == 'w') {
+                    g.vertList[currentVert->getConnections()[nbr]].color = 'g';
+                    g.vertList[currentVert->getConnections()[nbr]].dist = currentVert->dist + 1;
+                    g.vertList[currentVert->getConnections()[nbr]].pred = currentVert;
+                    vertQueue.push(&g.vertList[currentVert->getConnections()[nbr]]);
+                }
+            }
+            currentVert->color = 'b';
+        }
+        return g;
+    }
 
 Let’s look at how the ``bfs`` function would construct the breadth first
 tree corresponding to the graph in :ref:`Figure 1 <fig_wordladder>`. Starting
@@ -134,7 +134,7 @@ vertices on the second level of the tree.
 
 .. figure:: Figures/bfs3.png
    :align: center
-   
+
    Figure 5: Breadth First Search Tree After Completing One Level
 
 
@@ -143,7 +143,7 @@ vertices on the second level of the tree.
 .. figure:: Figures/bfsDone.png
    :align: center
 
-   FIgure 6: Final Breadth First Search Tree      
+   FIgure 6: Final Breadth First Search Tree
 
 
 You should continue to work through the algorithm on your own so that
@@ -163,12 +163,262 @@ print out the word ladder.
 
 ::
 
-    def traverse(y):
-        x = y
-        while (x.getPred()):
-            print(x.getId())
-            x = x.getPred()
-        print(x.getId())
+    void traverse(Vertex *y) {
+      Vertex *x = y;
 
-    traverse(g.getVertex('sage'))
+      while (x->pred) {
+        cout << x->id << endl;
+        x = x->pred;
+      }
+      cout << x->id << endl;
+    }
 
+Because of syntactic changes to C++ between C++98 and C++11, the following code
+will not run in your ActiveCode window and must be copied and pasted into a compiler using C++11 to run.
+
+Below is a completed implementation of both the Vertex and Graph classes, along
+with an implementation for the breadth-first search shown above.
+
+::
+
+    #include <fstream>
+    #include <iostream>
+    #include <map>
+    #include <queue>
+    #include <string>
+    #include <vector>
+    using namespace std;
+
+    class Vertex {
+    public:
+        string id;
+        map<string, float> connectedTo;
+        // Added for Breadth-First Algorithm
+        char color;
+        float dist;
+        Vertex *pred;
+
+        Vertex() {
+            // w for white, g for grey, b for black
+            color = 'w';
+            dist = 0;
+            pred = NULL;
+        }
+
+        Vertex(string key) {
+            id = key;
+            color = 'w';
+            dist = 0;
+            pred = NULL;
+        }
+
+        void addNeighbor(string nbr, float weight = 1) {
+            connectedTo[nbr] = weight;
+        }
+
+        vector<string> getConnections() {
+            vector<string> keys;
+            // Use of iterator to find all keys
+            for (map<string, float>::iterator it = connectedTo.begin();
+                 it != connectedTo.end();
+                 ++it) {
+                keys.push_back(it->first);
+            }
+            return keys;
+        }
+
+        string getId() {
+            return id;
+        }
+
+        float getWeight(string nbr) {
+            return connectedTo[nbr];
+        }
+
+        friend ostream &operator<<(ostream &, Vertex &);
+    };
+
+    ostream &operator<<(ostream &stream, Vertex &vert) {
+        vector<string> connects = vert.getConnections();
+        stream << vert.id << " -> ";
+        for (unsigned int i = 0; i < connects.size(); i++) {
+            stream << connects[i] << endl << "\t";
+        }
+
+        return stream;
+    }
+
+    class Graph {
+    public:
+        map<string, Vertex> vertList;
+        int numVertices;
+        bool directional;
+
+        Graph(bool directed = true) {
+            directional = directed;
+            numVertices = 0;
+        }
+
+        Vertex addVertex(string key) {
+            numVertices++;
+            Vertex newVertex = Vertex(key);
+            this->vertList[key] = newVertex;
+            return newVertex;
+        }
+
+        Vertex *getVertex(string n) {
+            return &vertList[n];
+        }
+
+        bool contains(string n) {
+            for (map<string, Vertex>::iterator it = vertList.begin();
+                 it != vertList.end();
+                 ++it) {
+                if (it->first == n) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        void addEdge(string f, string t, float cost = 1) {
+            if (!this->contains(f)) {
+                this->addVertex(f);
+            }
+            if (!this->contains(t)) {
+                this->addVertex(t);
+            }
+            vertList[f].addNeighbor(t, cost);
+
+            if (!directional) {
+                vertList[t].addNeighbor(f, cost);
+            }
+        }
+
+        vector<string> getVertices() {
+            vector<string> verts;
+
+            for (map<string, Vertex>::iterator it = vertList.begin();
+                 it != vertList.end();
+                 ++it) {
+                verts.push_back(it->first);
+            }
+            return verts;
+        }
+
+        friend ostream &operator<<(ostream &, Graph &);
+    };
+
+    ostream &operator<<(ostream &stream, Graph &grph) {
+        for (map<string, Vertex>::iterator it = grph.vertList.begin();
+             it != grph.vertList.end();
+             ++it) {
+            stream << grph.vertList[it->first];
+            cout << endl;
+        }
+
+        return stream;
+    }
+
+    string getBlank(string str, int index) {
+        string blank = str;
+        blank[index] = '_';
+        return blank;
+    }
+
+    Graph buildGraph(vector<string> words) {
+        Graph g(false);
+
+        map<string, vector<string> > d;
+
+        // Go through the words
+        for (unsigned int i = 0; i < words.size(); i++) {
+            // Go through each letter, making it blank
+            for (unsigned int j = 0; j < words[i].length(); j++) {
+                string bucket = getBlank(words[i], j);
+                // Add the word to the map at the location of the blank
+                d[bucket].push_back(words[i]);
+            }
+        }
+
+        for (map<string, vector<string> >::iterator iter = d.begin();
+             iter != d.end();
+             ++iter) {
+            for (unsigned int i = 0; i < iter->second.size(); i++) {
+                for (unsigned int j = 0; j < iter->second.size(); j++) {
+                    if (iter->second[i] != iter->second[j]) {
+                        g.addEdge(iter->second[i], iter->second[j]);
+                    }
+                }
+            }
+        }
+
+        return g;
+    }
+
+    Graph bfs(Graph g, Vertex *start) {
+        start->dist = 0;
+        start->pred = NULL;
+        queue<Vertex *> vertQueue;
+        vertQueue.push(start);
+        while (vertQueue.size() > 0) {
+            Vertex *currentVert = vertQueue.front();
+            vertQueue.pop();
+            for (unsigned int nbr = 0; nbr < currentVert->getConnections().size(); nbr++) {
+                if (g.vertList[currentVert->getConnections()[nbr]].color == 'w') {
+                    g.vertList[currentVert->getConnections()[nbr]].color = 'g';
+
+                    g.vertList[currentVert->getConnections()[nbr]].dist =
+                        currentVert->dist + 1;
+                    g.vertList[currentVert->getConnections()[nbr]].pred =
+                        currentVert;
+                    vertQueue.push(&g.vertList[currentVert->getConnections()[nbr]]);
+                }
+            }
+            currentVert->color = 'b';
+        }
+
+        return g;
+    }
+
+    void traverse(Vertex *y) {
+        Vertex *x = y;
+
+        while (x->pred) {
+            cout << x->id << endl;
+            x = x->pred;
+        }
+        cout << x->id << endl;
+    }
+
+    int main() {
+        // Vector Initialized with an array
+        string arr[] = {"fool",
+                        "cool",
+                        "pool",
+                        "poll",
+                        "pole",
+                        "pall",
+                        "fall",
+                        "fail",
+                        "foil",
+                        "foul",
+                        "pope",
+                        "pale",
+                        "sale",
+                        "sage",
+                        "page"};
+
+        vector<string> words(arr, arr + (sizeof(arr) / sizeof(arr[0])));
+
+        // Graph g = buildGraph(words);
+        Graph g(false);
+
+        g = buildGraph(words);
+
+        g = bfs(g, g.getVertex("fool"));
+
+        traverse(g.getVertex("pall"));
+
+        return 0;
+    }

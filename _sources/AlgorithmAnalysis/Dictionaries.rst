@@ -109,6 +109,7 @@ data structures can be found on the C++ website.
 .. admonition:: Self Check
 
     .. mchoice:: mccppmapperfcpp
+
        :answer_a: Popping the first index from an array.
        :answer_b: Popping an element from the end of an array.
        :answer_c: Adding a new element to an array.
@@ -124,6 +125,7 @@ data structures can be found on the C++ website.
        Which of the list operations shown below is not O(1)?
 
     .. mchoice:: mccppmapperfcpp1
+
       :answer_a: mymap.count('x')
       :answer_b: mymap.erase('x')
       :answer_c: mymap['x'] = 10;

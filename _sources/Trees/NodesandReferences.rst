@@ -3,7 +3,7 @@
 
 
 Nodes and References
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 Our second method to represent a tree uses nodes and references. In this
 case we will define a class that has attributes for the root value, as
@@ -36,16 +36,40 @@ the tree we create another instance of ``BinaryTree`` and modify
 
 ::
 
+    C++ Implementation
+
+    #include <iostream>
+    #include <cstdlib>
+    using namespace std;
+
+    class BinaryTree {
+
+        private:
+        char key;
+        BinaryTree *leftChild;
+        BinaryTree *rightChild;
+
+        public:
+        BinaryTree(char rootObj){
+            this->key = rootObj;
+            this->leftChild = NULL;
+            this->rightChild = NULL;
+        }
+
+::
+
+    Python Implementation
+
     class BinaryTree:
         def __init__(self,rootObj):
             self.key = rootObj
             self.leftChild = None
             self.rightChild = None
-        
+
 
 Notice that in :ref:`Listing 4 <lst_nar>`, the constructor function expects to
 get some kind of object to store in the root. Just like you can store
-any object you like in a list, the root object of a tree can be a
+any object you like in an array, the root object of a tree can be a
 reference to any object. For our early examples, we will store the name
 of the node as the root value. Using nodes and references to represent
 the tree in :ref:`Figure 2 <fig_treerec>`, we would create six instances of the
@@ -66,14 +90,31 @@ new object. The code for ``insertLeft`` is shown in
 
 ::
 
+    C++ Implementation
+
+    void insertLeft(char newNode){
+        if (this->leftChild == NULL){
+        this->leftChild = new BinaryTree(newNode);
+        }
+        else {
+        BinaryTree *t = new BinaryTree(newNode);
+        t->leftChild = this->leftChild;
+        this->leftChild = t;
+        }
+    }
+
+::
+
+    Python Implementation
+
     def insertLeft(self,newNode):
         if self.leftChild == None:
             self.leftChild = BinaryTree(newNode)
-        else:  
+        else:
             t = BinaryTree(newNode)
             t.leftChild = self.leftChild
             self.leftChild = t
-            
+
 .. highlight:: python
     :linenothreshold: 500
 
@@ -96,6 +137,23 @@ the root and an existing right child. The insertion code is shown in
 
 ::
 
+    C++ Implementation
+
+    void insertRight(char newNode){
+        if (this->rightChild == NULL){
+        this->rightChild = new BinaryTree(newNode);
+        }
+        else {
+        BinaryTree *t = new BinaryTree(newNode);
+        t->rightChild = this->rightChild;
+        this->rightChild = t;
+        }
+    }
+
+::
+
+    Python Implementation
+
     def insertRight(self,newNode):
         if self.rightChild == None:
             self.rightChild = BinaryTree(newNode)
@@ -114,6 +172,28 @@ the root values.
 
 ::
 
+    C++ Implementation
+
+    BinaryTree *getRightChild(){
+        return this->rightChild;
+    }
+
+    BinaryTree *getLeftChild(){
+        return this->leftChild;
+    }
+
+    void setRootVal(char obj){
+        this->key = obj;
+    }
+
+    char getRootVal(){
+        return this->key;
+    }
+
+::
+
+    Python Implementation
+
     def getRightChild(self):
         return self.rightChild
 
@@ -125,7 +205,7 @@ the root values.
 
     def getRootVal(self):
         return self.key
-        
+
 
 Now that we have all the pieces to create and manipulate a binary tree,
 let’s use them to check on the structure a bit more. Let’s make a simple
@@ -138,77 +218,139 @@ tree as a binary tree itself.
 
 .. _lst_comptest:
 
+.. tabbed:: change_this
+
+  .. tab:: C++
+
+    .. activecode:: bintree_cpp
+        :caption: Exercising the Node and Reference Implementation C++
+        :language: cpp
+
+        #include <iostream>
+        #include <cstdlib>
+        using namespace std;
+
+        class BinaryTree {
+
+            private:
+            char key;
+            BinaryTree *leftChild;
+            BinaryTree *rightChild;
+
+            public:
+            BinaryTree(char rootObj){
+                this->key = rootObj;
+                this->leftChild = NULL;
+                this->rightChild = NULL;
+            }
+
+            void insertLeft(char newNode){
+                if (this->leftChild == NULL){
+                this->leftChild = new BinaryTree(newNode);
+                }
+                else {
+                BinaryTree *t = new BinaryTree(newNode);
+                t->leftChild = this->leftChild;
+                this->leftChild = t;
+                }
+            }
+
+            void insertRight(char newNode){
+                if (this->rightChild == NULL){
+                this->rightChild = new BinaryTree(newNode);
+                }
+                else {
+                BinaryTree *t = new BinaryTree(newNode);
+                t->rightChild = this->rightChild;
+                this->rightChild = t;
+                }
+            }
+
+            BinaryTree *getRightChild(){
+                return this->rightChild;
+            }
+
+            BinaryTree *getLeftChild(){
+                return this->leftChild;
+            }
+
+            void setRootVal(char obj){
+                this->key = obj;
+            }
+
+            char getRootVal(){
+                return this->key;
+            }
+        };
+
+        int main() {
+            BinaryTree *r = new BinaryTree('a');
+            cout << r->getRootVal() << endl;
+            cout << r->getLeftChild() << endl;
+            r->insertLeft('b');
+            cout << r->getLeftChild() << endl;
+            cout << r->getLeftChild()->getRootVal() << endl;
+            r->insertRight('c');
+            cout << r->getRightChild() << endl;
+            cout << r->getRightChild()->getRootVal() << endl;
+            r->getRightChild()->setRootVal('d');
+            cout << r->getRightChild()->getRootVal() << endl;
+
+            return 0;
+        }
+
+  .. tab:: Python
+
+    .. activecode:: bintree_py
+        :caption: Exercising the Node and Reference Implementation Python
+
+        class BinaryTree:
+            def __init__(self,rootObj):
+                self.key = rootObj
+                self.leftChild = None
+                self.rightChild = None
+
+            def insertLeft(self,newNode):
+                if self.leftChild == None:
+                    self.leftChild = BinaryTree(newNode)
+                else:
+                    t = BinaryTree(newNode)
+                    t.leftChild = self.leftChild
+                    self.leftChild = t
+
+            def insertRight(self,newNode):
+                if self.rightChild == None:
+                    self.rightChild = BinaryTree(newNode)
+                else:
+                    t = BinaryTree(newNode)
+                    t.rightChild = self.rightChild
+                    self.rightChild = t
 
 
-.. activecode:: bintree
-    :caption: Exercising the Node and Reference Implementation
+            def getRightChild(self):
+                return self.rightChild
+
+            def getLeftChild(self):
+                return self.leftChild
+
+            def setRootVal(self,obj):
+                self.key = obj
+
+            def getRootVal(self):
+                return self.key
 
 
-    class BinaryTree:
-        def __init__(self,rootObj):
-            self.key = rootObj
-            self.leftChild = None
-            self.rightChild = None
-
-        def insertLeft(self,newNode):
-            if self.leftChild == None:
-                self.leftChild = BinaryTree(newNode)
-            else:  
-                t = BinaryTree(newNode)
-                t.leftChild = self.leftChild
-                self.leftChild = t
-
-        def insertRight(self,newNode):
-            if self.rightChild == None:
-                self.rightChild = BinaryTree(newNode)
-            else:
-                t = BinaryTree(newNode)
-                t.rightChild = self.rightChild
-                self.rightChild = t
-
-
-        def getRightChild(self):
-            return self.rightChild
-
-        def getLeftChild(self):
-            return self.leftChild
-
-        def setRootVal(self,obj):
-            self.key = obj
-
-        def getRootVal(self):
-            return self.key                
-
-
-    r = BinaryTree('a')
-    print(r.getRootVal())
-    print(r.getLeftChild())
-    r.insertLeft('b')
-    print(r.getLeftChild())
-    print(r.getLeftChild().getRootVal())
-    r.insertRight('c')
-    print(r.getRightChild())
-    print(r.getRightChild().getRootVal())
-    r.getRightChild().setRootVal('hello')
-    print(r.getRightChild().getRootVal())
-
-
-.. admonition:: Self Check
-
-
-   .. actex:: mctree_3
-
-      Write a function ``buildTree`` that returns a tree using the nodes and references implementation that looks like this:
-
-      .. image:: Figures/tree_ex.png
-      ~~~~
-      from test import testEqual
-      
-      def buildTree():
-          pass
-
-      ttree = buildTree()
-
-      testEqual(ttree.getRightChild().getRootVal(),'c')
-      testEqual(ttree.getLeftChild().getRightChild().getRootVal(),'d')
-      testEqual(ttree.getRightChild().getLeftChild().getRootVal(),'e')
+        def main():
+            r = BinaryTree('a')
+            print(r.getRootVal())
+            print(r.getLeftChild())
+            r.insertLeft('b')
+            print(r.getLeftChild())
+            print("orig", r.getLeftChild().getRootVal())
+            # print("new", r.getLeftChild())
+            r.insertRight('c')
+            print(r.getRightChild())
+            print(r.getRightChild().getRootVal())
+            r.getRightChild().setRootVal('hello')
+            print(r.getRightChild().getRootVal())
+        main()

@@ -23,10 +23,32 @@ of items. We use the ``in`` operator.
     False
     >>> 3 in [3,5,2,4,1]
     True
-    >>> 
+    >>>
+
+A similar function can be created for C++ arrays by passing in the array, the
+size of the array, and the value to search for as arguments.
+
+::
+
+    bool isIn(int alist[], int size, int value) {
+        for (unsigned i=0; i<size; i++) {
+            if (alist[i] == value) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    int main() {
+        int arr[] = {3,5,2,4,1};
+
+        cout<<isIn(arr, 5, 15)<<endl;
+        cout<<isIn(arr,5,3)<<endl;
+
+        return 0;
+    }
 
 Even though this is easy to write, an underlying process must be carried
 out to answer the question. It turns out that there are many different
 ways to search for the item. What we are interested in here is how these
 algorithms work and how they compare to one another.
-
