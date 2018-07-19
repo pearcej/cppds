@@ -53,10 +53,7 @@ Programming Exercises
 #. Implement the selection sort using simultaneous assignment.
 
 #. Perform a benchmark analysis for a shell sort, using different
-   increment sets on the same list.
-
-#. Implement the ``mergeSort`` function without using the slice
-   operator.
+   increment sets on the same vector.
 
 #. One way to improve the quick sort is to use an insertion sort on
    lists that have a small length (call it the “partition limit”). Why
