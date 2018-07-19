@@ -13,5 +13,4 @@ Objectives
 
 -  To understand and implement the notion of an abstract data type.
 
--  To review the Python programming language.
-
+-  To review the C++ programming language.

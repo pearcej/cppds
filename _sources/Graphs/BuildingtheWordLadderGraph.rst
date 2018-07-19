@@ -46,50 +46,208 @@ bucket. Once we have all the words in the appropriate buckets we know
 that all the words in the bucket must be connected.
 
 .. _fig_wordbucket:
-    
+
 .. figure:: Figures/wordbuckets.png
    :align: center
 
    Figure 2: Word Buckets for Words That are Different by One Letter
 
 
-In Python, we can implement the scheme we have just described by using a
-dictionary. The labels on the buckets we have just described are the
-keys in our dictionary. The value stored for that key is a list of
-words. Once we have the dictionary built we can create the graph. We
+In C++, we can implement the scheme we have just described by using a
+map. The labels on the buckets we have just described are the
+keys of our map. The values stored for those keys are a vector of
+words. Once we have the map built we can create the graph. We
 start our graph by creating a vertex for each word in the graph. Then we
 create edges between all the vertices we find for words found under the
-same key in the dictionary. :ref:`Listing 1 <lst_wordbucket1>` shows the Python
+same key in the map. :ref:`ActiveCode 1 <wordbucket_cpp>` shows the C++
 code required to build the graph.
 
-.. _lst_wordbucket1:
+.. activecode:: wordbucket_cpp
+  :caption: Word Bucket C++ Implementation
+  :language: cpp
 
-**Listing 1**
+  #include <fstream>
+  #include <iostream>
+  #include <map>
+  #include <string>
+  #include <vector>
+  using namespace std;
 
-::
+  class Vertex {
+  public:
+  	string id;
+  	map<string, float> connectedTo;
 
-    from pythonds.graphs import Graph
-    
-    def buildGraph(wordFile):
-        d = {}
-        g = Graph()    
-        wfile = open(wordFile,'r')
-        # create buckets of words that differ by one letter
-        for line in wfile:
-            word = line[:-1]
-            for i in range(len(word)):
-                bucket = word[:i] + '_' + word[i+1:]
-                if bucket in d:
-                    d[bucket].append(word)
-                else:
-                    d[bucket] = [word]
-        # add vertices and edges for words in the same bucket
-        for bucket in d.keys():
-            for word1 in d[bucket]:
-                for word2 in d[bucket]:
-                    if word1 != word2:
-                        g.addEdge(word1,word2)
-        return g
+  	Vertex() {
+  	}
+
+  	Vertex(string key) {
+  		id = key;
+  	}
+
+  	void addNeighbor(string nbr, float weight = 1) {
+  		connectedTo[nbr] = weight;
+  	}
+
+  	vector<string> getConnections() {
+  		vector<string> keys;
+  		// Use of iterator to find all keys
+  		for (map<string, float>::iterator it = connectedTo.begin();
+  			 it != connectedTo.end();
+  			 ++it) {
+  			keys.push_back(it->first);
+  		}
+  		return keys;
+  	}
+
+  	string getId() {
+  		return id;
+  	}
+
+  	float getWeight(string nbr) {
+  		return connectedTo[nbr];
+  	}
+
+  	friend ostream &operator<<(ostream &, Vertex &);
+  };
+
+  ostream &operator<<(ostream &stream, Vertex &vert) {
+  	vector<string> connects = vert.getConnections();
+      stream << vert.id << " -> ";
+  	for (unsigned int i = 0; i < connects.size(); i++) {
+  		stream << connects[i] << endl << "\t";
+  	}
+
+  	return stream;
+  }
+
+  class Graph {
+  public:
+  	map<string, Vertex> vertList;
+  	int numVertices;
+  	bool directional;
+
+  	Graph(bool directed = true) {
+  		directional = directed;
+  		numVertices = 0;
+  	}
+
+  	Vertex addVertex(string key) {
+  		numVertices++;
+  		Vertex newVertex = Vertex(key);
+  		this->vertList[key] = newVertex;
+  		return newVertex;
+  	}
+
+  	Vertex *getVertex(string n) {
+  		for (map<string, Vertex>::iterator it = vertList.begin();
+  			 it != vertList.end();
+  			 ++it) {
+  			if (it->first == n) {
+  				// Forced to use pntr due to possibility of returning NULL
+  				Vertex *vpntr = &vertList[n];
+  				return vpntr;
+  			} else {
+  				return NULL;
+  			}
+  		}
+  	}
+
+  	bool contains(string n) {
+  		for (map<string, Vertex>::iterator it = vertList.begin();
+  			 it != vertList.end();
+  			 ++it) {
+  			if (it->first == n) {
+  				return true;
+  			}
+  		}
+  		return false;
+  	}
+
+  	void addEdge(string f, string t, float cost = 1) {
+  		if (!this->contains(f)) {
+  			this->addVertex(f);
+  		}
+  		if (!this->contains(t)) {
+  			this->addVertex(t);
+  		}
+  		vertList[f].addNeighbor(t, cost);
+
+  		if (!directional) {
+  			vertList[t].addNeighbor(f, cost);
+  		}
+  	}
+
+  	vector<string> getVertices() {
+  		vector<string> verts;
+
+  		for (map<string, Vertex>::iterator it = vertList.begin();
+  			 it != vertList.end();
+  			 ++it) {
+  			verts.push_back(it->first);
+  		}
+  		return verts;
+  	}
+
+  	friend ostream &operator<<(ostream &, Graph &);
+  };
+
+  ostream &operator<<(ostream &stream, Graph &grph) {
+  	for (map<string, Vertex>::iterator it = grph.vertList.begin();
+  		 it != grph.vertList.end();
+  		 ++it) {
+  		stream << grph.vertList[it->first];
+          cout<<endl;
+  	}
+
+  	return stream;
+  }
+
+  string getBlank(string str, int index) {
+  	string blank = str;
+  	blank[index] = '_';
+  	return blank;
+  }
+
+  Graph buildGraph(vector<string> words) {
+  	Graph g(false);
+
+  	map<string, vector<string> > d;
+
+  	// Go through the words
+  	for (unsigned int i = 0; i < words.size(); i++) {
+  		// Go through each letter, making it blank
+  		for (unsigned int j = 0; j < words[i].length(); j++) {
+  			string bucket = getBlank(words[i], j);
+  			// Add the word to the map at the location of the blank
+  			d[bucket].push_back(words[i]);
+  		}
+  	}
+
+  	for (map<string, vector<string> >::iterator iter = d.begin(); iter != d.end(); ++iter) {
+  		for(unsigned int i=0; i<iter->second.size();i++) {
+              for (unsigned int j=0; j<iter->second.size();j++) {
+                  if (iter->second[i]!=iter->second[j]) {
+                      g.addEdge(iter->second[i],iter->second[j]);
+                  }
+              }
+          }
+  	}
+
+      return g;
+  }
+
+  int main() {
+      // Vector Initialized with an array
+      string arr[] = {"fool","cool","pool","poll","pole","pall","fall","fail","foil","foul","pope","pale","sale","sage","page"};
+      vector<string> words(arr,arr+(sizeof(arr)/sizeof(arr[0])));
+
+  	Graph g = buildGraph(words);
+
+  	cout << g << endl;
+
+  	return 0;
+  }
 
 Since this is our first real-world graph problem, you might be wondering
 how sparse is the graph? The list of four-letter words we have for this
@@ -98,4 +256,3 @@ matrix would have 5,110 \* 5,110 = 26,112,100 cells. The graph
 constructed by the ``buildGraph`` function has exactly 53,286 edges, so
 the matrix would have only 0.20% of the cells filled! That is a very
 sparse matrix indeed.
-

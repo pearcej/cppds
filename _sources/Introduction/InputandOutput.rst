@@ -5,180 +5,220 @@
 Input and Output
 ~~~~~~~~~~~~~~~~
 
+``(In the following code snippets, press the icon on the left that looks like a piece of paper to see the multiple files being used)``
+
 We often have a need to interact with users,
-either to get data or to provide some sort of result. Most programs
-today use a dialog box as a way of asking the user to provide some type
-of input. While Python does have a way to create dialog boxes, there is
-a much simpler function that we can use. Python provides us with a
-function that allows us to ask a user to enter some data and returns a
-reference to the data in the form of a string. The function is called
-``input``.
+either to get data or to provide some sort of result. The C++ ``<iostream>`` library provides us with the functionality to get information as console input and to output information to the console. This input and output is handled in what is known a ``stream``.
 
-Python’s input function takes a single parameter that is a string. This
-string is often called the **prompt** because it contains some helpful
-text prompting the user to enter something. For example, you might call
-input as follows:
+A ``stream`` is essentially a channel in which data flows from the source to a destination.
+Input streams direct data from a source, such as the keyboard or a file. The standard input stream, ``cin``, is an input stream from the keyboard. Output streams send data out, and the standard output stream ``cout`` sends data to the screen.
 
-::
+.. raw :: html
 
-    aName = input('Please enter your name: ')
+    <div>
+    <iframe height="600px" width="100%" src="https://repl.it/@CodyWMitchell/Stream-Code?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+    </div>
 
-Now whatever the user types after the prompt will be stored in the
-``aName`` variable. Using the input function, we can easily write
+Now whatever the user types will be stored in the
+``num`` variable. Using the cout function, we can easily write
 instructions that will prompt the user to enter data and then
-incorporate that data into further processing. For example, in the
-following two statements, the first asks the user for their name and the
-second prints the result of some simple processing based on the string
-that is provided.
+incorporate that data into further processing. For example, in the code above, the integer input is doubled and then displayed!
 
-.. activecode::  strstuff
-    :caption: The input Function Returns a String
+It is important to note that the value returned from the ``cin``
+function will is dependent on the data type of the variable that it is stored in. If you want this input is as a specific type, you must provide declare the variable used in cin as that type.
 
-    aName = input("Please enter your name ")
-    print("Your name in all capitals is",aName.upper(),
-          "and has length", len(aName))
+File Handling
+^^^^^^^^^^^^^
 
-It is important to note that the value returned from the ``input``
-function will be a string representing the exact characters that were
-entered after the prompt. If you want this string interpreted as another
-type, you must provide the type conversion explicitly. In the statements
-below, the string that is entered by the user is converted to a float so
-that it can be used in further arithmetic processing.
+File handling in C++ also uses a ``stream`` in a similar way to the cout and cin functions of ``<iostream>``. The library that allows for input and output of files is ``<fstream>``.
+
+You must declare any file streams before you use them to read and write data. For example, the following statements inform the compiler to create a stream called ``in_stream`` that is an input-file-stream object and another called ``out_stream`` that is an output-file-stream object.
 
 ::
 
-    sradius = input("Please enter the radius of the circle ")
-    radius = float(sradius)
-    diameter = 2 * radius
+    ifstream in_stream;
+    ofstream out_stream;
 
-String Formatting
-^^^^^^^^^^^^^^^^^
+Member Functions and Precision
+------------------------------
 
-We have already seen that the ``print``
-function provides a very simple way to output values from a Python
-program. ``print`` takes zero or more parameters and displays them using
-a single blank as the default separator. It is possible to change the
-separator character by setting the ``sep`` argument. In addition, each
-print ends with a newline character by default. This behavior can be
-changed by setting the ``end`` argument. These variations are shown in
-the following session:
+A function that is associated with a certain type of object is called a ``member function`` of that object. You have already used member functions ``setf(...)`` and ``precision(...)`` for formatting our output streams using ``cout``. These functions are included briefly below:
 
 ::
 
-    >>> print("Hello")
-    Hello
-    >>> print("Hello","World")
-    Hello World
-    >>> print("Hello","World", sep="***")
-    Hello***World
-    >>> print("Hello","World", end="***")
-    Hello World***>>>
+    // Use cout's member function "set flags", called setf
+    // The arguement here means to use a fixed point rather than scientific notation
+    cout.setf(ios::fixed);
 
-It is often useful to have more control over the look of your output.
-Fortunately, Python provides us with an alternative called **formatted
-strings**. A formatted string is a template in which words or spaces
-that will remain constant are combined with placeholders for variables
-that will be inserted into the string. For example, the statement
+    // Use cout's setf function again, but this time
+    // The arguement tells cout to show the decimal point
+    cout.setf(ios::showpoint);
 
-::
+    // Use cout's member function, called Precision
+    // The arguement indicated to display 2 digits of precision
+    cout.precision(2);
 
-    print(aName, "is", age, "years old.")
+File Operations
+---------------
 
-contains the words ``is`` and ``years old``, but the name and the age
-will change depending on the variable values at the time of execution.
-Using a formatted string, we write the previous statement as
+Having created a stream with the declaration above, we can connect it to a file (i.e. open the file) using the member function ``open(filename)``. For example, the following statement will allow the C++ program to open the file called "myFile.txt", assuming a file named that exists in the current directory, and connect ``in_stream`` to the beginning of the file:
 
 ::
 
-    print("%s is %d years old." % (aName, age))
+    in_stream.open("myFile.txt");
 
-This simple example illustrates a new string expression. The ``%``
-operator is a string operator called the **format operator**. The left
-side of the expression holds the template or format string, and the
-right side holds a collection of values that will be substituted into
-the format string. Note that the number of values in the collection on
-the right side corresponds with the number of ``%`` characters in the
-format string. Values are taken—in order, left to right—from the
-collection and inserted into the format string.
+Once connected, the program can read from that file. Pictorially, this is what happens:
 
-Let’s look at both sides of this formatting expression in more detail.
-The format string may contain one or more conversion specifications. A
-conversion character tells the format operator what type of value is
-going to be inserted into that position in the string. In the example
-above, the ``%s`` specifies a string, while the ``%d`` specifies an
-integer. Other possible type specifications include ``i``, ``u``, ``f``,
-``e``, ``g``, ``c``, or ``%``. :ref:`Table 9 <tab_fmta>` summarizes all of the
-various type specifications.
+.. _fig_read_read:
 
-.. _tab_fmta:
+.. figure:: Figures/Read_Open.jpg
+  :align: center
 
-.. table:: **Table 9: String Formatting Conversion Characters**
-
-    ========================== ====================================================================================================
-                 **Character**                                                                                    **Output Format**
-    ========================== ====================================================================================================
-                  ``d``, ``i``                                                                                              Integer
-                         ``u``                                                                                     Unsigned integer
-                         ``f``                                                                            Floating point as m.ddddd
-                         ``e``                                                                      Floating point as m.ddddde+/-xx
-                         ``E``                                                                      Floating point as m.dddddE+/-xx
-                         ``g``   Use ``%e`` for exponents less than :math:`-4` or greater than :math:`+5`, otherwise use ``%f``
-                         ``c``                                                                                     Single character
-                         ``s``   String, or any Python data object that can be converted to a string by using the ``str`` function.
-                         ``%``                                                                         Insert a literal % character
-    ========================== ====================================================================================================
-
-
-In addition to the format character, you can also include a format
-modifier between the ``%`` and the format character. Format modifiers may
-be used to left-justify or right-justifiy the value with a specified
-field width. Modifiers can also be used to specify the field width along
-with a number of digits after the decimal point. :ref:`Table 10 <tab_fmtaddsa>`
-explains these format modifiers
-
-.. _tab_fmtaddsa:
-
-.. table:: **Table 10: Additional formatting options**
-
-    ========================= ============= ==================================================================================================
-                 **Modifier**   **Example**                                                                                    **Description**
-    ========================= ============= ==================================================================================================
-                       number      ``%20d``                                                               Put the value in a field width of 20
-                        ``-``     ``%-20d``                                        Put the value in a field 20 characters wide, left-justified
-                        ``+``     ``%+20d``                                       Put the value in a field 20 characters wide, right-justified
-                        ``0``     ``%020d``                           Put the value in a field 20 characters wide, fill in with leading zeros.
-                        ``.``    ``%20.2f``   Put the value in a field 20 characters wide with 2 characters to the right of the decimal point.
-                   ``(name)``  ``%(name)d``                              Get the value from the supplied dictionary using ``name`` as the key.
-    ========================= ============= ==================================================================================================
-
-
-The right side of the format operator is a collection of values that
-will be inserted into the format string. The collection will be either a
-tuple or a dictionary. If the collection is a tuple, the values are
-inserted in order of position. That is, the first element in the tuple
-corresponds to the first format character in the format string. If the
-collection is a dictionary, the values are inserted according to their
-keys. In this case all format characters must use the ``(name)``
-modifier to specify the name of the key.
+the ``ostream`` class also has an ``open(filename)`` member function, but it is defined differently. Consider the following statement:
 
 ::
 
-    >>> price = 24
-    >>> item = "banana"
-    >>> print("The %s costs %d cents"%(item,price))
-    The banana costs 24 cents
-    >>> print("The %+10s costs %5.2f cents"%(item,price))
-    The     banana costs 24.00 cents
-    >>> print("The %+10s costs %10.2f cents"%(item,price))
-    The     banana costs      24.00 cents
-    >>> itemdict = {"item":"banana","cost":24}
-    >>> print("The %(item)s costs %(cost)7.1f cents"%itemdict)
-    The banana costs    24.0 cents
-    >>>
+    out_stream.open("anotherFile.txt");
 
-In addition to format strings that use format characters and format
-modifiers, Python strings also include a ``format`` method that can be
-used in conjunction with a new ``Formatter`` class to implement complex
-string formatting. More about these features can be found in the Python
-library reference manual.
+Pictorally, we get a stream of data flowing out of the program:
 
+.. _fig_read_write:
+
+.. figure:: Figures/Write_Open.jpg
+  :align: center
+
+Because out_stream is an object of type ``ostream``, connecting it to the file named "anotherFile.txt" will create that file if it does not exist. If the file "anotherFile.txt" already exist, it will be wiped and replaced with whatever is fed into the output stream.
+
+To disconnect the ``ifstream`` in_stream tp whatever file it openeed, we use it's ``close`` member function:
+
+::
+
+    in_stream.close();
+
+To close the file for ``out_stream``, we use its ``close()`` function, which also adds an end-of-file marker to indicate where the end of the file is:
+
+::
+
+    out_stream.close();
+
+Dealing with I/O Failures
+-------------------------
+
+File operations, such as opening and closing files, are a notorius source of runtime errors for various reasons. Well-written programs always should include Error Checking and Handling routines for possible problems dealing with files. Error checking and handling generally involves the programmer inserting statements in functions that perform I/O to check if any of the operations have failed. In C (the predecessor to C++), the system call to open a file returns a value after the function is called. A negative number means the operation failed for some reason, which the program can check to see if reading from a file is alright. In C++, a simple error checking mechanism is provided by the member function ``fail()``:
+
+::
+
+    in_stream.fail();
+
+This function returns ``true`` only if the previous stream operation for in_stream was not successful, such as if we tried to open a non-existent file. If a failure has occured, in_stream may be in a corrupted state, and it is best not to attempt any more operations with it.
+
+The following example code fragment safely quits the program entirely in case an I/O operation fails:
+
+.. raw :: html
+
+    <div>
+        <iframe height="400px" width="100%" src="https://repl.it/@CodyWMitchell/File-Handling-1?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+    </div>
+
+After opening the "myFile.txt" file, the ``if`` conditional checks to see if there was an error. If so, the program will output the apologetic error message and then exit. The ``exit(1)`` function from the library ``cstdlib`` enables the program to terminate at that point and have it return a "1" versus a "0", indicating an Error has occurred.
+
+For more on Error Handling, see section 1.11.
+
+Reading and Writing with File Streams
+-------------------------------------
+
+As file I/O streams work in a similar way to ``cin`` and ``cout``, the operators ">>" and "<<" perform the same direction of data for files, with the exact same syntax.
+
+For example, execution of the following statement will write the number 25, a space, the number 15, and another space into the out_stream output stream.
+
+::
+
+    out_stream << 25 << ' ';
+    out_stream << 15 << ' ';
+
+The extra space after the value 25 is important because data in a text file is typically seperated by a space, tab, or newline. Without the space, the value 2515 will be placed in the file, and subsequent read operations on that file would consider 2515 as a single value. For example, suppose that after the previous statement, the program opens the same file with the input stream in_stream. The following statement would put the number 5 into the variable ``inputin``.
+
+::
+
+    int inputn;
+    in_stream >> inputn;
+
+The End-Of-File (EOF) for Systems that Implement eof()
+------------------------------------------------------
+
+So far, the assumption was that the programmer knew exactly how much data to read from an open file. However, it is common for a program to keep reading from a file without any idea how much data exists. Most versions of C++ incorporate an end-of-file (EOF) flag at the end of the file to let programs know when to stop. Otherwise, they could read data from a different file that happened to be right after it in the hard drive, which can be disastrous.
+
+Many development environments have I/O libraries that define how the member function eof() works for ifstream variables to test if this flag is set to ``true`` or ``false``. Typically, one would like to know when the EOF has not been reached, so a common way is a negative boolean value. An alternative implementation is to keep reading using the >> operator; if that operation was successful (i.e. there was something in the file that was read), this success is interpreted as a 1 (true).
+
+Incidentally, that is why if you forget the second equals sign in a comprison between a variable and a value, you are assigning the value to the variable, which is a successful operation, which means the condition ends up evaluating to ``true``.
+
+The following two code fragments highlight the possibilities:
+
+Using the ``eof()`` member function
+
+::
+
+    while(!in_stream.eof()) {
+        // statements to execute
+        // while EOF has not been
+        // reached
+    }
+
+Using the >> operator
+
+::
+
+    while(in_stream>>inputn) {
+        // statements to execute
+        // while reads are successful
+    }
+
+Here is an example of a program that essentially uses the second technique mentioned above to read all the numbers in a file and output them in a neater format. The ``while`` loop to scan through a file is located in the ``make_neat(...)`` function.
+
+.. raw :: html
+
+    <div>
+        <iframe height="400px" width="100%" src="https://repl.it/@CodyWMitchell/File-Handling-2?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+    </div>
+
+The input file ``rawdata.txt`` must be in the same directory (folder) as the program in order for it to open successfully. The program will create a file called "neat.dat" to output the results.
+
+Passing Streams as Parameters
+-----------------------------
+
+In the above program, you see that the input and output streams are passed to the file via ``pass by reference``. This fact may at first seem like a surprising choice until you realize that a stream must be changed in order to read from it or write to it. In other words, as streams "flow", they are changed. For this reason, all streams will always be passed by reference.
+
+More information about ``pass by reference`` is found in Section 1.12.1 .
+
+File Names and C-Strings
+------------------------
+
+The program above will try to open the file called "rawdata.txt" and output its results to a file called "neat.dat" every time it runs, which is not very flexible. Ideally, the user should be able to enter filenames that the program will use instead of the same names. We have previously talked about the ``char`` data type that allows users to store and manipulate a single character at a time. A sequence of characters such as "myFileName.dat" can be stored in a collection of chars called a ``c-string``, which is declared as follows:
+
+::
+
+    // Syntax: char C-string_name[LEN];
+    // Example:
+    char filename[16];
+
+This declaration creates a variable called ``filename`` that can hold a string of length up to ``16``-1 characters. The square brackets after the variable name indicate to the compiler the maximum number of character storage that is needed for the variable.
+
+::
+    Warnings:
+        1. The number of characters for a c-string must be one greater than the number of actual characters!
+        2. Also, LEN must be an integer number or a declared const int, it cannot be a variable.
+
+c-strings are an older type of string that was inherited from the C language, and people frequently refer to both types as "strings", which can be confusing.
+
+Typically, `string` from the ``<string>`` library should be used in all other cases when not working with file names.
+
+Putting it all Together
+-----------------------
+
+The following program combines all of the elements above and asks the user for the input and output filenames. After testing for open failures, it will read three numbers from the input file and write the sum into the output file.
+
+.. raw :: html
+
+    <div>
+        <iframe height="400px" width="100%" src="https://repl.it/@CodyWMitchell/File-Handling-3?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+    </div>

@@ -83,54 +83,118 @@ equal to one, it is already sorted. If it is greater, then it can be
 partitioned and recursively sorted. The ``partition`` function
 implements the process described earlier.
 
+.. tabbed:: lst_quick_sort
 
-.. activecode:: lst_quick
-    :caption: Quick Sort
+  .. tab:: C++
 
-    def quickSort(alist):
-       quickSortHelper(alist,0,len(alist)-1)
+    .. activecode:: lst_quick_cpp
+      :caption: The Quick Sort
+      :language: cpp
 
-    def quickSortHelper(alist,first,last):
-       if first<last:
+      #include <iostream>
+      #include <vector>
+      using namespace std;
 
-           splitpoint = partition(alist,first,last)
+      void printl(vector<int> alist) {
+          for (unsigned i=0; i<alist.size(); i++) {
+              cout<<alist[i]<<" ";
+          }
+          cout<<endl;
+      }
 
-           quickSortHelper(alist,first,splitpoint-1)
-           quickSortHelper(alist,splitpoint+1,last)
+      int partition(vector<int> &alist, int first, int last) {
+          int pivotvalue = alist[first];
+
+          int i = first;
+          int j;
+
+          for(j=first+1; j<last; j++) {
+              if(alist[j]<=pivotvalue) {
+                  i++;
+                  swap(alist[i],alist[j]);
+              }
+          }
+          swap(alist[i],alist[first]);
+          return i;
+      }
+
+      void quickSortHelper(vector<int> &alist, int first, int last) {
+          int splitpoint;
+
+          if (first<last) {
+              splitpoint = partition(alist,first,last);
+
+              quickSortHelper(alist,first,splitpoint);
+              quickSortHelper(alist,splitpoint+1,last);
+
+          }
+      }
+
+      void quickSort(vector<int> &alist) {
+          quickSortHelper(alist,0,alist.size());
+      }
+
+      int main() {
+          // Vector initialized using a static array
+          static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
+          vector<int> alist (arr, arr + sizeof(arr) / sizeof(arr[0]) );
+
+          quickSort(alist);
+
+          printl(alist);
+
+          return 0;
+      }
+
+  .. tab:: Python
+
+    .. activecode:: lst_quick
+        :caption: Quick Sort
+
+        def quickSort(alist):
+           quickSortHelper(alist,0,len(alist)-1)
+
+        def quickSortHelper(alist,first,last):
+           if first<last:
+
+               splitpoint = partition(alist,first,last)
+
+               quickSortHelper(alist,first,splitpoint-1)
+               quickSortHelper(alist,splitpoint+1,last)
 
 
-    def partition(alist,first,last):
-       pivotvalue = alist[first]
+        def partition(alist,first,last):
+           pivotvalue = alist[first]
 
-       leftmark = first+1
-       rightmark = last
+           leftmark = first+1
+           rightmark = last
 
-       done = False
-       while not done:
+           done = False
+           while not done:
 
-           while leftmark <= rightmark and alist[leftmark] <= pivotvalue:
-               leftmark = leftmark + 1
+               while leftmark <= rightmark and alist[leftmark] <= pivotvalue:
+                   leftmark = leftmark + 1
 
-           while alist[rightmark] >= pivotvalue and rightmark >= leftmark:
-               rightmark = rightmark -1
+               while alist[rightmark] >= pivotvalue and rightmark >= leftmark:
+                   rightmark = rightmark -1
 
-           if rightmark < leftmark:
-               done = True
-           else:
-               temp = alist[leftmark]
-               alist[leftmark] = alist[rightmark]
-               alist[rightmark] = temp
+               if rightmark < leftmark:
+                   done = True
+               else:
+                   temp = alist[leftmark]
+                   alist[leftmark] = alist[rightmark]
+                   alist[rightmark] = temp
 
-       temp = alist[first]
-       alist[first] = alist[rightmark]
-       alist[rightmark] = temp
+           temp = alist[first]
+           alist[first] = alist[rightmark]
+           alist[rightmark] = temp
 
 
-       return rightmark
+           return rightmark
 
-    alist = [54,26,93,17,77,31,44,55,20]
-    quickSort(alist)
-    print(alist)
+        alist = [54,26,93,17,77,31,44,55,20]
+        quickSort(alist)
+        print(alist)
 
 
 
