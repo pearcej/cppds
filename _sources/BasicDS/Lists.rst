@@ -23,18 +23,3 @@ represent a simple unordered array of exam scores. Note that we have
 written them as comma-delimited values, a common way of showing the array
 structure. Of course, C++ would show this array as
 :math:`{54,26,93,17,77,31}`.
-
-Vector
-------
-
-Vectors are similar to arrays in a way that they use contiguous storage locations,
-which means that their elements can be accessed and traversed with the help of iterators, and they
-can also be accessed randomly using indexes.
-
-However, vectors have a dynamic size meaning that whenever a new element is inserted or deleted,
-their size changes automatically. A new element can be inserted into or deleted from any part of a vector,
-and automatic reallocation for other existing items in the vector is applied. Nevertheless, computing time for
-insertion and deletion might differ depending on the location of the item, and how many items need to be
-reallocated. For example, the last item in a vector is removed at a constant time, because no resizing of
-the vector is needed for this operation, while an item is removed or inserted into the beginning or the
-middle of a vector at a linear time.
