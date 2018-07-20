@@ -109,36 +109,34 @@ data structures can be found on the C++ website.
 .. admonition:: Self Check
 
     .. mchoice:: mccppmapperfcpp
+        :answer_a: Popping the first index from an array.
+        :answer_b: Popping an element from the end of an array.
+        :answer_c: Adding a new element to an array.
+        :answer_d: array[10]
+        :answer_e: all of the above are O(1)
+        :correct: a
+        :feedback_a: When you remove the first element of a list, all the other elements of the list must be shifted forward.
+        :feedback_b: Removing an element from the end of the list is a constant operation.
+        :feedback_c: Adding to the end of an array is a constant operation
+        :feedback_d: Indexing a array is a constant operation
+        :feedback_e: There is one operation that requires all other list elements to be moved.
 
-       :answer_a: Popping the first index from an array.
-       :answer_b: Popping an element from the end of an array.
-       :answer_c: Adding a new element to an array.
-       :answer_d: array[10]
-       :answer_e: all of the above are O(1)
-       :correct: a
-       :feedback_a: When you remove the first element of a list, all the other elements of the list must be shifted forward.
-       :feedback_b: Removing an element from the end of the list is a constant operation.
-       :feedback_c: Adding to the end of an array is a constant operation
-       :feedback_d: Indexing a array is a constant operation
-       :feedback_e: There is one operation that requires all other list elements to be moved.
-
-       Which of the list operations shown below is not O(1)?
+        Which of the list operations shown below is not O(1)?
 
     .. mchoice:: mccppmapperfcpp1
+        :answer_a: mymap.count('x')
+        :answer_b: mymap.erase('x')
+        :answer_c: mymap['x'] = 10;
+        :answer_d: mymap['x'] = mymap['x'] + 1;
+        :answer_e: all of the above are O(1)
+        :correct: e
+        :feedback_a: count is a constant operation for a hash table because you do not have to iterate but there is a better answer.
+        :feedback_b: removing an element from a hash table is a constant operation but there is a better answer.
+        :feedback_c: Assignment to a hash table key is constant but there is a better answer.
+        :feedback_d: Re-assignment to a hash table key is constant but there is a better answer.
+        :feedback_e: The only hash table operations that are not O(1) are those that require iteration.
 
-      :answer_a: mymap.count('x')
-      :answer_b: mymap.erase('x')
-      :answer_c: mymap['x'] = 10;
-      :answer_d: mymap['x'] = mymap['x'] + 1;
-      :answer_e: all of the above are O(1)
-      :correct: e
-      :feedback_a: count is a constant operation for a hash table because you do not have to iterate but there is a better answer.
-      :feedback_b: removing an element from a hash table is a constant operation but there is a better answer.
-      :feedback_c: Assignment to a hash table key is constant but there is a better answer.
-      :feedback_d: Re-assignment to a hash table key is constant but there is a better answer.
-      :feedback_e: The only hash table operations that are not O(1) are those that require iteration.
-
-      Which of the hash table operations shown below is O(1)?
+        Which of the hash table operations shown below is O(1)?
 
 .. video::  pythonopsperf
    :controls:
