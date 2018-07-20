@@ -150,6 +150,7 @@ analyze performance.
             int v = b*b;
         }
         int d = 33;
+        return 0;
     }
 
 **Python Implementation**
