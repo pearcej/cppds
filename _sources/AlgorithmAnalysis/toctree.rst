@@ -11,7 +11,7 @@ Analysis
     AnAnagramDetectionExample.rst
     PerformanceofPythonDataStructures.rst
     Lists.rst
-    Dictionaries.rst
+    HashTables.rst
     Summary.rst
     KeyTerms.rst
     DiscussionQuestions.rst
