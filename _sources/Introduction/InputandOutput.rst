@@ -8,7 +8,7 @@ Input and Output
 ``(In the following code snippets, press the icon on the left that looks like a piece of paper to see the multiple files being used)``
 
 We often have a need to interact with users,
-either to get data or to provide some sort of result. The C++ ``<iostream>`` library provides us with the functionality to get information as console input and to output information to the console. This input and output is handled in what is known a ``stream``.
+either to get data or to provide some sort of result. The C++ ``<iostream>`` library provides us with the functionality to get information as console input and to output information to the console. This input and output is handled in what is known as a ``stream``.
 
 A ``stream`` is essentially a channel in which data flows from the source to a destination.
 Input streams direct data from a source, such as the keyboard or a file. The standard input stream, ``cin``, is an input stream from the keyboard. Output streams send data out, and the standard output stream ``cout`` sends data to the screen.
@@ -25,7 +25,7 @@ instructions that will prompt the user to enter data and then
 incorporate that data into further processing. For example, in the code above, the integer input is doubled and then displayed!
 
 It is important to note that the value returned from the ``cin``
-function will is dependent on the data type of the variable that it is stored in. If you want this input is as a specific type, you must provide declare the variable used in cin as that type.
+function is dependent on the data type of the variable that it is stored in. If you want this input a specific type, you must declare the variable used in cin as that type.
 
 File Handling
 ^^^^^^^^^^^^^
@@ -87,9 +87,9 @@ Pictorally, we get a stream of data flowing out of the program:
 .. figure:: Figures/Write_Open.jpg
   :align: center
 
-Because out_stream is an object of type ``ostream``, connecting it to the file named "anotherFile.txt" will create that file if it does not exist. If the file "anotherFile.txt" already exist, it will be wiped and replaced with whatever is fed into the output stream.
+Because out_stream is an object of type ``ostream``, connecting it to the file named "anotherFile.txt" will create that file if it does not exist. If the file "anotherFile.txt" already exists, it will be wiped and replaced with whatever is fed into the output stream.
 
-To disconnect the ``ifstream`` in_stream tp whatever file it openeed, we use it's ``close`` member function:
+To disconnect the ``ifstream`` in_stream from whatever file it opened, we use it's ``close`` member function:
 
 ::
 
@@ -136,7 +136,7 @@ For example, execution of the following statement will write the number 25, a sp
     out_stream << 25 << ' ';
     out_stream << 15 << ' ';
 
-The extra space after the value 25 is important because data in a text file is typically seperated by a space, tab, or newline. Without the space, the value 2515 will be placed in the file, and subsequent read operations on that file would consider 2515 as a single value. For example, suppose that after the previous statement, the program opens the same file with the input stream in_stream. The following statement would put the number 5 into the variable ``inputin``.
+The extra space after the value 25 is important because data in a text file is typically seperated by a space, tab, or newline. Without the space, the value 2515 will be placed in the file, and subsequent read operations on that file would consider 2515 as a single value. For example, suppose that after the previous statement, the program opens the same file with the input stream in_stream. The following statement would put the number 5 into the variable ``inputn``.
 
 ::
 
@@ -203,7 +203,7 @@ The program above will try to open the file called "rawdata.txt" and output its 
 
 This declaration creates a variable called ``filename`` that can hold a string of length up to ``16``-1 characters. The square brackets after the variable name indicate to the compiler the maximum number of character storage that is needed for the variable.
 
-::
+
     Warnings:
         1. The number of characters for a c-string must be one greater than the number of actual characters!
         2. Also, LEN must be an integer number or a declared const int, it cannot be a variable.

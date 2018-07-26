@@ -74,7 +74,7 @@ Here are some of the logical operators that are useful for true-false boolean st
 Even though this type of construct is very useful in a wide variety of
 situations, another iterative structure, the ``for`` statement, can be
 used to iterate across a range of values easily. However, you must first find
-the length of your container. For vectors, you can simple call the ``.length()`` function.
+the length of your container. For vectors, you can simply call the ``.length()`` function.
 For arrays, the number of elements can be found by getting the size in memory of the array
 by using the ``sizeof()`` function, and then dividing it by the size of the first element of
 the array using the same ``sizeof()`` function. Because all elements in C++ arrays are
