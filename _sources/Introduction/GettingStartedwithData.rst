@@ -81,7 +81,7 @@ quotient is returned and the fractional portion is removed. To get the whole quo
 The boolean data type, implemented as the C++ ``bool`` class, will be
 quite useful for representing truth values. The possible state values
 for a boolean object are ``true`` and ``false`` with the standard
-boolean operators, ``&&``(and), ``||``(or), and ``!``(not). Note that
+boolean operators, ``&&`` (and), ``||`` (or), and ``!`` (not). Note that
 output values for ``true`` and ``false`` are ``1`` and ``0`` respectively.
 
 ::
@@ -136,8 +136,8 @@ and logical operators with examples shown in the session that follows.
 
         int main(){
 
-            cout << 5==10 << endl;
-            cout << 10 > 5 << endl;
+            cout << (5==10) << endl;
+            cout << (10 > 5) << endl;
             cout << (5 >= 1 && 5 <= 10) << endl;
 
             return 0;
@@ -245,7 +245,7 @@ We will talk about how to declare a variable to be a pointer first and then show
 Pointer Syntax
 --------------
 
-When declaring a pointer that will "point" to an the memory address of some data type, you use the same rules of declaring variables and data types. The key difference is that there is an asterisk (*) between the data type and the identifier.
+When declaring a pointer that will "point" to the memory address of some data type, you use the same rules of declaring variables and data types. The key difference is that there is an asterisk (*) between the data type and the identifier.
 
 ::
 
@@ -298,9 +298,9 @@ The results of this code may look like the diagram below.
 Accessing Values from SIMPLE Pointers
 -------------------------------------
 
-So, once you have a pointer, how do you access the values associated with that location? You use the asterix before the pointer variable, which dereferences the pointer, meaning that it will find the location of the value stored where the pointer was referencing.
+So, once you have a pointer, how do you access the values associated with that location? You use the asterisk before the pointer variable, which dereferences the pointer, meaning that it will find the location of the value stored where the pointer was referencing.
 
-In other words, varName and \*varPntr (note the asterix in front!) is the __same thing__ in the code above.
+In other words, varName and \*varPntr (note the asterisk in front!) is the __same thing__ in the code above.
 
 Let's extend the example above to output the value of a variable and its address in memory:
 
@@ -336,12 +336,14 @@ Compiling and running the above code will have the program output the value in v
 
 The second output sentence is the address of varName, which would most likely be different if you run the program on your machine.
 
-WARNING What happens if you forget the asterix when assigning a value to a pointer and had the following instructions instead?
+WARNING: What happens if you forget the asterisk when assigning a value to a pointer and had the following instructions instead?
 
-varPntr = 2000; // Notice that I forgot the asterix, so varPntr is now referring
+::
 
-// to position 2000 in memory, whatever happens to be there
-cout << "After changing \*varPntr, varName now has: " << varName << endl; cout << "varPntr is now pointing to a variable that has the value: " << \*varPntr << endl;
+    varPntr = 2000; // Notice that I forgot the asterisk, so varPntr is now referring
+
+    // to position 2000 in memory, whatever happens to be there
+    cout << "After changing \*varPntr, varName now has: " << varName << endl; cout << "varPntr is now pointing to a variable that has the value: " << \*varPntr << endl;
 
 **This is BAD BAD!**
 
@@ -399,7 +401,7 @@ In addition to the numeric and boolean classes, C++ has a number of
 very powerful built-in collection classes. Arrays, strings, and tuples
 are ordered collections that are very similar in general structure but
 have specific differences that must be understood for them to be used
-properly. Sets and dictionaries are unordered collections.
+properly. Sets and hash tables are unordered collections.
 
 An **array** is an ordered collection of zero or more C++ data objects of similar type.
 Arrays are written as comma-delimited values enclosed in
@@ -478,7 +480,7 @@ values enclosed in parentheses. For example,
     >>> get<0>(myTuple);
     2
 
-A set is an unordered collection of zero or more immutable C++ data
+A **set** is an unordered collection of zero or more immutable C++ data
 objects. We can get a set from the Standard template library with ``#include <set>``. Sets do not allow duplicates and are written as comma-delimited
 values enclosed in curly braces. The collection can be assigned to
 a variable as shown below.
@@ -588,7 +590,7 @@ specify a return value instead.
     ===================== ========================= =====================================================================
              **Operator**            **Use**                                                       **Explanation**
     ===================== ========================= =====================================================================
-                   ``[]``             ``myDict[k]``       Returns the value associated with ``k``, otherwise its an error
+                   ``[]``             ``myDict[k]``      Returns the value associated with ``k``, otherwise it's an error
                 ``count``     ``myDict.count(key)``   Returns ``True`` if key is in the   dictionary, ``False`` otherwise
                 ``erase``     ``myDict.erase(key)``                                Removes the entry from the  dictionary
     ===================== ========================= =====================================================================

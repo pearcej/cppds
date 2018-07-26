@@ -8,7 +8,7 @@ Exception Handling
 There are two types of errors that typically occur when writing
 programs. The first, known as a syntax error, simply means that the
 programmer has made a mistake in the structure of a statement or
-expression. For example, it is incorrect to write a for statement and
+expression. For example, it is incorrect to write a statement in one line and
 forget the semicolon.
 
 ::

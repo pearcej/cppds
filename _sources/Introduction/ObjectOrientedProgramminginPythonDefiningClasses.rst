@@ -95,7 +95,7 @@ keyword will only be able to be accessed by the objects functions, not the user.
 ``public`` methods and variables can be accessed and used by the user. Because we
 want our user to be able to call our constructor directly, we put it under ``public``.
 
-We can also overload a constructor with different numbers and types of arguements
+We can also overload a constructor with different numbers and types of arguments
 to give us more optional ways to create an instance of the class in question. For example,
 we could add an optional secondary constructor to handle whole numbers:
 
@@ -145,7 +145,7 @@ a ``Fraction`` object.
         return 0;
     }
 
-The ``fraction`` object, ``myf``, does not know how to respond to this
+The ``fraction`` object, ``myfraction``, does not know how to respond to this
 request to print. The ``cout`` function requires that the object
 knows how to interact with the ``<<`` operator so that the string can be sent to the
 output stream. Without this, our class will throw an error. This is not what we
@@ -203,7 +203,7 @@ that it redefines the operator's behavior.
 
 To do this, we declare a friend method with the name ``<<`` inside the class and
 give it a new implementation outside as shown in :ref:`Listing 4 <lst_str>`. This definition
-does needs to return a stream in this case. The resulting output will be returned any time a
+needs to return a stream in this case. The resulting output will be returned any time a
 ``Fraction`` object is asked to interact with the << operator.
 
 .. _lst_str:
@@ -517,7 +517,7 @@ are other relational operators that can be overridden. For example, the
         }
 
 The complete ``Fraction`` class, up to this point, is shown in
-:ref:`ActiveCode 2 <lst_fractioncode>`. We leave the remaining arithmetic and relational
+:ref:`ActiveCode 6 <lst_fractioncode>`. We leave the remaining arithmetic and relational
 methods as exercises.
 
 .. _lst_fractioncode:
@@ -738,8 +738,8 @@ class is shown in :ref:`Listing 8 <lst_logicgateclass>`.
         	bool getOutput() {
           		output = performGateLogic();
           		return output;
-    	}
-      };
+    	    }
+    };
 
 At this point, we will not implement the ``performGateLogic`` function.
 The reason for this is that we do not know how each gate will perform
@@ -771,35 +771,35 @@ we will use that terminology in our implementation.
 
     class BinaryGate : public LogicGate {
         private:
-        bool pinA;
-        bool pinATaken;
-        bool pinB;
-        bool pinBTaken;
+            bool pinA;
+            bool pinATaken;
+            bool pinB;
+            bool pinBTaken;
 
         public:
             BinaryGate(string n) : LogicGate(n) {
-            pinATaken = false;
-            pinBTaken = false;
-        }
-
-        bool getPinA() {
-            if (pinATaken==false) {
-              cout << "Enter Pin input for gate " << getLabel() << " -->";
-              cin >> pinA;
-              pinATaken = true;
+                pinATaken = false;
+                pinBTaken = false;
             }
-            return pinA;
-        }
 
-        bool getPinB() {
-            if (pinBTaken==false ) {
-            cout << "Enter Pin input for gate " << getLabel() << " -->";
-            cin >> pinB;
-            pinBTaken = true;
+            bool getPinA() {
+                if (pinATaken==false) {
+                    cout << "Enter Pin input for gate " << getLabel() << " -->";
+                    cin >> pinA;
+                    pinATaken = true;
+                }
+                return pinA;
             }
-        return pinB;
-        }
-        };
+
+            bool getPinB() {
+                if (pinBTaken==false ) {
+                    cout << "Enter Pin input for gate " << getLabel() << " -->";
+                    cin >> pinB;
+                    pinBTaken = true;
+                }
+                return pinB;
+            }
+    };
 
 .. _lst_unarygateclass:
 
@@ -808,23 +808,23 @@ we will use that terminology in our implementation.
 .. sourcecode:: cpp
 
     class UnaryGate : public LogicGate {
-    private:
-    bool pin;
-    bool pinTaken;
+        private:
+            bool pin;
+            bool pinTaken;
 
-    public:
-    UnaryGate(string n) : LogicGate(n) {
-        pinTaken = false;
-    }
+        public:
+            UnaryGate(string n) : LogicGate(n) {
+                pinTaken = false;
+            }
 
-    bool getPin() {
-      if (pinTaken==false) {
-        cout << "Enter Pin input for gate " << getLabel() << " -->";
-        cin >> pin;
-        pinTaken = true;
-      }
-    return pin;
-    }
+            bool getPin() {
+                if (pinTaken==false) {
+                    cout << "Enter Pin input for gate " << getLabel() << " -->";
+                    cin >> pin;
+                    pinTaken = true;
+                }
+                return pin;
+            }
     };
 
 
@@ -904,18 +904,18 @@ inherits two input lines, one output line, and a label.
 
     class AndGate : public BinaryGate {
         public:
-        AndGate(string n) : BinaryGate(n) {};
+            AndGate(string n) : BinaryGate(n) {};
 
-        virtual bool performGateLogic() {
-            bool a = getPinA();
-            bool b = getPinB();
-            if (a == 1 && b == 1) {
-                return true;
+            virtual bool performGateLogic() {
+                bool a = getPinA();
+                bool b = getPinB();
+                if (a == 1 && b == 1) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
             }
-            else {
-                return false;
-            }
-        }
     };
 
 
@@ -1011,24 +1011,24 @@ connection.
 .. sourcecode:: cpp
 
     class Connector {
-    private:
-    	LogicGate *fromgate;
-    	LogicGate *togate;
+        private:
+        	LogicGate *fromgate;
+        	LogicGate *togate;
 
-    public:
-    	Connector(LogicGate *fgate, LogicGate *tgate) {
-    		fromgate = fgate;
-    		togate = tgate;
-    		tgate->setNextPin(fromgate->getOutput());
-    	}
+        public:
+        	Connector(LogicGate *fgate, LogicGate *tgate) {
+        		fromgate = fgate;
+        		togate = tgate;
+        		tgate->setNextPin(fromgate->getOutput());
+        	}
 
-    	LogicGate *getFrom() {
-    		return fromgate;
-    	}
+        	LogicGate *getFrom() {
+        		return fromgate;
+        	}
 
-    	LogicGate *getTo() {
-    		return togate;
-    	}
+        	LogicGate *getTo() {
+        		return togate;
+        	}
     };
 
 In the ``BinaryGate`` class, for gates with two possible input lines,
@@ -1124,167 +1124,172 @@ Try it yourself using ActiveCode 4.
     using namespace std;
 
     class LogicGate {
-    private:
-    	string label;
-    	bool output;
+        private:
+        	string label;
+        	bool output;
 
-    public:
-    	LogicGate(string n) {
-    		label = n;
-    	}
+        public:
+        	LogicGate(string n) {
+        		label = n;
+        	}
 
-    	string getLabel() {
-    		return label;
-    	}
+        	string getLabel() {
+        		return label;
+        	}
 
-    	bool getOutput() {
-    		output = performGateLogic();
-    		return output;
-    	}
+        	bool getOutput() {
+        		output = performGateLogic();
+        		return output;
+        	}
 
-    	virtual bool performGateLogic() { cout << "ERROR! performGateLogic BASE" << endl; return false; };
+        	virtual bool performGateLogic() {
+                cout << "ERROR! performGateLogic BASE" << endl;
+                return false;
+            };
 
-    	virtual void setNextPin(bool source) { cout << "ERROR! setNextPin BASE" << endl; };
+        	virtual void setNextPin(bool source) {
+                cout << "ERROR! setNextPin BASE" << endl;
+            };
     };
 
     class BinaryGate : public LogicGate {
-    private:
-    	bool pinA;
-    	bool pinATaken;
-    	bool pinB;
-    	bool pinBTaken;
+        private:
+        	bool pinA;
+        	bool pinATaken;
+        	bool pinB;
+        	bool pinBTaken;
 
-    public:
-    	BinaryGate(string n) : LogicGate(n) {
-    		pinATaken = false;
-    		pinBTaken = false;
-    	}
+        public:
+        	BinaryGate(string n) : LogicGate(n) {
+        		pinATaken = false;
+        		pinBTaken = false;
+        	}
 
-    	bool getPinA() {
-    	    if (pinATaken==false) {
-        		cout << "Enter Pin A input for gate " << getLabel() << " -->";
-        		cin >> pinA;
-        		pinATaken = true;
-    	    }
-    		return pinA;
-    	}
+        	bool getPinA() {
+        	    if (pinATaken==false) {
+            		cout << "Enter Pin A input for gate " << getLabel() << " -->";
+            		cin >> pinA;
+            		pinATaken = true;
+        	    }
+        		return pinA;
+        	}
 
-    	bool getPinB() {
-            if (pinBTaken==false ) {
-        		cout << "Enter Pin B input for gate " << getLabel() << " -->";
-        		cin >> pinB;
-        		pinBTaken = true;
-            }
-    		return pinB;
-    	}
+        	bool getPinB() {
+                if (pinBTaken==false ) {
+            		cout << "Enter Pin B input for gate " << getLabel() << " -->";
+            		cin >> pinB;
+            		pinBTaken = true;
+                }
+        		return pinB;
+        	}
 
-    	virtual void setNextPin(bool source) {
-    		if (pinATaken == false) {
-    			pinA = source;
-    			this->pinATaken=true;
-    		}
-    		else if (pinBTaken == false) {
-    			pinB = source;
-    			this->pinBTaken=true;
-    		}
-    	}
+        	virtual void setNextPin(bool source) {
+        		if (pinATaken == false) {
+        			pinA = source;
+        			this->pinATaken=true;
+        		}
+        		else if (pinBTaken == false) {
+        			pinB = source;
+        			this->pinBTaken=true;
+        		}
+        	}
     };
 
     class UnaryGate : public LogicGate {
-    private:
-    	bool pin;
-    	bool pinTaken;
+        private:
+        	bool pin;
+        	bool pinTaken;
 
-    public:
-    	UnaryGate(string n) : LogicGate(n) {
-    		pinTaken = false;
-    	}
+        public:
+        	UnaryGate(string n) : LogicGate(n) {
+        		pinTaken = false;
+        	}
 
-    	bool getPin() {
-    	    if (pinTaken==false) {
-        		cout << "Enter Pin input for gate " << getLabel() << " -->";
-        		cin >> pin;
-        		pinTaken = true;
-    	    }
-    		return pin;
-    	}
+        	bool getPin() {
+        	    if (pinTaken==false) {
+            		cout << "Enter Pin input for gate " << getLabel() << " -->";
+            		cin >> pin;
+            		pinTaken = true;
+        	    }
+        		return pin;
+        	}
 
-    	virtual void setNextPin(bool source) {
-    		if (pinTaken == false) {
-    			pin = source;
-    			pinTaken=true;
-    		}
-    		else {
-    			return;
-    		}
-    	}
+        	virtual void setNextPin(bool source) {
+        		if (pinTaken == false) {
+        			pin = source;
+        			pinTaken=true;
+        		}
+        		else {
+        			return;
+        		}
+        	}
     };
 
     class AndGate : public BinaryGate {
-    public:
-    	AndGate(string n) : BinaryGate(n) {};
+        public:
+        	AndGate(string n) : BinaryGate(n) {};
 
-    	virtual bool performGateLogic() {
-    		bool a = getPinA();
-    		bool b = getPinB();
-    		if (a == 1 && b == 1) {
-    			return true;
-    		}
-    		else {
-    			return false;
-    		}
-    	}
+        	virtual bool performGateLogic() {
+        		bool a = getPinA();
+        		bool b = getPinB();
+        		if (a == 1 && b == 1) {
+        			return true;
+        		}
+        		else {
+        			return false;
+        		}
+        	}
     };
 
     class OrGate : public BinaryGate {
-    public:
-    	OrGate(string n) : BinaryGate(n) {};
+        public:
+        	OrGate(string n) : BinaryGate(n) {};
 
-    	virtual bool performGateLogic() {
-    		bool a = getPinA();
-    		bool b = getPinB();
-    		if (a == 1 || b == 1) {
-    			return true;
-    		}
-    		else {
-    			return false;
-    		}
-    	}
+        	virtual bool performGateLogic() {
+        		bool a = getPinA();
+        		bool b = getPinB();
+        		if (a == 1 || b == 1) {
+        			return true;
+        		}
+        		else {
+        			return false;
+        		}
+        	}
     };
 
     class NotGate : public UnaryGate {
-    public:
-    	NotGate(string n) : UnaryGate(n) {};
+        public:
+        	NotGate(string n) : UnaryGate(n) {};
 
-    	virtual bool performGateLogic() {
-    		if (getPin()) {
-    			return false;
-    		}
-    		else {
-    			return true;
-    		}
-    	}
+        	virtual bool performGateLogic() {
+        		if (getPin()) {
+        			return false;
+        		}
+        		else {
+        			return true;
+        		}
+        	}
     };
 
     class Connector {
-    private:
-    	LogicGate *fromgate;
-    	LogicGate *togate;
+        private:
+        	LogicGate *fromgate;
+        	LogicGate *togate;
 
-    public:
-    	Connector(LogicGate *fgate, LogicGate *tgate) {
-    		fromgate = fgate;
-    		togate = tgate;
-    		tgate->setNextPin(fromgate->getOutput());
-    	}
+        public:
+        	Connector(LogicGate *fgate, LogicGate *tgate) {
+        		fromgate = fgate;
+        		togate = tgate;
+        		tgate->setNextPin(fromgate->getOutput());
+        	}
 
-    	LogicGate *getFrom() {
-    		return fromgate;
-    	}
+        	LogicGate *getFrom() {
+        		return fromgate;
+        	}
 
-    	LogicGate *getTo() {
-    		return togate;
-    	}
+        	LogicGate *getTo() {
+        		return togate;
+        	}
     };
 
     int main() {
@@ -1293,7 +1298,7 @@ Try it yourself using ActiveCode 4.
     	OrGate g3("OR3");
     	NotGate g4("NOT4");
 
-      // The inputs can be changed here!
+        // The inputs can be changed here!
         g1.setNextPin(1);
         g1.setNextPin(0);
         g2.setNextPin(1);
@@ -1317,11 +1322,10 @@ Try it yourself using ActiveCode 4.
    http://media.interactiveC++.org/C++dsVideos/logicgates.webm
 
 
-.. .. admonition:: Self  Check Challenge
+.. admonition:: Self  Check Challenge
 
-..    One of the fundamental building blocks of a computer is something called a flip flop.  It's not something that computer science professors wear on their feet, but rather a kind of circuit that is stable and stores the last piece of data that was put on it.  A simple flip-flop can be made from two NOR gates that are tied together as in the following diagram.
+    One of the fundamental building blocks of a computer is something called a flip flop.  It's not something that computer science professors wear on their feet, but rather a kind of circuit that is stable and stores the last piece of data that was put on it.  A simple flip-flop can be made from two NOR gates that are tied together as in the following diagram.
 
-..    .. image:: Figures/flipflop.png
+    .. image:: Figures/flipflop.png
 
-..    This is a challenge problem because the entire
-..    Note if the initial inputs to Reset and Set are both 0 then the output of the flip-flop is 0.  But if the Set input is toggled to 1 then the output becomes 1.  The great thing is that when the set input goes to 0 the output stays 1, until the reset input is toggled to 1 which resets the output of the circuit back to zero.
+    Note if the initial inputs to Reset and Set are both 0 then the output of the flip-flop is 0.  But if the Set input is toggled to 1 then the output becomes 1.  The great thing is that when the set input goes to 0 the output stays 1, until the reset input is toggled to 1 which resets the output of the circuit back to zero.

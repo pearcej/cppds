@@ -24,7 +24,7 @@ one piece of data to do its work. The details, hidden “inside the box,”
 simply compute the result of ``num*2`` and return it. We can invoke or
 call the ``timesTwo`` function by asking the C++ to
 evaluate it, passing an actual parameter value, in this case, ``3``.
-Note that the call to ``timeTwo`` returns an integer that can in turn be
+Note that the call to ``timesTwo`` returns an integer that can in turn be
 passed to another invocation.
 
 
@@ -47,7 +47,7 @@ passed to another invocation.
         return 0;
     }
 
-We could a step further and implement our own square root function by using a well-known
+We could go a step further and implement our own square root function by using a well-known
 technique called “Newton’s Method.” Newton’s Method for approximating
 square roots performs an iterative computation that converges on the
 correct value. The equation
@@ -166,11 +166,12 @@ An example of a function where this is useful is a function that takes two value
 
         int main( ) {
             int first_num, second_num;
+            first_num = 7;
+            second_num = 8;
 
-            cout << "Enter two integers, separated by a space: ";
-            cin >> first_num >> second_num;
+            cout << "Two numbers before swap function: 1) " << first_num << " 2) " << second_num << endl;
             swap_values(first_num, second_num);
-            cout << "the numbers are 1) " << first_num << " 2) " << second_num;
+            cout << "The numbers after swap function: 1) " << first_num << " 2) " << second_num;
 
             return 0;
         }
@@ -320,20 +321,13 @@ One reason for declaring overloaded operators as friends of a class is that some
 .. admonition:: Self Check
 
    Here's a self check that really covers everything so far.  You may have
-   heard of the infinite monkey theorem?  The theorem states that a monkey hitting keys at random on a typewriter keyboard for an infinite amount of time will almost surely type a given text, such as the complete works of William Shakespeare.  Well, suppose we replace a monkey with a Python function.  How long do you think it would take for a Python function to generate just one sentence of Shakespeare?  The sentence we'll shoot for is:  "methinks it is like a weasel"
+   heard of the infinite monkey theorem?  The theorem states that a monkey hitting keys at random on a typewriter keyboard for an infinite amount of time will almost surely type a given text, such as the complete works of William Shakespeare.  Well, suppose we replace a monkey with a C++ function.  How long do you think it would take for a C++ function to generate just one sentence of Shakespeare?  The sentence we'll shoot for is:  "methinks it is like a weasel"
 
-   You're not going to want to run this one in the browser, so fire up your favorite Python IDE.  The way we'll simulate this is to write a function that generates a string that is 28 characters long by choosing random letters from the 26 letters in the alphabet plus the space.  We'll write another function that will score each generated string by comparing the randomly generated string to the goal.
+   You're not going to want to run this one in the browser, so fire up your favorite C++ IDE.  The way we'll simulate this is to write a function that generates a string that is 28 characters long by choosing random letters from the 26 letters in the alphabet plus the space.  We'll write another function that will score each generated string by comparing the randomly generated string to the goal.
 
-   A third function will repeatedly call generate and score, then if 100% of the letters are correct we are done.  If the letters are not correct then we will generate a whole new string.To make it easier to follow your program's progress this third function should print out the best string generated so far and its score every 1000 tries.
+   A third function will repeatedly call generate and score, then if 100% of the letters are correct we are done.  If the letters are not correct then we will generate a whole new string. To make it easier to follow your program's progress this third function should print out the best string generated so far and its score every 1000 tries.
 
 
 .. admonition:: Self Check Challenge
 
     See if you can improve upon the program in the self check by keeping letters that are correct and only modifying one character in the best string so far.  This is a type of algorithm in the class of 'hill climbing' algorithms, that is we only keep the result if it is better than the previous one.
-
-.. video:: monkeyvid
-   :controls:
-   :thumb: ../_static/videothumb.png
-
-   http://media.interactivepython.org/pythondsVideos/monkeys.mov
-   http://media.interactivepython.org/pythondsVideos/monkeys.webm
