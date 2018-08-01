@@ -18,16 +18,16 @@ Programming Exercises
    starting and ending index values for the sublist. Generate a random,
    ordered list of integers and do a benchmark analysis.
 
-#. Implement the ``len`` method (\_\_len\_\_) for the hash table Map ADT
+#. Overload the ``cout`` operator (<<) for the hash table Map ADT
    implementation.
 
-#. Implement the ``in`` method (\_\_contains\_\_) for the hash table Map
+#. Overload the ``cin`` operator (>>) for the hash table Map
    ADT implementation.
 
 #. How can you delete items from a hash table that uses chaining for
    collision resolution? How about if open addressing is used? What are
-   the special circumstances that must be handled? Implement the ``del``
-   method for the ``HashTable`` class.
+   the special circumstances that must be handled? Implement the ``del`` (~)
+   operator for the ``HashTable`` class.
 
 #. In the hash table map implementation, the hash table size was chosen
    to be 101. If the table gets full, this needs to be increased.
@@ -53,10 +53,7 @@ Programming Exercises
 #. Implement the selection sort using simultaneous assignment.
 
 #. Perform a benchmark analysis for a shell sort, using different
-   increment sets on the same list.
-
-#. Implement the ``mergeSort`` function without using the slice
-   operator.
+   increment sets on the same vector.
 
 #. One way to improve the quick sort is to use an insertion sort on
    lists that have a small length (call it the “partition limit”). Why

@@ -10,8 +10,8 @@ Analysis
     BigONotation.rst
     AnAnagramDetectionExample.rst
     PerformanceofPythonDataStructures.rst
-    Lists.rst
-    Dictionaries.rst
+    Vectors.rst
+    HashTables.rst
     Summary.rst
     KeyTerms.rst
     DiscussionQuestions.rst

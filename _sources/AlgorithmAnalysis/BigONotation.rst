@@ -128,6 +128,8 @@ analyze performance.
 
 **C++ Implementation**
 
+::
+
     #include <iostream>
     using namespace std;
 
@@ -136,29 +138,26 @@ analyze performance.
         int b=6;
         int c=10;
         for (int i=0; i<n; i++){
-        
             for (int j=0; j<n; j++){
                 int x = i * i;
                 int y = j * j;
                 int z = i * j;
-
             }
-
         }
 
         for (int k = 0; k < n; k++){
             int w = a*k + 45;
             int v = b*b;
-
         }
         int d = 33;
-
+        return 0;
     }
 
 **Python Implementation**
 
 ::
 
+    def main():
         a=5
         b=6
         c=10
@@ -171,7 +170,7 @@ analyze performance.
             w = a*k + 45
             v = b*b
         d = 33
-
+    main()
 
 
 
@@ -206,11 +205,3 @@ to see that :math:`T(n)` then follows the quadratic function as
 .. admonition:: Self Check
 
    Write two C++ functions to find the minimum number in a list.  The first function should compare each number to every other number on the list. :math:`O(n^2)`.  The second function should be linear :math:`O(n)`.
-
-
-.. video::  findMinVid
-   :controls:
-   :thumb: ../_static/function_intro.png
-
-   http://media.interactivepython.org/pythondsVideos/findmin.mov
-   http://media.interactivepython.org/pythondsVideos/findmin.webm

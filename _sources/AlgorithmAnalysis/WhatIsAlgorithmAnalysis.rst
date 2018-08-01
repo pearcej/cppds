@@ -22,10 +22,14 @@ programming language. There may be many programs for the same algorithm,
 depending on the programmer and the programming language being used.
 
 To explore this difference further, consider the function shown in
-:ref:`ActiveCode 1 <lst_sum11>`. This function solves a familiar problem, computing the
+:ref:`ActiveCode 1 <lst_sum0>`. This function solves a familiar problem, computing the
 sum of the first *n* integers. The algorithm uses the idea of an
 accumulator variable that is initialized to 0. The solution then
 iterates through the *n* integers, adding each to the accumulator.
+
+.. _lst_sum0:
+
+**Listing 1**
 
 .. tabbed:: ec1
 
@@ -54,7 +58,7 @@ iterates through the *n* integers, adding each to the accumulator.
   .. tab:: Python
 
     .. activecode:: ec1_py
-       :caption: Python
+        :caption: Python
 
         def sumOfN(n):
             theSum = 0
@@ -75,6 +79,8 @@ assist with readability, and we used an extra assignment statement
 during the accumulation step that was not really necessary.
 
 .. _lst_sum2:
+
+**Listing 2**
 
 .. tabbed:: ec2
 
@@ -160,7 +166,7 @@ and then computing the difference, we can get an exact number of seconds
 
 .. _lst_sum11:
 
-**Listing 1**
+**Listing 3**
 
 .. tabbed:: cpp
 
@@ -182,6 +188,7 @@ and then computing the difference, we can get an exact number of seconds
             }
             clock_t end = clock();
             double elapsed_secs = double(end - begin) /CLOCKS_PER_SEC;
+            cout << fixed << endl;
             cout << "Sum is " << theSum << " required "<<elapsed_secs << " seconds" << endl;
             return theSum;
        }
@@ -208,32 +215,20 @@ and then computing the difference, we can get an exact number of seconds
                 theSum = theSum + i
 
             end = time.time()
+            elapsed = end-start
+            print("Sum is", theSum, "required", elapsed, "seconds")
 
-            return end-start
+            return elapsed
 
         def main():
-            print(sumOfN2(10000))
+            for i in range(5):
+                sumOfN2(10000)
         main()
 
 
-:ref:`Listing 1 <lst_sum11>` shows the original ``sumOfN`` function with the timing
-calls embedded before and after the summation. The function returns a
-tuple consisting of the result and the amount of time (in seconds)
-required for the calculation. If we perform 5 invocations of the
-function, each computing the sum of the first 10,000 integers, we get
-the following:
-
-::
-
-    for (int i = 0; i < 6; i++){
-        sumOfN2(10000);
-    }
-    Sum is 50005000 required 6e-05 seconds
-    Sum is 50005000 required 3.1e-05 seconds
-    Sum is 50005000 required 4.2e-05 seconds
-    Sum is 50005000 required 3.9e-05 seconds
-    Sum is 50005000 required 3.4e-05 seconds
-    Sum is 50005000 required 4e-05 seconds
+:ref:`Listing 3 <lst_sum11>` shows the original ``sumOfN`` function with the timing
+calls embedded before and after the summation. The function returns the amount of time (in seconds)
+required for the calculation.
 
 Now consider :ref:`ActiveCode 3 <lst_sum3>`, which shows a different means of solving
 the summation problem. This function, ``sumOfN3``, takes advantage of a
@@ -270,10 +265,10 @@ compute the sum of the first ``n`` integers without iterating.
   .. tab:: Python
 
     .. activecode:: active3_py
-       :caption: Summation Without Iteration Python
+        :caption: Summation Without Iteration Python
 
         def sumOfN3(n):
-            return (n*(n+1))/2
+            return (n*(n+1))//2
 
         def main():
             print(sumOfN3(10))
@@ -283,7 +278,12 @@ If we do the same benchmark measurement for ``sumOfN3``, using the value  10,000
 
 ::
 
-    Sum is 50005000 required 1e-06 seconds
+    Sum is 50005000 required 0.000000 seconds
+    Sum is 50005000 required 0.000000 seconds
+    Sum is 50005000 required 0.000001 seconds
+    Sum is 50005000 required 0.000001 seconds
+    Sum is 50005000 required 0.000000 seconds
+
 
 There are two important things to notice about this output. First, the
 times recorded above are shorter than any of the previous examples.

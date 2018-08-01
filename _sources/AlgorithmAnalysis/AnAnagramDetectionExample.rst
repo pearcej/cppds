@@ -8,8 +8,8 @@ An Anagram Detection Example
 A good example problem for showing algorithms with different orders of
 magnitude is the classic anagram detection problem for strings. One
 string is an anagram of another if the second is simply a rearrangement
-of the first. For example, ``'heart'`` and ``'earth'`` are anagrams. The
-strings ``'python'`` and ``'typhon'`` are anagrams as well. For the sake
+of the first. For example, ``"heart"`` and ``"earth"`` are anagrams. The
+strings ``"python"`` and ``"typhon"`` are anagrams as well. For the sake
 of simplicity, we will assume that the two strings in question are of
 equal length and that they are made up of symbols from the set of 26
 lowercase alphabetic characters. Our goal is to write a boolean function
@@ -24,9 +24,9 @@ occurs in the second. If it is possible to “checkoff” each character, then
 the two strings must be anagrams. Checking off a character will be
 accomplished by replacing it with the special C++ value ``NULL``.
 However, since strings in C++ are immutable, the first step in the
-process will be to convert the second string to a list. Each character
+process will be to convert the second string to an array. Each character
 from the first string can be checked against the characters in the list
-and if found, checked off by replacement.:ref:`ActiveCode 1 <lst_anagramSolution>` shows this function.
+and if found, checked off by replacement. :ref:`ActiveCode 1 <lst_anagramSolution>` shows this function.
 
 .. _lst_anagramSolution:
 
@@ -78,20 +78,15 @@ and if found, checked off by replacement.:ref:`ActiveCode 1 <lst_anagramSolution
         }
 
         int main(){
-            int value = anagramsolution1("abcd", "dcab");
-            if (value == 1){
-                cout << "True";
-            }
-            else{
-                cout << "False";
-            }
+            bool value = anagramsolution1("abcd", "dcab");
+            cout << value << endl;
             return 0;
         }
 
   .. tab:: Python
 
     .. activecode:: active0py
-       :caption: Checking Off Python
+        :caption: Checking Off Python
 
         def anagramSolution1(s1,s2):
             if len(s1) != len(s2):
@@ -167,13 +162,13 @@ on lists by simply converting each string to a list at the start.
         using namespace std;
 
         bool anagramsolution2(string s1, string s2){
-            int n = s1.length();
+            unsigned int n = s1.length();
             char alist1[n-1];
             for (unsigned int i = 0; i < n; i++){
                 alist1[i] = s1[i];
             }
 
-            int len = s2.length();
+            unsigned int len = s2.length();
             char alist2[len-1];
             for (unsigned int x = 0; x < len; x++){
                 alist2[x] = s2[x];
@@ -196,20 +191,15 @@ on lists by simply converting each string to a list at the start.
         }
 
         int main(){
-            int value = anagramsolution2("abcde", "edcba");
-            if (value == 1){
-                cout << "True";
-            }
-            else{
-                cout << "False";
-            }
+            bool value = anagramsolution2("abcde", "edcba");
+            cout << value << endl;
             return 0;
         }
 
   .. tab:: Python
 
     .. activecode:: active6py
-       :caption: Sort and Compare
+        :caption: Sort and Compare
 
         def anagramSolution2(s1,s2):
             alist1 = list(s1)
@@ -324,13 +314,8 @@ anagrams. :ref:`ActiveCode 3 <lst_ana4>` shows this solution.
         }
 
         int main(){
-            int value = anagramSolution4("apple", "pleap");
-            if (value == 1){
-                cout << "True";
-            }
-            else{
-                cout << "False";
-            }
+            bool value = anagramSolution4("apple", "pleap");
+            cout << value << endl;
             return 0;
         }
 
@@ -397,7 +382,7 @@ problem.
        :correct: b
        :feedback_a: In an example like this you want to count the nested loops. especially the loops that are dependent on the same variable, in this case, n.
        :feedback_b: A singly nested loop like this is O(n^2)
-       :feedback_c: log n typically is indicated when the problem is iteratvely made smaller
+       :feedback_c: log n typically is indicated when the problem is iteratively made smaller
        :feedback_d: In an example like this you want to count the nested loops. especially the loops that are dependent on the same variable, in this case, n.
 
        Given the following code fragment, what is its Big-O running time?
