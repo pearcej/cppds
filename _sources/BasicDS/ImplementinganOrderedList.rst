@@ -22,7 +22,7 @@ for representing the relative positioning of the items.
 
 To implement the ``OrderedList`` class, we will use the same technique
 as seen previously with unordered lists. Once again, an empty list will
-be denoted by a ``head`` reference to ``None`` (see
+be denoted by a ``head`` reference to ``NULL`` (see
 :ref:`Listing 8 <lst_orderlist>`).
 
 .. _lst_orderlist:
@@ -31,9 +31,8 @@ be denoted by a ``head`` reference to ``None`` (see
 
 ::
 
-    class OrderedList:
-        def __init__(self):
-            self.head = None
+    class OrderedList {
+      Node* head;
 
 As we consider the operations for the ordered list, we should note that
 the ``isEmpty`` and ``size`` methods can be implemented the same as
@@ -45,7 +44,7 @@ methods, ``search`` and ``add``, will require some modification.
 
 The search of an unordered linked list required that we traverse the
 nodes one at a time until we either find the item we are looking for or
-run out of nodes (``None``). It turns out that the same approach would
+run out of nodes (``NULL``). It turns out that the same approach would
 actually work with the ordered list and in fact in the case where we
 find the item it is exactly what we need. However, in the case where the
 item is not in the list, we can take advantage of the ordering to stop
@@ -88,20 +87,24 @@ the unordered list search.
 
 ::
 
-    def search(self,item):
-        current = self.head
-        found = False
-        stop = False
-        while current != None and not found and not stop:
-            if current.getData() == item:
-                found = True
-            else:
-                if current.getData() > item:
-                    stop = True
-                else:
-                    current = current.getNext()
+    bool search(int item) {
+        Node *current = head;
+        bool found = false;
+        bool stop = false;
+        while (current!=NULL && !found && !stop) {
+            if (current->getData()==item) {
+                found=true;
+            } else {
+                if (current->getData() > item) {
+                    stop = true;
+                } else {
+                    current = current->getNext();
+                }
+            }
+        }
 
-        return found
+        return found;
+    }
 
 The most significant method modification will take place in ``add``.
 Recall that for unordered lists, the ``add`` method could simply place a
@@ -116,7 +119,7 @@ item belongs between 26 and 54. :ref:`Figure 17 <fig_orderinsert>` shows the set
 that we need. As we explained earlier, we need to traverse the linked
 list looking for the place where the new node will be added. We know we
 have found that place when either we run out of nodes (``current``
-becomes ``None``) or the value of the current node becomes greater than
+becomes ``NULL``) or the value of the current node becomes greater than
 the item we wish to add. In our example, seeing the value 54 causes us
 to stop.
 
@@ -143,7 +146,7 @@ The remainder of the method completes the two-step process shown in
 :ref:`Figure 17 <fig_orderinsert>`. Once a new node has been created for the item,
 the only remaining question is whether the new node will be added at the
 beginning of the linked list or some place in the middle. Again,
-``previous == None`` (line 13) can be used to provide the answer.
+``previous == NULL`` (line 13) can be used to provide the answer.
 
 .. _lst_orderadd:
 
@@ -151,118 +154,173 @@ beginning of the linked list or some place in the middle. Again,
 
 ::
 
-    def add(self,item):
-        current = self.head
-        previous = None
-        stop = False
-        while current != None and not stop:
-            if current.getData() > item:
-                stop = True
-            else:
-                previous = current
-                current = current.getNext()
+    void add(int item) {
+        if (head==NULL) {
+            Node *newNode=new Node(item);
+            head=newNode;
+        } else {
+            Node *current = head;
+            Node *previous = NULL;
+            bool stop = false;
+            while (current!=NULL && !stop) {
+                if (current->getData() > item) {
+                    stop = true;
+                } else {
+                    previous = current;
+                    current = current->getNext();
+                }
+            }
+            Node *temp=new Node(item);
+            if (previous==NULL) {
+                temp->setNext(head);
+                head=temp;
+            } else {
+                temp->setNext(current);
+                previous->setNext(temp);
+            }
+        }
+    }
 
-        temp = Node(item)
-        if previous == None:
-            temp.setNext(self.head)
-            self.head = temp
-        else:
-            temp.setNext(current)
-            previous.setNext(temp)
-            
 The ``OrderedList`` class with methods discussed thus far can be found
 in ActiveCode 1.
 We leave the remaining methods as exercises. You should carefully
 consider whether the unordered implementations will work given that the
 list is now ordered.
 
-.. activecode:: orderedlistclass
+.. activecode:: orderedlistclass_cpp
    :caption: OrderedList Class Thus Far
-   :hidecode:
-   :nocodelens:
-   
-   class Node:
-       def __init__(self,initdata):
-           self.data = initdata
-           self.next = None
+   :language: cpp
 
-       def getData(self):
-           return self.data
+   #include <iostream>
+    using namespace std;
 
-       def getNext(self):
-           return self.next
+    class Node {
+    private:
+    	int data;
+    	Node *next;
 
-       def setData(self,newdata):
-           self.data = newdata
+    public:
+    	Node(int initdata) {
+    		data = initdata;
+    		next = NULL;
+    	}
 
-       def setNext(self,newnext):
-           self.next = newnext
+    	int getData() {
+    		return data;
+    	}
+
+    	Node *getNext() {
+    		return next;
+    	}
+
+    	void setData(int newData) {
+    		data = newData;
+    	}
+
+    	void setNext(Node *newnext) {
+    		next = newnext;
+    	}
+    };
+
+    class OrderedList {
+        public:
+    	Node *head;
+
+    	OrderedList() {
+    		head = NULL;
+    	}
+
+        bool search(int item) {
+            Node *current = head;
+            bool found = false;
+            bool stop = false;
+            while (current!=NULL && !found && !stop) {
+                if (current->getData()==item) {
+                    found=true;
+                } else {
+                    if (current->getData() > item) {
+                        stop = true;
+                    } else {
+                        current = current->getNext();
+                    }
+                }
+            }
+
+            return found;
+        }
+
+        void add(int item) {
+            if (head==NULL) {
+                Node *newNode=new Node(item);
+                head=newNode;
+            } else {
+                Node *current = head;
+                Node *previous = NULL;
+                bool stop = false;
+                while (current!=NULL && !stop) {
+                    if (current->getData() > item) {
+                        stop = true;
+                    } else {
+                        previous = current;
+                        current = current->getNext();
+                    }
+                }
+                Node *temp=new Node(item);
+                if (previous==NULL) {
+                    temp->setNext(head);
+                    head=temp;
+                } else {
+                    temp->setNext(current);
+                    previous->setNext(temp);
+                }
+            }
+        }
+
+        bool isEmpty() {
+            return head==NULL;
+        }
+
+        int size() {
+            Node *current = head;
+            int count = 0;
+            while (current!=NULL) {
+                count++;
+                current=current->getNext();
+            }
+
+            return count;
+        }
+
+        friend ostream& operator<<(ostream& os, const OrderedList& ol);
+    };
+
+    ostream& operator<<(ostream& os, const OrderedList& ol) {
+        Node *current = ol.head;
+        while (current!=NULL) {
+            os<<current->getData()<<endl;
+            current=current->getNext();
+        }
+        return os;
+    }
 
 
-   class OrderedList:
-       def __init__(self):
-           self.head = None
+    int main() {
+    	OrderedList mylist;
+        mylist.add(31);
+        mylist.add(77);
+        mylist.add(17);
+        mylist.add(93);
+        mylist.add(26);
+        mylist.add(54);
 
-       def search(self,item):
-           current = self.head
-           found = False
-           stop = False
-           while current != None and not found and not stop:
-               if current.getData() == item:
-                   found = True
-               else:
-                   if current.getData() > item:
-                       stop = True
-                   else:
-                       current = current.getNext()
-
-           return found
-
-       def add(self,item):
-           current = self.head
-           previous = None
-           stop = False
-           while current != None and not stop:
-               if current.getData() > item:
-                   stop = True
-               else:
-                   previous = current
-                   current = current.getNext()
-
-           temp = Node(item)
-           if previous == None:
-               temp.setNext(self.head)
-               self.head = temp
-           else:
-               temp.setNext(current)
-               previous.setNext(temp)       
-
-       def isEmpty(self):
-           return self.head == None
-
-       def size(self):
-           current = self.head
-           count = 0
-           while current != None:
-               count = count + 1
-               current = current.getNext()
-
-           return count
+        cout<<"SIZE: "<<mylist.size()<<endl;
+        cout<<"contains 93?\t"<<mylist.search(93)<<endl;
+        cout<<"contains 100?\t"<<mylist.search(100)<<endl<<endl;
+        cout<<"MY LIST: "<<endl<<mylist;
+    	return 0;
+    }
 
 
-   mylist = OrderedList()
-   mylist.add(31)
-   mylist.add(77)
-   mylist.add(17)
-   mylist.add(93)
-   mylist.add(26)
-   mylist.add(54)
-
-   print(mylist.size())
-   print(mylist.search(93))
-   print(mylist.search(100))
-   
-   
 
 Analysis of Linked Lists
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -270,7 +328,7 @@ Analysis of Linked Lists
 To analyze the complexity of the linked list operations, we need to
 consider whether they require traversal. Consider a linked list that has
 *n* nodes. The ``isEmpty`` method is :math:`O(1)` since it requires
-one step to check the head reference for ``None``. ``size``, on the
+one step to check the head reference for ``NULL``. ``size``, on the
 other hand, will always require *n* steps since there is no way to know
 how many nodes are in the linked list without traversing from head to
 end. Therefore, ``length`` is :math:`O(n)`. Adding an item to an
