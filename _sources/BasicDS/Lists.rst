@@ -21,5 +21,4 @@ contain duplicate items.
 For example, the collection of integers 54, 26, 93, 17, 77, and 31 might
 represent a simple unordered array of exam scores. Note that we have
 written them as comma-delimited values, a common way of showing the array
-structure. Of course, C++ would show this array as
-:math:`{54,26,93,17,77,31}`.
+structure. Of course, C++ would show this array as ``{54,26,93,17,77,31}``.

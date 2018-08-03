@@ -168,12 +168,14 @@ to give different random numbers each time the program is executed by setting th
 numbers based on the computer's current time.
 
 ::
+
     >>srand(time(NULL));
     >>> rand()%21+1;
     18
     >>> rand()%21+1;
     8
     >>>
+
 
 Each task will also need to keep a timestamp to be used for computing
 waiting time. This timestamp will represent the time that the task was
@@ -187,7 +189,7 @@ printing begins.
 
 
 
-.. sourcecode:: python
+.. sourcecode:: cpp
 
    class Task {
        private:
@@ -549,7 +551,7 @@ interesting behaviors. For example,
 -  What if it is Saturday and students are not needing to get to class?
    Can they afford to wait?
 
--  What if the size of the average print task decreases since Python is
+-  What if the size of the average print task decreases since C++ is
    such a powerful language and programs tend to be much shorter?
 
 These questions could all be answered by modifying the above simulation.
@@ -560,5 +562,5 @@ necessary to construct a robust simulation.
 
 .. admonition:: Self Check
 
-   How would you modify the printer simulation to reflect a larger number of students?  Suppose that the number of students was doubled.  You make need to make some reasonable assumptions about how this simulation was put together but what would you change?  Modify the code.  Also suppose that the length of the average print task was cut in half.  Change the code to reflect that change.  Finally How would you parametertize the number of students, rather than changing the code we would like
+   How would you modify the printer simulation to reflect a larger number of students?  Suppose that the number of students was doubled.  You make need to make some reasonable assumptions about how this simulation was put together but what would you change?  Modify the code.  Also suppose that the length of the average print task was cut in half.  Change the code to reflect that change.  Finally how would you parameterize the number of students, rather than changing the code we would like
    to make the number of students a parameter of the simulation.

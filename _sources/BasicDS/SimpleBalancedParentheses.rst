@@ -102,8 +102,9 @@ this algorithm is shown in :ref:`ActiveCode 1 <lst_parcheck1>`.
           stack<string> s;
           bool balanced = true;
           int index = 0;
+          int str_len = symbolString.length();
 
-          while (index < symbolString.length() && balanced) {
+          while (index < str_len && balanced) {
       		    string symbol;
       		    symbol = symbolString[index];
       		    if (symbol == "(") {

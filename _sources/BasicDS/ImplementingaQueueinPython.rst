@@ -51,7 +51,7 @@ of the list. ``pop`` operations will manipulate the opposite side, the front end
 
         	newQueue.pop();
 
-        	cout << "Top Element of the Queue " << newQueue.front() << endl;
+        	cout << "Top Element of the Queue: " << newQueue.front() << endl;
 
         	return 0;
       }

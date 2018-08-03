@@ -48,7 +48,7 @@ appropriate data structure for solving the problem.
    Figure 5: Decimal-to-Binary Conversion
 
 
-The Python code in :ref:`ActiveCode 1 <lst_binconverter>` implements the Divide by 2
+The C++ and Python code in :ref:`ActiveCode 1 <lst_binconverter>` implements the Divide by 2
 algorithm. The function ``divideBy2`` takes an argument that is a
 decimal number and repeatedly divides it by 2. Line 7 uses the built-in
 modulo operator, %, to extract the remainder and line 8 then pushes it

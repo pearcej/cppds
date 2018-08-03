@@ -15,7 +15,7 @@ working on.
 
 Consider another infix example, A + B \* C. The operators + and \* still
 appear between the operands, but there is a problem. Which operands do
-they work on? Does the + work on A and B or does the \* take B and C?
+they work on first? Does the + work on A and B or does the \* take B and C?
 The expression seems ambiguous.
 
 In fact, you have been reading and writing these types of expressions
