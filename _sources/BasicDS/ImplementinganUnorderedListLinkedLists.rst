@@ -54,40 +54,39 @@ to access and modify the data and the next reference.
 
 .. _lst_nodeclass:
 
-  **Listing 1**
+**Listing 1**
 
-  .. sourcecode:: cpp
-
+.. sourcecode:: cpp
 
     #include <iostream>
     using namespace std;
 
     class Node {
-    private:
-    	int data;
-    	Node *next;
+        private:
+        	int data;
+        	Node *next;
 
-    public:
-    	Node(int initdata) {
-    		data = initdata;
-    		next = NULL;
-    	}
+        public:
+        	Node(int initdata) {
+        		data = initdata;
+        		next = NULL;
+        	}
 
-    	int getData() {
-    		return data;
-    	}
+        	int getData() {
+        		return data;
+        	}
 
-    	Node *getNext() {
-    		return next;
-    	}
+        	Node *getNext() {
+        		return next;
+        	}
 
-    	void setData(int newData) {
-    		data = newData;
-    	}
+        	void setData(int newData) {
+        		data = newData;
+        	}
 
-    	void setNext(Node *newnext) {
-    		next = newnext;
-    	}
+        	void setNext(Node *newnext) {
+        		next = newnext;
+        	}
     };
 
 ::
@@ -140,10 +139,11 @@ to the head of the list.
 
     class UnorderedList {
         public:
-    	  Node *head;
+            Node *head;
 
-    	  UnorderedList() {
-    		   head = NULL;
+            UnorderedList() {
+	           head = NULL;
+            }
     }
 
 Initially when we construct a list, there are no items. The assignment
@@ -213,7 +213,7 @@ object. We will use this often in our remaining methods.
 ::
 
     bool isEmpty() {
-      return head==NULL;
+        return head == NULL;
     }
 
 So, how do we get items into our list? We need to implement the ``add``
@@ -275,7 +275,7 @@ no longer be accessed.
     void add(int item) {
         Node *temp = new Node(item);
         temp->setNext(head);
-        head=temp;
+        head = temp;
     }
 
 .. _fig_addtohead:
@@ -293,8 +293,8 @@ no longer be accessed.
    Figure 8: Result of Reversing the Order of the Two Steps
 
 
-The next methods that we will implement–``size``, ``search``, and
-``remove``–are all based on a technique known as **linked list
+The next methods that we will implement – ``size``, ``search``, and
+``remove`` – are all based on a technique known as **linked list
 traversal**. Traversal refers to the process of systematically visiting
 each node. To do this we use an external reference that starts at the
 first node in the list. As we visit each node, we move the reference to
@@ -302,7 +302,7 @@ the next node by “traversing” the next reference.
 
 To implement the ``size`` method, we need to traverse the linked list
 and keep a count of the number of nodes that occurred.
-:ref:`Listing 5 <lst_length>` shows the Python code for counting the number of
+:ref:`Listing 5 <lst_length>` shows the C++ code for counting the number of
 nodes in the list. The external reference is called ``current`` and is
 initialized to the head of the list in line 2. At the start of the
 process we have not seen any nodes so the count is set to :math:`0`.
@@ -323,9 +323,9 @@ Finally, ``count`` gets returned after the iteration stops.
     int size() {
         Node *current = head;
         int count = 0;
-        while (current!=NULL) {
+        while (current != NULL) {
             count++;
-            current=current->getNext();
+            current = current->getNext();
         }
 
         return count;
@@ -369,11 +369,11 @@ set to ``True``.
 
     bool search(int item) {
         Node *current = head;
-        while (current!=NULL) {
-            if (current->getData()==item) {
+        while (current != NULL) {
+            if (current->getData() == item) {
                 return true;
             } else {
-                current=current->getNext();
+                current = current->getNext();
             }
         }
         return false;
@@ -464,15 +464,15 @@ list looking for the node containing the value 17.
         Node *previous = NULL;
         bool found = false;
         while (!found) {
-            if (current->getData()==item) {
-                found=true;
+            if (current->getData() == item) {
+                found = true;
             } else {
-                previous=current;
-                current=current->getNext();
+                previous = current;
+                current = current->getNext();
             }
         }
-        if (previous==NULL) {
-            head=current->getNext();
+        if (previous == NULL) {
+            head = current->getNext();
         } else {
             previous->setNext(current->getNext());
         }
@@ -546,108 +546,108 @@ You can try out the ``UnorderedList`` class in ActiveCode 1.
    using namespace std;
 
    class Node {
-   private:
-   	int data;
-   	Node *next;
+       private:
+       	   int data;
+       	   Node *next;
 
-   public:
-   	Node(int initdata) {
-   		data = initdata;
-   		next = NULL;
-   	}
+       public:
+       	   Node(int initdata) {
+       		   data = initdata;
+       		   next = NULL;
+       	   }
 
-   	int getData() {
-   		return data;
-   	}
+       	   int getData() {
+       		   return data;
+       	   }
 
-   	Node *getNext() {
-   		return next;
-   	}
+       	   Node *getNext() {
+       		   return next;
+       	   }
 
-   	void setData(int newData) {
-   		data = newData;
-   	}
+       	   void setData(int newData) {
+       		   data = newData;
+       	   }
 
-   	void setNext(Node *newnext) {
-   		next = newnext;
-   	}
+       	   void setNext(Node *newnext) {
+       		   next = newnext;
+       	   }
    };
 
    class UnorderedList {
        public:
-   	Node *head;
+   	       Node *head;
 
-   	UnorderedList() {
-   		head = NULL;
-   	}
+   	       UnorderedList() {
+   		       head = NULL;
+   	       }
 
-       bool isEmpty() {
-           return head==NULL;
-       }
-
-       void add(int item) {
-           Node *temp = new Node(item);
-           temp->setNext(head);
-           head=temp;
-       }
-
-       int size() {
-           Node *current = head;
-           int count = 0;
-           while (current!=NULL) {
-               count++;
-               current=current->getNext();
+           bool isEmpty() {
+               return head == NULL;
            }
 
-           return count;
-       }
+           void add(int item) {
+               Node *temp = new Node(item);
+               temp->setNext(head);
+               head = temp;
+           }
 
-       bool search(int item) {
-           Node *current = head;
-           while (current!=NULL) {
-               if (current->getData()==item) {
-                   return true;
+           int size() {
+               Node *current = head;
+               int count = 0;
+               while (current != NULL) {
+                   count++;
+                   current = current->getNext();
+               }
+
+               return count;
+           }
+
+           bool search(int item) {
+               Node *current = head;
+               while (current != NULL) {
+                   if (current->getData() == item) {
+                       return true;
+                   } else {
+                       current = current->getNext();
+                   }
+               }
+               return false;
+           }
+
+           void remove(int item) {
+               Node *current = head;
+               Node *previous = NULL;
+               bool found = false;
+               while (!found) {
+                   if (current->getData() == item) {
+                       found = true;
+                   } else {
+                       previous = current;
+                       current = current->getNext();
+                   }
+               }
+               if (previous == NULL) {
+                   head = current->getNext();
                } else {
-                   current=current->getNext();
+                   previous->setNext(current->getNext());
                }
            }
-           return false;
-       }
 
-       void remove(int item) {
-           Node *current = head;
-           Node *previous = NULL;
-           bool found = false;
-           while (!found) {
-               if (current->getData()==item) {
-                   found=true;
-               } else {
-                   previous=current;
-                   current=current->getNext();
-               }
-           }
-           if (previous==NULL) {
-               head=current->getNext();
-           } else {
-               previous->setNext(current->getNext());
-           }
-       }
-
-       friend ostream& operator<<(ostream& os, const UnorderedList& ol);
+           friend ostream& operator<<(ostream& os, const UnorderedList& ol);
    };
 
    ostream& operator<<(ostream& os, const UnorderedList& ol) {
        Node *current = ol.head;
-       while (current!=NULL) {
+       while (current != NULL) {
            os<<current->getData()<<endl;
-           current=current->getNext();
+           current = current->getNext();
        }
        return os;
    }
 
 
    int main() {
-   	UnorderedList mylist;
+       UnorderedList mylist;
        mylist.add(31);
        mylist.add(77);
        mylist.add(17);
@@ -672,7 +672,7 @@ You can try out the ``UnorderedList`` class in ActiveCode 1.
        mylist.search(93);
 
        cout<<"MY LIST: "<<endl<<mylist;
-   	return 0;
+   	   return 0;
    }
 
 The remaining methods ``append``, ``insert``, ``index``, and ``pop`` are

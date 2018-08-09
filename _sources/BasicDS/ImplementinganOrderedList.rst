@@ -32,8 +32,9 @@ be denoted by a ``head`` reference to ``NULL`` (see
 ::
 
     class OrderedList {
-      Node* head;
-
+        Node* head;
+    }
+    
 As we consider the operations for the ordered list, we should note that
 the ``isEmpty`` and ``size`` methods can be implemented the same as
 with unordered lists since they deal only with the number of nodes in
@@ -91,9 +92,9 @@ the unordered list search.
         Node *current = head;
         bool found = false;
         bool stop = false;
-        while (current!=NULL && !found && !stop) {
-            if (current->getData()==item) {
-                found=true;
+        while (current != NULL && !found && !stop) {
+            if (current->getData() == item) {
+                found = true;
             } else {
                 if (current->getData() > item) {
                     stop = true;
@@ -155,14 +156,14 @@ beginning of the linked list or some place in the middle. Again,
 ::
 
     void add(int item) {
-        if (head==NULL) {
-            Node *newNode=new Node(item);
-            head=newNode;
+        if (head == NULL) {
+            Node *newNode = new Node(item);
+            head = newNode;
         } else {
             Node *current = head;
             Node *previous = NULL;
             bool stop = false;
-            while (current!=NULL && !stop) {
+            while (current != NULL && !stop) {
                 if (current->getData() > item) {
                     stop = true;
                 } else {
@@ -170,10 +171,10 @@ beginning of the linked list or some place in the middle. Again,
                     current = current->getNext();
                 }
             }
-            Node *temp=new Node(item);
-            if (previous==NULL) {
+            Node *temp = new Node(item);
+            if (previous == NULL) {
                 temp->setNext(head);
-                head=temp;
+                head = temp;
             } else {
                 temp->setNext(current);
                 previous->setNext(temp);
@@ -192,133 +193,133 @@ list is now ordered.
    :language: cpp
 
    #include <iostream>
-    using namespace std;
+   using namespace std;
 
-    class Node {
-    private:
-    	int data;
-    	Node *next;
+   class Node {
+       private:
+    	   int data;
+    	   Node *next;
 
-    public:
-    	Node(int initdata) {
-    		data = initdata;
-    		next = NULL;
-    	}
+       public:
+           Node(int initdata) {
+    	   data = initdata;
+    	   next = NULL;
+       }
 
-    	int getData() {
-    		return data;
-    	}
+       int getData() {
+    	   return data;
+       }
 
-    	Node *getNext() {
-    		return next;
-    	}
+       Node *getNext() {
+           return next;
+       }
 
-    	void setData(int newData) {
-    		data = newData;
-    	}
+       void setData(int newData) {
+           data = newData;
+       }
 
-    	void setNext(Node *newnext) {
-    		next = newnext;
-    	}
-    };
+       void setNext(Node *newnext) {
+           next = newnext;
+       }
+   };
 
-    class OrderedList {
-        public:
-    	Node *head;
+   class OrderedList {
+       public:
+   	       Node *head;
 
-    	OrderedList() {
-    		head = NULL;
-    	}
+    	   OrderedList() {
+    		   head = NULL;
+    	   }
 
-        bool search(int item) {
-            Node *current = head;
-            bool found = false;
-            bool stop = false;
-            while (current!=NULL && !found && !stop) {
-                if (current->getData()==item) {
-                    found=true;
-                } else {
-                    if (current->getData() > item) {
-                        stop = true;
-                    } else {
-                        current = current->getNext();
-                    }
-                }
-            }
+           bool search(int item) {
+               Node *current = head;
+               bool found = false;
+               bool stop = false;
+               while (current != NULL && !found && !stop) {
+                   if (current->getData() == item) {
+                       found = true;
+                   } else {
+                       if (current->getData() > item) {
+                           stop = true;
+                       } else {
+                           current = current->getNext();
+                       }
+                   }
+               }
 
-            return found;
-        }
+               return found;
+           }
 
-        void add(int item) {
-            if (head==NULL) {
-                Node *newNode=new Node(item);
-                head=newNode;
-            } else {
-                Node *current = head;
-                Node *previous = NULL;
-                bool stop = false;
-                while (current!=NULL && !stop) {
-                    if (current->getData() > item) {
-                        stop = true;
-                    } else {
-                        previous = current;
-                        current = current->getNext();
-                    }
-                }
-                Node *temp=new Node(item);
-                if (previous==NULL) {
-                    temp->setNext(head);
-                    head=temp;
-                } else {
-                    temp->setNext(current);
-                    previous->setNext(temp);
-                }
-            }
-        }
+           void add(int item) {
+               if (head == NULL) {
+                   Node *newNode = new Node(item);
+                   head = newNode;
+               } else {
+                   Node *current = head;
+                   Node *previous = NULL;
+                   bool stop = false;
+                   while (current != NULL && !stop) {
+                       if (current->getData() > item) {
+                           stop = true;
+                       } else {
+                           previous = current;
+                           current = current->getNext();
+                       }
+                   }
+                   Node *temp = new Node(item);
+                   if (previous == NULL) {
+                       temp->setNext(head);
+                       head = temp;
+                   } else {
+                       temp->setNext(current);
+                       previous->setNext(temp);
+                   }
+               }
+           }
 
-        bool isEmpty() {
-            return head==NULL;
-        }
+           bool isEmpty() {
+               return head == NULL;
+           }
 
-        int size() {
-            Node *current = head;
-            int count = 0;
-            while (current!=NULL) {
-                count++;
-                current=current->getNext();
-            }
+           int size() {
+               Node *current = head;
+               int count = 0;
+               while (current != NULL) {
+                   count++;
+                   current = current->getNext();
+               }
 
-            return count;
-        }
+               return count;
+           }
 
-        friend ostream& operator<<(ostream& os, const OrderedList& ol);
-    };
+           friend ostream& operator<<(ostream& os, const OrderedList& ol);
+   };
 
-    ostream& operator<<(ostream& os, const OrderedList& ol) {
-        Node *current = ol.head;
-        while (current!=NULL) {
-            os<<current->getData()<<endl;
-            current=current->getNext();
-        }
-        return os;
-    }
+   ostream& operator<<(ostream& os, const OrderedList& ol) {
+       Node *current = ol.head;
+       while (current != NULL) {
+           os<<current->getData()<<endl;
+           current = current->getNext();
+       }
+       return os;
+   }
 
 
-    int main() {
-    	OrderedList mylist;
-        mylist.add(31);
-        mylist.add(77);
-        mylist.add(17);
-        mylist.add(93);
-        mylist.add(26);
-        mylist.add(54);
+   int main() {
+   	   OrderedList mylist;
+       mylist.add(31);
+       mylist.add(77);
+       mylist.add(17);
+       mylist.add(93);
+       mylist.add(26);
+       mylist.add(54);
 
-        cout<<"SIZE: "<<mylist.size()<<endl;
-        cout<<"contains 93?\t"<<mylist.search(93)<<endl;
-        cout<<"contains 100?\t"<<mylist.search(100)<<endl<<endl;
-        cout<<"MY LIST: "<<endl<<mylist;
-    	return 0;
-    }
+       cout<<"SIZE: "<<mylist.size()<<endl;
+       cout<<"contains 93?\t"<<mylist.search(93)<<endl;
+       cout<<"contains 100?\t"<<mylist.search(100)<<endl<<endl;
+       cout<<"MY LIST: "<<endl<<mylist;
+       return 0;
+   }
 
 
 

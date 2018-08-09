@@ -28,7 +28,7 @@ Vectors
 Vectors are more similar to lists in Python than arrays, in a way that they have dynamic
 size. Some operations with vectors are given below:
 
--   ``#include <vector>;`` imports the vector to be used
+-   ``#include <vector>;`` imports the vector library to be used
 
 -   ``vector<int> integerList;`` declares integerList as a vector, and its elements to be a type of int.
 
