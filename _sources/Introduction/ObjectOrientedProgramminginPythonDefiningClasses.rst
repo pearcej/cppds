@@ -590,7 +590,18 @@ methods as exercises.
 
    To make sure you understand how operators are implemented in C++ classes, and how to properly write methods, write some methods to implement ``*, /,`` and ``-`` .  Also implement comparison operators > and <
 
-   .. actex:: self_check_4
+    .. actex:: self_check_4cpp
+        :language: cpp
+        :nocodelens:
+
+        #include <iostream>
+        using namespace std;
+
+        int main() {
+
+            return 0;
+        }
+
 
 .. video:: fraction
    :controls:
