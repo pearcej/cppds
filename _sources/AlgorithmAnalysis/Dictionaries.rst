@@ -71,7 +71,7 @@ hash table.
     #include <iostream>
     #include <ctime>
     #include <list>
-    #include <map>
+    #include <unordered_map>
     using namespace std;
 
     int main() {
@@ -88,7 +88,7 @@ hash table.
 
             // Hash Table Part
             clock_t  begin_ht = clock();
-            map<int, int> y;
+            unordered_map<int, int> y;
             for( int j = 0; j < a; j++ ){
                 y[j] = NULL;
             }
