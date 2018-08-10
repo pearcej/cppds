@@ -38,56 +38,56 @@ generated the Sierpinski Triangle in :ref:`Figure 3 <fig_sierpinski>` is shown i
 
 
 .. activecode:: lst_st
-    :caption: Drawing a Sierpinski Triangle
-    :nocodelens:
+   :caption: Drawing a Sierpinski Triangle
+   :nocodelens:
 
-    import turtle
+   import turtle
 
-    def drawTriangle(points,color,myTurtle):
-        myTurtle.fillcolor(color)
-        myTurtle.up()
-        myTurtle.goto(points[0][0],points[0][1])
-        myTurtle.down()
-        myTurtle.begin_fill()
-        myTurtle.goto(points[1][0],points[1][1])
-        myTurtle.goto(points[2][0],points[2][1])
-        myTurtle.goto(points[0][0],points[0][1])
-        myTurtle.end_fill()
+   def drawTriangle(points,color,myTurtle):
+       myTurtle.fillcolor(color)
+       myTurtle.up()
+       myTurtle.goto(points[0][0],points[0][1])
+       myTurtle.down()
+       myTurtle.begin_fill()
+       myTurtle.goto(points[1][0],points[1][1])
+       myTurtle.goto(points[2][0],points[2][1])
+       myTurtle.goto(points[0][0],points[0][1])
+       myTurtle.end_fill()
 
-    def getMid(p1,p2):
-        return ( (p1[0]+p2[0]) / 2, (p1[1] + p2[1]) / 2)
+   def getMid(p1,p2):
+       return ( (p1[0]+p2[0]) / 2, (p1[1] + p2[1]) / 2)
 
-    def sierpinski(points,degree,myTurtle):
-        colormap = ['blue','red','green','white','yellow',
-                    'violet','orange']
-        drawTriangle(points,colormap[degree],myTurtle)
-        if degree > 0:
-            sierpinski([points[0],
-                            getMid(points[0], points[1]),
-                            getMid(points[0], points[2])],
-                       degree-1, myTurtle)
-            sierpinski([points[1],
-                            getMid(points[0], points[1]),
-                            getMid(points[1], points[2])],
-                       degree-1, myTurtle)
-            sierpinski([points[2],
-                            getMid(points[2], points[1]),
-                            getMid(points[0], points[2])],
-                       degree-1, myTurtle)
+   def sierpinski(points,degree,myTurtle):
+       colormap = ['blue','red','green','white','yellow',
+                   'violet','orange']
+       drawTriangle(points,colormap[degree],myTurtle)
+       if degree > 0:
+           sierpinski([points[0],
+                           getMid(points[0], points[1]),
+                           getMid(points[0], points[2])],
+                         degree-1, myTurtle)
+           sierpinski([points[1],
+                           getMid(points[0], points[1]),
+                           getMid(points[1], points[2])],
+                         degree-1, myTurtle)
+           sierpinski([points[2],
+                           getMid(points[2], points[1]),
+                           getMid(points[0], points[2])],
+                         degree-1, myTurtle)
 
-    def main():
-       myTurtle = turtle.Turtle()
-       myWin = turtle.Screen()
-       myPoints = [[-100,-50],[0,100],[100,-50]]
-       sierpinski(myPoints,3,myTurtle)
-       myWin.exitonclick()
+   def main():
+         myTurtle = turtle.Turtle()
+         myWin = turtle.Screen()
+         myPoints = [[-100,-50],[0,100],[100,-50]]
+         sierpinski(myPoints,3,myTurtle)
+         myWin.exitonclick()
 
-    main()
+   main()
 
 
 
-    
-    
+
+
 The program in :ref:`ActiveCode 1 <lst_st>` follows the ideas outlined above. The
 first thing ``sierpinski`` does is draw the outer triangle. Next, there
 are three recursive calls, one for each of the new corner triangles we
@@ -119,8 +119,8 @@ finished with the bottom left it moves to the bottom middle, and so on.
 .. _fig_stcalltree:
 
 .. figure:: Figures/stCallTree.png
-    :align: center   
-   
+    :align: center
+
     Figure 4: Building a Sierpinski Triangle
 
 The ``sierpinski`` function relies heavily on the ``getMid`` function.
