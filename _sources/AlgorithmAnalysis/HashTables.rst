@@ -63,9 +63,45 @@ hash table.
 
 **Listing 6**
 
-# Help Needed with the Code
-
 .. sourcecode:: cpp
+    :linenos:
+
+    #include <iostream>
+    #include <ctime>
+    #include <list>
+    #include <unordered_map>
+    using namespace std;
+
+    int main() {
+
+        for( int a = 10000; a < 1000001; a = a + 20000) {
+            // List Part
+            clock_t begin = clock();
+            list<int> x;
+            for( int i = 0; i < a; i++){
+                x.push_back(i);
+            }
+            clock_t end = clock();
+            double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+
+            // Hash Table Part
+            clock_t  begin_ht = clock();
+            unordered_map<int, int> y;
+            for( int j = 0; j < a; j++ ){
+                y[j] = NULL;
+            }
+            clock_t end_ht = clock();
+            double elapsed_secs_ht = double(end_ht - begin_ht) / CLOCKS_PER_SEC;
+
+            // Printing final output
+            cout << a << "\t" << elapsed_secs << "\t" << elapsed_secs_ht << endl;
+        }
+
+        return 0;
+    }
+
+
+.. sourcecode:: python
     :linenos:
 
     import timeit
@@ -79,8 +115,6 @@ hash table.
         x = {j:None for j in range(i)}
         d_time = t.timeit(number=1000)
         print("%d,%10.3f,%10.3f" % (i, lst_time, d_time))
-
-
 
 
 :ref:`Figure 4 <fig_listvdict_cpp>` summarizes the results of running
@@ -108,7 +142,7 @@ data structures can be found on the C++ website.
 
 .. admonition:: Self Check
 
-    .. mchoice:: mccppmapperfcpp
+    .. mchoice:: mccppmapperfcpp3
         :answer_a: Popping the first index from an array.
         :answer_b: Popping an element from the end of an array.
         :answer_c: Adding a new element to an array.
@@ -123,7 +157,7 @@ data structures can be found on the C++ website.
 
         Which of the list operations shown below is not O(1)?
 
-    .. mchoice:: mccppmapperfcpp1
+    .. mchoice:: mccppmapperfcpp4
         :answer_a: mymap.count('x')
         :answer_b: mymap.erase('x')
         :answer_c: mymap['x'] = 10;
@@ -138,7 +172,7 @@ data structures can be found on the C++ website.
 
         Which of the hash table operations shown below is O(1)?
 
-.. video::  pythonopsperf
+.. video::  pythonopsperf2
    :controls:
    :thumb: ../_static/function_intro.png
 
