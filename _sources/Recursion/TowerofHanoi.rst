@@ -174,5 +174,5 @@ Now that you have seen the code for both ``moveTower`` and ``moveDisk``,
 you may be wondering why we do not have a data structure that explicitly
 keeps track of what disks are on what poles. Here is a hint: if you were
 going to explicitly keep track of the disks, you would probably use
-three ``Stack`` objects, one for each pole. The answer is that Python
+three ``Stack`` objects, one for each pole. The answer is that C++
 provides the stacks that we need implicitly through the call stack.

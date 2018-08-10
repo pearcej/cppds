@@ -39,7 +39,6 @@ generated the Sierpinski Triangle in :ref:`Figure 3 <fig_sierpinski>` is shown i
 
 .. activecode:: lst_st
    :caption: Drawing a Sierpinski Triangle
-   :nocodelens:
 
    import turtle
 
@@ -83,9 +82,6 @@ generated the Sierpinski Triangle in :ref:`Figure 3 <fig_sierpinski>` is shown i
          myWin.exitonclick()
 
    main()
-
-
-
 
 
 The program in :ref:`ActiveCode 1 <lst_st>` follows the ideas outlined above. The
