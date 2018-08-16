@@ -54,16 +54,16 @@ functions, since the result must be in the range of slot names.
 .. table:: **Table 4: Simple Hash Function Using Remainders**
 
 
-    ================= ================ 
-             **Item**   **Hash Value** 
-    ================= ================ 
-                   54               10 
-                   26                4 
-                   93                5 
-                   17                6 
-                   77                0 
-                   31                9 
-    ================= ================ 
+    ================= ================
+             **Item**   **Hash Value**
+    ================= ================
+                   54               10
+                   26                4
+                   93                5
+                   17                6
+                   77                0
+                   31                9
+    ================= ================
 
 
 Once the hash values have been computed, we can insert each item into
@@ -152,16 +152,16 @@ understand how these values were computed.
 .. table:: **Table 5: Comparison of Remainder and Mid-Square Methods**
 
 
-    ================= =============== ================ 
-             **Item**   **Remainder**   **Mid-Square** 
-    ================= =============== ================ 
-                   54              10                3 
-                   26               4                7 
-                   93               5                9 
-                   17               6                8 
-                   77               0                4 
-                   31               9                6 
-    ================= =============== ================ 
+    ================= =============== ================
+             **Item**   **Remainder**   **Mid-Square**
+    ================= =============== ================
+                   54              10                3
+                   26               4                7
+                   93               5                9
+                   17               6                8
+                   77               0                4
+                   31               9                6
+    ================= =============== ================
 
 
 We can also create hash functions for character-based items such as
@@ -204,7 +204,7 @@ to ``tablesize``-1.
             sum = sum + ord(astring[pos])
 
         return sum%tablesize
-        
+
 
 It is interesting to note that when using this hash function, anagrams
 will always be given the same hash value. To remedy this, we could use
@@ -474,28 +474,27 @@ no empty slots left is an exercise.
 ::
 
     def put(self,key,data):
-      hashvalue = self.hashfunction(key,len(self.slots))
+        hashvalue = self.hashfunction(key,len(self.slots))
 
-      if self.slots[hashvalue] == None:
-        self.slots[hashvalue] = key
-        self.data[hashvalue] = data
-      else:
-        if self.slots[hashvalue] == key:
-          self.data[hashvalue] = data  #replace
-        else:
-          nextslot = self.rehash(hashvalue,len(self.slots))
-          while self.slots[nextslot] != None and \
-                          self.slots[nextslot] != key:
-            nextslot = self.rehash(nextslot,len(self.slots))
+        if self.slots[hashvalue] == None:
+            self.slots[hashvalue] = key
+            self.data[hashvalue] = data
+            else:
+            if self.slots[hashvalue] == key:
+                self.data[hashvalue] = data  #replace
+            else:
+                nextslot = self.rehash(hashvalue,len(self.slots))
+            while self.slots[nextslot] != None and self.slots[nextslot] != key:
+                nextslot = self.rehash(nextslot,len(self.slots))
 
-          if self.slots[nextslot] == None:
-            self.slots[nextslot]=key
-            self.data[nextslot]=data
-          else:
-            self.data[nextslot] = data #replace
+            if self.slots[nextslot] == None:
+                self.slots[nextslot] = key
+                self.data[nextslot] = data
+            else:
+                self.data[nextslot] = data #replace
 
     def hashfunction(self,key,size):
-         return key%size
+        return key%size
 
     def rehash(self,oldhash,size):
         return (oldhash+1)%size
@@ -525,35 +524,34 @@ be available. We leave the remaining methods as exercises.
 ::
 
     def get(self,key):
-      startslot = self.hashfunction(key,len(self.slots))
+        startslot = self.hashfunction(key,len(self.slots))
 
-      data = None
-      stop = False
-      found = False
-      position = startslot
-      while self.slots[position] != None and  \
-                           not found and not stop:
-         if self.slots[position] == key:
-           found = True
-           data = self.data[position]
-         else:
-           position=self.rehash(position,len(self.slots))
-           if position == startslot:
-               stop = True
-      return data
+        data = None
+        stop = False
+        found = False
+        position = startslot
+        while self.slots[position] != None and not found and not stop:
+            if self.slots[position] == key:
+                found = True
+                data = self.data[position]
+            else:
+                position=self.rehash(position,len(self.slots))
+                if position == startslot:
+                    stop = True
+        return data
 
     def __getitem__(self,key):
         return self.get(key)
 
     def __setitem__(self,key,data):
         self.put(key,data)
-        
-        
-        
+
+
+
 .. highlight:: python
     :linenothreshold: 500
-    
-    
+
+
 
 The following session shows the ``HashTable`` class in action. First we
 will create a hash table and store some items with integer keys and
@@ -601,7 +599,7 @@ The complete hash table example can be found in ActiveCode 1.
 .. activecode:: hashtablecomplete
    :caption: Complete Hash Table Example
    :hidecode:
-   
+
    class HashTable:
        def __init__(self):
            self.size = 11
@@ -678,8 +676,8 @@ The complete hash table example can be found in ActiveCode 1.
    H[20]='duck'
    print(H[20])
    print(H[99])
-   
-    
+
+
 
 Analysis of Hashing
 ^^^^^^^^^^^^^^^^^^^

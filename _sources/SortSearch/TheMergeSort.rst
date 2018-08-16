@@ -68,7 +68,6 @@ most one.
       vector<int> mergeSort(vector<int> alist) {
           cout<<"Splitting ";
           printl(alist);
-          cout<<endl;
           if (alist.size()>1) {
               int mid = alist.size()/2;
               //C++ Equivalent to using Python Slices
@@ -107,7 +106,6 @@ most one.
           }
           cout<<"Merging ";
           printl(alist);
-          cout<<endl;
 
           return alist;
       }
@@ -117,7 +115,7 @@ most one.
           static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
           vector<int> alist (arr, arr + sizeof(arr) / sizeof(arr[0]) );
 
-          printl(alist);
+          printl(mergeSort(alist));
 
           return 0;
       }
@@ -273,7 +271,7 @@ sets.
       :feedback_c: Remember mergesort doesn't work on the right half of the list until the left half is completely sorted.
       :feedback_d: This is the list after 4 recursive calls
 
-      Given the following list of numbers: <br> [21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40] <br> which answer illustrates the list to be sorted after 3 recursive calls to mergesort?
+      Given the following list of numbers: [21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40] which answer illustrates the list to be sorted after 3 recursive calls to mergesort?
 
    .. mchoice:: question_sort_6
       :correct: c
@@ -286,4 +284,4 @@ sets.
       :feedback_c: The lists [21] and [1] are the first two base cases encountered by mergesort and will therefore be the first two lists merged.
       :feedback_d: Although 9 and 16 are next to each other they are in different halves of the list starting with the first split.
 
-      Given the following list of numbers: <br> [21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40] <br> which answer illustrates the first two lists to be merged?
+      Given the following list of numbers: [21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40] which answer illustrates the first two lists to be merged?
