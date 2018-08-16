@@ -263,6 +263,64 @@ closely on the ``postorder`` code in :ref:`Listing 4 <lst_postorder1>` (see :ref
 
 .. sourcecode:: Python
 
+    class Operator {
+        public:
+        int add(int x, int y){
+            return x + y;
+        }
+
+        int sub(int x, int y){
+            return x - y;
+        }
+
+        int mul(int x, int y){
+            return x * y;
+        }
+
+        int div(int x, int y){
+            return x / y;
+        }
+    };
+
+    int to_int(string str) {
+        stringstream convert(str);
+        int x = 0;
+        convert >> x;
+        return x;
+    }
+
+    string t_string(int num) {
+        string str;
+        ostringstream convert;
+        convert << num;
+        str = convert.str();
+        return str;
+    }
+
+    string postordereval(BinaryTree *tree){
+        Operator Oper;
+        BinaryTree *res1 = tree->getLeftChild();
+        BinaryTree *res2 = tree->getRightChild();
+        if (tree) {
+            if (res1 && res2) {
+                if (tree->getRootVal() == "+") {
+                    return t_string(Oper.add(to_int(postordereval(res1)), to_int(postordereval(res2))));
+                } else if (tree->getRootVal() == "-") {
+                    return t_string(Oper.sub(to_int(postordereval(res1)), to_int(postordereval(res2))));
+                } else if (tree->getRootVal() == "*") {
+                    return t_string(Oper.mul(to_int(postordereval(res1)), to_int(postordereval(res2))));
+                } else {
+                    return t_string(Oper.div(to_int(postordereval(res1)), to_int(postordereval(res2))));
+                }
+            } else {
+                return tree->getRootVal();
+            }
+
+        }
+    }
+
+::
+
     def postordereval(tree):
         opers = {'+':operator.add, '-':operator.sub, '*':operator.mul, '/':operator.truediv}
         res1 = None

@@ -3,7 +3,7 @@
 
 
 AVL Tree Performance
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 Before we proceed any further let's look at the result of enforcing this
 new balance factor requirement. Our claim is that by ensuring that a
@@ -21,7 +21,7 @@ rules.
    :align: center
 
    Figure 2: Worst-Case Left-Heavy AVL Trees
-   
+
 
 Looking at the total number of nodes in the tree we see that for a tree
 of height 0 there is 1 node, for a tree of height 1 there is :math:`1+1
@@ -32,7 +32,7 @@ the pattern we see for the number of nodes in a tree of height h
 
 .. math::
 
-   N_h = 1 + N_{h-1} + N_{h-2}  
+   N_h = 1 + N_{h-1} + N_{h-2}
 
 
 This recurrence may look familiar to you because it is very similar to
@@ -64,7 +64,7 @@ the equation for :math:`N_h` as:
 
 
 By replacing the Fibonacci reference with its golden ratio approximation
-we get: 
+we get:
 
 .. math::
 
@@ -85,4 +85,3 @@ This derivation shows us that at any time the height of our AVL tree is
 equal to a constant(1.44) times the log of the number of nodes in the tree. This
 is great news for searching our AVL tree because it limits the search to
 :math:`O(\log{N})`.
-
