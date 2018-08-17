@@ -95,21 +95,21 @@ that corresponds to each of the HTML tags used to create the page.
 
 ::
 
-    <html xmlns="http://www.w3.org/1999/xhtml" 
-	  xml:lang="en" lang="en">
-    <head>
-	<meta http-equiv="Content-Type" 
-	      content="text/html; charset=utf-8" />
-	<title>simple</title>
-    </head>
-    <body>
-    <h1>A simple web page</h1>
-    <ul>
-	<li>List item one</li>
-	<li>List item two</li>
-    </ul>
-    <h2><a href="http://www.cs.luther.edu">Luther CS </a><h2>
-    </body>
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+        <head>
+        	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        	<title>simple</title>
+        </head>
+        <body>
+            <h1>A simple web page</h1>
+            <ul>
+            	<li>List item one</li>
+            	<li>List item two</li>
+            </ul>
+            <h2>
+                <a href="http://www.cs.luther.edu">Luther CS </a>
+            </h2>
+        </body>
     </html>
 
 
@@ -128,4 +128,3 @@ level of nesting inside the HTML tags. The first tag in the source is
 ``<html>`` and the last is ``</html>`` All the rest of the tags in the
 page are inside the pair. If you check, you will see that this nesting
 property is true at all levels of the tree.
-

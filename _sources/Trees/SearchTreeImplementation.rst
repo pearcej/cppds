@@ -62,7 +62,6 @@ miscellaneous functions is shown in :ref:`Listing 1 <lst_bst1>`.
 ::
 
     class BinarySearchTree{
-
         private:
             TreeNode *root;
             int size;
@@ -76,6 +75,7 @@ miscellaneous functions is shown in :ref:`Listing 1 <lst_bst1>`.
             int length(){
                 return this->size;
             }
+    }
 
 The ``TreeNode`` class provides many helper functions that make the work
 done in the ``BinarySearchTree`` class methods much easier. The
@@ -89,7 +89,7 @@ of the parent as an attribute of each node. You will see why this is
 important when we discuss the implementation for the ``del`` operator.
 
 Another interesting aspect of the implementation of ``TreeNode`` in
-:ref:`Listing 2 <lst_bst2>` is that we use Python’s optional parameters.
+:ref:`Listing 2 <lst_bst2>` is that we use C++'s optional parameters.
 Optional parameters make it easy for us to create a ``TreeNode`` under
 several different circumstances. Sometimes we will want to construct a
 new ``TreeNode`` that already has both a ``parent`` and a ``child``.
@@ -106,64 +106,64 @@ are used.
 ::
 
     class TreeNode{
+        public:
+            int key;
+            string payload;
+            TreeNode *leftChild;
+            TreeNode *rightChild;
+            TreeNode *parent;
 
-    public:
-        int key;
-        string payload;
-        TreeNode *leftChild;
-        TreeNode *rightChild;
-        TreeNode *parent;
-
-        TreeNode(int key, string val, TreeNode *parent = NULL, TreeNode *left = NULL, TreeNode *right = NULL){
-            this->key = key;
-            this->payload = val;
-            this->leftChild = left;
-            this->rightChild = right;
-            this->parent = parent;
-        }
-
-        TreeNode *hasLeftChild(){
-            return this->leftChild;
-        }
-
-        TreeNode *hasRightChild(){
-            return this->rightChild;
-        }
-
-        bool isLeftChild(){
-            return this->parent && this->parent->leftChild == this;
-        }
-
-        bool isRightChild(){
-            return this->parent && this->parent->rightChild == this;
-        }
-
-        bool isRoot(){
-            return !this->parent;
-        }
-
-        bool isLeaf(){
-            return !(this->rightChild || this->leftChild);
-        }
-
-        bool hasAnyChildren(){
-            return this->rightChild || this->leftChild;
-        }
-
-        bool hasBothChildren(){
-            return this->rightChild && this->leftChild;
-        }
-
-        void replaceNodeData(int key, string value, TreeNode *lc = NULL, TreeNode *rc = NULL){
-            this->key = key;
-            this->payload = value;
-            this->leftChild = lc;
-            this->rightChild = rc;
-            if (this->hasLeftChild()){
-                this->leftChild->parent = this;
+            TreeNode(int key, string val, TreeNode *parent = NULL, TreeNode *left = NULL, TreeNode *right = NULL){
+                this->key = key;
+                this->payload = val;
+                this->leftChild = left;
+                this->rightChild = right;
+                this->parent = parent;
             }
-            if (this->hasRightChild()){
-                this->rightChild->parent = this;
+
+            TreeNode *hasLeftChild(){
+                return this->leftChild;
+            }
+
+            TreeNode *hasRightChild(){
+                return this->rightChild;
+            }
+
+            bool isLeftChild(){
+                return this->parent && this->parent->leftChild == this;
+            }
+
+            bool isRightChild(){
+                return this->parent && this->parent->rightChild == this;
+            }
+
+            bool isRoot(){
+                return !this->parent;
+            }
+
+            bool isLeaf(){
+                return !(this->rightChild || this->leftChild);
+            }
+
+            bool hasAnyChildren(){
+                return this->rightChild || this->leftChild;
+            }
+
+            bool hasBothChildren(){
+                return this->rightChild && this->leftChild;
+            }
+
+            void replaceNodeData(int key, string value, TreeNode *lc = NULL, TreeNode *rc = NULL){
+                this->key = key;
+                this->payload = value;
+                this->leftChild = lc;
+                this->rightChild = rc;
+                if (this->hasLeftChild()){
+                    this->leftChild->parent = this;
+                }
+                if (this->hasRightChild()){
+                    this->rightChild->parent = this;
+                }
             }
         }
 
@@ -189,7 +189,7 @@ algorithm:
 -  To add a node to the tree, create a new ``TreeNode`` object and
    insert the object at the point discovered in the previous step.
 
-:ref:`Listing 3 <lst_bst3>` shows the Python code for inserting a new node in
+:ref:`Listing 3 <lst_bst3>` shows the C++ code for inserting a new node in
 the tree. The ``_put`` function is written recursively following the
 steps outlined above. Notice that when a new child is inserted into the
 tree, the ``currentNode`` is passed to the new tree as the parent.
@@ -619,14 +619,14 @@ the ``__iter__`` method is defined in the ``TreeNode`` class.
 ::
 
     def __iter__(self):
-       if self:
-    	  if self.hasLeftChild():
-    	  	 for elem in self.leftChiLd:
-    		    yield elem
-          yield self.key
-    	  if self.hasRightChild():
-    		 for elem in self.rightChild:
-    		    yield elem
+        if self:
+    	    if self.hasLeftChild():
+    	  	    for elem in self.leftChiLd:
+    		        yield elem
+            yield self.key
+    	    if self.hasRightChild():
+    		    for elem in self.rightChild:
+    		        yield elem
 
 At this point you may want to download the entire file containing the
 full version of the ``BinarySearchTree`` and ``TreeNode`` classes.
