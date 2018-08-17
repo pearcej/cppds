@@ -3,7 +3,7 @@
 
 
 Search Tree Analysis
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 With the implementation of a binary search tree now complete, we will do
 a quick analysis of the methods we have implemented. Let’s first look at

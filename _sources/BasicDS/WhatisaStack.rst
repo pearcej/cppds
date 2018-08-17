@@ -3,7 +3,7 @@
 
 
 What is a Stack?
-~~~~~~~~~~~~~~~~
+----------------
 
 A **stack** (sometimes called a “push-down stack”) is an ordered
 collection of items where the addition of new items and the removal of
@@ -25,8 +25,7 @@ top, uncovering a new tray or plate for the next customer in line.
 Imagine a stack of books on a desk (:ref:`Figure 1 <fig_bookstack>`). The only
 book whose cover is visible is the one on top. To access others in the
 stack, we need to remove the ones that are sitting on top of them.
-:ref:`Figure 2 <fig_objectstack>` shows another stack. This one contains a number
-of primitive Python data objects.
+:ref:`Figure 2 <fig_objectstack>` shows another stack.
 
 .. _fig_bookstack:
 

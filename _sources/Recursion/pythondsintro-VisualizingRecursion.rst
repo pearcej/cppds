@@ -15,7 +15,7 @@ some interesting pictures. As you watch these pictures take shape you
 will get some new insight into the recursive process that may be helpful
 in cementing your understanding of recursion.
 
-The tool we will use for our illustrations is Python’s turtle graphics
+The conventional tool used for these kinds of illustrations is Python’s turtle graphics
 module called ``turtle``. The ``turtle`` module is standard with all
 versions of Python and is very easy to use. The metaphor is quite
 simple. You can create a turtle and the turtle can move forward,
@@ -24,6 +24,12 @@ down. When the turtle’s tail is down and the turtle moves it draws a
 line as it moves. To increase the artistic value of the turtle you can
 change the width of the tail as well as the color of the ink the tail is
 dipped in.
+
+Turtle does not exist the same way in C++, so for convenience in visualizing these
+illustrations a simplified version of a Turtle class is provided here. This .sln
+runs a C++ windows application and is written in C++ code:
+
+https://github.com/CodyWMitchell/visual-recursion
 
 Here is a simple example to illustrate some turtle graphics basics. We
 will use the turtle module to draw a spiral recursively.
@@ -60,6 +66,19 @@ the window, after which the program cleans up and exits.
     drawSpiral(myTurtle,100)
     myWin.exitonclick()
 
+::
+
+    //C++ code
+
+    void drawSpiral(Turtle myTurtle, int lineLen) {
+    // Compare with ActiveCode 2
+        if (lineLen > 0) {
+            myTurtle.forward(lineLen);
+            myTurtle.right(90);
+            drawSpiral(myTurtle, lineLen - 5);
+        }
+    }
+
 That is really about all the turtle graphics you need to know in order
 to make some pretty impressive drawings. For our next program we are
 going to draw a fractal tree. Fractals come from a branch of
@@ -83,8 +102,8 @@ going off to the left. If you think of this definition recursively it
 means that we will apply the recursive definition of a tree to both of
 the smaller left and right trees.
 
-Let's translate this idea to some Python code. :ref:`Listing 1 <lst_fractree>`
-shows how we can use our turtle to generate a fractal tree. Let's look at
+Let's translate this idea to some C++ code. :ref:`Listing 1 <lst_fractree>`
+shows how we can use Python with our turtle to generate a fractal tree. Let's look at
 the code a bit more closely. You will see that on lines 5 and 7 we are
 making a recursive call. On line 5 we make the recursive call right
 after the turtle turns to the right by 20 degrees; this is the right
@@ -97,7 +116,7 @@ time we make a recursive call to ``tree`` we subtract some amount from
 the ``branchLen`` parameter; this is to make sure that the recursive
 trees get smaller and smaller. You should also recognize the initial
 ``if`` statement on line 2 as a check for the base case of ``branchLen``
-getting too small.
+getting too small. The C++ equivalent to this function is shown below and exists in "Turtle.cpp".
 
 .. _lst_fractree:
 
@@ -117,8 +136,8 @@ getting too small.
             tree(branchLen-10,t)
             t.right(20)
             t.backward(branchLen)
-            
-            
+
+
 .. highlight:: python
     :linenothreshold: 500
 
@@ -134,7 +153,7 @@ shape simultaneously? Will it be drawn right side first then left side?
     :nocodelens:
 
     import turtle
-    
+
     def tree(branchLen,t):
         if branchLen > 5:
             t.forward(branchLen)
@@ -155,8 +174,25 @@ shape simultaneously? Will it be drawn right side first then left side?
         t.color("green")
         tree(75,t)
         myWin.exitonclick()
-        
+
     main()
+
+::
+
+    //C++ code
+
+    void tree(double branchLen, Turtle t) {
+    	//Compare with ActiveCode 1
+      	if (branchLen > 5) {
+        		t.forward(branchLen);
+        		t.right(20);
+        		tree(branchLen - 15, t);
+        		t.left(40);
+        		tree(branchLen - 15, t);
+        		t.right(20);
+        		t.forward(-branchLen);
+      	}
+    }
 
 
 Notice how each branch point on the tree corresponds to a recursive
@@ -176,7 +212,7 @@ to the smallest twig on the left.
    :align: center
 
    Figure 1: The Beginning of a Fractal Tree
-   
+
 .. _fig_tree2:
 
 .. figure:: Figures/tree2.png
@@ -196,7 +232,7 @@ interesting options to make your tree look more realistic.
    Modify the recursive tree program using one or all of the following
    ideas:
 
-   -  Modify the thickness of the branches so that as the ``branchLen``
+   -  Find the HDC-related operations to modify the thickness of the branches so that as the ``branchLen``
       gets smaller, the line gets thinner.
 
    -  Modify the color of the branches so that as the ``branchLen`` gets
@@ -213,5 +249,3 @@ interesting options to make your tree look more realistic.
 
    .. actex:: recursion_sc_3
       :nocodelens:
-
-

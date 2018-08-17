@@ -86,8 +86,8 @@ generated the Sierpinski Triangle in :ref:`Figure 3 <fig_sierpinski>` is shown i
 
 
 
-    
-    
+
+
 The program in :ref:`ActiveCode 1 <lst_st>` follows the ideas outlined above. The
 first thing ``sierpinski`` does is draw the outer triangle. Next, there
 are three recursive calls, one for each of the new corner triangles we
@@ -119,8 +119,8 @@ finished with the bottom left it moves to the bottom middle, and so on.
 .. _fig_stcalltree:
 
 .. figure:: Figures/stCallTree.png
-    :align: center   
-   
+    :align: center
+
     Figure 4: Building a Sierpinski Triangle
 
 The ``sierpinski`` function relies heavily on the ``getMid`` function.
@@ -128,3 +128,9 @@ The ``sierpinski`` function relies heavily on the ``getMid`` function.
 halfway between them. In addition, :ref:`ActiveCode 1 <lst_st>` has a function that
 draws a filled triangle using the ``begin_fill`` and ``end_fill`` turtle
 methods.
+
+Visual Studio can be used to create similar turtle-like graphics in C++ using the provided class
+"Turtle.cpp". Visual Studio files can be opened together with the as a .sln file. Try downloading and running
+the following code from GitHub. https://github.com/CodyWMitchell/TestVSGraphics
+
+Look at the Turtle.cpp file. Try changing the code within the turtle's draw loop and using the predefined functions.

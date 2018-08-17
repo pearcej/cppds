@@ -13,12 +13,12 @@ Summary
 -  Abstract data types allow programmers to manage the complexity of a
    problem domain by hiding the details of the data.
 
--  Python is a powerful, yet easy-to-use, object-oriented language.
+-  C++ is a powerful object-oriented language.
 
--  Lists, tuples, and strings are built in Python sequential
-   collections.
+-  Arrays, tuples, and strings are C++ sequential
+   collections from standard template libraries.
 
--  Dictionaries and sets are nonsequential collections of data.
+-  Hash tables and sets are nonsequential collections of data.
 
 -  Classes allow programmers to implement abstract data types.
 
@@ -29,4 +29,3 @@ Summary
 
 -  A class constructor should always invoke the constructor of its
    parent before continuing on with its own data and behavior.
-

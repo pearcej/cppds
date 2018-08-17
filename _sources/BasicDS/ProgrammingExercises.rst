@@ -102,10 +102,10 @@ Programming Exercises
 #. Modify the list classes to allow duplicates. Which methods will be
    impacted by this change?
 
-#. Implement the __str__ method in the UnorderedList class. What
-   would be a good string representation for a list?
+#. Overload the cout operator in the UnorderedList class. What
+   would be a good printed representation for a list?
 
-#. Implement __str__ method so that lists are displayed the
+#. Overload the cout operator so that lists are displayed the
    Python way (with square brackets).
 
 #. Implement the remaining operations defined in the UnorderedList ADT
@@ -129,20 +129,20 @@ Programming Exercises
 #. Implement a deque using linked lists.
 
 #. Design and implement an experiment that will compare the performance
-   of a Python list with a list implemented as a linked list.
+   of a C++ vector with a list implemented as a linked list.
 
 #. Design and implement an experiment that will compare the performance
-   of the Python list based stack and queue with the linked list
+   of the C++ vector based stack and queue with the linked list
    implementation.
 
 #. The linked list implementation given above is called a singly linked
-   list because each node has a single reference to the next node in
+   list because each node has a single pointer to the next node in
    sequence. An alternative implementation is known as a doubly linked
-   list. In this implementation, each node has a reference to the next
-   node (commonly called next) as well as a reference to the preceding
-   node (commonly called back). The head reference also contains two
-   references, one to the first node in the linked list and one to the
-   last. Code this implementation in Python.
+   list. In this implementation, each node has a pointer to the next
+   node (commonly called next) as well as a pointer to the preceding
+   node (commonly called back). The head pointer also contains two
+   pointers, one to the first node in the linked list and one to the
+   last. Code this implementation in C++.
 
 #. Create an implementation of a queue that would have an average performance of
    O(1) for enqueue and dequeue operations.

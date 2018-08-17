@@ -59,7 +59,7 @@ right-hand end of the string. The binary string is then returned.
 
 .. _lst_binconverter:
 
-.. tabbed:: sc1
+.. tabbed:: sc12
 
   .. tab:: C++
 
@@ -100,6 +100,7 @@ right-hand end of the string. The binary string is then returned.
   .. tab:: Python
 
     .. activecode:: binconvert_py
+
        :caption: Converting Decimal to Binary
 
        from pythonds.basic.stack import Stack

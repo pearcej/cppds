@@ -3,7 +3,7 @@
 
 
 AVL Tree Implementation
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 
 Now that we have demonstrated that keeping an AVL tree in balance is
@@ -40,8 +40,53 @@ the calls to ``updateBalance`` on lines 7 and 13.
 
 .. _lst_updbal:
 
-.. code-block:: python
-    
+**C++ Implementation**
+
+::
+
+    void _put(int key, string val, TreeNode *currentNode){
+        if (key < currentNode->key){
+            if (currentNode->hasLeftChild()){
+                this->_put(key, val, currentNode->leftChild);
+            }
+            else{
+                currentNode->leftChild = new TreeNode(key, val, currentNode);
+                this->updateBalance(currentNode->leftChild);
+            }
+        }
+        else{
+            if (currentNode->hasRightChild()){
+                this->_put(key, val, currentNode->rightChild);
+            }
+            else{
+                currentNode->rightChild = new TreeNode(key, val, currentNode);
+                this->updateBalance(currentNode->rightChild);
+            }
+        }
+    }
+
+    int updateBalance(TreeNode *node){
+        if (node->balanceFactor > 1 || node->balanceFactor < -1){
+            this->rebalance(node);
+            return 0;
+        }
+        if (node->parent != NULL){
+            if (node->isLeftChild()){
+                node->parent->balanceFactor += 1;
+            }
+            else if (node->isRightChild()){
+                node->parent->balanceFactor -= 1;
+            }
+            if (node->parent->balanceFactor != 0){
+                this->updateBalance(node->parent);
+            }
+        }
+    }
+
+**Python Implementation**
+
+::
+
     def _put(self,key,val,currentNode):
     	if key < currentNode.key:
     	    if currentNode.hasLeftChild():
@@ -54,11 +99,11 @@ the calls to ``updateBalance`` on lines 7 and 13.
     		    self._put(key,val,currentNode.rightChild)
     	    else:
     		    currentNode.rightChild = TreeNode(key,val,parent=currentNode)
-    		    self.updateBalance(currentNode.rightChild)		
+    		    self.updateBalance(currentNode.rightChild)
 
     def updateBalance(self,node):
     	if node.balanceFactor > 1 or node.balanceFactor < -1:
-    	    self.rebalance(node)    
+    	    self.rebalance(node)
     	    return
     	if node.parent != None:
     	    if node.isLeftChild():
@@ -68,8 +113,8 @@ the calls to ``updateBalance`` on lines 7 and 13.
 
     	    if node.parent.balanceFactor != 0:
     		    self.updateBalance(node.parent)
-    		    
-    		    
+
+
 
 The new ``updateBalance`` method is where most of the work is done. This
 implements the recursive procedure we just described. The
@@ -98,7 +143,7 @@ balance we will use a left rotation around the subtree rooted at node A.
    :align: center
 
    Figure 3: Transforming an Unbalanced Tree Using a Left Rotation
-   
+
 
 To perform a left rotation we essentially do the following:
 
@@ -167,7 +212,37 @@ it to you to study the code for ``rotateRight``.
 
 **Listing 2**
 
-.. code-block:: python
+**C++ Implementation**
+
+::
+
+    void rotateLeft(TreeNode *rotRoot){
+        TreeNode *newRoot = rotRoot->rightChild;
+        rotRoot->rightChild = newRoot->leftChild;
+        if (newRoot->leftChild != NULL){
+            newRoot->leftChild->parent = rotRoot;
+        }
+        newRoot->parent = rotRoot->parent;
+        if (rotRoot->isRoot()){
+            this->root = newRoot;
+        }
+        else{
+            if (rotRoot->isLeftChild()){
+                rotRoot->parent->leftChild = newRoot;
+            }
+            else{
+                rotRoot->parent->rightChild = newRoot;
+            }
+        }
+        newRoot->leftChild = rotRoot;
+        rotRoot->parent = newRoot;
+        rotRoot->balanceFactor = rotRoot->balanceFactor + 1 - min(newRoot->balanceFactor, 0);
+        newRoot->balanceFactor = newRoot->balanceFactor + 1 + max(rotRoot->balanceFactor, 0);
+    }
+
+**Python Implementation**
+
+::
 
     def rotateLeft(self,rotRoot):
     	newRoot = rotRoot.rightChild
@@ -186,10 +261,9 @@ it to you to study the code for ``rotateRight``.
     	rotRoot.parent = newRoot
     	rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(newRoot.balanceFactor, 0)
     	newRoot.balanceFactor = newRoot.balanceFactor + 1 + max(rotRoot.balanceFactor, 0)
-			      
-			      
-.. highlight:: python
-  :linenothreshold: 500
+
+
+
 
 Finally, lines 16-17 require some explanation. In
 these two lines we update the balance factors of the old and the new
@@ -222,9 +296,9 @@ But we know that the old height of D can also be given by :math:`1 +
 max(h_C,h_E)`, that is, the height of D is one more than the maximum
 height of its two children. Remember that :math:`h_c` and
 :math:`h_E` hav not changed. So, let us substitute that in to the
-second equation, which gives us 
+second equation, which gives us
 
-:math:`oldBal(B) = h_A - (1 + max(h_C,h_E))` 
+:math:`oldBal(B) = h_A - (1 + max(h_C,h_E))`
 
 and then subtract the two equations. The following steps
 do the subtraction and use some algebra to simplify the equation for
@@ -235,7 +309,7 @@ do the subtraction and use some algebra to simplify the equation for
    newBal(B) - oldBal(B) = h_A - h_C - (h_A - (1 + max(h_C,h_E))) \\
    newBal(B) - oldBal(B) = h_A - h_C - h_A + (1 + max(h_C,h_E)) \\
    newBal(B) - oldBal(B) = h_A  - h_A + 1 + max(h_C,h_E) - h_C  \\
-   newBal(B) - oldBal(B) =  1 + max(h_C,h_E) - h_C 
+   newBal(B) - oldBal(B) =  1 + max(h_C,h_E) - h_C
 
 
 Next we will move :math:`oldBal(B)` to the right hand side of the
@@ -331,28 +405,51 @@ line 8.
 
 **Listing 3**
 
-.. highlight:: python
-  :linenothreshold: 5
+**C++ Implementation**
+
+::
+
+    void rebalance(TreeNode *node){
+        if (node->balanceFactor < 0){
+            if (node->rightChild->balanceFactor > 0){
+                this->rotateRight(node->rightChild);
+                this->rotateLeft(node);
+            }
+            else{
+                this->rotateLeft(node);
+            }
+        }
+        else if (node->balanceFactor > 0){
+            if (node->leftChild->balanceFactor < 0){
+                this->rotateLeft(node->leftChild);
+                this->rotateRight(node);
+            }
+            else {
+                this->rotateRight(node);
+            }
+        }
+    }
+
+**Python Implementation**
 
 ::
 
     def rebalance(self,node):
-      if node.balanceFactor < 0:
-	     if node.rightChild.balanceFactor > 0:
-	        self.rotateRight(node.rightChild)
-	        self.rotateLeft(node)
-	     else:
-	        self.rotateLeft(node)
-      elif node.balanceFactor > 0:
-	     if node.leftChild.balanceFactor < 0:
-	        self.rotateLeft(node.leftChild)
-	        self.rotateRight(node)
-	     else:
-	        self.rotateRight(node)
+        if node.balanceFactor < 0:
+            if node.rightChild.balanceFactor > 0:
+                self.rotateRight(node.rightChild)
+                self.rotateLeft(node)
+            else:
+                self.rotateLeft(node)
+        elif node.balanceFactor > 0:
+            if node.leftChild.balanceFactor < 0:
+                self.rotateLeft(node.leftChild)
+                self.rotateRight(node)
+            else:
+                self.rotateRight(node)
 
 
-.. highlight:: python
-   :linenothreshold: 500
+
 
 The :ref:`discussion questions <tree_discuss>` provide you the opportunity to rebalance a tree
 that requires a left rotation followed by a right. In addition the
@@ -374,4 +471,3 @@ operation remains :math:`O(log_2(n))`.
 At this point we have implemented a functional AVL-Tree, unless you need
 the ability to delete a node. We leave the deletion of the node and
 subsequent updating and rebalancing as an exercise for you.
-
