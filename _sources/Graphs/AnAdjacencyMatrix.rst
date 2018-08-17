@@ -20,14 +20,14 @@ edge from vertex :math:`v` to vertex :math:`w`.
 .. figure:: Figures/adjMat.png
    :align: center
 
-   Figure 3: An Adjacency Matrix Representation for a Graph 
+   Figure 3: An Adjacency Matrix Representation for a Graph
 
 The advantage of the adjacency matrix is that it is simple, and for
 small graphs it is easy to see which nodes are connected to other nodes.
 However, notice that most of the cells in the matrix are empty. Because
 most of the cells are empty we say that this matrix is “sparse.” A
 matrix is not a very efficient way to store sparse data. In fact, in
-Python you must go out of your way to even create a matrix structure
+C++ you must go out of your way to even create a matrix structure
 like the one in :ref:`Figure 3 <fig_adjmat>`.
 
 The adjacency matrix is a good implementation for a graph when the
@@ -38,4 +38,3 @@ fill the matrix is :math:`|V|^2`. A matrix is full when every vertex
 is connected to every other vertex. There are few real problems that
 approach this sort of connectivity. The problems we will look at in this
 chapter all involve graphs that are sparsely connected.
-

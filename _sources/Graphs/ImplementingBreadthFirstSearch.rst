@@ -65,8 +65,8 @@ and four things happen:
    the queue effectively schedules this node for further exploration,
    but not until all the other vertices on the adjacency list of
    ``currentVert`` have been explored.
-   
-   
+
+
 .. _lst_wordbucket2:
 
 **Listing 2**
@@ -75,21 +75,21 @@ and four things happen:
 
     from pythonds.graphs import Graph, Vertex
     from pythonds.basic import Queue
-    
+
     def bfs(g,start):
-      start.setDistance(0)
-      start.setPred(None)
-      vertQueue = Queue()
-      vertQueue.enqueue(start)
-      while (vertQueue.size() > 0):
-        currentVert = vertQueue.dequeue()
-        for nbr in currentVert.getConnections():
-          if (nbr.getColor() == 'white'):
-            nbr.setColor('gray')
-            nbr.setDistance(currentVert.getDistance() + 1)
-            nbr.setPred(currentVert)
-            vertQueue.enqueue(nbr)
-        currentVert.setColor('black')
+        start.setDistance(0)
+        start.setPred(None)
+        vertQueue = Queue()
+        vertQueue.enqueue(start)
+        while (vertQueue.size() > 0):
+            currentVert = vertQueue.dequeue()
+            for nbr in currentVert.getConnections():
+                if (nbr.getColor() == 'white'):
+                    nbr.setColor('gray')
+                    nbr.setDistance(currentVert.getDistance() + 1)
+                    nbr.setPred(currentVert)
+                    vertQueue.enqueue(nbr)
+            currentVert.setColor('black')
 
 Let’s look at how the ``bfs`` function would construct the breadth first
 tree corresponding to the graph in :ref:`Figure 1 <fig_wordladder>`. Starting
@@ -134,7 +134,7 @@ vertices on the second level of the tree.
 
 .. figure:: Figures/bfs3.png
    :align: center
-   
+
    Figure 5: Breadth First Search Tree After Completing One Level
 
 
@@ -143,7 +143,7 @@ vertices on the second level of the tree.
 .. figure:: Figures/bfsDone.png
    :align: center
 
-   FIgure 6: Final Breadth First Search Tree      
+   FIgure 6: Final Breadth First Search Tree
 
 
 You should continue to work through the algorithm on your own so that
@@ -171,4 +171,3 @@ print out the word ladder.
         print(x.getId())
 
     traverse(g.getVertex('sage'))
-
