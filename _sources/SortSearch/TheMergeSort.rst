@@ -36,56 +36,134 @@ the simple lists, now sorted, as they are merged back together.
 
 
 
-The ``mergeSort`` function shown in :ref:`ActiveCode 1 <lst_merge>` begins by asking the
+The ``mergeSort`` function shown in :ref:`ActiveCode 1 <lst_mergeSort_cpp>` begins by asking the
 base case question. If the length of the list is less than or equal to
 one, then we already have a sorted list and no more processing is
-necessary. If, on the other hand, the length is greater than one, then
-we use the Python ``slice`` operation to extract the left and right
+necessary. If, on the other hand, the length is greater than one, then we utilize
+the vector intializer using .begin to extract the left and right halves.
+This is similar to using the Python ``slice`` operation to extract the left and right
 halves. It is important to note that the list may not have an even
 number of items. That does not matter, as the lengths will differ by at
 most one.
 
-.. _lst_merge:
+.. tabbed:: lst_merge
 
-.. activecode:: lst_mergeSort
-    :caption: Merge Sort
+  .. tab:: C++
 
-    def mergeSort(alist):
-        print("Splitting ",alist)
-        if len(alist)>1:
-            mid = len(alist)//2
-            lefthalf = alist[:mid]
-            righthalf = alist[mid:]
+    .. activecode:: lst_mergeSort_cpp
+      :caption: The Merge Sort
+      :language: cpp
 
-            mergeSort(lefthalf)
-            mergeSort(righthalf)
+      #include <iostream>
+      #include <vector>
+      using namespace std;
 
-            i=0
-            j=0
-            k=0
-            while i < len(lefthalf) and j < len(righthalf):
-                if lefthalf[i] < righthalf[j]:
+      void printl(vector<int> alist) {
+          for (unsigned int i=0; i<alist.size(); i++) {
+              cout << alist[i] << " ";
+          }
+          cout << endl;
+      }
+
+      vector<int> mergeSort(vector<int> alist) {
+          cout<<"Splitting ";
+          printl(alist);
+          cout<<endl;
+          if (alist.size()>1) {
+              int mid = alist.size()/2;
+              //C++ Equivalent to using Python Slices
+              vector<int> lefthalf(alist.begin(),alist.begin()+mid);
+              vector<int> righthalf(alist.begin()+mid,alist.begin()+alist.size());
+
+              lefthalf = mergeSort(lefthalf);
+              righthalf = mergeSort(righthalf);
+
+              unsigned i = 0;
+              unsigned j = 0;
+              unsigned k = 0;
+              while (i < lefthalf.size() && j < righthalf.size()) {
+                  if (lefthalf[i] < righthalf[j]) {
+                      alist[k]=lefthalf[i];
+                      i++;
+                  } else {
+                      alist[k] = righthalf[j];
+                      j++;
+                  }
+                  k++;
+              }
+
+              while (i<lefthalf.size()) {
+                  alist[k] = lefthalf[i];
+                  i++;
+                  k++;
+              }
+
+              while (j<righthalf.size()) {
+                  alist[k]=righthalf[j];
+                  j++;
+                  k++;
+              }
+
+          }
+          cout<<"Merging ";
+          printl(alist);
+          cout<<endl;
+
+          return alist;
+      }
+
+      int main() {
+          // Vector initialized using a static array
+          static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
+          vector<int> alist (arr, arr + sizeof(arr) / sizeof(arr[0]) );
+
+          printl(alist);
+
+          return 0;
+      }
+
+
+  .. tab:: Python
+
+    .. activecode:: lst_mergeSort
+        :caption: Merge Sort
+
+        def mergeSort(alist):
+            print("Splitting ",alist)
+            if len(alist)>1:
+                mid = len(alist)//2
+                lefthalf = alist[:mid]
+                righthalf = alist[mid:]
+
+                mergeSort(lefthalf)
+                mergeSort(righthalf)
+
+                i=0
+                j=0
+                k=0
+                while i < len(lefthalf) and j < len(righthalf):
+                    if lefthalf[i] < righthalf[j]:
+                        alist[k]=lefthalf[i]
+                        i=i+1
+                    else:
+                        alist[k]=righthalf[j]
+                        j=j+1
+                    k=k+1
+
+                while i < len(lefthalf):
                     alist[k]=lefthalf[i]
                     i=i+1
-                else:
+                    k=k+1
+
+                while j < len(righthalf):
                     alist[k]=righthalf[j]
                     j=j+1
-                k=k+1
+                    k=k+1
+            print("Merging ",alist)
 
-            while i < len(lefthalf):
-                alist[k]=lefthalf[i]
-                i=i+1
-                k=k+1
-
-            while j < len(righthalf):
-                alist[k]=righthalf[j]
-                j=j+1
-                k=k+1
-        print("Merging ",alist)
-        
-    alist = [54,26,93,17,77,31,44,55,20]
-    mergeSort(alist)
-    print(alist)
+        alist = [54,26,93,17,77,31,44,55,20]
+        mergeSort(alist)
+        print(alist)
 
 
 
@@ -111,8 +189,8 @@ list that can be immediately merged with other sorted lists.
    :viewerfile: sortviewers.js
    :model: MergeSortModel
    :viewer: BarViewer
-  
-  
+
+
 .. For more detail, CodeLens 6 allows you to step through the algorithm.
 ..
 ..
@@ -209,4 +287,3 @@ sets.
       :feedback_d: Although 9 and 16 are next to each other they are in different halves of the list starting with the first split.
 
       Given the following list of numbers: <br> [21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40] <br> which answer illustrates the first two lists to be merged?
-

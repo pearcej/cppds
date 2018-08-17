@@ -3,7 +3,8 @@
 
 
 The Stack Abstract Data Type
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------
+
 
 The stack abstract data type is defined by the following structure and
 operations. A stack is structured, as described above, as an ordered

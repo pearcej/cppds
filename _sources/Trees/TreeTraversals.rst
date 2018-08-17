@@ -3,7 +3,7 @@
 
 
 Tree Traversals
-~~~~~~~~~~~~~~~
+---------------
 
 Now that we have examined the basic functionality of our
 tree data structure, it is time to look at some additional usage
@@ -65,7 +65,7 @@ procedure for Chapter 2.
 
 The code for writing tree traversals is surprisingly elegant, largely
 because the traversals are written recursively. :ref:`Listing 2 <lst_preorder1>`
-shows the Python code for a preorder traversal of a binary tree.
+shows the C++ code for a preorder traversal of a binary tree.
 
 You may wonder, what is the best way to write an algorithm like preorder
 traversal? Should it be a function that simply uses a tree as a data
@@ -83,11 +83,25 @@ then the function returns without taking any action.
 
 ::
 
+    C++ Implementation
+
+    void preorder(BinaryTree *tree){
+        if (tree){
+            cout << tree->getRootVal() << endl;
+            preorder(tree->getLeftChild());
+            preorder(tree->getRightChild());
+        }
+    }
+
+::
+
+    Python Implementation
+
     def preorder(tree):
         if tree:
             print(tree.getRootVal())
             preorder(tree.getLeftChild())
-            preorder(tree.getRightChild())  
+            preorder(tree.getRightChild())
 
 
 We can also implement ``preorder`` as a method of the ``BinaryTree``
@@ -103,6 +117,22 @@ children *before* making the recursive call to ``preorder``.
 **Listing 3**
 
 ::
+
+    C++ Implementation
+
+    void preorder(){
+        cout << this->key << endl;
+        if (this->leftChild){
+            this->leftChild->preorder();
+        }
+        if (this->rightChild){
+            this->rightChild->preorder();
+        }
+    }
+
+::
+
+    Python Implementation
 
     def preorder(self):
         print(self.key)
@@ -133,6 +163,20 @@ we move the call to print to the end of the function.
 
 ::
 
+    C++ Implementation
+
+    void postorder(BinaryTree *tree){
+        if (tree != NULL){
+            postorder(tree->getLeftChild());
+            postorder(tree->getRightChild());
+            cout << tree->getRootVal() << endl;
+        }
+    }
+
+::
+
+    Python Implementation
+
     def postorder(tree):
         if tree != None:
             postorder(tree.getLeftChild())
@@ -153,6 +197,128 @@ closely on the ``postorder`` code in :ref:`Listing 4 <lst_postorder1>` (see :ref
 
 **Listing 5**
 
+.. sourcecode:: cpp
+
+
+    class Operator {
+        public:
+            int add(int x, int y){
+                return x + y;
+            }
+
+            int sub(int x, int y){
+                return x - y;
+            }
+
+            int mul(int x, int y){
+                return x * y;
+            }
+
+            int div(int x, int y){
+                return x / y;
+            }
+    };
+
+    int to_int(string str) {
+        stringstream convert(str);
+        int x = 0;
+        convert >> x;
+        return x;
+    }
+
+    string to_string(int num) {
+        string str;
+        ostringstream convert;
+        convert << num;
+        str = convert.str();
+        return str;
+    }
+
+    string evaluate(BinaryTree *parseTree) {
+        Operator Oper;
+
+        BinaryTree *leftC = parseTree->getLeftChild();
+        BinaryTree *rightC = parseTree->getRightChild();
+
+        if (leftC && rightC) {
+            if (parseTree->getRootVal() == "+") {
+                return to_string(Oper.add(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
+            } else if (parseTree->getRootVal() == "-") {
+                return to_string(Oper.sub(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
+            } else if (parseTree->getRootVal() == "*") {
+                return to_string(Oper.mul(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
+            } else {
+                return to_string(Oper.div(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
+            }
+        } else {
+            return parseTree->getRootVal();
+        }
+    }
+
+    int main(){
+
+        return 0;
+    }
+
+
+.. sourcecode:: Python
+
+    class Operator {
+        public:
+        int add(int x, int y){
+            return x + y;
+        }
+
+        int sub(int x, int y){
+            return x - y;
+        }
+
+        int mul(int x, int y){
+            return x * y;
+        }
+
+        int div(int x, int y){
+            return x / y;
+        }
+    };
+
+    int to_int(string str) {
+        stringstream convert(str);
+        int x = 0;
+        convert >> x;
+        return x;
+    }
+
+    string t_string(int num) {
+        string str;
+        ostringstream convert;
+        convert << num;
+        str = convert.str();
+        return str;
+    }
+
+    string postordereval(BinaryTree *tree){
+        Operator Oper;
+        BinaryTree *res1 = tree->getLeftChild();
+        BinaryTree *res2 = tree->getRightChild();
+        if (tree) {
+            if (res1 && res2) {
+                if (tree->getRootVal() == "+") {
+                    return t_string(Oper.add(to_int(postordereval(res1)), to_int(postordereval(res2))));
+                } else if (tree->getRootVal() == "-") {
+                    return t_string(Oper.sub(to_int(postordereval(res1)), to_int(postordereval(res2))));
+                } else if (tree->getRootVal() == "*") {
+                    return t_string(Oper.mul(to_int(postordereval(res1)), to_int(postordereval(res2))));
+                } else {
+                    return t_string(Oper.div(to_int(postordereval(res1)), to_int(postordereval(res2))));
+                }
+            } else {
+                return tree->getRootVal();
+            }
+
+        }
+    }
+
 ::
 
     def postordereval(tree):
@@ -166,7 +332,7 @@ closely on the ``postorder`` code in :ref:`Listing 4 <lst_postorder1>` (see :ref
                 return opers[tree.getRootVal()](res1,res2)
             else:
                 return tree.getRootVal()
-                
+
 
 .. highlight:: python
     :linenothreshold: 500
@@ -190,6 +356,19 @@ statement with respect to the two recursive function calls.
 
 ::
 
+    C++ Implementation
+
+    void inorder(BinaryTree *tree){
+        if (tree != NULL){
+            inorder(tree->getLeftChild());
+            cout << tree->getRootVal();
+            inorder(tree->getRightChild());
+        }
+    }
+
+::
+
+    Python Implementation
 
     def inorder(tree):
       if tree != None:
@@ -212,6 +391,22 @@ shown in :ref:`Listing 7 <lst_printexp>`.
 **Listing 7**
 
 ::
+
+    C++ Implementation
+
+    string printexp(BinaryTree *tree){
+        string sVal;
+        if (tree){
+            sVal = "(" + printexp(tree->getLeftChild());
+            sVal = sVal + tree->getRootVal();
+            sVal = sVal + printexp(tree->getRightChild()) + ")";
+        }
+        return sVal;
+    }
+
+::
+
+    Python Implementation
 
     def printexp(tree):
       sVal = ""

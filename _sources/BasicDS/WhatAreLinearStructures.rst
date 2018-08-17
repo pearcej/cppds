@@ -7,7 +7,7 @@ What Are Linear Structures?
 
 We will begin our study of data structures by
 considering four simple but very powerful concepts. Stacks, queues,
-deques, and lists are examples of data collections whose items are
+deques, and vectors are examples of data collections whose items are
 ordered depending on how they are added or removed. Once an item is
 added, it stays in that position relative to the other elements that
 came before and came after it. Collections such as these are often
@@ -26,9 +26,3 @@ be removed from either end.
 These variations give rise to some of the most useful data structures in
 computer science. They appear in many algorithms and can be used to
 solve a variety of important problems.
-
-
-
-
-
-

@@ -29,8 +29,7 @@ First, it reviews the framework within which computer science and the
 study of algorithms and data structures must fit, in particular, the
 reasons why we need to study these topics and how understanding these
 topics helps us to become better problem solvers. Second, we review the
-Python programming language. Although we cannot provide a detailed,
+C++ programming language. Although we cannot provide a detailed,
 exhaustive reference, we will give examples and explanations for the
 basic constructs and ideas that will occur throughout the remaining
 chapters.
-

@@ -22,7 +22,7 @@ shows a simple tree and the corresponding list implementation.
 
 .. figure:: Figures/smalltree.png
    :align: center
-           
+
    Figure 1: A Small Tree
 
 ::
@@ -33,9 +33,9 @@ shows a simple tree and the corresponding list implementation.
                ['e', [], []] ],
               ['c',  #right subtree
                ['f', [], []],
-               [] ]  
-             ]           
-                  
+               [] ]
+             ]
+
 
 
 
@@ -73,7 +73,7 @@ working with a tree.
 
 
     def BinaryTree(r):
-        return [r, [], []]    
+        return [r, [], []]
 
 The ``BinaryTree`` function simply constructs a list with a root node
 and two empty sublists for the children. To add a left subtree to the
@@ -131,13 +131,13 @@ getting the left or right subtrees.
 
     def getRootVal(root):
         return root[0]
-    
+
     def setRootVal(root,newVal):
         root[0] = newVal
-    
+
     def getLeftChild(root):
         return root[1]
-    
+
     def getRightChild(root):
         return root[2]
 
@@ -153,7 +153,7 @@ structure resulting from this set of calls.
     :caption: A Python Session to Illustrate Basic Tree Functions
 
     def BinaryTree(r):
-        return [r, [], []]    
+        return [r, [], []]
 
     def insertLeft(root,newBranch):
         t = root.pop(1)
@@ -173,13 +173,13 @@ structure resulting from this set of calls.
 
     def getRootVal(root):
         return root[0]
-    
+
     def setRootVal(root,newVal):
         root[0] = newVal
-    
+
     def getLeftChild(root):
         return root[1]
-    
+
     def getRightChild(root):
         return root[2]
 
@@ -190,13 +190,13 @@ structure resulting from this set of calls.
     insertRight(r,7)
     l = getLeftChild(r)
     print(l)
-    
+
     setRootVal(l,9)
     print(r)
     insertLeft(l,11)
     print(r)
     print(getRightChild(getRightChild(r)))
-    
+
 
 .. admonition:: Self Check
 
@@ -211,15 +211,15 @@ structure resulting from this set of calls.
       :feedback_c: Very good
       :feedback_d: This is close, but the left and right child names have been swapped along with the underlying structures.
 
-      Given the following statments:
+      Given the following statements:
 
       .. sourcecode:: python
-      
+
           x = BinaryTree('a')
           insertLeft(x,'b')
           insertRight(x,'c')
           insertRight(getRightChild(x),'d')
-          insertLeft(getRightChild(getRightChild(x)),'e')    
+          insertLeft(getRightChild(getRightChild(x)),'e')
 
       Which of the answers is the correct representation of the tree?
 
@@ -230,12 +230,11 @@ structure resulting from this set of calls.
       .. image:: Figures/tree_ex.png
       ~~~~
       from test import testEqual
-      
+
       def buildTree():
           pass
-          
+
       ttree = buildTree()
       testEqual(getRootVal(getRightChild(ttree)),'c')
-      testEqual(getRootVal(getRightChild(getLeftChild(ttree))),'d')      
-      testEqual(getRootVal(getRightChild(getRightChild(ttree))),'f')            
-      
+      testEqual(getRootVal(getRightChild(getLeftChild(ttree))),'d')
+      testEqual(getRootVal(getRightChild(getRightChild(ttree))),'f')

@@ -38,50 +38,51 @@ generated the Sierpinski Triangle in :ref:`Figure 3 <fig_sierpinski>` is shown i
 
 
 .. activecode:: lst_st
-   :caption: Drawing a Sierpinski Triangle
+    :caption: Drawing a Sierpinski Triangle
+    :nocodelens:
 
-   import turtle
+    import turtle
 
-   def drawTriangle(points,color,myTurtle):
-       myTurtle.fillcolor(color)
-       myTurtle.up()
-       myTurtle.goto(points[0][0],points[0][1])
-       myTurtle.down()
-       myTurtle.begin_fill()
-       myTurtle.goto(points[1][0],points[1][1])
-       myTurtle.goto(points[2][0],points[2][1])
-       myTurtle.goto(points[0][0],points[0][1])
-       myTurtle.end_fill()
+    def drawTriangle(points,color,myTurtle):
+        myTurtle.fillcolor(color)
+        myTurtle.up()
+        myTurtle.goto(points[0][0],points[0][1])
+        myTurtle.down()
+        myTurtle.begin_fill()
+        myTurtle.goto(points[1][0],points[1][1])
+        myTurtle.goto(points[2][0],points[2][1])
+        myTurtle.goto(points[0][0],points[0][1])
+        myTurtle.end_fill()
 
-   def getMid(p1,p2):
-       return ( (p1[0]+p2[0]) / 2, (p1[1] + p2[1]) / 2)
+    def getMid(p1,p2):
+        return ( (p1[0]+p2[0]) / 2, (p1[1] + p2[1]) / 2)
 
-   def sierpinski(points,degree,myTurtle):
-       colormap = ['blue','red','green','white','yellow',
-                   'violet','orange']
-       drawTriangle(points,colormap[degree],myTurtle)
-       if degree > 0:
-           sierpinski([points[0],
-                           getMid(points[0], points[1]),
-                           getMid(points[0], points[2])],
-                         degree-1, myTurtle)
-           sierpinski([points[1],
-                           getMid(points[0], points[1]),
-                           getMid(points[1], points[2])],
-                         degree-1, myTurtle)
-           sierpinski([points[2],
-                           getMid(points[2], points[1]),
-                           getMid(points[0], points[2])],
-                         degree-1, myTurtle)
+    def sierpinski(points,degree,myTurtle):
+        colormap = ['blue','red','green','white','yellow',
+                    'violet','orange']
+        drawTriangle(points,colormap[degree],myTurtle)
+        if degree > 0:
+            sierpinski([points[0],
+                            getMid(points[0], points[1]),
+                            getMid(points[0], points[2])],
+                       degree-1, myTurtle)
+            sierpinski([points[1],
+                            getMid(points[0], points[1]),
+                            getMid(points[1], points[2])],
+                       degree-1, myTurtle)
+            sierpinski([points[2],
+                            getMid(points[2], points[1]),
+                            getMid(points[0], points[2])],
+                       degree-1, myTurtle)
 
-   def main():
-         myTurtle = turtle.Turtle()
-         myWin = turtle.Screen()
-         myPoints = [[-100,-50],[0,100],[100,-50]]
-         sierpinski(myPoints,3,myTurtle)
-         myWin.exitonclick()
+    def main():
+       myTurtle = turtle.Turtle()
+       myWin = turtle.Screen()
+       myPoints = [[-100,-50],[0,100],[100,-50]]
+       sierpinski(myPoints,3,myTurtle)
+       myWin.exitonclick()
 
-   main()
+    main()
 
 
 The program in :ref:`ActiveCode 1 <lst_st>` follows the ideas outlined above. The
@@ -124,3 +125,9 @@ The ``sierpinski`` function relies heavily on the ``getMid`` function.
 halfway between them. In addition, :ref:`ActiveCode 1 <lst_st>` has a function that
 draws a filled triangle using the ``begin_fill`` and ``end_fill`` turtle
 methods.
+
+Visual Studio can be used to create similar turtle-like graphics in C++ using the provided class
+"Turtle.cpp". Visual Studio files can be opened together with the as a .sln file. Try downloading and running
+the following code from GitHub. https://github.com/CodyWMitchell/TestVSGraphics
+
+Look at the Turtle.cpp file. Try changing the code within the turtle's draw loop and using the predefined functions.

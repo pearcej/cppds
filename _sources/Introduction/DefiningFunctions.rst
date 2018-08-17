@@ -5,36 +5,49 @@
 Defining Functions
 ------------------
 
-The earlier example of procedural abstraction called upon a Python
-function called ``sqrt`` from the math module to compute the square
-root. In general, we can hide the details of any computation by defining
+In general, we can hide the details of any computation by defining
 a function. A function definition requires a name, a group of
-parameters, and a body. It may also explicitly return a value. For
-example, the simple function defined below returns the square of the
+parameters, a return type, and a body. It may either return a variable, value, or nothing (specified by the keyword void). For
+example, the simple function defined below returns the double of the
 value you pass into it.
 
 ::
 
-    >>> def square(n):
-    ...    return n**2
-    ...
-    >>> square(3)
-    9
-    >>> square(square(3))
-    81
-    >>>
+    int timesTwo(int num) {
+        return num*2;
+    }
 
-The syntax for this function definition includes the name, ``square``,
-and a parenthesized list of formal parameters. For this function, ``n``
-is the only formal parameter, which suggests that ``square`` needs only
+The syntax for this function definition includes the name, ``timesTwo``,
+and a parenthesized list of formal parameters and their types. For this function an ``int`` named ``num``
+is the only formal parameter, which suggests that ``timesTwo`` needs only
 one piece of data to do its work. The details, hidden “inside the box,”
-simply compute the result of ``n**2`` and return it. We can invoke or
-call the ``square`` function by asking the Python environment to
+simply compute the result of ``num*2`` and return it. We can invoke or
+call the ``timesTwo`` function by asking the C++ to
 evaluate it, passing an actual parameter value, in this case, ``3``.
-Note that the call to ``square`` returns an integer that can in turn be
+Note that the call to ``timesTwo`` returns an integer that can in turn be
 passed to another invocation.
 
-We could implement our own square root function by using a well-known
+
+.. _lst_timesTwo:
+
+  .. activecode:: timesTwo
+    :language: cpp
+    :caption: Implementation of the timesTwo function
+
+    #include <iostream>
+    using namespace std;
+
+    int timesTwo(int num) {
+        return num*2;
+    }
+
+    int main() {
+        cout<<timesTwo(5)<<endl;
+
+        return 0;
+    }
+
+We could go a step further and implement our own square root function by using a well-known
 technique called “Newton’s Method.” Newton’s Method for approximating
 square roots performs an iterative computation that converges on the
 correct value. The equation
@@ -47,8 +60,8 @@ iteration. The initial guess used here is :math:`\frac {n}{2}`.
 guesses. Again, the details of Newton’s Method are hidden inside the
 function definition and the user does not have to know anything about
 the implementation to use the function for its intended purpose.
-:ref:`Listing 1 <lst_root>` also shows the use of the # character as a comment
-marker. Any characters that follow the # on a line are ignored.
+:ref:`Listing 1 <lst_root>` also shows the use of the // characters as a comment
+marker. Any characters that follow the // on a line are ignored.
 
 
 
@@ -57,23 +70,29 @@ marker. Any characters that follow the # on a line are ignored.
 
 **Listing 1**
 
-.. sourcecode:: python
+.. activecode:: newtonsmethod
+  :language: cpp
+  :caption: Newton's Method for finding Square Root
 
-    def squareroot(n):
-        root = n/2    #initial guess will be 1/2 of n
-        for k in range(20):
-            root = (1/2)*(root + (n / root))
+  #include <iostream>
+  using namespace std;
 
-        return root
+  double squareroot(double n) {
+  	double root = n / 2;
 
+  	for (int i = 0; i < 20; i++) {
+  		root = (.5) * (root + (n / root));
+  	}
 
-::
+  	return root;
+  }
 
-    >>>squareroot(9)
-    3.0
-    >>>squareroot(4563)
-    67.549981495186216
-    >>>
+  int main() {
+  	cout << squareroot(9) << endl;
+  	cout << squareroot(4563) << endl;
+
+  	return 0;
+  }
 
 Functions that Pass by Value versus Pass By Reference
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -87,7 +106,6 @@ Consider the following two function definitions:
 
     void functionExample( int inputVar ) {
         int nextVar = inputVar * 2;
-
         inputVar = 4;
 
         cout << "nextVar = " << nextVar << " inputVar = " << inputVar;
@@ -147,11 +165,12 @@ An example of a function where this is useful is a function that takes two value
 
         int main( ) {
             int first_num, second_num;
+            first_num = 7;
+            second_num = 8;
 
-            cout << "Enter two integers, separated by a space: ";
-            cin >> first_num >> second_num;
+            cout << "Two numbers before swap function: 1) " << first_num << " 2) " << second_num << endl;
             swap_values(first_num, second_num);
-            cout << "the numbers are 1) " << first_num << " 2) " << second_num;
+            cout << "The numbers after swap function: 1) " << first_num << " 2) " << second_num;
 
             return 0;
         }
@@ -202,23 +221,112 @@ Upon further examination, we can see that the first two arrays do not change val
 
 These changes would ensure that the compiler will then not accept any statements within the function's definition that potentially modify the elements of the arrays *first* or *second*.
 
+Operator Overloading
+^^^^^^^^^^^^^^^^^^^^
+
+Defining a new meaning for an already existing operator (such as the arithmetic operators plus "+" or times "*") is called overloading the operator. Such overloading is easy to do in C++ with the correctly structured declaration, using the following prototype:
+type operator symbol(s)( parameters );
+
+Operators such as (+, -, \*, /, %, ==, <, >, <=, >=, etc.) are really just C++ functions that use a special syntax for listing the function arguments.
+
+Let's consider an example of  a class called Money which will allow input and output in the form:  $123.45
+
+Note that the input includes both the dollar sign and the decimal point.  Wouldn't it be nice to be able to have a main program which works with Money just as it it were a more simple data type?  Maybe with something as follows:
+
+
+.. raw :: html
+
+    <div>
+    <iframe height="700px" width="100%" src="https://repl.it/@Dostonbek1/StainedOffensiveTechnology?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+    </div>
+
+Let's look at the overloaded operator we use in this example.  The most complicated of the bunch is the overloaded instream operator, which is a friend of the class:
+
+::
+
+    istream& operator >>(istream& ins, Money& amount)
+    {
+        char one_char, decimal_point,
+            digit1, digit2; //digits for the amount of cents
+        long dollars;
+        int cents;
+
+        ins >> one_char; //if input is legal, then one_char == '$' and we do not store it
+        ins >> dollars >> decimal_point >> digit1 >> digit2;
+
+        if ( one_char != '$' || decimal_point != '.' || !isdigit(digit1) || !isdigit(digit2) )
+        {
+            cout << "Error illegal form for money input.\n";
+            exit(1);
+        }
+
+        cents = digit_to_int(digit1)*10 + digit_to_int(digit2);//Here we convert the cents
+        amount.all_cents = dollars*100 + cents;  //Here we convert the money to all cents and store in the private member variable
+                                                 //We need this operator to be a friend so it can access this member variable.
+        return ins;
+      }
+
+Overloaded stream operators always have the stream both as a call-by-reference input as well as send-by-reference output.  This may seem weird, but the issue is that reading or writing a stream changes it.  The structure used the above example  will work BOTH for reading from the keyboard as well as from a file!
+
+The overloaded outstream operator is also a friend, but is a bit simpler.  It can also be used as is to write to the screen or to a file!
+
+::
+
+    ostream& operator <<(ostream& outs, const Money& amount)
+    {
+        long positive_cents, dollars, cents;
+        positive_cents = amount.all_cents;
+        dollars = positive_cents/100;
+        cents = positive_cents%100;
+
+        outs << "$" << dollars << '.';
+
+        if (cents < 10)
+            outs << '0';
+        outs << cents;
+
+        return outs;
+    }
+
+Once the Money is stored in the private member variable as all_cents, the boolean comparison, which is also a friend, is very simple:
+
+::
+
+    bool operator ==(const Money& amount1, const Money& amount2)
+    {
+        return (amount1.all_cents == amount2.all_cents);
+    }
+
+
+**General Rules**
+
+1. Only existing operator symbols may be overloaded. New symbols that are not builtin, such as \*\*, cannot be used.
+2. The operators ::, #, ., and ? are reserved and cannot be overloaded.
+3. Some operators such as =, [], () and -> can only be overloaded as member functions of a class and not as global functions.
+4. At least one operand for any overload must be a class or enumeration type. In other words, it is not possible to overload operators involving only built-in data types. For example, trying to overload the addition operator for the int data type would result in a compiler error:
+
+    `int operator +( int i, int j );  // This is not allowed`
+
+5. The number of operands for an operator may not be changed.
+6. Operator precedence cannot be changed by overloading.
+
+
+It is a good idea to match the overloaded operator implementation with the original meaning, even though mismatching is possible. In other words, it would be confusing if the `+` operator is overloaded to subtract values or if the ``<<`` operator gets input from the stream.
+
+In addition to being defined in within the class scope, overloaded operators may be defined in global or namespace scope or as friends of the class. Global scope means that the operator is defined outside of any function (including the main) or class. Namespace scope means that the operator is defined outside of any class but within a namespace, possibly within the main program.
+
+One reason for declaring overloaded operators as friends of a class is that sometimes the operator is intimately related to a class but cannot be declared as a member of that class.
+
 .. admonition:: Self Check
 
    Here's a self check that really covers everything so far.  You may have
-   heard of the infinite monkey theorem?  The theorem states that a monkey hitting keys at random on a typewriter keyboard for an infinite amount of time will almost surely type a given text, such as the complete works of William Shakespeare.  Well, suppose we replace a monkey with a Python function.  How long do you think it would take for a Python function to generate just one sentence of Shakespeare?  The sentence we'll shoot for is:  "methinks it is like a weasel"
+   heard of the infinite monkey theorem?  The theorem states that a monkey hitting keys at random on a typewriter keyboard for an infinite amount of time will almost surely type a given text, such as the complete works of William Shakespeare.  Well, suppose we replace a monkey with a C++ function.  How long do you think it would take for a C++ function to generate just one sentence of Shakespeare?  The sentence we'll shoot for is:  "methinks it is like a weasel"
 
-   You're not going to want to run this one in the browser, so fire up your favorite Python IDE.  The way we'll simulate this is to write a function that generates a string that is 28 characters long by choosing random letters from the 26 letters in the alphabet plus the space.  We'll write another function that will score each generated string by comparing the randomly generated string to the goal.
+   You're not going to want to run this one in the browser, so fire up your favorite C++ IDE.  The way we'll simulate this is to write a function that generates a string that is 28 characters long by choosing random letters from the 26 letters in the alphabet plus the space.  We'll write another function that will score each generated string by comparing the randomly generated string to the goal.
 
-   A third function will repeatedly call generate and score, then if 100% of the letters are correct we are done.  If the letters are not correct then we will generate a whole new string.To make it easier to follow your program's progress this third function should print out the best string generated so far and its score every 1000 tries.
+   A third function will repeatedly call generate and score, then if 100% of the letters are correct we are done.  If the letters are not correct then we will generate a whole new string. To make it easier to follow your program's progress this third function should print out the best string generated so far and its score every 1000 tries.
 
 
 .. admonition:: Self Check Challenge
 
     See if you can improve upon the program in the self check by keeping letters that are correct and only modifying one character in the best string so far.  This is a type of algorithm in the class of 'hill climbing' algorithms, that is we only keep the result if it is better than the previous one.
-
-.. video:: monkeyvid
-   :controls:
-   :thumb: ../_static/videothumb.png
-
-   http://media.interactivepython.org/pythondsVideos/monkeys.mov
-   http://media.interactivepython.org/pythondsVideos/monkeys.webm

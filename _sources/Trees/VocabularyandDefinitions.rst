@@ -23,7 +23,7 @@ Edge
 
 Root
     The root of the tree is the only node in the tree that has no
-    incoming edges. In Figure :ref:`Figure 2 <fig_filetree>`, / is the root of the tree.
+    incoming edges. In :ref:`Figure 2 <fig_filetree>`, / is the root of the tree.
 
 Path
     A path is an ordered list of nodes that are connected by edges. For
@@ -33,7 +33,7 @@ Path
 
 Children
     The set of nodes :math:`c` that have incoming edges from the same
-    node to are said to be the children of that node. In Figure
+    node to are said to be the children of that node. In 
     :ref:`Figure 2 <fig_filetree>`, nodes log/, spool/, and yp/ are the children of node
     var/.
 

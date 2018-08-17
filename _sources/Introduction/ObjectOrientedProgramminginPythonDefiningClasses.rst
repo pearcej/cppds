@@ -2,10 +2,10 @@
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
-Object-Oriented Programming in Python: Defining Classes
+Object-Oriented Programming in C++: Defining Classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We stated earlier that Python is an object-oriented programming
+We stated earlier that C++ is an object-oriented programming
 language. So far, we have used a number of built-in classes to show
 examples of data and control structures. One of the most powerful
 features in an object-oriented programming language is the ability to
@@ -25,7 +25,7 @@ A ``Fraction`` Class
 
 A very common example to show the details of implementing a user-defined
 class is to construct a class to implement the abstract data type
-``Fraction``. We have already seen that Python provides a number of
+``Fraction``. We have already seen that C++ provides a number of
 numeric classes for our use. There are times, however, that it would be
 most appropriate to be able to create data objects that “look like”
 fractions.
@@ -47,58 +47,77 @@ addition, all fraction methods should return results in their lowest
 terms so that no matter what computation is performed, we always end up
 with the most common form.
 
-In Python, we define a new class by providing a name and a set of method
+In C++, we define a new class by providing a name and a set of method
 definitions that are syntactically similar to function definitions. For
 this example,
 
 ::
 
-    class Fraction:
-
-       #the methods go here
+    class Fraction {
+        // The methods and class variables go here
+    };
 
 
 provides the framework for us to define the methods. The first method
 that all classes should provide is the constructor. The constructor
 defines the way in which data objects are created. To create a
 ``Fraction`` object, we will need to provide two pieces of data, the
-numerator and the denominator. In Python, the constructor method is
-always called __init__ (two underscores before and after ``init``)
+numerator and the denominator. In C++, the constructor method is
+always called the same name as the class it creates
 and is shown in :ref:`Listing 2 <lst_pyconstructor>`.
 
 .. _lst_pyconstructor:
 
 **Listing 2**
 
-.. sourcecode:: python
+.. sourcecode:: cpp
 
-    class Fraction:
+    class Fraction {
+        private:
+        int num;
+        int den;
 
-        def __init__(self,top,bottom):
+        public:
+        Fraction(int top, int bottom) {
+            num = top;
+            den = bottom;
+        }
+    };
 
-            self.num = top
-            self.den = bottom
-
-Notice that the formal parameter list contains three items (``self``,
-``top``, ``bottom``). ``self`` is a special parameter that will always
-be used as a reference back to the object itself. It must always be the
-first formal parameter; however, it will never be given an actual
-parameter value upon invocation. As described earlier, fractions require
+As described earlier, fractions require
 two pieces of state data, the numerator and the denominator. The
-notation ``self.num`` in the constructor defines the ``fraction`` object
+notation ``int num`` outside the constructor defines the ``fraction`` object
 to have an internal data object called ``num`` as part of its state.
-Likewise, ``self.den`` creates the denominator. The values of the two
+Likewise, ``int den`` creates the denominator. The values of the two
 formal parameters are initially assigned to the state, allowing the new
-``fraction`` object to know its starting value.
+``fraction`` object to know its starting value. Any variables under the ``private``
+keyword will only be able to be accessed by the objects functions, not the user.
+``public`` methods and variables can be accessed and used by the user. Because we
+want our user to be able to call our constructor directly, we put it under ``public``.
 
-To create an instance of the ``Fraction`` class, we must invoke the
-constructor. This happens by using the name of the class and passing
-actual values for the necessary state (note that we never directly
-``invoke __init__``). For example,
+We can also overload a constructor with different numbers and types of arguments
+to give us more optional ways to create an instance of the class in question. For example,
+we could add an optional secondary constructor to handle whole numbers:
 
 ::
 
-    myfraction = Fraction(3,5)
+    Fraction(int top, int bottom) {
+        num = top;
+        den = bottom;
+    }
+
+    Fraction (int top) {
+        num = top;
+        den = 1;
+    }
+
+To create an instance of the ``Fraction`` class, we must invoke the
+constructor. This happens by using the name of the class and passing
+actual values for the necessary state after the variable name. For example,
+
+::
+
+    Fraction myfraction(3,5);
 
 creates an object called ``myfraction`` representing the fraction
 :math:`\frac {3}{5}` (three-fifths). :ref:`Figure 5 <fig_fraction1>` shows this
@@ -117,15 +136,19 @@ a ``Fraction`` object.
 
 ::
 
-    >>> myf = Fraction(3,5)
-    >>> print(myf)
-    <__main__.Fraction instance at 0x409b1acc>
+    int main() {
+        Fraction myfraction(3,5);
 
-The ``fraction`` object, ``myf``, does not know how to respond to this
-request to print. The ``print`` function requires that the object
-convert itself into a string so that the string can be written to the
-output. The only choice ``myf`` has is to show the actual reference that
-is stored in the variable (the address itself). This is not what we
+        // Throws an error
+        cout<<myfraction<<endl;
+
+        return 0;
+    }
+
+The ``fraction`` object, ``myfraction``, does not know how to respond to this
+request to print. The ``cout`` function requires that the object
+knows how to interact with the ``<<`` operator so that the string can be sent to the
+output stream. Without this, our class will throw an error. This is not what we
 want.
 
 There are two ways we can solve this problem. One is to define a method
@@ -135,72 +158,92 @@ as a string. We can implement this method as shown in
 can ask it to show itself, in other words, print itself in the proper
 format. Unfortunately, this does not work in general. In order to make
 printing work properly, we need to tell the ``Fraction`` class how to
-convert itself into a string. This is what the ``print`` function needs
+interact with the << operator. This is what the ``cout`` function needs
 in order to do its job.
 
 .. _lst_showmethod:
 
-**Listing 3**
+.. activecode:: showmethod
+  :language: cpp
+  :caption: Show method implementation
 
-.. sourcecode:: python
+  #include <iostream>
+  using namespace std;
 
-       def show(self):
-            print(self.num,"/",self.den)
+  class Fraction {
+      private:
+      int num;
+      int den;
 
+      public:
 
+      Fraction(int top, int bottom) {
+          num = top;
+          den = bottom;
+      }
 
-::
+      void show() {
+          cout<<num<<" / "<<den<<endl;
+      }
+  };
 
-    >>> myf = Fraction(3,5)
-    >>> myf.show()
-    3 / 5
-    >>> print(myf)
-    <__main__.Fraction instance at 0x40bce9ac>
-    >>>
+  int main() {
+      Fraction myfraction(3,5);
+      myfraction.show();
 
+      return 0;
+  }
 
-
-In Python, all classes have a set of standard methods that are provided
-but may not work properly. One of these, ``__str__``, is the method to
-convert an object into a string. The default implementation for this
-method is to return the instance address string as we have already seen.
+In C++, there are many operators that are provided
+but may not work properly. One of these, ``<<``, is the operator to
+send data down the output stream.
 What we need to do is provide a “better” implementation for this method.
-We will say that this implementation **overrides** the previous one, or
-that it redefines the method’s behavior.
+We will say that this implementation is a **friend** of the previous one, or
+that it redefines the operator's behavior.
 
-To do this, we simply define a method with the name ``__str__`` and
-give it a new implementation as shown in :ref:`Listing 4 <lst_str>`. This definition
-does not need any other information except the special parameter
-``self``. In turn, the method will build a string representation by
-converting each piece of internal state data to a string and then
-placing a ``/`` character in between the strings using string
-concatenation. The resulting string will be returned any time a
-``Fraction`` object is asked to convert itself to a string. Notice the
-various ways that this function is used.
+To do this, we declare a friend method with the name ``<<`` inside the class and
+give it a new implementation outside as shown in :ref:`Listing 4 <lst_str>`. This definition
+needs to return a stream in this case. The resulting output will be returned any time a
+``Fraction`` object is asked to interact with the << operator.
 
 .. _lst_str:
 
 **Listing 4**
 
-.. sourcecode:: python
+.. activecode:: overloadedcout
+  :language: cpp
+  :caption: An overloaded cout operator for the Fraction class
 
-        def __str__(self):
-            return str(self.num)+"/"+str(self.den)
+  #include <iostream>
+  using namespace std;
 
+  class Fraction {
+      private:
+      int num;
+      int den;
 
+      public:
 
-::
+      Fraction(int top, int bottom) {
+          num = top;
+          den = bottom;
+      }
 
-    >>> myf = Fraction(3,5)
-    >>> print(myf)
-    3/5
-    >>> print("I ate", myf, "of the pizza")
-    I ate 3/5 of the pizza
-    >>> myf.__str__()
-    '3/5'
-    >>> str(myf)
-    '3/5'
-    >>>
+      friend ostream& operator<<(ostream& stream, const Fraction& fraction);
+  };
+
+  ostream & operator<<(ostream& stream, const Fraction& fraction) {
+      stream<<fraction.num<<" / "<<fraction.den;
+
+      return stream;
+  }
+
+  int main() {
+      Fraction myfraction(3,5);
+      cout<<myfraction;
+
+      return 0;
+  }
 
 We can override many other methods for our new ``Fraction`` class. Some
 of the most important of these are the basic arithmetic operations. We
@@ -210,23 +253,18 @@ to add two fractions, we get the following:
 
 ::
 
-    >>> f1 = Fraction(1,4)
-    >>> f2 = Fraction(1,2)
-    >>> f1+f2
+    Fraction f1(1,4);
+    Fraction f2(1,2);
+    Fraction f3=f1+f2;
 
-    Traceback (most recent call last):
-      File "<pyshell#173>", line 1, in -toplevel-
-        f1+f2
-    TypeError: unsupported operand type(s) for +:
-              'instance' and 'instance'
-    >>>
+    invalid operands to binary expression ('Fraction' and 'Fraction')
 
 If you look closely at the error, you see that the problem is that the
 “+” operator does not understand the ``Fraction`` operands.
 
 We can fix this by providing the ``Fraction`` class with a method that
-overrides the addition method. In Python, this method is called
-``__add__`` and it requires two parameters. The first, ``self``, is
+overrides the addition method. In C++, this method is called
+``+`` and it requires two parameters. The first, ``self``, is
 always needed, and the second represents the other operand in the
 expression. For example,
 
@@ -252,25 +290,60 @@ addition, and then printing our result.
 
 **Listing 5**
 
-.. sourcecode:: python
+.. sourcecode:: cpp
 
-       def __add__(self,otherfraction):
+        Fraction operator +(Fraction otherFrac) {
+            int newnum = num*otherFrac.den + den*otherFrac.num;
+            int newden = den*otherFrac.den;
 
-            newnum = self.num*otherfraction.den + self.den*otherfraction.num
-            newden = self.den * otherfraction.den
+            return Fraction(newnum,newden);
+        }
 
-            return Fraction(newnum,newden)
-            
-            
 
-::
 
-    >>> f1=Fraction(1,4)
-    >>> f2=Fraction(1,2)
-    >>> f3=f1+f2
-    >>> print(f3)
-    6/8
-    >>>
+.. activecode:: addfrac
+  :language: cpp
+  :caption: Addition overloaded for Fraction
+
+  #include <iostream>
+  using namespace std;
+
+  class Fraction {
+      private:
+      int num;
+      int den;
+
+      public:
+
+      Fraction(int top, int bottom) {
+          num = top;
+          den = bottom;
+      }
+
+      Fraction operator +(Fraction otherFrac) {
+          int newnum = num*otherFrac.den + den*otherFrac.num;
+          int newden = den*otherFrac.den;
+
+          return Fraction(newnum,newden);
+      }
+
+      friend ostream& operator<<(ostream& stream, const Fraction& fraction);
+  };
+
+  ostream & operator<<(ostream& stream, const Fraction& fraction) {
+      stream<<fraction.num<<"/"<<fraction.den;
+
+      return stream;
+  }
+
+  int main() {
+      Fraction f1(1,4);
+      Fraction f2(1,2);
+      Fraction f3=f1+f2;
+      cout<<f3;
+
+      return 0;
+  }
 
 The addition method works as we desire, but one thing could be better.
 Note that :math:`6/8` is the correct result
@@ -298,18 +371,29 @@ represented by a negative numerator.
 .. _lst_gcd:
 
 .. activecode::  gcd_cl
+    :language: cpp
     :caption: The Greatest Common Divisor Function
 
-    def gcd(m,n):
-        while m%n != 0:
-            oldm = m
-            oldn = n
+    #include <iostream>
+    using namespace std;
 
-            m = oldn
-            n = oldm%oldn
-        return n
+    int gcd(int m, int n) {
+        while (m%n != 0) {
+            int oldm = m;
+            int oldn = n;
 
-    print(gcd(20,10))
+            m = oldn;
+            n = oldm%oldn;
+        }
+
+        return n;
+    }
+
+    int main() {
+        cout<<gcd(20,10)<<endl;
+
+        return 0;
+    }
 
 Now we can use this function to help reduce any fraction. To put a
 fraction in lowest terms, we will divide the numerator and the
@@ -324,23 +408,63 @@ the bottom by 2 creates a new fraction, :math:`3/4` (see
 
 **Listing 6**
 
-.. sourcecode:: python
+.. activecode:: gcdadd
+  :language: cpp
+  :caption: Reduced fraction addition
 
-        def __add__(self,otherfraction):
-            newnum = self.num*otherfraction.den + self.den*otherfraction.num
-            newden = self.den * otherfraction.den
-            common = gcd(newnum,newden)
-            return Fraction(newnum//common,newden//common)
-            
-            
-::
+  #include <iostream>
+  using namespace std;
 
-    >>> f1=Fraction(1,4)
-    >>> f2=Fraction(1,2)
-    >>> f3=f1+f2
-    >>> print(f3)
-    3/4
-    >>>
+  int gcd(int m, int n) {
+      while (m%n != 0) {
+          int oldm = m;
+          int oldn = n;
+
+          m = oldn;
+          n = oldm%oldn;
+      }
+
+      return n;
+  }
+
+  class Fraction {
+      private:
+      int num;
+      int den;
+
+      public:
+
+      Fraction(int top, int bottom) {
+          num = top;
+          den = bottom;
+      }
+
+      Fraction operator +(Fraction otherFrac) {
+          int newnum = num*otherFrac.den + den*otherFrac.num;
+          int newden = den*otherFrac.den;
+          int common = gcd(newnum, newden);
+
+          return Fraction(newnum/common,newden/common);
+      }
+
+      friend ostream& operator<<(ostream& stream, const Fraction& fraction);
+  };
+
+  ostream & operator<<(ostream& stream, const Fraction& fraction) {
+      stream<<fraction.num<<"/"<<fraction.den;
+
+      return stream;
+  }
+
+  int main() {
+      Fraction f1(1,4);
+      Fraction f2(1,2);
+      Fraction f3=f1+f2;
+
+      cout << f3 << endl;
+
+      return 0;
+  }
 
 .. _fig_fraction2:
 
@@ -354,7 +478,7 @@ Our ``Fraction`` object now has two very useful methods and looks
 like :ref:`Figure 6 <fig_fraction2>`. An additional group of methods that we need to
 include in our example ``Fraction`` class will allow two fractions to
 compare themselves to one another. Assume we have two ``Fraction``
-objects, ``f1`` and ``f2``. ``f1==f2`` will only be ``True`` if they are
+objects, ``f1`` and ``f2``. ``f1==f2`` will only be ``true`` if they are
 references to the same object. Two different objects with the same
 numerators and denominators would not be equal under this
 implementation. This is called **shallow equality** (see
@@ -368,79 +492,103 @@ implementation. This is called **shallow equality** (see
    Figure 7: Shallow Equality Versus Deep Equality
 
 We can create **deep equality** (see :ref:`Figure 7 <fig_fraction3>`)–equality by the
-same value, not the same reference–by overriding the ``__eq__``
-method. The ``__eq__`` method is another standard method available in
-any class. The ``__eq__`` method compares two objects and returns
-``True`` if their values are the same, ``False`` otherwise.
+same value, not the same reference–by overriding the ``==``
+method. The ``==`` operator is another standard method available in
+any class. The ``==`` operator compares two objects and returns
+``true`` if their values are the same, ``false`` otherwise.
 
-In the ``Fraction`` class, we can implement the ``__eq__`` method by
+In the ``Fraction`` class, we can implement the ``==`` method by
 again putting the two fractions in common terms and then comparing the
 numerators (see :ref:`Listing 7 <lst_cmpmethod>`). It is important to note that there
 are other relational operators that can be overridden. For example, the
-``__le__`` method provides the less than or equal functionality.
+``<=`` operator provides the less than or equal functionality.
 
 .. _lst_cmpmethod:
 
 **Listing 7**
 
-.. sourcecode:: python
+.. sourcecode:: cpp
 
-        def __eq__(self, other):
-            firstnum = self.num * other.den
-            secondnum = other.num * self.den
+        bool operator ==(Fraction &otherFrac) {
+            int firstnum = num*otherFrac.den;
+            int secondnum = otherFrac.num*den;
 
-            return firstnum == secondnum
+            return firstnum==secondnum;
+        }
 
 The complete ``Fraction`` class, up to this point, is shown in
-:ref:`ActiveCode 2 <lst_fractioncode>`. We leave the remaining arithmetic and relational
+:ref:`ActiveCode 6 <lst_fractioncode>`. We leave the remaining arithmetic and relational
 methods as exercises.
 
 .. _lst_fractioncode:
 
 .. activecode:: fraction_class
+   :language: cpp
    :caption: The Fraction Class
 
-   def gcd(m,n):
-       while m%n != 0:
-           oldm = m
-           oldn = n
+    #include <iostream>
+    using namespace std;
 
-           m = oldn
-           n = oldm%oldn
-       return n
+    int gcd(int m, int n) {
+        while (m%n != 0) {
+            int oldm = m;
+            int oldn = n;
 
-   class Fraction:
-        def __init__(self,top,bottom):
-            self.num = top
-            self.den = bottom
+            m = oldn;
+            n = oldm%oldn;
+        }
 
-        def __str__(self):
-            return str(self.num)+"/"+str(self.den)
+        return n;
+    }
 
-        def show(self):
-            print(self.num,"/",self.den)
+    class Fraction {
+        private:
+        int num;
+        int den;
 
-        def __add__(self,otherfraction):
-            newnum = self.num*otherfraction.den + \
-                         self.den*otherfraction.num
-            newden = self.den * otherfraction.den
-            common = gcd(newnum,newden)
-            return Fraction(newnum//common,newden//common)
+        public:
 
-        def __eq__(self, other):
-            firstnum = self.num * other.den
-            secondnum = other.num * self.den
+        Fraction(int top, int bottom) {
+            num = top;
+            den = bottom;
+        }
 
-            return firstnum == secondnum
+        Fraction operator +(Fraction otherFrac) {
+            int newnum = num*otherFrac.den + den*otherFrac.num;
+            int newden = den*otherFrac.den;
+            int common = gcd(newnum, newden);
 
-   x = Fraction(1,2)
-   y = Fraction(2,3)
-   print(x+y)
-   print(x == y)
+            return Fraction(newnum/common,newden/common);
+        }
+
+        bool operator ==(Fraction &otherFrac) {
+            int firstnum = num*otherFrac.den;
+            int secondnum = otherFrac.num*den;
+
+            return firstnum==secondnum;
+        }
+
+        friend ostream& operator<<(ostream& stream, const Fraction& fraction);
+    };
+
+    ostream & operator<<(ostream& stream, const Fraction& fraction) {
+        stream<<fraction.num<<"/"<<fraction.den;
+
+        return stream;
+    }
+
+    int main() {
+        Fraction x(1,2);
+        Fraction y(2,3);
+        cout << x+y << endl;
+        cout << (x == y) << endl;
+
+        return 0;
+    }
 
 .. admonition:: Self  Check
 
-   To make sure you understand how operators are implemented in Python classes, and how to properly write methods, write some methods to implement ``*, /,`` and ``-`` .  Also implement comparison operators > and <
+   To make sure you understand how operators are implemented in C++ classes, and how to properly write methods, write some methods to implement ``*, /,`` and ``-`` .  Also implement comparison operators > and <
 
    .. actex:: self_check_4
 
@@ -448,21 +596,21 @@ methods as exercises.
    :controls:
    :thumb: ../_static/videothumb.png
 
-   http://media.interactivepython.org/pythondsVideos/fraction.mov
-   http://media.interactivepython.org/pythondsVideos/fraction.webm
+   http://media.interactiveC++.org/C++dsVideos/fraction.mov
+   http://media.interactiveC++.org/C++dsVideos/fraction.webm
 
 Inheritance: Logic Gates and Circuits
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Our final section will introduce another important aspect of
 object-oriented programming. **Inheritance** is the ability for one
-class to be related to another class in much the same way that people
+class to be related to another class  n much the same way that people
 can be related to one another. Children inherit characteristics from
-their parents. Similarly, Python child classes can inherit
+their parents. Similarly, C++ child classes can inherit
 characteristic data and behavior from a parent class. These classes are
-often referred to as **subclasses** and **superclasses**.
+often referred to as **subclasses** and **base classes**.
 
-:ref:`Figure 8 <fig_inherit1>` shows the built-in Python collections and their
+:ref:`Figure 8 <fig_inherit1>` shows the built-in C++ collections and their
 relationships to one another. We call a relationship structure such as
 this an **inheritance hierarchy**. For example, the list is a child of
 the sequential collection. In this case, we call the list the child and
@@ -477,10 +625,10 @@ data and operations such as concatenation, repetition, and indexing.
 .. figure::  Figures/inheritance1.png
    :align: center
 
-   Figure 8: An Inheritance Hierarchy for Python Collections
+   Figure 8: An Inheritance Hierarchy for C++ Collections
 
 
-Lists, tuples, and strings are all types of sequential collections. They
+Vectors, arrays, and strings are all types of sequential collections. They
 all inherit common data organization and operations. However, each of
 them is distinct based on whether the data is homogeneous and whether
 the collection is immutable. The children all gain from their parents
@@ -501,7 +649,7 @@ output. In general, gates have a single output line. The value of the
 output is dependent on the values given on the input lines.
 
 AND gates have two input lines, each of which can be either 0 or 1
-(representing ``False`` or ``True``, repectively). If both of the input
+(representing ``false`` or ``true``, repectively). If both of the input
 lines have the value 1, the resulting output is 1. However, if either or
 both of the input lines is 0, the result is 0. OR gates also have two
 input lines and produce a 1 if one or both of the input values is a 1.
@@ -571,27 +719,34 @@ class is shown in :ref:`Listing 8 <lst_logicgateclass>`.
 
 **Listing 8**
 
-.. sourcecode:: python
+.. sourcecode:: cpp
 
-    class LogicGate:
+    class LogicGate {
+        private:
+          	string label;
+          	bool output;
 
-        def __init__(self,n):
-            self.label = n
-            self.output = None
+        public:
+        	LogicGate(string n) {
+          		label = n;
+        	}
 
-        def getLabel(self):
-            return self.label
+        	string getLabel() {
+          		return label;
+        	}
 
-        def getOutput(self):
-            self.output = self.performGateLogic()
-            return self.output
+        	bool getOutput() {
+          		output = performGateLogic();
+          		return output;
+    	    }
+    };
 
 At this point, we will not implement the ``performGateLogic`` function.
 The reason for this is that we do not know how each gate will perform
 its own logic operation. Those details will be included by each
 individual gate that is added to the hierarchy. This is a very powerful
 idea in object-oriented programming. We are writing a method that will
-use code that does not exist yet. The parameter ``self`` is a reference
+use code that does not exist yet. The parameter ``virtual`` is a reference
 to the actual gate object invoking the method. Any new logic gate that
 gets added to the hierarchy will simply need to implement the
 ``performGateLogic`` function and it will be used at the appropriate
@@ -612,43 +767,71 @@ we will use that terminology in our implementation.
 
 **Listing 9**
 
-.. sourcecode:: python
+.. sourcecode:: cpp
 
-    class BinaryGate(LogicGate):
+    class BinaryGate : public LogicGate {
+        private:
+            bool pinA;
+            bool pinATaken;
+            bool pinB;
+            bool pinBTaken;
 
-        def __init__(self,n):
-            LogicGate.__init__(self,n)
+        public:
+            BinaryGate(string n) : LogicGate(n) {
+                pinATaken = false;
+                pinBTaken = false;
+            }
 
-            self.pinA = None
-            self.pinB = None
+            bool getPinA() {
+                if (pinATaken==false) {
+                    cout << "Enter Pin input for gate " << getLabel() << " -->";
+                    cin >> pinA;
+                    pinATaken = true;
+                }
+                return pinA;
+            }
 
-        def getPinA(self):
-            return int(input("Enter Pin A input for gate "+ self.getLabel()+"-->"))
-
-        def getPinB(self):
-            return int(input("Enter Pin B input for gate "+ self.getLabel()+"-->"))
+            bool getPinB() {
+                if (pinBTaken==false ) {
+                    cout << "Enter Pin input for gate " << getLabel() << " -->";
+                    cin >> pinB;
+                    pinBTaken = true;
+                }
+                return pinB;
+            }
+    };
 
 .. _lst_unarygateclass:
 
 **Listing 10**
 
-.. sourcecode:: python
+.. sourcecode:: cpp
 
-    class UnaryGate(LogicGate):
+    class UnaryGate : public LogicGate {
+        private:
+            bool pin;
+            bool pinTaken;
 
-        def __init__(self,n):
-            LogicGate.__init__(self,n)
+        public:
+            UnaryGate(string n) : LogicGate(n) {
+                pinTaken = false;
+            }
 
-            self.pin = None
+            bool getPin() {
+                if (pinTaken==false) {
+                    cout << "Enter Pin input for gate " << getLabel() << " -->";
+                    cin >> pin;
+                    pinTaken = true;
+                }
+                return pin;
+            }
+    };
 
-        def getPin(self):
-            return int(input("Enter Pin input for gate "+ self.getLabel()+"-->"))
-            
-            
+
 
 :ref:`Listing 9 <lst_logicgateclass>` and :ref:`Listing 10 <lst_logicgateclass>` implement these two
 classes. The constructors in both of these classes start with an
-explicit call to the constructor of the parent class using the parent's ``__init__``
+explicit call to the constructor of the parent class using the parent's name
 method. When creating an instance of the ``BinaryGate`` class, we
 first want to initialize any data items that are inherited from
 ``LogicGate``. In this case, that means the label for the gate. The
@@ -657,12 +840,46 @@ constructor then goes on to add the two input lines (``pinA`` and
 building class hierarchies. Child class constructors need to call parent
 class constructors and then move on to their own distinguishing data.
 
-Python
-also has a function called ``super`` which can be used in place of explicitly
-naming the parent class.  This is a more general mechanism, and is widely
-used, especially when a class has more than one parent.  But, this is not something
-we are going to discuss in this introduction.  For example in our example above
-``LogicGate.__init__(self,n)`` could be replaced with ``super(UnaryGate,self).__init__(n)``.
+A simple example of using a virtual function in C++ is shown below.
+
+.. activecode:: virtualfunction
+  :language: cpp
+  :caption: Using a virtual function with inheritence
+
+  #include <iostream>
+  using namespace std;
+
+  class Base {
+      public:
+      virtual void printType() {
+          subfunction();
+          cout << "I'm inherited!" << endl << endl;
+      };
+
+      virtual void subfunction() {};
+  };
+
+  class SubFirst : public Base {
+      virtual void subfunction() {
+          cout << "I'm one type of sub-class!" << endl;
+      }
+  };
+
+  class SubSecond : public Base {
+      virtual void subfunction() {
+          cout << "I'm another type of sub class!" << endl;
+      }
+  };
+
+  int main() {
+      SubFirst first;
+      first.printType();
+
+      SubSecond second;
+      second.printType();
+
+      return 0;
+  }
 
 The only behavior that the ``BinaryGate`` class adds is the ability to
 get the values from the two input lines. Since these values come from
@@ -683,21 +900,24 @@ inherits two input lines, one output line, and a label.
 
 **Listing 11**
 
-.. sourcecode:: python
+.. sourcecode:: cpp
 
-    class AndGate(BinaryGate):
+    class AndGate : public BinaryGate {
+        public:
+            AndGate(string n) : BinaryGate(n) {};
 
-        def __init__(self,n):
-            super(AndGate,self).__init__(self,n)
+            virtual bool performGateLogic() {
+                bool a = getPinA();
+                bool b = getPinB();
+                if (a == 1 && b == 1) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+    };
 
-        def performGateLogic(self):
-
-            a = self.getPinA()
-            b = self.getPinB()
-            if a==1 and b==1:
-                return 1
-            else:
-                return 0
 
 The only thing ``AndGate`` needs to add is the specific behavior that
 performs the boolean operation that was described earlier. This is the
@@ -715,7 +935,7 @@ Once the values are provided, the correct output is shown.
 
 ::
 
-   >>> g1 = AndGate("G1")
+   >>> AndGate g1("G1")
    >>> g1.getOutput()
    Enter Pin A input for gate G1-->1
    Enter Pin B input for gate G1-->0
@@ -734,7 +954,7 @@ need inputs to be provided). For example:
 
 ::
 
-    >>> g2 = OrGate("G2")
+    >>> OrGate g2("G2")
     >>> g2.getOutput()
     Enter Pin A input for gate G2-->1
     Enter Pin B input for gate G2-->1
@@ -743,7 +963,7 @@ need inputs to be provided). For example:
     Enter Pin A input for gate G2-->0
     Enter Pin B input for gate G2-->0
     0
-    >>> g3 = NotGate("G3")
+    >>> NotGate g3("G3")
     >>> g3.getOutput()
     Enter Pin input for gate G3-->0
     1
@@ -786,23 +1006,30 @@ connection.
 
 .. _lst_Connectorclass:
 
-**Listing 12** 
+**Listing 12**
 
-.. sourcecode:: python
+.. sourcecode:: cpp
 
-    class Connector:
+    class Connector {
+        private:
+        	LogicGate *fromgate;
+        	LogicGate *togate;
 
-        def __init__(self, fgate, tgate):
-            self.fromgate = fgate
-            self.togate = tgate
+        public:
+        	Connector(LogicGate *fgate, LogicGate *tgate) {
+        		fromgate = fgate;
+        		togate = tgate;
+        		tgate->setNextPin(fromgate->getOutput());
+        	}
 
-            tgate.setNextPin(self)
+        	LogicGate *getFrom() {
+        		return fromgate;
+        	}
 
-        def getFrom(self):
-            return self.fromgate
-
-        def getTo(self):
-            return self.togate
+        	LogicGate *getTo() {
+        		return togate;
+        	}
+    };
 
 In the ``BinaryGate`` class, for gates with two possible input lines,
 the connector must be connected to only one line. If both of them are
@@ -814,16 +1041,23 @@ to a gate with no available input lines.
 
 **Listing 13**
 
-.. sourcecode:: python
+.. sourcecode:: cpp
 
-        def setNextPin(self,source):
-            if self.pinA == None:
-                self.pinA = source
-            else:
-                if self.pinB == None:
-                    self.pinB = source
-                else:
-                   raise RuntimeError("Error: NO EMPTY PINS")
+    virtual void setNextPin(bool source) {
+        if (pinATaken == false) {
+            pinA = source;
+            pinATaken=true;
+            return;
+        }
+        else if (pinBTaken == false) {
+            pinB = source;
+            pinBTaken=true;
+            return;
+        }
+        else {
+            cout << "ERROR: ALL PINS TAKEN" << endl;
+        }
+    }
 
 Now it is possible to get input from two places: externally, as before,
 and from the output of a gate that is connected to that input line. This
@@ -841,26 +1075,29 @@ output.
 
 **Listing 14**
 
-.. sourcecode:: python
+.. sourcecode:: cpp
 
-        def getPinA(self):
-            if self.pinA == None:
-                return input("Enter Pin A input for gate " + self.getLabel()+"-->")
-            else:
-                return self.pinA.getFrom().getOutput()
+    bool getPinA() {
+        if (pinATaken==false) {
+            cout << "Enter Pin input for gate " << getLabel() << " -->";
+            cin >> pinA;
+            pinATaken = true;
+        }
+        return pinA;
+    }
 
 The following fragment constructs the circuit shown earlier in the
 section:
 
 ::
 
-    >>> g1 = AndGate("G1")
-    >>> g2 = AndGate("G2")
-    >>> g3 = OrGate("G3")
-    >>> g4 = NotGate("G4")
-    >>> c1 = Connector(g1,g3)
-    >>> c2 = Connector(g2,g3)
-    >>> c3 = Connector(g3,g4)
+    AndGate g1("AND1");
+  	AndGate g2("AND2");
+  	OrGate g3("OR3");
+  	NotGate g4("NOT4");
+  	Connector c1(&g1, &g2);
+  	Connector c2(&g2, &g3);
+  	Connector c3(&g3, &g4);
 
 The outputs from the two AND gates (``g1`` and ``g2``) are connected to
 the OR gate (``g3``) and that output is connected to the NOT gate
@@ -879,293 +1116,216 @@ circuit. For example:
 Try it yourself using ActiveCode 4.
 
 .. activecode:: complete_cuircuit
+    :language: cpp
     :caption: The Complete Circuit Program.
 
-    class LogicGate:
-
-        def __init__(self,n):
-            self.name = n
-            self.output = None
-
-        def getLabel(self):
-            return self.name
-
-        def getOutput(self):
-            self.output = self.performGateLogic()
-            return self.output
-
-
-    class BinaryGate(LogicGate):
-
-        def __init__(self,n):
-            super().__init__(self,n)
-
-            self.pinA = None
-            self.pinB = None
-
-        def getPinA(self):
-            if self.pinA == None:
-                return int(input("Enter Pin A input for gate "+self.getLabel()+"-->"))
-            else:
-                return self.pinA.getFrom().getOutput()
-
-        def getPinB(self):
-            if self.pinB == None:
-                return int(input("Enter Pin B input for gate "+self.getLabel()+"-->"))
-            else:
-                return self.pinB.getFrom().getOutput()
-
-        def setNextPin(self,source):
-            if self.pinA == None:
-                self.pinA = source
-            else:
-                if self.pinB == None:
-                    self.pinB = source
-                else:
-                    print("Cannot Connect: NO EMPTY PINS on this gate")
-
-
-    class AndGate(BinaryGate):
-
-        def __init__(self,n):
-            BinaryGate.__init__(self,n)
-
-        def performGateLogic(self):
-
-            a = self.getPinA()
-            b = self.getPinB()
-            if a==1 and b==1:
-                return 1
-            else:
-                return 0
-
-    class OrGate(BinaryGate):
-
-        def __init__(self,n):
-            BinaryGate.__init__(self,n)
-
-        def performGateLogic(self):
-
-            a = self.getPinA()
-            b = self.getPinB()
-            if a ==1 or b==1:
-                return 1
-            else:
-                return 0
-
-    class UnaryGate(LogicGate):
-
-        def __init__(self,n):
-            LogicGate.__init__(self,n)
-
-            self.pin = None
-
-        def getPin(self):
-            if self.pin == None:
-                return int(input("Enter Pin input for gate "+self.getLabel()+"-->"))
-            else:
-                return self.pin.getFrom().getOutput()
-
-        def setNextPin(self,source):
-            if self.pin == None:
-                self.pin = source
-            else:
-                print("Cannot Connect: NO EMPTY PINS on this gate")
-
-
-    class NotGate(UnaryGate):
-
-        def __init__(self,n):
-            UnaryGate.__init__(self,n)
-
-        def performGateLogic(self):
-            if self.getPin():
-                return 0
-            else:
-                return 1
-
-
-    class Connector:
-
-        def __init__(self, fgate, tgate):
-            self.fromgate = fgate
-            self.togate = tgate
-
-            tgate.setNextPin(self)
-
-        def getFrom(self):
-            return self.fromgate
-
-        def getTo(self):
-            return self.togate
-
-
-    def main():
-       g1 = AndGate("G1")
-       g2 = AndGate("G2")
-       g3 = OrGate("G3")
-       g4 = NotGate("G4")
-       c1 = Connector(g1,g3)
-       c2 = Connector(g2,g3)
-       c3 = Connector(g3,g4)
-       print(g4.getOutput())
-
-    main()
-
-
-
-.. admonition:: Self Check
-
-   Create a two new gate classes,  one called NorGate the other called NandGate.  NandGates work like AndGates that have a Not attached to the output.  NorGates work lake OrGates that have a Not attached to the output.
-
-   Create a series of gates that prove the following equality NOT (( A and B) or (C and D)) is that same as NOT( A and B ) and NOT (C and D).  Make sure to use some of your new gates in the simulation.
-
-   .. actex:: self_check_5
-
-      class LogicGate:
-
-          def __init__(self,n):
-              self.name = n
-              self.output = None
-
-          def getLabel(self):
-              return self.name
-
-          def getOutput(self):
-              self.output = self.performGateLogic()
-              return self.output
-
-
-      class BinaryGate(LogicGate):
-
-          def __init__(self,n):
-              LogicGate.__init__(self,n)
-
-              self.pinA = None
-              self.pinB = None
-
-          def getPinA(self):
-              if self.pinA == None:
-                  return int(input("Enter Pin A input for gate "+self.getLabel()+"-->"))
-              else:
-                  return self.pinA.getFrom().getOutput()
-
-          def getPinB(self):
-              if self.pinB == None:
-                  return int(input("Enter Pin B input for gate "+self.getLabel()+"-->"))
-              else:
-                  return self.pinB.getFrom().getOutput()
-
-          def setNextPin(self,source):
-              if self.pinA == None:
-                  self.pinA = source
-              else:
-                  if self.pinB == None:
-                      self.pinB = source
-                  else:
-                      print("Cannot Connect: NO EMPTY PINS on this gate")
-
-
-      class AndGate(BinaryGate):
-
-          def __init__(self,n):
-              BinaryGate.__init__(self,n)
-
-          def performGateLogic(self):
-
-              a = self.getPinA()
-              b = self.getPinB()
-              if a==1 and b==1:
-                  return 1
-              else:
-                  return 0
-
-      class OrGate(BinaryGate):
-
-          def __init__(self,n):
-              BinaryGate.__init__(self,n)
-
-          def performGateLogic(self):
-
-              a = self.getPinA()
-              b = self.getPinB()
-              if a ==1 or b==1:
-                  return 1
-              else:
-                  return 0
-
-      class UnaryGate(LogicGate):
-
-          def __init__(self,n):
-              LogicGate.__init__(self,n)
-
-              self.pin = None
-
-          def getPin(self):
-              if self.pin == None:
-                  return int(input("Enter Pin input for gate "+self.getLabel()+"-->"))
-              else:
-                  return self.pin.getFrom().getOutput()
-
-          def setNextPin(self,source):
-              if self.pin == None:
-                  self.pin = source
-              else:
-                  print("Cannot Connect: NO EMPTY PINS on this gate")
-
-
-      class NotGate(UnaryGate):
-
-          def __init__(self,n):
-              UnaryGate.__init__(self,n)
-
-          def performGateLogic(self):
-              if self.getPin():
-                  return 0
-              else:
-                  return 1
-
-
-      class Connector:
-
-          def __init__(self, fgate, tgate):
-              self.fromgate = fgate
-              self.togate = tgate
-
-              tgate.setNextPin(self)
-
-          def getFrom(self):
-              return self.fromgate
-
-          def getTo(self):
-              return self.togate
-
-
-
-      def main():
-         g1 = AndGate("G1")
-
-         print(g1.getOutput())
-
-      main()
+    #include <iostream>
+    #include <string>
+    using namespace std;
+
+    class LogicGate {
+        private:
+        	string label;
+        	bool output;
+
+        public:
+        	LogicGate(string n) {
+        		label = n;
+        	}
+
+        	string getLabel() {
+        		return label;
+        	}
+
+        	bool getOutput() {
+        		output = performGateLogic();
+        		return output;
+        	}
+
+        	virtual bool performGateLogic() {
+                cout << "ERROR! performGateLogic BASE" << endl;
+                return false;
+            };
+
+        	virtual void setNextPin(bool source) {
+                cout << "ERROR! setNextPin BASE" << endl;
+            };
+    };
+
+    class BinaryGate : public LogicGate {
+        private:
+        	bool pinA;
+        	bool pinATaken;
+        	bool pinB;
+        	bool pinBTaken;
+
+        public:
+        	BinaryGate(string n) : LogicGate(n) {
+        		pinATaken = false;
+        		pinBTaken = false;
+        	}
+
+        	bool getPinA() {
+        	    if (pinATaken==false) {
+            		cout << "Enter Pin A input for gate " << getLabel() << " -->";
+            		cin >> pinA;
+            		pinATaken = true;
+        	    }
+        		return pinA;
+        	}
+
+        	bool getPinB() {
+                if (pinBTaken==false ) {
+            		cout << "Enter Pin B input for gate " << getLabel() << " -->";
+            		cin >> pinB;
+            		pinBTaken = true;
+                }
+        		return pinB;
+        	}
+
+        	virtual void setNextPin(bool source) {
+        		if (pinATaken == false) {
+        			pinA = source;
+        			this->pinATaken=true;
+        		}
+        		else if (pinBTaken == false) {
+        			pinB = source;
+        			this->pinBTaken=true;
+        		}
+        	}
+    };
+
+    class UnaryGate : public LogicGate {
+        private:
+        	bool pin;
+        	bool pinTaken;
+
+        public:
+        	UnaryGate(string n) : LogicGate(n) {
+        		pinTaken = false;
+        	}
+
+        	bool getPin() {
+        	    if (pinTaken==false) {
+            		cout << "Enter Pin input for gate " << getLabel() << " -->";
+            		cin >> pin;
+            		pinTaken = true;
+        	    }
+        		return pin;
+        	}
+
+        	virtual void setNextPin(bool source) {
+        		if (pinTaken == false) {
+        			pin = source;
+        			pinTaken=true;
+        		}
+        		else {
+        			return;
+        		}
+        	}
+    };
+
+    class AndGate : public BinaryGate {
+        public:
+        	AndGate(string n) : BinaryGate(n) {};
+
+        	virtual bool performGateLogic() {
+        		bool a = getPinA();
+        		bool b = getPinB();
+        		if (a == 1 && b == 1) {
+        			return true;
+        		}
+        		else {
+        			return false;
+        		}
+        	}
+    };
+
+    class OrGate : public BinaryGate {
+        public:
+        	OrGate(string n) : BinaryGate(n) {};
+
+        	virtual bool performGateLogic() {
+        		bool a = getPinA();
+        		bool b = getPinB();
+        		if (a == 1 || b == 1) {
+        			return true;
+        		}
+        		else {
+        			return false;
+        		}
+        	}
+    };
+
+    class NotGate : public UnaryGate {
+        public:
+        	NotGate(string n) : UnaryGate(n) {};
+
+        	virtual bool performGateLogic() {
+        		if (getPin()) {
+        			return false;
+        		}
+        		else {
+        			return true;
+        		}
+        	}
+    };
+
+    class Connector {
+        private:
+        	LogicGate *fromgate;
+        	LogicGate *togate;
+
+        public:
+        	Connector(LogicGate *fgate, LogicGate *tgate) {
+        		fromgate = fgate;
+        		togate = tgate;
+        		tgate->setNextPin(fromgate->getOutput());
+        	}
+
+        	LogicGate *getFrom() {
+        		return fromgate;
+        	}
+
+        	LogicGate *getTo() {
+        		return togate;
+        	}
+    };
+
+    int main() {
+    	AndGate g1("AND1");
+    	AndGate g2("AND2");
+    	OrGate g3("OR3");
+    	NotGate g4("NOT4");
+
+        // The inputs can be changed here!
+        g1.setNextPin(1);
+        g1.setNextPin(0);
+        g2.setNextPin(1);
+        g2.setNextPin(0);
+
+    	Connector c1(&g1, &g3);
+    	Connector c2(&g2, &g3);
+    	Connector c3(&g3, &g4);
+
+    	cout << g4.getOutput();
+
+    	return 0;
+    }
 
 
 .. video:: logicgates
    :controls:
    :thumb: ../_static/videothumb.png
 
-   http://media.interactivepython.org/pythondsVideos/logicgates.mov
-   http://media.interactivepython.org/pythondsVideos/logicgates.webm
+   http://media.interactiveC++.org/C++dsVideos/logicgates.mov
+   http://media.interactiveC++.org/C++dsVideos/logicgates.webm
 
 
-.. .. admonition:: Self  Check Challenge
+.. admonition:: Self  Check Challenge
 
-..    One of the fundamental building blocks of a computer is something called a flip flop.  It's not something that computer science professors wear on their feet, but rather a kind of circuit that is stable and stores the last piece of data that was put on it.  A simple flip-flop can be made from two NOR gates that are tied together as in the following diagram.
+    One of the fundamental building blocks of a computer is something called a flip flop.  It's not something that computer science professors wear on their feet, but rather a kind of circuit that is stable and stores the last piece of data that was put on it.  A simple flip-flop can be made from two NOR gates that are tied together as in the following diagram.
 
-..    .. image:: Figures/flipflop.png
+    .. image:: Figures/flipflop.png
 
-..    This is a challenge problem because the entire
-..    Note if the initial inputs to Reset and Set are both 0 then the output of the flip-flop is 0.  But if the Set input is toggled to 1 then the output becomes 1.  The great thing is that when the set input goes to 0 the output stays 1, until the reset input is toggled to 1 which resets the output of the circuit back to zero.
-
-
-
+    Note if the initial inputs to Reset and Set are both 0 then the output of the flip-flop is 0.  But if the Set input is toggled to 1 then the output becomes 1.  The great thing is that when the set input goes to 0 the output stays 1, until the reset input is toggled to 1 which resets the output of the circuit back to zero.

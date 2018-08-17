@@ -3,7 +3,7 @@
 
 
 Search Tree Implementation
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 
 A binary search tree relies on the property that
 keys that are less than the parent are found in the left subtree, and
@@ -61,21 +61,21 @@ miscellaneous functions is shown in :ref:`Listing 1 <lst_bst1>`.
 
 ::
 
-    class BinarySearchTree:
+    class BinarySearchTree{
+        private:
+            TreeNode *root;
+            int size;
 
-        def __init__(self):
-    	    self.root = None
-    	    self.size = 0
+        public:
+            BinarySearchTree(){
+                this->root = NULL;
+                this->size = 0;
+            }
 
-        def length(self):
-    	    return self.size
-
-        def __len__(self):
-    	    return self.size
-
-        def __iter__(self):
-    	    return self.root.__iter__()
-
+            int length(){
+                return this->size;
+            }
+    }
 
 The ``TreeNode`` class provides many helper functions that make the work
 done in the ``BinarySearchTree`` class methods much easier. The
@@ -89,7 +89,7 @@ of the parent as an attribute of each node. You will see why this is
 important when we discuss the implementation for the ``del`` operator.
 
 Another interesting aspect of the implementation of ``TreeNode`` in
-:ref:`Listing 2 <lst_bst2>` is that we use Python’s optional parameters.
+:ref:`Listing 2 <lst_bst2>` is that we use C++'s optional parameters.
 Optional parameters make it easy for us to create a ``TreeNode`` under
 several different circumstances. Sometimes we will want to construct a
 new ``TreeNode`` that already has both a ``parent`` and a ``child``.
@@ -105,48 +105,67 @@ are used.
 
 ::
 
-    class TreeNode:
-       def __init__(self,key,val,left=None,right=None,
-					   parent=None):
-	    self.key = key
-	    self.payload = val
-	    self.leftChild = left
-	    self.rightChild = right
-	    self.parent = parent
+    class TreeNode{
+        public:
+            int key;
+            string payload;
+            TreeNode *leftChild;
+            TreeNode *rightChild;
+            TreeNode *parent;
 
-	def hasLeftChild(self):
-	    return self.leftChild
+            TreeNode(int key, string val, TreeNode *parent = NULL, TreeNode *left = NULL, TreeNode *right = NULL){
+                this->key = key;
+                this->payload = val;
+                this->leftChild = left;
+                this->rightChild = right;
+                this->parent = parent;
+            }
 
-	def hasRightChild(self):
-	    return self.rightChild
+            TreeNode *hasLeftChild(){
+                return this->leftChild;
+            }
 
-	def isLeftChild(self):
-	    return self.parent and self.parent.leftChild == self
+            TreeNode *hasRightChild(){
+                return this->rightChild;
+            }
 
-	def isRightChild(self):
-	    return self.parent and self.parent.rightChild == self
+            bool isLeftChild(){
+                return this->parent && this->parent->leftChild == this;
+            }
 
-	def isRoot(self):
-	    return not self.parent
+            bool isRightChild(){
+                return this->parent && this->parent->rightChild == this;
+            }
 
-	def isLeaf(self):
-	    return not (self.rightChild or self.leftChild)
+            bool isRoot(){
+                return !this->parent;
+            }
 
-	def hasAnyChildren(self):
-	    return self.rightChild or self.leftChild
+            bool isLeaf(){
+                return !(this->rightChild || this->leftChild);
+            }
 
-	def hasBothChildren(self):
-	    return self.rightChild and self.leftChild
+            bool hasAnyChildren(){
+                return this->rightChild || this->leftChild;
+            }
 
-	def replaceNodeData(self,key,value,lc,rc):
-	    self.key = key
-	    self.payload = value
-	    self.leftChild = lc
-	    self.rightChild = rc
-	    if self.hasLeftChild():
-		self.leftChild.parent = self
-	    if self.hasRightChild():
-		self.rightChild.parent = self
+            bool hasBothChildren(){
+                return this->rightChild && this->leftChild;
+            }
+
+            void replaceNodeData(int key, string value, TreeNode *lc = NULL, TreeNode *rc = NULL){
+                this->key = key;
+                this->payload = value;
+                this->leftChild = lc;
+                this->rightChild = rc;
+                if (this->hasLeftChild()){
+                    this->leftChild->parent = this;
+                }
+                if (this->hasRightChild()){
+                    this->rightChild->parent = this;
+                }
+            }
+        }
 
 
 Now that we have the ``BinarySearchTree`` shell and the ``TreeNode`` it
@@ -170,7 +189,7 @@ algorithm:
 -  To add a node to the tree, create a new ``TreeNode`` object and
    insert the object at the point discovered in the previous step.
 
-:ref:`Listing 3 <lst_bst3>` shows the Python code for inserting a new node in
+:ref:`Listing 3 <lst_bst3>` shows the C++ code for inserting a new node in
 the tree. The ``_put`` function is written recursively following the
 steps outlined above. Notice that when a new child is inserted into the
 tree, the ``currentNode`` is passed to the new tree as the parent.
@@ -190,40 +209,34 @@ this bug as an exercise for you.
 
 ::
 
-    def put(self,key,val):
-    	if self.root:
-    	    self._put(key,val,self.root)
-    	else:
-    	    self.root = TreeNode(key,val)
-    	self.size = self.size + 1
+    void put(int key, string val){
+        if (this->root){
+            this->_put(key, val, this->root);
+        }
+        else{
+            this->root = new TreeNode(key, val);
+        }
+        this->size = this->size + 1;
+    }
 
-    def _put(self,key,val,currentNode):
-    	if key < currentNode.key:
-    	    if currentNode.hasLeftChild():
-    		   self._put(key,val,currentNode.leftChild)
-    	    else:
-    		   currentNode.leftChild = TreeNode(key,val,parent=currentNode)
-    	else:
-    	    if currentNode.hasRightChild():
-    		   self._put(key,val,currentNode.rightChild)
-    	    else:
-    		   currentNode.rightChild = TreeNode(key,val,parent=currentNode)
-
-
-With the ``put`` method defined, we can easily overload the ``[]``
-operator for assignment by having the ``__setitem__`` method call (see :ref:`Listing 4 <lst_bst4>`) the
-put method. This allows us to write Python statements like
-``myZipTree['Plymouth'] = 55446``, just like a Python dictionary.
-
-
-.. _lst_bst4:
-
-**Listing 4**
-
-::
-
-	def __setitem__(self,k,v):
-	    self.put(k,v)
+    void _put(int key, string val, TreeNode *currentNode){
+        if (key < currentNode->key){
+            if (currentNode->hasLeftChild()){
+                this->_put(key, val, currentNode->leftChild);
+            }
+            else{
+                currentNode->leftChild = new TreeNode(key, val, currentNode);
+            }
+        }
+        else{
+            if (currentNode->hasRightChild()){
+                this->_put(key, val, currentNode->rightChild);
+            }
+            else{
+                currentNode->rightChild = new TreeNode(key, val, currentNode);
+            }
+        }
+    }
 
 
 :ref:`Figure 2 <fig_bstput>` illustrates the process for inserting a new node
@@ -259,78 +272,48 @@ until it gets to a non-matching leaf node or finds a matching key. When
 a matching key is found, the value stored in the payload of the node is
 returned.
 
-:ref:`Listing 5 <lst_bst5>` shows the code for ``get``, ``_get`` and
-``__getitem__``. The search code in the ``_get`` method uses the same
+:ref:`Listing 5 <lst_bst5>` shows the code for ``get``  and ``_get``. The search code in the ``_get`` method uses the same
 logic for choosing the left or right child as the ``_put`` method. Notice
 that the ``_get`` method returns a ``TreeNode`` to ``get``, this allows
 ``_get`` to be used as a flexible helper method for other
 ``BinarySearchTree`` methods that may need to make use of other data
 from the ``TreeNode`` besides the payload.
 
-By implementing the ``__getitem__`` method we can write a Python
-statement that looks just like we are accessing a dictionary, when in
-fact we are using a binary search tree, for example
-``z = myZipTree['Fargo']``.  As you can see, all the ``__getitem__`` method does is call
-``get``.
-
-
 .. _lst_bst5:
-
-
-
 
 **Listing 5**
 
 ::
 
-    def get(self,key):
-    	if self.root:
-    	    res = self._get(key,self.root)
-    	    if res:
-    		   return res.payload
-    	    else:
-    		   return None
-    	else:
-    	    return None
+    string get(int key){
+        if (this->root){
+            TreeNode *res = this->_get(key, this->root);
+            if (res){
+                return res->payload;
+            }
+            else{
+                return 0;
+            }
+        }
+        else{
+            return 0;
+        }
+    }
 
-    def _get(self,key,currentNode):
-    	if not currentNode:
-    	    return None
-    	elif currentNode.key == key:
-    	    return currentNode
-    	elif key < currentNode.key:
-    	    return self._get(key,currentNode.leftChild)
-    	else:
-    	    return self._get(key,currentNode.rightChild)
-
-    def __getitem__(self,key):
-    	return self.get(key)
-
-Using ``get``, we can implement the ``in`` operation by writing a
-``__contains__`` method for the ``BinarySearchTree``. The
-``__contains__`` method will simply call ``get`` and return ``True``
-if ``get`` returns a value, or ``False`` if it returns ``None``. The
-code for ``__contains__`` is shown in :ref:`Listing 6 <lst_bst6>`.
-
-.. _lst_bst6:
-
-**Listing 6**
-
-::
-
-    def __contains__(self,key):
-    	if self._get(key,self.root):
-    	    return True
-    	else:
-    	    return False
-
-Recall that ``__contains__`` overloads the ``in`` operator and allows us
-to write statements such as:
-
-::
-
-	if 'Northfield' in myZipTree:
-	    print("oom ya ya")
+    TreeNode  *_get(int key, TreeNode *currentNode){
+        if (!currentNode){
+            return NULL;
+        }
+        else if (currentNode->key == key){
+            return currentNode;
+        }
+        else if (key < currentNode->key){
+            return this->_get(key, currentNode->leftChild);
+        }
+        else{
+            return this->_get(key, currentNode->rightChild);
+        }
+    }
 
 Finally, we turn our attention to the most challenging method in the
 binary search tree, the deletion of a key (see :ref:`Listing 7 <lst_bst7>`). The first task is to find the
@@ -347,22 +330,25 @@ the key is not found the ``del`` operator raises an error.
 
 ::
 
-    def delete(self,key):
-       if self.size > 1:
-          nodeToRemove = self._get(key,self.root)
-    	  if nodeToRemove:
-    	      self.remove(nodeToRemove)
-    	      self.size = self.size-1
-    	  else:
-    	      raise KeyError('Error, key not in tree')
-       elif self.size == 1 and self.root.key == key:
-    	  self.root = None
-    	  self.size = self.size - 1
-       else:
-    	  raise KeyError('Error, key not in tree')
-
-    def __delitem__(self,key):
-    	self.delete(key)
+    void del(int key){
+        if (this->size > 1){
+            TreeNode *nodeToRemove = this->_get(key, this->root);
+            if (nodeToRemove){
+                this->remove(nodeToRemove);
+                this->size = this->size - 1;
+            }
+            else{
+                cerr << "Error, key not in tree" << endl;
+            }
+        }
+        else if (this->size == 1 && this->root->key == key){
+            this->root = NULL;
+            this->size = this->size - 1;
+        }
+        else{
+            cerr << "Error, key not in tree" << endl;
+        }
+    }
 
 Once we’ve found the node containing the key we want to delete, there
 are three cases that we must consider:
@@ -385,12 +371,14 @@ node in the parent. The code for this case is shown in here.
 
 ::
 
-    if currentNode.isLeaf():
-    	if currentNode == currentNode.parent.leftChild:
-    	    currentNode.parent.leftChild = None
-    	else:
-    	    currentNode.parent.rightChild = None
-
+    if (currentNode->isLeaf()){ //leaf
+        if (currentNode == currentNode->parent->leftChild){
+            currentNode->parent->leftChild = NULL;
+        }
+        else{
+            currentNode->parent->rightChild = NULL;
+        }
+    }
 
 .. _fig_bstdel1:
 
@@ -428,31 +416,41 @@ left child. The decision proceeds as follows:
 
 ::
 
-    else: # this node has one child
-       if currentNode.hasLeftChild():
-    	  if currentNode.isLeftChild():
-    	      currentNode.leftChild.parent = currentNode.parent
-    	      currentNode.parent.leftChild = currentNode.leftChild
-    	  elif currentNode.isRightChild():
-    	      currentNode.leftChild.parent = currentNode.parent
-    	      currentNode.parent.rightChild = currentNode.leftChild
-    	  else:
-    	      currentNode.replaceNodeData(currentNode.leftChild.key,
-    				 currentNode.leftChild.payload,
-    				 currentNode.leftChild.leftChild,
-    				 currentNode.leftChild.rightChild)
-       else:
-    	  if currentNode.isLeftChild():
-    	      currentNode.rightChild.parent = currentNode.parent
-    	      currentNode.parent.leftChild = currentNode.rightChild
-    	  elif currentNode.isRightChild():
-    	      currentNode.rightChild.parent = currentNode.parent
-    	      currentNode.parent.rightChild = currentNode.rightChild
-    	  else:
-    	      currentNode.replaceNodeData(currentNode.rightChild.key,
-    				 currentNode.rightChild.payload,
-    				 currentNode.rightChild.leftChild,
-    				 currentNode.rightChild.rightChild)
+    else{ // this node has one child
+        if (currentNode->hasLeftChild()){
+            if (currentNode->isLeftChild()){
+                currentNode->leftChild->parent = currentNode->parent;
+                currentNode->parent->leftChild = currentNode->leftChild;
+            }
+            else if (currentNode->isRightChild()){
+                currentNode->leftChild->parent = currentNode->parent;
+                currentNode->parent->rightChild = currentNode->leftChild;
+            }
+            else{
+                currentNode->replaceNodeData(currentNode->leftChild->key,
+                                             currentNode->leftChild->payload,
+                                             currentNode->leftChild->leftChild,
+                                             currentNode->leftChild->rightChild);
+
+            }
+        }
+        else{
+            if (currentNode->isLeftChild()){
+                currentNode->rightChild->parent = currentNode->parent;
+                currentNode->parent->leftChild = currentNode->rightChild;
+            }
+            else if (currentNode->isRightChild()){
+                currentNode->rightChild->parent = currentNode->parent;
+                currentNode->parent->rightChild = currentNode->rightChild;
+            }
+            else{
+                currentNode->replaceNodeData(currentNode->rightChild->key,
+                                             currentNode->rightChild->payload,
+                                             currentNode->rightChild->leftChild,
+                                             currentNode->rightChild->rightChild);
+            }
+        }
+    }
 
 .. _fig_bstdel2:
 
@@ -495,11 +493,12 @@ time re-searching for the key node.
 
 ::
 
-   elif currentNode.hasBothChildren(): #interior
-	   succ = currentNode.findSuccessor()
-	   succ.spliceOut()
-	   currentNode.key = succ.key
-	   currentNode.payload = succ.payload
+    else if (currentNode->hasBothChildren()){ //interior
+        TreeNode *succ = currentNode->findSuccessor();
+        succ->spliceOut();
+        currentNode->key = succ->key;
+        currentNode->payload = succ->payload;
+    }
 
 The code to find the successor is shown below (see :ref:`Listing 11 <lst_bst11>`) and as
 you can see is a method of the ``TreeNode`` class. This code makes use
@@ -535,49 +534,64 @@ subtree until it reaches a node that does not have a left child.
 
 ::
 
-    def findSuccessor(self):
-    	succ = None
-    	if self.hasRightChild():
-    	    succ = self.rightChild.findMin()
-    	else:
-    	    if self.parent:
-    		   if self.isLeftChild():
-    		       succ = self.parent
-    		   else:
-    		       self.parent.rightChild = None
-    		       succ = self.parent.findSuccessor()
-    		       self.parent.rightChild = self
-    	return succ
+    TreeNode *findSuccessor(){
+        TreeNode *succ = NULL;
+        if (this->hasRightChild()){
+            succ = this->rightChild->findMin();
+        }
+        else{
+            if (this->parent){
+                if (this->isLeftChild()){
+                    succ = this->parent;
+                }
+                else{
+                    this->parent->rightChild = NULL;
+                    succ = this->parent->findSuccessor();
+                    this->parent->rightChild = this;
+                }
+            }
+        }
+        return succ;
+    }
 
-    def findMin(self):
-    	current = self
-    	while current.hasLeftChild():
-    	    current = current.leftChild
-    	return current
+    TreeNode *findMin(){
+        TreeNode *current = this;
+        while (current->hasLeftChild()){
+            current = current->leftChild;
+        }
+        return current;
+    }
 
-    def spliceOut(self):
-    	if self.isLeaf():
-    	    if self.isLeftChild():
-    		   self.parent.leftChild = None
-    	    else:
-    		   self.parent.rightChild = None
-    	elif self.hasAnyChildren():
-    	    if self.hasLeftChild():
-    		   if self.isLeftChild():
-    		      self.parent.leftChild = self.leftChild
-    		   else:
-    		      self.parent.rightChild = self.leftChild
-    		   self.leftChild.parent = self.parent
-    	    else:
-    		   if self.isLeftChild():
-    		      self.parent.leftChild = self.rightChild
-    		   else:
-    		      self.parent.rightChild = self.rightChild
-    		   self.rightChild.parent = self.parent
-
-
-
-
+    void spliceOut(){
+        if (this->isLeaf()){
+            if (this->isLeftChild()){
+                this->parent->leftChild = NULL;
+            }
+            else{
+                this->parent->rightChild = NULL;
+            }
+        }
+        else if (this->hasAnyChildren()){
+            if (this->hasLeftChild()){
+                if (this->isLeftChild()){
+                    this->parent->leftChild = this->leftChild;
+                }
+                else{
+                    this->parent->rightChild = this->rightChild;
+                }
+                this->leftChild->parent = this->parent;
+            }
+            else{
+                if (this->isLeftChild()){
+                    this->parent->leftChild = this->rightChild;
+                }
+                else{
+                    this->parent->rightChild = this->rightChild;
+                }
+                this->rightChild->parent = this->parent;
+            }
+        }
+    }
 
 We need to look at one last interface method for the binary search tree.
 Suppose that we would like to simply iterate over all the keys in the
@@ -605,229 +619,524 @@ the ``__iter__`` method is defined in the ``TreeNode`` class.
 ::
 
     def __iter__(self):
-       if self:
-    	  if self.hasLeftChild():
-    	  	 for elem in self.leftChiLd:
-    		    yield elem
-          yield self.key
-    	  if self.hasRightChild():
-    		 for elem in self.rightChild:
-    		    yield elem
+        if self:
+    	    if self.hasLeftChild():
+    	  	    for elem in self.leftChiLd:
+    		        yield elem
+            yield self.key
+    	    if self.hasRightChild():
+    		    for elem in self.rightChild:
+    		        yield elem
 
 At this point you may want to download the entire file containing the
 full version of the ``BinarySearchTree`` and ``TreeNode`` classes.
 
-.. activecode:: completebstcode
+.. tabbed:: BinarySearchTree
 
-    class TreeNode:
-        def __init__(self,key,val,left=None,right=None,parent=None):
-            self.key = key
-            self.payload = val
-            self.leftChild = left
-            self.rightChild = right
-            self.parent = parent
+  .. tab:: C++
 
-        def hasLeftChild(self):
-            return self.leftChild
+    .. activecode:: completebstcodecpp
+        :language: cpp
 
-        def hasRightChild(self):
-            return self.rightChild
+        #include <iostream>
+        #include <cstdlib>
+        #include <cstddef>
+        #include <string>
+        using namespace std;
 
-        def isLeftChild(self):
-            return self.parent and self.parent.leftChild == self
 
-        def isRightChild(self):
-            return self.parent and self.parent.rightChild == self
+        class TreeNode{
 
-        def isRoot(self):
-            return not self.parent
+            public:
+                int key;
+                string payload;
+                TreeNode *leftChild;
+                TreeNode *rightChild;
+                TreeNode *parent;
 
-        def isLeaf(self):
-            return not (self.rightChild or self.leftChild)
+                TreeNode(int key, string val, TreeNode *parent = NULL, TreeNode *left = NULL, TreeNode *right = NULL){
+                    this->key = key;
+                    this->payload = val;
+                    this->leftChild = left;
+                    this->rightChild = right;
+                    this->parent = parent;
+                }
 
-        def hasAnyChildren(self):
-            return self.rightChild or self.leftChild
+                TreeNode *hasLeftChild(){
+                    return this->leftChild;
+                }
 
-        def hasBothChildren(self):
-            return self.rightChild and self.leftChild
+                TreeNode *hasRightChild(){
+                    return this->rightChild;
+                }
 
-        def spliceOut(self):
-            if self.isLeaf():
-                if self.isLeftChild():
-                    self.parent.leftChild = None
+                bool isLeftChild(){
+                    return this->parent && this->parent->leftChild == this;
+                }
+
+                bool isRightChild(){
+                    return this->parent && this->parent->rightChild == this;
+                }
+
+                bool isRoot(){
+                    return !this->parent;
+                }
+
+                bool isLeaf(){
+                    return !(this->rightChild || this->leftChild);
+                }
+
+                bool hasAnyChildren(){
+                    return this->rightChild || this->leftChild;
+                }
+
+                bool hasBothChildren(){
+                    return this->rightChild && this->leftChild;
+                }
+
+                void spliceOut(){
+                    if (this->isLeaf()){
+                        if (this->isLeftChild()){
+                            this->parent->leftChild = NULL;
+                        }
+                        else{
+                            this->parent->rightChild = NULL;
+                        }
+                    }
+                    else if (this->hasAnyChildren()){
+                        if (this->hasLeftChild()){
+                            if (this->isLeftChild()){
+                                this->parent->leftChild = this->leftChild;
+                            }
+                            else{
+                                this->parent->rightChild = this->rightChild;
+                            }
+                            this->leftChild->parent = this->parent;
+                        }
+                        else{
+                            if (this->isLeftChild()){
+                                this->parent->leftChild = this->rightChild;
+                            }
+                            else{
+                                this->parent->rightChild = this->rightChild;
+                            }
+                            this->rightChild->parent = this->parent;
+                        }
+                    }
+                }
+
+                TreeNode *findSuccessor(){
+                    TreeNode *succ = NULL;
+                    if (this->hasRightChild()){
+                        succ = this->rightChild->findMin();
+                    }
+                    else{
+                        if (this->parent){
+                            if (this->isLeftChild()){
+                                succ = this->parent;
+                            }
+                            else{
+                                this->parent->rightChild = NULL;
+                                succ = this->parent->findSuccessor();
+                                this->parent->rightChild = this;
+                            }
+                        }
+                    }
+                    return succ;
+                }
+
+                TreeNode *findMin(){
+                    TreeNode *current = this;
+                    while (current->hasLeftChild()){
+                        current = current->leftChild;
+                    }
+                    return current;
+                }
+
+                void replaceNodeData(int key, string value, TreeNode *lc = NULL, TreeNode *rc = NULL){
+                    this->key = key;
+                    this->payload = value;
+                    this->leftChild = lc;
+                    this->rightChild = rc;
+                    if (this->hasLeftChild()){
+                        this->leftChild->parent = this;
+                    }
+
+                    if (this->hasRightChild()){
+                        this->rightChild->parent = this;
+                    }
+                }
+        };
+
+
+        class BinarySearchTree{
+
+            private:
+                TreeNode *root;
+                int size;
+
+                void _put(int key, string val, TreeNode *currentNode){
+                    if (key < currentNode->key){
+                        if (currentNode->hasLeftChild()){
+                            this->_put(key, val, currentNode->leftChild);
+                        }
+                        else{
+                            currentNode->leftChild = new TreeNode(key, val, currentNode);
+                        }
+                    }
+                    else{
+                        if (currentNode->hasRightChild()){
+                            this->_put(key, val, currentNode->rightChild);
+                        }
+                        else{
+                            currentNode->rightChild = new TreeNode(key, val, currentNode);
+                        }
+                    }
+                }
+
+                TreeNode  *_get(int key, TreeNode *currentNode){
+                    if (!currentNode){
+                        return NULL;
+                    }
+                    else if (currentNode->key == key){
+                        return currentNode;
+                    }
+                    else if (key < currentNode->key){
+                        return this->_get(key, currentNode->leftChild);
+                    }
+                    else{
+                        return this->_get(key, currentNode->rightChild);
+                    }
+                }
+
+            public:
+                BinarySearchTree(){
+                    this->root = NULL;
+                    this->size = 0;
+                }
+
+                int length(){
+                    return this->size;
+                }
+
+                void put(int key, string val){
+                    if (this->root){
+                        this->_put(key, val, this->root);
+                    }
+                    else{
+                        this->root = new TreeNode(key, val);
+                    }
+                    this->size = this->size + 1;
+                }
+
+                string get(int key){
+                    if (this->root){
+                        TreeNode *res = this->_get(key, this->root);
+                        if (res){
+                            return res->payload;
+                        }
+                        else{
+                            return 0;
+                        }
+                    }
+                    else{
+                        return 0;
+                    }
+                }
+
+                void del(int key){
+                    if (this->size > 1){
+                        TreeNode *nodeToRemove = this->_get(key, this->root);
+                        if (nodeToRemove){
+                            this->remove(nodeToRemove);
+                            this->size = this->size - 1;
+                        }
+                        else{
+                            cerr << "Error, key not in tree" << endl;
+                        }
+                    }
+                    else if (this->size == 1 && this->root->key == key){
+                        this->root = NULL;
+                        this->size = this->size - 1;
+                    }
+                    else{
+                        cerr << "Error, key not in tree" << endl;
+                    }
+                }
+
+                void remove(TreeNode *currentNode){
+                    if (currentNode->isLeaf()){ //leaf
+                        if (currentNode == currentNode->parent->leftChild){
+                            currentNode->parent->leftChild = NULL;
+                        }
+                        else{
+                            currentNode->parent->rightChild = NULL;
+                        }
+                    }
+                    else if (currentNode->hasBothChildren()){ //interior
+                        TreeNode *succ = currentNode->findSuccessor();
+                        succ->spliceOut();
+                        currentNode->key = succ->key;
+                        currentNode->payload = succ->payload;
+                    }
+                    else{ // this node has one child
+                        if (currentNode->hasLeftChild()){
+                            if (currentNode->isLeftChild()){
+                                currentNode->leftChild->parent = currentNode->parent;
+                                currentNode->parent->leftChild = currentNode->leftChild;
+                            }
+                            else if (currentNode->isRightChild()){
+                                currentNode->leftChild->parent = currentNode->parent;
+                                currentNode->parent->rightChild = currentNode->leftChild;
+                            }
+                            else{
+                                currentNode->replaceNodeData(currentNode->leftChild->key,
+                                                             currentNode->leftChild->payload,
+                                                             currentNode->leftChild->leftChild,
+                                                             currentNode->leftChild->rightChild);
+
+                            }
+                        }
+                        else{
+                            if (currentNode->isLeftChild()){
+                                currentNode->rightChild->parent = currentNode->parent;
+                                currentNode->parent->leftChild = currentNode->rightChild;
+                            }
+                            else if (currentNode->isRightChild()){
+                                currentNode->rightChild->parent = currentNode->parent;
+                                currentNode->parent->rightChild = currentNode->rightChild;
+                            }
+                            else{
+                                currentNode->replaceNodeData(currentNode->rightChild->key,
+                                                             currentNode->rightChild->payload,
+                                                             currentNode->rightChild->leftChild,
+                                                             currentNode->rightChild->rightChild);
+                            }
+                        }
+                    }
+                }
+        };
+
+        int main(){
+
+            BinarySearchTree *mytree = new BinarySearchTree();
+            mytree->put(3, "red");
+            mytree->put(4, "blue");
+            mytree->put(6, "yellow");
+            mytree->put(2, "at");
+
+            cout << mytree->get(6) << endl;
+            cout << mytree->get(2) << endl;
+
+            return 0;
+        }
+
+  .. tab:: Python
+
+    .. activecode:: completebstcodepy
+
+        class TreeNode:
+            def __init__(self,key,val,left=None,right=None,parent=None):
+                self.key = key
+                self.payload = val
+                self.leftChild = left
+                self.rightChild = right
+                self.parent = parent
+
+            def hasLeftChild(self):
+                return self.leftChild
+
+            def hasRightChild(self):
+                return self.rightChild
+
+            def isLeftChild(self):
+                return self.parent and self.parent.leftChild == self
+
+            def isRightChild(self):
+                return self.parent and self.parent.rightChild == self
+
+            def isRoot(self):
+                return not self.parent
+
+            def isLeaf(self):
+                return not (self.rightChild or self.leftChild)
+
+            def hasAnyChildren(self):
+                return self.rightChild or self.leftChild
+
+            def hasBothChildren(self):
+                return self.rightChild and self.leftChild
+
+            def spliceOut(self):
+                if self.isLeaf():
+                    if self.isLeftChild():
+                        self.parent.leftChild = None
+                    else:
+                        self.parent.rightChild = None
+                elif self.hasAnyChildren():
+                    if self.hasLeftChild():
+                        if self.isLeftChild():
+                            self.parent.leftChild = self.leftChild
+                        else:
+                            self.parent.rightChild = self.leftChild
+                        self.leftChild.parent = self.parent
+                    else:
+                        if self.isLeftChild():
+                            self.parent.leftChild = self.rightChild
+                        else:
+                            self.parent.rightChild = self.rightChild
+                        self.rightChild.parent = self.parent
+
+            def findSuccessor(self):
+                succ = None
+                if self.hasRightChild():
+                    succ = self.rightChild.findMin()
                 else:
-                    self.parent.rightChild = None
-            elif self.hasAnyChildren():
+                    if self.parent:
+                           if self.isLeftChild():
+                               succ = self.parent
+                           else:
+                               self.parent.rightChild = None
+                               succ = self.parent.findSuccessor()
+                               self.parent.rightChild = self
+                return succ
+
+            def findMin(self):
+                current = self
+                while current.hasLeftChild():
+                    current = current.leftChild
+                return current
+
+            def replaceNodeData(self,key,value,lc,rc):
+                self.key = key
+                self.payload = value
+                self.leftChild = lc
+                self.rightChild = rc
                 if self.hasLeftChild():
-                    if self.isLeftChild():
-                        self.parent.leftChild = self.leftChild
+                    self.leftChild.parent = self
+                if self.hasRightChild():
+                    self.rightChild.parent = self
+
+
+        class BinarySearchTree:
+
+            def __init__(self):
+                self.root = None
+                self.size = 0
+
+            def length(self):
+                return self.size
+
+            def __len__(self):
+                return self.size
+
+            def put(self,key,val):
+                if self.root:
+                    self._put(key,val,self.root)
+                else:
+                    self.root = TreeNode(key,val)
+                self.size = self.size + 1
+
+            def _put(self,key,val,currentNode):
+                if key < currentNode.key:
+                    if currentNode.hasLeftChild():
+                           self._put(key,val,currentNode.leftChild)
                     else:
-                        self.parent.rightChild = self.leftChild
-                    self.leftChild.parent = self.parent
+                           currentNode.leftChild = TreeNode(key,val,parent=currentNode)
                 else:
-                    if self.isLeftChild():
-                        self.parent.leftChild = self.rightChild
+                    if currentNode.hasRightChild():
+                           self._put(key,val,currentNode.rightChild)
                     else:
-                        self.parent.rightChild = self.rightChild
-                    self.rightChild.parent = self.parent
+                           currentNode.rightChild = TreeNode(key,val,parent=currentNode)
 
-        def findSuccessor(self):
-            succ = None
-            if self.hasRightChild():
-                succ = self.rightChild.findMin()
-            else:
-                if self.parent:
-                       if self.isLeftChild():
-                           succ = self.parent
-                       else:
-                           self.parent.rightChild = None
-                           succ = self.parent.findSuccessor()
-                           self.parent.rightChild = self
-            return succ
-
-        def findMin(self):
-            current = self
-            while current.hasLeftChild():
-                current = current.leftChild
-            return current
-
-        def replaceNodeData(self,key,value,lc,rc):
-            self.key = key
-            self.payload = value
-            self.leftChild = lc
-            self.rightChild = rc
-            if self.hasLeftChild():
-                self.leftChild.parent = self
-            if self.hasRightChild():
-                self.rightChild.parent = self
-
-
-    class BinarySearchTree:
-
-        def __init__(self):
-            self.root = None
-            self.size = 0
-
-        def length(self):
-            return self.size
-
-        def __len__(self):
-            return self.size
-
-        def put(self,key,val):
-            if self.root:
-                self._put(key,val,self.root)
-            else:
-                self.root = TreeNode(key,val)
-            self.size = self.size + 1
-
-        def _put(self,key,val,currentNode):
-            if key < currentNode.key:
-                if currentNode.hasLeftChild():
-                       self._put(key,val,currentNode.leftChild)
-                else:
-                       currentNode.leftChild = TreeNode(key,val,parent=currentNode)
-            else:
-                if currentNode.hasRightChild():
-                       self._put(key,val,currentNode.rightChild)
-                else:
-                       currentNode.rightChild = TreeNode(key,val,parent=currentNode)
-
-        def __setitem__(self,k,v):
-           self.put(k,v)
-
-        def get(self,key):
-           if self.root:
-               res = self._get(key,self.root)
-               if res:
-                      return res.payload
+            def get(self,key):
+               if self.root:
+                   res = self._get(key,self.root)
+                   if res:
+                          return res.payload
+                   else:
+                          return None
                else:
-                      return None
-           else:
-               return None
+                   return None
 
-        def _get(self,key,currentNode):
-           if not currentNode:
-               return None
-           elif currentNode.key == key:
-               return currentNode
-           elif key < currentNode.key:
-               return self._get(key,currentNode.leftChild)
-           else:
-               return self._get(key,currentNode.rightChild)
+            def _get(self,key,currentNode):
+               if not currentNode:
+                   return None
+               elif currentNode.key == key:
+                   return currentNode
+               elif key < currentNode.key:
+                   return self._get(key,currentNode.leftChild)
+               else:
+                   return self._get(key,currentNode.rightChild)
 
-        def __getitem__(self,key):
-           return self.get(key)
+            #def __contains__(self,key):
+             #  if self._get(key,self.root):
+              #    return True
+               #else:
+                #   return False
 
-        def __contains__(self,key):
-           if self._get(key,self.root):
-               return True
-           else:
-               return False
-
-        def delete(self,key):
-          if self.size > 1:
-             nodeToRemove = self._get(key,self.root)
-             if nodeToRemove:
-                 self.remove(nodeToRemove)
-                 self.size = self.size-1
-             else:
+            def delete(self,key):
+              if self.size > 1:
+                 nodeToRemove = self._get(key,self.root)
+                 if nodeToRemove:
+                     self.remove(nodeToRemove)
+                     self.size = self.size-1
+                 else:
+                     raise KeyError('Error, key not in tree')
+              elif self.size == 1 and self.root.key == key:
+                 self.root = None
+                 self.size = self.size - 1
+              else:
                  raise KeyError('Error, key not in tree')
-          elif self.size == 1 and self.root.key == key:
-             self.root = None
-             self.size = self.size - 1
-          else:
-             raise KeyError('Error, key not in tree')
 
-        def __delitem__(self,key):
-           self.delete(key)
+            def remove(self,currentNode):
+                 if currentNode.isLeaf(): #leaf
+                   if currentNode == currentNode.parent.leftChild:
+                       currentNode.parent.leftChild = None
+                   else:
+                       currentNode.parent.rightChild = None
+                 elif currentNode.hasBothChildren(): #interior
+                   succ = currentNode.findSuccessor()
+                   succ.spliceOut()
+                   currentNode.key = succ.key
+                   currentNode.payload = succ.payload
 
-        def remove(self,currentNode):
-             if currentNode.isLeaf(): #leaf
-               if currentNode == currentNode.parent.leftChild:
-                   currentNode.parent.leftChild = None
-               else:
-                   currentNode.parent.rightChild = None
-             elif currentNode.hasBothChildren(): #interior
-               succ = currentNode.findSuccessor()
-               succ.spliceOut()
-               currentNode.key = succ.key
-               currentNode.payload = succ.payload
-
-             else: # this node has one child
-               if currentNode.hasLeftChild():
-                 if currentNode.isLeftChild():
-                     currentNode.leftChild.parent = currentNode.parent
-                     currentNode.parent.leftChild = currentNode.leftChild
-                 elif currentNode.isRightChild():
-                     currentNode.leftChild.parent = currentNode.parent
-                     currentNode.parent.rightChild = currentNode.leftChild
-                 else:
-                     currentNode.replaceNodeData(currentNode.leftChild.key,
-                                        currentNode.leftChild.payload,
-                                        currentNode.leftChild.leftChild,
-                                        currentNode.leftChild.rightChild)
-               else:
-                 if currentNode.isLeftChild():
-                     currentNode.rightChild.parent = currentNode.parent
-                     currentNode.parent.leftChild = currentNode.rightChild
-                 elif currentNode.isRightChild():
-                     currentNode.rightChild.parent = currentNode.parent
-                     currentNode.parent.rightChild = currentNode.rightChild
-                 else:
-                     currentNode.replaceNodeData(currentNode.rightChild.key,
-                                        currentNode.rightChild.payload,
-                                        currentNode.rightChild.leftChild,
-                                        currentNode.rightChild.rightChild)
+                 else: # this node has one child
+                   if currentNode.hasLeftChild():
+                     if currentNode.isLeftChild():
+                         currentNode.leftChild.parent = currentNode.parent
+                         currentNode.parent.leftChild = currentNode.leftChild
+                     elif currentNode.isRightChild():
+                         currentNode.leftChild.parent = currentNode.parent
+                         currentNode.parent.rightChild = currentNode.leftChild
+                     else:
+                         currentNode.replaceNodeData(currentNode.leftChild.key,
+                                            currentNode.leftChild.payload,
+                                            currentNode.leftChild.leftChild,
+                                            currentNode.leftChild.rightChild)
+                   else:
+                     if currentNode.isLeftChild():
+                         currentNode.rightChild.parent = currentNode.parent
+                         currentNode.parent.leftChild = currentNode.rightChild
+                     elif currentNode.isRightChild():
+                         currentNode.rightChild.parent = currentNode.parent
+                         currentNode.parent.rightChild = currentNode.rightChild
+                     else:
+                         currentNode.replaceNodeData(currentNode.rightChild.key,
+                                            currentNode.rightChild.payload,
+                                            currentNode.rightChild.leftChild,
+                                            currentNode.rightChild.rightChild)
 
 
+        def main():
 
+            mytree = BinarySearchTree()
+            mytree.put(3, "red")
+            mytree.put(4, "blue")
+            mytree.put(6, "yellow")
+            mytree.put(2, "at")
 
-    mytree = BinarySearchTree()
-    mytree[3]="red"
-    mytree[4]="blue"
-    mytree[6]="yellow"
-    mytree[2]="at"
+            print(mytree.get(6))
+            print(mytree.get(2))
 
-    print(mytree[6])
-    print(mytree[2])
+        main()
