@@ -69,6 +69,25 @@ and four things happen:
 
 ::
 
+<<<<<<< HEAD
+    from pythonds.graphs import Graph, Vertex
+    from pythonds.basic import Queue
+
+    def bfs(g,start):
+        start.setDistance(0)
+        start.setPred(None)
+        vertQueue = Queue()
+        vertQueue.enqueue(start)
+        while (vertQueue.size() > 0):
+            currentVert = vertQueue.dequeue()
+            for nbr in currentVert.getConnections():
+                if (nbr.getColor() == 'white'):
+                    nbr.setColor('gray')
+                    nbr.setDistance(currentVert.getDistance() + 1)
+                    nbr.setPred(currentVert)
+                    vertQueue.enqueue(nbr)
+            currentVert.setColor('black')
+=======
     Graph bfs(Graph g, Vertex *start) {
         start->dist = 0;
         start->pred = NULL;
@@ -90,6 +109,7 @@ and four things happen:
         }
         return g;
     }
+>>>>>>> 749188c303348ee4e419b3035e0fc0be91e65790
 
 Let’s look at how the ``bfs`` function would construct the breadth first
 tree corresponding to the graph in :ref:`Figure 1 <fig_wordladder>`. Starting
@@ -173,6 +193,9 @@ print out the word ladder.
       cout << x->id << endl;
     }
 
+<<<<<<< HEAD
+    traverse(g.getVertex('sage'))
+=======
 Because of syntactic changes to C++ between C++98 and C++11, the following code
 will not run in your ActiveCode window and must be copied and pasted into a compiler using C++11 to run.
 
@@ -422,3 +445,4 @@ with an implementation for the breadth-first search shown above.
 
         return 0;
     }
+>>>>>>> 749188c303348ee4e419b3035e0fc0be91e65790

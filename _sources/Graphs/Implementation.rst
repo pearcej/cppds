@@ -21,7 +21,7 @@ variable. The ``getWeight`` method returns the weight of the edge from
 this vertex to the vertex passed as a parameter.
 
 We use ``operator overloading`` so that when we print our Vertex using the ``cout <<`` function
-we get a list of it's connections, instead of an error. This function must be initialized
+we get a list of its connections, instead of an error. This function must be initialized
 as a ``friend function`` within the class definition, but is required to be defined outside of the class. This is specific to ``operator overloading`` in C++.
 
 .. _lst_vertex:
@@ -30,52 +30,52 @@ as a ``friend function`` within the class definition, but is required to be defi
 
 ::
 
-          class Vertex {
-            public:
+    class Vertex {
+        public:
             int id;
             map<int, int> connectedTo;
 
-          Vertex() {
-          }
-
-          Vertex(int key) {
-            id = key;
-          }
-
-          void addNeighbor(int nbr, int weight = 0) {
-            connectedTo[nbr] = weight;
-          }
-
-          vector<int> getConnections() {
-            vector<int> keys;
-            // Use of iterator to find all keys
-            for (map<int, int>::iterator it = connectedTo.begin();
-               it != connectedTo.end();
-               ++it) {
-              keys.push_back(it->first);
+            Vertex() {
             }
-            return keys;
-          }
 
-          int getId() {
-            return id;
-          }
+            Vertex(int key) {
+                id = key;
+            }
 
-          int getWeight(int nbr) {
-            return connectedTo[nbr];
-          }
+            void addNeighbor(int nbr, int weight = 0) {
+                connectedTo[nbr] = weight;
+            }
 
-          friend ostream &operator<<(ostream &, Vertex &);
-        };
+            vector<int> getConnections() {
+                vector<int> keys;
+                // Use of iterator to find all keys
+                for (map<int, int>::iterator it = connectedTo.begin();
+                    it != connectedTo.end();
+                    ++it) {
+                    keys.push_back(it->first);
+                }
+                return keys;
+            }
 
-        ostream &operator<<(ostream &stream, Vertex &vert) {
-          vector<int> connects = vert.getConnections();
-          for (unsigned int i = 0; i < connects.size(); i++) {
+            int getId() {
+                return id;
+            }
+
+            int getWeight(int nbr) {
+                return connectedTo[nbr];
+            }
+
+            friend ostream &operator<<(ostream &, Vertex &);
+    };
+
+    ostream &operator<<(ostream &stream, Vertex &vert) {
+        vector<int> connects = vert.getConnections();
+        for (unsigned int i = 0; i < connects.size(); i++) {
             stream << "( " << vert.id << " , " << connects[i] << " ) \n";
-          }
-
-          return stream;
         }
+
+        return stream;
+    }
 
 
 The ``Graph`` class, shown in the next listing, contains a map
@@ -91,79 +91,73 @@ of the vertices in the graph.
 
 ::
 
-        class Graph {
-          public:
-          map<int, Vertex> vertList;
-          int numVertices;
+    class Graph {
+        public:
+            map<int, Vertex> vertList;
+            int numVertices;
 
-          Graph() {
-            numVertices = 0;
-          }
-
-          Vertex addVertex(int key) {
-            numVertices++;
-            Vertex newVertex = Vertex(key);
-            this->vertList[key] = newVertex;
-            return newVertex;
-          }
-
-          Vertex *getVertex(int n) {
-            for (map<int, Vertex>::iterator it = vertList.begin();
-               it != vertList.end();
-               ++it) {
-              if (it->first == n) {
-                // Forced to use pntr due to possibility of returning NULL
-                Vertex *vpntr = &vertList[n];
-                return vpntr;
-              } else {
-                return NULL;
-              }
+            Graph() {
+                numVertices = 0;
             }
-          }
 
-          bool contains(int n) {
-            for (map<int, Vertex>::iterator it = vertList.begin();
-               it != vertList.end();
-               ++it) {
-              if (it->first == n) {
-                return true;
-              }
+            Vertex addVertex(int key) {
+                numVertices++;
+                Vertex newVertex = Vertex(key);
+                this->vertList[key] = newVertex;
+                return newVertex;
             }
-            return false;
-          }
 
-          void addEdge(int f, int t, int cost = 0) {
-            if (!this->contains(f)) {
-              cout << f << " was not found, adding!" << endl;
-              this->addVertex(f);
+            Vertex *getVertex(int n) {
+                for (map<int, Vertex>::iterator it = vertList.begin(); it != vertList.end(); ++it) {
+                    if (it->first == n) {
+                        // Forced to use pntr due to possibility of returning NULL
+                        Vertex *vpntr = &vertList[n];
+                        return vpntr;
+                    } else {
+                        return NULL;
+                    }
+                }
             }
-            if (!this->contains(t)) {
-              cout << t << " was not found, adding!" << endl;
+
+            bool contains(int n) {
+                for (map<int, Vertex>::iterator it = vertList.begin(); it != vertList.end(); ++it) {
+                    if (it->first == n) {
+                        return true;
+                    }
+                }
+                return false;
             }
-            vertList[f].addNeighbor(t, cost);
-          }
 
-          vector<int> getVertices() {
-            vector<int> verts;
-
-            for (map<int, Vertex>::iterator it = vertList.begin();
-               it != vertList.end();
-               ++it) {
-              verts.push_back(it->first);
+            void addEdge(int f, int t, int cost = 0) {
+                if (!this->contains(f)) {
+                    cout << f << " was not found, adding!" << endl;
+                    this->addVertex(f);
+                }
+                if (!this->contains(t)) {
+                    cout << t << " was not found, adding!" << endl;
+                }
+                vertList[f].addNeighbor(t, cost);
             }
-            return verts;
-          }
 
-          friend ostream &operator<<(ostream &, Graph &);
-        };
+            vector<int> getVertices() {
+                vector<int> verts;
 
-        ostream &operator<<(ostream &stream, Graph &grph) {
-          for (unsigned int i = 0; i < grph.vertList.size(); i++) {
+                for (map<int, Vertex>::iterator it = vertList.begin(); it != vertList.end();  ++it) {
+                    verts.push_back(it->first);
+                }
+                return verts;
+            }
+
+            friend ostream &operator<<(ostream &, Graph &);
+    };
+
+    ostream &operator<<(ostream &stream, Graph &grph) {
+        for (unsigned int i = 0; i < grph.vertList.size(); i++) {
             stream << grph.vertList[i];
-          }
-
-          return stream;
         }
+
+        return stream;
+    }
 
 Using the ``Graph`` and ``Vertex`` classes just defined, the following
 Python session creates the graph in :ref:`Figure 2 <fig_dgsimple>`. First we
