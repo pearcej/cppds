@@ -92,36 +92,38 @@ where we satisfy the base case condition immediately.
     .. tab:: C++
 
         .. activecode:: lst_change11cpp
-           :caption: Recursively Counting Coins with Table Lookup C++
-           :language: cpp
+            :caption: Recursively Counting Coins with Table Lookup C++
+            :language: cpp
 
-           #include <iostream>
-           #include <vector>
-           using namespace std;
+            #include <iostream>
+            #include <vector>
+            using namespace std;
 
-           int recMC(vector<int> coinValueList, int change){
-               int minCoins = change;
-               for (int i = 0; i < coinValueList.size(); i++){
-                   if (coinValueList[i] == change){
-                       return 1;
-                   }
-               }
-               for (int i = 0; i < coinValueList.size(); i++){
-                   if (coinValueList[i] <= change){
-                       int numCoins = 1 + recMC(coinValueList, change-coinValueList[i]);
-                       if (numCoins < minCoins){
-                           minCoins = numCoins;
-                       }
-                   }
-               }
-               return minCoins;
-           }
+            int recMC(vector<int> coinValueList, int change){
+                int minCoins = change;
+                for (unsigned int i = 0; i < coinValueList.size(); i++){
+                    if (coinValueList[i] == change){
+                        return 1;
+                    }
+                }
+                for (unsigned int i = 0; i < coinValueList.size(); i++){
+                    if (coinValueList[i] <= change){
+                        int numCoins = 1 + recMC(coinValueList, change-coinValueList[i]);
+                        if (numCoins < minCoins){
+                            minCoins = numCoins;
+                        }
+                    }
+                }
+                return minCoins;
+            }
 
-           int main() {
-               vector<int> coinValueList = {1,5,10,25};
-               cout << recMC(coinValueList, 63)<<endl;
-               return 0;
-           }
+            int main() {
+                int arr2[] = {1, 5, 10, 25};
+                vector<int> coinValueList(arr2,arr2+(sizeof(arr2)/ sizeof(arr2[0])));  //Initializing vector
+                cout << recMC(coinValueList, 63)<<endl;
+
+                return 0;
+            }
 
     .. tab:: Python
 
@@ -189,45 +191,45 @@ algorithm to incorporate our table lookup scheme.
     .. tab:: C++
 
         .. activecode:: lst_change2cpp
-          :caption: Recursively Counting Coins with Table Lookup C++
-          :language: cpp
+            :caption: Recursively Counting Coins with Table Lookup C++
+            :language: cpp
 
-          #include <iostream>
-          #include <vector>
-          using namespace std;
+            #include <iostream>
+            #include <vector>
+            using namespace std;
 
-          int recDC(vector<int> coinValueList, int change, vector<int>   knownResults){
-              int minCoins, i, c, numCoins;
-              minCoins = change;
+            int recDC(vector<int> coinValueList, int change, vector<int>   knownResults){
+                int minCoins, i, c, numCoins;
+                minCoins = change;
 
-              for (int i = 0; i< coinValueList.size(); i++){
-                  if (coinValueList[i] == change){
-                      knownResults[change] = 1;
-                      return 1;
-                  }
-                  else if(knownResults[change] > 0){
-                      return knownResults[change];
-                  }
-              }
-              for (int y=0; y<coinValueList.size(); y++){
-                  if (coinValueList[y] <= change){
-                      numCoins = 1 + recDC(coinValueList, change -   coinValueList[y], knownResults);
-                      if (numCoins < minCoins){
-                          minCoins = numCoins;
-                          knownResults[change] = minCoins;
-                      }
-                  }
-              }
-              return minCoins;
-          }
+                for (unsigned int i = 0; i< coinValueList.size(); i++){
+                    if (coinValueList[i] == change){
+                        knownResults[change] = 1;
+                        return 1;
+                    }
+                    else if(knownResults[change] > 0){
+                        return knownResults[change];
+                    }
+                }
+                for (unsigned int y=0; y<coinValueList.size(); y++){
+                    if (coinValueList[y] <= change){
+                        numCoins = 1 + recDC(coinValueList, change -   coinValueList[y], knownResults);
+                        if (numCoins < minCoins){
+                            minCoins = numCoins;
+                            knownResults[change] = minCoins;
+                        }
+                    }
+                }
+                return minCoins;
+            }
 
-          int main(){
-              vector<int> coinValueList = {1,5,10,25};
-              int change = 63;
-              vector<int> knownResults(64, 0);
-              cout<<recDC(coinValueList,change,knownResults)<<endl;
-              return 0;
-          }
+            int main(){
+                vector<int> coinValueList = {1,5,10,25};
+                int change = 63;
+                vector<int> knownResults(64, 0);
+                cout<<recDC(coinValueList,change,knownResults)<<endl;
+                return 0;
+            }
 
     .. tab:: Python
 
@@ -235,23 +237,25 @@ algorithm to incorporate our table lookup scheme.
           :caption: Recursively Counting Coins with Table Lookup Python
           :nocodelens:
 
-          def recDC(coinValueList,change,knownResults):
-              minCoins = change
-              if change in coinValueList:
-                  knownResults[change] = 1
-                  return 1
-              elif knownResults[change] > 0:
-                  return knownResults[change]
-              else:
-                  for i in [c for c in coinValueList if c <= change]:
-                      numCoins = 1 + recDC(coinValueList, change-i,
-                                        knownResults)
-                      if numCoins < minCoins:
-                          minCoins = numCoins
-                          knownResults[change] = minCoins
-              return minCoins
+            def recDC(coinValueList,change,knownResults):
+                minCoins = change
+                if change in coinValueList:
+                    knownResults[change] = 1
+                    return 1
+                elif knownResults[change] > 0:
+                    return knownResults[change]
+                else:
+                    for i in [c for c in coinValueList if c <= change]:
+                        numCoins = 1 + recDC(coinValueList, change-i, knownResults)
+                        if numCoins < minCoins:
+                            minCoins = numCoins
+                            knownResults[change] = minCoins
+                    return minCoins
 
-          print(recDC([1,5,10,25],63,[0]*64))
+
+            def main():
+                print(recDC([1,5,10,25],63,[0]*64))
+            main()
 
 Notice that in line 15 we have added a test to see if our table
 contains the minimum number of coins for a certain amount of change. If
@@ -378,7 +382,10 @@ from 0 to the value of ``change``.
 
                 return minCoins[change]
 
-            print([1,5,10,25], 63, [0]*64)
+
+            def main():
+                print([1,5,10,25], 63, [0]*64)
+            main()
 
 Note that ``dpMakeChange`` is not a recursive function, even though we
 started with a recursive solution to this problem. It is important to
@@ -504,23 +511,23 @@ array also contains 21, giving us the three 21 cent pieces.
             :nocodelens:
 
             def dpMakeChange(coinValueList,change,minCoins,coinsUsed):
-               for cents in range(change+1):
-                  coinCount = cents
-                  newCoin = 1
-                  for j in [c for c in coinValueList if c <= cents]:
+                for cents in range(change+1):
+                    coinCount = cents
+                    newCoin = 1
+                    for j in [c for c in coinValueList if c <= cents]:
                         if minCoins[cents-j] + 1 < coinCount:
-                           coinCount = minCoins[cents-j]+1
-                           newCoin = j
-                  minCoins[cents] = coinCount
-                  coinsUsed[cents] = newCoin
-               return minCoins[change]
+                            coinCount = minCoins[cents-j]+1
+                            newCoin = j
+                    minCoins[cents] = coinCount
+                    coinsUsed[cents] = newCoin
+                return minCoins[change]
 
             def printCoins(coinsUsed,change):
-               coin = change
-               while coin > 0:
-                  thisCoin = coinsUsed[coin]
-                  print(thisCoin)
-                  coin = coin - thisCoin
+                coin = change
+                while coin > 0:
+                    thisCoin = coinsUsed[coin]
+                    print(thisCoin)
+                    coin = coin - thisCoin
 
             def main():
                 amnt = 63

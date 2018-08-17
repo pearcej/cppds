@@ -132,29 +132,27 @@ The program in ActiveCode 1 provides the entire solution for three disks.
   .. tab:: C++
 
     .. activecode:: hanoicpp
-      :caption: Solving Tower of Hanoi Recursively C++
-      :language: cpp
+        :caption: Solving Tower of Hanoi Recursively C++
+        :language: cpp
 
-      #include <iostream>
-      using namespace std;
+        #include <iostream>
+        using namespace std;
 
-      int moveDisk(char fp, char tp);
+        void moveDisk(char fp, char tp){
+            cout << "moving disk from " << fp << " to " << tp << endl;
+        }
 
-      int moveTower(int height, char fromPole, char toPole, char withPole){
-          if (height >= 1){
-              moveTower(height-1, fromPole, withPole, toPole);
-              moveDisk(fromPole, toPole);
-              moveTower(height-1, withPole, toPole, fromPole);
-          }
-      }
+        void moveTower(int height, char fromPole, char toPole, char withPole){
+            if (height >= 1){
+                moveTower(height-1, fromPole, withPole, toPole);
+                moveDisk(fromPole, toPole);
+                moveTower(height-1, withPole, toPole, fromPole);
+            }
+        }
 
-      int moveDisk(char fp, char tp){
-          cout << "moving disk from " << fp << " to " << tp << endl;
-      }
-
-      int main() {
-          moveTower(3, 'A', 'B', 'C');
-      }
+        int main() {
+            moveTower(3, 'A', 'B', 'C');
+        }
 
   .. tab:: Python
 

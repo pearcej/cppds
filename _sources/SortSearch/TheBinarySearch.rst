@@ -60,6 +60,47 @@ in :ref:`CodeLens 3 <lst_binarysearchpy>`.
     print(binarySearch(testlist, 3))
     print(binarySearch(testlist, 13))
 
+A similar implementation can be carried out using vectors in C++.
+
+.. activecode:: binary_search_cpp
+  :caption: Iterative Binary Search Implementation
+  :language: cpp
+
+  #include <iostream>
+  #include <vector>
+  using namespace std;
+
+  bool binarySearch(vector<int> alist, int item) {
+      int first = 0;
+      int last = alist.size() - 1;
+      bool found = false;
+
+      while (first <= last && !found) {
+          int midpoint = (first + last) / 2;
+          if (alist[midpoint] == item) {
+              found = true;
+          } else {
+              if (item < alist[midpoint]) {
+                  last = midpoint - 1;
+              } else {
+                  first = midpoint + 1;
+              }
+          }
+      }
+      return found;
+  }
+
+  int main() {
+      // Using static array to initialize a vector
+      static const int arr[] = {0, 1, 2, 8, 13, 17, 19, 32, 42};
+      vector<int> alist(arr, arr + sizeof(arr) / sizeof(arr[0]));
+
+      cout << binarySearch(alist, 3) << endl;
+      cout << binarySearch(alist, 13) << endl;
+
+      return 0;
+  }
+
 Before we move on to the analysis, we should note that this algorithm is
 a great example of a divide and conquer strategy. Divide and conquer
 means that we divide the problem into smaller pieces, solve the smaller
@@ -94,6 +135,48 @@ shows this recursive version.
     print(binarySearch(testlist, 3))
     print(binarySearch(testlist, 13))
 
+There is a vector initializer within C++ that can be used much like python slices,
+however this can only be used when new vectors are created.
+
+.. activecode:: binary_search_cpp_recursive
+  :caption: A Recursive Binary Search
+  :language: cpp
+  
+  #include <iostream>
+  #include <vector>
+  using namespace std;
+
+  bool binarySearch(vector<int> alist, int item) {
+  	if (alist.size() == 0) {
+  		return false;
+  	} else {
+  		int midpoint = alist.size() / 2;
+  		if (alist[midpoint] == item) {
+  			return true;
+  		} else {
+  			if (item < alist[midpoint]) {
+  				vector<int> lefthalf(alist.begin(), alist.begin() + midpoint);
+  				return binarySearch(lefthalf, item);
+  			} else {
+  				vector<int> righthalf(
+  					alist.begin() + midpoint + 1, alist.end());
+  				return binarySearch(righthalf, item);
+  			}
+  		}
+  	}
+  }
+
+  int main() {
+  	// Using static array to initialize a vector
+  	static const int arr[] = {0, 1, 2, 8, 13, 17, 19, 32, 42};
+  	vector<int> alist(arr, arr + sizeof(arr) / sizeof(arr[0]));
+
+  	cout << binarySearch(alist, 3) << endl;
+  	cout << binarySearch(alist, 13) << endl;
+
+  	return 0;
+  }
+
 
 
 Analysis of Binary Search
@@ -113,15 +196,15 @@ answer.
 
 .. table:: **Table 3: Tabular Analysis for a Binary Search**
 
-    ======================== ====================================== 
-             **Comparisons**   **Approximate Number of Items Left** 
-    ======================== ====================================== 
-                           1                   :math:`\frac {n}{2}` 
-                           2                   :math:`\frac {n}{4}` 
-                           3                   :math:`\frac {n}{8}` 
-                         ...                                        
-                           i                 :math:`\frac {n}{2^i}` 
-    ======================== ====================================== 
+    ======================== ======================================
+             **Comparisons**   **Approximate Number of Items Left**
+    ======================== ======================================
+                           1                   :math:`\frac {n}{2}`
+                           2                   :math:`\frac {n}{4}`
+                           3                   :math:`\frac {n}{8}`
+                         ...
+                           i                 :math:`\frac {n}{2^i}`
+    ======================== ======================================
 
 
 When we split the list enough times, we end up with a list that has just
@@ -144,8 +227,43 @@ constant time. However, we know that the slice operator in Python is
 actually O(k). This means that the binary search using slice will not
 perform in strict logarithmic time. Luckily this can be remedied by
 passing the list along with the starting and ending indices. The indices
-can be calculated as we did in :ref:`Listing 3 <lst_binarysearchpy>`. We leave this
-implementation as an exercise.
+can be calculated as we did in :ref:`Listing 3 <lst_binarysearchpy>`. This is especially relevant in C++, where we are initializing a new vector for each split of our list. To truly optimize this algorithm, we could use an array and manually keep track of start and end indices of our array. Below is an example of such an implementation.
+
+.. activecode:: binary_search_cpp_array
+  :caption: Optimized Binary Search
+  :language: cpp
+
+  #include <iostream>
+  using namespace std;
+
+  bool binarySearch(int arr[], int item, int start, int end) {
+  	if (end >= start) {
+  		int mid = start + (end - start) / 2;
+  		if (arr[mid] == item)
+  			return true;
+  		if (arr[mid] > item)
+  			return binarySearch(arr, item, start, mid - 1);
+  		else {
+  			return binarySearch(arr, item, mid + 1, end);
+  		}
+  	}
+
+  	return false;
+  }
+
+  bool binarySearchHelper(int arr[], int size, int item) {
+  	return binarySearch(arr, item, 0, size);
+  }
+
+  int main(void) {
+  	int arr[] = {0, 1, 2, 8, 13, 17, 19, 32, 42};
+  	int arrLength = sizeof(arr) / sizeof(arr[0]);
+
+  	cout << binarySearchHelper(arr, arrLength, 3) << endl;
+  	cout << binarySearchHelper(arr, arrLength, 13) << endl;
+
+  	return 0;
+  }
 
 Even though a binary search is generally better than a sequential
 search, it is important to note that for small values of *n*, the
@@ -183,4 +301,3 @@ performing a sequential search from the start may be the best choice.
       :feedback_d: Binary search starts at the midpoint and halves the list each time. It is done when the list is empty.
 
       Suppose you have the following sorted list [3, 5, 6, 8, 11, 12, 14, 15, 17, 18] and are using the recursive binary search algorithm.  Which group of numbers correctly shows the sequence of comparisons used to search for the key 16?
-

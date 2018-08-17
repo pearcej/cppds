@@ -113,7 +113,7 @@ function the search logically starts again with each recursive call.
 
 .. highlight:: python
     :linenothreshold: 5
-    
+
 **Listing 3**
 
 ::
@@ -133,7 +133,7 @@ function the search logically starts again with each recursive call.
             return True
         maze.updatePosition(startRow, startColumn, TRIED)
 
-        # Otherwise, use logical short circuiting to try each 
+        # Otherwise, use logical short circuiting to try each
         # direction in turn (if needed)
         found = searchFrom(maze, startRow-1, startColumn) or \
                 searchFrom(maze, startRow+1, startColumn) or \
@@ -167,7 +167,7 @@ finally East. If all four recursive calls return false then we have
 found a dead end. You should download or type in the whole program and
 experiment with it by changing the order of these calls.
 
-The code for the ``Maze`` class is shown in :ref:`Listing 4 <lst_maze>`, :ref:`Listing 5 <lst_maze1>`, and :ref:`Listing 6 <lst_maze2>`. 
+The code for the ``Maze`` class is shown in :ref:`Listing 4 <lst_maze>`, :ref:`Listing 5 <lst_maze1>`, and :ref:`Listing 6 <lst_maze2>`.
 The ``__init__`` method takes the name of a file as its
 only parameter. This file is a text file that represents a maze by using
 “+” characters for walls, spaces for open squares, and the letter “S” to
@@ -204,9 +204,9 @@ initial view of the maze on the screen.
 Figure 3: An Example Maze Data File
 
 ::
-    
+
       ++++++++++++++++++++++
-      +   +   ++ ++     +   
+      +   +   ++ ++     +
       + +   +       +++ + ++
       + + +  ++  ++++   + ++
       +++ ++++++    +++ +  +
@@ -325,7 +325,7 @@ or the far right column or the bottom row.
                 color = 'red'
             else:
                 color = None
-                
+
             if color:
                 self.dropBreadcrumb(color)
 
@@ -407,7 +407,7 @@ Note that it is a much more simple example file in that the exit is very close t
 
         def drawMaze(self):
             self.t.speed(10)
-            self.wn.tracer(0)        
+            self.wn.tracer(0)
             for y in range(self.rowsInMaze):
                 for x in range(self.columnsInMaze):
                     if self.mazelist[y][x] == OBSTACLE:
@@ -462,7 +462,7 @@ Note that it is a much more simple example file in that the exit is very close t
                     row == self.rowsInMaze-1 or
                     col == 0 or
                     col == self.columnsInMaze-1 )
-        
+
         def __getitem__(self,idx):
             return self.mazelist[idx]
 
@@ -482,7 +482,7 @@ Note that it is a much more simple example file in that the exit is very close t
             maze.updatePosition(startRow, startColumn, PART_OF_PATH)
             return True
         maze.updatePosition(startRow, startColumn, TRIED)
-        # Otherwise, use logical short circuiting to try each direction 
+        # Otherwise, use logical short circuiting to try each direction
         # in turn (if needed)
         found = searchFrom(maze, startRow-1, startColumn) or \
                 searchFrom(maze, startRow+1, startColumn) or \
@@ -503,4 +503,13 @@ Note that it is a much more simple example file in that the exit is very close t
 
 .. admonition:: Self Check
 
-   Modify the maze search program so that the calls to searchFrom are in a different order.  Watch the program run. Can you explain why the behavior is different?  Can you predict what path the turtle will follow for a given change in order?
+    Now that you're familiar with this simple maze exploring algorithm, use what you've learned about file handling, classes, and IO to implement this in C++!
+    To visualize the exploration, print out the characters using ``cout`` to create an ASCII representation of your cave. For example, your program should be able to read and operate from a file formatted as follows:
+
+        7 5
+
+        +++++++
+        +--+-S+
+        +--+--+
+        -----++
+        +++++++

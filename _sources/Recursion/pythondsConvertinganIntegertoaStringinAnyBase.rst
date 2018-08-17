@@ -1,4 +1,4 @@
- ..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -65,7 +65,7 @@ right side of the diagram.
 :ref:`ActiveCode 1 <lst_rectostrcpp>` shows the Python code that implements the algorithm
 outlined above for any base between 2 and 16.
 
-.. tabbed:: Int To String
+.. tabbed:: IntToString
 
   .. tab:: C++
 
@@ -139,32 +139,35 @@ discussion of stacks back in the previous chapter.
    Write a function that takes a string as a parameter and returns a new string that is the reverse of the old string.
 
     .. actex:: recursion_sc_1cpp
-       :nocodelens:
+        :nocodelens:
 
-       #include <iostream>
-       #include test
-       #include <string>
+        #include <iostream>
+        #include <string>
+        using namespace std;
 
-       string reverse(s){
-           return s;
-       }
+        void testEqual(string a, string b){
+            if (a == b){
+                cout << "PASS" << endl;
+            }
+            else{
+                cout << "Failed" << endl;
+            }
+        }
 
-       testEqual(reverse("hello"),"olleh");
-       testEqual(reverse("l"),"l");
-       testEqual(reverse("follow"),"wollof");
-       testEqual(reverse(""),"");
+        string reverse(string s){
+            //Code Here
+            return s;
+        }
 
-    .. actex:: recursion_sc_1py
-       :nocodelens:
 
-       from test import testEqual
-       def reverse(s):
-           return s
+        int main(){
+            testEqual(reverse("hello"),"olleh");
+            testEqual(reverse("l"),"l");
+            testEqual(reverse("follow"),"wollof");
+            testEqual(reverse(""),"");
 
-       testEqual(reverse("hello"),"olleh")
-       testEqual(reverse("l"),"l")
-       testEqual(reverse("follow"),"wollof")
-       testEqual(reverse(""),"")
+            return 0;
+        }
 
 
    Write a function that takes a string as a parameter and returns True if the string is a palindrome, False otherwise.  Remember that a string is a palindrome if it is spelled the same both forward and backward.  For example:  radar is a palindrome.  for bonus points palindromes can also be phrases, but you need to remove the spaces and punctuation before checking.  for example:  madam i'm adam  is a palindrome.  Other fun palindromes include:
@@ -180,41 +183,39 @@ discussion of stacks back in the previous chapter.
 
 
     .. actex:: recursion_sc_2cpp
-       :nocodelens:
+        :nocodelens:
 
-       #include <iostream>
-       #include <string>
-       #inlude test
+        #include <iostream>
+        #include <string>
+        using namespace std;
 
-       string removeWhite(s) {
-           return s;
-       }
+        void testEqual(bool a, bool b){
+            if (a == b){
+                cout << "PASS" << endl;
+            }
+            else{
+                cout << "Failed" << endl;
+            }
+        }
 
-       bool isPal(s) {
-           return false;
-       }
+        string removeWhite(string s) {
+            //Code Here
+            return s;
+        }
 
-       testEqual(isPal(removeWhite("x")),true);
-       testEqual(isPal(removeWhite("radar")),true);
-       testEqual(isPal(removeWhite("hello")),false);
-       testEqual(isPal(removeWhite("")),true);
-       testEqual(isPal(removeWhite("hannah")),true);
-       testEqual(isPal(removeWhite("madam i'm adam")),true);
+        bool isPal(string s) {
+            //Code Here
+            return false;
+        }
 
 
-    .. actex:: recursion_sc_2py
-       :nocodelens:
+        int main(){
+            testEqual(isPal(removeWhite("x")),true);
+            testEqual(isPal(removeWhite("radar")),true);
+            testEqual(isPal(removeWhite("hello")),false);
+            testEqual(isPal(removeWhite("")),true);
+            testEqual(isPal(removeWhite("hannah")),true);
+            testEqual(isPal(removeWhite("madam i'm adam")),true);
 
-       from test import testEqual
-       def removeWhite(s):
-           return s
-
-       def isPal(s):
-           return False
-
-       testEqual(isPal(removeWhite("x")),True)
-       testEqual(isPal(removeWhite("radar")),True)
-       testEqual(isPal(removeWhite("hello")),False)
-       testEqual(isPal(removeWhite("")),True)
-       testEqual(isPal(removeWhite("hannah")),True)
-       testEqual(isPal(removeWhite("madam i'm adam")),True)
+            return 0;
+        }

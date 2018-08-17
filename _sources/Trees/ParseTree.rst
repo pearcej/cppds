@@ -335,6 +335,8 @@ in :ref:`ActiveCode 1 <lst_buildparse>`.
         int main() {
 
             BinaryTree *pt = buildParseTree("( ( 10 + 5 ) * 3 ) )");
+
+            
             postorder(pt);
 
             return 0;
