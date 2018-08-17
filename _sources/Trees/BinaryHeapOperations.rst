@@ -156,7 +156,6 @@ is removed each time.  We will now turn our attention to creating an implementat
 
     .. activecode:: heap1py
         :caption: Using the Binary Heap Python
-        :nocodelens:
 
         from pythonds.trees.binheap import BinHeap
 

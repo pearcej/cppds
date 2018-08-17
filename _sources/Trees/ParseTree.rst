@@ -344,7 +344,6 @@ in :ref:`ActiveCode 1 <lst_buildparse>`.
 
     .. activecode::  parsebuildpy
         :caption: Building a Parse Tree Python
-        :nocodelens:
 
         from pythonds.basic.stack import Stack
         from pythonds.trees.binaryTree import BinaryTree

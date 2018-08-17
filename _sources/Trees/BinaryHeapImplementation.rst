@@ -81,7 +81,6 @@ that simple integer division can be used in later methods.
 ::
 
     class BinHeap{
-
         private:
             vector<int> heapList;
             int currentSize;
@@ -91,6 +90,8 @@ that simple integer division can be used in later methods.
                 this->heapList = heapList;
                 this->currentSize = 0;
             }
+    }
+
 
 The next method we will implement is ``insert``. The easiest, and most
 efficient, way to add an item to a vector is to simply append the item to
@@ -144,7 +145,6 @@ properly.
             }
             i = i/2;
         }
-
     }
 
 .. _lst_heap3:

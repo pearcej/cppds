@@ -34,9 +34,9 @@ the tree we create another instance of ``BinaryTree`` and modify
 
 **Listing 4**
 
-::
+**C++ Implementation**
 
-    C++ Implementation
+::
 
     #include <iostream>
     #include <cstdlib>
@@ -56,9 +56,9 @@ the tree we create another instance of ``BinaryTree`` and modify
             this->rightChild = NULL;
         }
 
-::
+**Python Implementation**
 
-    Python Implementation
+::
 
     class BinaryTree:
         def __init__(self,rootObj):
@@ -88,9 +88,9 @@ new object. The code for ``insertLeft`` is shown in
 .. highlight:: python
     :linenothreshold: 5
 
-::
+**C++ Implementation**
 
-    C++ Implementation
+::
 
     void insertLeft(char newNode){
         if (this->leftChild == NULL){
@@ -103,9 +103,9 @@ new object. The code for ``insertLeft`` is shown in
         }
     }
 
-::
+**Python Implementation**
 
-    Python Implementation
+::
 
     def insertLeft(self,newNode):
         if self.leftChild == None:
@@ -135,9 +135,9 @@ the root and an existing right child. The insertion code is shown in
 
 **Listing 6**
 
-::
+**C++ Implementation**
 
-    C++ Implementation
+::
 
     void insertRight(char newNode){
         if (this->rightChild == NULL){
@@ -150,9 +150,9 @@ the root and an existing right child. The insertion code is shown in
         }
     }
 
-::
+**Python Implementation**
 
-    Python Implementation
+::
 
     def insertRight(self,newNode):
         if self.rightChild == None:
@@ -170,9 +170,9 @@ the root values.
 
 **Listing 7**
 
-::
+**C++ Implementation**
 
-    C++ Implementation
+::
 
     BinaryTree *getRightChild(){
         return this->rightChild;
@@ -190,9 +190,9 @@ the root values.
         return this->key;
     }
 
-::
+**Python Implementation**
 
-    Python Implementation
+::
 
     def getRightChild(self):
         return self.rightChild
@@ -346,11 +346,10 @@ tree as a binary tree itself.
             print(r.getLeftChild())
             r.insertLeft('b')
             print(r.getLeftChild())
-            print("orig", r.getLeftChild().getRootVal())
-            # print("new", r.getLeftChild())
+            print(r.getLeftChild().getRootVal())
             r.insertRight('c')
             print(r.getRightChild())
             print(r.getRightChild().getRootVal())
-            r.getRightChild().setRootVal('hello')
+            r.getRightChild().setRootVal('d')
             print(r.getRightChild().getRootVal())
         main()
