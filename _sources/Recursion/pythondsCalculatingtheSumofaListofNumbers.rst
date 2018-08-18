@@ -44,18 +44,16 @@ by starting with :math:`0` and adding each number in the vector.
     .. activecode:: lst_itsumpy
        :caption: Iterative Summation Python
 
-        def listsum(numList):
-            theSum = 0
-            for i in numList:
-                theSum = theSum + i
-            return theSum
+       def listsum(numList):
+           theSum = 0
+           for i in numList:
+               theSum = theSum + i
+           return theSum
 
+       def main():
+           print(listsum([1,3,5,7,9]))
 
-        def main():
-
-            print(listsum([1,3,5,7,9]))
-
-        main()
+       main()
 
 Pretend for a minute that you do not have ``while`` loops or ``for``
 loops. How would you compute the sum of a vector of numbers? If you were a
@@ -101,58 +99,56 @@ the array and :math:`rest(numVect)` returns an array of everything but
 the first element. This is easily expressed in C++ as shown in
 :ref:`ActiveCode 2 <lst_recsumcpp>`.
 
-.. tabbed:: change_this
+.. tabbed:: recsumcode
 
   .. tab:: C++
 
     .. activecode:: lst_recsumcpp
-        :caption: Recursion Summation C++
-        :language: cpp
+      :caption: Recursion Summation C++
+      :language: cpp
 
-        #include <iostream>
-        #include <vector>
-        using namespace std;
+      #include <iostream>
+      #include <vector>
+      using namespace std;
 
-        int vectsum(vector<int> numVect){
-            if (numVect.size() <= 1){
-                return numVect[0];
-            }
-            else {
-                vector<int> slice(numVect.begin()+1, numVect.begin()+numVect.size());
-                return numVect[0] + vectsum(slice);
-            }
-        }
+      int vectsum(vector<int> numVect){
+          if (numVect.size() <= 1){
+              return numVect[0];
+          }
+          else {
+              vector<int> slice(numVect.begin()+1, numVect.begin()+numVect.size());
+              return numVect[0] + vectsum(slice);
+          }
+      }
 
-        int main() {
-            int arr2[] = {1, 3, 5, 7, 9};
-            vector<int> numVect(arr2,arr2+(sizeof(arr2)/ sizeof(arr2[0])));  //Initializing vector
-            cout << vectsum(numVect) << endl;
+      int main() {
+          int arr2[] = {1, 3, 5, 7, 9};
+          vector<int> numVect(arr2,arr2+(sizeof(arr2)/ sizeof(arr2[0])));  //Initializing vector
+          cout << vectsum(numVect) << endl;
 
-            return 0;
-        }
+          return 0;
+      }
 
   .. tab:: Python
 
     .. activecode:: lst_recsumpy
        :caption: Recursion Summation Python
 
-        def listsum(numList):
-            if len(numList) == 1:
-                return numList[0]
-            else:
-                return numList[0] + listsum(numList[1:])
+       def listsum(numList):
+           if len(numList) == 1:
+               return numList[0]
+           else:
+               return numList[0] + listsum(numList[1:])
 
+       def main():
+           print(listsum([1,3,5,7,9]))
 
-        def main():
+       main()
 
-            print(listsum([1,3,5,7,9]))
-
-        main()
-
-There are a few key ideas in this listing to look at. First, on line 2 we are checking to see if the vector is one element long. This
+There are a few key ideas in this listing to look at. First, on line 6 we are checking to see if the vector is one element long. This
 check is crucial and is our escape clause from the function. The sum of
 a vector of length 1 is trivial; it is just the number in the vector.
-Second, on line 5 our function calls itself! This is the
+Second, on line 11 our function calls itself! This is the
 reason that we call the ``vectsum`` algorithm recursive. A recursive
 function is a function that calls itself.
 

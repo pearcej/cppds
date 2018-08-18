@@ -199,7 +199,7 @@ algorithm to incorporate our table lookup scheme.
             using namespace std;
 
             int recDC(vector<int> coinValueList, int change, vector<int>   knownResults){
-                int minCoins, i, c, numCoins;
+                int minCoins, numCoins;
                 minCoins = change;
 
                 for (unsigned int i = 0; i< coinValueList.size(); i++){
@@ -213,7 +213,7 @@ algorithm to incorporate our table lookup scheme.
                 }
                 for (unsigned int y=0; y<coinValueList.size(); y++){
                     if (coinValueList[y] <= change){
-                        numCoins = 1 + recDC(coinValueList, change -   coinValueList[y], knownResults);
+                        numCoins = 1 + recDC(coinValueList, change - coinValueList[y], knownResults);
                         if (numCoins < minCoins){
                             minCoins = numCoins;
                             knownResults[change] = minCoins;
@@ -234,8 +234,7 @@ algorithm to incorporate our table lookup scheme.
     .. tab:: Python
 
         .. activecode:: lst_change2py
-          :caption: Recursively Counting Coins with Table Lookup Python
-          :nocodelens:
+            :caption: Recursively Counting Coins with Table Lookup Python
 
             def recDC(coinValueList,change,knownResults):
                 minCoins = change
@@ -255,6 +254,7 @@ algorithm to incorporate our table lookup scheme.
 
             def main():
                 print(recDC([1,5,10,25],63,[0]*64))
+
             main()
 
 Notice that in line 15 we have added a test to see if our table

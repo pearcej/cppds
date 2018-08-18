@@ -85,9 +85,6 @@ generated the Sierpinski Triangle in :ref:`Figure 3 <fig_sierpinski>` is shown i
     main()
 
 
-
-
-
 The program in :ref:`ActiveCode 1 <lst_st>` follows the ideas outlined above. The
 first thing ``sierpinski`` does is draw the outer triangle. Next, there
 are three recursive calls, one for each of the new corner triangles we

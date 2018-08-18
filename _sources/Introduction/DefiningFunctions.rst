@@ -106,7 +106,6 @@ Consider the following two function definitions:
 
     void functionExample( int inputVar ) {
         int nextVar = inputVar * 2;
-
         inputVar = 4;
 
         cout << "nextVar = " << nextVar << " inputVar = " << inputVar;

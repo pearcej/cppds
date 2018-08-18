@@ -49,8 +49,6 @@ the window, after which the program cleans up and exits.
 
 .. activecode:: lst_turt1
     :caption: Drawing a Recursive Spriral using turtle
-    :nocodelens:
-
 
     import turtle
 
@@ -71,7 +69,7 @@ the window, after which the program cleans up and exits.
     //C++ code
 
     void drawSpiral(Turtle myTurtle, int lineLen) {
-    // Compare with ActiveCode 2
+        // Compare with ActiveCode 2
         if (lineLen > 0) {
             myTurtle.forward(lineLen);
             myTurtle.right(90);
@@ -150,7 +148,7 @@ shape simultaneously? Will it be drawn right side first then left side?
 
 .. activecode:: lst_complete_tree
     :caption: Recursively Drawing a Tree
-    :nocodelens:
+
 
     import turtle
 
@@ -184,13 +182,13 @@ shape simultaneously? Will it be drawn right side first then left side?
     void tree(double branchLen, Turtle t) {
     	//Compare with ActiveCode 1
       	if (branchLen > 5) {
-        		t.forward(branchLen);
-        		t.right(20);
-        		tree(branchLen - 15, t);
-        		t.left(40);
-        		tree(branchLen - 15, t);
-        		t.right(20);
-        		t.forward(-branchLen);
+    		t.forward(branchLen);
+    		t.right(20);
+    		tree(branchLen - 15, t);
+    		t.left(40);
+    		tree(branchLen - 15, t);
+    		t.right(20);
+    		t.forward(-branchLen);
       	}
     }
 
@@ -248,4 +246,4 @@ interesting options to make your tree look more realistic.
       range.
 
    .. actex:: recursion_sc_3
-      :nocodelens:
+      :language: cpp
