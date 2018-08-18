@@ -15,7 +15,7 @@ others. Some possible unordered array operations are given below.
 
 -  ``back()`` accesses last element. Returns a reference to the last element in the array container.
 
--  ``empty()`` Test whether array is empty, and returns a boolean value showing whether the array is empty or not.
+-  ``empty()`` tests whether array is empty, and returns a boolean value showing whether the array is empty or not.
 
 -  ``size()`` returns size (the number of elements) in the array.
 
@@ -25,9 +25,10 @@ others. Some possible unordered array operations are given below.
 Vectors
 -------
 
-Vectors are more similar to lists in Python than arrays, in way that they have dynamic
+Vectors are more similar to lists in Python than arrays, in a way that they have dynamic
 size. Some operations with vectors are given below:
--   ``#include <vector>;`` imports the vector to be used
+
+-   ``#include <vector>;`` imports the vector library to be used
 
 -   ``vector<int> integerList;`` declares integerList as a vector, and its elements to be a type of int.
 
@@ -41,4 +42,4 @@ size. Some operations with vectors are given below:
 
 -   ``size()`` returns the size (the number of items) of the vector.
 
-More found<a href="http://www.cplusplus.com/reference/vector/vector/" target="_blank"> here.</a>
+More found at http://www.cplusplus.com/reference/vector/vector/

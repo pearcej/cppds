@@ -22,9 +22,3 @@ Objectives
 
 -  To be able to recognize problem properties where stacks, queues, and
    deques are appropriate data structures.
-
--  To be able to implement the abstract data type list as a linked list
-   using the node and reference pattern.
-
--  To be able to compare the performance of our linked list
-   implementation with the list implementation of Python.

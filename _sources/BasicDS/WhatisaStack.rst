@@ -51,7 +51,7 @@ begin removing books. The order that they are removed is exactly the
 reverse of the order that they were placed. Stacks are fundamentally
 important, as they can be used to reverse the order of items. The order
 of insertion is the reverse of the order of removal.
-:ref:`Figure 3 <fig_reversal>` shows the an stack object as it was
+:ref:`Figure 3 <fig_reversal>` shows the stack object as it was
 created and then again as items are removed. Note the order of the
 objects.
 

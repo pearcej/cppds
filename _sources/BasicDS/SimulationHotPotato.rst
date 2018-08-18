@@ -79,7 +79,8 @@ The program is shown in :ref:`ActiveCode 1 <lst_josephussim>`. A call to the
 
       string hotPotato(string namelist[], int num) {
           queue<string> simqueue;
-          for (int i = 0; i < namelist->length(); i++) {
+          int namelsLenght = namelist->length();
+          for (int i = 0; i < namelsLenght; i++) {
               simqueue.push(namelist[i]);
           }
 
@@ -105,9 +106,8 @@ The program is shown in :ref:`ActiveCode 1 <lst_josephussim>`. A call to the
 
   .. tab:: Python
 
-    .. activecode:: qujosephussim
+    .. activecode:: hot_potato_py
        :caption: Hot Potato Simulation
-       :nocodelens:
 
        from pythonds.basic.queue import Queue
 

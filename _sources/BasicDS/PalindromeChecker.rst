@@ -53,9 +53,9 @@ complete function for palindrome-checking appears in
 
       bool palchecker(string aString) {
           deque<char> chardeque;
-
-          for (char i : aString) {
-              chardeque.push_back(i);
+          int strLen = aString.length();
+          for (int i = 0; i < strLen; i++) {
+              chardeque.push_back(aString[i]);
           }
 
           bool stillEqual = true;
@@ -85,7 +85,6 @@ complete function for palindrome-checking appears in
 
     .. activecode:: palchecker
        :caption: A Palindrome Checker Using Deque
-       :nocodelens:
 
        from pythonds.basic.deque import Deque
 

@@ -28,37 +28,33 @@ of the list. ``pop`` operations will manipulate that same end.
   .. tab:: C++
 
     .. activecode:: stack_1ac_cpp
-      :caption: Using the Stack methods from the STL in C++
-      :language: cpp
+       :caption: Using the Stack methods from the STL in C++
+       :language: cpp
 
-      #include <iostream>
-      #include <stack>    // Calling Stack from the STL
+       #include <iostream>
+       #include <stack>    // Calling Stack from the STL
 
-      using namespace std;
+       using namespace std;
 
-      int main() {
-          stack<int> newStack;
+       int main() {
+           stack<int> newStack;
 
-          newStack.push(3);
-          newStack.push(8);
-          newStack.push(15);
+           newStack.push(3);
+           newStack.push(8);
+           newStack.push(15);
 
-          cout << "Stack Empty? " << newStack.empty()
-          << endl;
+           cout << "Stack Empty? " << newStack.empty() << endl;
 
-          cout << "Stack Size: " << newStack.size()
-          << endl;
+           cout << "Stack Size: " << newStack.size() << endl;
 
-          cout << "Top Element of the Stack: " << newStack.top()
-          << endl;
+           cout << "Top Element of the Stack: " << newStack.top() << endl;
 
-          newStack.pop();
+           newStack.pop();
 
-          cout << "Top Element of the Stack: " << newStack.top()
-          << endl;
+           cout << "Top Element of the Stack: " << newStack.top() << endl;
 
-          return 0;
-      }
+           return 0;
+       }
 
   .. tab:: Python
 

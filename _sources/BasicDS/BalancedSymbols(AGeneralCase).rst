@@ -70,7 +70,8 @@ mismatch occurs, the boolean variable ``balanced`` is set to ``False``.
 
       bool inString(string symbol, string symbols){
           int n = symbols.length();
-          if (symbols.find(symbol) < n){
+          int symb = symbols.find(symbol);
+          if (symb < n){
               return true;
           }
           return false;
@@ -86,7 +87,9 @@ mismatch occurs, the boolean variable ``balanced`` is set to ``False``.
           stack<string> s;
           bool balanced = true;
           int index = 0;
-          while(index < symbolString.length() && balanced){
+          int symbolLength = symbolString.length();
+
+          while(index < symbolLength && balanced){
               string symbol;
               symbol = symbolString[index];
               string opens = "({[";

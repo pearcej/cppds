@@ -29,7 +29,7 @@ the front of the deque is at position 0 in the list.
 
       int main() {
           deque<string> d;
-          cout << "Deque Empty? " <<d.empty() << endl;
+          cout << "Deque Empty? " << d.empty() << endl;
           d.push_back("Zebra");
           cout << "Deque Empty? " << d.empty() << endl;
 
@@ -38,12 +38,13 @@ the front of the deque is at position 0 in the list.
           d.push_back("Catfish");
           d.push_back("Giraffe");
 
-          cout << "Deque Size: " <<d.size() << endl;
+          cout << "Deque Size: " << d.size() << endl;
           cout << "Item at the front: " << d.front() << endl;
           cout << "Item at the back: " << d.back() << endl;
 
           cout << endl << "Items in the Deque: " << endl;
-          for(int i = 0; i < d.size(); i++){
+          int dsize = d.size();
+          for(int i = 0; i < dsize; i++){
               cout << d.at(i) << " ";
           }
 
@@ -57,7 +58,8 @@ the front of the deque is at position 0 in the list.
           cout << "Deque Size: " << d.size() << endl;
 
           cout << endl << "Items in the Deque: " << endl;
-          for(int i = 0; i < d.size(); i++){
+          int dsize2 = d.size();
+          for(int i = 0; i < dsize2; i++){
               cout << d.at(i) << " ";
 
           return 0;
