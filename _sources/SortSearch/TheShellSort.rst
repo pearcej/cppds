@@ -73,7 +73,7 @@ The following invocation of the ``shellSort`` function shows the
 partially sorted lists after each increment, with the final sort being
 an insertion sort with an increment of one.
 
-.. tabbed:: _lst_shell:
+.. tabbed:: _lst_shell
 
   .. tab:: C++
 
@@ -90,7 +90,6 @@ an insertion sort with an increment of one.
           for (unsigned int i=0; i<alist.size(); i++) {
               cout << alist[i] << " ";
           }
-
           cout << endl;
       }
 
@@ -130,7 +129,7 @@ an insertion sort with an increment of one.
           static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
           vector<int> alist (arr, arr + sizeof(arr) / sizeof(arr[0]) );
 
-          printl(alist);
+          printl(shellSort(alist));
 
           return 0;
       }
@@ -138,40 +137,38 @@ an insertion sort with an increment of one.
 
   .. tab:: Python
 
-    .. activecode:: lst_shellSort
-        :caption: Shell Sort
+    .. activecode:: lst_shell_py
+       :caption: Shell Sort
 
-        def shellSort(alist):
-            sublistcount = len(alist)//2
-            while sublistcount > 0:
+       def shellSort(alist):
+           sublistcount = len(alist)//2
+           while sublistcount > 0:
 
-              for startposition in range(sublistcount):
-                gapInsertionSort(alist,startposition,sublistcount)
+               for startposition in range(sublistcount):
+                   gapInsertionSort(alist,startposition,sublistcount)
 
-              print("After increments of size",sublistcount,
-                                           "The list is",alist)
+               print("After increments of size",sublistcount, "The list is",alist)
 
-              sublistcount = sublistcount // 2
+               sublistcount = sublistcount // 2
 
-        def gapInsertionSort(alist,start,gap):
-            for i in range(start+gap,len(alist),gap):
+       def gapInsertionSort(alist,start,gap):
+           for i in range(start+gap,len(alist),gap):
 
-                currentvalue = alist[i]
-                position = i
+               currentvalue = alist[i]
+               position = i
 
-                while position>=gap and alist[position-gap]>currentvalue:
-                    alist[position]=alist[position-gap]
-                    position = position-gap
+               while position>=gap and alist[position-gap]>currentvalue:
+                   alist[position]=alist[position-gap]
+                   position = position-gap
 
-                alist[position]=currentvalue
+               alist[position]=currentvalue
 
-        def main():
-            alist = [54,26,93,17,77,31,44,55,20]
-            shellSort(alist)
-            print(alist)
+       def main():
+           alist = [54,26,93,17,77,31,44,55,20]
+           shellSort(alist)
+           print(alist)
 
-        main()
-
+       main()
 
 
 .. animation:: shell_anim

@@ -52,9 +52,12 @@ places 55, and so on. The function is shown in :ref:`ActiveCode 1 <lst_selection
           static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
           vector<int> alist (arr, arr + sizeof(arr) / sizeof(arr[0]) );
 
+          // Call to the selectionSort function
+          vector<int> updatedAlist = selectionSort(alist);
+
           // print the list
-          for (unsigned int i = 0; i < alist.size(); i++) {
-              cout << alist[i] << " ";
+          for (unsigned int i = 0; i < updatedAlist.size(); i++) {
+              cout << updatedAlist[i] << " ";
           }
           cout << endl;
 

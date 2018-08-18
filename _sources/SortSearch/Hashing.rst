@@ -220,11 +220,12 @@ to ``tablesize``-1.
       return sum%tablesize;
   }
 
-  int main()
-  {
+  int main() {
       cout<<hashfunc("First!" , 10)<<endl;
       cout<<hashfunc("Second!", 10)<<endl;
       cout<<hashfunc("Third!" , 10)<<endl;
+      
+      return 0;
   }
 
 
@@ -494,6 +495,34 @@ no empty slots left is an exercise.
 
 ::
 
+    def put(self,key,data):
+        hashvalue = self.hashfunction(key,len(self.slots))
+
+        if self.slots[hashvalue] == None:
+            self.slots[hashvalue] = key
+            self.data[hashvalue] = data
+            else:
+            if self.slots[hashvalue] == key:
+                self.data[hashvalue] = data  #replace
+            else:
+                nextslot = self.rehash(hashvalue,len(self.slots))
+            while self.slots[nextslot] != None and self.slots[nextslot] != key:
+                nextslot = self.rehash(nextslot,len(self.slots))
+
+            if self.slots[nextslot] == None:
+                self.slots[nextslot] = key
+                self.data[nextslot] = data
+            else:
+                self.data[nextslot] = data #replace
+
+    def hashfunction(self,key,size):
+        return key%size
+
+    def rehash(self,oldhash,size):
+        return (oldhash+1)%size
+
+::
+
     int hashfunction(int key) {
         return key%size;
     }
@@ -557,6 +586,33 @@ be available. We leave the remaining methods as exercises.
     :linenothreshold: 5
 
 ::
+
+    def get(self,key):
+        startslot = self.hashfunction(key,len(self.slots))
+
+        data = None
+        stop = False
+        found = False
+        position = startslot
+        while self.slots[position] != None and not found and not stop:
+            if self.slots[position] == key:
+                found = True
+                data = self.data[position]
+            else:
+                position=self.rehash(position,len(self.slots))
+                if position == startslot:
+                    stop = True
+        return data
+
+    def __getitem__(self,key):
+        return self.get(key)
+
+    def __setitem__(self,key,data):
+        self.put(key,data)
+
+
+
+.. highlight:: python
 
     string get(int key) {
         int startslot = hashfunction(key);
@@ -651,117 +707,204 @@ the value for the key 20 is being replaced.
 
 The complete hash table example can be found in ActiveCode 1.
 
-.. activecode:: hashtablecomplete
-    :language: cpp
-    :caption: Complete Hash Table Example
+.. tabbed:: complete_hash
 
-    #include <iostream>
-    #include <string>
-    using namespace std;
+  .. tab:: C++
 
-    class HashTable{
-        public:
-        static const int size=11;
-        int slots[size];
-        string data[size];
+    .. activecode:: complete_hash_cpp
+      :caption: Title for the C++ Window
+      :language: cpp
 
-        int hashfunction(int key) {
-            return key%size;
-        }
+      #include <iostream>
+      #include <string>
+      using namespace std;
 
-        int rehash(int oldhash) {
-            return (oldhash+1)%size;
-        }
+      class HashTable{
+          public:
+          static const int size=11;
+          int slots[size];
+          string data[size];
 
-        void put(int key, string val){
-            int hashvalue = hashfunction(key);
-            int count = 0;
+          int hashfunction(int key) {
+              return key%size;
+          }
 
-            if (data[hashvalue]=="") {
-                slots[hashvalue] = key;
-                data[hashvalue] = val;
-            } else {
-                if (slots[hashvalue] == key) {
-                    data[hashvalue] = val;
-                } else {
-                    int nextslot = rehash(hashvalue);
+          int rehash(int oldhash) {
+              return (oldhash+1)%size;
+          }
 
-                    while (data[nextslot]!="" && slots[nextslot] != key) {
-                        nextslot = rehash(nextslot);
+          void put(int key, string val){
+              int hashvalue = hashfunction(key);
+              int count = 0;
 
-                        count++;
-                        if (count>size) {
-                            cout<<"TABLE FULL"<<endl;
-                            return;
-                        }
-                    }
-                    if (data[nextslot]=="") {
-                        slots[nextslot]=key;
-                        data[nextslot]=val;
-                    } else {
-                        data[nextslot] = val;
-                    }
-                }
-            }
-        }
+              if (data[hashvalue]=="") {
+                  slots[hashvalue] = key;
+                  data[hashvalue] = val;
+              } else {
+                  if (slots[hashvalue] == key) {
+                      data[hashvalue] = val;
+                  } else {
+                      int nextslot = rehash(hashvalue);
 
-        string get(int key) {
-            int startslot = hashfunction(key);
+                      while (data[nextslot]!="" && slots[nextslot] != key) {
+                          nextslot = rehash(nextslot);
 
-            string val;
-            bool stop=false;
-            bool found=false;
-            int position = startslot;
-            while(data[position]!="" && !found && !stop) {
-                if (slots[position]==key) {
-                    found = true;
-                    val = data[position];
-                } else {
-                    position=rehash(position);
-                    if (position==startslot) {
-                        stop=true;
-                    }
-                }
+                          count++;
+                          if (count>size) {
+                              cout<<"TABLE FULL"<<endl;
+                              return;
+                          }
+                      }
+                      if (data[nextslot]=="") {
+                          slots[nextslot]=key;
+                          data[nextslot]=val;
+                      } else {
+                          data[nextslot] = val;
+                      }
+                  }
+              }
+          }
 
-            }
-            return val;
-        }
+          string get(int key) {
+              int startslot = hashfunction(key);
 
-        friend ostream& operator<<(ostream& stream, HashTable& hash);
-    };
+              string val;
+              bool stop=false;
+              bool found=false;
+              int position = startslot;
+              while(data[position]!="" && !found && !stop) {
+                  if (slots[position]==key) {
+                      found = true;
+                      val = data[position];
+                  } else {
+                      position=rehash(position);
+                      if (position==startslot) {
+                          stop=true;
+                      }
+                  }
+
+              }
+              return val;
+          }
+
+          friend ostream& operator<<(ostream& stream, HashTable& hash);
+      };
 
 
 
-    ostream& operator<<(ostream& stream, HashTable& hash) {
-        for (int i=0; i<hash.size; i++) {
-            stream<<hash.slots[i]<<": "<<hash.data[i]<<endl;
-        }
+      ostream& operator<<(ostream& stream, HashTable& hash) {
+          for (int i=0; i<hash.size; i++) {
+              stream<<hash.slots[i]<<": "<<hash.data[i]<<endl;
+          }
 
-        return stream;
-    }
+          return stream;
+      }
 
-    int main() {
-        HashTable h;
+      int main() {
+          HashTable h;
 
-        h.put(54, "cat");
-        h.put(26, "dog");
-        h.put(93, "lion");
-        h.put(17, "tiger");
-        h.put(77, "bird");
-        h.put(31, "cow");
-        h.put(44, "goat");
-        h.put(55, "pig");
-        h.put(20, "chicken");
-        cout<<h<<endl;
+          h.put(54, "cat");
+          h.put(26, "dog");
+          h.put(93, "lion");
+          h.put(17, "tiger");
+          h.put(77, "bird");
+          h.put(31, "cow");
+          h.put(44, "goat");
+          h.put(55, "pig");
+          h.put(20, "chicken");
+          cout<<h<<endl;
 
-        h.put(20,"chicken");
-        h.put(17,"tiger");
-        h.put(20,"duck");
-        cout<<h.get(20)<<endl;
-        cout<<h.get(99)<<endl;
+          h.put(20,"chicken");
+          h.put(17,"tiger");
+          h.put(20,"duck");
+          cout<<h.get(20)<<endl;
+          cout<<h.get(99)<<endl;
 
-        return 0;
-    }
+          return 0;
+      }
+
+  .. tab:: Python
+
+    .. activecode:: complete_hash_py
+       :caption: Complete Hash Table Example
+
+       class HashTable:
+           def __init__(self):
+               self.size = 11
+               self.slots = [None] * self.size
+               self.data = [None] * self.size
+
+           def put(self,key,data):
+             hashvalue = self.hashfunction(key,len(self.slots))
+
+             if self.slots[hashvalue] == None:
+               self.slots[hashvalue] = key
+               self.data[hashvalue] = data
+             else:
+               if self.slots[hashvalue] == key:
+                 self.data[hashvalue] = data  #replace
+               else:
+                 nextslot = self.rehash(hashvalue,len(self.slots))
+                 while self.slots[nextslot] != None and \
+                                 self.slots[nextslot] != key:
+                   nextslot = self.rehash(nextslot,len(self.slots))
+
+                 if self.slots[nextslot] == None:
+                   self.slots[nextslot]=key
+                   self.data[nextslot]=data
+                 else:
+                   self.data[nextslot] = data #replace
+
+           def hashfunction(self,key,size):
+                return key%size
+
+           def rehash(self,oldhash,size):
+               return (oldhash+1)%size
+
+           def get(self,key):
+             startslot = self.hashfunction(key,len(self.slots))
+
+             data = None
+             stop = False
+             found = False
+             position = startslot
+             while self.slots[position] != None and  \
+                                  not found and not stop:
+                if self.slots[position] == key:
+                  found = True
+                  data = self.data[position]
+                else:
+                  position=self.rehash(position,len(self.slots))
+                  if position == startslot:
+                      stop = True
+             return data
+
+           def __getitem__(self,key):
+               return self.get(key)
+
+           def __setitem__(self,key,data):
+               self.put(key,data)
+
+       H=HashTable()
+       H[54]="cat"
+       H[26]="dog"
+       H[93]="lion"
+       H[17]="tiger"
+       H[77]="bird"
+       H[31]="cow"
+       H[44]="goat"
+       H[55]="pig"
+       H[20]="chicken"
+       print(H.slots)
+       print(H.data)
+
+       print(H[20])
+
+       print(H[17])
+       H[20]='duck'
+       print(H[20])
+       print(H[99])
+
 
 Analysis of Hashing
 ^^^^^^^^^^^^^^^^^^^
