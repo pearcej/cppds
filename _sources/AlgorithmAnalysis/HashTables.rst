@@ -56,7 +56,7 @@ hash table grows larger.
 
 :ref:`Listing 6 <lst_listvdict_cpp>` implements this comparison. Notice that we are
 performing exactly the same operation, ``number in container``. The
-difference is that on line 7 ``x`` is array, and on line 9 ``y`` is a
+difference is that on line 7 ``x`` is array, and on line 9 ``x`` is a
 hash table.
 
 .. _lst_listvdict_cpp:
@@ -142,7 +142,7 @@ data structures can be found on the C++ website.
 
 .. admonition:: Self Check
 
-    .. mchoice:: mccppmapperfcpp
+    .. mchoice:: mccppmapperfcpp3
         :answer_a: Popping the first index from an array.
         :answer_b: Popping an element from the end of an array.
         :answer_c: Adding a new element to an array.
@@ -157,7 +157,7 @@ data structures can be found on the C++ website.
 
         Which of the list operations shown below is not O(1)?
 
-    .. mchoice:: mccppmapperfcpp1
+    .. mchoice:: mccppmapperfcpp4
         :answer_a: mymap.count('x')
         :answer_b: mymap.erase('x')
         :answer_c: mymap['x'] = 10;
@@ -172,7 +172,7 @@ data structures can be found on the C++ website.
 
         Which of the hash table operations shown below is O(1)?
 
-.. video::  pythonopsperf
+.. video::  pythonopsperf2
    :controls:
    :thumb: ../_static/function_intro.png
 
