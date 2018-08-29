@@ -16,14 +16,14 @@ item and set item operations on a hash table is :math:`O(1)`. Another
 important hash table operation is the contains operation. Checking to
 see whether a key is in the hash table or not is also :math:`O(1)`.
 The efficiency of all hash table operations is summarized in
-:ref:`Table 3 <tbl_dictbigo_cpp>`. One important side note on hash table performance
+:ref:`Table 3 <tbl_dictbigo2_cpp>`. One important side note on hash table performance
 is that the efficiencies we provide in the table below are for average
 performance. In some rare cases the contains, get item, and set item
 operations can degenerate into :math:`O(n)` performance but we will
 get into that in a later chapter when we talk about the different ways
 that a hash table could be implemented.
 
-.. _tbl_dictbigo_cpp:
+.. _tbl_dictbigo2_cpp:
 
 .. table:: **Table 3: Big-O Efficiency of C++ hash table Operations**
 
@@ -130,7 +130,7 @@ hash table size grows. In fact for a hash table size of 10,000 the
 contains operation took 0.004 milliseconds and for the hash table size
 of 990,000 it also took 0.004 milliseconds.
 
-.. _fig_listvdict_cpp:
+.. _fig_listvdict2_cpp:
 
 .. figure:: Figures/listvdict.png
 

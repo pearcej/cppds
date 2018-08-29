@@ -69,7 +69,6 @@ and four things happen:
 
 ::
 
-<<<<<<< HEAD
     from pythonds.graphs import Graph, Vertex
     from pythonds.basic import Queue
 
@@ -87,7 +86,7 @@ and four things happen:
                     nbr.setPred(currentVert)
                     vertQueue.enqueue(nbr)
             currentVert.setColor('black')
-=======
+
     Graph bfs(Graph g, Vertex *start) {
         start->dist = 0;
         start->pred = NULL;
@@ -109,7 +108,6 @@ and four things happen:
         }
         return g;
     }
->>>>>>> 749188c303348ee4e419b3035e0fc0be91e65790
 
 Let’s look at how the ``bfs`` function would construct the breadth first
 tree corresponding to the graph in :ref:`Figure 1 <fig_wordladder>`. Starting
@@ -184,18 +182,17 @@ print out the word ladder.
 ::
 
     void traverse(Vertex *y) {
-      Vertex *x = y;
+        Vertex *x = y;
 
-      while (x->pred) {
+        while (x->pred) {
+            cout << x->id << endl;
+            x = x->pred;
+        }
         cout << x->id << endl;
-        x = x->pred;
-      }
-      cout << x->id << endl;
     }
 
-<<<<<<< HEAD
     traverse(g.getVertex('sage'))
-=======
+
 Because of syntactic changes to C++ between C++98 and C++11, the following code
 will not run in your ActiveCode window and must be copied and pasted into a compiler using C++11 to run.
 
@@ -272,64 +269,64 @@ with an implementation for the breadth-first search shown above.
     }
 
     class Graph {
-    public:
-        map<string, Vertex> vertList;
-        int numVertices;
-        bool directional;
+        public:
+            map<string, Vertex> vertList;
+            int numVertices;
+            bool directional;
 
-        Graph(bool directed = true) {
-            directional = directed;
-            numVertices = 0;
-        }
+            Graph(bool directed = true) {
+                directional = directed;
+                numVertices = 0;
+            }
 
-        Vertex addVertex(string key) {
-            numVertices++;
-            Vertex newVertex = Vertex(key);
-            this->vertList[key] = newVertex;
-            return newVertex;
-        }
+            Vertex addVertex(string key) {
+                numVertices++;
+                Vertex newVertex = Vertex(key);
+                this->vertList[key] = newVertex;
+                return newVertex;
+            }
 
-        Vertex *getVertex(string n) {
-            return &vertList[n];
-        }
+            Vertex *getVertex(string n) {
+                return &vertList[n];
+            }
 
-        bool contains(string n) {
-            for (map<string, Vertex>::iterator it = vertList.begin();
-                 it != vertList.end();
-                 ++it) {
-                if (it->first == n) {
-                    return true;
+            bool contains(string n) {
+                for (map<string, Vertex>::iterator it = vertList.begin();
+                     it != vertList.end();
+                     ++it) {
+                    if (it->first == n) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            void addEdge(string f, string t, float cost = 1) {
+                if (!this->contains(f)) {
+                    this->addVertex(f);
+                }
+                if (!this->contains(t)) {
+                    this->addVertex(t);
+                }
+                vertList[f].addNeighbor(t, cost);
+
+                if (!directional) {
+                    vertList[t].addNeighbor(f, cost);
                 }
             }
-            return false;
-        }
 
-        void addEdge(string f, string t, float cost = 1) {
-            if (!this->contains(f)) {
-                this->addVertex(f);
+            vector<string> getVertices() {
+                vector<string> verts;
+
+                for (map<string, Vertex>::iterator it = vertList.begin();
+                     it != vertList.end();
+                     ++it) {
+                    verts.push_back(it->first);
+                }
+                return verts;
             }
-            if (!this->contains(t)) {
-                this->addVertex(t);
-            }
-            vertList[f].addNeighbor(t, cost);
 
-            if (!directional) {
-                vertList[t].addNeighbor(f, cost);
-            }
-        }
-
-        vector<string> getVertices() {
-            vector<string> verts;
-
-            for (map<string, Vertex>::iterator it = vertList.begin();
-                 it != vertList.end();
-                 ++it) {
-                verts.push_back(it->first);
-            }
-            return verts;
-        }
-
-        friend ostream &operator<<(ostream &, Graph &);
+            friend ostream &operator<<(ostream &, Graph &);
     };
 
     ostream &operator<<(ostream &stream, Graph &grph) {
@@ -445,4 +442,3 @@ with an implementation for the breadth-first search shown above.
 
         return 0;
     }
->>>>>>> 749188c303348ee4e419b3035e0fc0be91e65790

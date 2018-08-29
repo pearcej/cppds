@@ -224,7 +224,7 @@ to ``tablesize``-1.
       cout<<hashfunc("First!" , 10)<<endl;
       cout<<hashfunc("Second!", 10)<<endl;
       cout<<hashfunc("Third!" , 10)<<endl;
-      
+
       return 0;
   }
 
@@ -610,9 +610,7 @@ be available. We leave the remaining methods as exercises.
     def __setitem__(self,key,data):
         self.put(key,data)
 
-
-
-.. highlight:: python
+::
 
     string get(int key) {
         int startslot = hashfunction(key);
