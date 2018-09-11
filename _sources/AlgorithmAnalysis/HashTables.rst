@@ -8,7 +8,7 @@ Hash Tables
 
 
 The second major C++ data structure is the hash table. As you
-probably recall, hash tables differ from arrays in that you can access
+may recall, hash tables differ from arrays in that you can access
 items in a hash table by a key rather than a position. Later in this
 book you will see that there are many ways to implement a hash table.
 The thing that is most important to notice right now is that the get
