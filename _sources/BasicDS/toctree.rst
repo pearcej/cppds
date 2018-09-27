@@ -23,8 +23,6 @@ Basic Data Structures
     TheDequeAbstractDataType.rst
     ImplementingaDequeinPython.rst
     PalindromeChecker.rst
-    Vectors.rst
-    TheUnorderedListAbstractDataType.rst
     ImplementinganUnorderedListLinkedLists.rst
     TheOrderedListAbstractDataType.rst
     ImplementinganOrderedList.rst
