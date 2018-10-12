@@ -2,10 +2,10 @@
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
-Implementing an Unordered List: Linked Lists
---------------------------------------------
+Implementing an Unordered Linked List
+-------------------------------------
 
-In order to implement an unordered list, we will construct what is
+In order to implement an unordered linked list, we will construct what is
 commonly known as a **linked list**. Recall that we need to be sure that
 we can maintain the relative positioning of the items. However, there is
 no requirement that we maintain that positioning in contiguous memory.
@@ -119,10 +119,11 @@ referring to ``NULL``.
    Figure 4: A Typical Representation for a Node
 
 
-The ``Unordered List`` Class
-----------------------------
+The ``Unordered Linked List`` Class
+-----------------------------------
 
-As we suggested above, the unordered list will be built from a
+As we suggested above, the 
+will be built from a
 collection of nodes, each linked to the next by explicit pointers. As
 long as we know where to find the first node (containing the first
 item), each item after that can be found by successively following the
@@ -216,23 +217,23 @@ object. We will use this often in our remaining methods.
         return head == NULL;
     }
 
-So, how do we get items into our list? We need to implement the ``add``
+So, how do we get items into our linked list? We need to implement the ``add``
 method. However, before we can do that, we need to address the important
-question of where in the linked list to place the new item. Since this
+question of where in the linked list to place the new item. Since this linked
 list is unordered, the specific location of the new item with respect to
-the other items already in the list is not important. The new item can
+the other items already in the linked list is not important. The new item can
 go anywhere. With that in mind, it makes sense to place the new item in
 the easiest location possible.
 
 Recall that the linked list structure provides us with only one entry
-point, the head of the list. All of the other nodes can only be reached
+point, the head of the linked list. All of the other nodes can only be reached
 by accessing the first node and then following ``next`` links. This
 means that the easiest place to add the new node is right at the head,
-or beginning, of the list. In other words, we will make the new item the
-first item of the list and the existing items will need to be linked to
+or beginning, of the linked list. In other words, we will make the new item the
+first item of the linked list and the existing items will need to be linked to
 this new first item so that they follow.
 
-The linked list shown in :ref:`Figure 6 <fig_linkedlist>` was built by calling
+The linked linked list shown in :ref:`Figure 6 <fig_linkedlist>` was built by calling
 the ``add`` method a number of times.
 
 ::
@@ -244,26 +245,26 @@ the ``add`` method a number of times.
     >>> mylist.add(26)
     >>> mylist.add(54)
 
-Note that since 31 is the first item added to the list, it will
+Note that since 31 is the first item added to the linked list, it will
 eventually be the last node on the linked list as every other item is
 added ahead of it. Also, since 54 is the last item added, it will become
 the data value in the first node of the linked list.
 
-The ``add`` method is shown in :ref:`Listing 4 <lst_add>`. Each item of the list
+The ``add`` method is shown in :ref:`Listing 4 <lst_add>`. Each item of the linked list
 must reside in a node object. Line 2 creates a new node and places the
 item as its data. Now we must complete the process by linking the new
 node into the existing structure. This requires two steps as shown in
 :ref:`Figure 7 <fig_addtohead>`. Step 1 (line 3) changes the ``next`` reference
-of the new node to refer to the old first node of the list. Now that the
-rest of the list has been properly attached to the new node, we can
-modify the head of the list to refer to the new node. The assignment
-statement in line 4 sets the head of the list.
+of the new node to refer to the old first node of the linked list. Now that the
+rest of the linked list has been properly attached to the new node, we can
+modify the head of the linked list to refer to the new node. The assignment
+statement in line 4 sets the head of the linked list.
 
 The order of the two steps described above is very important. What
 happens if the order of line 3 and line 4 is reversed? If the
-modification of the head of the list happens first, the result can be
+modification of the head of the linked list happens first, the result can be
 seen in :ref:`Figure 8 <fig_wrongorder>`. Since the head was the only external
-reference to the list nodes, all of the original nodes are lost and can
+reference to the linked list nodes, all of the original nodes are lost and can
 no longer be accessed.
 
 .. _lst_add:
@@ -297,22 +298,22 @@ The next methods that we will implement – ``size``, ``search``, and
 ``remove`` – are all based on a technique known as **linked list
 traversal**. Traversal refers to the process of systematically visiting
 each node. To do this we use an external reference that starts at the
-first node in the list. As we visit each node, we move the reference to
+first node in the linked list. As we visit each node, we move the reference to
 the next node by “traversing” the next reference.
 
 To implement the ``size`` method, we need to traverse the linked list
 and keep a count of the number of nodes that occurred.
 :ref:`Listing 5 <lst_length>` shows the C++ code for counting the number of
-nodes in the list. The external reference is called ``current`` and is
-initialized to the head of the list in line 2. At the start of the
+nodes in the linked list. The external reference is called ``current`` and is
+initialized to the head of the linked list in line 2. At the start of the
 process we have not seen any nodes so the count is set to :math:`0`.
 Lines 4–6 actually implement the traversal. As long as the current
-reference has not seen the end of the list (``None``), we move current
+reference has not seen the end of the linked list (``None``), we move current
 along to the next node via the assignment statement in line 6. Again,
 the ability to compare a reference to ``None`` is very useful. Every
 time current moves to a new node, we add :math:`1` to ``count``.
 Finally, ``count`` gets returned after the iteration stops.
-:ref:`Figure 9 <fig_traversal>` shows this process as it proceeds down the list.
+:ref:`Figure 9 <fig_traversal>` shows this process as it proceeds down the linked list.
 
 .. _lst_length:
 
@@ -342,16 +343,16 @@ Finally, ``count`` gets returned after the iteration stops.
 
 
 Searching for a value in a linked list implementation of an unordered
-list also uses the traversal technique. As we visit each node in the
+linked list also uses the traversal technique. As we visit each node in the
 linked list we will ask whether the data stored there matches the item
 we are looking for. In this case, however, we may not have to traverse
-all the way to the end of the list. In fact, if we do get to the end of
-the list, that means that the item we are looking for must not be
+all the way to the end of the linked list. In fact, if we do get to the end of
+the linked list, that means that the item we are looking for must not be
 present. Also, if we do find the item, there is no need to continue.
 
 :ref:`Listing 6 <lst_search>` shows the implementation for the ``search`` method.
 As in the ``size`` method, the traversal is initialized to start at
-the head of the list (line 2). We also use a boolean variable called
+the head of the linked list (line 2). We also use a boolean variable called
 ``found`` to remember whether we have located the item we are searching
 for. Since we have not found the item at the start of the traversal,
 ``found`` can be set to ``False`` (line 3). The iteration in line 4
@@ -387,7 +388,7 @@ item 17.
     >>> mylist.search(17)
     1
 
-Since 17 is in the list, the traversal process needs to move only to the
+Since 17 is in the linked list, the traversal process needs to move only to the
 node containing 17. At that point, the variable ``found`` is set to
 ``True`` and the ``while`` condition will fail, leading to the return
 value seen above. This process can be seen in :ref:`Figure 10 <fig_searchpic>`.
@@ -401,10 +402,10 @@ value seen above. This process can be seen in :ref:`Figure 10 <fig_searchpic>`.
 
 
 The ``remove`` method requires two logical steps. First, we need to
-traverse the list looking for the item we want to remove. Once we find
+traverse the linked list looking for the item we want to remove. Once we find
 the item (recall that we assume it is present), we must remove it. The
 first step is very similar to ``search``. Starting with an external
-reference set to the head of the list, we traverse the links until we
+reference set to the head of the linked list, we traverse the links until we
 discover the item we are looking for. Since we assume that item is
 present, we know that the iteration will stop before ``current`` gets to
 ``None``. This means that we can simply use the boolean ``found`` in the
@@ -435,7 +436,7 @@ for the modification.
 
 :ref:`Listing 7 <lst_remove>` shows the complete ``remove`` method. Lines 2–3
 assign initial values to the two references. Note that ``current``
-starts out at the list head as in the other traversal examples.
+starts out at the linked list head as in the other traversal examples.
 ``previous``, however, is assumed to always travel one node behind
 current. For this reason, ``previous`` starts out with a value of
 ``None`` since there is no node before the head (see
@@ -450,7 +451,7 @@ one node ahead. Again, the order of these two statements is crucial.
 ``current``. At that point, ``current`` can be moved. This process is
 often referred to as “inch-worming” as ``previous`` must catch up to
 ``current`` before ``current`` moves ahead. :ref:`Figure 12 <fig_prevcurr>` shows
-the movement of ``previous`` and ``current`` as they progress down the
+the movement of ``previous`` and ``current`` as they progress down the linked
 list looking for the node containing the value 17.
 
 .. _lst_remove:
@@ -491,18 +492,18 @@ list looking for the node containing the value 17.
 .. figure:: Figures/prevcurr.png
    :align: center
 
-   Figure 12: ``previous`` and ``current`` Move Down the List
+   Figure 12: ``previous`` and ``current`` Move Down the Linked List
 
 
 Once the searching step of the ``remove`` has been completed, we need to
 remove the node from the linked list. :ref:`Figure 13 <fig_removepic1>` shows the
 link that must be modified. However, there is a special case that needs
 to be addressed. If the item to be removed happens to be the first item
-in the list, then ``current`` will reference the first node in the
+in the linked list, then ``current`` will reference the first node in the
 linked list. This also means that ``previous`` will be ``None``. We said
 earlier that ``previous`` would be referring to the node whose next
 reference needs to be modified in order to complete the remove. In this
-case, it is not ``previous`` but rather the head of the list that needs
+case, it is not ``previous`` but rather the head of the linked list that needs
 to be changed (see :ref:`Figure 14 <fig_removehead>`).
 
 .. _fig_removepic1:
@@ -510,7 +511,7 @@ to be changed (see :ref:`Figure 14 <fig_removehead>`).
 .. figure:: Figures/remove.png
    :align: center
 
-   Figure 13: Removing an Item from the Middle of the List
+   Figure 13: Removing an Item from the Middle of the Linked List
 
 
 .. _fig_removehead:
@@ -518,13 +519,13 @@ to be changed (see :ref:`Figure 14 <fig_removehead>`).
 .. figure:: Figures/remove2.png
    :align: center
 
-   Figure 14: Removing the First Node from the List
+   Figure 14: Removing the First Node from the Linked List
 
 
 Line 12 allows us to check whether we are dealing with the special case
 described above. If ``previous`` did not move, it will still have the
 value ``None`` when the boolean ``found`` becomes ``True``. In that case
-(line 13) the head of the list is modified to refer to the node after
+(line 13) the head of the linked list is modified to refer to the node after
 the current node, in effect removing the first node from the linked
 list. However, if previous is not ``None``, the node to be removed is
 somewhere down the linked list structure. In this case the previous
@@ -677,9 +678,9 @@ You can try out the ``UnorderedList`` class in ActiveCode 1.
 
 The remaining methods ``append``, ``insert``, ``index``, and ``pop`` are
 left as exercises. Remember that each of these must take into account
-whether the change is taking place at the head of the list or someplace
+whether the change is taking place at the head of the linked list or someplace
 else. Also, ``insert``, ``index``, and ``pop`` require that we name the
-positions of the list. We will assume that position names are integers
+positions of the linked list. We will assume that position names are integers
 starting with 0.
 
 .. admonition:: Self Check
