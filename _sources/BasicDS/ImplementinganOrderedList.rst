@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -38,7 +38,7 @@ be denoted by a ``head`` reference to ``NULL`` (see
 As we consider the operations for the ordered linked list, we should note that
 the ``isEmpty`` and ``size`` methods can be implemented the same as
 with unordered linked lists since they deal only with the number of nodes in
-the list without regard to the actual item values. Likewise, the
+the linked list without regard to the actual item values. Likewise, the
 ``remove`` method will work just fine since we still need to find the
 item and then link around the node to remove it. The two remaining
 methods, ``search`` and ``add``, will require some modification.
@@ -48,12 +48,12 @@ nodes one at a time until we either find the item we are looking for or
 run out of nodes (``NULL``). It turns out that the same approach would
 actually work with the ordered linked list and in fact in the case where we
 find the item it is exactly what we need. However, in the case where the
-item is not in the list, we can take advantage of the ordering to stop
+item is not in the linked list, we can take advantage of the ordering to stop
 the search as soon as possible.
 
 For example, :ref:`Figure 16 <fig_stopearly>` shows the ordered linked list as a
 search is looking for the value 45. As we traverse, starting at the head
-of the list, we first compare against 17. Since 17 is not the item we
+of the linked list, we first compare against 17. Since 17 is not the item we
 are looking for, we move to the next node, in this case 26. Again, this
 is not what we want, so we move on to 31 and then on to 54. Now, at this
 point, something is different. Since 54 is not the item we are looking
@@ -75,7 +75,7 @@ exist further out in the linked list.
 easy to incorporate the new condition discussed above by adding another
 boolean variable, ``stop``, and initializing it to ``False`` (line 4).
 While ``stop`` is ``False`` (not ``stop``) we can continue to look
-forward in the list (line 5). If any node is ever discovered that
+forward in the linked list (line 5). If any node is ever discovered that
 contains data greater than the item we are looking for, we will set
 ``stop`` to ``True`` (lines 9–10). The remaining lines are identical to
 the unordered linked list search.
@@ -109,7 +109,7 @@ the unordered linked list search.
 
 The most significant method modification will take place in ``add``.
 Recall that for unordered linked lists, the ``add`` method could simply place a
-new node at the head of the list. It was the easiest point of access.
+new node at the head of the linked list. It was the easiest point of access.
 Unfortunately, this will no longer work with ordered linked lists. It is now
 necessary that we discover the specific place where a new item belongs
 in the existing ordered linked list.
@@ -186,7 +186,7 @@ The ``OrderedList`` class with methods discussed thus far can be found
 in ActiveCode 1.
 We leave the remaining methods as exercises. You should carefully
 consider whether the unordered implementations will work given that the
-list is now ordered.
+linked list is now ordered.
 
 .. activecode:: orderedlistclass_cpp
    :caption: OrderedList Class Thus Far
@@ -338,9 +338,10 @@ the head of the linked list. However, ``search`` and ``remove``, as well
 as ``add`` for an ordered linked list, all require the traversal process.
 Although on average they may need to traverse only half of the nodes,
 these methods are all :math:`O(n)` since in the worst case each will
-process every node in the list.
+process every node in the linked list.
 
-You may also have noticed that the performance of this implementation
-differs from the actual performance given earlier for Python lists. This
+You may also have noticed that the performance of this linked list implementation
+differs from the performance given earlier for Python lists. This
 suggests that linked lists are not the way Python lists are implemented.
-The actual implementation of a Python list is based on the notion of an array.  We discuss this in more detail in Chapter 8.
+The actual implementation of a Python list is based on the notion of an array.  
+We discuss this in more detail in Chapter 8.
