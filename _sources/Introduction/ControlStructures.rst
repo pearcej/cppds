@@ -260,7 +260,7 @@ Regardless, the next action is to compute the square root.
 .. admonition:: Self Check
 
     Test your understanding of what we have covered so far by trying the following
-    exercise.  Modify the code from Activecode 8 so that the final list only contains
+    exercise.  Modify the code from Activecode 3 so that the final list only contains
     a single copy of each letter.
 
     .. activecode:: self_check_1
