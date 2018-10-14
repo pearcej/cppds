@@ -16,7 +16,10 @@ project_name = "cppds"
 
 master_url = None
 if master_url is None:
-    if gethostname() == 'web407.webfaction.com':
+    if gethostname() == 'runestone-deploy':
+        master_url = 'https://runestone.academy'
+        doctrees = '../../custom_courses/{}/doctrees'.format(project_name)        
+    elif gethostname() == 'web407.webfaction.com':
         master_url = 'http://interactivepython.org'
         doctrees = '../../custom_courses/{}/doctrees'.format(project_name)
     else:
@@ -47,9 +50,9 @@ options(
             'python3': 'true',
             'dburl': 'postgresql://bmiller@localhost/runestone',
             'basecourse': 'cppds',
-            'jobe_server': 'http://jobe2.cosc.canterbury.ac.nz',
-            'proxy_uri_runs': '/jobe/index.php/restapi/runs/',
-            'proxy_uri_files': '/jobe/index.php/restapi/files/'
+#            'jobe_server': 'http://jobe2.cosc.canterbury.ac.nz',
+#            'proxy_uri_runs': '/jobe/index.php/restapi/runs/',
+#            'proxy_uri_files': '/jobe/index.php/restapi/files/'
         }
     )
 )
