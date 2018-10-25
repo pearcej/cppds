@@ -56,3 +56,7 @@ These containers are implemented as singly-linked lists. Singly linked lists are
 The STL also has a list container which is different from the forward list container in that while a forward list holds a link to the next element in the sequence, a list holds a link to the previous element and the next element. This allows the list to have efficient iteration in both directions. However because of the additional storage space required to store the link to the previous element and the time it takes to insert and remove an element, a forward list is more efficient than a list.
 
 For more information about lists please visit this webpage: http://www.cplusplus.com/reference/list/list/
+
+Because of the unique property of forward lists that allows them to insert and delete elements at any position in the list in constant time, they perform better than other sequence containers like arrays and vectors when it comes to algorithms that use a lot of insertion, like sorting algorithms.
+
+Unlike sequence containers like arrays and vectors where each element in the list is right next to each other, forward lists use links that connect one element to another. For this reason you cannot directly access an element in a forward list without iterating through each element that comes before that element.
