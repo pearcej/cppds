@@ -51,12 +51,32 @@ Forward lists
 
 Forward lists are sequence containers in the STL that allow you to do constant time insert and delete operations.
 
-These containers are implemented as singly-linked lists. Singly linked lists are able to store each list element in different storage locations as opposed to regular arrays which each element has to be stored next to each other. Each element holds a link to the next element in the sequence as well as the value.
-
-The STL also has a list container which is different from the forward list container in that while a forward list holds a link to the next element in the sequence, a list holds a link to the previous element and the next element. This allows the list to have efficient iteration in both directions. However because of the additional storage space required to store the link to the previous element and the time it takes to insert and remove an element, a forward list is more efficient than a list.
-
-For more information about lists please visit this webpage: http://www.cplusplus.com/reference/list/list/
+These containers are implemented as ordered singly-linked lists. Singly linked lists are able to store each list element in different storage locations as opposed to regular arrays which each element has to be stored next to each other. Each element holds a link to the next element in the sequence as well as the value.
 
 Because of the unique property of forward lists that allows them to insert and delete elements at any position in the list in constant time, they perform better than other sequence containers like arrays and vectors when it comes to algorithms that use a lot of insertion, like sorting algorithms.
 
 Unlike sequence containers like arrays and vectors where each element in the list is right next to each other, forward lists use links that connect one element to another. For this reason you cannot directly access an element in a forward list without iterating through each element that comes before that element.
+
+- ``forward_list<datatype>`` creates a new forward list that is empty.
+
+- ``emplace_front()`` Constructs and inserts an element at beginning of the forward list, right before its current first element.
+
+- ``push_front()`` Inserts an element at the beginning of the forward list, right before the current first element.
+
+- ``pop_front()`` removes the first element in the forward list container.
+
+- ``emplace_after()`` Constructs and inserts a new element after the element at a position.
+
+- ``insert_after()`` Inserts a new element after the element at a position.
+
+- ``erase_after()`` Removes elements from a forward list container at a position or a range of positions.
+
+- ``clear()`` Removes all elements from the forward list container.
+
+Click here for more information about forward_list. http://www.cplusplus.com/reference/forward_list/forward_list/
+
+Lists
+^^^^^
+The STL also has a list container which is different from the forward list container in that while a forward list holds a link to the next element in the sequence, a list holds a link to the previous element and the next element. Lists are implemented as doubly-linked-lists. This allows the list to have efficient iteration in both directions. However because of the additional storage space required to store the link to the previous element and the time it takes to insert and remove an element, a forward list is more efficient than a list.
+
+For more information about lists please visit this webpage: http://www.cplusplus.com/reference/list/list/
