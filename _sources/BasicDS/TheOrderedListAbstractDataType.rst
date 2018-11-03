@@ -73,10 +73,10 @@ Unlike sequence containers like arrays and vectors where each element in the lis
 
 - ``clear()`` Removes all elements from the forward list container.
 
-Click here for more information about STL [forward_lists](http://www.cplusplus.com/reference/forward_list/forward_list/).
+Click here for more information about STL `forward_lists <http://www.cplusplus.com/reference/forward_list/forward_list/>`.
 
 Lists
 ^^^^^
 The STL also has a list container which is different from the forward list container in that while a forward list holds a link to the next element in the sequence, a list holds a link to the previous element and the next element. Lists are implemented as doubly-linked-lists. This allows the list to have efficient iteration in both directions. However because of the additional storage space required to store the link to the previous element and the time it takes to insert and remove an element, a forward list is more efficient than a list.
 
-Click here for more information about STL [Lists](http://www.cplusplus.com/reference/list/list/).
+Click here for more information about STL `lists <http://www.cplusplus.com/reference/list/list/>`.
