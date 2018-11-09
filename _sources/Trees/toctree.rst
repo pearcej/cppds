@@ -8,7 +8,6 @@ Trees and Tree Algorithms
     Objectives.rst
     ExamplesofTrees.rst
     VocabularyandDefinitions.rst
-    ListofListsRepresentation.rst
     NodesandReferences.rst
     ParseTree.rst
     TreeTraversals.rst

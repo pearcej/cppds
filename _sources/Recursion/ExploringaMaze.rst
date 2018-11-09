@@ -505,6 +505,8 @@ Note that it is a much more simple example file in that the exit is very close t
     Now that you're familiar with this simple maze exploring algorithm, use what you've learned about file handling, classes, and IO to implement this in C++!
     To visualize the exploration, print out the characters using ``cout`` to create an ASCII representation of your cave. For example, your program should be able to read and operate from a file formatted as follows:
 
+::
+
         7 5
 
         +++++++
