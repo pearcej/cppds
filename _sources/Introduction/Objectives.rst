@@ -15,6 +15,6 @@ Objectives
 
 -  To become conversant with sorting algorithms, including the advantages and disadvantages of each.
 
--  To learn to write and analyze recursive programs, functions, and methods
+-  To learn to write and analyze recursive programs, functions, and methods.
 
 -  To learn to traverse and to implement linked data structures such as linked lists and trees.
