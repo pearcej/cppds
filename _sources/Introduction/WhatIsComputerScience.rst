@@ -20,14 +20,14 @@ followed will solve the problem. Algorithms are solutions.
 
 Computer science can be thought of as the study of algorithms. However,
 we must be careful to include the fact that some problems may not have a
-solution and others may not have solutions which can be executed in a satisfactory ampunt of time. 
+solution and others may not have solutions which can be executed in a satisfactory amuont of time. 
 Although proving this statement is beyond the scope of this
 text, the fact that some problems cannot be solved and/or cannot be solved 
-in the amount of time vavailable is important for
+in the amount of time available is important for
 those who study computer science. We can fully define computer science,
 then, by including these types of problems and stating that computer
 science is the study of solutions to problems as well as the study of
-problems without fast solutions and including the study of problems without any soluations at all.
+problems without fast solutions and including the study of problems without any solutions at all.
 
 Hence, it is very common to include the word **computable** when
 describing problems and solutions. We say that a problem is computable
@@ -111,7 +111,7 @@ perform computations such as
 This is an example of **procedural abstraction**. We do not necessarily
 know how the square root is being calculated, but we know what the
 function is called and how to use it. If we perform the import
-correctly, we can assume that the lbrary is correct and any function 
+correctly, we can assume that the library is correct and any function 
 using it will provide us with the correct results. 
 We know that someone implemented a solution to the
 square root problem and we only need to know how to use it. This is
