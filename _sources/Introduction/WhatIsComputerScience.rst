@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -36,7 +36,7 @@ computer science, then, is to say that computer science is the study of
 problems that are and that are not computable, the study of the
 existence and the nonexistence of algorithms as well as the analysis of the 
 relative speed of those algorithms. Here, you will note
-that the word “computer” did not come up at all. Solutions are
+that the word “computer” did not come up at all. Solutions are and should be
 considered independent from the machine.
 
 Computer science, as it pertains to the problem-solving process itself,
@@ -95,7 +95,7 @@ perform computations such as
       using namespace std;
 
       int main() {
-          cout<<sqrt (16);
+          cout << sqrt(16);
       }
 
   .. tab:: Python
@@ -111,9 +111,10 @@ perform computations such as
 This is an example of **procedural abstraction**. We do not necessarily
 know how the square root is being calculated, but we know what the
 function is called and how to use it. If we perform the import
-correctly, we can assume that the function will provide us with the
-correct results. We know that someone implemented a solution to the
-square root problem but we only need to know how to use it. This is
+correctly, we can assume that the lbrary is correct and any function 
+using it will provide us with the correct results. 
+We know that someone implemented a solution to the
+square root problem and we only need to know how to use it. This is
 sometimes referred to as a “black box” view of a process. We simply
 describe the interface: the name of the function, what is needed (the
 parameters), and what will be returned. The details are hidden inside
