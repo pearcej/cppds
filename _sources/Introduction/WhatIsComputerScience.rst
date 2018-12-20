@@ -5,7 +5,7 @@
 What Is Computer Science?
 -------------------------
 
-Computer science is often difficult to define. This is probably due to
+Computer science can be considered difficult to define. This is probably due to
 the unfortunate use of the word “computer” in the name. As you are
 perhaps aware, computer science is not simply the study of computers.
 Although computers play an important supporting role as a tool in the
@@ -20,19 +20,22 @@ followed will solve the problem. Algorithms are solutions.
 
 Computer science can be thought of as the study of algorithms. However,
 we must be careful to include the fact that some problems may not have a
-solution. Although proving this statement is beyond the scope of this
-text, the fact that some problems cannot be solved is important for
+solution and others may not have solutions which can be executed in a satisfactory ampunt of time. 
+Although proving this statement is beyond the scope of this
+text, the fact that some problems cannot be solved and/or cannot be solved 
+in the amount of time vavailable is important for
 those who study computer science. We can fully define computer science,
-then, by including both types of problems and stating that computer
+then, by including these types of problems and stating that computer
 science is the study of solutions to problems as well as the study of
-problems with no solutions.
+problems without fast solutions and including the study of problems without any soluations at all.
 
-It is also very common to include the word **computable** when
+Hence, it is very common to include the word **computable** when
 describing problems and solutions. We say that a problem is computable
 if an algorithm exists for solving it. An alternative definition for
 computer science, then, is to say that computer science is the study of
 problems that are and that are not computable, the study of the
-existence and the nonexistence of algorithms. In any case, you will note
+existence and the nonexistence of algorithms as well as the analysis of the 
+relative speed of those algorithms. Here, you will note
 that the word “computer” did not come up at all. Solutions are
 considered independent from the machine.
 
