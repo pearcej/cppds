@@ -33,7 +33,7 @@ Path
 
 Children
     The set of nodes :math:`c` that have incoming edges from the same
-    node to are said to be the children of that node. In 
+    node to are said to be the children of that node. In
     :ref:`Figure 2 <fig_filetree>`, nodes log/, spool/, and yp/ are the children of node
     var/.
 
