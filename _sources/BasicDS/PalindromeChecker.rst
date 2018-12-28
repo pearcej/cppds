@@ -104,5 +104,7 @@ complete function for palindrome-checking appears in
 
            return stillEqual
 
-       print(palchecker("lsdkjfskf"))
-       print(palchecker("radar"))
+       def main():
+           print(palchecker("lsdkjfskf"))
+           print(palchecker("radar"))
+       main()

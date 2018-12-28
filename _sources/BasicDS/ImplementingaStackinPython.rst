@@ -62,40 +62,40 @@ of the list. ``pop`` operations will manipulate that same end.
        :caption: Implementing a Stack class using Python lists
 
        class Stack:
-            def __init__(self):
-                self.items = []
+           def __init__(self):
+               self.items = []
 
-            def isEmpty(self):
-                return self.items == []
+           def isEmpty(self):
+               return self.items == []
 
-            def push(self, item):
-                self.items.append(item)
+           def push(self, item):
+               self.items.append(item)
 
-            def pop(self):
-                return self.items.pop()
+           def pop(self):
+               return self.items.pop()
 
-            def top(self):
-                return self.items[len(self.items)-1]
+           def top(self):
+               return self.items[len(self.items)-1]
 
-            def size(self):
-                return len(self.items)
+           def size(self):
+               return len(self.items)
 
-       newStack = Stack()
+       def main():
+           newStack = Stack()
+           newStack.push(4)
+           newStack.push(8)
+           newStack.push(15)
 
-       newStack.push(3)
-       newStack.push(8)
-       newStack.push(15)
+           print("Stack Empty? ", newStack.isEmpty())
 
-       print("Stack Empty? ", newStack.isEmpty())
+           print("Stack Size: ", newStack.size())
 
-       print("Stack Size: ", newStack.size())
+           print("Top Element of the Stack: ", newStack.top())
 
-       print("Top Element of the Stack: ", newStack.top())
+           newStack.pop();
 
-       newStack.pop();
-
-       print("Top Element of the Stack: ", newStack.top())
-
+           print("Top Element of the Stack: ", newStack.top())
+       main()
 
 .. admonition:: Self Check
 
