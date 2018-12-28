@@ -56,9 +56,13 @@ in :ref:`CodeLens 3 <lst_binarysearchpy>`.
 
         return found
 
-    testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42,]
-    print(binarySearch(testlist, 3))
-    print(binarySearch(testlist, 13))
+    def main():
+
+        testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42,]
+        print(binarySearch(testlist, 3))
+        print(binarySearch(testlist, 13))
+        
+    main()
 
 A similar implementation can be carried out using vectors in C++.
 
@@ -141,7 +145,7 @@ however this can only be used when new vectors are created.
 .. activecode:: binary_search_cpp_recursive
   :caption: A Recursive Binary Search
   :language: cpp
-  
+
   #include <iostream>
   #include <vector>
   using namespace std;

@@ -81,9 +81,11 @@ places 55, and so on. The function is shown in :ref:`ActiveCode 1 <lst_selection
                alist[fillslot] = alist[positionOfMax]
                alist[positionOfMax] = temp
 
-        alist = [54,26,93,17,77,31,44,55,20]
-        selectionSort(alist)
-        print(alist)
+        def main():
+            alist = [54,26,93,17,77,31,44,55,20]
+            selectionSort(alist)
+            print(alist)
+        main()
 
 .. animation:: selection_anim
    :modelfile: sortmodels.js
