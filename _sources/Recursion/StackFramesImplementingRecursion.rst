@@ -71,7 +71,10 @@ call. The code for this modified algorithm is shown in
                res = res + str(rStack.pop())
            return res
 
-       print(toStr(1453,16))
+       def main():
+           print(toStr(1453,16))
+
+       main()
 
 
 Each time we make a call to ``toStr``, we push a character on the stack.

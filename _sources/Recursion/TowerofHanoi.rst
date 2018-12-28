@@ -168,7 +168,10 @@ The program in ActiveCode 1 provides the entire solution for three disks.
        def moveDisk(fp,tp):
            print("moving disk from",fp,"to",tp)
 
-       moveTower(3,"A","B","C")
+       def main():
+           moveTower(3,"A","B","C")
+
+       main()
 
 Now that you have seen the code for both ``moveTower`` and ``moveDisk``,
 you may be wondering why we do not have a data structure that explicitly

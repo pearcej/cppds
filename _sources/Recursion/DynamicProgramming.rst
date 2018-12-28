@@ -143,7 +143,10 @@ where we satisfy the base case condition immediately.
 
                return minCoins
 
-           print(recMC([1,5,10,25],63))
+           def main():
+              print(recMC([1,5,10,25],63))
+
+          main()
 
 
 .. highlight:: cpp
