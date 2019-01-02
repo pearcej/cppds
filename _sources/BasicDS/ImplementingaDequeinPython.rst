@@ -9,7 +9,7 @@ As we have done in previous sections, we will use the Standard Template Library 
 of C++ to use a Deque. Again, the Deque library from STL
 will provide a very nice set of methods upon which to build the details
 of the deque. Our code (:ref:`Listing 1 <lst_dequecode>`) will assume that
-the front of the deque is at position 0 in the list.
+the front of the deque is at position 0 in the array.
 
 .. _lst_dequecode:
 
