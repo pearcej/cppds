@@ -603,13 +603,6 @@ methods as exercises.
         }
 
 
-.. video:: fraction
-   :controls:
-   :thumb: ../_static/videothumb.png
-
-   http://media.interactiveC++.org/C++dsVideos/fraction.mov
-   http://media.interactiveC++.org/C++dsVideos/fraction.webm
-
 Inheritance: Logic Gates and Circuits
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1323,14 +1316,6 @@ Try it yourself using ActiveCode 4.
 
     	return 0;
     }
-
-
-.. video:: logicgates
-   :controls:
-   :thumb: ../_static/videothumb.png
-
-   http://media.interactiveC++.org/C++dsVideos/logicgates.mov
-   http://media.interactiveC++.org/C++dsVideos/logicgates.webm
 
 
 .. admonition:: Self  Check Challenge
