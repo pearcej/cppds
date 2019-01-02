@@ -34,7 +34,7 @@ correct position with no further processing required. :ref:`ActiveCode 1 <lst_bu
 shows the complete ``bubbleSort`` function. It takes the array as a
 parameter, and modifies it by swapping items as necessary.
 
-Typically, swapping two elements in a array requires a temporary storage location (an
+Typically, swapping two elements in an array requires a temporary storage location (an
 additional memory location). A code fragment such as
 
 ::
@@ -73,27 +73,27 @@ shown above.
       #include <vector>
       using namespace std;
 
-      vector<int> bubbleSort(vector<int> alist) {
-        for (int passnum = alist.size()-1; passnum > 0; passnum -= 1) {
+      vector<int> bubbleSort(vector<int> avector) {
+        for (int passnum = avector.size()-1; passnum > 0; passnum -= 1) {
             for (int i = 0; i < passnum; i++) {
-                if (alist[i] > alist[i+1]) {
-                    int temp = alist[i];
-                    alist[i] = alist[i+1];
-                    alist[i+1] = temp;
+                if (avector[i] > avector[i+1]) {
+                    int temp = avector[i];
+                    avector[i] = avector[i+1];
+                    avector[i+1] = temp;
                 }
             }
         }
-        return alist;
+        return avector;
       }
 
       int main() {
           // Vector initialized using a static array
           static const int arr[] = {54,26,93,17,77,31,44,55,20};
-          vector<int> alist (arr, arr + sizeof(arr) / sizeof(arr[0]) );
+          vector<int> avector (arr, arr + sizeof(arr) / sizeof(arr[0]) );
 
-          vector<int> blist = bubbleSort(alist);
-          for (unsigned int i = 0; i < blist.size(); i++) {
-              cout<<blist[i]<< " ";
+          vector<int> bvector = bubbleSort(avector);
+          for (unsigned int i = 0; i < bvector.size(); i++) {
+              cout<<bvector[i]<< " ";
           }
           return 0;
       }
@@ -203,35 +203,35 @@ to as the **short bubble**.
 
       using namespace std;
 
-      vector<int> shortBubbleSort(vector<int> alist){
+      vector<int> shortBubbleSort(vector<int> avector){
           bool exchanges = true;
-          int passnum = alist.size();
+          int passnum = avector.size();
 
           while (passnum > 0 && exchanges) {
               exchanges = false;
 
               for(int i = 0; i < passnum; i++){
-                  if(alist[i] > alist[i+1]){
+                  if(avector[i] > avector[i+1]){
                       exchanges = true;
-                      int temp = alist[i];
-                      alist[i] = alist[i+1];
-                      alist[i+1] = temp;
+                      int temp = avector[i];
+                      avector[i] = avector[i+1];
+                      avector[i+1] = temp;
                   }
               }
               passnum = passnum - 1;
           }
-          return alist;
+          return avector;
       }
 
       int main() {
           // Vector initialized using a static array
           static const int arr[] = {20,30,40,90,50,60,70,80,110,100};
-          vector<int> alist (arr, arr+ sizeof(arr)/sizeof(arr[0]));
+          vector<int> avector (arr, arr+ sizeof(arr)/sizeof(arr[0]));
 
-          vector<int> blist = shortBubbleSort(alist);
+          vector<int> bvector = shortBubbleSort(avector);
 
-          for(unsigned int i = 0; i < blist.size(); i++){
-            cout<< blist[i] << " ";
+          for(unsigned int i = 0; i < bvector.size(); i++){
+            cout<< bvector[i] << " ";
           }
           return 0;
       }
@@ -296,5 +296,5 @@ to as the **short bubble**.
        :feedback_c: A bubble sort contines to swap numbers up to index position passnum.  But remember that passnum starts at the length of the list - 1.
        :feedback_d: You have been doing an insertion sort, not a bubble sort.
 
-       Suppose you have the following array of numbers to sort: 
+       Suppose you have the following array of numbers to sort:
        [19, 1, 9, 7, 3, 10, 13, 15, 8, 12] which array represents the partially sorted list after three complete passes of bubble sort?

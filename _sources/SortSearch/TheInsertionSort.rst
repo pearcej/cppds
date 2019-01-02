@@ -6,11 +6,11 @@ The Insertion Sort
 ~~~~~~~~~~~~~~~~~~
 
 The **insertion sort**, although still :math:`O(n^{2})`, works in a
-slightly different way. It always maintains a sorted sublist in the
-lower positions of the list. Each new item is then “inserted” back into
-the previous sublist such that the sorted sublist is one item larger.
+slightly different way. It always maintains a sorted subvector in the
+lower positions of the vector. Each new item is then “inserted” back into
+the previous subvector such that the sorted subvector is one item larger.
 :ref:`Figure 4 <fig_insertionsort>` shows the insertion sorting process. The shaded
-items represent the ordered sublists as the algorithm makes each pass.
+items represent the ordered subvectors as the algorithm makes each pass.
 
 .. _fig_insertionsort:
 
@@ -20,20 +20,20 @@ items represent the ordered sublists as the algorithm makes each pass.
    Figure 4: ``insertionSort``
 
 
-We begin by assuming that a list with one item (position :math:`0`) is
+We begin by assuming that a vector with one item (position :math:`0`) is
 already sorted. On each pass, one for each item 1 through :math:`n-1`,
-the current item is checked against those in the already sorted sublist.
-As we look back into the already sorted sublist, we shift those items
+the current item is checked against those in the already sorted subvector.
+As we look back into the already sorted subvector, we shift those items
 that are greater to the right. When we reach a smaller item or the end
-of the sublist, the current item can be inserted.
+of the subvector, the current item can be inserted.
 
 :ref:`Figure 5 <fig_insertionpass>` shows the fifth pass in detail. At this point in
-the algorithm, a sorted sublist of five items consisting of 17, 26, 54,
+the algorithm, a sorted subvector of five items consisting of 17, 26, 54,
 77, and 93 exists. We want to insert 31 back into the already sorted
 items. The first comparison against 93 causes 93 to be shifted to the
 right. 77 and 54 are also shifted. When the item 26 is encountered, the
 shifting process stops and 31 is placed in the open position. Now we
-have a sorted sublist of six items.
+have a sorted subvector of six items.
 
 .. _fig_insertionpass:
 
@@ -46,15 +46,15 @@ have a sorted sublist of six items.
 The implementation of ``insertionSort`` (:ref:`ActiveCode 1 <lst_insertion>`) shows that
 there are again :math:`n-1` passes to sort *n* items. The iteration
 starts at position 1 and moves through position :math:`n-1`, as these
-are the items that need to be inserted back into the sorted sublists.
+are the items that need to be inserted back into the sorted subvectors.
 Line 8 performs the shift operation that moves a value up one position
-in the list, making room behind it for the insertion. Remember that this
+in the vector, making room behind it for the insertion. Remember that this
 is not a complete exchange as was performed in the previous algorithms.
 
 The maximum number of comparisons for an insertion sort is the sum of
 the first :math:`n-1` integers. Again, this is :math:`O(n^{2})`.
 However, in the best case, only one comparison needs to be done on each
-pass. This would be the case for an already sorted list.
+pass. This would be the case for an already sorted vector.
 
 One note about shifting versus exchanging is also important. In general,
 a shift operation requires approximately a third of the processing work
@@ -73,33 +73,33 @@ studies, insertion sort will show very good performance.
       #include <vector>
       using namespace std;
 
-      vector<int> insertionSort(vector<int> alist) {
-          for (unsigned int index=1; index<alist.size(); index++) {
+      vector<int> insertionSort(vector<int> avector) {
+          for (unsigned int index=1; index<avector.size(); index++) {
 
-              int currentvalue = alist[index];
+              int currentvalue = avector[index];
               int position = index;
 
-              while (position>0 && alist[position-1]>currentvalue) {
-                  alist[position] = alist[position-1];
+              while (position>0 && avector[position-1]>currentvalue) {
+                  avector[position] = avector[position-1];
                   position--;
               }
 
-              alist[position] = currentvalue;
+              avector[position] = currentvalue;
           }
 
-          return alist;
+          return avector;
       }
 
       int main() {
           // Vector initialized using a static array
           static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
-          vector<int> alist (arr, arr + sizeof(arr) / sizeof(arr[0]) );
+          vector<int> avector (arr, arr + sizeof(arr) / sizeof(arr[0]) );
 
-          alist = insertionSort(alist);
+          avector = insertionSort(avector);
 
-          //prints the sorted list
-          for (unsigned int i=0; i<alist.size(); i++) {
-              cout << alist[i] << " ";;
+          //prints the sorted vector
+          for (unsigned int i=0; i<avector.size(); i++) {
+              cout << avector[i] << " ";;
           }
           cout << endl;
 
