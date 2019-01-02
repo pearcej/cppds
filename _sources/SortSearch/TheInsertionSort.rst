@@ -124,9 +124,13 @@ studies, insertion sort will show very good performance.
 
              alist[position]=currentvalue
 
-        alist = [54,26,93,17,77,31,44,55,20]
-        insertionSort(alist)
-        print(alist)
+        def main():
+
+            alist = [54,26,93,17,77,31,44,55,20]
+            insertionSort(alist)
+            print(alist)
+
+        main()
 
 .. animation:: insertion_anim
    :modelfile: sortmodels.js
@@ -151,10 +155,12 @@ studies, insertion sort will show very good performance.
 ..              position = position-1
 ..
 ..          alist[position]=currentvalue
-..
-..     alist = [54,26,93,17,77,31,44,55,20]
-..     insertionSort(alist)
-..     print(alist)
+
+..     def main():
+..          alist = [54,26,93,17,77,31,44,55,20]
+..          insertionSort(alist)
+..          print(alist)
+       main()
 
 .. admonition:: Self Check
 

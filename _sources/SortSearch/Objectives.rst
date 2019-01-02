@@ -16,4 +16,3 @@ Objectives
 -  To introduce the map abstract data type.
 
 -  To implement the map abstract data type using hashing.
-

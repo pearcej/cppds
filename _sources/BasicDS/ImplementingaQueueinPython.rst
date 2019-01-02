@@ -80,23 +80,24 @@ of the list. ``pop`` operations will manipulate the opposite side, the front end
            def size(self):
                return len(self.items)
 
-       q=Queue()
+       def main():
+           q=Queue()
 
-       q.push(4)
-       q.push('dog')
-       q.push(True)
+           q.push(4)
+           q.push('dog')
+           q.push(True)
 
 
-       print("Queue Empty? ", q.isEmpty())
+           print("Queue Empty? ", q.isEmpty())
 
-       print("Queue Size: ", q.size())
+           print("Queue Size: ", q.size())
 
-       print("Front Element of the Queue: ", q.front())
+           print("Front Element of the Queue: ", q.front())
 
-       q.pop();
+           q.pop();
 
-       print("Front Element of the Queue: ", q.front())
-
+           print("Front Element of the Queue: ", q.front())
+       main()
 
 .. admonition:: Self Check
 

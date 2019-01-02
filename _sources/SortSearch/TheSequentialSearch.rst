@@ -51,9 +51,11 @@ assigned the value ``True`` if we discover the item in the list (Or vector, in t
 
         return found
 
-    testlist = [1, 2, 32, 8, 17, 19, 42, 13, 0]
-    print(sequentialSearch(testlist, 3))
-    print(sequentialSearch(testlist, 13))
+    def main():
+        testlist = [1, 2, 32, 8, 17, 19, 42, 13, 0]
+        print(sequentialSearch(testlist, 3))
+        print(sequentialSearch(testlist, 13))
+    main()
 
 .. _lst_seqsearchcpp:
 

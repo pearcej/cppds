@@ -154,10 +154,10 @@ mismatch occurs, the boolean variable ``balanced`` is set to ``False``.
            closers = ")]}"
            return opens.index(open) == closers.index(close)
 
-
-       print(parChecker('{{([][])}()}'))
-       print(parChecker('[{()]'))
-
+       def main():
+           print(parChecker('{{([][])}()}'))
+           print(parChecker('[{()]'))
+       main()
 
 These two examples show that stacks are very important data structures
 for the processing of language constructs in computer science. Almost

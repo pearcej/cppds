@@ -159,9 +159,11 @@ most one.
                     k=k+1
             print("Merging ",alist)
 
-        alist = [54,26,93,17,77,31,44,55,20]
-        mergeSort(alist)
-        print(alist)
+        def main():
+            alist = [54,26,93,17,77,31,44,55,20]
+            mergeSort(alist)
+            print(alist)
+        main()
 
 
 
@@ -227,10 +229,12 @@ list that can be immediately merged with other sorted lists.
 ..                 j=j+1
 ..                 k=k+1
 ..         print("Merging ",alist)
-..
-..     alist = [54,26,93,17,77,31,44,55,20]
-..     mergeSort(alist)
-..     print(alist)
+
+..     def main():
+    ..     alist = [54,26,93,17,77,31,44,55,20]
+    ..     mergeSort(alist)
+    ..     print(alist)
+       main()
 
 
 In order to analyze the ``mergeSort`` function, we need to consider the

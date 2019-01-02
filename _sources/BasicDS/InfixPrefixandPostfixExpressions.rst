@@ -344,10 +344,11 @@ shown in :ref:`ActiveCode 1 <lst_intopost>`.
                       opStack.pop();
                   }
               } else {
-                  while (!opStack.empty() && (prec[opStack.top()] >= prec[token])) {
+                  while (!opStack.empty() && (prec[opStack.top()]>=prec[token]))
+                  {
                       postfixList.emplace_back(opStack.top());
                       opStack.pop();
-                  }
+                      }
                   opStack.push(token);
               }
           }
@@ -398,17 +399,17 @@ shown in :ref:`ActiveCode 1 <lst_intopost>`.
                      postfixList.append(topToken)
                      topToken = opStack.pop()
              else:
-                 while (not opStack.isEmpty()) and \
-                    (prec[opStack.peek()] >= prec[token]):
+                 while (not opStack.isEmpty()) and (prec[opStack.peek()] >= prec[token]):
                        postfixList.append(opStack.pop())
                  opStack.push(token)
 
          while not opStack.isEmpty():
              postfixList.append(opStack.pop())
          return " ".join(postfixList)
-
-     print(infixToPostfix("A * B + C * D"))
-     print(infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )"))
+     def main():
+         print(infixToPostfix("A * B + C * D"))
+         print(infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )"))
+     main()
 
 --------------
 
@@ -595,7 +596,9 @@ operator and then perform the proper arithmetic operation.
            else:
                return op1 - op2
 
-       print(postfixEval('7 8 + 3 2 + /'))
+       def main():
+           print(postfixEval('7 8 + 3 2 + /'))
+       main()
 
 It is important to note that in both the postfix conversion and the
 postfix evaluation programs we assumed that there were no errors in the

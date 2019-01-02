@@ -159,8 +159,12 @@ this algorithm is shown in :ref:`ActiveCode 1 <lst_parcheck1>`.
            else:
                return False
 
-       print(parChecker('((()))'))
-       print(parChecker('(()'))
+       def main():
+
+           print(parChecker('((()))'))
+           print(parChecker('(()'))
+
+       main()
 
 
 This function, ``parChecker``, assumes that a ``Stack`` class is

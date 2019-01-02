@@ -208,10 +208,12 @@ an insertion sort with an increment of one.
 ..                 position = position-gap
 ..
 ..             alist[position]=currentvalue
-..
-..     alist = [54,26,93,17,77,31,44,55,20]
-..     shellSort(alist)
-..     print(alist)
+
+..     def main():
+..         alist = [54,26,93,17,77,31,44,55,20]
+..         shellSort(alist)
+..         print(alist)
+       main()
 
 
 

@@ -124,8 +124,9 @@ The program is shown in :ref:`ActiveCode 1 <lst_josephussim>`. A call to the
 
            return simqueue.dequeue()
 
-       print(hotPotato(["Bill","David","Susan","Jane","Kent","Brad"],7))
-
+       def main():
+           print(hotPotato(["Bill","David","Susan","Jane","Kent","Brad"],7))
+       main()
 
 Note that in this example the value of the counting constant is greater
 than the number of names in the list. This is not a problem since the
