@@ -17,9 +17,9 @@ operations are implemented as methods. However, the STL already has a well
 written implementation of the Stack class.
 
 The following stack implementation (:ref:`ActiveCode 1 <lst_stackcode1>`) assumes that
-the end of the list will hold the top element of the stack. As the stack
+the end of the array will hold the top element of the stack. As the stack
 grows (as ``push`` operations occur), new items will be added on the end
-of the list. ``pop`` operations will manipulate that same end.
+of the array. ``pop`` operations will manipulate that same end.
 
 .. _lst_stackcode1:
 
