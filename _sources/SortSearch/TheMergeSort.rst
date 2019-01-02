@@ -8,15 +8,15 @@ The Merge Sort
 We now turn our attention to using a divide and conquer strategy as a
 way to improve the performance of sorting algorithms. The first
 algorithm we will study is the **merge sort**. Merge sort is a recursive
-algorithm that continually splits a list in half. If the list is empty
-or has one item, it is sorted by definition (the base case). If the list
-has more than one item, we split the list and recursively invoke a merge
+algorithm that continually splits a vector in half. If the vector is empty
+or has one item, it is sorted by definition (the base case). If the vector
+has more than one item, we split the vector and recursively invoke a merge
 sort on both halves. Once the two halves are sorted, the fundamental
 operation, called a **merge**, is performed. Merging is the process of
-taking two smaller sorted lists and combining them together into a
-single, sorted, new list. :ref:`Figure 10 <fig_mergesortA>` shows our familiar example
-list as it is being split by ``mergeSort``. :ref:`Figure 11 <fig_mergesortB>` shows
-the simple lists, now sorted, as they are merged back together.
+taking two smaller sorted vectors and combining them together into a
+single, sorted, new vector. :ref:`Figure 10 <fig_mergesortA>` shows our familiar example
+vector as it is being split by ``mergeSort``. :ref:`Figure 11 <fig_mergesortB>` shows
+the simple vectors, now sorted, as they are merged back together.
 
 
 .. _fig_mergesortA:
@@ -24,7 +24,7 @@ the simple lists, now sorted, as they are merged back together.
 .. figure:: Figures/mergesortA.png
    :align: center
 
-   Figure 10: Splitting the List in a Merge Sort
+   Figure 10: Splitting the vector in a Merge Sort
 
 
 .. _fig_mergesortB:
@@ -32,17 +32,17 @@ the simple lists, now sorted, as they are merged back together.
 .. figure:: Figures/mergesortB.png
    :align: center
 
-   Figure 11: Lists as They Are Merged Together
+   Figure 11: vectors as They Are Merged Together
 
 
 
 The ``mergeSort`` function shown in :ref:`ActiveCode 1 <lst_mergeSort_cpp>` begins by asking the
-base case question. If the length of the list is less than or equal to
-one, then we already have a sorted list and no more processing is
+base case question. If the length of the vector is less than or equal to
+one, then we already have a sorted vector and no more processing is
 necessary. If, on the other hand, the length is greater than one, then we utilize
 the vector intializer using .begin to extract the left and right halves.
 This is similar to using the Python ``slice`` operation to extract the left and right
-halves. It is important to note that the list may not have an even
+halves. It is important to note that the vector may not have an even
 number of items. That does not matter, as the lengths will differ by at
 most one.
 
@@ -58,21 +58,21 @@ most one.
       #include <vector>
       using namespace std;
 
-      void printl(vector<int> alist) {
-          for (unsigned int i=0; i<alist.size(); i++) {
-              cout << alist[i] << " ";
+      void printl(vector<int> avector) {
+          for (unsigned int i=0; i<avector.size(); i++) {
+              cout << avector[i] << " ";
           }
           cout << endl;
       }
 
-      vector<int> mergeSort(vector<int> alist) {
+      vector<int> mergeSort(vector<int> avector) {
           cout<<"Splitting ";
-          printl(alist);
-          if (alist.size()>1) {
-              int mid = alist.size()/2;
+          printl(avector);
+          if (avector.size()>1) {
+              int mid = avector.size()/2;
               //C++ Equivalent to using Python Slices
-              vector<int> lefthalf(alist.begin(),alist.begin()+mid);
-              vector<int> righthalf(alist.begin()+mid,alist.begin()+alist.size());
+              vector<int> lefthalf(avector.begin(),avector.begin()+mid);
+              vector<int> righthalf(avector.begin()+mid,avector.begin()+avector.size());
 
               lefthalf = mergeSort(lefthalf);
               righthalf = mergeSort(righthalf);
@@ -82,40 +82,40 @@ most one.
               unsigned k = 0;
               while (i < lefthalf.size() && j < righthalf.size()) {
                   if (lefthalf[i] < righthalf[j]) {
-                      alist[k]=lefthalf[i];
+                      avector[k]=lefthalf[i];
                       i++;
                   } else {
-                      alist[k] = righthalf[j];
+                      avector[k] = righthalf[j];
                       j++;
                   }
                   k++;
               }
 
               while (i<lefthalf.size()) {
-                  alist[k] = lefthalf[i];
+                  avector[k] = lefthalf[i];
                   i++;
                   k++;
               }
 
               while (j<righthalf.size()) {
-                  alist[k]=righthalf[j];
+                  avector[k]=righthalf[j];
                   j++;
                   k++;
               }
 
           }
           cout<<"Merging ";
-          printl(alist);
+          printl(avector);
 
-          return alist;
+          return avector;
       }
 
       int main() {
           // Vector initialized using a static array
           static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
-          vector<int> alist (arr, arr + sizeof(arr) / sizeof(arr[0]) );
+          vector<int> avector (arr, arr + sizeof(arr) / sizeof(arr[0]) );
 
-          printl(mergeSort(alist));
+          printl(mergeSort(avector));
 
           return 0;
       }
@@ -170,18 +170,18 @@ most one.
 Once the ``mergeSort`` function is invoked on the left half and the
 right half (lines 8–9), it is assumed they are sorted. The rest of the
 function (lines 11–31) is responsible for merging the two smaller sorted
-lists into a larger sorted list. Notice that the merge operation places
-the items back into the original list (``alist``) one at a time by
-repeatedly taking the smallest item from the sorted lists.
+vectors into a larger sorted vector. Notice that the merge operation places
+the items back into the original vector (``avector``) one at a time by
+repeatedly taking the smallest item from the sorted vectors.
 
 The ``mergeSort`` function has been augmented with a ``print`` statement
-(line 2) to show the contents of the list being sorted at the start of
+(line 2) to show the contents of the vector being sorted at the start of
 each invocation. There is also a ``print`` statement (line 32) to show
 the merging process. The transcript shows the result of executing the
-function on our example list. Note that the list with 44, 55, and 20
+function on our example vector. Note that the vector with 44, 55, and 20
 will not divide evenly. The first split gives [44] and the second gives
 [55,20]. It is easy to see how the splitting process eventually yields a
-list that can be immediately merged with other sorted lists.
+vector that can be immediately merged with other sorted vectors.
 
 
 .. animation:: merge_anim
@@ -238,12 +238,12 @@ list that can be immediately merged with other sorted lists.
 
 
 In order to analyze the ``mergeSort`` function, we need to consider the
-two distinct processes that make up its implementation. First, the list
+two distinct processes that make up its implementation. First, the vector
 is split into halves. We already computed (in a binary search) that we
-can divide a list in half :math:`\log n` times where *n* is the
-length of the list. The second process is the merge. Each item in the
-list will eventually be processed and placed on the sorted list. So the
-merge operation which results in a list of size *n* requires *n*
+can divide a vector in half :math:`\log n` times where *n* is the
+length of the vector. The second process is the merge. Each item in the
+vector will eventually be processed and placed on the sorted vector. So the
+merge operation which results in a vector of size *n* requires *n*
 operations. The result of this analysis is that :math:`\log n` splits,
 each of which costs :math:`n` for a total of :math:`n\log n`
 operations. A merge sort is an :math:`O(n\log n)` algorithm.
@@ -252,12 +252,12 @@ Recall that the slicing operator is :math:`O(k)` where k is the size
 of the slice. In order to guarantee that ``mergeSort`` will be
 :math:`O(n\log n)` we will need to remove the slice operator. Again,
 this is possible if we simply pass the starting and ending indices along
-with the list when we make the recursive call. We leave this as an
+with the vector when we make the recursive call. We leave this as an
 exercise.
 
 It is important to notice that the ``mergeSort`` function requires extra
 space to hold the two halves as they are extracted with the slicing
-operations. This additional space can be a critical factor if the list
+operations. This additional space can be a critical factor if the vector
 is large and can make this sort problematic when working on large data
 sets.
 

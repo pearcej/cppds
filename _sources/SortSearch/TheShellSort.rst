@@ -6,20 +6,20 @@ The Shell Sort
 ~~~~~~~~~~~~~~
 
 The **shell sort**, sometimes called the “diminishing increment sort,”
-improves on the insertion sort by breaking the original list into a
-number of smaller sublists, each of which is sorted using an insertion
-sort. The unique way that these sublists are chosen is the key to the
-shell sort. Instead of breaking the list into sublists of contiguous
+improves on the insertion sort by breaking the original vector into a
+number of smaller subvectors, each of which is sorted using an insertion
+sort. The unique way that these subvectors are chosen is the key to the
+shell sort. Instead of breaking the vector into subvectors of contiguous
 items, the shell sort uses an increment ``i``, sometimes called the
-**gap**, to create a sublist by choosing all items that are ``i`` items
+**gap**, to create a subvector by choosing all items that are ``i`` items
 apart.
 
-This can be seen in :ref:`Figure 6 <fig_incrementsA>`. This list has nine items. If
-we use an increment of three, there are three sublists, each of which
+This can be seen in :ref:`Figure 6 <fig_incrementsA>`. This vector has nine items. If
+we use an increment of three, there are three subvectors, each of which
 can be sorted by an insertion sort. After completing these sorts, we get
-the list shown in :ref:`Figure 7 <fig_incrementsB>`. Although this list is not
+the vector shown in :ref:`Figure 7 <fig_incrementsB>`. Although this vector is not
 completely sorted, something very interesting has happened. By sorting
-the sublists, we have moved the items closer to where they actually
+the subvectors, we have moved the items closer to where they actually
 belong.
 
 .. _fig_incrementsA:
@@ -36,13 +36,13 @@ belong.
 .. figure:: Figures/shellsortB.png
    :align: center
 
-   Figure 7: A Shell Sort after Sorting Each Sublist
+   Figure 7: A Shell Sort after Sorting Each subvector
 
 
 :ref:`Figure 8 <fig_incrementsC>` shows a final insertion sort using an increment of
 one; in other words, a standard insertion sort. Note that by performing
-the earlier sublist sorts, we have now reduced the total number of
-shifting operations necessary to put the list in its final order. For
+the earlier subvector sorts, we have now reduced the total number of
+shifting operations necessary to put the vector in its final order. For
 this case, we need only four more shifts to complete the process.
 
 .. _fig_incrementsC:
@@ -58,19 +58,19 @@ this case, we need only four more shifts to complete the process.
 .. figure:: Figures/shellsortD.png
    :align: center
 
-   Figure 9: Initial Sublists for a Shell Sort
+   Figure 9: Initial Subvectors for a Shell Sort
 
 
 We said earlier that the way in which the increments are chosen is the
 unique feature of the shell sort. The function shown in :ref:`ActiveCode 1 <lst_shell_cpp>`
 uses a different set of increments. In this case, we begin with
-:math:`\frac {n}{2}` sublists. On the next pass,
-:math:`\frac {n}{4}` sublists are sorted. Eventually, a single list is
+:math:`\frac {n}{2}` subvectors. On the next pass,
+:math:`\frac {n}{4}` subvectors are sorted. Eventually, a single vector is
 sorted with the basic insertion sort. :ref:`Figure 9 <fig_incrementsD>` shows the
-first sublists for our example using this increment.
+first subvectors for our example using this increment.
 
 The following invocation of the ``shellSort`` function shows the
-partially sorted lists after each increment, with the final sort being
+partially sorted vectors after each increment, with the final sort being
 an insertion sort with an increment of one.
 
 .. tabbed:: _lst_shell
@@ -85,51 +85,51 @@ an insertion sort with an increment of one.
       #include <vector>
       using namespace std;
 
-      // print the sorted list
-      void printl(vector<int> alist) {
-          for (unsigned int i=0; i<alist.size(); i++) {
-              cout << alist[i] << " ";
+      // print the sorted vector
+      void printl(vector<int> avector) {
+          for (unsigned int i=0; i<avector.size(); i++) {
+              cout << avector[i] << " ";
           }
           cout << endl;
       }
 
-      vector<int> gapInsertionSort(vector<int> alist, int start, int gap) {
-          for (unsigned int i = start + gap; i < alist.size(); i += gap) {
-              int currentvalue = alist[i];
+      vector<int> gapInsertionSort(vector<int> avector, int start, int gap) {
+          for (unsigned int i = start + gap; i < avector.size(); i += gap) {
+              int currentvalue = avector[i];
               int position = i;
 
-              while (position >= gap && alist[position - gap] > currentvalue) {
-                  alist[position] = alist[position - gap];
+              while (position >= gap && avector[position - gap] > currentvalue) {
+                  avector[position] = avector[position - gap];
                   position -= gap;
               }
-              alist[position] = currentvalue;
+              avector[position] = currentvalue;
           }
-          return alist;
+          return avector;
       }
 
-      vector<int> shellSort(vector<int> alist) {
-          int sublistcount = alist.size() / 2;
-          while (sublistcount > 0) {
-              for (int startposition = 0; startposition < sublistcount;
+      vector<int> shellSort(vector<int> avector) {
+          int subvectorcount = avector.size() / 2;
+          while (subvectorcount > 0) {
+              for (int startposition = 0; startposition < subvectorcount;
                    startposition++) {
-                  alist = gapInsertionSort(alist, startposition, sublistcount);
+                  avector = gapInsertionSort(avector, startposition, subvectorcount);
               }
-              cout << "After increments of size " << sublistcount
-                   << " The list is: " << endl;
-              printl(alist);
+              cout << "After increments of size " << subvectorcount
+                   << " The vector is: " << endl;
+              printl(avector);
 
-              sublistcount = sublistcount / 2;
+              subvectorcount = subvectorcount / 2;
           }
 
-          return alist;
+          return avector;
       }
 
       int main() {
           // Vector initialized using a static array
           static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
-          vector<int> alist (arr, arr + sizeof(arr) / sizeof(arr[0]) );
+          vector<int> avector (arr, arr + sizeof(arr) / sizeof(arr[0]) );
 
-          printl(shellSort(alist));
+          printl(shellSort(avector));
 
           return 0;
       }
