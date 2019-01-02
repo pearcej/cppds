@@ -45,21 +45,21 @@ is removed each time.  We will now turn our attention to creating an implementat
         class BinHeap{
 
         private:
-            vector<int> heapList;
+            vector<int> heapvector;
             int currentSize;
 
         public:
-            BinHeap(vector<int> heapList){
-                this->heapList = heapList;
+            BinHeap(vector<int> heapvector){
+                this->heapvector = heapvector;
                 this->currentSize = 0;
             }
 
             void percUp(int i){
                 while ((i / 2) > 0){
-                    if (this->heapList[i] < this->heapList[i/2]){
-                        int tmp = this->heapList[i/2];
-                        this->heapList[i/2] = this->heapList[i];
-                        this->heapList[i] = tmp;
+                    if (this->heapvector[i] < this->heapvector[i/2]){
+                        int tmp = this->heapvector[i/2];
+                        this->heapvector[i/2] = this->heapvector[i];
+                        this->heapvector[i] = tmp;
                     }
                     i = i/2;
                 }
@@ -67,7 +67,7 @@ is removed each time.  We will now turn our attention to creating an implementat
             }
 
             void insert(int k){
-                this->heapList.push_back(k);
+                this->heapvector.push_back(k);
                 this->currentSize = this->currentSize + 1;
                 this->percUp(this->currentSize);
             }
@@ -75,10 +75,10 @@ is removed each time.  We will now turn our attention to creating an implementat
             void percDown(int i){
                 while ((i*2) <= this->currentSize){
                     int mc = this->minChild(i);
-                    if (this->heapList[i] > this->heapList[mc]){
-                        int tmp = this->heapList[i];
-                        this->heapList[i] = this->heapList[mc];
-                        this->heapList[mc] = tmp;
+                    if (this->heapvector[i] > this->heapvector[mc]){
+                        int tmp = this->heapvector[i];
+                        this->heapvector[i] = this->heapvector[mc];
+                        this->heapvector[mc] = tmp;
                     }
                     i = mc;
                 }
@@ -89,7 +89,7 @@ is removed each time.  We will now turn our attention to creating an implementat
                     return i * 2;
                 }
                 else{
-                    if (this->heapList[i*2] < this->heapList[(i*2)+1]){
+                    if (this->heapvector[i*2] < this->heapvector[(i*2)+1]){
                         return i * 2;
                     }
                     else{
@@ -99,18 +99,18 @@ is removed each time.  We will now turn our attention to creating an implementat
             }
 
             int delMin(){
-                int retval = this->heapList[1];
-                this->heapList[1] = this->heapList[this->currentSize];
+                int retval = this->heapvector[1];
+                this->heapvector[1] = this->heapvector[this->currentSize];
                 this->currentSize = this->currentSize - 1;
-                this->heapList.pop_back();
+                this->heapvector.pop_back();
                 this->percDown(1);
                 return retval;
             }
 
-            void buildheap(vector<int> alist){
-                int i = alist.size() / 2;
-                this->currentSize = alist.size();
-                this->heapList.insert(this->heapList.end(), alist.begin(), alist.end());
+            void buildheap(vector<int> avector){
+                int i = avector.size() / 2;
+                this->currentSize = avector.size();
+                this->heapvector.insert(this->heapvector.end(), avector.begin(), avector.end());
                 while (i > 0){
                     this->percDown(i);
                     i = i - 1;
@@ -118,14 +118,14 @@ is removed each time.  We will now turn our attention to creating an implementat
             }
 
             bool isEmpty(){
-                if (this->heapList.size()>0){
+                if (this->heapvector.size()>0){
                     return false;
                 }
                 return true;
             }
 
             int findMin(){
-                return this->heapList[1];
+                return this->heapvector[1];
             }
         };
 
