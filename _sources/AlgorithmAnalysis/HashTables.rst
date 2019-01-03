@@ -68,7 +68,7 @@ hash table.
 
     #include <iostream>
     #include <ctime>
-    #include <list>
+    #include <vector>
     #include <unordered_map>
     using namespace std;
 
@@ -77,9 +77,9 @@ hash table.
         for( int a = 10000; a < 1000001; a = a + 20000) {
             // List Part
             clock_t begin = clock();
-            list<int> x;
+            vector<int> avector;
             for( int i = 0; i < a; i++){
-                x.push_back(i);
+                avector.push_back(i);
             }
             clock_t end = clock();
             double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
