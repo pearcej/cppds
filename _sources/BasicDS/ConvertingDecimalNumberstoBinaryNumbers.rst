@@ -101,7 +101,7 @@ right-hand end of the string. The binary string is then returned.
 
     .. activecode:: binconvert_py
       :caption: Converting Decimal to Binary
-      
+
       from pythonds.basic.stack import Stack
       def divideBy2(decNumber):
           remstack = Stack()
@@ -263,14 +263,3 @@ resulting string.
 
       -  :10: Correct.
          :x: You may need to modify the baseConverter function, or simply find a pattern in the conversion of bases.
-
-
-
-
-
-.. video:: video_Stack2
-    :controls:
-    :thumb: ../_static/activecodethumb.png
-
-    http://media.interactivepython.org/pythondsVideos/Stack2.mov
-    http://media.interactivepython.org/pythondsVideos/Stack2.webm

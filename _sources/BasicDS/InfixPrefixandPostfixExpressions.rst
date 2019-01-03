@@ -637,11 +637,3 @@ this as an exercise at the end of the chapter.
 
       -  :5\s+3\s+4\s+2\s*-\s*\*\*\s*\*: Correct.
          :x: Hint: You only need to add one line to the function!!
-
-
-.. video:: video_Stack3
-    :controls:
-    :thumb: ../_static/activecodethumb.png
-
-    http://media.interactivepython.org/pythondsVideos/Stack3.mov
-    http://media.interactivepython.org/pythondsVideos/Stack3.webm

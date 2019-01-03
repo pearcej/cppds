@@ -144,10 +144,3 @@ of the array. ``pop`` operations will manipulate that same end.
             m.pop();
             m.pop();
         }
-
-.. video:: stack1_video
-    :controls:
-    :thumb: ../_static/activecodethumb.png
-
-    http://media.interactivepython.org/pythondsVideos/Stack1.mov
-    http://media.interactivepython.org/pythondsVideos/Stack1.webm
