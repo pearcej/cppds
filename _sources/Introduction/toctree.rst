@@ -12,9 +12,6 @@ Introduction
     WhyStudyAlgorithms.rst
     ReviewofBasicPython.rst
     GettingStartedwithData.rst
-    InputandOutput.rst
-    ControlStructures.rst
-    ExceptionHandling.rst
     DefiningFunctions.rst
     ObjectOrientedProgramminginPythonDefiningClasses.rst
     Summary.rst

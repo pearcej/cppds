@@ -395,7 +395,7 @@ The following example demonstrates how the null pointer works. The variable ptrx
 Helpful Tip: The null pointer becomes very useful when you must test the state of a pointer, such as whether the assignment to an address was valid or not.
 
 Collection Data Types
-^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~
 
 In addition to the numeric and boolean classes, C++ has a number of
 very powerful built-in collection classes. Arrays, strings, and tuples
