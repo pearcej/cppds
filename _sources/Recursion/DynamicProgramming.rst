@@ -100,7 +100,7 @@ where we satisfy the base case condition immediately.
             using namespace std;
 
             int recMC_greedy(vector<int> coinValueList, int change){
-                    if (change==0){ //base case if, change is 0, then the number of coins have been finalized 
+                    if (change==0){ //base case if, change is 0, then the number of coins have been finalized
                         return 0;
                     }
                     else{
@@ -234,25 +234,24 @@ algorithm to incorporate our table lookup scheme.
            :caption: Recursively Counting Coins with Table Lookup Python
            :language: python
 
-             def recDC(coinValueList,change,knownResults):
-                minCoins = change
-                if change in coinValueList:
-                    knownResults[change] = 1
-                    return 1
-                elif knownResults[change] > 0:
-                    return knownResults[change]
-                else:
-                    for i in [c for c in coinValueList if c <= change]:
-                        numCoins = 1 + recDC(coinValueList, change-i, knownResults)
-                        if numCoins < minCoins:
-                            minCoins = numCoins
-                            knownResults[change] = minCoins
-                    return minCoins
+           def recDC(coinValueList,change,knownResults):
+              minCoins = change
+              if change in coinValueList:
+                  knownResults[change] = 1
+                  return 1
+              elif knownResults[change] > 0:
+                  return knownResults[change]
+              else:
+                  for i in [c for c in coinValueList if c <= change]:
+                      numCoins = 1 + recDC(coinValueList, change-i, knownResults)
+                      if numCoins < minCoins:
+                          minCoins = numCoins
+                          knownResults[change] = minCoins
+                  return minCoins
 
-
-               def main():
-                  print(recDC([1,5,10,25],63,[0]*64))
-               main()
+           def main():
+                print(recDC([1,5,10,21,25],63,[0]*64))
+           main()
 
 Notice that in line 15 we have added a test to see if our table
 contains the minimum number of coins for a certain amount of change. If
@@ -356,7 +355,7 @@ from 0 to the value of ``change``.
             }
 
             int main(){
-                vector<int> coinValueList = {1,5,10,25};
+                vector<int> coinValueList = {1,5,10,21,25};
                 int change = 63;
                 vector<int> minCoins(64, 0);
                 cout << dpMakeChange(coinValueList, change, minCoins) << endl;
@@ -365,24 +364,24 @@ from 0 to the value of ``change``.
 
     .. tab:: Python
 
-        .. activecode:: lst_change14cpp
+        .. activecode:: lst_change100cpp
            :caption: Recursively Counting Coins with Table Lookup Python
            :language: python
 
-            def dpMakeChange(coinValueList,change,minCoins):
-                for cents in range(change+1):
-                    coinCount = cents
-                    for j in [c for c in coinValueList if c <= cents]:
-                        if minCoins[cents-j] + 1 < coinCount:
-                            coinCount = minCoins[cents-j]+1
-                    minCoins[cents] = coinCount
+           def dpMakeChange(coinValueList,change,minCoins):
+              for cents in range(change+1):
+                  coinCount = cents
+                  for j in [c for c in coinValueList if c <= cents]:
+                      if minCoins[cents-j] + 1 < coinCount:
+                          coinCount = minCoins[cents-j]+1
+                  minCoins[cents] = coinCount
 
-                return minCoins[change]
+              return minCoins[change]
 
 
-            def main():
-                print([1,5,10,25], 63, [0]*64)
-            main()
+           def main():
+              print([1,5,10,21,25], 63, [0]*64)
+           main()
 
 Note that ``dpMakeChange`` is not a recursive function, even though we
 started with a recursive solution to this problem. It is important to
