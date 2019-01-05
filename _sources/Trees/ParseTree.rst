@@ -336,7 +336,7 @@ in :ref:`ActiveCode 1 <lst_buildparse>`.
 
             BinaryTree *pt = buildParseTree("( ( 10 + 5 ) * 3 ) )");
 
-            
+
             postorder(pt);
 
             return 0;
@@ -383,9 +383,10 @@ in :ref:`ActiveCode 1 <lst_buildparse>`.
 
             return eTree
 
-        pt = buildParseTree("( ( 10 + 5 ) * 3 )")
-        pt.postorder()  #defined and explained in the next section
-
+        def main():
+            pt = buildParseTree("( ( 10 + 5 ) * 3 )")
+            pt.postorder()  #defined and explained in the next section
+        main()
 
 The four rules for building a parse tree are coded as the first four
 clauses of the ``if`` statement on lines 12, 17,

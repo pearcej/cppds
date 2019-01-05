@@ -145,7 +145,7 @@ the first element. This is easily expressed in C++ as shown in
 
        main()
 
-There are a few key ideas in this listing to look at. First, on line 6 we are checking to see if the vector is one element long. This
+There are a few key ideas while using vector to look at. First, on line 6 we are checking to see if the vector is one element long. This
 check is crucial and is our escape clause from the function. The sum of
 a vector of length 1 is trivial; it is just the number in the vector.
 Second, on line 11 our function calls itself! This is the

@@ -95,53 +95,53 @@ implements the process described earlier.
       #include <vector>
       using namespace std;
 
-      void printl(vector<int> alist) {
-          for (unsigned i=0; i<alist.size(); i++) {
-              cout<<alist[i]<<" ";
+      void printl(vector<int> avector) {
+          for (unsigned i=0; i<avector.size(); i++) {
+              cout<<avector[i]<<" ";
           }
           cout<<endl;
       }
 
-      int partition(vector<int> &alist, int first, int last) {
-          int pivotvalue = alist[first];
+      int partition(vector<int> &avector, int first, int last) {
+          int pivotvalue = avector[first];
 
           int i = first;
           int j;
 
           for(j=first+1; j<last; j++) {
-              if(alist[j]<=pivotvalue) {
+              if(avector[j]<=pivotvalue) {
                   i++;
-                  swap(alist[i],alist[j]);
+                  swap(avector[i],avector[j]);
               }
           }
-          swap(alist[i],alist[first]);
+          swap(avector[i],avector[first]);
           return i;
       }
 
-      void quickSortHelper(vector<int> &alist, int first, int last) {
+      void quickSortHelper(vector<int> &avector, int first, int last) {
           int splitpoint;
 
           if (first<last) {
-              splitpoint = partition(alist,first,last);
+              splitpoint = partition(avector,first,last);
 
-              quickSortHelper(alist,first,splitpoint);
-              quickSortHelper(alist,splitpoint+1,last);
+              quickSortHelper(avector,first,splitpoint);
+              quickSortHelper(avector,splitpoint+1,last);
 
           }
       }
 
-      void quickSort(vector<int> &alist) {
-          quickSortHelper(alist,0,alist.size());
+      void quickSort(vector<int> &avector) {
+          quickSortHelper(alist,0,avector.size());
       }
 
       int main() {
           // Vector initialized using a static array
           static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
-          vector<int> alist (arr, arr + sizeof(arr) / sizeof(arr[0]) );
+          vector<int> avector (arr, arr + sizeof(arr) / sizeof(arr[0]) );
 
-          quickSort(alist);
+          quickSort(avector);
 
-          printl(alist);
+          printl(avector);
 
           return 0;
       }
@@ -192,9 +192,13 @@ implements the process described earlier.
 
            return rightmark
 
-        alist = [54,26,93,17,77,31,44,55,20]
-        quickSort(alist)
-        print(alist)
+        def main():
+
+            alist = [54,26,93,17,77,31,44,55,20]
+            quickSort(alist)
+            print(alist)
+
+        main()
 
 
 

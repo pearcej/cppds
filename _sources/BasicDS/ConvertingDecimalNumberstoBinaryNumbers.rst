@@ -100,26 +100,26 @@ right-hand end of the string. The binary string is then returned.
   .. tab:: Python
 
     .. activecode:: binconvert_py
+      :caption: Converting Decimal to Binary
 
-       :caption: Converting Decimal to Binary
+      from pythonds.basic.stack import Stack
+      def divideBy2(decNumber):
+          remstack = Stack()
 
-       from pythonds.basic.stack import Stack
+          while decNumber > 0:
+              rem = decNumber % 2
+              remstack.push(rem)
+              decNumber = decNumber // 2
 
-       def divideBy2(decNumber):
-           remstack = Stack()
+          binString = ""
+          while not remstack.isEmpty():
+              binString = binString + str(remstack.pop())
 
-           while decNumber > 0:
-               rem = decNumber % 2
-               remstack.push(rem)
-               decNumber = decNumber // 2
+          return binString
 
-           binString = ""
-           while not remstack.isEmpty():
-               binString = binString + str(remstack.pop())
-
-           return binString
-
-       print(divideBy2(42))
+      def main():
+          print(divideBy2(42))
+      main()
 
 
 The algorithm for binary conversion can easily be extended to perform
@@ -218,8 +218,10 @@ beyond 9.
 
             return newString
 
-        print(baseConverter(25,2))
-        print(baseConverter(25,16))
+        def main():
+            print(baseConverter(25,2))
+            print(baseConverter(25,16))
+        main()
 
 A solution to this problem is to extend the digit set to include some
 alphabet characters. For example, hexadecimal uses the ten decimal
@@ -261,14 +263,3 @@ resulting string.
 
       -  :10: Correct.
          :x: You may need to modify the baseConverter function, or simply find a pattern in the conversion of bases.
-
-
-
-
-
-.. video:: video_Stack2
-    :controls:
-    :thumb: ../_static/activecodethumb.png
-
-    http://media.interactivepython.org/pythondsVideos/Stack2.mov
-    http://media.interactivepython.org/pythondsVideos/Stack2.webm

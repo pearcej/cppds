@@ -395,13 +395,16 @@ The following example demonstrates how the null pointer works. The variable ptrx
 Helpful Tip: The null pointer becomes very useful when you must test the state of a pointer, such as whether the assignment to an address was valid or not.
 
 Collection Data Types
-^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~
 
 In addition to the numeric and boolean classes, C++ has a number of
 very powerful built-in collection classes. Arrays, strings, and tuples
 are ordered collections that are very similar in general structure but
 have specific differences that must be understood for them to be used
 properly. Sets and hash tables are unordered collections.
+
+Arrays
+^^^^^^
 
 An **array** is an ordered collection of zero or more C++ data objects of similar type.
 Arrays are written as comma-delimited values enclosed in
@@ -426,6 +429,9 @@ Sometimes, you will want to initialize an array. For example,
     >>> int myList[6] = { };
     >>> myList
     [0, 0, 0, 0, 0, 0]
+
+Strings
+^^^^^^^
 
 **Strings** are sequential collections of zero or more letters, numbers
 and other symbols. We can get strings from the Standard template library with ``#include <string>`` We call these letters, numbers and other symbols
@@ -466,6 +472,9 @@ arrays are mutable; strings are immutable. For example, you can change an
 item in a list by using indexing and assignment. With a string that
 change is not allowed.
 
+Tuples
+^^^^^^
+
 **Tuples** are very similar to arrays in that they are sequential containers.
 We can get a tuple from the Standard template library with
 ``#include <tuple>`` The difference is that a tuple is immutable, like a
@@ -479,6 +488,9 @@ values enclosed in parentheses. For example,
     (2, True, 4.96)
     >>> get<0>(myTuple);
     2
+
+Sets
+^^^^
 
 A **set** is an unordered collection of zero or more immutable C++ data
 objects. We can get a set from the Standard template library with ``#include <set>``. Sets do not allow duplicates and are written as comma-delimited
@@ -508,6 +520,9 @@ provides a summary. Examples of their use follow.
                   ``remove``              ``aset.erase(item)``                                        Removes item from the set
                    ``clear``                  ``aset.clear()``                                Removes all elements from the set
     ======================== ================================= ================================================================
+
+Hash Tables
+^^^^^^^^^^^
 
 Our final C++ collection is an unordered structure called a
 **Hash Table**. Hash Tables are collections of associated pairs of

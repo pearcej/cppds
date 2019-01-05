@@ -171,10 +171,3 @@ data structures can be found on the C++ website.
         :feedback_e: The only hash table operations that are not O(1) are those that require iteration.
 
         Which of the hash table operations shown below is O(1)?
-
-.. video::  pythonopsperf
-   :controls:
-   :thumb: ../_static/function_intro.png
-
-   http://media.interactivepython.org/pythondsVideos/pythonops.mov
-   http://media.interactivepython.org/pythondsVideos/pythonops.webm

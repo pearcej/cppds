@@ -103,7 +103,10 @@ outlined above for any base between 2 and 16.
           else:
              return toStr(n//base,base) + convertString[n%base]
 
-       print(toStr(1453,16))
+       def main():
+          print(toStr(1453,16))
+          
+       main()
 
 
 Notice that in line 7 we check for the base case where ``n``

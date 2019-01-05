@@ -493,12 +493,14 @@ Note that it is a much more simple example file in that the exit is very close t
             maze.updatePosition(startRow, startColumn, DEAD_END)
         return found
 
+    def main():
+        myMaze = Maze('maze2.txt')
+        myMaze.drawMaze()
+        myMaze.updatePosition(myMaze.startRow,myMaze.startCol)
 
-    myMaze = Maze('maze2.txt')
-    myMaze.drawMaze()
-    myMaze.updatePosition(myMaze.startRow,myMaze.startCol)
+        searchFrom(myMaze, myMaze.startRow, myMaze.startCol)
 
-    searchFrom(myMaze, myMaze.startRow, myMaze.startCol)
+    main()
 
 .. admonition:: Self Check
 

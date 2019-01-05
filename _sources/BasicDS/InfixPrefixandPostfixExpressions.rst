@@ -249,9 +249,9 @@ identifiers A, B, C, and so on. The following steps will produce a
 string of tokens in postfix order.
 
 #. Create an empty stack called ``opstack`` for keeping operators.
-   Create an empty list for output.
+   Create an empty vector for output.
 
-#. Scan the current token of the input list from left to right (using a loop).
+#. Scan the current token of the input vector from left to right (using a loop).
 
    -  If the token is an operand, append it to the end of the output
       list(vector).
@@ -260,16 +260,16 @@ string of tokens in postfix order.
 
    -  If the token is a right parenthesis, pop the ``opstack`` until the
       corresponding left parenthesis is removed. Append each operator to
-      the end of the output list.
+      the end of the output vector.
 
    -  If the token is an operator, \*, /, +, or -, push it on the
       ``opstack``. However, first remove any operators already on the
       ``opstack`` that have higher or equal precedence and append them
-      to the output list.
+      to the output vector.
 
 #. When the input expression has been completely processed, check the
    ``opstack``. Any operators still on the stack can be removed and
-   appended to the end of the output list.
+   appended to the end of the output vector.
 
 :ref:`Figure 9 <fig_intopost>` shows the conversion algorithm working on the
 expression A \* B + C \* D. Note that the first \* operator is removed
@@ -323,7 +323,7 @@ shown in :ref:`ActiveCode 1 <lst_intopost>`.
           prec['-']=2;
           prec['(']=1;
           stack<char> opStack;
-          vector<char> postfixList;
+          vector<char> postfixVector;
           string letsnums = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
           for (char token:infixexpr) {
@@ -331,7 +331,7 @@ shown in :ref:`ActiveCode 1 <lst_intopost>`.
                   continue;
               }
               else if (letsnums.find(token)<=letsnums.length()) {
-                  postfixList.emplace_back(token);
+                  postfixVector.emplace_back(token);
               } else if (token == '(') {
                   opStack.push(token);
               } else if (token == ')') {
@@ -339,24 +339,25 @@ shown in :ref:`ActiveCode 1 <lst_intopost>`.
                   topToken = opStack.top();
                   opStack.pop();
                   while (topToken != '(') {
-                      postfixList.emplace_back(topToken);
+                      postfixVector.emplace_back(topToken);
                       topToken=opStack.top();
                       opStack.pop();
                   }
               } else {
-                  while (!opStack.empty() && (prec[opStack.top()] >= prec[token])) {
-                      postfixList.emplace_back(opStack.top());
+                  while (!opStack.empty() && (prec[opStack.top()]>=prec[token]))
+                  {
+                      postfixVector.emplace_back(opStack.top());
                       opStack.pop();
-                  }
+                      }
                   opStack.push(token);
               }
           }
           while (!opStack.empty()) {
-              postfixList.emplace_back(opStack.top());
+              postfixVector.emplace_back(opStack.top());
               opStack.pop();
           }
 
-          string s(postfixList.begin(),postfixList.end());
+          string s(postfixVector.begin(),postfixVector.end());
 
           return s;
       }
@@ -398,17 +399,17 @@ shown in :ref:`ActiveCode 1 <lst_intopost>`.
                      postfixList.append(topToken)
                      topToken = opStack.pop()
              else:
-                 while (not opStack.isEmpty()) and \
-                    (prec[opStack.peek()] >= prec[token]):
+                 while (not opStack.isEmpty()) and (prec[opStack.peek()] >= prec[token]):
                        postfixList.append(opStack.pop())
                  opStack.push(token)
 
          while not opStack.isEmpty():
              postfixList.append(opStack.pop())
          return " ".join(postfixList)
-
-     print(infixToPostfix("A * B + C * D"))
-     print(infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )"))
+     def main():
+         print(infixToPostfix("A * B + C * D"))
+         print(infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )"))
+     main()
 
 --------------
 
@@ -490,7 +491,7 @@ single-digit integer values. The output will be an integer result.
 
 #. Iterate across the input using a for loop.
 
-#. Scan the token list from left to right.
+#. Scan the token vector from left to right.
 
    -  If the token is an operand, convert it from a string to an integer
       and push the value onto the ``operandStack``. (Using the ASCII, you can get this by subtracting 48)
@@ -595,7 +596,9 @@ operator and then perform the proper arithmetic operation.
            else:
                return op1 - op2
 
-       print(postfixEval('7 8 + 3 2 + /'))
+       def main():
+           print(postfixEval('7 8 + 3 2 + /'))
+       main()
 
 It is important to note that in both the postfix conversion and the
 postfix evaluation programs we assumed that there were no errors in the
@@ -634,11 +637,3 @@ this as an exercise at the end of the chapter.
 
       -  :5\s+3\s+4\s+2\s*-\s*\*\*\s*\*: Correct.
          :x: Hint: You only need to add one line to the function!!
-
-
-.. video:: video_Stack3
-    :controls:
-    :thumb: ../_static/activecodethumb.png
-
-    http://media.interactivepython.org/pythondsVideos/Stack3.mov
-    http://media.interactivepython.org/pythondsVideos/Stack3.webm

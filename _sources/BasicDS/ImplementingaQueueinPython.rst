@@ -17,9 +17,9 @@ operations are implemented as methods. However, the STL already has a well
 written implementation of the Queue class.
 
 The following queue implementation (:ref:`ActiveCode 1 <lst_queuecode1>`) assumes that
-the end of the list will hold the rear element of the queue. As the queue
+the end of the vector will hold the rear element of the queue. As the queue
 grows (as ``push`` operations occur), new items will be added on the end
-of the list. ``pop`` operations will manipulate the opposite side, the front end.
+of the vector. ``pop`` operations will manipulate the opposite side, the front end.
 
 .. _lst_queuecode1:
 
@@ -80,23 +80,24 @@ of the list. ``pop`` operations will manipulate the opposite side, the front end
            def size(self):
                return len(self.items)
 
-       q=Queue()
+       def main():
+           q=Queue()
 
-       q.push(4)
-       q.push('dog')
-       q.push(True)
+           q.push(4)
+           q.push('dog')
+           q.push(True)
 
 
-       print("Queue Empty? ", q.isEmpty())
+           print("Queue Empty? ", q.isEmpty())
 
-       print("Queue Size: ", q.size())
+           print("Queue Size: ", q.size())
 
-       print("Front Element of the Queue: ", q.front())
+           print("Front Element of the Queue: ", q.front())
 
-       q.pop();
+           q.pop();
 
-       print("Front Element of the Queue: ", q.front())
-
+           print("Front Element of the Queue: ", q.front())
+       main()
 
 .. admonition:: Self Check
 

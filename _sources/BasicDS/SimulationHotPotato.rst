@@ -37,7 +37,7 @@ versions of this story. Some count every third man and some allow the
 last man to escape on a horse. In any case, the idea is the same.
 
 We will implement a general **simulation** of Hot Potato. Our program
-will input a list of names and a constant, call it “num,” to be used for
+will input an array of names and a constant, call it “num,” to be used for
 counting. It will return the name of the last person remaining after
 repetitive counting by ``num``. What happens at that point is up to you.
 
@@ -77,11 +77,11 @@ The program is shown in :ref:`ActiveCode 1 <lst_josephussim>`. A call to the
 
       using namespace std;
 
-      string hotPotato(string namelist[], int num) {
+      string hotPotato(string nameArray[], int num) {
           queue<string> simqueue;
-          int namelsLenght = namelist->length();
+          int namelsLenght = nameArray->length();
           for (int i = 0; i < namelsLenght; i++) {
-              simqueue.push(namelist[i]);
+              simqueue.push(nameArray[i]);
           }
 
       while (simqueue.size() > 1) {
@@ -124,14 +124,15 @@ The program is shown in :ref:`ActiveCode 1 <lst_josephussim>`. A call to the
 
            return simqueue.dequeue()
 
-       print(hotPotato(["Bill","David","Susan","Jane","Kent","Brad"],7))
-
+       def main():
+           print(hotPotato(["Bill","David","Susan","Jane","Kent","Brad"],7))
+       main()
 
 Note that in this example the value of the counting constant is greater
-than the number of names in the list. This is not a problem since the
+than the number of names in the array. This is not a problem since the
 queue acts like a circle and counting continues back at the beginning
-until the value is reached. Also, notice that the list is loaded into
-the queue such that the first name on the list will be at the front of
-the queue. ``Bill`` in this case is the first item in the list and
+until the value is reached. Also, notice that the array is loaded into
+the queue such that the first name on the array will be at the front of
+the queue. ``Bill`` in this case is the first item in the array and
 therefore moves to the front of the queue. A variation of this
 implementation, described in the exercises, allows for a random counter.

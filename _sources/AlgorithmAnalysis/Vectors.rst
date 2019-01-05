@@ -95,7 +95,7 @@ milliseconds.
 Now that we have seen how performance can be measured concretely you can
 look at :ref:`Table 2 <tbl_listbigocpp>` to see the Big-O efficiency of all the
 basic vector operations. When ``pop_back()`` is called, the element at the end of the vector is removed and it takes
-:math:`O(1)` but when ``erase()`` is called on the first element in the list
+:math:`O(1)` but when ``erase()`` is called on the first element in the vector
 or anywhere in the middle it is :math:`O(n)`. The reason for this lies
 in how C++ chooses to implement vectors. When an item is taken from the
 front of the vector, in C++ implementation, all the other elements in
@@ -140,7 +140,7 @@ There are a couple of things to notice about :ref:`Listing 4 <lst_popmeascpp>`. 
 and get the most accurate measure of the time for that single operation.
 Because the timer repeats 1000 times it is also important to point out
 that the vector is decreasing in size by 1 each time through the loop. But
-since the initial list is two million elements in size we only reduce
+since the initial vector is two million elements in size we only reduce
 the overall size by :math:`0.05\%`
 
 .. _lst_popmeascpp:

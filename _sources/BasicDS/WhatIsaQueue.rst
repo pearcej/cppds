@@ -51,4 +51,3 @@ characters that appear on the screen. This is due to the computer doing
 other work at that moment. The keystrokes are being placed in a
 queue-like buffer so that they can eventually be displayed on the screen
 in the proper order.
-

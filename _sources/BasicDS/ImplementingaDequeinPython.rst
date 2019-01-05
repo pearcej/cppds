@@ -9,7 +9,7 @@ As we have done in previous sections, we will use the Standard Template Library 
 of C++ to use a Deque. Again, the Deque library from STL
 will provide a very nice set of methods upon which to build the details
 of the deque. Our code (:ref:`Listing 1 <lst_dequecode>`) will assume that
-the front of the deque is at position 0 in the list.
+the front of the deque is at position 0 in the array.
 
 .. _lst_dequecode:
 
@@ -102,40 +102,41 @@ the front of the deque is at position 0 in the list.
            def at(self, index):
                return self.items[index]
 
-       d = Deque()
+       def main():
+           d = Deque()
 
-       print("Deque Empty? ", d.empty())
-       d.push_back("Zebra")
-       print("Deque Empty? ", d.empty())
+           print("Deque Empty? ", d.empty())
+           d.push_back("Zebra")
+           print("Deque Empty? ", d.empty())
 
-       d.push_front("Turtle")
-       d.push_front("Panda")
-       d.push_back("Catfish")
-       d.push_back("Giraffe")
+           d.push_front("Turtle")
+           d.push_front("Panda")
+           d.push_back("Catfish")
+           d.push_back("Giraffe")
 
-       print("Deque Size: ", d.size())
-       print("Item at the front: ", d.front())
-       print("Item at the back: ", d.back())
+           print("Deque Size: ", d.size())
+           print("Item at the front: ", d.front())
+           print("Item at the back: ", d.back())
 
-       print("\n")
-       print("Items in the Deque: ")
-       for i in range(d.size()):
-           print(d.at(i), end=" ")
-       print("\n")
+           print("\n")
+           print("Items in the Deque: ")
+           for i in range(d.size()):
+               print(d.at(i), end=" ")
+           print("\n")
 
-       d.pop_back()
-       d.pop_front()
+           d.pop_back()
+           d.pop_front()
 
-       print("Item at the front: ", d.front())
-       print("Item at the back: ", d.back())
-       print("Deque Size: ", d.size())
+           print("Item at the front: ", d.front())
+           print("Item at the back: ", d.back())
+           print("Deque Size: ", d.size())
 
-       print("\n")
-       print("Items in the Deque: ")
-       for i in range(d.size()):
-           print(d.at(i), end=" ")
-       print("\n")
-
+           print("\n")
+           print("Items in the Deque: ")
+           for i in range(d.size()):
+               print(d.at(i), end=" ")
+           print("\n")
+       main()
 
 You can see many similarities to C++ code already used for
 stacks and queues. You are also likely to observe that in this
