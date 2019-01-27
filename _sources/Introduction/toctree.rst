@@ -15,6 +15,7 @@ Introduction
     CollectionData.rst
     DefiningFunctions.rst
     ObjectOrientedProgrammingDefiningClasses.rst
+    ObjectOrientedProgrammingDerivedClasses.rst
     Summary.rst
     KeyTerms.rst
     Glossary.rst
