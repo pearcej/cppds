@@ -130,7 +130,7 @@ object as it is now implemented.
 
 
 Abstraction and Encapsulation
-+++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Another way to think about fractions is as "parts of a whole" as shown in the
 following figure:
@@ -160,7 +160,7 @@ want our user to be able to call every constructor directly, we always place the
 constructor under ``public``. A third access keyword, ``protected`` will be discussed later.
 
 Polymorphism
-++++++++++++
+^^^^^^^^^^^^
 
 **Polymorphism** means the ability to appear in many forms. In object-oriented programming,
 **polymorphism** refers to the ability to process objects or methods differently depending
