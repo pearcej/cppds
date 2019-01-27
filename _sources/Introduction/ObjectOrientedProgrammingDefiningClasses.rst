@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -6,19 +6,32 @@ Object-Oriented Programming in C++: Defining Classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We stated earlier that C++ is an object-oriented programming
-language. So far, we have used a number of built-in classes to show
+language. Object-oriented programming is a programming technique based on
+real world things such as turtles, airplanes, customers, etc.
+Each object has its own characteristics or attributes as well as its own set of behaviors.
+
+So far, we have used a number of built-in classes to show
 examples of data and control structures. One of the most powerful
 features in an object-oriented programming language is the ability to
 allow a programmer (problem solver) to create new classes that model
 data that is needed to solve the problem.
+Each **object** created with the class data type is called an **instance** of  the class.
 
 Remember that we use abstract data types to provide the logical
-description of what a data object looks like (its state) and what it can
-do (its methods). By building a class that implements an abstract data
+description or blueprint for what a data object looks like (its state given by **object attributes**)
+and what it can do (its behaviors given by **class methods**).
+Defining a class creates the blueprint which defines the behaviors and attributes
+of objects of that new data type.
+By building a **class** that implements an abstract data
 type, a programmer can take advantage of the abstraction process and at
 the same time provide the details necessary to actually use the
-abstraction in a program. Whenever we want to implement an abstract data
-type, we will do so with a new class.
+abstraction in a program. Hence, whenever we want to implement an abstract data
+type, we will do so with a new class which will provide the blueprint or template for
+all of the objects of that type.
+
+Four key principles are associated with object-oriented programming: abstraction, encapsulation,
+inheritance, and polymorphism. We will highlight each principle via examples.
+
 
 A ``Fraction`` Class
 ^^^^^^^^^^^^^^^^^^^^
@@ -26,62 +39,66 @@ A ``Fraction`` Class
 A very common example to show the details of implementing a user-defined
 class is to construct a class to implement the abstract data type
 ``Fraction``. We have already seen that C++ provides a number of
-numeric classes for our use. There are times, however, that it would be
-most appropriate to be able to create data objects that “look like”
+numeric data types for our use. There are times, however, that it would be
+most appropriate to be able to create data objects that both  look and act like
 fractions.
-
-
 
 A fraction such as :math:`\frac {3}{5}` consists of two parts. The top
 value, known as the numerator, can be any integer. The bottom value,
 called the denominator, can be any integer greater than 0 (negative
 fractions have a negative numerator). Although it is possible to create
-a floating point approximation for any fraction, in this case we would
-like to represent the fraction as an exact value.
+a floating point approximation for any fraction, we would
+like to represent the fraction using exact values to avoid problems inherent
+in approximations.
 
-The operations for the ``Fraction`` type will allow a ``Fraction`` data
-object to behave like any other numeric value. We need to be able to
+Since defining a class makes a new data type, the operations for the
+``Fraction`` type will allow a ``Fraction`` data
+object to behave like any other numeric type. We need to be able to
 add, subtract, multiply, and divide fractions. We also want to be able
-to show fractions using the standard “slash” form, for example 3/5. In
+to print fractions using the standard “slash” form, for example 3/5. In
 addition, all fraction methods should return results in their lowest
 terms so that no matter what computation is performed, we always end up
 with the most common form.
 
 In C++, we define a new class by providing a name and a set of method
 definitions that are syntactically similar to function definitions. For
-this example,
+this example:
 
 ::
 
     class Fraction {
-        // The methods and class variables go here
-    };
+        // The class methods and class variables go here
+    };  // The ";" is required by C++ to end a class definition
 
 
 provides the framework for us to define the methods. The first method
-that all classes should provide is the constructor. The constructor
-defines the way in which data objects are created. To create a
-``Fraction`` object, we will need to provide two pieces of data, the
+that all classes should provide is the constructor.
+The constructor
+defines the way in which data objects are created.
+It's considered good practice to have a constructor completely setup a class object,
+so that it's impossible to create an object in an invalid state.
+To create a
+``Fraction`` object, we will need to initialize two pieces of data, the
 numerator and the denominator. In C++, the constructor method is
-always called the same name as the class it creates
-and is shown in :ref:`Listing 2 <lst_pyconstructor>`.
+always named with the same name as the class it creates
+and is shown in :ref:`Listing 2 <lst_constructor>`.
 
-.. _lst_pyconstructor:
+.. _lst_constructor:
 
 **Listing 2**
 
 .. sourcecode:: cpp
 
     class Fraction {
-        private:
-        int num;
-        int den;
-
         public:
-        Fraction(int top, int bottom) {
-            num = top;
-            den = bottom;
-        }
+            Fraction(int top, int bottom) {
+                /** Fraction contructor method */
+                num = top;     // setting num's value
+                den = bottom;  // setting den's value
+            }
+        private:
+            int num; // num atribute
+            int den; // den attribute
     };
 
 As described earlier, fractions require
@@ -90,76 +107,118 @@ notation ``int num`` outside the constructor defines the ``fraction`` object
 to have an internal data object called ``num`` as part of its state.
 Likewise, ``int den`` creates the denominator. The values of the two
 formal parameters are initially assigned to the state, allowing the new
-``fraction`` object to know its starting value. Any variables under the ``private``
-keyword will only be able to be accessed by the objects functions, not the user.
-``public`` methods and variables can be accessed and used by the user. Because we
-want our user to be able to call our constructor directly, we put it under ``public``.
+``fraction`` object to know its starting values.
 
-We can also overload a constructor with different numbers and types of arguments
-to give us more optional ways to create an instance of the class in question. For example,
-we could add an optional secondary constructor to handle whole numbers:
-
-::
-
-    Fraction(int top, int bottom) {
-        num = top;
-        den = bottom;
-    }
-
-    Fraction (int top) {
-        num = top;
-        den = 1;
-    }
-
-To create an instance of the ``Fraction`` class, we must invoke the
+To create an object or instance of the ``Fraction`` class, we must invoke the
 constructor. This happens by using the name of the class and passing
 actual values for the necessary state after the variable name. For example,
 
 ::
 
-    Fraction myfraction(3,5);
+    Fraction myfraction(3, 5);
 
 creates an object called ``myfraction`` representing the fraction
-:math:`\frac {3}{5}` (three-fifths). :ref:`Figure 5 <fig_fraction1>` shows this
+:math:`\frac {3}{5}` (three-fifths). :ref:`Figure 5 <fig_fraction1cpp>` shows this
 object as it is now implemented.
 
-.. _fig_fraction1:
+.. _fig_fraction1cpp:
 
-.. figure:: Figures/fraction1.png
+.. figure:: Figures/fraction1cpp.png
    :align: center
 
-   Figure 5: An Instance of the ``Fraction`` Class
+   Figure 5: An instance of the ``Fraction`` Class
 
-The next thing we need to do is implement the behavior that the abstract
-data type requires. To begin, consider what happens when we try to print
+
+Abstraction and Encapsulation
++++++++++++++++++++++++++++++
+
+Another way to think about fractions is as "parts of a whole" as shown in the
+following figure:
+
+    .. image:: Figures/fractions_partsofwhole.png
+
+Since we are using classes to create abstract data types, we should probably discuss the meaning of
+the word "abstract" in this context.
+**Abstraction** in object-oriented programming requires you to focus only the desired properties
+and behaviors of the objects
+and discard what is unimportant or irrelevant. Hence, if we do not need to think about
+the "parts of a whole" metaphor, then we will not include it in the class. If that metaphor
+is important, then we will include it. For our purposes, we want to think of
+fractions as numbers, so we will not use the "parts of a whole" visual metaphor.
+
+The object-oriented principle of **encapsulation** is the notion that we should
+hide the contents of a class, except what is
+absolutely necessary to expose.
+Hence, we will restrict the access to our class as much
+as we can, so that a user can change the class properties and behaviors only from methods
+provided by the class.  C++ allows us to control access with the **access keywords** ``public`` and ``private``.
+It is typical in C++ to make all data attributes ``private`` and most methods ``public``.
+All attribute variables under the ``private``
+keyword will only be able to be accessed by the object's class methods, not by the user.
+Only C++'s '``public`` methods can be accessed and used by the user. Because we
+want our user to be able to call every constructor directly, we always place the
+constructor under ``public``. A third access keyword, ``protected`` will be discussed later.
+
+Polymorphism
+++++++++++++
+
+**Polymorphism** means the ability to appear in many forms. In object-oriented programming,
+**polymorphism** refers to the ability to process objects or methods differently depending
+on their data type, class, number of arguments, etc.
+For example, we can overload a constructor with different numbers and types of arguments
+to give us more optional ways to instantiate an object of the class in question.
+For example,
+we can add additional constructors to handle whole numbers and instances with no parameters given:
+
+::
+
+    Fraction(int top, int bottom){
+        num = top;
+        den = bottom;
+    }
+
+    Fraction (int top){
+        num = top;
+        den = 1;
+    }
+
+    Fraction (){
+        num = 1;
+        den = 1;
+    }
+
+
+Calling the constructor with two arguments will invoke the first method,
+calling it with a single argument will invoke the second method, and calling
+it with no arguments will invoke the third method.
+
+The next thing we need to do is implement some behaviors that the abstract
+data type requires. To begin, let's consider what happens when we try to print
 a ``Fraction`` object.
 
 ::
 
     int main() {
-        Fraction myfraction(3,5);
+        Fraction myfraction(3, 5);
 
         // Throws an error
-        cout<<myfraction<<endl;
+        cout << myfraction << endl;
 
         return 0;
     }
 
 The ``fraction`` object, ``myfraction``, does not know how to respond to this
-request to print. The ``cout`` function requires that the object
+request to print to the console. The ``cout`` function requires that the object
 knows how to interact with the ``<<`` operator so that the string can be sent to the
-output stream. Without this, our class will throw an error. This is not what we
+output stream. Without this, our class will throw an error, which is obviously not what we
 want.
 
 There are two ways we can solve this problem. One is to define a method
-called ``show`` that will allow the ``Fraction`` object to print itself
+called something like ``show`` that will allow the ``Fraction`` object to print itself
 as a string. We can implement this method as shown in
 :ref:`Listing 3 <lst_showmethod>`. If we create a ``Fraction`` object as before, we
 can ask it to show itself, in other words, print itself in the proper
-format. Unfortunately, this does not work in general. In order to make
-printing work properly, we need to tell the ``Fraction`` class how to
-interact with the << operator. This is what the ``cout`` function needs
-in order to do its job.
+format by invoking the show method on our fractions.
 
 .. _lst_showmethod:
 
@@ -171,40 +230,64 @@ in order to do its job.
   using namespace std;
 
   class Fraction {
-      private:
-      int num;
-      int den;
-
       public:
-
-      Fraction(int top, int bottom) {
-          num = top;
-          den = bottom;
-      }
-
-      void show() {
-          cout<<num<<" / "<<den<<endl;
-      }
+          Fraction(int top, int bottom){
+              num = top;
+              den = bottom;
+          }
+          Fraction(int top){
+              num = top;
+              den = 1;
+          }
+          Fraction(){
+              num = 1;
+              den = 1;
+          }
+          void show(){
+              cout << num << "/" << den << endl;
+          }
+      private:
+          int num, den;
   };
 
   int main() {
-      Fraction myfraction(3,5);
-      myfraction.show();
-
+      Fraction fraca(3, 5);
+      Fraction fracb(3);
+      Fraction fracc; //notice there are no parentheses here.
+      // cout << fraca << endl; //uncomment to see error
+      fraca.show();
+      fracb.show();
+      fracc.show();
       return 0;
   }
 
-In C++, there are many operators that are provided
-but may not work properly. One of these, ``<<``, is the operator to
-send data down the output stream.
-What we need to do is provide a “better” implementation for this method.
-We will say that this implementation is a **friend** of the previous one, or
-that it redefines the operator's behavior.
+The downside of this that it is not how we expect to print to the console.
+In C++, there are many operators that are provided for atomic and STL data types
+that may not work as expected with a user defined class until you **overload** them.
+One of these, ``<<``, is the operator to
+send data to the output stream.
+It would be nicer to provide a “better” implementation for this method
+via **operator overloading**.
 
-To do this, we declare a friend method with the name ``<<`` inside the class and
-give it a new implementation outside as shown in :ref:`Listing 4 <lst_str>`. This definition
-needs to return a stream in this case. The resulting output will be returned any time a
-``Fraction`` object is asked to interact with the << operator.
+Like function overloading, operator overloading allows us to make operators
+work for user defined classes
+by defining a special meaning for that operator when applied to objects
+of the class as operands.
+
+In C++ this new operator needs to be implemented as a **friend** of the class in order to
+define the operator's behavior on objects of the class from a non-class method ``<<``.
+Operator overloading is yet another example
+of polymorphism in object-oriented programming.
+
+A **friend function** of a class is a function defined outside that class' scope
+but with the right to access
+all private and protected members of the class.
+In C++, we do operator overloading by declaring a **friend**
+function with the name ``<<``
+give it a new implementation outside as shown in :ref:`Listing 4 <lst_str>`.
+Note that stream operators
+need to return the address of the stream because of the fact that the
+stream is changed by the stream operator.
 
 .. _lst_str:
 
@@ -218,65 +301,69 @@ needs to return a stream in this case. The resulting output will be returned any
   using namespace std;
 
   class Fraction {
-      private:
-      int num;
-      int den;
-
       public:
+          Fraction(int top, int bottom){
+              num = top;
+              den = bottom;
+          }
+          Fraction(int top){
+              num = top;
+              den = 1;
+          }
+          Fraction(){
+              num = 1;
+              den = 1;
+          }
 
-      Fraction(int top, int bottom) {
-          num = top;
-          den = bottom;
-      }
+      //the following tells the compiler to look for this friend's definition outside the class
+      friend ostream& operator << (ostream& stream, const Fraction& fraction);
 
-      friend ostream& operator<<(ostream& stream, const Fraction& fraction);
+      private:
+          int num, den;
   };
 
-  ostream & operator<<(ostream& stream, const Fraction& fraction) {
-      stream<<fraction.num<<" / "<<fraction.den;
-
+  ostream& operator << (ostream& stream, const Fraction& fraction) {
+      /** this is the definition. */
+      stream << fraction.num << "/" << fraction.den;
       return stream;
   }
 
   int main() {
-      Fraction myfraction(3,5);
-      cout<<myfraction;
+      Fraction myfraction(3, 5);
+      cout << myfraction;
 
       return 0;
   }
 
-We can override many other methods for our new ``Fraction`` class. Some
+We can override many other operators for our new ``Fraction`` class. Some
 of the most important of these are the basic arithmetic operations. We
-would like to be able to create two ``Fraction`` objects and then add
+would like to be able to create two ``Fraction`` objects and then be able to add
 them together using the standard “+” notation. At this point, if we try
-to add two fractions, we get the following:
+to add two fractions using "+", we get the following:
 
 ::
 
-    Fraction f1(1,4);
-    Fraction f2(1,2);
-    Fraction f3=f1+f2;
+    Fraction f1(1, 4);
+    Fraction f2(1, 2);
+    Fraction f3 = f1 + f2;
 
-    invalid operands to binary expression ('Fraction' and 'Fraction')
+    >>error: no match for ‘operator+’ (operand types are ‘Fraction’ and ‘Fraction’))
 
 If you look closely at the error, you see that the problem is that the
 “+” operator does not understand the ``Fraction`` operands.
 
-We can fix this by providing the ``Fraction`` class with a method that
-overrides the addition method. In C++, this method is called
-``+`` and it requires two parameters. The first, ``self``, is
-always needed, and the second represents the other operand in the
-expression. For example,
+We can, of course create something like:
 
 ::
 
-    f1.__add__(f2)
+    f1.add(f2)
 
-would ask the ``Fraction`` object ``f1`` to add the ``Fraction`` object
-``f2`` to itself. This can be written in the standard notation,
-``f1+f2``.
+which would ask the ``Fraction`` object ``f1`` to add the ``Fraction`` object
+``f2`` to itself. It would be much better to be written in the standard notation,
+``f1 + f2``. We can fix this by providing the ``Fraction`` class with a friend that
+overrides the ``+``  operator.
 
-Two fractions must have the same denominator to be added. The easiest
+As you know, two fractions must have the same denominator to be added. The easiest
 way to make sure they have the same denominator is to simply use the
 product of the two denominators as a common denominator so that
 :math:`\frac {a}{b} + \frac {c}{d} = \frac {ad}{bd} + \frac {cb}{bd} = \frac{ad+cb}{bd}`
@@ -292,13 +379,12 @@ addition, and then printing our result.
 
 .. sourcecode:: cpp
 
-        Fraction operator +(Fraction otherFrac) {
+        Fraction operator +(Fraction otherFrac){
+            //Note the return type is a Fraction
             int newnum = num*otherFrac.den + den*otherFrac.num;
             int newden = den*otherFrac.den;
-
-            return Fraction(newnum,newden);
+            return Fraction(newnum, newden);
         }
-
 
 
 .. activecode:: addfrac
@@ -309,39 +395,41 @@ addition, and then printing our result.
   using namespace std;
 
   class Fraction {
-      private:
-      int num;
-      int den;
-
       public:
+          Fraction(int top, int bottom) {
+              num = top;
+              den = bottom;
+          }
+          Fraction(int top){
+              num = top;
+              den = 1;
+          }
+          Fraction(){
+              num = 1;
+              den = 1;
+          }
+          Fraction operator +(Fraction otherFrac) {
+              int newnum = otherFrac.num*den + otherFrac.den*num;
+              int newden = den*otherFrac.den;
+              return Fraction(newnum, newden);
+          }
 
-      Fraction(int top, int bottom) {
-          num = top;
-          den = bottom;
-      }
+      friend ostream& operator << (ostream& stream, const Fraction& fraction);
 
-      Fraction operator +(Fraction otherFrac) {
-          int newnum = num*otherFrac.den + den*otherFrac.num;
-          int newden = den*otherFrac.den;
-
-          return Fraction(newnum,newden);
-      }
-
-      friend ostream& operator<<(ostream& stream, const Fraction& fraction);
+      private:
+          int num, den;
   };
 
-  ostream & operator<<(ostream& stream, const Fraction& fraction) {
-      stream<<fraction.num<<"/"<<fraction.den;
-
+  ostream& operator << (ostream& stream, const Fraction& fraction) {
+      stream << fraction.num << "/" << fraction.den;
       return stream;
   }
 
-  int main() {
-      Fraction f1(1,4);
-      Fraction f2(1,2);
-      Fraction f3=f1+f2;
-      cout<<f3;
-
+  int main(){
+      Fraction f1(1, 4);
+      Fraction f2(1, 2);
+      Fraction f3 = f1 + f2;
+      cout << f3 << " is "<< f1 << " + " << f2 << endl;
       return 0;
   }
 
@@ -390,8 +478,7 @@ represented by a negative numerator.
     }
 
     int main() {
-        cout<<gcd(20,10)<<endl;
-
+        cout << gcd(20, 10) << endl;
         return 0;
     }
 
@@ -415,7 +502,8 @@ the bottom by 2 creates a new fraction, :math:`3/4` (see
   #include <iostream>
   using namespace std;
 
-  int gcd(int m, int n) {
+  int gcd(int m, int n){
+      /** gcd is a helper function, used by but not part of the Fraction class */
       while (m%n != 0) {
           int oldm = m;
           int oldn = n;
@@ -423,85 +511,72 @@ the bottom by 2 creates a new fraction, :math:`3/4` (see
           m = oldn;
           n = oldm%oldn;
       }
-
       return n;
   }
 
   class Fraction {
-      private:
-      int num;
-      int den;
-
       public:
+          Fraction(int top, int bottom) {
+              num = top;
+              den = bottom;
+          }
+          Fraction(int top){
+              num = top;
+              den = 1;
+          }
+          Fraction(){
+              num = 1;
+              den = 1;
+          }
+          Fraction operator +(Fraction otherFrac) {
+              int newnum = num*otherFrac.den + den*otherFrac.num;
+              int newden = den*otherFrac.den;
+              int common = gcd(newnum, newden);
+              return Fraction(newnum/common, newden/common);
+          }
 
-      Fraction(int top, int bottom) {
-          num = top;
-          den = bottom;
-      }
+      friend ostream& operator << (ostream& stream, const Fraction& fraction);
 
-      Fraction operator +(Fraction otherFrac) {
-          int newnum = num*otherFrac.den + den*otherFrac.num;
-          int newden = den*otherFrac.den;
-          int common = gcd(newnum, newden);
-
-          return Fraction(newnum/common,newden/common);
-      }
-
-      friend ostream& operator<<(ostream& stream, const Fraction& fraction);
+      private:
+          int num, den;
   };
 
-  ostream & operator<<(ostream& stream, const Fraction& fraction) {
+  ostream & operator << (ostream& stream, const Fraction& fraction) {
       stream<<fraction.num<<"/"<<fraction.den;
-
       return stream;
   }
 
-  int main() {
-      Fraction f1(1,4);
-      Fraction f2(1,2);
-      Fraction f3=f1+f2;
-
-      cout << f3 << endl;
-
+  int main(){
+      Fraction f1(1, 4);
+      Fraction f2(1, 2);
+      Fraction f3 = f1 + f2;
+      cout << f3 << " is "<< f1 << " + " << f2 << endl;
       return 0;
   }
 
-.. _fig_fraction2:
+.. _fig_fraction2cpp:
 
-.. figure:: Figures/fraction2.png
+.. figure:: Figures/fraction2cpp.png
    :align: center
 
    Figure 6: An Instance of the ``Fraction`` Class with Two Methods
 
 
 Our ``Fraction`` object now has two very useful methods and looks
-like :ref:`Figure 6 <fig_fraction2>`. An additional group of methods that we need to
+like :ref:`Figure 6 <fig_fraction2cpp>`. An additional group of methods that we need to
 include in our example ``Fraction`` class will allow two fractions to
-compare themselves to one another. Assume we have two ``Fraction``
-objects, ``f1`` and ``f2``. ``f1==f2`` will only be ``true`` if they are
-references to the same object. Two different objects with the same
-numerators and denominators would not be equal under this
-implementation. This is called **shallow equality** (see
-:ref:`Figure 7 <fig_fraction3>`).
+compare themselves to one another using ``==``.
 
-.. _fig_fraction3:
+We want the ``==`` operator to compare Fraction objects and to return
+``true`` if they are equivalent in value, ``false`` otherwise.
+This is a design choice because we want :math:`\frac {1}{2}` to be considered
+equal to :math:`\frac {2}{4}` as well as :math:`\frac {3}{6}`, etc.
+Hence, in the ``Fraction`` class, we can implement the ``==`` method by
+cross-multiplying (see :ref:`Listing 7 <lst_cmpmethod>`) rather than
+by just comparing numerators and denominators.
 
-.. figure:: Figures/fraction3.png
-   :align: center
-
-   Figure 7: Shallow Equality Versus Deep Equality
-
-We can create **deep equality** (see :ref:`Figure 7 <fig_fraction3>`)–equality by the
-same value, not the same reference–by overriding the ``==``
-method. The ``==`` operator is another standard method available in
-any class. The ``==`` operator compares two objects and returns
-``true`` if their values are the same, ``false`` otherwise.
-
-In the ``Fraction`` class, we can implement the ``==`` method by
-again putting the two fractions in common terms and then comparing the
-numerators (see :ref:`Listing 7 <lst_cmpmethod>`). It is important to note that there
-are other relational operators that can be overridden. For example, the
-``<=`` operator provides the less than or equal functionality.
+Of course there are other relational operators that can be overridden. For example, the
+``<=`` operator could be overridden to provide the less than or equal functionality.
 
 .. _lst_cmpmethod:
 
@@ -537,58 +612,65 @@ methods as exercises.
             m = oldn;
             n = oldm%oldn;
         }
-
         return n;
     }
 
     class Fraction {
-        private:
-        int num;
-        int den;
-
         public:
+            Fraction(int top, int bottom) {
+                num = top;
+                den = bottom;
+            }
+            Fraction(int top){
+                num = top;
+                den = 1;
+            }
+            Fraction(){
+                num = 1;
+                den = 1;
+            }
+            Fraction operator +(Fraction otherFrac) {
+                int newnum = num*otherFrac.den + den*otherFrac.num;
+                int newden = den*otherFrac.den;
+                int common = gcd(newnum, newden);
 
-        Fraction(int top, int bottom) {
-            num = top;
-            den = bottom;
-        }
+                return Fraction(newnum/common,newden/common);
+            }
+            bool operator ==(Fraction &otherFrac) {
+                int firstnum = num*otherFrac.den;
+                int secondnum = otherFrac.num*den;
 
-        Fraction operator +(Fraction otherFrac) {
-            int newnum = num*otherFrac.den + den*otherFrac.num;
-            int newden = den*otherFrac.den;
-            int common = gcd(newnum, newden);
-
-            return Fraction(newnum/common,newden/common);
-        }
-
-        bool operator ==(Fraction &otherFrac) {
-            int firstnum = num*otherFrac.den;
-            int secondnum = otherFrac.num*den;
-
-            return firstnum==secondnum;
-        }
+                return firstnum==secondnum;
+            }
 
         friend ostream& operator<<(ostream& stream, const Fraction& fraction);
+
+        private:
+            int num, den;
     };
 
-    ostream & operator<<(ostream& stream, const Fraction& fraction) {
-        stream<<fraction.num<<"/"<<fraction.den;
+    ostream& operator << (ostream& stream, const Fraction& fraction) {
+        stream << fraction.num << "/" << fraction.den;
 
         return stream;
     }
 
-    int main() {
-        Fraction x(1,2);
-        Fraction y(2,3);
-        cout << x+y << endl;
-        cout << (x == y) << endl;
-
+    int main(){
+        Fraction x(1, 2);
+        Fraction y(2, 4);
+        cout << x << " + " << y << " = " << x+y << endl;
+        if (x==y){
+            cout << "x is equal y" << endl;
+        }
+        else{
+            cout << "x is not equal y" << endl;
+        }
         return 0;
     }
 
 .. admonition:: Self  Check
 
-   To make sure you understand how operators are implemented in C++ classes, and how to properly write methods, write some methods to implement ``*, /,`` and ``-`` .  Also implement comparison operators > and <
+   To make sure you understand how operators are implemented in C++ classes, and how to properly write methods, write some methods to implement ``*, /,`` and ``-`` .  Also implement comparison operators > and <.
 
     .. actex:: self_check_4cpp
         :language: cpp
@@ -608,19 +690,19 @@ Inheritance: Logic Gates and Circuits
 
 Our final section will introduce another important aspect of
 object-oriented programming. **Inheritance** is the ability for one
-class to be related to another class  n much the same way that people
+class to be related to another class in much the same way that people
 can be related to one another. Children inherit characteristics from
 their parents. Similarly, C++ child classes can inherit
-characteristic data and behavior from a parent class. These classes are
+characteristic data and/or behaviors from a parent class. These classes are
 often referred to as **subclasses** and **base classes**.
 
 :ref:`Figure 8 <fig_inherit1>` shows the built-in C++ collections and their
 relationships to one another. We call a relationship structure such as
-this an **inheritance hierarchy**. For example, the list is a child of
-the sequential collection. In this case, we call the list the child and
-the sequence the parent (or subclass list and superclass sequence). This
-is often referred to as an ``IS-A Relationship`` (the list **IS-A**
-sequential collection). This implies that lists inherit important
+this an **inheritance hierarchy**. For example, the string is a child of
+the sequential collection. In this case, we call the string the child and
+the sequence the parent (or subclass string and superclass sequence). This
+is often referred to as an ``IS-A Relationship`` (the string **IS-A**
+sequential collection). This implies that strings inherit important
 characteristics from sequences, namely the ordering of the underlying
 data and operations such as concatenation, repetition, and indexing.
 
@@ -634,8 +716,7 @@ data and operations such as concatenation, repetition, and indexing.
 
 Vectors, arrays, and strings are all types of sequential collections. They
 all inherit common data organization and operations. However, each of
-them is distinct based on whether the data is homogeneous and whether
-the collection is immutable. The children all gain from their parents
+them is distinct as well. The children all gain from their parents
 but distinguish themselves by adding additional characteristics.
 
 By organizing classes in this hierarchical fashion, object-oriented
@@ -1320,7 +1401,7 @@ Try it yourself using ActiveCode 4.
 
 .. admonition:: Self  Check Challenge
 
-    One of the fundamental building blocks of a computer is something called a flip flop.  It's not something that computer science professors wear on their feet, but rather a kind of circuit that is stable and stores the last piece of data that was put on it.  A simple flip-flop can be made from two NOR gates that are tied together as in the following diagram.
+    One of the fundamental building blocks of a computer is something called a flip flop.  It's not something that computer science professors wear on their feet, but rather a kind of circuit that is stable and stores the last piece of data that was put on it.  A simple flip-flop can be made from two NOR gates that are tied together as in the following diagram. See if you can implement this.
 
     .. image:: Figures/flipflop.png
 

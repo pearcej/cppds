@@ -27,7 +27,7 @@ Glossary
         keyword for character data type that stores a single character.
 
     class
-        a template for creating or instantiating objects, for providing initial values for state via member variables, and for implementations of behavior via member functions or methods
+        a template for creating (instantiating) objects, for providing initial values for state via member variables, and for implementations of behavior via member functions or methods
 
     collection
         a grouping of a number of data items (possibly only zero or one) that have some shared significance or need to be operated upon together.
