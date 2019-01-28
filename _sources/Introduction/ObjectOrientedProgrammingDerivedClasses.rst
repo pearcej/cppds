@@ -626,7 +626,7 @@ connection.
 
 .. admonition:: Self  Check Challenge
 
-    One of the fundamental building blocks of a computer is something called a flip flop.  It's not something that computer science professors wear on their feet, but rather a kind of circuit that is stable and stores the last piece of data that was put on it.  A simple flip-flop can be made from two NOR gates that are tied together as in the following diagram. See if you can implement this.
+    One of the fundamental building blocks of a computer is something called a flip flop.  It's not something that computer science professors wear on their feet, but rather a kind of circuit that is stable and stores the last piece of data that was put on it.  A simple flip-flop can be made from two **NOR** gates (a combination **OR** and **NOT**) that are tied together as in the following diagram. Create a new gate class, called NorGate. NorGates work like OrGates that have a Not attached to the output. See if you can use your new class to implement this.
 
     .. image:: Figures/flipflop.png
 
