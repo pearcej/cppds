@@ -3,7 +3,7 @@
 
 
 Inheritance in C++
-^^^^^^^^^^^^^^^^^^
+------------------
 
 In this section we introduce another important aspect of
 object-oriented programming. **Inheritance** is the ability for one
@@ -387,7 +387,7 @@ need inputs to be provided). For example:
 
 
 Building Circuits
-+++++++++++++++++
+^^^^^^^^^^^^^^^^^
 
 Now that we have the basic gates working, we can turn our attention to
 building circuits. In order to create a circuit, we need to connect
