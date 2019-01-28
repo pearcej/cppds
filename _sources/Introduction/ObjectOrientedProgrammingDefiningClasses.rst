@@ -5,8 +5,8 @@
 Object-Oriented Programming in C++: Defining Classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We stated earlier that C++ is an object-oriented programming
-language. Object-oriented programming is a programming technique based on
+We stated earlier that C++ is an **object-oriented programming
+language**. Object-oriented programming is a programming technique based on
 real world things such as turtles, airplanes, customers, etc.
 Each object has its own characteristics or attributes as well as its own set of behaviors.
 
@@ -29,8 +29,13 @@ abstraction in a program. Hence, whenever we want to implement an abstract data
 type, we will do so with a new class which will provide the blueprint or template for
 all of the objects of that type.
 
-Four key principles are associated with object-oriented programming: abstraction, encapsulation,
-inheritance, and polymorphism. We will highlight each principle via examples.
+Four key principles are associated with object-oriented programming:
+    1) abstraction
+    2) encapsulation
+    3) inheritance
+    4) polymorphism
+
+We will highlight each principle via examples.
 
 
 A ``Fraction`` Class
@@ -72,7 +77,7 @@ this example:
 
 
 provides the framework for us to define the methods. The first method
-that all classes should provide is the constructor.
+that all classes should provide is the **constructor**.
 The constructor
 defines the way in which data objects are created.
 It's considered good practice to have a constructor completely setup a class object,
@@ -668,22 +673,55 @@ methods as exercises.
         return 0;
     }
 
-.. admonition:: Self  Check
+Self Check
+~~~~~~~~~~~~
 
-   To make sure you understand how operators are implemented in C++ classes, and how to properly write methods, write some methods to implement ``*, /,`` and ``-`` .  Also implement comparison operators > and <.
+.. clickablearea:: class_syntax
+    :question: Click on the line where there is a syntax error when defining the following class
+    :iscode:
+    :feedback: C++ class definitions end with a certain symbol
 
-    .. actex:: self_check_4cpp
-        :language: cpp
-        :nocodelens:
+    :click-incorrect:class Fraction {:endclick:
+      :click-incorrect:public::endclick:
+          :click-incorrect:Fraction(int top, int bottom) {:endclick:
+              :click-incorrect:/** Fraction contructor method */:endclick:
+              :click-incorrect:num = top;     // setting num's value:endclick:
+              :click-incorrect:den = bottom;  // setting den's value:endclick:
+          :click-incorrect:}:endclick:
+      :click-incorrect:private::endclick:
+          :click-incorrect:int num; // num atribute:endclick:
+          :click-incorrect:int den; // den attribute:endclick:
+            :click-correct:}:endclick:
 
-        #include <iostream>
-        using namespace std;
+.. dragndrop:: elements_of_OOP
+    :feedback: Review the elements of object oriented programming
+    :match_1: Encapsulation|||hiding the contents of a class except when absolutely necessary
+    :match_2: Abstraction|||focusing on desired behaviors and properties while disregarding what is irrelevant/unimportant
+    :match_3: Polymorphism|||processing objects or methods differently depending on their data type, class, number of arguments, etc.
 
-        int main() {
+    Drag the word on the left to its corresponding definition
 
-            return 0;
-        }
+.. dragndrop:: elements_of_classses
+    :feedback: Review classes and their properties
+    :match_4: instance|||an occurrence
+    :match_5: constructor|||an special function to initialize
+    :match_6: access keywords||| private and public
+    :match_7: class|||a template for creating objects
 
+    Drag the word on the left to its corresponding definition
+
+To make sure you understand how operators are implemented in C++ classes, and how to properly write methods, write some methods to implement ``*, /,`` and ``-`` .  Also implement comparison operators > and <.
+  .. actex:: self_check_4cpp
+      :language: cpp
+      :nocodelens:
+
+      #include <iostream>
+      using namespace std;
+
+      int main() {
+
+          return 0;
+      }
 
 Our the next section will introduce another important aspect of
 object-oriented programming, namely **inheritance**.

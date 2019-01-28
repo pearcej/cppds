@@ -8,6 +8,12 @@ Glossary
 
 .. glossary::
 
+    abstraction
+        focusing on desired behaviors and properties while disregarding what is irrelevant/unimportant
+
+    access keywords
+        keywords such as ''public'', private'', and ''protected'' that indicates what class properties/behaviors a user can change
+
     address-of
         The address-of operator (``&``) is used to access the address of a C++ variable.
 
@@ -29,11 +35,17 @@ Glossary
     class
         a template for creating (instantiating) objects, for providing initial values for state via member variables, and for implementations of behavior via member functions or methods
 
+    class methods
+        the functions and methods that belong to a class that describe what the class can do
+
     collection
         a grouping of a number of data items (possibly only zero or one) that have some shared significance or need to be operated upon together.
 
     ``const``
         keyword that makes a variable or value immutable. i.e. constant and unchanging.
+
+    constructor
+        an class' special function that initializes an object of that class
 
     dereference
         follow a pointer to its referenced memory location and read the data there.
@@ -41,11 +53,17 @@ Glossary
     ``double``
         keyword for double-precision floating point data type.
 
+    encapsulation
+        hiding the contents of a class except when absolutely necessary
+
     ``float``
         keyword for floating point data type.
 
     friend
         an operator or function that can access the private data members of a class of which it is designated as a friend.
+
+    friend function
+        a function defined outside that class' scope but has access to private and protected members of the class
 
     function
         A section of code that performs a procedure and is usually named.
@@ -56,11 +74,26 @@ Glossary
     immutable
         unable to be modified.
 
+    inheritance
+        sharing/gaining the same behavior as another class
+
+    instance
+        an occurrence of an object
+
     ``int``
         keyword for integer data type.
 
     mutability
         able to be modified.
+
+    object
+        an abstraction of that can contain data as well as manipulate data
+
+    object attribute
+        a property of an object that describes what it "looks like"
+
+    object-oriented programming language
+        programming language that uses objects to represent data and methods such as C++ and Java
 
     overloading
         specifying more than one definition for the same function name or the same operator within the same scope.
@@ -70,6 +103,9 @@ Glossary
 
     pointer
         a variable that stores and manipulates memory addresses.
+
+    polymorphism
+        the ability to process objects or methods differently depending on their data type, class, number of arguments, etc.
 
     reference
         a value that indicates a place in a computer’s memory.
