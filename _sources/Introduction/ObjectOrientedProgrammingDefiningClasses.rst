@@ -176,14 +176,12 @@ we can add additional constructors to handle whole numbers and instances with no
         num = top;
         den = bottom;
     }
-
     Fraction (int top){
         num = top;
         den = 1;
     }
-
     Fraction (){
-        num = 1;
+        num = 0;
         den = 1;
     }
 
@@ -191,6 +189,19 @@ we can add additional constructors to handle whole numbers and instances with no
 Calling the constructor with two arguments will invoke the first method,
 calling it with a single argument will invoke the second method, and calling
 it with no arguments will invoke the third method.
+
+Using optional parameters will accomplish the same task in this case.
+Since the class will behave the same no matter which implementation
+you use and the user will have no idea which implementation was chosen,
+this is an example of encapsulation.
+
+::
+
+    Fraction(int top = 0, int bottom = 1){
+        num = top;
+        den = bottom;
+    }
+
 
 The next thing we need to do is implement some behaviors that the abstract
 data type requires. To begin, let's consider what happens when we try to print
@@ -231,17 +242,9 @@ format by invoking the show method on our fractions.
 
   class Fraction {
       public:
-          Fraction(int top, int bottom){
+          Fraction(int top = 0, int bottom = 1){
               num = top;
               den = bottom;
-          }
-          Fraction(int top){
-              num = top;
-              den = 1;
-          }
-          Fraction(){
-              num = 1;
-              den = 1;
           }
           void show(){
               cout << num << "/" << den << endl;
@@ -302,29 +305,21 @@ stream is changed by the stream operator.
 
   class Fraction {
       public:
-          Fraction(int top, int bottom){
+          Fraction(int top = 0, int bottom = 1){
               num = top;
               den = bottom;
           }
-          Fraction(int top){
-              num = top;
-              den = 1;
-          }
-          Fraction(){
-              num = 1;
-              den = 1;
-          }
 
       //the following tells the compiler to look for this friend's definition outside the class
-      friend ostream& operator << (ostream& stream, const Fraction& fraction);
+      friend ostream &operator << (ostream &stream, const Fraction &frac);
 
       private:
           int num, den;
   };
 
-  ostream& operator << (ostream& stream, const Fraction& fraction) {
+  ostream &operator << (ostream &stream, const Fraction &frac) {
       /** this is the definition. */
-      stream << fraction.num << "/" << fraction.den;
+      stream << frac.num << "/" << frac.den;
       return stream;
   }
 
@@ -379,7 +374,70 @@ addition, and then printing our result.
 
 .. sourcecode:: cpp
 
-        Fraction operator +(Fraction otherFrac){
+        Fraction operator +(const Fraction &otherFrac){
+            //Note the return type is a Fraction
+            int newnum = num*otherFrac.den + den*otherFrac.num;
+            int newden = den*otherFrac.den;
+            return Fraction(newnum, newden);
+        }
+
+
+.. activecode:: addfrac2
+  :language: cpp
+  :caption: Addition overloaded for Fraction
+
+  #include <iostream>
+  using namespace std;
+
+  class Fraction {
+      public:
+          Fraction(int top = 0, int bottom = 1) {
+              num = top;
+              den = bottom;
+          }
+          Fraction operator +(const Fraction &otherFrac) {
+              int newnum = otherFrac.num*den + otherFrac.den*num;
+              int newden = den*otherFrac.den;
+              return Fraction(newnum, newden);
+          }
+
+      friend ostream &operator << (ostream &stream, const Fraction &frac);
+
+      private:
+          int num, den;
+  };
+
+  ostream &operator << (ostream &stream, const Fraction &frac) {
+      stream << frac.num << "/" << frac.den;
+      return stream;
+  }
+
+  int main(){
+      Fraction f1(1, 4);
+      Fraction f2(1, 2);
+      Fraction f3 = f1 + f2;
+      cout << f3 << " is "<< f1 << " + " << f2 << endl;
+      return 0;
+  }
+
+The addition method works as we desire, but a couple of things
+can be improved. When we use a binary operator like ``+`` we
+like more symmetry.
+Binary operators can either be members of their
+left-hand argument's class or friend functions.
+Since the stream operators' left-hand argument is a stream,
+stream operators either have to be members of the stream class
+or friend functions.
+However, that is not true for ``+``.
+Let's rewrite the addition operator as a friend function.
+
+.. _lst_addmethod2:
+
+**Listing 6**
+
+.. sourcecode:: cpp
+
+        Fraction operator +(const &Fraction otherFrac){
             //Note the return type is a Fraction
             int newnum = num*otherFrac.den + den*otherFrac.num;
             int newden = den*otherFrac.den;
@@ -396,34 +454,29 @@ addition, and then printing our result.
 
   class Fraction {
       public:
-          Fraction(int top, int bottom) {
+          Fraction(int top = 0, int bottom = 1) {
               num = top;
               den = bottom;
           }
-          Fraction(int top){
-              num = top;
-              den = 1;
-          }
-          Fraction(){
-              num = 1;
-              den = 1;
-          }
-          Fraction operator +(Fraction otherFrac) {
-              int newnum = otherFrac.num*den + otherFrac.den*num;
-              int newden = den*otherFrac.den;
-              return Fraction(newnum, newden);
-          }
 
-      friend ostream& operator << (ostream& stream, const Fraction& fraction);
+      friend ostream &operator << (ostream &stream, const Fraction &frac);
+  		friend Fraction operator +(const Fraction &frac1, const Fraction &frac2);
 
       private:
           int num, den;
   };
 
-  ostream& operator << (ostream& stream, const Fraction& fraction) {
-      stream << fraction.num << "/" << fraction.den;
+  ostream &operator << (ostream &stream, const Fraction &frac) {
+      stream << frac.num << "/" << frac.den;
       return stream;
   }
+
+  Fraction operator +(const Fraction &frac1, const Fraction &frac2) {
+  	int newnum = frac1.num * frac2.den + frac1.den * frac2.num;
+  	int newden = frac1.den * frac2.den;
+  	return Fraction(newnum, newden);
+  }
+
 
   int main(){
       Fraction f1(1, 4);
@@ -433,7 +486,13 @@ addition, and then printing our result.
       return 0;
   }
 
-The addition method works as we desire, but one thing could be better.
+
+How you choose to overload operators  like ``+`` is a design choice
+since both methods will work perfectly well. This is Another
+example of encapsulation; your user does not need to
+which you choose to use!
+
+There is one more thing we can improve in our addition function.
 Note that :math:`6/8` is the correct result
 (:math:`\frac {1}{4} + \frac {1}{2}`) but that it is not in the
 “lowest terms” representation. The best representation would be
