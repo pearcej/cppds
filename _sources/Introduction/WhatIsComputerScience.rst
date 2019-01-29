@@ -18,11 +18,12 @@ step-by-step list of instructions for solving any instance of the
 problem that might arise. Algorithms are finite processes that if
 followed will solve the problem. Algorithms are solutions.
 
-Computer science can be thought of as the study of algorithms. However,
-we must be careful to include the fact that some problems may not have a
-solution and others may not have solutions which can be executed in a satisfactory amuont of time. 
-Although proving this statement is beyond the scope of this
-text, the fact that some problems cannot be solved and/or cannot be solved 
+Computer science can be thought of as the study of algorithms.
+Some problems do not have solutions.
+Other problems do have solutions but they cannot be executed in a
+reasonable of time.
+Although proving these statements is beyond the scope of this
+text, the fact that some problems cannot be solved and/or cannot be solved
 in the amount of time available is important for
 those who study computer science. We can fully define computer science,
 then, by including these types of problems and stating that computer
@@ -34,7 +35,7 @@ describing problems and solutions. We say that a problem is computable
 if an algorithm exists for solving it. An alternative definition for
 computer science, then, is to say that computer science is the study of
 problems that are and that are not computable, the study of the
-existence and the nonexistence of algorithms as well as the analysis of the 
+existence and the nonexistence of algorithms as well as the analysis of the
 relative speed of those algorithms. Here, you will note
 that the word “computer” did not come up at all. Solutions are and should be
 considered independent from the machine.
@@ -111,8 +112,8 @@ perform computations such as
 This is an example of **procedural abstraction**. We do not necessarily
 know how the square root is being calculated, but we know what the
 function is called and how to use it. If we perform the import
-correctly, we can assume that the library is correct and any function 
-using it will provide us with the correct results. 
+correctly, we can assume that the library is correct and any function
+using it will provide us with the correct results.
 We know that someone implemented a solution to the
 square root problem and we only need to know how to use it. This is
 sometimes referred to as a “black box” view of a process. We simply
