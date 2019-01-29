@@ -19,9 +19,10 @@ problem that might arise. Algorithms are finite processes that if
 followed will solve the problem. Algorithms are solutions.
 
 Computer science can be thought of as the study of algorithms.
-Some problems do not have solutions.
-Other problems do have solutions but they cannot be executed in a
-reasonable of time.
+Some problems do not have solutions at all.
+Other problems do have solutions, but these solutions cannot be
+ executed in a
+reasonable amount of time.
 Although proving these statements is beyond the scope of this
 text, the fact that some problems cannot be solved and/or cannot be solved
 in the amount of time available is important for
