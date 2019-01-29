@@ -733,7 +733,7 @@ methods as exercises.
     }
 
 Self Check
-~~~~~~~~~~~~
+^^^^^^^^^^
 
 .. clickablearea:: class_syntax
     :question: Click on the line where there is a syntax error when defining the following class
