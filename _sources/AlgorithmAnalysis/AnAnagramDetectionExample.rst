@@ -367,10 +367,10 @@ problem.
        :answer_c: O(log n)
        :answer_d: O(n^3)
        :correct: b
-       :feedback_a: In an example like this you want to count the nested loops. especially the loops that are dependent on the same variable, in this case, n.
-       :feedback_b: A singly nested loop like this is O(n^2)
-       :feedback_c: log n typically is indicated when the problem is iteratively made smaller
-       :feedback_d: In an example like this you want to count the nested loops. especially the loops that are dependent on the same variable, in this case, n.
+       :feedback_a: No. In an example like this you want to count the nested loops, especially the loops that are dependent on the same variable, in this case, n.
+       :feedback_b: Right! A nested loop like this is O(n^2).
+       :feedback_c: No. log n typically is indicated when the problem is iteratively made smaller
+       :feedback_d: No. In an example like this you want to count the nested loops. especially the loops that are dependent on the same variable, in this case, n.
 
        Given the following code fragment, what is its Big-O running time?
 
@@ -392,10 +392,10 @@ problem.
        :answer_c: O(log n)
        :answer_d: O(n^3)
        :correct: a
-       :feedback_b: Be careful, in counting loops you want to make sure the loops are nested.
-       :feedback_d: Be careful, in counting loops you want to make sure the loops are nested.
-       :feedback_c: log n typically is indicated when the problem is iteratvely made smaller
-       :feedback_a: Even though there are two loops they are not nested.  You might think of this as O(2n) but we can ignore the constant 2.
+       :feedback_a: Right! Even though there are two loops they are not nested.  You might think of this as O(2n) but we can ignore the constant 2.
+       :feedback_b: No. Be careful, in counting loops you want to look carefully at whether or not the loops are nested.
+       :feedback_c: No. log n typically is indicated when the problem is iteratively made smaller.
+       :feedback_d: No. Be careful, in counting loops you want to look carefully at whether or not the loops are nested.
 
        Given the following code fragment what is its Big-O running time?
 
@@ -418,10 +418,10 @@ problem.
        :answer_c: O(log n)
        :answer_d: O(n^3)
        :correct: c
-       :feedback_a: Look carefully at the loop variable i.  Notice that the value of i is cut in half each time through the loop.  This is a big hint that the performance is better than O(n)
-       :feedback_b: Check again, is this a nested loop?
-       :feedback_d: Check again, is this a nested loop?
-       :feedback_c: The value of i is cut in half each time through the loop so it will only take log n iterations.
+       :feedback_a: No. Look carefully at the loop variable i.  Notice that the value of i is cut in half each time through the loop.  This is a big hint that the performance is better than O(n)
+       :feedback_b: No. Check again, is this a nested loop?
+       :feedback_c: Right! The value of i is cut in half each time through the loop so it will only take log n iterations.
+       :feedback_d: No. Check again, is this a nested loop?
 
        Given the following code fragment what is its Big-O running time?
 
@@ -429,8 +429,9 @@ problem.
 
          int main(){
              int i = n;
+             int count = 0;
              while (i > 0){
-                 int k = 2 + 2;
+                 count = count + 1;
                  i = i // 2;
              }
              return 0;

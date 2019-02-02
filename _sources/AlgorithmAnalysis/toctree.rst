@@ -9,7 +9,7 @@ Analysis
     WhatIsAlgorithmAnalysis.rst
     BigONotation.rst
     AnAnagramDetectionExample.rst
-    PerformanceofPythonDataStructures.rst
+    PerformanceofCppDataStructures.rst
     Vectors.rst
     HashTables.rst
     Summary.rst

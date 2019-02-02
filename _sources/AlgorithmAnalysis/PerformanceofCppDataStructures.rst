@@ -8,7 +8,8 @@ Performance of C++ Data Structures
 Now that you have a general idea of Big-O notation
 and the differences between the different functions, our goal in this
 section is to tell you about the Big-O performance for the operations on
-C++ arrays and hash table. We will then show you some timing
+C++ data structures such as vectors and hash tables.
+We will then show you some timing
 experiments that illustrate the costs and benefits of using certain
 operations on each data structure. It is important for you to understand
 the efficiency of these C++ data structures because they are the
