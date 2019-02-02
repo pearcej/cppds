@@ -71,7 +71,8 @@ iterates through the *n* integers, adding each to the accumulator.
             print(sumOfN(10))
         main()
 
-Now look at the function in :ref:`ActiveCode 2 <lst_sum2>`. At first glance it may look
+Now look at the function in :ref:`ActiveCode 2 <lst_sum2>`.
+At first glance it may look
 strange, but upon further inspection you can see that this function is
 essentially doing the same thing as the previous one. The reason this is
 not obvious is poor coding. We did not use good identifier names to
@@ -226,14 +227,60 @@ and then computing the difference, we can get an exact number of seconds
         main()
 
 
+
 :ref:`Listing 3 <lst_sum11>` shows the original ``sumOfN`` function with the timing
 calls embedded before and after the summation. The function returns the amount of time (in seconds)
 required for the calculation.
 
-Now consider :ref:`ActiveCode 3 <lst_sum3>`, which shows a different means of solving
-the summation problem. This function, ``sumOfN3``, takes advantage of a
+Some Needed Math Notation
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This is the sigma symbol: :math:`\sum_{}`.
+It tells us that we are summing up something
+much like a mathematical loop typically with a counter.
+
+If we have
+:math:`\sum_{i=1}^{5}`
+the bottom index `i=1` tells us that the index `i` begins at 1
+and that `i` will terminate at `5`.
+
+What ever comes immediately afterwards is what
+we are summing. So,
+:math:`\sum_{i=1}^{5} i`
+tells us to add the integers :math:`1+2+3+4+5`
+because just like in a `for` loop, we plug a value for each `i` value.
+Similarly, :math:`\sum_{i=2}^{4} i^2` means :math:`2^2+3^2+4^2`.
+
+
+Applying the Math Notation
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There is often more than one way to solve a problem.
+Let's consider the blue area in the
+following :math:`8 \times 9`.rectangle.
+
+.. _fig_sumof-n-integers:
+
+.. figure:: Figures/sumof-n-integers.png
+
+   Figure 1: Sum of `n = 8` integers
+
+To find the blue area, we can count the number of blue squares
+:math:`1+2+3+4+5+6+7+8`, which we just learned
+can be written as :math:`\sum_{i=1}^{8} i.`
+However, we also know how to find the area of a rectangle,
+by multiplying height by width, and the blue squares represent
+half of the rectangle.
+So, the area with blue squares
+is also just :math:`\sum_{i=1}^{8} i = \frac {(8)(8+1)}{2}`.
+
+Hence, when we have a variable `n`, we have learned that we can just the
 closed equation :math:`\sum_{i=1}^{n} i = \frac {(n)(n+1)}{2}` to
 compute the sum of the first ``n`` integers without iterating.
+
+We see this in :ref:`ActiveCode 4 <active3cpp>`,
+which shows ``sumOfN3``
+taking advantage of the formula we just developed.
 
 .. _lst_sum3:
 
@@ -274,7 +321,9 @@ compute the sum of the first ``n`` integers without iterating.
             print(sumOfN3(10))
         main()
 
-If we do the same benchmark measurement for ``sumOfN3``, using the value  10,000 for ``n`` and we get the following result:
+
+If we do the same benchmark measurement for ``sumOfN3``,
+using the value  10,000 for ``n`` and we get the following result:
 
 ::
 

@@ -24,8 +24,10 @@ occurs in the second. If it is possible to “checkoff” each character, then
 the two strings must be anagrams. Checking off a character will be
 accomplished by replacing it with the special C++ character ``\0``.
 The first step in the
-process will be to convert the second string to an array. Each character
-from the first string can be checked against the characters in the array
+process will be to convert the second string to a local second string
+for checking off.
+Each character
+from the first string can be checked against the characters in the local second string
 and if found, checked off by replacement. :ref:`ActiveCode 1 <lst_anagramSolution>` shows this function.
 
 .. _lst_anagramSolution:
@@ -43,31 +45,27 @@ and if found, checked off by replacement. :ref:`ActiveCode 1 <lst_anagramSolutio
         using namespace std;
 
         bool anagramsolution1(string s1, string s2){
-            bool stillOK;
+            bool stillOK = true;
             if (s1.length() != s2.length()) {
                 stillOK = false;
+                return stillOK;
             }
+            string locals2 = s2;
             int n = s1.length();
-            char arr[n-1];
-            for (int i = 0; i<n; i++){
-                arr[i] = s2[i];
-            }
-
             unsigned int pos1 = 0;
-            stillOK = true;
 
             while (pos1 < s1.length() && stillOK){
                 int pos2 = 0;
                 bool found = false;
                 while (pos2 < n && !found){
-                    if (s1[pos1] == arr[pos2]){
+                    if (s1[pos1] == locals2[pos2]){
                         found = true;
                     } else{
                         pos2 = pos2 + 1;
                     }
                 }
                 if (found){
-                    arr[pos2] = '\0';
+                    locals2[pos2] = '\0';
                 }
                 else{
                     stillOK = false;
@@ -89,25 +87,25 @@ and if found, checked off by replacement. :ref:`ActiveCode 1 <lst_anagramSolutio
         :caption: Checking Off Python
 
         def anagramSolution1(s1,s2):
+            stillOK = True
             if len(s1) != len(s2):
                 stillOK = False
+                return stillOK
 
-            alist = list(s2)
-
+            lists2 = list(s2)
             pos1 = 0
-            stillOK = True
 
             while pos1 < len(s1) and stillOK:
                 pos2 = 0
                 found = False
-                while pos2 < len(alist) and not found:
-                    if s1[pos1] == alist[pos2]:
+                while pos2 < len(lists2) and not found:
+                    if s1[pos1] == lists2[pos2]:
                         found = True
                     else:
                         pos2 = pos2 + 1
 
                 if found:
-                    alist[pos2] = None
+                    lists2[pos2] = None
                 else:
                     stillOK = False
 
@@ -161,26 +159,14 @@ this solution.
         using namespace std;
 
         bool anagramsolution2(string s1, string s2){
-            unsigned int n = s1.length();
-            char arr1[n-1];
-            for (unsigned int i = 0; i < n; i++){
-                arr1[i] = s1[i];
-            }
-
-            unsigned int len = s2.length();
-            char arr2[len-1];
-            for (unsigned int x = 0; x < len; x++){
-                arr2[x] = s2[x];
-            }
-
-            sort(arr1, arr1+n);
-            sort(arr2, arr2+len);
+            sort(s1.begin(), s1.end());
+            sort(s2.begin(), s2.end());
 
             unsigned int pos = 0;
             bool matches = true;
 
             while (pos < s1.length() && matches){
-                if (arr1[pos] == arr2[pos]){
+                if (s1[pos] == s2[pos]){
                     pos = pos + 1;
                 } else{
                     matches = false;
@@ -223,7 +209,9 @@ this solution.
         main()
 
 At first glance you may be tempted to think that this algorithm is
-:math:`O(n)`, since there is one simple iteration to compare the *n*
+:math:`O(n)`, since there are three consecutive simple iterations:
+the first two to convert strings to char arrays and the last
+to compare the *n*
 characters after the sorting process. However, the two calls to the
 C++ ``sort`` function are not without their own cost. As we will see in
 a later chapter, sorting is typically either :math:`O(n^{2})` or

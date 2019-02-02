@@ -3,7 +3,7 @@
 
 
 Performance of C++ Data Structures
--------------------------------------
+----------------------------------
 
 Now that you have a general idea of Big-O notation
 and the differences between the different functions, our goal in this
