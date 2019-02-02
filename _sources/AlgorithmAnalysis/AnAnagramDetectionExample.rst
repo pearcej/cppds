@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -12,7 +12,7 @@ of the first. For example, ``"heart"`` and ``"earth"`` are anagrams. The
 strings ``"python"`` and ``"typhon"`` are anagrams as well. For the sake
 of simplicity, we will assume that the two strings in question are of
 equal length and that they are made up of symbols from the set of 26
-lowercase alphabetic characters. Our goal is to write a boolean function
+lowercase alphabetic characters. Our goal is to write a Boolean function
 that will take two strings and return whether they are anagrams.
 
 Solution 1: Checking Off
@@ -22,8 +22,8 @@ Our first solution to the anagram problem will check the lengths of the
 strings and then to see that each character in the first string actually
 occurs in the second. If it is possible to “checkoff” each character, then
 the two strings must be anagrams. Checking off a character will be
-accomplished by replacing it with the special C++ value ``NULL``.
-However, since strings in C++ are immutable, the first step in the
+accomplished by replacing it with the special C++ character ``\0``.
+The first step in the
 process will be to convert the second string to an array. Each character
 from the first string can be checked against the characters in the array
 and if found, checked off by replacement. :ref:`ActiveCode 1 <lst_anagramSolution>` shows this function.
@@ -67,7 +67,7 @@ and if found, checked off by replacement. :ref:`ActiveCode 1 <lst_anagramSolutio
                     }
                 }
                 if (found){
-                    arr[pos2] = 0;
+                    arr[pos2] = '\0';
                 }
                 else{
                     stillOK = false;
