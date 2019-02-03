@@ -10,8 +10,8 @@ Analysis
     BigONotation.rst
     AnAnagramDetectionExample.rst
     PerformanceofCppDataStructures.rst
-    Vectors.rst
-    HashTables.rst
+    VectorAnalysis.rst
+    HashTableAnalysis.rst
     Summary.rst
     KeyTerms.rst
     DiscussionQuestions.rst

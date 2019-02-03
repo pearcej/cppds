@@ -2,33 +2,44 @@
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
-Vectors
--------
+Analysis of Vector Operators
+----------------------------
 
-Vectors are similar to arrays in a way that they use contiguous storage locations,
-which means that their elements can be accessed and traversed with the help of iterators, and they
+As we know, vectors use contiguous storage locations
+in an underlying (typically larger) array.
+This means that vector elements can be accessed and
+traversed with the help of iterators, and they
 can also be accessed randomly using indexes.
 
-However, vectors have a dynamic size meaning that whenever a new element is inserted or deleted,
-their size changes automatically. A new element can be inserted into or deleted from any part of a vector,
+However, vectors have a dynamic size meaning that whenever
+a new element is inserted or deleted,
+their size changes automatically.
+A new element can be inserted into or deleted from any part of a vector,
 and automatic reallocation for other existing items in the vector is applied. Nevertheless, computing time for
-insertion and deletion might differ depending on the location of the item, and how many items need to be
-reallocated. For example, the last item in a vector is removed at a constant time, because no resizing of
-the vector is needed for this operation, while an item is removed or inserted into the beginning or the
-middle of a vector at a linear time.
+insertion and deletion might differ depending on the location of the item,
+and how many items need to be
+reallocated.
+For example, the last item in a vector is typically
+removed at a constant time,
+because no resizing of
+the vector is typically needed for this operation,
+while an item is removed or inserted into the beginning or the
+middle of a vector at a linear time because all of the remaining
+items to the right of that element must be shifted.
 
-Two common operations are indexing and assigning to an index position.
+Two common operations are indexing and assigning to an index position
+that already exists.
 Both of these operations take the same amount of time no matter how
 large the vector becomes. When an operation like this is independent of
 the size of the vector they are :math:`O(1)`.
 
-Another very common programming task is to grow a vector. There is one
-way to create a longer  vector.  You can use the ``push_back()`` method. The ``push_back()`` method is :math:`O(1)`.
+Another very common programming task is to grow a vector. One
+way to create a longer vector is to use the ``push_back()`` method.
+The ``push_back()`` method is typically :math:`O(1)`, provided
+there is adequate capacity in the underlying array.
 
-Let's look at two different ways we might generate an vector of ``n``
-numbers starting with 0.
-
-First we’ll try to the use ``push_back()`` method.  :ref:`Listing 3 <lst_mklistcpp>` shows the code for
+First we’ll try to the use ``push_back()`` method.
+:ref:`Listing 3 <lst_mklistcpp>` shows the code for
 making our vector.
 
 .. _lst_mklistcpp:
@@ -94,7 +105,8 @@ milliseconds.
 
 Now that we have seen how performance can be measured concretely you can
 look at :ref:`Table 2 <tbl_listbigocpp>` to see the Big-O efficiency of all the
-basic vector operations. When ``pop_back()`` is called, the element at the end of the vector is removed and it takes
+basic vector operations. When ``pop_back()`` is called, the element
+at the end of the vector is removed and it typically takes
 :math:`O(1)` but when ``erase()`` is called on the first element in the vector
 or anywhere in the middle it is :math:`O(n)`. The reason for this lies
 in how C++ chooses to implement vectors. When an item is taken from the
@@ -115,11 +127,15 @@ was a good one.
     ================== ==================
               index []               O(1)
       index assignment               O(1)
-             push_back               O(1)
+           push_back()     typically O(1)
             pop_back()               O(1)
               erase(i)               O(n)
-        insert(i,item)               O(n)
+      insert(i, item)                O(n)
     ================== ==================
+
+The `push_back()` operation is :math:`O(1)` unless there is inadequate capacity, in which case the entire
+vector is moved to a larger contiguous underlying array, which
+is :math:`O(n)`.
 
 As a way of demonstrating this difference in performance let’s do
 another experiment using the ``ctime`` module. Our goal is to be able
@@ -183,6 +199,8 @@ the overall size by :math:`0.05\%`
         double elapsed_secs2 = double(end2 - begin2) /CLOCKS_PER_SEC;
         cout << fixed << endl;
         cout << "popend = " << elapsed_secs2 << endl;
+
+        cout << "\nA " << elapsed_secs/elapsed_secs2 <<" times difference in speed." << endl;
 
         return 0;
     }
