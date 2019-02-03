@@ -74,7 +74,7 @@ hash table.
     int main() {
 
         for( int a = 10000; a < 1000001; a = a + 20000) {
-            // List Part
+            // vector Part
             clock_t begin = clock();
             vector<int> avector;
             for( int i = 0; i < a; i++){
@@ -148,13 +148,13 @@ data structures can be found on the C++ website.
         :answer_d: vector[10]
         :answer_e: all of the above are O(1)
         :correct: a
-        :feedback_a: When you remove the first element of a list, all the other elements of the list must be shifted forward.
-        :feedback_b: Removing an element from the end of the list is a constant operation.
+        :feedback_a: When you remove the first element of a vector, all the other elements of the vector must be shifted forward.
+        :feedback_b: Removing an element from the end of the vector is a constant operation.
         :feedback_c: Adding to the end of an vector is a constant operation
         :feedback_d: Indexing a vector is a constant operation
-        :feedback_e: There is one operation that requires all other list elements to be moved.
+        :feedback_e: There is one operation that requires all other vector elements to be moved.
 
-        Which of the list operations shown below is not O(1)?
+        Which of the vector operations shown below is not O(1)?
 
     .. mchoice:: mccppmapperfcpp4
         :answer_a: mymap.count('x')
