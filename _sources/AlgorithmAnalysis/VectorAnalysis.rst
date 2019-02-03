@@ -164,7 +164,7 @@ adequately sized space in memory.
 
 
 Now that we have seen how performance can be measured concretely you can
-look at :ref:`Table 2 <tbl_listbigocpp>` to see the Big-O efficiency of all the
+look at :ref:`Table 2 <tbl_vectbigocpp>` to see the Big-O efficiency of all the
 basic vector operations. When ``pop_back()`` is called, the element
 at the end of the vector is removed and it typically takes
 :math:`O(1)` but when ``erase()`` is called on the first element in the vector
@@ -172,28 +172,31 @@ or anywhere in the middle it is :math:`O(n)`. The reason for this lies
 in how C++ chooses to implement vectors. When an item is taken from the
 front of the vector, in C++ implementation, all the other elements in
 the vector are shifted one position closer to the beginning. This may seem
-silly to you now, but if you look at :ref:`Table 2 <tbl_listbigocpp>` you will see
+silly to you now, but if you look at :ref:`Table 2 <tbl_vectbigocpp>` you will see
 that this implementation also allows the index operation to be
 :math:`O(1)`. This is a tradeoff that the C++ implementers thought
 was a good one.
 
 
-.. _tbl_listbigocpp:
+.. _tbl_vectbigocpp:
 
 .. table:: **Table 2: Big-O Efficiency of C++ Vector Operators**
 
-    ================== ==================
-             Operation   Big-O Efficiency
-    ================== ==================
-              index []               O(1)
-      index assignment               O(1)
-           push_back()     typically O(1)
-            pop_back()               O(1)
-              erase(i)               O(n)
-       insert(i, item)               O(n)
-  find(srt, stp, item)   O(log n) or O(n)
-             reserve()               O(1)
-    ================== ==================
+    ===================== ==================
+                Operation   Big-O Efficiency
+    ===================== ==================
+                 index []               O(1)
+       index assignment =               O(1)
+              push_back()     typically O(1)
+               pop_back()               O(1)
+                 erase(i)               O(n)
+          insert(i, item)               O(n)
+     find(srt, stp, item)   O(log n) or O(n)
+                reserve()               O(1)
+                  begin()               O(1)
+                    end()               O(1)
+                   size()               O(1)
+    ===================== ==================
 
 The `push_back()` operation is :math:`O(1)` unless there is inadequate capacity,
 in which case the entire

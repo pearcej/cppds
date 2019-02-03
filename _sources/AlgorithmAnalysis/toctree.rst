@@ -9,8 +9,9 @@ Analysis
     WhatIsAlgorithmAnalysis.rst
     BigONotation.rst
     AnAnagramDetectionExample.rst
-    PerformanceofCppDataStructures.rst
+    PerformanceofCppDataCollections.rst
     VectorAnalysis.rst
+    StringAnalysis.rst
     HashTableAnalysis.rst
     Summary.rst
     KeyTerms.rst
