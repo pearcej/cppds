@@ -5,14 +5,26 @@
 Analysis of Hash Tables
 -----------------------
 
-The second major C++ data structure to analyze is the hash table. As you
+The second major C++ data structure to analyze is the **hash table** or hash map. As you
 may recall, hash tables differ from vectors in that you access
-items in a hash table by a key rather than a position. Later in this
+items in a hash table by a key rather than a position. A hash table (hash map)
+is a data structure that maps keys to their associated values using a hash function.
+The underlying structure is a mostly empty array, but unlike the array or vector data
+structures, the hash table values are not stored contiguously.
+The hash function computes an index into the array of "buckets" from which the correct
+associated value can be located. Ideally, the hash table values are distributed uniformly
+in the underlying array and, again ideally, the hash function will assign
+each key to a unique bucket. However, most hash tables are designed to handle
+hash collisions when the hash function generates the same bucket index for more than one key.
+More about this when we discuss implementations in more depth.
+
+Later in this
 book you will see that there are many ways to implement a hash table.
-The thing that is most important to notice right now is that the get
-item and set item operations on a hash table is :math:`O(1)`. Another
-important hash table operation is the contains operation. Checking to
-see whether a key is in the hash table or not is also :math:`O(1)`.
+The thing that is most important to note  now is that the get
+item and set item operations on a hash table are :math:`O(1)`. Another
+important hash table operation is the **contains** operation. Unlike a vector, checking to
+see whether a value is in the hash table or not is also :math:`O(1)`.
+
 The efficiency of all hash table operations is summarized in
 :ref:`Table 3 <tbl_dictbigo_cpp>`. One important side note on hash table performance
 is that the efficiencies we provide in the table below are for average
@@ -31,11 +43,14 @@ that a hash table could be implemented.
                   find               O(1)
                 insert               O(1)
                  erase               O(1)
+              contains               O(1)
              iteration               O(n)
     ================== ==================
 
 Note that it is not typical to iterate through a hash table because it is
-a data structure designed for look-up, not for iteration.
+a data structure designed for look-up, not for iteration. The big
+advantage of the hash table is the constant speed of the contains
+operation.
 
 For our last performance experiment we will compare the performance of
 the contains operation between vectors and hash tables. In the process we

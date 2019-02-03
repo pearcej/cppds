@@ -2,16 +2,16 @@
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
-Analysis of Vector Operators
-----------------------------
+Analysis of Array and Vector Operators
+--------------------------------------
 
 As we know, vectors use contiguous storage locations
 in an underlying (typically larger) array.
-This means that vector elements can be accessed and
+Both array and vector elements can be accessed and
 traversed with the help of iterators, and they
 can also be accessed randomly using indexes.
 
-However, vectors have a dynamic size meaning that whenever
+However, unlike basic arrays, vectors have a dynamic size meaning that whenever
 a new element is inserted or deleted,
 their size changes automatically.
 A new element can be inserted into or deleted from any part of a vector,
@@ -28,22 +28,24 @@ while an item is removed or inserted into the beginning or the
 middle of a vector at a linear time because all of the remaining
 items to the right of that element must be shifted.
 
-Two common operations are indexing and assigning to an index position
+Two common operations for both arrays and vectors
+are indexing and assigning to an index position
 that already exists.
 Both of these operations take the same amount of time no matter how
-large the vector becomes. When an operation like this is independent of
-the size of the vector they are :math:`O(1)`.
+large the array or vector is. When an operation like this is independent of
+the size of the array or vector they are :math:`O(1)`.
 
-Another very common programming task is to grow a vector. One
+Although not possible with basic arrays, a common programming technique is growing a vector.
+As we have seen, one
 way to create a longer vector is to use the ``push_back()`` method.
 The ``push_back()`` method is typically :math:`O(1)`, provided
 there is adequate capacity in the underlying array.
 
-First we’ll try to the use ``push_back()`` method.
-:ref:`Listing 3 <lst_mklistcpp>` shows the code for
+First we’ll use ``push_back()`` method.
+:ref:`Listing 3 <lst_mkvectcpp>` shows the code for
 making our vector.
 
-.. _lst_mklistcpp:
+.. _lst_mkvectcpp:
 
 **Listing 3**
 
@@ -72,8 +74,8 @@ running functions in a consistent environment and using timing
 mechanisms that are as similar as possible across operating systems.
 
 To use ``ctime`` you create two ``clock`` objects. The first clock object marks
-the current time(start time); the second clock object marks the current time after
-the function runs a set number of times(end time). To get the total runtime,
+the current start time; the second clock object marks the current time after
+the function runs a set number of times (the end time). To get the total runtime,
 you subtract the start time from the end time to get the elapsed time.
 The following session shows how long it takes to run each
 of our test functions 10,000 times within a ``for`` loop.
@@ -109,7 +111,9 @@ of our test functions 10,000 times within a ``for`` loop.
 In the experiment above the statement that we are timing is the function
 call to ``test1``. From the experiment, we see the amount of time taken by the push_back operation.
 
-We can improve this further by setting an adequate reserve for the vector.
+We can improve the runtime a bit further by setting an adequate reserve for the vector
+in advance. Doing this will keep us from having to move the entire vector to an
+adequately sized space in memory.
 
 .. activecode:: vectcpp3
     :language: cpp
@@ -187,6 +191,7 @@ was a good one.
             pop_back()               O(1)
               erase(i)               O(n)
        insert(i, item)               O(n)
+  find(srt, stp, item)   O(log n) or O(n)
              reserve()               O(1)
     ================== ==================
 
@@ -195,7 +200,13 @@ in which case the entire
 vector is moved to a larger contiguous underlying array, which
 is :math:`O(n)`.
 
-As a way of demonstrating this difference in performance let’s do
+Note that the vector class provides a find command which can determine
+whether a given item is in the vector. It is is :math:`O(log n)` if
+the vector is sorted and is :math:`O(n)` otherwise. We will explain
+why this is in Chapter 3.
+
+As a way of demonstrating the difference in performance between push_back
+and insert, let’s do
 another experiment using the ``ctime`` module. Our goal is to be able
 to verify the performance of the ``pop_back()`` operation on a vector of a known
 size when the program pops from the end of the vector using ``pop_back()``, and again when the
@@ -212,7 +223,7 @@ There are a couple of things to notice about :ref:`Listing 4 <lst_popmeascpp>`.
 This approach allows us to time just the single ``pop_back()`` statement
 and get the most accurate measure of the time for that single operation.
 Because the timer repeats 10,000 times it is also important to point out
-that the vector is decreasing in size by 1 each time through the loop. 
+that the vector is decreasing in size by 1 each time through the loop.
 
 .. _lst_popmeascpp:
 

@@ -160,7 +160,8 @@ the function ``sumOfN`` is to do a benchmark analysis. This means that
 we will track the actual time required for the program to compute its
 result. In C++, we can benchmark a function by noting the starting
 time and ending time with respect to the system we are using. In the
-``ctime`` library there is a function called ``clock`` that will return the current system clock time in seconds since some arbitrary starting
+``ctime`` library there is a function called ``clock`` that will return the
+current system clock time in seconds since some arbitrary starting
 point. By calling this function twice, at the beginning and at the end,
 and then computing the difference, we can get an exact number of seconds
 (fractions in most cases) for execution.
