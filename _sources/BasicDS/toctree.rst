@@ -1,31 +1,28 @@
-Basic Data Structures
-:::::::::::::::::::::
+Linear Structures
+:::::::::::::::::
 
 .. toctree::
-    :caption: Basic Data Structures
+    :caption: Linear Structures
     :maxdepth: 2
 
     Objectives.rst
     WhatAreLinearStructures.rst
     WhatisaStack.rst
     TheStackAbstractDataType.rst
-    ImplementingaStackinPython.rst
+    ImplementingaStackCpp.rst
     SimpleBalancedParentheses.rst
-    BalancedSymbols(AGeneralCase).rst
+    BalancedSymbolsGeneralCase.rst
     ConvertingDecimalNumberstoBinaryNumbers.rst
     InfixPrefixandPostfixExpressions.rst
     WhatIsaQueue.rst
     TheQueueAbstractDataType.rst
-    ImplementingaQueueinPython.rst
+    ImplementingaQueueCpp.rst
     SimulationHotPotato.rst
     SimulationPrintingTasks.rst
     WhatIsaDeque.rst
     TheDequeAbstractDataType.rst
-    ImplementingaDequeinPython.rst
+    ImplementingaDequeCpp.rst
     PalindromeChecker.rst
-    ImplementinganUnorderedListLinkedLists.rst
-    TheOrderedListAbstractDataType.rst
-    ImplementinganOrderedList.rst
     Summary.rst
     KeyTerms.rst
     DiscussionQuestions.rst

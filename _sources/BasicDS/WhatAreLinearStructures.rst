@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -6,8 +6,8 @@ What Are Linear Structures?
 ---------------------------
 
 We will begin our study of data structures by
-considering four simple but very powerful concepts. Stacks, queues,
-deques, and vectors are examples of data collections whose items are
+considering four simple but very powerful concepts. Vectors, stacks, queues,
+deques are examples of data collections whose items are
 ordered depending on how they are added or removed. Once an item is
 added, it stays in that position relative to the other elements that
 came before and came after it. Collections such as these are often

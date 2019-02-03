@@ -1,8 +1,8 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
-Balanced Symbols (A General Case)
+Balanced Symbols - A General Case
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The balanced parentheses problem shown above is a specific case of a

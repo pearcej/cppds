@@ -1,14 +1,14 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
 Implementing an Unordered Linked List
 -------------------------------------
 
-A linked list is a linear collection of data elements whose order 
-is not determined by the placement in memory. Instead, each element is stored 
+A linked list is a linear collection of data elements whose order
+is not determined by the placement in memory. Instead, each element is stored
 in a node which points to the next node.
-In the next sections we implement this **linked list** data structure. 
+In the next sections we implement this **linked list** data structure.
 In doing so, we need to be sure that
 we can maintain the relative positioning of the items. However, there is
 no requirement that we maintain that positioning in contiguous memory.
@@ -125,7 +125,7 @@ referring to ``NULL``.
 The ``Unordered Linked List`` Class
 -----------------------------------
 
-As we suggested above, the 
+As we suggested above, the
 will be built from a
 collection of nodes, each linked to the next by explicit pointers. As
 long as we know where to find the first node (containing the first

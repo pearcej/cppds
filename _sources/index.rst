@@ -29,6 +29,7 @@ and Jan Pearce, Berea College
    Introduction/toctree.rst
    AlgorithmAnalysis/toctree.rst
    BasicDS/toctree.rst
+   LinearLinked/toctree.rst
    Recursion/toctree.rst
    SortSearch/toctree.rst
    Trees/toctree.rst
@@ -39,7 +40,7 @@ Acknowledgements
 
 We are very grateful to Franklin Beedle Publishers for allowing us to
 make the original Python version of this interactive textbook freely available.
-This online version is dedicated to the memory of our first editor, Jim Leisy,
+The original online version was dedicated to the memory of our first editor, Jim Leisy,
 who wanted us to "change the world."
 
 Indices and tables

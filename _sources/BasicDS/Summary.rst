@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -36,11 +36,3 @@ Summary
 
 -  The fundamental operations for a deque are ``addFront``, ``addRear``,
    ``removeFront``, ``removeRear``, and ``isEmpty``.
-
--  Lists are collections of items where each item holds a relative
-   position.
-
--  A linked list implementation maintains logical order without
-   requiring physical storage requirements.
-
--  Modification to the head of the linked list is a special case.
