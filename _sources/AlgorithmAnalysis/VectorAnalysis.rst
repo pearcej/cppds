@@ -15,7 +15,8 @@ However, vectors have a dynamic size meaning that whenever
 a new element is inserted or deleted,
 their size changes automatically.
 A new element can be inserted into or deleted from any part of a vector,
-and automatic reallocation for other existing items in the vector is applied. Nevertheless, computing time for
+and automatic reallocation for other existing items in the vector is applied.
+Nevertheless, computing time for
 insertion and deletion might differ depending on the location of the item,
 and how many items need to be
 reallocated.
@@ -52,15 +53,16 @@ making our vector.
     #include <vector>
     using namespace std;
 
-    void test1(){
+    void test1(int num){
         vector <int> vect;
-        for (int i = 0; i < 1000; i++){
+        vect.reserve(num);
+        for (int i = 0; i < num; i++){
             vect.push_back(i);
         }
     }
 
     int main() {
-        test1();
+        test1(1000);
     }
 
 To capture the time it takes for each of our functions to execute we
@@ -69,8 +71,12 @@ to allow C++ developers to make cross-platform timing measurements by
 running functions in a consistent environment and using timing
 mechanisms that are as similar as possible across operating systems.
 
-To use ``ctime`` you create two ``clock`` objects. The first clock object marks the current time(start time); the second clock object marks the current time after the function runs a set number of times(end time). To get the total runtime, you subtract the start time from the end time to get the elapsed time. The following session shows how long it takes to run each
-of our test functions 1000 times within a ``for`` loop.
+To use ``ctime`` you create two ``clock`` objects. The first clock object marks
+the current time(start time); the second clock object marks the current time after
+the function runs a set number of times(end time). To get the total runtime,
+you subtract the start time from the end time to get the elapsed time.
+The following session shows how long it takes to run each
+of our test functions 10,000 times within a ``for`` loop.
 
 .. activecode:: vectcpp2
     :language: cpp
@@ -79,29 +85,79 @@ of our test functions 1000 times within a ``for`` loop.
     #include <vector>
     using namespace std;
 
-    void test1(){
+    void test1(int num){
         vector<int> vect;
-        for (int i = 0; i < 1000; i++){
+        for (int i = 0; i < num; i++){
             vect.push_back(i);
         }
     }
 
     int main(){
+        int numruns = 10000;
         clock_t begin_t1 = clock();
-        for (int i = 0; i < 1000; i++){
-            test1();
+        for (int i = 0; i < numruns; i++){
+            test1(numruns);
         }
-        clock_t end = clock();
-        double elapsed_secs = double(end - begin_t1) /CLOCKS_PER_SEC;
+        clock_t end_t1 = clock();
+        double elapsed_secs = double(end_t1 - begin_t1) /CLOCKS_PER_SEC;
         cout << fixed << endl;
-        cout << "push back " << elapsed_secs << " milliseconds" << endl;
+        cout << "push_back " << elapsed_secs << " milliseconds" << endl;
 
         return 0;
     }
 
 In the experiment above the statement that we are timing is the function
-call to ``test1()``. From the experiment we see that the push_back operation at 0.018
-milliseconds.
+call to ``test1``. From the experiment, we see the amount of time taken by the push_back operation.
+
+We can improve this further by setting an adequate reserve for the vector.
+
+.. activecode:: vectcpp3
+    :language: cpp
+
+    #include <iostream>
+    #include <vector>
+    using namespace std;
+
+    void test1(int num){
+        vector<int> vect;
+        // no reserve set
+        for (int i = 0; i < num; i++){
+            vect.push_back(i);
+        }
+    }
+
+    void test2(int num){
+        vector<int> vect2;
+        vect2.reserve(num);
+        for (int i = 0; i < num; i++){
+            vect2.push_back(i);
+        }
+    }
+
+    int main(){
+        int numruns = 10000;
+        clock_t begin_t1 = clock();
+        for (int i = 0; i < numruns; i++){
+            test1(numruns);
+        }
+        clock_t end_t1 = clock();
+        double elapsed_secs1 = double(end_t1 - begin_t1) /CLOCKS_PER_SEC;
+        cout << fixed << endl;
+        cout << "unreserved push_back " << elapsed_secs1 << " milliseconds" << endl;
+
+        clock_t begin_t2 = clock();
+        for (int i = 0; i < numruns; i++){
+            test2(numruns);
+        }
+        clock_t end_t2 = clock();
+        double elapsed_secs2 = double(end_t2 - begin_t2) /CLOCKS_PER_SEC;
+        cout << fixed << endl;
+        cout << "reserved push_back " << elapsed_secs2 << " milliseconds" << endl;
+
+
+        return 0;
+    }
+
 
 Now that we have seen how performance can be measured concretely you can
 look at :ref:`Table 2 <tbl_listbigocpp>` to see the Big-O efficiency of all the
@@ -130,10 +186,12 @@ was a good one.
            push_back()     typically O(1)
             pop_back()               O(1)
               erase(i)               O(n)
-      insert(i, item)                O(n)
+       insert(i, item)               O(n)
+             reserve()               O(1)
     ================== ==================
 
-The `push_back()` operation is :math:`O(1)` unless there is inadequate capacity, in which case the entire
+The `push_back()` operation is :math:`O(1)` unless there is inadequate capacity,
+in which case the entire
 vector is moved to a larger contiguous underlying array, which
 is :math:`O(n)`.
 
@@ -148,16 +206,13 @@ constant even as the vector grows in size, while the time to pop from the
 beginning of the vector will continue to increase as the vector grows.
 
 :ref:`Listing 4 <lst_popmeascpp>` shows one attempt to measure the difference
-between the ``pop_back()`` and ``erase()``. As you can see from this first example,
-popping from the end takes 0.000023 milliseconds, whereas popping from the
-beginning takes 0.473672 milliseconds.
+between the ``pop_back()`` and ``erase()``.
 
-There are a couple of things to notice about :ref:`Listing 4 <lst_popmeascpp>`. This approach allows us to time just the single ``pop_back()`` statement
+There are a couple of things to notice about :ref:`Listing 4 <lst_popmeascpp>`.
+This approach allows us to time just the single ``pop_back()`` statement
 and get the most accurate measure of the time for that single operation.
-Because the timer repeats 1000 times it is also important to point out
-that the vector is decreasing in size by 1 each time through the loop. But
-since the initial vector is two million elements in size we only reduce
-the overall size by :math:`0.05\%`
+Because the timer repeats 10,000 times it is also important to point out
+that the vector is decreasing in size by 1 each time through the loop. 
 
 .. _lst_popmeascpp:
 
@@ -171,19 +226,22 @@ the overall size by :math:`0.05\%`
     using namespace std;
 
     int main(){
+        int num = 10000;
         vector<int> vect;
         vector<int> vect2;
+        vect.reserve(num);
+        vect2.reserve(num);
 
-        for (int i = 0; i < 1000; i++){
+        for (int i = 0; i < num; i++){
             vect.push_back(i);
         }
 
-        for (int i = 0; i < 1000; i++){
+        for (int i = 0; i < num; i++){
             vect2.push_back(i);
         }
 
         clock_t begin = clock();
-        for (int i = 0; i < 1000; i++){
+        for (int i = 0; i < num; i++){
             vect.erase(vect.begin()+0);
         }
         clock_t end = clock();
@@ -192,7 +250,7 @@ the overall size by :math:`0.05\%`
         cout << "popzero = " << elapsed_secs << endl;
 
         clock_t begin2 = clock();
-        for (int i = 0; i < 1000; i++){
+        for (int i = 0; i < num; i++){
             vect2.pop_back();
         }
         clock_t end2 = clock();
@@ -200,7 +258,7 @@ the overall size by :math:`0.05\%`
         cout << fixed << endl;
         cout << "popend = " << elapsed_secs2 << endl;
 
-        cout << "\nA " << elapsed_secs/elapsed_secs2 <<" times difference in speed." << endl;
+        cout << "\nPopping from the end is " << elapsed_secs/elapsed_secs2 <<" times faster." << endl;
 
         return 0;
     }
