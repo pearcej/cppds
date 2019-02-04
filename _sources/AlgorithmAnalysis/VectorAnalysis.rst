@@ -5,13 +5,13 @@
 Analysis of Array and Vector Operators
 --------------------------------------
 
-As we know, vectors use contiguous storage locations
+As we know, **vectors** use **contiguous** storage locations
 in an underlying (typically larger) array.
 Both array and vector elements can be accessed and
 traversed with the help of iterators, and they
 can also be accessed randomly using indexes.
 
-However, unlike basic arrays, vectors have a dynamic size meaning that whenever
+However, unlike basic arrays, vectors have a **dynamic size** meaning that whenever
 a new element is inserted or deleted,
 their size changes automatically.
 A new element can be inserted into or deleted from any part of a vector,

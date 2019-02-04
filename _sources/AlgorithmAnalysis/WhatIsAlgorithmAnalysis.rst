@@ -13,7 +13,7 @@ the other?
 
 In order to answer this question, we need to remember that there is an
 important difference between a program and the underlying algorithm that
-the program is representing. As we stated in Chapter 1, an algorithm is
+the program is representing. As we stated in Chapter 1, an **algorithm** is
 a generic, step-by-step list of instructions for solving a problem. It
 is a method for solving any instance of the problem such that given a
 particular input, the algorithm produces the desired result. A program,
