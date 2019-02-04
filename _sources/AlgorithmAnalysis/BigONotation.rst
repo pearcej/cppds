@@ -41,7 +41,7 @@ the :math:`T(n)` function tends to overpower the rest. This dominant
 term is what, in the end, is used for comparison. The **order of
 magnitude** function describes the part of :math:`T(n)` that increases
 the fastest as the value of *n* increases. Order of magnitude is often
-called **Big-O** notation (for “order”) and written as
+called **Big-O notation** (for “order”) and written as
 :math:`O(f(n))`. It provides a useful approximation to the actual
 number of steps in the computation. The function :math:`f(n)` provides
 a simple representation of the dominant part of the original

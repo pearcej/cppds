@@ -185,3 +185,56 @@ data structures can be found on the C++ website.
         :feedback_e: The only hash table operations that are not O(1) are those that require iteration.
 
         Which of the hash table operations shown below is O(1)?
+
+        ..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+            This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
+
+
+Summary
+-------
+
+-  Algorithm analysis is an implementation-independent way of measuring
+   an algorithm.
+
+-  Big-O notation allows algorithms to be classified by their dominant
+   process with respect to the size of the problem.
+
+
+Self Check
+-----------
+
+.. dragndrop:: growth
+    :feedback: Compare the functions at different values to see how they compare
+    :match_1: math:`n^{2}`|||1st
+    :match_2: math:`2^{n}`|||2nd
+    :match_3: math:`nlogn`|||3rd
+    :match_4: math:`logn`|||4th
+
+    Drag the order of growth rates to their rankings from lowest to highest (the highest growth rate should be #1)
+
+.. mchoice:: resources
+   :multiple_answers:
+   :answer_a: language constraints
+   :answer_b: Space
+   :answer_c: Time
+   :answer_d: Energy
+   :correct: b,c
+   :feedback_a: No, we do not consider the restraints of a language when thinking about how efficient an algorithm is.
+   :feedback_b: Yes, we consider how much space we need to solve a problem.
+   :feedback_c: Yes, we consider how much time it takes to solve a problem
+   :feedback_d: No, we do not consider how much energy it takes at this point.
+
+   When considering computer resources, what factors do we have in mind?
+
+.. mchoice:: bigO
+  :answer_a: the space it takes
+  :answer_b: the time it takes
+  :answer_c: the number of steps
+  :answer_d: the readability of the code
+  :correct: c
+  :feedback_a: This can be dependent of the programming language
+  :feedback_b: This can be dependent on the machine, programming language, and other factors
+  :feedback_c: Yes, when quantifying the time it takes to execute an algorithm we base it on the number of steps it takes to solve the problem, not the time it takes
+  :feedback_d: No, a very efficient algorithm can be programmed efficiently in C++ without any extra spaces making it unreadable, however the solution would still be efficient.
+
+  When considering the Big O of an algorithm, what do we use to quantify our description of an algorithm.

@@ -13,7 +13,6 @@ Analysis
     VectorAnalysis.rst
     StringAnalysis.rst
     HashTableAnalysis.rst
-    Summary.rst
-    KeyTerms.rst
     DiscussionQuestions.rst
     ProgrammingExercises.rst
+    Glossary.rst
