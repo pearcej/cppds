@@ -233,6 +233,25 @@ and then computing the difference, we can get an exact number of seconds
 calls embedded before and after the summation. The function returns the amount of time (in seconds)
 required for the calculation.
 
+Consider the following code block:
+
+::
+
+    int n = 1000;
+    int theSum = 0;
+    for (int i=0; i<n+1; i++){
+      theSum = theSum + 1; //how many times?
+    }
+
+.. fillintheblank:: bigo1
+
+   How many times is the `count = count + 1` line executed?
+
+   - :1001: Right! Good job!
+     :1000: No. Look carefully at the loop condition i<n+1.
+     :default: Incorrect. Please try again.
+
+
 Some Needed Math Notation
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -251,6 +270,21 @@ we are summing. So,
 tells us to add the integers :math:`1+2+3+4+5`
 because just like in a `for` loop, we plug a value for each `i` value.
 Similarly, :math:`\sum_{i=2}^{4} i^2` means :math:`2^2+3^2+4^2`.
+
+.. mchoice:: somemath1
+    :answer_a: 6
+    :answer_b: 14
+    :answer_c: 25
+    :answer_d: 36
+    :answer_e: None of the above.
+    :correct: a
+    :feedback_a: No. Use i = 1, i = 2, and i = 3, plugging into i^3.
+    :feedback_b: No. Use i = 1, i = 2, and i = 3, plugging into i^3.
+    :feedback_c: No. Use i = 1, i = 2, and i = 3, plugging into i^3.
+    :feedback_d: Right! It is 1^3 + 2^3 + 3^3 = 1 + 8 + 17.
+    :feedback_e: One of the above is correct!
+
+    Compute the result of :math:`\sum_{i=1}^{3} i^3`
 
 
 Applying the Math Notation
@@ -279,6 +313,26 @@ Hence, when we have a variable `n`, we have learned that we can just the
 closed equation :math:`\sum_{i=1}^{n} i = \frac {(n)(n+1)}{2}` to
 compute the sum of the first ``n`` integers without iterating.
 
+Consider the following function:
+
+::
+
+    int sumOfN3(int n){
+      int sum_n = (n*(n+1))/2; // how many times?
+      return sum_n;
+    }
+
+.. fillintheblank:: bigo2
+
+   If `SumOfN3` is called once with a parameter of `n=10`, how many times is the `int sum_n = (n*(n+1))/2;` line executed?
+
+   - :1: Right! Good job!
+     :10: No, consider that the function is called only once, and n is the parameter.
+     :default: Incorrect. Please try again.
+
+
+
+
 We see this in :ref:`ActiveCode 4 <active3cpp>`,
 which shows ``sumOfN3``
 taking advantage of the formula we just developed.
@@ -298,9 +352,7 @@ taking advantage of the formula we just developed.
         #include <ctime>
 
         int sumOfN3(int n){
-
             int sum_n = (n*(n+1))/2;
-
             return sum_n;
         }
 

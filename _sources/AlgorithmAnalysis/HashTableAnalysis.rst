@@ -186,8 +186,8 @@ data structures can be found on the C++ website.
 
         Which of the hash table operations shown below is O(1)?
 
-        ..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
-            This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+    This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
 Summary
@@ -205,10 +205,10 @@ Self Check
 
 .. dragndrop:: growth
     :feedback: Compare the functions at different values to see how they compare
-    :match_1: math:`n^{2}`|||1st
-    :match_2: math:`2^{n}`|||2nd
-    :match_3: math:`nlogn`|||3rd
-    :match_4: math:`logn`|||4th
+    :match_1: n^2|||1st
+    :match_2: 2^n|||2nd
+    :match_3: nlogn|||3rd
+    :match_4: logn|||4th
 
     Drag the order of growth rates to their rankings from lowest to highest (the highest growth rate should be #1)
 
