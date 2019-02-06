@@ -5,57 +5,62 @@
 Discussion Questions
 --------------------
 
-#. Give the Big-O performance of the following code fragment:
+1. Give the Big-O performance of the following code fragment:
 
 ::
-
+  
+    int count = 0;
     for (int i = 0; i < n; i++){
        for (int j = 0; j < n; j++){
-           k = 2 + 2;
+           count = count +1;
        }
     }
 
-#. Give the Big-O performance of the following code fragment:
+2. Give the Big-O performance of the following code fragment:
 
 ::
 
+    int count = 0;
     for (int i = 0; i < n; i++){
-       k = 2 + 2;
+       count = count + 1;
     }
 
-#. Give the Big-O performance of the following code fragment:
+3. Give the Big-O performance of the following code fragment:
 
 ::
 
     int i = n;
+    int count = 0;
     while (i > 0){
-       k = 2 + 2
-       i = i // 2
+        count = count + 1;
+        i = i / 2; //Note: integer division
     }
 
-#. Give the Big-O performance of the following code fragment:
+4. Give the Big-O performance of the following code fragment:
 
 ::
 
+    int count = 0;
     for (int i = 0; i < n; i++){
         for (int j = 0; j < n; j++){
             for (int k = 0; k < n; k++){
-                k = 2 + 2;
+                count = count +1;
             }
         }
     }
 
 
-#. Give the Big-O performance of the following code fragment:
+5. Give the Big-O performance of the following code fragment:
 
 ::
 
+    int count = 0;
     for (int i = 0; i < n; i++){
-        k = 2 + 2;
+        count = count + 1;
     }
     for (int j = 0; j < n; j++){
-        k = 2 + 2;
+        count = count + 1;
     }
     for (int k = 0; k < n; k++){
-        k = 2 + 2;
+        count = count + 1;
     }
