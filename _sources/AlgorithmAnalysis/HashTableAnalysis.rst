@@ -210,7 +210,7 @@ Self Check
     :match_3: nlogn|||3rd
     :match_4: logn|||4th
 
-    Drag the order of growth rates to their rankings from lowest to highest (the highest growth rate should be #1)
+    Drag the order of growth rates to their rankings from lowest to highest (the slowest i.e. the highest growth rate should be #1)
 
 .. mchoice:: resources
    :multiple_answers:

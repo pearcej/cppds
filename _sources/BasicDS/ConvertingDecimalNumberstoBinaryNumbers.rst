@@ -29,12 +29,13 @@ answer is an algorithm called “Divide by 2” that uses a stack to keep
 track of the digits for the binary result.
 
 The Divide by 2 algorithm assumes that we start with an integer greater
-than 0. A simple iteration then continually divides the decimal number
-by 2 and keeps track of the remainder. The first division by 2 gives
+than 0. A simple iteration then continually uses integer division to
+divide the decimal number
+by 2 and to keep track of the remainder. The first division by 2 gives
 information as to whether the value is even or odd. An even value will
-have a remainder of 0. It will have the digit 0 in the ones place. An
+have a remainder of 0. It will have the digit 0 in the 1s place. An
 odd value will have a remainder of 1 and will have the digit 1 in the
-ones place. We think about building our binary number as a sequence of
+1s place. We think about building our binary number as a sequence of
 digits; the first remainder we compute will actually be the last digit
 in the sequence. As shown in :ref:`Figure 5 <fig_decbin>`, we again see the
 reversal property that signals that a stack is likely to be the
@@ -48,12 +49,13 @@ appropriate data structure for solving the problem.
    Figure 5: Decimal-to-Binary Conversion
 
 
-The C++ and Python code in :ref:`ActiveCode 1 <lst_binconverter>` implements the Divide by 2
+The code in :ref:`ActiveCode 1 <lst_binconverter>`
+implements the Divide by 2
 algorithm. The function ``divideBy2`` takes an argument that is a
-decimal number and repeatedly divides it by 2. Line 7 uses the built-in
-modulo operator, %, to extract the remainder and line 8 then pushes it
+decimal number and repeatedly divides it by 2. Line 11 uses the built-in
+modulo operator, %, to extract the remainder and line 12 then pushes it
 on the stack. After the division process reaches 0, a binary string is
-constructed in lines 11-13. Line 11 creates an empty string. The binary
+constructed in lines 16-19. Line 16 creates an empty string. The binary
 digits are popped from the stack one at a time and appended to the
 right-hand end of the string. The binary string is then returned.
 
@@ -124,12 +126,13 @@ right-hand end of the string. The binary string is then returned.
 
 The algorithm for binary conversion can easily be extended to perform
 the conversion for any base. In computer science it is common to use a
-number of different encodings. The most common of these are binary,
+number of different base encodings for integers.
+The most common of these are binary (base 2),
 octal (base 8), and hexadecimal (base 16).
 
 The decimal number :math:`233` and its corresponding octal and
 hexadecimal equivalents :math:`351_{8}` and :math:`E9_{16}` are
-interpreted as
+interpreted as:
 
 :math:`3\times8^{2} + 5\times8^{1} + 1\times8^{0}`
 
@@ -145,9 +148,10 @@ takes a decimal number and any base between 2 and 16 as parameters. The
 remainders are still pushed onto the stack until the value being
 converted becomes 0. The same left-to-right string construction
 technique can be used with one slight change. Base 2 through base 10
-numbers need a maximum of 10 digits, so the typical digit characters 0,
+numbers require a maximum of 10 digits, so the typical digit characters 0,
 1, 2, 3, 4, 5, 6, 7, 8, and 9 work fine. The problem comes when we go
-beyond base 10. We can no longer simply use the remainders, as they are
+beyond base 10. We can no longer simply use these remainders as digits,
+because they are
 themselves represented as two-digit decimal numbers. Instead we need to
 create a set of digits that can be used to represent those remainders
 beyond 9.
@@ -189,8 +193,9 @@ beyond 9.
       }
 
       int main() {
-      	cout << baseConverter(25,2)<<endl;
-        cout << baseConverter(25,16)<<endl;
+        int mynum = 25;
+      	cout << baseConverter(mynum, 2) << endl;
+        cout << baseConverter(mynum, 16) << endl;
 
         return 0;
       }
@@ -219,16 +224,18 @@ beyond 9.
             return newString
 
         def main():
-            print(baseConverter(25,2))
-            print(baseConverter(25,16))
+            imynum = 25
+            print(baseConverter(mynum, 2))
+            print(baseConverter(mynum, 16))
         main()
 
 A solution to this problem is to extend the digit set to include some
-alphabet characters. For example, hexadecimal uses the ten decimal
+additional characters to represent digits.
+For example, hexadecimal uses the ten decimal
 digits along with the first six alphabet characters for the 16 digits.
-To implement this, a digit string is created (line 4 in
+To implement this, a digit string is created (line 8 in
 :ref:`Listing 6 <lst_baseconverter>`) that stores the digits in their corresponding
-positions. 0 is at position 0, 1 is at position 1, A is at position 10,
+positions. The digit 0 is at string position 0, 1 is at position 1, A is at position 10,
 B is at position 11, and so on. When a remainder is removed from the
 stack, it can be used to index into the digit string and the correct
 resulting digit can be appended to the answer. For example, if the
@@ -239,21 +246,21 @@ resulting string.
 
    .. fillintheblank:: baseconvert1
 
-      What is value of 25 expressed as an octal number?
+      What is value of 25 expressed as an octal (base 8) number?
 
       |blank|
 
-      -  :31: Correct.
-         :x: Incorrect
+      -  :31: Correct because 25 = 3x8 + 1.
+         :x: Incorrect. Try again.
 
    .. fillintheblank:: baseconvert2
 
-      What is value of 256 expressed as a hexidecimal number?
+      What is value of 256 expressed as a hexadecimal (base 16) number?
 
       |blank|
 
-      -  :100: Correct.
-         :x: Incorrect.
+      -  :100: Correct because 265 = 1x16^2.
+         :x: Incorrect. Try again.
 
    .. fillintheblank:: baseconvert3
 
@@ -261,5 +268,5 @@ resulting string.
 
       |blank|
 
-      -  :10: Correct.
-         :x: You may need to modify the baseConverter function, or simply find a pattern in the conversion of bases.
+      -  :10: Correct because 26 = 1x26^1.
+         :x: No. You might want to modify the baseConverter function, or simply find a pattern in the conversion of bases.

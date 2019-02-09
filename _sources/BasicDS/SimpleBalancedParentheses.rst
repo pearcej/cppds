@@ -11,8 +11,8 @@ problems. You have no doubt written arithmetic expressions such as
 :math:`(5+6)*(7+8)/(4+3)`
 
 where parentheses are used to order the performance of operations. You
-may also have some experience programming in a language such as Lisp
-with constructs like
+may also have some experience programming in a language such as Lisp or Scheme
+with constructs like:
 
 ::
 
@@ -20,7 +20,7 @@ with constructs like
          (* n n))
 
 This defines a function called ``square`` that will return the square of
-its argument ``n``. Lisp is notorious for using lots and lots of
+its argument ``n``. Scheme and Lisp are both notorious for using lots and lots of
 parentheses.
 
 In both of these examples, parentheses must appear in a balanced
@@ -168,12 +168,12 @@ this algorithm is shown in :ref:`ActiveCode 1 <lst_parcheck1>`.
 
 
 This function, ``parChecker``, assumes that a ``Stack`` class is
-available and returns a boolean result as to whether the string of
-parentheses is balanced. Note that the boolean variable ``balanced`` is
-initialized to ``True`` as there is no reason to assume otherwise at the
+available and returns a Boolean result as to whether the string of
+parentheses is balanced. Note that the Boolean variable ``balanced`` is
+initialized to `true`` as there is no reason to assume otherwise at the
 start. If the current symbol is ``(``, then it is pushed on the stack
-(lines 9–10). Note also in line 15 that ``pop`` simply removes a symbol
+(lines 15-16). Note also in line 22 that ``pop`` simply removes a symbol
 from the stack. The returned value is not used since we know it must be
-an opening symbol seen earlier. At the end (lines 19–22), as long as the
+an opening symbol seen earlier. At the end (lines 28-31), as long as the
 expression is balanced and the stack has been completely cleaned off,
 the string represents a correctly balanced sequence of parentheses.

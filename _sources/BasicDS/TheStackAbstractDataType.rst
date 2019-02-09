@@ -25,7 +25,7 @@ given below.
    it. It needs no parameters. The stack is not modified.
 
 -  ``empty()`` tests to see whether the stack is empty. It needs no
-   parameters and returns a boolean value.
+   parameters and returns a Boolean value.
 
 -  ``size()`` returns the number of items on the stack. It needs no
    parameters and returns an integer.
