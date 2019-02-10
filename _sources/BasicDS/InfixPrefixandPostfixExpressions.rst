@@ -285,15 +285,15 @@ operators and placing + as the last operator in the postfix expression.
 
    Figure 9: Converting A \* B + C \* D to Postfix Notation
 
-In order to code the algorithm in C++, we will use a map
-called ``prec`` to hold the precedence values for the operators.
-(This works similarly to a dictionary data type from Python.) This
-map will map each operator char to an integer that can be compared
+In order to code the algorithm in C++, we will use a hash map
+called ``prec`` to hold the precedence values for the operators
+which will be implemented with an unordered map.
+This hash map will map each operator char to an integer that can be compared
 against the precedence levels of other operators (we have arbitrarily
 used the integers 3, 2, and 1). The left parenthesis will receive the
 lowest value possible. This way any operator that is compared against it
 will have higher precedence and will be placed on top of it.
-Line 18 (Line 15 in python) defines the operands to be any upper-case character or digit.
+Line 18 defines the operands to be any upper-case character or digit.
 The complete conversion function is
 shown in :ref:`ActiveCode 1 <lst_intopost>`.
 
@@ -309,14 +309,14 @@ shown in :ref:`ActiveCode 1 <lst_intopost>`.
 
       #include <iostream>
       #include <stack>
-      #include <map>
+      #include <unordered_map>
       #include <string>
       #include <vector>
 
       using namespace std;
 
       string infixToPostfix(string infixexpr) {
-          map <char,int> prec;
+          unordered_map <char,int> prec;
           prec['*']=3;
           prec['/']=3;
           prec['+']=2;
@@ -363,8 +363,8 @@ shown in :ref:`ActiveCode 1 <lst_intopost>`.
       }
 
       int main() {
-          cout<<infixToPostfix("A * B + C * D")<<endl;
-          cout<<infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )")<<endl;
+          cout<<infixToPostfix("A * B + C * D") << endl;
+          cout<<infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )") << endl;
 
           return 0;
       }
@@ -413,7 +413,7 @@ shown in :ref:`ActiveCode 1 <lst_intopost>`.
 
 --------------
 
-A few more examples of execution in the Python shell are shown below.
+A few more results of execution are shown below.
 
 ::
 
