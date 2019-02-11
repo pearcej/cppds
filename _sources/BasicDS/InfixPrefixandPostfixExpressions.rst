@@ -363,8 +363,10 @@ shown in :ref:`ActiveCode 1 <lst_intopost>`.
       }
 
       int main() {
-          cout<<infixToPostfix("A * B + C * D") << endl;
-          cout<<infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )") << endl;
+          cout <<"infix: A * B + C * D\n" << "postfix: ";
+          cout << infixToPostfix("A * B + C * D") << endl;
+          cout << "infix: ( A + B ) * C - ( D - E ) * ( F + G )\n" << "postfix: ";
+          cout << infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )") << endl;
 
           return 0;
       }
@@ -559,7 +561,8 @@ operator and then perform the proper arithmetic operation.
       }
 
       int main() {
-          cout << postfixEval("17 8 + 3 2 + /") << endl;
+          cout << "7 8 + 3 2 + /" << endl;
+          cout << postfixEval("7 8 + 3 2 + /") << endl;
 
           return 0;
       }
