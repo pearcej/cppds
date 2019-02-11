@@ -5,9 +5,9 @@
 Objectives
 ----------
 
--  To understand the abstract data types stack, queue, and deque.
+-  To understand the abstract data types: stack, queue, and deque.
 
-- To be able to use the ADTs stack, queue, and deque using Standard Template Library of C++
+- To be able to use the ADTs (stack, queue, and deque) using Standard Template Library of C++
 
 -  To understand the performance of the implementations of basic linear
    data structures.
