@@ -61,12 +61,12 @@ operands that they work on. Postfix, on the other hand, requires that
 its operators come after the corresponding operands. A few more examples
 should help to make this a bit clearer (see :ref:`Table 2 <tbl_example1>`).
 
-A + B \* C would be written as + A \* B C in prefix. The multiplication
+In prefix, A + B \* C would be written as + A \* B C . The multiplication
 operator comes immediately before the operands B and C, denoting that \*
 has precedence over +. The addition operator then appears before the A
 and the result of the multiplication.
 
-In postfix, the expression would be A B C \* +. Again, the order of
+In postfix, the expression  A + B \* C would be A B C \* +. Again, the order of
 operations is preserved since the \* appears immediately after the B and
 the C, denoting that \* has precedence, with + coming after. Although
 the operators moved and now appear either before or after their

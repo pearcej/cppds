@@ -24,6 +24,6 @@ Linear Structures
     ImplementingaDequeCpp.rst
     PalindromeChecker.rst
     Summary.rst
-    KeyTerms.rst
+    Glossary.rst
     DiscussionQuestions.rst
     ProgrammingExercises.rst

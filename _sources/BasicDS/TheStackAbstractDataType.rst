@@ -54,3 +54,16 @@ far right.
                      ``s.pop()``                ``['horse','dog']``
                     ``s.size()``                ``['horse','dog']``              ``2``
     ============================ ================================== ==================
+
+.. mchoice:: stack_datatypes
+   :answer_a: 's', 't', 'a', 'c', 'k', 's'
+   :answer_b: "Stacks"
+   :answer_c: 115, 116, 97, 99, 107
+   :answer_d: "St", 'a', "ck", 's'
+   :correct: d
+   :feedback_a: No, this is valid for a stack. Check the reading for what types of data a stack can have.
+   :feedback_b: No, a stack can have only one item.
+   :feedback_c: No, this is valid for a stack similar to A. Check the reading.
+   :feedback_d: Yes, stacks should have data of the same type.
+
+   Which group of data would not make a valid Stack?
