@@ -108,3 +108,62 @@ complete function for palindrome-checking appears in
            print(palchecker("lsdkjfskf"))
            print(palchecker("radar"))
        main()
+       Summary
+       -------
+
+       -  Linear data structures maintain their data in an ordered fashion.
+
+       -  Stacks are simple data structures that maintain a LIFO, last-in
+          first-out, ordering.
+
+       -  The fundamental operations for a stack are ``push``, ``pop``, and
+          ``isEmpty``.
+
+       -  Queues are simple data structures that maintain a FIFO, first-in
+          first-out, ordering.
+
+       -  The fundamental operations for a queue are ``enqueue``, ``dequeue``,
+          and ``isEmpty``.
+
+       -  Prefix, infix, and postfix are all ways to write expressions.
+
+       -  Stacks are very useful for designing algorithms to evaluate and
+          translate expressions.
+
+       -  Stacks can provide a reversal characteristic.
+
+       -  Queues can assist in the construction of timing simulations.
+
+       -  Simulations use random number generators to create a real-life
+          situation and allow us to answer “what if” types of questions.
+
+       -  Deques are data structures that allow hybrid behavior like that of
+          stacks and queues.
+
+       -  The fundamental operations for a deque are ``addFront``, ``addRear``,
+          ``removeFront``, ``removeRear``, and ``isEmpty``.
+
+Self Check
+-----------
+
+.. dragndrop:: orderingPrinciples
+
+   :feedback: This is feedback.
+   :match_1: Stack|||last-in last-out
+   :match_2: Deque|||first-in first-out and last-in last-out
+   :match_3: Queue|||first-in first-out
+
+   Drag each data structure to its corresponding ordering principle
+
+
+.. clickablearea:: types
+ :question: Click on the cause of a syntax error in the following code.
+ :iscode:
+ :feedback: Remember how we declare variables
+
+ :click-correct:deque&lt;int&gt; d;:endclick:
+ :click-incorrect:d.push_back("Zebra");:endclick:
+ :click-incorrect:d.push_front("Turtle");:endclick:
+ :click-incorrect:d.push_front("Panda");:endclick:
+ :click-incorrect:d.push_back("Catfish");:endclick:
+ :click-incorrect:d.push_back("Giraffe");:endclick:
