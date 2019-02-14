@@ -5,21 +5,21 @@
 Using a Queue in C++
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now that we have clearly defined the queue as an abstract data type, similarly to the how we've previously used the Stack, we
-will turn our attention to using a queue with the help of the Standard Template Library (STL) in C++. Recall
-that when we give an abstract data type a physical implementation we
-refer to the implementation as a data structure.
+Now we will turn our attention to using the queue data structure
+with the help of the Standard Template Library (STL) in C++.
 
 As we described in Chapter 1, in C++, as in any object-oriented
-programming language, the implementation of choice for an abstract data
-type such as a queue is the creation of a new class. The queue
-operations are implemented as methods. However, the STL already has a well
-written implementation of the Queue class.
+programming language,
+the implementation of choice for an abstract data
+type such as a queue is a class in which the queue
+operations are implemented as methods.
+Fortunately, the STL already has a well
+written implementation of the queue class.
 
-The following queue implementation (:ref:`ActiveCode 1 <lst_queuecode1>`) assumes that
-the end of the vector will hold the rear element of the queue. As the queue
-grows (as ``push`` operations occur), new items will be added on the end
-of the vector. ``pop`` operations will manipulate the opposite side, the front end.
+In following queue implementation (:ref:`ActiveCode 1 <lst_queuecode1>`)
+as ``push`` operations occur, new items are always added on the **rear** end
+of the queue and ``pop`` operations will
+manipulate the opposite side, the **front** end.
 
 .. _lst_queuecode1:
 
@@ -28,11 +28,11 @@ of the vector. ``pop`` operations will manipulate the opposite side, the front e
   .. tab:: C++
 
     .. activecode:: queue1accpp
-      :caption: Using the Queue methods from the STL in C++
+      :caption: Using the queue methods from the STL in C++
       :language: cpp
 
       #include <iostream>
-      #include <queue> // Calling Queue from the STL
+      #include <queue> // Using an STL queue
 
       using namespace std;
 
@@ -83,9 +83,9 @@ of the vector. ``pop`` operations will manipulate the opposite side, the front e
        def main():
            q=Queue()
 
-           q.push(4)
-           q.push('dog')
-           q.push(True)
+           q.push(3)
+           q.push(8)
+           q.push(15)
 
 
            print("Queue Empty? ", q.isEmpty())
@@ -107,20 +107,19 @@ of the vector. ``pop`` operations will manipulate the opposite side, the front e
      :answer_b: 20, 30
      :answer_c: 10, 30
      :answer_d: 10, 20, 30
-     :feedback_a: Remember the first thing added to the queue is the first thing removed.  FIFO
-     :feedback_b: Yes, first in first out means that 10 is gone
-     :feedback_c: Queues, and Stacks are both data structures where you can only access the first and the last thing.
+     :feedback_a: Remember the first item added to the queue is the first item removed. Remember FIFO.
+     :feedback_b: Yes, first in first out means that the 10 is now gone.
+     :feedback_c: Queues and stacks are both data structures where you can only access the first or the last items.
      :feedback_d: Ooops, maybe you missed the pop call at the end?
 
      Suppose you have the following series of queue operations.
 
      ::
 
-         queue<int> intQueue;
+         queue<int> q;
          q.push(10);
          q.push(20);
          q.push(30);
          q.pop();
-
 
      What items are left on the queue?

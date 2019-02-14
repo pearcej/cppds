@@ -144,10 +144,10 @@ complete function for palindrome-checking appears in
           ``removeFront``, ``removeRear``, and ``isEmpty``.
 
 Self Check
------------
+----------
+
 
 .. dragndrop:: orderingPrinciples
-
    :feedback: This is feedback.
    :match_1: Stack|||last-in last-out
    :match_2: Deque|||first-in first-out and last-in last-out
@@ -156,7 +156,7 @@ Self Check
    Drag each data structure to its corresponding ordering principle
 
 
-.. clickablearea:: types
+.. clickablearea:: Remembertypes
  :question: Click on the cause of a syntax error in the following code.
  :iscode:
  :feedback: Remember how we declare variables

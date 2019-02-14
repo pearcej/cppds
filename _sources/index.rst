@@ -28,7 +28,7 @@ and Jan Pearce, Berea College
 
    Introduction/toctree.rst
    AlgorithmAnalysis/toctree.rst
-   BasicDS/toctree.rst
+   LinearBasic/toctree.rst
    LinearLinked/toctree.rst
    Recursion/toctree.rst
    SortSearch/toctree.rst

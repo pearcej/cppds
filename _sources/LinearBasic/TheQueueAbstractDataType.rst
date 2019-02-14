@@ -5,11 +5,12 @@
 The Queue Abstract Data Type
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The queue abstract data type is defined by the following structure and
+The **queue** abstract data type is defined by the following structure and
 operations. A queue is structured, as described above, as an ordered
 collection of items which are added at one end, called the “rear,” and
-removed from the other end, called the “front.” Queues maintain a FIFO
-ordering property. The queue operations are given below.
+removed from the other end, called the “front.” Queues maintain a
+**first-in-first-out (FIFO)**
+ordering property. The standard queue operations are given below.
 
 -  ``queue<dataType> queueName`` creates a new queue that is empty. It returns an empty queue.
 
@@ -20,7 +21,7 @@ ordering property. The queue operations are given below.
    parameters. The queue is modified.
 
 -  ``empty()`` tests to see whether the queue is empty. It needs no
-   parameters and returns a boolean value.
+   parameters and returns a Boolean value.
 
 -  ``size()`` returns the number of items in the queue. It needs no
    parameters and returns an integer.
@@ -42,12 +43,12 @@ is the first item returned by dequeue.
     ============================ ======================== ==================
              **Queue Operation**       **Queue Contents**   **Return Value**
     ============================ ======================== ==================
-                   ``q.empty()``                   ``[]``           ``True``
+                   ``q.empty()``                   ``[]``           ``true``
                    ``q.push(4)``                  ``[4]``
                   ``q.push(12)``               ``[12,4]``
                    ``q.push(3)``             ``[3,12,4]``
                     ``q.size()``             ``[3,12,4]``              ``3``
-                   ``q.empty()``             ``[3,12,4]``          ``False``
+                   ``q.empty()``             ``[3,12,4]``          ``false``
                   ``q.push(97)``          ``[97,3,12,4]``
                      ``q.pop()``            ``[97,3,12]``
                      ``q.pop()``               ``[97,3]``

@@ -569,7 +569,7 @@ operator and then perform the proper arithmetic operation.
 
   .. tab:: Python
 
-    .. activecode:: postfixeval
+    .. activecode:: postfixeval 
        :caption: Postfix Evaluation
        :nocodelens:
 
