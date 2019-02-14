@@ -149,8 +149,8 @@ Self Check
 
 .. dragndrop:: orderingPrinciples
    :feedback: This is feedback.
-   :match_1: Stack|||last-in last-out
-   :match_2: Deque|||first-in first-out and last-in last-out
+   :match_1: Stack|||last-in first-out
+   :match_2: Deque|||mixed depending upon input order
    :match_3: Queue|||first-in first-out
 
    Drag each data structure to its corresponding ordering principle
