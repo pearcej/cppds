@@ -15,10 +15,10 @@ Glossary
         each opening symbol has a corresponding closing symbol and the pairs of parentheses are properly nested
 
     deque
-        empty
+         an ordered collection of items with two ends and the items remain positioned in the collection. New items can be added at either the front or the rear
 
     first-in first-out (FIFO)
-        empty
+        ordering principle in which the first item added is also the first removed
 
     fully parenthesized
         the usage of one pair of parentheses for each operator
@@ -32,6 +32,9 @@ Glossary
     linear data structure
         a data structure with elements that have positions relative to each other
 
+    palindrome
+        a string that reads the same forward and backward
+
     postfix
         expression notation in which all operators come after the two operands that they work on
 
@@ -40,6 +43,12 @@ Glossary
 
     prefix
         expression notation in which all operators precede the two operands that they work on
+
+    queue
+         an ordered collection of items where the addition of new items happens at one end and the removal of existing items occurs at the other end
+
+    simulation
+          an imitation of a process or operations
 
     stack
         an ordered collection of items where the addition of new items and the removal of existing items always takes place at the same end

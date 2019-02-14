@@ -121,10 +121,6 @@ of the vector. ``pop`` operations will manipulate the opposite side, the front e
          q.push(20);
          q.push(30);
          q.pop();
-         q = Queue()
-         q.push('hello')
-         q.push('dog')
-         q.push(3)
-         q.pop()
+
 
      What items are left on the queue?
