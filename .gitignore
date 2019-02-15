@@ -1,0 +1,4 @@
+# Ignore the following:
+build_info
+*.pyc
+__pycache__/
