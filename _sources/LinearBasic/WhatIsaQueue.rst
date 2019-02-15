@@ -24,14 +24,14 @@ line (so that we can pop the tray stack). Well-behaved lines, or queues,
 are very restrictive in that they have only one way in and only one way
 out. There is no jumping in the middle and no leaving before you have
 waited the necessary amount of time to get to the front.
-:ref:`Figure 1 <fig_qubasicqueue>` shows a simple queue of Python data objects.
+:ref:`Figure 1 <fig_qubasicqueue1>` shows a simple queue of Python data objects.
 
-.. _fig_qubasicqueue:
+.. _fig_qubasicqueue1:
 
-.. figure:: Figures/basicqueue.png
+.. figure:: Figures/basicqueue1.png
    :align: center
 
-   Figure 1: A Queue of Python Data Objects
+   Figure 1: A queue of strings
 
 
 Computer science also has common examples of queues. Our computer

@@ -87,7 +87,6 @@ manipulate the opposite side, the **front** end.
            q.push(8)
            q.push(15)
 
-
            print("Queue Empty? ", q.isEmpty())
 
            print("Queue Size: ", q.size())
@@ -98,6 +97,7 @@ manipulate the opposite side, the **front** end.
 
            print("Front Element of the Queue: ", q.front())
        main()
+
 
 .. admonition:: Self Check
 
