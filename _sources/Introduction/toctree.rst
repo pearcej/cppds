@@ -10,14 +10,14 @@ Introduction
     WhatIsProgramming.rst
     WhyStudyDataStructuresandAbstractDataTypes.rst
     WhyStudyAlgorithms.rst
-    ReviewofBasicPython.rst
+    ReviewofBasicCpp.rst
     GettingStartedwithData.rst
-    InputandOutput.rst
-    ControlStructures.rst
-    ExceptionHandling.rst
+    CollectionData.rst
     DefiningFunctions.rst
-    ObjectOrientedProgramminginPythonDefiningClasses.rst
+    ObjectOrientedProgrammingDefiningClasses.rst
+    ObjectOrientedProgrammingDerivedClasses.rst
     Summary.rst
     KeyTerms.rst
+    Glossary.rst
     DiscussionQuestions.rst
     ProgrammingExercises.rst

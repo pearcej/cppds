@@ -51,9 +51,11 @@ assigned the value ``True`` if we discover the item in the list (Or vector, in t
 
         return found
 
-    testlist = [1, 2, 32, 8, 17, 19, 42, 13, 0]
-    print(sequentialSearch(testlist, 3))
-    print(sequentialSearch(testlist, 13))
+    def main():
+        testlist = [1, 2, 32, 8, 17, 19, 42, 13, 0]
+        print(sequentialSearch(testlist, 3))
+        print(sequentialSearch(testlist, 13))
+    main()
 
 .. _lst_seqsearchcpp:
 
@@ -65,12 +67,12 @@ assigned the value ``True`` if we discover the item in the list (Or vector, in t
   #include <vector>
   using namespace std;
 
-  bool sequentialSearch(vector<int> alist, int item) {
+  bool sequentialSearch(vector<int> avector, int item) {
       unsigned int pos = 0;
       bool found = false;
 
-      while (pos < alist.size() && !found) {
-          if (alist[pos] == item) {
+      while (pos < avector.size() && !found) {
+          if (avector[pos] == item) {
               found = true;
           } else {
               pos++;
@@ -83,10 +85,10 @@ assigned the value ``True`` if we discover the item in the list (Or vector, in t
   int main() {
       // Vector initialized using an array
       int arr[] = {1, 2, 32, 8, 17, 19, 42, 13, 0};
-      vector<int> testlist(arr,arr+(sizeof(arr)/sizeof(arr[0])));
+      vector<int> testvector(arr,arr+(sizeof(arr)/sizeof(arr[0])));
 
-      cout << sequentialSearch(testlist, 3) << endl;
-      cout << sequentialSearch(testlist, 13) << endl;
+      cout << sequentialSearch(testvector, 3) << endl;
+      cout << sequentialSearch(testvector, 13) << endl;
 
       return 0;
   }
@@ -190,22 +192,22 @@ sequential search function.
     print(orderedSequentialSearch(testlist, 13))
 
 .. activecode:: search2_cpp
-  :caption: C++ Sequential Search of an Ordered List
+  :caption: C++ Sequential Search of an Ordered vector
   :language: cpp
 
   #include <iostream>
   #include <vector>
   using namespace std;
 
-  bool orderedSequentialSearch(vector<int> alist, int item) {
+  bool orderedSequentialSearch(vector<int> avector, int item) {
       unsigned int pos = 0;
       bool found = false;
       bool stop = false;
-      while (pos < alist.size() && !found && !stop) {
-          if (alist[pos] == item) {
+      while (pos < avector.size() && !found && !stop) {
+          if (avector[pos] == item) {
               found = true;
           } else {
-              if (alist[pos] > item) {
+              if (avector[pos] > item) {
                   stop = true;
               } else {
                   pos++;
@@ -219,20 +221,20 @@ sequential search function.
   int main() {
       // Vector initialized using an array
       int arr[] = {0, 1, 2, 8, 13, 17, 19, 32, 42};
-      vector<int> testlist(arr,arr+(sizeof(arr)/sizeof(arr[0])));
+      vector<int> testvector(arr,arr+(sizeof(arr)/sizeof(arr[0])));
 
-      cout << orderedSequentialSearch(testlist, 3) << endl;
-      cout << orderedSequentialSearch(testlist, 13) << endl;
+      cout << orderedSequentialSearch(testvector, 3) << endl;
+      cout << orderedSequentialSearch(testvector, 13) << endl;
 
       return 0;
   }
 
 :ref:`Table 2 <tbl_seqsearchtable2>` summarizes these results. Note that in the best
-case we might discover that the item is not in the list by looking at
+case we might discover that the item is not in the vector by looking at
 only one item. On average, we will know after looking through only
 :math:`\frac {n}{2}` items. However, this technique is still
 :math:`O(n)`. In summary, a sequential search is improved by ordering
-the list only in the case where we do not find the item.
+the vector only in the case where we do not find the item.
 
 .. _tbl_seqsearchtable2:
 

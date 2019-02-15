@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -53,4 +53,3 @@ constructs and data types, although certainly sufficient to represent
 complex solutions, are typically at a disadvantage as we work through
 the problem-solving process. We need ways to control this complexity and
 assist with the creation of solutions.
-

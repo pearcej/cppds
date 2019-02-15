@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -41,7 +41,7 @@ the :math:`T(n)` function tends to overpower the rest. This dominant
 term is what, in the end, is used for comparison. The **order of
 magnitude** function describes the part of :math:`T(n)` that increases
 the fastest as the value of *n* increases. Order of magnitude is often
-called **Big-O** notation (for “order”) and written as
+called **Big-O notation** (for “order”) and written as
 :math:`O(f(n))`. It provides a useful approximation to the actual
 number of steps in the computation. The function :math:`f(n)` provides
 a simple representation of the dominant part of the original
@@ -66,6 +66,24 @@ ignore the other terms and focus on :math:`5n^{2}`. In addition, the
 coefficient :math:`5` becomes insignificant as *n* gets large. We
 would say then that the function :math:`T(n)` has an order of
 magnitude :math:`f(n)=n^{2}`, or simply that it is :math:`O(n^{2})`.
+
+
+    .. mchoice:: bigo3
+        :answer_a: O(2n)
+        :answer_b: O(n)
+        :answer_c: O(3n^2)
+        :answer_d: O(n^2)
+        :answer_e: More than one of the above
+        :correct: d
+        :feedback_a: No, 3n^2 dominates 2n. Try again.
+        :feedback_b: No, n^2 dominates n. Try again.
+        :feedback_c: No, the 3 should be omitted because n^2 dominates.
+        :feedback_d: Right!
+        :feedback_e: No, only one of them is correct. Try again.
+
+
+        If the exact number of steps is :math:`T(n)=2n+3n^{2}-1` what is the Big O?
+
 
 Although we do not see this in the summation example, sometimes the
 performance of an algorithm depends on the exact values of the data
@@ -204,4 +222,4 @@ to see that :math:`T(n)` then follows the quadratic function as
 
 .. admonition:: Self Check
 
-   Write two C++ functions to find the minimum number in a list.  The first function should compare each number to every other number on the list. :math:`O(n^2)`.  The second function should be linear :math:`O(n)`.
+   Write two C++ functions to find the minimum number in an array.  The first function should compare each number to every other number on the array. :math:`O(n^2)`.  The second function should be linear :math:`O(n)`.

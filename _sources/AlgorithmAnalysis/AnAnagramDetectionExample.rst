@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -12,7 +12,7 @@ of the first. For example, ``"heart"`` and ``"earth"`` are anagrams. The
 strings ``"python"`` and ``"typhon"`` are anagrams as well. For the sake
 of simplicity, we will assume that the two strings in question are of
 equal length and that they are made up of symbols from the set of 26
-lowercase alphabetic characters. Our goal is to write a boolean function
+lowercase alphabetic characters. Our goal is to write a Boolean function
 that will take two strings and return whether they are anagrams.
 
 Solution 1: Checking Off
@@ -22,10 +22,12 @@ Our first solution to the anagram problem will check the lengths of the
 strings and then to see that each character in the first string actually
 occurs in the second. If it is possible to “checkoff” each character, then
 the two strings must be anagrams. Checking off a character will be
-accomplished by replacing it with the special C++ value ``NULL``.
-However, since strings in C++ are immutable, the first step in the
-process will be to convert the second string to an array. Each character
-from the first string can be checked against the characters in the list
+accomplished by replacing it with the special C++ character ``\0``.
+The first step in the
+process will be to convert the second string to a local second string
+for checking off.
+Each character
+from the first string can be checked against the characters in the local second string
 and if found, checked off by replacement. :ref:`ActiveCode 1 <lst_anagramSolution>` shows this function.
 
 .. _lst_anagramSolution:
@@ -43,31 +45,27 @@ and if found, checked off by replacement. :ref:`ActiveCode 1 <lst_anagramSolutio
         using namespace std;
 
         bool anagramsolution1(string s1, string s2){
-            bool stillOK;
+            bool stillOK = true;
             if (s1.length() != s2.length()) {
                 stillOK = false;
+                return stillOK;
             }
+            string locals2 = s2;
             int n = s1.length();
-            char alist[n-1];
-            for (int i = 0; i<n; i++){
-                alist[i] = s2[i];
-            }
-
             unsigned int pos1 = 0;
-            stillOK = true;
 
             while (pos1 < s1.length() && stillOK){
                 int pos2 = 0;
                 bool found = false;
                 while (pos2 < n && !found){
-                    if (s1[pos1] == alist[pos2]){
+                    if (s1[pos1] == locals2[pos2]){
                         found = true;
                     } else{
                         pos2 = pos2 + 1;
                     }
                 }
                 if (found){
-                    alist[pos2] = 0;
+                    locals2[pos2] = '\0';
                 }
                 else{
                     stillOK = false;
@@ -89,25 +87,25 @@ and if found, checked off by replacement. :ref:`ActiveCode 1 <lst_anagramSolutio
         :caption: Checking Off Python
 
         def anagramSolution1(s1,s2):
+            stillOK = True
             if len(s1) != len(s2):
                 stillOK = False
+                return stillOK
 
-            alist = list(s2)
-
+            lists2 = list(s2)
             pos1 = 0
-            stillOK = True
 
             while pos1 < len(s1) and stillOK:
                 pos2 = 0
                 found = False
-                while pos2 < len(alist) and not found:
-                    if s1[pos1] == alist[pos2]:
+                while pos2 < len(lists2) and not found:
+                    if s1[pos1] == lists2[pos2]:
                         found = True
                     else:
                         pos2 = pos2 + 1
 
                 if found:
-                    alist[pos2] = None
+                    lists2[pos2] = None
                 else:
                     stillOK = False
 
@@ -121,8 +119,8 @@ and if found, checked off by replacement. :ref:`ActiveCode 1 <lst_anagramSolutio
 
 To analyze this algorithm, we need to note that each of the *n*
 characters in ``s1`` will cause an iteration through up to *n*
-characters in the list from ``s2``. Each of the *n* positions in the
-list will be visited once to match a character from ``s1``. The number
+characters in the array from ``s2``. Each of the *n* positions in the
+array will be visited once to match a character from ``s1``. The number
 of visits then becomes the sum of the integers from 1 to *n*. We stated
 earlier that this can be written as
 
@@ -143,8 +141,7 @@ even though ``s1`` and ``s2`` are different, they are anagrams only if
 they consist of exactly the same characters. So, if we begin by sorting
 each string alphabetically, from a to z, we will end up with the same
 string if the original two strings are anagrams. :ref:`ActiveCode 2 <lst_ana2>` shows
-this solution. Again, in Python we can use the built-in ``sort`` method
-on lists by simply converting each string to a list at the start.
+this solution.
 
 .. _lst_ana2:
 
@@ -162,26 +159,14 @@ on lists by simply converting each string to a list at the start.
         using namespace std;
 
         bool anagramsolution2(string s1, string s2){
-            unsigned int n = s1.length();
-            char alist1[n-1];
-            for (unsigned int i = 0; i < n; i++){
-                alist1[i] = s1[i];
-            }
-
-            unsigned int len = s2.length();
-            char alist2[len-1];
-            for (unsigned int x = 0; x < len; x++){
-                alist2[x] = s2[x];
-            }
-
-            sort(alist1, alist1+n);
-            sort(alist2, alist2+len);
+            sort(s1.begin(), s1.end());
+            sort(s2.begin(), s2.end());
 
             unsigned int pos = 0;
             bool matches = true;
 
             while (pos < s1.length() && matches){
-                if (alist1[pos] == alist2[pos]){
+                if (s1[pos] == s2[pos]){
                     pos = pos + 1;
                 } else{
                     matches = false;
@@ -224,7 +209,9 @@ on lists by simply converting each string to a list at the start.
         main()
 
 At first glance you may be tempted to think that this algorithm is
-:math:`O(n)`, since there is one simple iteration to compare the *n*
+:math:`O(n)`, since there are three consecutive simple iterations:
+the first two to convert strings to char arrays and the last
+to compare the *n*
 characters after the sorting process. However, the two calls to the
 C++ ``sort`` function are not without their own cost. As we will see in
 a later chapter, sorting is typically either :math:`O(n^{2})` or
@@ -237,7 +224,7 @@ Solution 3: Brute Force
 
 A **brute force** technique for solving a problem typically tries to
 exhaust all possibilities. For the anagram detection problem, we can
-simply generate a list of all possible strings using the characters from
+simply generate an array of all possible strings using the characters from
 ``s1`` and then see if ``s2`` occurs. However, there is a difficulty
 with this approach. When generating all possible strings from ``s1``,
 there are *n* possible first characters, :math:`n-1` possible
@@ -251,7 +238,7 @@ It turns out that :math:`n!` grows even faster than :math:`2^{n}` as
 *n* gets large. In fact, if ``s1`` were 20 characters long, there would
 be :math:`20!=2,432,902,008,176,640,000` possible candidate strings.
 If we processed one possibility every second, it would still take us
-77,146,816,596 years to go through the entire list. This is probably not
+77,146,816,596 years to go through the entire array. This is probably not
 going to be a good solution.
 
 Solution 4: Count and Compare
@@ -261,10 +248,10 @@ Our final solution to the anagram problem takes advantage of the fact
 that any two anagrams will have the same number of a’s, the same number
 of b’s, the same number of c’s, and so on. In order to decide whether
 two strings are anagrams, we will first count the number of times each
-character occurs. Since there are 26 possible characters, we can use a
-list of 26 counters, one for each possible character. Each time we see a
+character occurs. Since there are 26 possible characters, we can use an array
+of 26 counters, one for each possible character. Each time we see a
 particular character, we will increment the counter at that position. In
-the end, if the two lists of counters are identical, the strings must be
+the end, if the two arrays of counters are identical, the strings must be
 anagrams. :ref:`ActiveCode 3 <lst_ana4>` shows this solution.
 
 .. _lst_ana4:
@@ -353,14 +340,14 @@ anagrams. :ref:`ActiveCode 3 <lst_ana4>` shows this solution.
 Again, the solution has a number of iterations. However, unlike the
 first solution, none of them are nested. The first two iterations used
 to count the characters are both based on *n*. The third iteration,
-comparing the two lists of counts, always takes 26 steps since there are
+comparing the two arrays of counts, always takes 26 steps since there are
 26 possible characters in the strings. Adding it all up gives us
 :math:`T(n)=2n+26` steps. That is :math:`O(n)`. We have found a
 linear order of magnitude algorithm for solving this problem.
 
 Before leaving this example, we need to say something about space
 requirements. Although the last solution was able to run in linear time,
-it could only do so by using additional storage to keep the two lists of
+it could only do so by using additional storage to keep the two arrays of
 character counts. In other words, this algorithm sacrificed space in
 order to gain time.
 
@@ -380,10 +367,10 @@ problem.
        :answer_c: O(log n)
        :answer_d: O(n^3)
        :correct: b
-       :feedback_a: In an example like this you want to count the nested loops. especially the loops that are dependent on the same variable, in this case, n.
-       :feedback_b: A singly nested loop like this is O(n^2)
-       :feedback_c: log n typically is indicated when the problem is iteratively made smaller
-       :feedback_d: In an example like this you want to count the nested loops. especially the loops that are dependent on the same variable, in this case, n.
+       :feedback_a: No. In an example like this you want to count the nested loops, especially the loops that are dependent on the same variable, in this case, n.
+       :feedback_b: Right! A nested loop like this is O(n^2).
+       :feedback_c: No. log n typically is indicated when the problem is iteratively made smaller
+       :feedback_d: No. In an example like this you want to count the nested loops. especially the loops that are dependent on the same variable, in this case, n.
 
        Given the following code fragment, what is its Big-O running time?
 
@@ -405,10 +392,10 @@ problem.
        :answer_c: O(log n)
        :answer_d: O(n^3)
        :correct: a
-       :feedback_b: Be careful, in counting loops you want to make sure the loops are nested.
-       :feedback_d: Be careful, in counting loops you want to make sure the loops are nested.
-       :feedback_c: log n typically is indicated when the problem is iteratvely made smaller
-       :feedback_a: Even though there are two loops they are not nested.  You might think of this as O(2n) but we can ignore the constant 2.
+       :feedback_a: Right! Even though there are two loops they are not nested.  You might think of this as O(2n) but we can ignore the constant 2.
+       :feedback_b: No. Be careful, in counting loops you want to look carefully at whether or not the loops are nested.
+       :feedback_c: No. log n typically is indicated when the problem is iteratively made smaller.
+       :feedback_d: No. Be careful, in counting loops you want to look carefully at whether or not the loops are nested.
 
        Given the following code fragment what is its Big-O running time?
 
@@ -431,10 +418,10 @@ problem.
        :answer_c: O(log n)
        :answer_d: O(n^3)
        :correct: c
-       :feedback_a: Look carefully at the loop variable i.  Notice that the value of i is cut in half each time through the loop.  This is a big hint that the performance is better than O(n)
-       :feedback_b: Check again, is this a nested loop?
-       :feedback_d: Check again, is this a nested loop?
-       :feedback_c: The value of i is cut in half each time through the loop so it will only take log n iterations.
+       :feedback_a: No. Look carefully at the loop variable i.  Notice that the value of i is cut in half each time through the loop.  This is a big hint that the performance is better than O(n)
+       :feedback_b: No. Check again, is this a nested loop?
+       :feedback_c: Right! The value of i is cut in half each time through the loop so it will only take log n iterations.
+       :feedback_d: No. Check again, is this a nested loop?
 
        Given the following code fragment what is its Big-O running time?
 
@@ -442,8 +429,9 @@ problem.
 
          int main(){
              int i = n;
+             int count = 0;
              while (i > 0){
-                 int k = 2 + 2;
+                 count = count + 1;
                  i = i // 2;
              }
              return 0;

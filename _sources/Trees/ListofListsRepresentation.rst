@@ -183,20 +183,21 @@ structure resulting from this set of calls.
     def getRightChild(root):
         return root[2]
 
-    r = BinaryTree(3)
-    insertLeft(r,4)
-    insertLeft(r,5)
-    insertRight(r,6)
-    insertRight(r,7)
-    l = getLeftChild(r)
-    print(l)
+    def main():
+        r = BinaryTree(3)
+        insertLeft(r,4)
+        insertLeft(r,5)
+        insertRight(r,6)
+        insertRight(r,7)
+        l = getLeftChild(r)
+        print(l)
 
-    setRootVal(l,9)
-    print(r)
-    insertLeft(l,11)
-    print(r)
-    print(getRightChild(getRightChild(r)))
-
+        setRootVal(l,9)
+        print(r)
+        insertLeft(l,11)
+        print(r)
+        print(getRightChild(getRightChild(r)))
+    main()
 
 .. admonition:: Self Check
 
@@ -233,8 +234,10 @@ structure resulting from this set of calls.
 
       def buildTree():
           pass
-
-      ttree = buildTree()
-      testEqual(getRootVal(getRightChild(ttree)),'c')
-      testEqual(getRootVal(getRightChild(getLeftChild(ttree))),'d')
-      testEqual(getRootVal(getRightChild(getRightChild(ttree))),'f')
+          
+      def main():
+          ttree = buildTree()
+          testEqual(getRootVal(getRightChild(ttree)),'c')
+          testEqual(getRootVal(getRightChild(getLeftChild(ttree))),'d')
+          testEqual(getRootVal(getRightChild(getRightChild(ttree))),'f')
+      main()

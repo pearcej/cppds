@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -39,4 +39,3 @@ problems, we will also need to know and understand solution evaluation
 techniques. In the end, there are often many ways to solve a problem.
 Finding a solution and then deciding whether it is a good one are tasks
 that we will do over and over again.
-

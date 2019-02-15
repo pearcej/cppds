@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 What Is Algorithm Analysis?
@@ -13,7 +13,7 @@ the other?
 
 In order to answer this question, we need to remember that there is an
 important difference between a program and the underlying algorithm that
-the program is representing. As we stated in Chapter 1, an algorithm is
+the program is representing. As we stated in Chapter 1, an **algorithm** is
 a generic, step-by-step list of instructions for solving a problem. It
 is a method for solving any instance of the problem such that given a
 particular input, the algorithm produces the desired result. A program,
@@ -71,7 +71,8 @@ iterates through the *n* integers, adding each to the accumulator.
             print(sumOfN(10))
         main()
 
-Now look at the function in :ref:`ActiveCode 2 <lst_sum2>`. At first glance it may look
+Now look at the function in :ref:`ActiveCode 2 <lst_sum2>`.
+At first glance it may look
 strange, but upon further inspection you can see that this function is
 essentially doing the same thing as the previous one. The reason this is
 not obvious is poor coding. We did not use good identifier names to
@@ -159,7 +160,8 @@ the function ``sumOfN`` is to do a benchmark analysis. This means that
 we will track the actual time required for the program to compute its
 result. In C++, we can benchmark a function by noting the starting
 time and ending time with respect to the system we are using. In the
-``ctime`` library there is a function called ``clock`` that will return the current system clock time in seconds since some arbitrary starting
+``ctime`` library there is a function called ``clock`` that will return the
+current system clock time in seconds since some arbitrary starting
 point. By calling this function twice, at the beginning and at the end,
 and then computing the difference, we can get an exact number of seconds
 (fractions in most cases) for execution.
@@ -226,14 +228,114 @@ and then computing the difference, we can get an exact number of seconds
         main()
 
 
+
 :ref:`Listing 3 <lst_sum11>` shows the original ``sumOfN`` function with the timing
 calls embedded before and after the summation. The function returns the amount of time (in seconds)
 required for the calculation.
 
-Now consider :ref:`ActiveCode 3 <lst_sum3>`, which shows a different means of solving
-the summation problem. This function, ``sumOfN3``, takes advantage of a
+Consider the following code block:
+
+::
+
+    int n = 1000;
+    int theSum = 0;
+    for (int i=0; i<n+1; i++){
+      theSum = theSum + 1; //how many times?
+    }
+
+.. fillintheblank:: bigo1
+
+   How many times is the `count = count + 1` line executed?
+
+   - :1001: Right! Good job!
+     :1000: No. Look carefully at the loop condition i<n+1.
+     :default: Incorrect. Please try again.
+
+
+Some Needed Math Notation
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This is the sigma symbol: :math:`\sum_{}`.
+It tells us that we are summing up something
+much like a mathematical loop typically with a counter.
+
+If we have
+:math:`\sum_{i=1}^{5}`
+the bottom index `i=1` tells us that the index `i` begins at 1
+and that `i` will terminate at `5`.
+
+What ever comes immediately afterwards is what
+we are summing. So,
+:math:`\sum_{i=1}^{5} i`
+tells us to add the integers :math:`1+2+3+4+5`
+because just like in a `for` loop, we plug a value for each `i` value.
+Similarly, :math:`\sum_{i=2}^{4} i^2` means :math:`2^2+3^2+4^2`.
+
+.. mchoice:: somemath1
+    :answer_a: 6
+    :answer_b: 14
+    :answer_c: 25
+    :answer_d: 36
+    :answer_e: None of the above.
+    :correct: a
+    :feedback_a: No. Use i = 1, i = 2, and i = 3, plugging into i^3.
+    :feedback_b: No. Use i = 1, i = 2, and i = 3, plugging into i^3.
+    :feedback_c: No. Use i = 1, i = 2, and i = 3, plugging into i^3.
+    :feedback_d: Right! It is 1^3 + 2^3 + 3^3 = 1 + 8 + 27.
+    :feedback_e: One of the above is correct!
+
+    Compute the result of :math:`\sum_{i=1}^{3} i^3`
+
+
+Applying the Math Notation
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There is often more than one way to solve a problem.
+Let's consider the blue area in the
+following :math:`8 \times 9`.rectangle.
+
+.. _fig_sumof-n-integers:
+
+.. figure:: Figures/sumof-n-integers.png
+
+   Figure 1: Sum of `n = 8` integers
+
+To find the blue area, we can count the number of blue squares
+:math:`1+2+3+4+5+6+7+8`, which we just learned
+can be written as :math:`\sum_{i=1}^{8} i.`
+However, we also know how to find the area of a rectangle,
+by multiplying height by width, and the blue squares represent
+half of the rectangle.
+So, the area with blue squares
+is also just :math:`\sum_{i=1}^{8} i = \frac {(8)(8+1)}{2}`.
+
+Hence, when we have a variable `n`, we have learned that we can just the
 closed equation :math:`\sum_{i=1}^{n} i = \frac {(n)(n+1)}{2}` to
 compute the sum of the first ``n`` integers without iterating.
+
+Consider the following function:
+
+::
+
+    int sumOfN3(int n){
+      int sum_n = (n*(n+1))/2; // how many times?
+      return sum_n;
+    }
+
+.. fillintheblank:: bigo2
+
+   If `SumOfN3` is called once with a parameter of `n=10`, how many times is the `int sum_n = (n*(n+1))/2;` line executed?
+
+   - :1: Right! Good job!
+     :10: No, consider that the function is called only once, and n is the parameter.
+     :default: Incorrect. Please try again.
+
+
+
+
+We see this in :ref:`ActiveCode 4 <active3cpp>`,
+which shows ``sumOfN3``
+taking advantage of the formula we just developed.
 
 .. _lst_sum3:
 
@@ -250,9 +352,7 @@ compute the sum of the first ``n`` integers without iterating.
         #include <ctime>
 
         int sumOfN3(int n){
-
             int sum_n = (n*(n+1))/2;
-
             return sum_n;
         }
 
@@ -274,7 +374,9 @@ compute the sum of the first ``n`` integers without iterating.
             print(sumOfN3(10))
         main()
 
-If we do the same benchmark measurement for ``sumOfN3``, using the value  10,000 for ``n`` and we get the following result:
+
+If we do the same benchmark measurement for ``sumOfN3``,
+using the value  10,000 for ``n`` and we get the following result:
 
 ::
 

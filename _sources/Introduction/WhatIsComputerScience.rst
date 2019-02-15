@@ -1,11 +1,11 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
 What Is Computer Science?
 -------------------------
 
-Computer science is often difficult to define. This is probably due to
+Computer science can be considered difficult to define. This is probably due to
 the unfortunate use of the word “computer” in the name. As you are
 perhaps aware, computer science is not simply the study of computers.
 Although computers play an important supporting role as a tool in the
@@ -18,22 +18,26 @@ step-by-step list of instructions for solving any instance of the
 problem that might arise. Algorithms are finite processes that if
 followed will solve the problem. Algorithms are solutions.
 
-Computer science can be thought of as the study of algorithms. However,
-we must be careful to include the fact that some problems may not have a
-solution. Although proving this statement is beyond the scope of this
-text, the fact that some problems cannot be solved is important for
+Computer science can be thought of as the study of algorithms.
+Some problems do not have solutions at all.
+Other problems do have solutions, but these solutions cannot be
+executed in a reasonable amount of time.
+Although proving these statements is beyond the scope of this
+text, the fact that some problems cannot be solved and/or cannot be solved
+in the amount of time available is important for
 those who study computer science. We can fully define computer science,
-then, by including both types of problems and stating that computer
+then, by including these types of problems and stating that computer
 science is the study of solutions to problems as well as the study of
-problems with no solutions.
+problems without fast solutions and including the study of problems without any solutions at all.
 
-It is also very common to include the word **computable** when
+Hence, it is very common to include the word **computable** when
 describing problems and solutions. We say that a problem is computable
 if an algorithm exists for solving it. An alternative definition for
 computer science, then, is to say that computer science is the study of
 problems that are and that are not computable, the study of the
-existence and the nonexistence of algorithms. In any case, you will note
-that the word “computer” did not come up at all. Solutions are
+existence and the nonexistence of algorithms as well as the analysis of the
+relative speed of those algorithms. Here, you will note
+that the word “computer” did not come up at all. Solutions are and should be
 considered independent from the machine.
 
 Computer science, as it pertains to the problem-solving process itself,
@@ -92,7 +96,7 @@ perform computations such as
       using namespace std;
 
       int main() {
-          cout<<sqrt (16);
+          cout << sqrt(16);
       }
 
   .. tab:: Python
@@ -108,9 +112,10 @@ perform computations such as
 This is an example of **procedural abstraction**. We do not necessarily
 know how the square root is being calculated, but we know what the
 function is called and how to use it. If we perform the import
-correctly, we can assume that the function will provide us with the
-correct results. We know that someone implemented a solution to the
-square root problem but we only need to know how to use it. This is
+correctly, we can assume that the library is correct and any function
+using it will provide us with the correct results.
+We know that someone implemented a solution to the
+square root problem and we only need to know how to use it. This is
 sometimes referred to as a “black box” view of a process. We simply
 describe the interface: the name of the function, what is needed (the
 parameters), and what will be returned. The details are hidden inside

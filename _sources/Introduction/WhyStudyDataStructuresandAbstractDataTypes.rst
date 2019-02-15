@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -53,4 +53,3 @@ abstract data type, this implementation independence allows the
 programmer to switch the details of the implementation without changing
 the way the user of the data interacts with it. The user can remain
 focused on the problem-solving process.
-

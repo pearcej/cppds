@@ -6,7 +6,7 @@ The Selection Sort
 ~~~~~~~~~~~~~~~~~~
 
 The **selection sort** improves on the bubble sort by making only one
-exchange for every pass through the list. In order to do this, a
+exchange for every pass through the vector. In order to do this, a
 selection sort looks for the largest value as it makes a pass and, after
 completing the pass, places it in the proper location. As with a bubble
 sort, after the first pass, the largest item is in the correct place.
@@ -31,33 +31,33 @@ places 55, and so on. The function is shown in :ref:`ActiveCode 1 <lst_selection
       #include <vector>
       using namespace std;
 
-      vector<int> selectionSort(vector<int> alist) {
-          for (int fillslot = (alist.size() - 1); fillslot >= 0; fillslot--) {
+      vector<int> selectionSort(vector<int> avector) {
+          for (int fillslot = (avector.size() - 1); fillslot >= 0; fillslot--) {
               int positionOfMax = 0;
               for (int location = 1; location < fillslot + 1; location++) {
-                  if (alist[location] > alist[positionOfMax]) {
+                  if (avector[location] > avector[positionOfMax]) {
                       positionOfMax = location;
                   }
               }
 
-              int temp = alist[fillslot];
-              alist[fillslot] = alist[positionOfMax];
-              alist[positionOfMax] = temp;
+              int temp = avector[fillslot];
+              avector[fillslot] = avector[positionOfMax];
+              avector[positionOfMax] = temp;
           }
-          return alist;
+          return avector;
       }
 
       int main() {
           // Vector initialized using a static array
           static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
-          vector<int> alist (arr, arr + sizeof(arr) / sizeof(arr[0]) );
+          vector<int> avector (arr, arr + sizeof(arr) / sizeof(arr[0]) );
 
           // Call to the selectionSort function
-          vector<int> updatedAlist = selectionSort(alist);
+          vector<int> updatedAvector = selectionSort(avector);
 
-          // print the list
-          for (unsigned int i = 0; i < updatedAlist.size(); i++) {
-              cout << updatedAlist[i] << " ";
+          // print the vector
+          for (unsigned int i = 0; i < updatedAvector.size(); i++) {
+              cout << updatedAvector[i] << " ";
           }
           cout << endl;
 
@@ -81,9 +81,11 @@ places 55, and so on. The function is shown in :ref:`ActiveCode 1 <lst_selection
                alist[fillslot] = alist[positionOfMax]
                alist[positionOfMax] = temp
 
-        alist = [54,26,93,17,77,31,44,55,20]
-        selectionSort(alist)
-        print(alist)
+        def main():
+            alist = [54,26,93,17,77,31,44,55,20]
+            selectionSort(alist)
+            print(alist)
+        main()
 
 .. animation:: selection_anim
    :modelfile: sortmodels.js
@@ -116,7 +118,7 @@ places 55, and so on. The function is shown in :ref:`ActiveCode 1 <lst_selection
 You may see that the selection sort makes the same number of comparisons
 as the bubble sort and is therefore also :math:`O(n^{2})`. However,
 due to the reduction in the number of exchanges, the selection sort
-typically executes faster in benchmark studies. In fact, for our list,
+typically executes faster in benchmark studies. In fact, for our vector,
 the bubble sort makes 20 exchanges, while the selection sort makes only
 8.
 
@@ -134,5 +136,5 @@ the bubble sort makes 20 exchanges, while the selection sort makes only
       :feedback_c: This one looks similar to the correct answer but instead of swapping the numbers have been shifted to the left to make room for the correct numbers.
       :feedback_d: Selection sort improves upon bubble sort by making fewer swaps.
 
-      Suppose you have the following list of numbers to sort:
-      [11, 7, 12, 14, 19, 1, 6, 18, 8, 20] which list represents the partially sorted list after three complete passes of selection sort?
+      Suppose you have the following vector of numbers to sort:
+      [11, 7, 12, 14, 19, 1, 6, 18, 8, 20] which vector represents the partially sorted vector after three complete passes of selection sort?

@@ -5,22 +5,22 @@
 The Binary Search
 ~~~~~~~~~~~~~~~~~
 
-It is possible to take greater advantage of the ordered list if we are
+It is possible to take greater advantage of the ordered vector if we are
 clever with our comparisons. In the sequential search, when we compare
 against the first item, there are at most :math:`n-1` more items to
 look through if the first item is not what we are looking for. Instead
-of searching the list in sequence, a **binary search** will start by
+of searching the vector in sequence, a **binary search** will start by
 examining the middle item. If that item is the one we are searching for,
 we are done. If it is not the correct item, we can use the ordered
-nature of the list to eliminate half of the remaining items. If the item
+nature of the vector to eliminate half of the remaining items. If the item
 we are searching for is greater than the middle item, we know that the
-entire lower half of the list as well as the middle item can be
-eliminated from further consideration. The item, if it is in the list,
+entire lower half of the vector as well as the middle item can be
+eliminated from further consideration. The item, if it is in the vector,
 must be in the upper half.
 
 We can then repeat the process with the upper half. Start at the middle
 item and compare it against what we are looking for. Again, we either
-find it or split the list in half, therefore eliminating another large
+find it or split the vector in half, therefore eliminating another large
 part of our possible search space. :ref:`Figure 3 <fig_binsearch>` shows how this
 algorithm can quickly find the value 54. The complete function is shown
 in :ref:`CodeLens 3 <lst_binarysearchpy>`.
@@ -31,7 +31,7 @@ in :ref:`CodeLens 3 <lst_binarysearchpy>`.
 .. figure:: Figures/binsearch.png
    :align: center
 
-   Figure 3: Binary Search of an Ordered List of Integers
+   Figure 3: Binary Search of an Ordered vector of Integers
 
 
 .. _lst_binarysearchpy:
@@ -56,9 +56,13 @@ in :ref:`CodeLens 3 <lst_binarysearchpy>`.
 
         return found
 
-    testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42,]
-    print(binarySearch(testlist, 3))
-    print(binarySearch(testlist, 13))
+    def main():
+
+        testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42,]
+        print(binarySearch(testlist, 3))
+        print(binarySearch(testlist, 13))
+
+    main()
 
 A similar implementation can be carried out using vectors in C++.
 
@@ -70,17 +74,17 @@ A similar implementation can be carried out using vectors in C++.
   #include <vector>
   using namespace std;
 
-  bool binarySearch(vector<int> alist, int item) {
+  bool binarySearch(vector<int> avector, int item) {
       int first = 0;
-      int last = alist.size() - 1;
+      int last = avector.size() - 1;
       bool found = false;
 
       while (first <= last && !found) {
           int midpoint = (first + last) / 2;
-          if (alist[midpoint] == item) {
+          if (avector[midpoint] == item) {
               found = true;
           } else {
-              if (item < alist[midpoint]) {
+              if (item < avector[midpoint]) {
                   last = midpoint - 1;
               } else {
                   first = midpoint + 1;
@@ -93,10 +97,10 @@ A similar implementation can be carried out using vectors in C++.
   int main() {
       // Using static array to initialize a vector
       static const int arr[] = {0, 1, 2, 8, 13, 17, 19, 32, 42};
-      vector<int> alist(arr, arr + sizeof(arr) / sizeof(arr[0]));
+      vector<int> avector(arr, arr + sizeof(arr) / sizeof(arr[0]));
 
-      cout << binarySearch(alist, 3) << endl;
-      cout << binarySearch(alist, 13) << endl;
+      cout << binarySearch(avector, 3) << endl;
+      cout << binarySearch(avector, 13) << endl;
 
       return 0;
   }
@@ -141,7 +145,7 @@ however this can only be used when new vectors are created.
 .. activecode:: binary_search_cpp_recursive
   :caption: A Recursive Binary Search
   :language: cpp
-  
+
   #include <iostream>
   #include <vector>
   using namespace std;
