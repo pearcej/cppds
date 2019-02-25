@@ -30,6 +30,7 @@ The following is an example of C++ code that writes to the console:
   using namespace std;
 
   int main() {
-      cout << "Welcome to Problem Solving with";
-      cout << "Algorithms and Data Structures!";
+      cout << "Welcome to Problem Solving with" << endl;
+      cout << "Algorithms and Data Structures!" << endl;
+      return  0;
   }

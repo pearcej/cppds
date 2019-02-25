@@ -21,29 +21,37 @@ and sing a song then you would fail like most people. What you may notice when
 attempting such a feat is that you pick up on bits and pieces of each separate
 task. This is due to your attention switching really fast between tasks.
 
-Observe what happens when you play the following three videos simultaneously:
+Observe what happens when you play the following videos simultaneously:
 
-.. youtube:: wxKA9be_3Gk
+.. youtube:: YX40hbAHx3s
     :height: 315
     :width: 560
     :align: left
 
 
-.. youtube:: 5F6orbqZigI
+.. youtube:: uUqCsOcDjVQ
     :height: 315
     :width: 560
     :align: left
 
 
-.. youtube:: jil0WCh_UoQ
+.. youtube:: OCYZTg3jahU
     :height: 315
     :width: 560
     :align: left
 
 
-You can hear and see all three videos simultaneously, but only because your
+.. youtube:: 5Y-dkurZfgk
+    :height: 315
+    :width: 560
+    :align: left
+
+
+You can hear and see all of these videos simultaneously, but only because your
 computer switches from one task to another so fast that it appears seamless. Just
 like you, your computer gives each task some time to use its resources and cycles
 between them really fast makes. Timesharing explains why a computer slows down
 when there are a bunch of tabs open on a browser: the more things you have to
 switch between, the more time it takes to finish them.
+
+This is accomplished by the operating system's use of a circular linked list.
