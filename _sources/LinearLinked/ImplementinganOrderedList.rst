@@ -5,7 +5,7 @@
 Implementing an Ordered Linked List
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In order to implement the ordered linked list, we must remember that the
+In order to implement the **ordered linked list**, we must remember that the
 relative positions of the items are based on some underlying
 characteristic. The ordered linked list of integers given above (17, 26, 31,
 54, 77, and 93) can be represented by a linked structure as shown in
@@ -34,7 +34,7 @@ be denoted by a ``head`` reference to ``NULL`` (see
     class OrderedList {
         Node* head;
     }
-    
+
 As we consider the operations for the ordered linked list, we should note that
 the ``isEmpty`` and ``size`` methods can be implemented the same as
 with unordered linked lists since they deal only with the number of nodes in
@@ -343,5 +343,5 @@ process every node in the linked list.
 You may also have noticed that the performance of this linked list implementation
 differs from the performance given earlier for Python lists. This
 suggests that linked lists are not the way Python lists are implemented.
-The actual implementation of a Python list is based on the notion of an array.  
+The actual implementation of a Python list is based on the notion of an array.
 We discuss this in more detail in Chapter 8.

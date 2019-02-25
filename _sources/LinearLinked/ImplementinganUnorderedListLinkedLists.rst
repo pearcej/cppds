@@ -5,10 +5,10 @@
 Implementing an Unordered Linked List
 -------------------------------------
 
-A linked list is a linear collection of data elements whose order
+A **linked list** is a linear collection of data elements whose order
 is not determined by the placement in memory. Instead, each element is stored
 in a node which points to the next node.
-In the next sections we implement this **linked list** data structure.
+In the next sections we implement this linked list data structure.
 In doing so, we need to be sure that
 we can maintain the relative positioning of the items. However, there is
 no requirement that we maintain that positioning in contiguous memory.
@@ -125,10 +125,9 @@ referring to ``NULL``.
 The ``Unordered Linked List`` Class
 -----------------------------------
 
-As we suggested above, the
-will be built from a
-collection of nodes, each linked to the next by explicit pointers. As
-long as we know where to find the first node (containing the first
+As we suggested above, the **unordered linked list**
+will be built from a collection of nodes, each linked to the next by explicit
+pointers. As long as we know where to find the first node (containing the first
 item), each item after that can be found by successively following the
 next links. With this in mind, the ``UnorderedList`` class must maintain
 a reference to the first node. :ref:`Listing 2 <lst_listclass>` shows the
