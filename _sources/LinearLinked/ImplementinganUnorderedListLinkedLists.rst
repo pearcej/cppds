@@ -125,10 +125,9 @@ referring to ``NULL``.
 The ``Unordered Linked List`` Class
 -----------------------------------
 
-As we suggested above, the
-will be built from a
-collection of nodes, each linked to the next by explicit pointers. As
-long as we know where to find the first node (containing the first
+As we suggested above, the **unordered linked list**
+will be built from a collection of nodes, each linked to the next by explicit
+pointers. As long as we know where to find the first node (containing the first
 item), each item after that can be found by successively following the
 next links. With this in mind, the ``UnorderedList`` class must maintain
 a reference to the first node. :ref:`Listing 2 <lst_listclass>` shows the

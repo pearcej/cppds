@@ -5,7 +5,7 @@
 What Are Linked Structures?
 ---------------------------
 
-A linked data structure is a data structure which consists of a
+A **linked data structure** is a data structure which consists of a
 set of data structures called nodes which are linked together and organized
 by links created via references or pointers.
 
@@ -13,7 +13,7 @@ Linked data structures include linear linked structures like linked lists
 as well as a variety of different types of tree data structures.
 In this chapter we will consider linear linked structures, both ordered and unordered.
 
-When thinking about an ordered linked data structure, one example is timesharing
+When thinking about a linked data structure, one example is timesharing
 on an operating system. Timesharing is a computer's way of multitasking. Much
 like when human's multitask, computers do not actually handle all of its tasks
 at the same exact time. If you tried to listen to 3 people talk, read a book,

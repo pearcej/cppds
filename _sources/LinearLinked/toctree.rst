@@ -11,6 +11,6 @@ Linear Linked Structures
     ImplementinganOrderedList.rst
     TheOrderedListAbstractDataType.rst
     Summary.rst
-    KeyTerms.rst
+    Glossary.rst
     DiscussionQuestions.rst
     ProgrammingExercises.rst
