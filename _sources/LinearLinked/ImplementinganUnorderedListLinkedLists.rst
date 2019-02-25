@@ -5,10 +5,10 @@
 Implementing an Unordered Linked List
 -------------------------------------
 
-A linked list is a linear collection of data elements whose order
+A **linked list** is a linear collection of data elements whose order
 is not determined by the placement in memory. Instead, each element is stored
 in a node which points to the next node.
-In the next sections we implement this **linked list** data structure.
+In the next sections we implement this linked list data structure.
 In doing so, we need to be sure that
 we can maintain the relative positioning of the items. However, there is
 no requirement that we maintain that positioning in contiguous memory.
