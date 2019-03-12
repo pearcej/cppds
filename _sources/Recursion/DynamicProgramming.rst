@@ -23,7 +23,7 @@ is six coins: two quarters, one dime, and three pennies. How did we
 arrive at the answer of six coins? We start with the largest coin in our
 arsenal (a quarter) and use as many of those as possible, then we go to
 the next lowest coin value and use as many of those as possible. This
-first approach is called a **greedy method** because we try to solve as
+first approach is called a greedy method because we try to solve as
 big a piece of the problem as possible right away.
 
 
@@ -539,3 +539,55 @@ array also contains 21, giving us the three 21 cent pieces.
                 print(coinsUsed)
 
             main()
+
+Summary
+-------
+
+In this chapter we have looked at examples of several recursive
+algorithms. These algorithms were chosen to expose you to several
+different problems where recursion is an effective problem-solving
+technique. The key points to remember from this chapter are as follows:
+
+-  All recursive algorithms must have a base case.
+
+-  A recursive algorithm must change its state and make progress toward
+   the base case.
+
+-  A recursive algorithm must call itself (recursively).
+
+-  Recursion can take the place of iteration in some cases.
+
+-  Recursive algorithms often map very naturally to a formal expression
+   of the problem you are trying to solve.
+
+-  Recursion is not always the answer. Sometimes a recursive solution
+   may be more computationally expensive than an alternative algorithm.
+
+Self-check
+----------
+
+.. mchoice:: laws
+   :multiple_answers:
+   :answer_a: It must progress from the base case
+   :answer_b: It must move towards the base case
+   :answer_c: It must have a base case
+   :answer_d: It must call itself
+   :correct: b,c,d
+   :feedback_a: If it starts at the base case, then when would it stop?
+   :feedback_b: Correct. The base case is your endpoint.
+   :feedback_c: Correct. The base case is essential if you want a stopping point
+   :feedback_d: Correct. If it doesn't call itself then it won't repeat
+
+   What are the three laws of recursion for an algorithm? (choose all that are correct)
+
+.. dragndrop:: whenToRecurse
+  :feedback: Consider what would make you stop the process for each one.
+  :match_1: Counting the number of items in a list|||Iteration
+  :match_2: Going through an entire tree|||Recursion
+
+  Which implementation would be ideal for each problem.
+
+.. shortanswer:: recursiveWeakness
+
+   Sometimes recursion can be more computationally expensive than an alternative.
+   In what ways would this be?

@@ -14,6 +14,10 @@ Glossary
     data structure
         An organization of data for the purpose of making it easier to use.
 
+    dynamic programming
+        a way to solve complex problems by breaking it up, solving the smaller
+        portions, and storing the results to avoid re-calculating them.
+
     exception
         An error that occurs at runtime.
 
@@ -42,7 +46,7 @@ Glossary
 
     recursive call
         The statement that calls an already executing function.  Recursion can
-        even be indirect --- function `f` can call `g` which calls `h`, 
+        even be indirect --- function `f` can call `g` which calls `h`,
         and `h` could make a call back to `f`.
 
     recursive definition
@@ -50,6 +54,10 @@ Glossary
         it must include *base cases* which are not recursive. In this way it
         differs from a *circular definition*.  Recursive definitions often
         provide an elegant way to express complex data structures.
+
+    stack frame
+        a stack that contains a "frame" or group of data. For a call stack, this
+        would be a function and its arguments.
 
     tuple
         A data type that contains a sequence of elements of any type, like a
@@ -60,4 +68,3 @@ Glossary
         An assignment to all of the elements in a tuple using a single
         assignment statement. Tuple assignment occurs in parallel rather than
         in sequence, making it useful for swapping values.
-
