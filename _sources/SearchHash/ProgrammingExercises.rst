@@ -5,6 +5,39 @@
 Programming Exercises
 ---------------------
 
+#. Set up a random experiment to test the difference between a
+   sequential search and a binary search on a list of integers.
+
+#. Use the binary search functions given in the text (recursive and
+   iterative). Generate a random, ordered list of integers and do a
+   benchmark analysis for each one. What are your results? Can you
+   explain them?
+
+#. Implement the binary search using recursion without the slice
+   operator. Recall that you will need to pass the list along with the
+   starting and ending index values for the sublist. Generate a random,
+   ordered list of integers and do a benchmark analysis.
+
+#. Overload the ``cout`` operator (<<) for the hash table Map ADT
+   implementation.
+
+#. Overload the ``cin`` operator (>>) for the hash table Map
+   ADT implementation.
+
+#. How can you delete items from a hash table that uses chaining for
+   collision resolution? How about if open addressing is used? What are
+   the special circumstances that must be handled? Implement the ``del`` (~)
+   operator for the ``HashTable`` class.
+
+#. In the hash table map implementation, the hash table size was chosen
+   to be 101. If the table gets full, this needs to be increased.
+   Re-implement the ``put`` method so that the table will automatically
+   resize itself when the loading factor reaches a predetermined value
+   (you can decide the value based on your assessment of load versus
+   performance).
+
+#. Implement quadratic probing as a rehash technique.
+
 #. Using a random number generator, create a list of 500 integers.
    Perform a benchmark analysis using some of the sorting algorithms
    from this chapter. What is the difference in execution speed?

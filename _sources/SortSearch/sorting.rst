@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -34,4 +34,3 @@ respect to one another, it may be necessary to exchange them. This
 exchange is a costly operation and the total number of exchanges will
 also be important for evaluating the overall efficiency of the
 algorithm.
-

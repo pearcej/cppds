@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -25,4 +25,3 @@ Summary
 -  A quick sort is :math:`O(n \log n)`, but may degrade to
    :math:`O(n^{2})` if the split points are not near the middle of the
    list. It does not require additional space.
-

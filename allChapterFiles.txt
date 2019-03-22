@@ -171,6 +171,27 @@
 
 
 
+    SearchHash/intro-SortingandSearching.rst
+    SearchHash/Objectives.rst
+    SearchHash/Searching.rst
+    SearchHash/TheSequentialSearch.rst
+    SearchHash/TheBinarySearch.rst
+    SortSearch/Hashing.rst
+
+
+
+
+
+
+
+
+    SearchHash/Summary.rst
+    SearchHash/KeyTerms.rst
+    SearchHash/DiscussionQuestions.rst
+    SearchHash/ProgrammingExercises.rst
+
+
+
    SortSearch/intro-SortingandSearching.rst
    SortSearch/Objectives.rst
    SortSearch/Searching.rst

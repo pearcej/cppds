@@ -2,8 +2,13 @@
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
-Objectives
-----------
+Summary
+-------
 
--  To be able to explain and implement selection sort, bubble sort,
-   merge sort, quick sort, insertion sort, and shell sort.
+-  A sequential search is :math:`O(n)` for ordered and unordered
+   lists.
+
+-  A binary search of an ordered list is :math:`O(\log n)` in the
+   worst case.
+
+-  Hash tables can provide constant time searching.
