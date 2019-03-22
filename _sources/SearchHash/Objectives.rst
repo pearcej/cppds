@@ -5,11 +5,13 @@
 Objectives
 ----------
 
--  To be able to explain and implement sequential search and binary
+-  To understand what search is and when it is appropriate.
+
+-  To be able to explain and to implement sequential search and binary
    search.
 
 -  To understand the idea of hashing as a search technique.
 
 -  To introduce the unordered map abstract data type.
 
--  To implement the unordered map abstract data type using hashing.
+-  To implement a map abstract data type using hashing.
