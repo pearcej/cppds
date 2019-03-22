@@ -32,7 +32,7 @@ and Jan Pearce, Berea College
    LinearLinked/toctree.rst
    Recursion/toctree.rst
    SearchHash/toctree.rst
-   SortSearch/toctree.rst
+   Sort/toctree.rst
    Trees/toctree.rst
    Graphs/toctree.rst
 
