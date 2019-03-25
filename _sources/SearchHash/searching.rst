@@ -43,8 +43,7 @@ awkwardly.) Here is an example using a vector:
 
 
 How does this work? Even though this is easy to write, an underlying process
-must be carried
-out to answer the question.
+must be carried out to do the search. 
 
 A function can be created for C++ arrays
 by passing in the array, the
