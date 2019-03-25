@@ -11,6 +11,6 @@ Searching and Hashing
     TheBinarySearch.rst
     Hashing.rst
     Summary.rst
-    KeyTerms.rst
     DiscussionQuestions.rst
     ProgrammingExercises.rst
+    Glossary.rst

@@ -5,13 +5,14 @@
 The Sequential Search
 ~~~~~~~~~~~~~~~~~~~~~
 
-When data items are stored in a container type such as a Python list or C++ array or vector, we say that
-they have a linear or sequential relationship. Each data item is stored
-in a position relative to the others. In Python lists, these relative
-positions are the index values of the individual items. In C++ arrays, these are simply adjacent memory locations each equally sized to fit the data type of the container. Since these
-index values are ordered, it is possible for us to visit them in
-sequence. This process gives rise to our first searching technique, the
-**sequential search**.
+When data items are stored in a container type such as a Python list or a C++
+array/vector, we say that they have a linear or sequential relationship. Each data
+item is stored in a position relative to the others. In Python lists, these
+relative positions are the index values of the individual items. In C++ arrays,
+these are simply adjacent memory locations each equally sized to fit the data
+type of the container. Since these index values are ordered, it is possible for
+us to visit them in sequence. This process gives rise to our first searching
+technique, the **sequential search**.
 
 :ref:`Figure 1 <fig_seqsearch>` shows how this search works. Starting at the first
 item in the list, we simply move from item to item, following the
@@ -101,7 +102,7 @@ computation. Recall that this is typically the common step that must be
 repeated in order to solve the problem. For searching, it makes sense to
 count the number of comparisons performed. Each comparison may or may
 not discover the item we are looking for. In addition, we make another
-assumption here. The list of items is not ordered in any way. The items
+assumption here: the list of items is not ordered in any way. The items
 have been placed randomly into the list. In other words, the probability
 that the item we are looking for is in any particular position is
 exactly the same for each position of the list.
