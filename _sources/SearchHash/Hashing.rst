@@ -5,13 +5,13 @@
 Hashing
 ~~~~~~~
 
-In previous sections we were able to make improvements in our search
+In previous sections we were able to make improvements on our search
 algorithms by taking advantage of information about where items are
 stored in the collection with respect to one another. For example, by
 knowing that a list was ordered, we could search in logarithmic time
 using a binary search. In this section we will attempt to go one step
 further by building a data structure that can be searched in
-:math:`O(1)` time. This concept is referred to as **hashing**.
+:math:`O(1)` by using **hashing**.
 
 In order to do this, we will need to know even more about where the
 items might be when we go to look for them in the collection. If every
@@ -430,22 +430,27 @@ unordered collection of associations between a key and a data value. The
 keys in a map are all unique so that there is a one-to-one relationship
 between a key and a value. The operations are given below.
 
--  ``Map()`` Create a new, empty map. It returns an empty map
-   collection.
+.. _tbl_apkops:
 
--  ``put(key,val)`` Add a new key-value pair to the map. If the key is
-   already in the map then replace the old value with the new value.
+.. table:: **Table 1: Map  Operations**
 
--  ``get(key)`` Given a key, return the value stored in the map or
-   ``None`` otherwise.
-
--  ``del`` Delete the key-value pair from the map using a statement of
-   the form ``del map[key]``.
-
--  ``len()`` Return the number of key-value pairs stored in the map.
-
--  ``in`` Return ``True`` for a statement of the form ``key in map``, if
-   the given key is in the map, ``False`` otherwise.
+   ============================ ==================================
+            **Map Operation**                 **Description**
+   ============================ ==================================
+                ``m.Map()``     Create a new, empty map. It returns an empty
+                                map collection
+            ``m.put(key,val)``  Add a new key-value pair to the map. If the
+                                key is already in the map then replace the
+                                old value with the new value
+              ``m.get(key)``    Given a key, return the value stored in the
+                                map or ``None`` otherwise
+             ``del m[key]``     Delete the key-value pair from the map
+              ``len(m)``        Return the number of key-value pairs stored
+                                in the map
+             ``in``             Return ``True`` for a statement of the form
+                                ``key in map``, if the given is in the map
+                                and ``False`` otherwise
+   ============================ ==================================
 
 One of the great benefits of a map is the fact that given a key,
 we can look up the associated data value very quickly. In order to
@@ -479,15 +484,14 @@ can be as efficient as possible.
         string data[size];
 
 
-``hashfunction`` implements the simple remainder method. The collision
-resolution technique is linear probing with a “plus 1” rehash function.
-The ``put`` function (see :ref:`Listing 3 <lst_hashtablecodestore>`) assumes that
-there will eventually be an empty slot unless the key is already present
-in the ``self.slots``. It computes the original hash value and if that
-slot is not empty, iterates the ``rehash`` function until an empty slot
-occurs. If a nonempty slot already contains the key, the old data value
-is replaced with the new data value.  Dealing with the situation where there are
-no empty slots left is an exercise.
+In :ref:`Listing 3 <lst_hashtablecodestore>`, ``hashfunction`` implements the
+simple remainder method. The collision resolution technique is linear probing
+with a “plus 1” rehash function. The ``put`` function assumes that there will
+eventually be an empty slot unless the key is already present in the ``self.slots``.
+It computes the original hash value and if that slot is not empty, iterates the
+``rehash`` function until an empty slot occurs. If a nonempty slot already
+contains the key, the old data value is replaced with the new data value.
+Dealing with the situation where there are no empty slots left is an exercise.
 
 .. _lst_hashtablecodestore:
 
@@ -933,3 +937,32 @@ unsuccessful search gives
 If we are using chaining, the average number of comparisons is
 :math:`1 + \frac {\lambda}{2}` for the successful case, and simply
 :math:`\lambda` comparisons if the search is unsuccessful.
+
+Summary
+~~~~~~~
+-  A sequential search is :math:`O(n)` for ordered and unordered
+   lists.
+
+-  A binary search of an ordered list is :math:`O(\log n)` in the
+   worst case.
+
+-  Hash tables can provide constant time searching.
+
+
+Self Check
+~~~~~~~~~~
+.. dragndrop:: bigOSH
+    :feedback: Review the analysis of each technique
+    :match_1: Linear Search|||O(n)
+    :match_2: Binary Search|||O(log n)
+    :match_3: Hashing|||nO(1)
+
+    Match the method of finding data to its corresponding Big O.
+
+.. dragndrop:: searchBests
+    :feedback: This is feedback.
+    :match_1: Binary Search|||ordered data
+    :match_3: Linear Search||| unordered data
+
+    Drag the search method to the type of data that it is more efficient for
+    compared to the other search method.

@@ -6,11 +6,11 @@ Searching
 ---------
 
 In the next two chapters we will turn our attention to some of the
-most common problems that
-arise in computing, those of searching and sorting. In this chapter we
-will study searching. We will return to sorting in the next chapter.
+most common problems that arise in computing: searching and sorting.
+In this chapter we will study searching and return to sorting
+in the next chapter.
 
-Searching is the algorithmic process of finding a particular item in a
+**Searching** is the algorithmic process of finding a particular item in a
 collection of items. A search typically answers either ``True`` or
 ``False`` as to whether the item is present. On occasion it may be
 modified to return where the item is found. For our purposes here, we
