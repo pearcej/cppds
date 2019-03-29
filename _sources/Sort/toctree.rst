@@ -14,6 +14,6 @@ Sorting
     TheMergeSort.rst
     TheQuickSort.rst
     Summary.rst
-    KeyTerms.rst
+    Glossary.rst
     DiscussionQuestions.rst
     ProgrammingExercises.rst

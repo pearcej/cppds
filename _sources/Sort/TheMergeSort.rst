@@ -236,6 +236,9 @@ vector that can be immediately merged with other sorted vectors.
     ..     print(alist)
        main()
 
+This visualization allows you to step through the algorithm. Red bars represent
+the element being looked at and blue represents the last element to look at
+during a pass.
 
 In order to analyze the ``mergeSort`` function, we need to consider the
 two distinct processes that make up its implementation. First, the vector

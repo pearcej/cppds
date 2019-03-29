@@ -289,46 +289,53 @@ toward the middle of the list, the median of three will choose a better
 is somewhat sorted to begin with. We leave the implementation of this
 pivot value selection as an exercise.
 
-.. admonition:: Self Check
 
-   .. mchoice:: question_sort_7
-      :correct: d
-      :answer_a: [9, 3, 10, 13, 12]
-      :answer_b: [9, 3, 10, 13, 12, 14]
-      :answer_c: [9, 3, 10, 13, 12, 14, 17, 16, 15, 19]
-      :answer_d: [9, 3, 10, 13, 12, 14, 19, 16, 15, 17]
-      :feedback_a: It's important to remember that quicksort works on the entire list and sorts it in place.
-      :feedback_b: Remember quicksort works on the entire list and sorts it in place.
-      :feedback_c: The first partitioning works on the entire list, and the second partitioning works on the left partition not the right.
-      :feedback_d: The first partitioning works on the entire list, and the second partitioning works on the left partition.
+.. mchoice:: question_sort_7
+  :correct: d
+  :answer_a: [9, 3, 10, 13, 12]
+  :answer_b: [9, 3, 10, 13, 12, 14]
+  :answer_c: [9, 3, 10, 13, 12, 14, 17, 16, 15, 19]
+  :answer_d: [9, 3, 10, 13, 12, 14, 19, 16, 15, 17]
+  :feedback_a: It's important to remember that quicksort works on the entire list and sorts it in place.
+  :feedback_b: Remember quicksort works on the entire list and sorts it in place.
+  :feedback_c: The first partitioning works on the entire list, and the second partitioning works on the left partition not the right.
+  :feedback_d: The first partitioning works on the entire list, and the second partitioning works on the left partition.
 
-      Given the following list of numbers [14, 17, 13, 15, 19, 10, 3, 16, 9, 12] which answer shows the contents of the list after the second partitioning according to the quicksort algorithm?
+  Given the following list of numbers [14, 17, 13, 15, 19, 10, 3, 16, 9, 12] which answer shows the contents of the list after the second partitioning according to the quicksort algorithm?
 
-   .. mchoice:: question_sort_8
-       :correct: b
-       :answer_a: 1
-       :answer_b: 9
-       :answer_c: 16
-       :answer_d: 19
-       :feedback_a: The three numbers used in selecting the pivot are 1, 9, 19.  1 is not the median, and would be a very bad choice for the pivot since it is the smallest number in the list.
-       :feedback_b:  Good job.
-       :feedback_c: although 16 would be the median of 1, 16, 19 the middle is at len(list) // 2.
-       :feedback_d: the three numbers used in selecting the pivot are 1, 9, 19.  9 is the median.  19 would be a bad choice since it is almost the largest.
+.. mchoice:: question_sort_8
+   :correct: b
+   :answer_a: 1
+   :answer_b: 9
+   :answer_c: 16
+   :answer_d: 19
+   :feedback_a: The three numbers used in selecting the pivot are 1, 9, 19.  1 is not the median, and would be a very bad choice for the pivot since it is the smallest number in the list.
+   :feedback_b:  Good job.
+   :feedback_c: although 16 would be the median of 1, 16, 19 the middle is at len(list) // 2.
+   :feedback_d: the three numbers used in selecting the pivot are 1, 9, 19.  9 is the median.  19 would be a bad choice since it is almost the largest.
 
-       Given the following list of numbers [1, 20, 11, 5, 2, 9, 16, 14, 13, 19] what would be the first pivot value using the median of 3 method?
+   Given the following list of numbers [1, 20, 11, 5, 2, 9, 16, 14, 13, 19] what would be the first pivot value using the median of 3 method?
 
+Self Check
+~~~~~~~~~~
+.. mchoice:: question_sort_9
+   :answer_a: Shell Sort
+   :answer_b: Quick Sort
+   :answer_c: Merge Sort
+   :answer_d: Insertion Sort
+   :correct: c
+   :feedback_a: Shell sort is between O(n) and O(n^2)
+   :feedback_b: Quick sort can be O(n log n), but if the pivot points are not well chosen and the list is just so, it can be O(n^2).
+   :feedback_c: Merge Sort is the only guaranteed O(n log n) even in the worst case. The cost is that merge sort uses more memory.
+   :feedback_d: Insertion sort is O(n^2)
 
+   Which of the following sort algorithms are guaranteed to be O(n log n) even in the worst case?
 
-   .. mchoice:: question_sort_9
-       :multiple_answers:
-       :answer_a: Shell Sort
-       :answer_b: Quick Sort
-       :answer_c: Merge Sort
-       :answer_d: Insertion Sort
-       :correct: c
-       :feedback_a: Shell sort is about ``n^1.5``
-       :feedback_b: Quick sort can be O(n log n), but if the pivot points are not well chosen and the list is just so, it can be O(n^2).
-       :feedback_c: Merge Sort is the only guaranteed O(n log n) even in the worst case.  The cost is that merge sort uses more memory.
-       :feedback_d: Insertion sort is ``O(n^2)``
+.. dragndrop:: question_sort_10
+   :feedback: Refer to previous sections of the chapter
+   :match_1: Quick Sort|||O(n log n) or O(n^2)
+   :match_2: Insertion/Bubble/Merge|||O(n^2)
+   :match_3: Merge Sort|||O(n log n)
+   :match_4: Shell Sort|||between O(n) and O(n^2)
 
-       Which of the following sort algorithms are guaranteed to be O(n log n) even in the worst case?
+   Match each sorting method with its appropriate estimated comparisons.

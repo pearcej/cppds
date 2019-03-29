@@ -94,7 +94,6 @@ places 55, and so on. The function is shown in :ref:`ActiveCode 1 <lst_selection
    :viewer: BarViewer
 
 
-.. For more detail, CodeLens 3 allows you to step through the algorithm.
 ..
 ..
 .. .. codelens:: selectionsortcodetrace
@@ -114,6 +113,10 @@ places 55, and so on. The function is shown in :ref:`ActiveCode 1 <lst_selection
 ..     alist = [54,26,93,17,77,31,44,55,20]
 ..     selectionSort(alist)
 ..     print(alist)
+
+This visualization allows you to step through the algorithm. Yellow bars
+represent the current element, red represents the element being looked at,
+and blue represents the last element to look at during a pass.
 
 You may see that the selection sort makes the same number of comparisons
 as the bubble sort and is therefore also :math:`O(n^{2})`. However,
@@ -137,4 +140,4 @@ the bubble sort makes 20 exchanges, while the selection sort makes only
       :feedback_d: Selection sort improves upon bubble sort by making fewer swaps.
 
       Suppose you have the following vector of numbers to sort:
-      [11, 7, 12, 14, 19, 1, 6, 18, 8, 20] which vector represents the partially sorted vector after three complete passes of selection sort?
+      [11, 7, 12, 14, 19, 1, 6, 18, 8, 20] which vector represents the partially sorted (ascending) vector after three complete passes of selection sort?
