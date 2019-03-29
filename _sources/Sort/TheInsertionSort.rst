@@ -162,6 +162,10 @@ studies, insertion sort will show very good performance.
 ..          print(alist)
        main()
 
+This visualization allows you to step through the algorithm. Red bars represent
+the element being looked at and blue represents the last element to look at
+during a pass.
+
 .. admonition:: Self Check
 
    .. mchoice:: question_sort_3
@@ -175,5 +179,5 @@ studies, insertion sort will show very good performance.
       :feedback_c: Insertion sort works at the start of the list.  Each pass produces a longer sorted list.
       :feedback_d: Insertion sort works on the front of the list not the end.
 
-       Suppose you have the following list of numbers to sort: <br>
+       Suppose you have the following list of numbers to sort:
        [15, 5, 4, 18, 12, 19, 14, 10, 8, 20] which list represents the partially sorted list after three complete passes of insertion sort?

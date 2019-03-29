@@ -147,6 +147,8 @@ The following animation shows ``bubbleSort`` in action.
 ..     bubbleSort(alist)
 ..     print(alist)
 
+This visualization allows you to step through the algorithm. Red bars represent
+the elements being looked at.
 
 To analyze the bubble sort, we should note that regardless of how the
 items are arranged in the initial array, :math:`n-1` passes will be
