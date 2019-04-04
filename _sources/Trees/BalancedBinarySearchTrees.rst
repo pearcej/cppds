@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -43,5 +43,3 @@ right-heavy tree and the balance factors of each node.
    :align: center
 
    Figure 1: An Unbalanced Right-Heavy Tree with Balance Factors
-   
-
