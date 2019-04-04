@@ -353,3 +353,16 @@ tree as a binary tree itself.
             r.getRightChild().setRootVal('d')
             print(r.getRightChild().getRootVal())
         main()
+
+.. mchoice:: treeLike
+   :answer_a: Hash Table
+   :answer_b: Linked List
+   :answer_c: Queue
+   :answer_d: Stack
+   :correct: b
+   :feedback_a: Incorrect, a hash table maps key, value pairs for quick access. To access an item in our tree, we have to go through everything before it.
+   :feedback_b: Correct, this tree is essentially a linked list connecting other linked lists
+   :feedback_c: Incorrect, a stack is good for putting data in to fit a FIFO sequence
+   :feedback_d: Incorrect, a stack is good for putting data in to fit a LIFO sequence
+
+   Which data structure resembles the above implementation of a tree?

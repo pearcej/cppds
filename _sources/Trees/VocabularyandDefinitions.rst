@@ -111,3 +111,8 @@ nodes than that, but we do not know unless we look deeper into the tree.
    :alt: image
 
    Figure 4: A recursive Definition of a tree
+
+.. shortanswer:: treeDefinition
+
+   In your own words, define a tree relative to the first definition provided
+   above.
