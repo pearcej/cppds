@@ -7,52 +7,63 @@ Glossary
 
 .. glossary::
 
-    binary tree
-        a tree with a maximum of two children for each node
+    bubble sort
+        sorting method that makes multiple passes through a collection, comparing
+        adjacent items, and swaps items that are out of order
 
-    children
-        the nodes that one node leads to
+    gap
+        an increment used to divide a collection into subsets without breaking
+        apart the collection during a shell sort
 
-    edge
-        connects two nodes in a tree; has only one incoming edge
+    insertion sort
+        sorting method that maintains a sorted and unsorted subset of a
+        collection and inserts elements from the unsorted subset into the sorted
+        subset
 
-    height
-        the maximum level of any node in the tree
+    median of three
+        method of choosing the pivot value for a quick sort by taking the median
+        of the first, middle, and last element of a collection
 
-    inorder
-        recursive tree traversal in which the left subtree is visited, then the
-        root node, followed by the right subtree
-    leaf node
-        a node that has no children
+    merge
+        part of merge sort that takes two smaller sorted subsets and combines
+        them
 
-    level
-        the number of edges on the path from the root to the current node
+    merge sort
+        sorting method that uses recursion to split a collection in half until
+        there is one item and then combines the smaller subsets back into larger
+        sorted subsets
 
-    node
-        part of the tree that holds information
+    partition
+        process of quick sort that that finds the split point and moves items to
+        the appropriate side of the collection, either less than or greater than
+        the pivot value
 
-    parent
-        a node that leads to other nodes
+    pivot value
+        value selected in a collection during quick sort in order to split a
+        collection
 
-    path
-        an ordered list of nodes connected by edges
+    selection sort
+        sorting method that makes multiple passes through a collection, taking
+        the largest (ascending) or smallest (descending) unsorted element and
+        places it into its correct place by swapping places with the next largest
+        or lowest element
 
-    postorder
-        recursive tree traversal in which the left subtree is visited, then the
-        right, followed by the root node
+    shell sort
+        sorting method that divides the collection into subsets, sorts the subsets
+        individually using insertion sort, then also sorts the combination of the
+        sorted subsets using insertion sort
 
-    preorder
-        recursive tree traversal in which the root node is visited, then the
-        left, followed by the right subtree
+    short bubble
+        a modified bubble sort that stops if there are no exchanges to do
 
-    root
-        the starting point of the tree; has no incoming edges
+    sorting
+        the process of placing elements from a collection in some kind of order
 
-    sibling
-        children of the same parent node
+    split point
+        the position of the pivot value in the sorted collection; used to divide
+        the collection for subsequent calls to quick sort
 
-    tree
-        a hierarchal data structure with a root, branches, and leaves.
-
-    subtree
-        a section of a tree
+    quick sort
+        sorting method that uses recursion to split a collection in half (without
+        using extra space) and places elements on the proper side of the split
+        point
