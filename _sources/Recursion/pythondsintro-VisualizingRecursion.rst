@@ -1,9 +1,5 @@
-..  Copyright (C)  Brad Miller, David Ranum
-    This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
-
-
-Introduction: Visualizing Recursion
-===================================
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+===========================================================
 
 
 In the previous section we looked at some problems that were easy to
