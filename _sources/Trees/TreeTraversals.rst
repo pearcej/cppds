@@ -422,3 +422,26 @@ Notice that the ``printexp`` function as we have implemented it puts
 parentheses around each number. While not incorrect, the parentheses are
 clearly not needed. In the exercises at the end of this chapter you are
 asked to modify the ``printexp`` function to remove this set of parentheses.
+
+.. dragndrop:: treeTraversalTypes
+    :feedback: Review the tree traversal patterns.
+    :match_1: preorder|||root, left, right
+    :match_2: postorder|||left, root, right
+    :match_3: inorder|||left, right, root
+
+    Drag the tree traversal to its corresponding pattern.
+
+.. mchoice:: question1_1
+   :answer_a: Book, Chapter 1, Section 1.1, Section 1.2, Section 1.1.2,
+    Section 1.2.2, Chapter 2, Section 2.1, Section 2.2, Section 2.2.1, Section 2.2.2
+   :answer_b: Section 1.1, Chapter 1.2, Section 1.2.1, Section 1.2, Section 1.2.2,
+    Section 2.1, Chapter 2, Section 2.2.1, Section 2.2, Section 2.2.2
+   :answer_c: Section 1.1, Section 1.2.1, Section 1.2.2, Section 1.2, Chapter 1,
+    Section 2.1, Section 2.2.1, Section 2.2.2, Section 2.2, Chapter 2, Book
+   :correct: a
+   :feedback_a: correct
+   :feedback_b: Incorrect, this is postorder traversal
+   :feedback_c: Incorrect, this is inorder traversal
+
+   If you print out the data at each node, what would be the result of using
+   the preorder traversal method on :ref:`Figure 5 <fig_booktree>`?

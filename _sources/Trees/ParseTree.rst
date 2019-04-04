@@ -557,3 +557,8 @@ With the two parameters evaluated, we return the result of
 the top level ``'+'`` operator and all that is left to do is finish the
 call to ``operator.add(3,20)``. The result of the evaluation of the
 entire expression tree for :math:`(3 + (4 * 5))` is 23.
+
+.. shortanswer:: drawParseTree
+
+   Take a moment and draw the parse tree for the expression (2*12/6+3)-17+2*0.
+   You do not need to write anything here.
