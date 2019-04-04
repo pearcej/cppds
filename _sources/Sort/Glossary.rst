@@ -7,7 +7,7 @@ Glossary
 
 .. glossary::
 
-    Bubble sort
+    bubble sort
         sorting method that makes multiple passes through a collection, comparing
         adjacent items, and swaps items that are out of order
 
