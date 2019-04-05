@@ -6,15 +6,18 @@ The Selection Sort
 ~~~~~~~~~~~~~~~~~~
 
 The **selection sort** improves on the bubble sort by making only one
-exchange for every pass through the vector. In order to do this, a
-selection sort looks for the largest value as it makes a pass and, after
-completing the pass, places it in the proper location. As with a bubble
-sort, after the first pass, the largest item is in the correct place.
-After the second pass, the next largest is in place. This process
-continues and requires :math:`n-1` passes to sort *n* items, since the
-final item must be in place after the :math:`(n-1)` st pass.
+exchange for every pass through the first part of the vector.
+We will call this a step.
+In order to do this, a
+selection sort looks for the largest value as it makes a partial pass and, after
+completing the partial pass, places it in the proper location, ending the step.
+As with a bubble
+sort, after the first step, the largest item is in the correct place.
+After the second step, the next largest is in place. This process
+continues and requires :math:`n-1` steps to sort *n* items, since the
+final item must be in place after the :math:`(n-1)` st step.
 
-On each pass,
+On each step,
 the largest remaining item is selected and then placed in its proper
 location. The first pass places 93, the second pass places 77, the third
 places 55, and so on. The function is shown in :ref:`ActiveCode 1 <lst_selectionsortcode_cpp>` .
@@ -116,12 +119,12 @@ places 55, and so on. The function is shown in :ref:`ActiveCode 1 <lst_selection
 
 This visualization allows you to step through the algorithm. Yellow bars
 represent the current element, red represents the element being looked at,
-and blue represents the last element to look at during a pass.
+and blue represents the last element to look at during a step.
 
 You may see that the selection sort makes the same number of comparisons
 as the bubble sort and is therefore also :math:`O(n^{2})`. However,
 due to the reduction in the number of exchanges, the selection sort
-typically executes faster in benchmark studies. In fact, for our vector,
+typically executes faster in benchmark studies. In fact, for our particular vector,
 the bubble sort makes 20 exchanges, while the selection sort makes only
 8.
 
@@ -140,4 +143,4 @@ the bubble sort makes 20 exchanges, while the selection sort makes only
       :feedback_d: Selection sort improves upon bubble sort by making fewer swaps.
 
       Suppose you have the following vector of numbers to sort:
-      [11, 7, 12, 14, 19, 1, 6, 18, 8, 20] which vector represents the partially sorted (ascending) vector after three complete passes of selection sort?
+      [11, 7, 12, 14, 19, 1, 6, 18, 8, 20] which vector represents the partially sorted (ascending) vector after three steps of selection sort?

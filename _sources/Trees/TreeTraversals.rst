@@ -426,8 +426,8 @@ asked to modify the ``printexp`` function to remove this set of parentheses.
 .. dragndrop:: treeTraversalTypes
     :feedback: Review the tree traversal patterns.
     :match_1: preorder|||root, left, right
-    :match_2: postorder|||left, root, right
-    :match_3: inorder|||left, right, root
+    :match_2: inorder|||left, root, right
+    :match_3: postorder|||left, right, root
 
     Drag the tree traversal to its corresponding pattern.
 
