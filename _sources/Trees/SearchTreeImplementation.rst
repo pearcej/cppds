@@ -55,7 +55,7 @@ root of the tree, we must take special action. The code for the
 ``BinarySearchTree`` class constructor along with a few other
 miscellaneous functions is shown in :ref:`Listing 1 <lst_bst1>`.
 
-.. mchoice:: question1_1
+.. mchoice:: question1_2
    :answer_a: At least 4
    :answer_b: At most 3
    :answer_c: At least 1
@@ -400,7 +400,7 @@ node in the parent. The code for this case is shown in here.
 
    Figure 3: Deleting Node 16, a Node without Children
 
-The second case is only slightly more complicated (see :ref:`Listing 9 <lst_bst9>`). If a node has only a
+The second case is only slightly more complicated (see :ref:`Listing 10 <lst_bst10>`). If a node has only a
 single child, then we can simply promote the child to take the place of
 its parent. The code for this case is shown in the next listing. As
 you look at this code you will see that there are six cases to consider.
@@ -423,9 +423,9 @@ left child. The decision proceeds as follows:
    ``rightChild`` data by calling the ``replaceNodeData`` method on the
    root.
 
-.. _lst_bst9:
+.. _lst_bst10:
 
-**Listing 9**
+**Listing 10**
 
 ::
 
@@ -500,9 +500,9 @@ goes directly to the node we want to splice out and makes the right
 changes. We could call ``delete`` recursively, but then we would waste
 time re-searching for the key node.
 
-.. _lst_bst10:
+.. _lst_bst11:
 
-**Listing 10**
+**Listing 11**
 
 ::
 
@@ -513,7 +513,7 @@ time re-searching for the key node.
         currentNode->payload = succ->payload;
     }
 
-The code to find the successor is shown below (see :ref:`Listing 11 <lst_bst11>`) and as
+The code to find the successor is shown below (see :ref:`Listing 12 <lst_bst12>`) and as
 you can see is a method of the ``TreeNode`` class. This code makes use
 of the same properties of binary search trees that cause an inorder
 traversal to print out the nodes in the tree from smallest to largest.
@@ -540,9 +540,9 @@ search tree is the leftmost child of the tree. Therefore the ``findMin``
 method simply follows the ``leftChild`` references in each node of the
 subtree until it reaches a node that does not have a left child.
 
-.. _lst_bst11:
+.. _lst_bst12:
 
-**Listing 11**
+**Listing 12**
 
 
 ::
