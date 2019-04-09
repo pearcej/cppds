@@ -55,6 +55,19 @@ root of the tree, we must take special action. The code for the
 ``BinarySearchTree`` class constructor along with a few other
 miscellaneous functions is shown in :ref:`Listing 1 <lst_bst1>`.
 
+.. mchoice:: question1_1
+   :answer_a: At least 4
+   :answer_b: At most 3
+   :answer_c: At least 1
+   :answer_d: At most 2
+   :correct: d
+   :feedback_a: Incorrect. Refer back to the definition of a binary search tree.
+   :feedback_b: Incorrect.
+   :feedback_c: Incorrect, it has a limit.
+   :feedback_d: Correct!
+
+   How many children can a node have in a binary search tree?
+
 .. _lst_bst1:
 
 **Listing 1**

@@ -6,7 +6,7 @@ Binary Search Trees
 -------------------
 
 We have already seen two different ways to get key-value pairs in a
-collection. Recall that these collections implement the **map** abstract
+collection. Recall that these collections implement the map abstract
 data type. The two implementations of a map ADT we discussed were binary
 search on a vector and hash tables. In this section we will study **binary
 search trees** as yet another way to map from a key to a value. In this
