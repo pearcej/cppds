@@ -519,3 +519,10 @@ Using the fact that you can build a heap from a vector in :math:`O(n)`
 time, you will construct a sorting algorithm that uses a heap and sorts
 a vector in :math:`O(n\log{n}))` as an exercise at the end of this
 chapter.
+
+.. fillintheblank:: binaryHeapRep
+
+    What is the vector representation of the binary tree in :ref:`Figure 3 <fig_percDown>`? Exclude any whitespace.
+
+    - :9,14,11,17,18,19,21,33,27: Is the correct answer!
+      :.*: Refer to section 8.9.1 and 8.9.2
