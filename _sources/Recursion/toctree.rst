@@ -18,5 +18,5 @@ Recursion
     ExploringaMaze.rst
     DynamicProgramming.rst
     DiscussionQuestions.rst
-    Glossary.rst
     pythondsProgrammingExercises.rst
+    Glossary.rst

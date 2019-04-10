@@ -110,10 +110,6 @@ complete function for palindrome-checking appears in
        main()
 
 
-Self Check
-----------
-
-
 .. dragndrop:: orderingPrinciples
    :feedback: This is feedback.
    :match_1: Stack|||last-in first-out
