@@ -16,20 +16,52 @@ at are called **preorder**, **inorder**, and **postorder**. Let’s start
 out by defining these three traversals more carefully, then look at some
 examples where these patterns are useful.
 
+.. _fig_trav_tree:
+
+.. figure:: Figures/trav_tree.png
+   :align: center
+   :alt: image
+
+   Figure 5: Example tree to be traversed.
+
 preorder
     In a preorder traversal, we visit the root node first, then
     recursively do a preorder traversal of the left subtree, followed by
     a recursive preorder traversal of the right subtree.
+
+.. _fig_pre_order_tree:
+
+.. figure:: Figures/pre_order.gif
+   :align: center
+   :alt: image
+
+   Figure 6: Traversal pattern for preorder.
 
 inorder
     In an inorder traversal, we recursively do an inorder traversal on
     the left subtree, visit the root node, and finally do a recursive
     inorder traversal of the right subtree.
 
+.. _fig_in_order_tree:
+
+.. figure:: Figures/in_order.gif
+   :align: center
+   :alt: image
+
+   Figure 7: Traversal pattern for inorder.
+
 postorder
     In a postorder traversal, we recursively do a postorder traversal of
     the left subtree and the right subtree followed by a visit to the
     root node.
+
+.. _fig_post_order_tree:
+
+.. figure:: Figures/post_order.gif
+   :align: center
+   :alt: image
+
+   Figure 8: Traversal pattern for postorder.
 
 Let’s look at some examples that illustrate each of these three kinds of
 traversals. First let’s look at the preorder traversal. As an example of
@@ -47,7 +79,7 @@ will stick with binary trees for now.
    :align: center
    :alt: image
 
-   Figure 5: Representing a Book as a Tree
+   Figure 9: Representing a Book as a Tree
 
 Suppose that you wanted to read this book from front to back. The
 preorder traversal gives you exactly that ordering. Starting at the root
