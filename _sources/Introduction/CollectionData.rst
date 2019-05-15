@@ -24,6 +24,7 @@ of identical type in which each element can be identified by an array index.
 More technically, an array data structure is an ordered arrangement of values
 located at equally spaced addresses in contiguous computer memory.
 
+<<<<<<< HEAD
 ::
 
     A C++ array is always stored in contiguous memory. C++ arrays can be allocated in two different ways:
@@ -31,6 +32,12 @@ located at equally spaced addresses in contiguous computer memory.
     1) *statically allocated* in which the array size is fixed at compile-time and cannot change
     2) *dynamically allocated* in which pointers are used in the allocation process so the size can change at run-time
 
+=======
+NOTE: A C++ **array** is always stored in contiguous memory. C++ arrays can be allocated in two different ways:
+
+    1) *statically allocated* in which the array size is fixed at compile-time and cannot change
+    2) *dynamically allocated* in which pointers are used in the allocation process so the size can change at run-time
+>>>>>>> 176b7a590ec8400c6082f6cd9452ba02d8aca77c
 
 In modern C++, the statically allocated array is typically used
 in situations when speed is essential or where hardware constraints exist, and a data structure
@@ -245,11 +252,23 @@ the *vector*.
 
    In the above example, what happened to otherdata[ ] in C++?
 
+.. mchoice:: mc_array
+    :answer_a: int myarray(5);
+    :answer_b: myarray[5];
+    :answer_c: int myarray[5];
+    :answer_d: None of the above.
+    :correct: c
+    :feedback_a: Check the characters at the end of the array! Right now that is a function!
+    :feedback_b: You are forgetting something important!
+    :feedback_c: Good work!
+    :feedback_d: Check the characters at the end of the array!
+
+    What is the correct way to declare an array in C++?
 
 Vectors
 -------
 
-Vectors use a dynamically allocated array to store their elements,
+**Vectors** use a dynamically allocated array to store their elements,
 so they can change size, and they have other friendly features as well.
 Because they use a dynamically allocated array, they use contiguous storage locations
 which means that their elements can be accessed and traversed, and they
@@ -293,6 +312,22 @@ as we see in the next example.
 Because vectors can change size, vectors typically allocate some extra storage to accommodate for possible growth.
 Thus the vector typically has an actual *capacity* greater than the storage *size* strictly needed to contain its elements.
 
+
+Matching
+^^^^^^^^
+.. dragndrop:: matching_vectors
+   :feedback: Feedback shows incorrect matches.
+   :match_1: [ ]|||Accesses value of an element. 
+   :match_2: =||| Assigns value to an element. 
+   :match_3: push_back|||Appends item to the end of the vector.
+   :match_4: pop_back||| Deletes last item of the vector.
+   :match_5: insert|||Injects an item into the vector. 
+   :match_6: erase|||Deletes an element from the choosen index.
+   :match_7: size|||Returns the actual capacity used by elements.
+   :match_8: capacity|||Returns the ammount of allocated storage space.
+   :match_9: reserve||| Request a change in space to amount
+
+    Match the Vector operations with their corresponding explination.
 
 .. tabbed:: intro_vector
 
@@ -484,6 +519,23 @@ methods, some of the most useful of which are shown in :ref:`Table 4<tab_string
                ``size``              ``astring.size()``                             Returns the size of the string
     ===================  ==============================  =========================================================
 
+
+Matching
+^^^^^^^^
+.. dragndrop:: matching_strings
+   :feedback: Feedback shows incorrect matches.
+   :match_1: [ ]|||Accesses value of an element. 
+   :match_2: =||| Assigns value to an element. 
+   :match_3: push_back|||Adjoins a character to the end of the string.
+   :match_4: pop_back|||Removes the last character from the end of the string.
+   :match_5: insert|||Injects a string at a specific index. 
+   :match_6: erase|||Deletes an element from one index to another.
+   :match_7: size|||Returns the capacity of the string.
+   :match_8: +|||connects strings.
+   :match_9: append|||Adjoins a string to the end of the string.
+   :match_10: find||| Returns the index of the first occurrence of item.
+
+    Match the String operations with their corresponding explination. 
 
 .. tabbed:: intro_string
 
@@ -685,6 +737,18 @@ describes them, and the session shows them in action.
    ===================== ========================= ================================================================
 
 
+Matching
+^^^^^^^^
+.. dragndrop:: matching_HT
+   :feedback: Feedback shows incorrect matches.
+   :match_1: [ ]|||Returns the value associated with the key, otherwise throws error.
+   :match_2: erase|||Deletes the entry from the hash table.
+   :match_3: count|||Returns true if key is in the hash table, and false otherwise.
+   :match_4: begin|||An iterator to the first element in the hash table.
+   :match_5: end|||An iterator pointing to past-the-end element of the hash table.
+   
+    Match the Hash Table operations with their corresponding explination. 
+
 Unordered Sets
 --------------
 
@@ -727,6 +791,20 @@ provides a summary. Examples of their use follow.
                  ``remove``              ``aset.erase(item)``                                        Removes item from the set
                   ``clear``                  ``aset.clear()``                                Removes all elements from the set
    ======================== ================================= ================================================================
+
+
+Matching
+^^^^^^^^
+.. dragndrop:: matching_us
+   :feedback: Feedback shows incorrect matches.
+   :match_1: union|||Returns a new set with all elements from both sets.
+   :match_2: intersection|||Returns a new set with only those elements common to both sets.
+   :match_3: difference||| Returns a new set with all items from first set not in second.
+   :match_4: add|||Adds item to the set.
+   :match_5: remove|||erases item from the set.
+   :match_6: clear|||Removes all elements from the set.
+   
+    Match the Unordered Sets operations with their corresponding explination. 
 
 
 .. mchoice:: mc_fixed
