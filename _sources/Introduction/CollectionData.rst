@@ -258,7 +258,7 @@ the *vector*.
 Vectors
 -------
 
-Vectors use a dynamically allocated array to store their elements,
+**Vectors** use a dynamically allocated array to store their elements,
 so they can change size, and they have other friendly features as well.
 Because they use a dynamically allocated array, they use contiguous storage locations
 which means that their elements can be accessed and traversed, and they
