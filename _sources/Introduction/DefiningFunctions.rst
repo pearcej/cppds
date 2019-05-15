@@ -123,6 +123,41 @@ marker. Any characters that follow the // on a line are ignored.
   	return 0;
   }
 
+.. admonition:: Self Check
+
+    Take a look at the code below:
+
+    ::
+
+        #include <iostream>
+        using namespace std;
+
+        dog walk(int steps){
+        
+            for (int step = 0; step < steps; step++){
+                cout << "dog walked "<< step << " steps!"<< endl;
+
+            };
+
+            }
+        int main() {
+        walk(11);
+        
+        }
+
+.. mchoice:: dog_walker
+    :answer_a: void
+    :answer_b: int
+    :answer_c: dog
+    :answer_d: walk
+    :correct: c
+    :feedback_a: Not quite, check the value preceding the name of the function!
+    :feedback_b: Not quite, check the value preceding the name of the function!
+    :feedback_c: Correct! The type of the function walk is dog!
+    :feedback_d: Not quite, that is the name of the function itself!
+
+    What is the correct return type of the function above **int main()**?
+
 Parameter Passing: by Value versus by Reference
 -----------------------------------------------
 
@@ -207,8 +242,6 @@ that calls ``swap_values(...)``.
         // swap_values() function definition
         // Interchanges the values located by variable1 and variable2.
 
-        void swap_values(int &variable1, int &variable2);
-
         // Notice that this function does not return anything!
         void swap_values(int &variable1, int &variable2) {
             int temp; 		// temporary storage for swap
@@ -231,6 +264,7 @@ that calls ``swap_values(...)``.
         }
 
 
+
 For this program :ref:`Swap Inputs <lst_swap_inputs>` to reverse the order of the integers the users types in, the function ``swap_values(...)`` must be able to change the values of the arguments. Try removing one or both of the "&" 's in this code to see what happens.
 
 -----------------------------------------------------------------
@@ -251,11 +285,14 @@ because the array parameter *list[]* does not include that information):
 
 ::
 
-    double average( int list[], int length ) {	// It is correct     syntax to omit the array length on the array itself.
-        double total = 0;                       //return type double which indicates that a decimal is being returned
+    double average( int list[], int length ) {	
+         // It is correct syntax to omit the array length on the array itself.
+        double total = 0;                     
+         //return type double which indicates that a decimal is being returned
         int count;
-        for( count = 0; count < length; count++ )
+        for( count = 0; count < length; count++ ) {
             total += double(list[count]);
+            };
         return (total / length);
     }
 
@@ -265,21 +302,23 @@ After a call to the following function, each element in the third array argument
 
 ::
 
-    void add_lists( int first[], int second[], int total[], int length ) { //return type int which indicates that nothing is returned
+    void add_lists( int first[], int second[], int total[], int length ) { 
+        //return type void which indicates that nothing is returned
         int count;
-        for( count = 0; count < length; count++ )
+        for( count = 0; count < length; count++ ) { 
             total[count] = first[count] + second[count];
-    }
+    };}
 
 Upon further examination, we can see that the first two arrays do not change values. To prevent ourselves from accidentally modifying any of these arrays, we can add the modifier ``const`` in the function head:
 
 ::
 
-    void add_lists( const int first[], const int second[], int total[], int length ) { //return type int which indicates that nothing is returned
+    void add_lists( const int first[], const int second[], int total[], int length ) { 
+        //return type void which indicates that nothing is returned
         int count;
-        for( count = 0; count < length; count++ )
+        for( count = 0; count < length; count++ ) {
             total[count] = first[count] + second[count];
-    }
+    };}
 
 These changes would ensure that the compiler will then not accept any statements within the function's definition that potentially modify the elements of the arrays *first* or *second*.
 
@@ -349,10 +388,18 @@ Overloading is a nice feature of the C++ language.
 
         main()
 
+.. mchoice:: foverloading
+    :answer_a: Helps keep consintency in the way your functions are named across your program.
+    :answer_b: Functions that do similar tasks differ based on parameters rather than by name.
+    :answer_c: A function in essence can fulfill multiple tasks depending on the parameters.
+    :answer_d: All of the above.
+    :correct: d
+    :feedback_a: Take a look at the other answers as well...
+    :feedback_b: Take a look at the other answers as well...
+    :feedback_c: Take a look at the other answers as well...
+    :feedback_d: Correct! There are many more benefits for overloading!
 
-
-
-
+    What are benefits of function overloading?
 
 .. admonition:: Self Check
 
