@@ -106,9 +106,9 @@ of the array. ``pop`` operations will manipulate that same end.
       :answer_d: The stack is empty
       :correct: c
       :feedback_a: Remember that a stack is built from the bottom up.
-      :feedback_b: Remember that a stack is built from the bottom up.
-      :feedback_c: Good job.
-      :feedback_d: Remember that a stack is built from the bottom up.
+      :feedback_b: pay attention to the line that says m.pop();. 
+      :feedback_c: Good job. This is correct because the 12 was poped of from the end and the 27 was pushed. 
+      :feedback_d: This would mean everyting is removed from the stack, when does that happen?
 
       Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?
 
@@ -129,7 +129,7 @@ of the array. ``pop`` operations will manipulate that same end.
       :correct: c
       :feedback_a: You may want to check out the docs for
       :feedback_b: There is an odd number of things on the stack but each time through the loop 2 things are popped.
-      :feedback_c: Good Job.
+      :feedback_c: Good Job, this is true because the stack can not evenly pop off every item within itself, because there is an odd number of items.
       :feedback_d: You may want to check out the docs for isEmpty
 
       Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?

@@ -38,3 +38,22 @@ Glossary
 
     unordered linked list
         a linked list whose elements are not in an order
+
+Matching 
+--------
+
+.. dragndrop:: matching_Linearlinkedlist
+    :feedback: Review classes and their properties
+    :match_1: forward list|||A list that is a singly-linked sequence container.
+    :match_2: head|||The first item in a linked list.
+    :match_3: linked data structure||| a data structure which consists of a set of nodes, which are linked together and organized by links created via references or pointers. 
+    :match_4: linked list|||Linear collection of data elements whose order is not determined by the placement in memory
+    :match_5: linked list traversal|||Process of systematically visiting each node in a linked list
+    :match_6: list|||A doubly-linked container
+    :match_7: node|||Element of a linked list.
+    :match_8: ordered linked list|||A linked list whose elements are in an order
+    :match_9: ordered list|||A list whose elements are ordered
+    :match_10: unordered linked list|||A linked list whose elements are not in an order
+   
+
+    Drag the word on the left to its corresponding definition

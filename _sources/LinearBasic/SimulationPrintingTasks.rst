@@ -226,123 +226,125 @@ seconds. By arbitrarily choosing 180 from the range of random integers
 allows us to set the total time and the pages per minute for the
 printer.
 
-.. highlight:: cpp
-    :linenothreshold: 5
+
 
 .. _lst_qumainsim:
 
 **Listing 4**
 
-.. code-block:: cpp
+.. highlight:: cpp
+    :linenothreshold: 5
 
-    #include <iostream>
-    #include <queue>
-    #include <vector>
-    #include <random>
-    using namespace std;
+::
+    
+        #include <iostream>
+        #include <queue>
+        #include <vector>
+        #include <random>
+        using namespace std;
 
-    class Task {
-        private:
-        int timestamp;
-        int pages;
+        class Task {
+            private:
+            int timestamp;
+            int pages;
 
-        public:
-        Task(int time) {
-            timestamp = time;
-            pages=(rand()%21)+1;
-        }
+            public:
+            Task(int time) {
+                timestamp = time;
+                pages=(rand()%21)+1;
+            }
 
-        int getStamp() {
-            return timestamp;
-        }
+            int getStamp() {
+                return timestamp;
+            }
 
-        int getPages() {
-            return pages;
-        }
+            int getPages() {
+                return pages;
+            }
 
-        int waitTime(int currenttime) {
-            return (currenttime - timestamp);
-        }
-    };
+            int waitTime(int currenttime) {
+                return (currenttime - timestamp);
+            }
+        };
 
-    class Printer {
-        public:
-        int pagerate;
-        Task *currentTask;
-        int timeRemaining;
+        class Printer {
+            public:
+            int pagerate;
+            Task *currentTask;
+            int timeRemaining;
 
-        Printer(int ppm) {
-            pagerate=ppm;
-            currentTask=NULL;
-            timeRemaining=0;
-        }
+            Printer(int ppm) {
+                pagerate=ppm;
+                currentTask=NULL;
+                timeRemaining=0;
+            }
 
-        void tick() {
-            if (currentTask != NULL) {
-                timeRemaining--;
-                if (timeRemaining <= 0) {
-                    currentTask=NULL;
+            void tick() {
+                if (currentTask != NULL) {
+                    timeRemaining--;
+                    if (timeRemaining <= 0) {
+                        currentTask=NULL;
+                    }
                 }
             }
-        }
 
-        bool busy() {
-            if (currentTask != NULL) {
+            bool busy() {
+                if (currentTask != NULL) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            void startNext(Task *newtask) {
+                currentTask=newtask;
+                timeRemaining=newtask->getPages()*60/pagerate;
+            }
+        };
+
+        bool newPrintTask() {
+            int num = rand()%180+1;
+            if (num==180) {
                 return true;
             } else {
                 return false;
             }
         }
 
-        void startNext(Task *newtask) {
-            currentTask=newtask;
-            timeRemaining=newtask->getPages()*60/pagerate;
-        }
-    };
+        void simulation(int numSeconds, int pagesPerMinute) {
+            Printer labprinter(pagesPerMinute);
+            queue<Task*> printQueue;
+            vector<int> waitingTimes;
 
-    bool newPrintTask() {
-        int num = rand()%180+1;
-        if (num==180) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    void simulation(int numSeconds, int pagesPerMinute) {
-        Printer labprinter(pagesPerMinute);
-        queue<Task*> printQueue;
-        vector<int> waitingTimes;
-
-        for (int i=0; i<numSeconds; i++) {
-            if (newPrintTask()) {
-                Task *task = new Task(i);
-                printQueue.push(task);
+            for (int i=0; i<numSeconds; i++) {
+                if (newPrintTask()) {
+                    Task *task = new Task(i);
+                    printQueue.push(task);
+                }
+                if (!labprinter.busy() &&!printQueue.empty()) {
+                    Task *nexttask = printQueue.front();
+                    printQueue.pop();
+                    waitingTimes.push_back(nexttask->waitTime(i));
+                    labprinter.startNext(nexttask);
+                }
+                labprinter.tick();
             }
-            if (!labprinter.busy() &&!printQueue.empty()) {
-                Task *nexttask = printQueue.front();
-                printQueue.pop();
-                waitingTimes.push_back(nexttask->waitTime(i));
-                labprinter.startNext(nexttask);
+            float total=0;
+            for (int i=0; i<waitingTimes.size(); i++) {
+                total+=waitingTimes[i];
             }
-            labprinter.tick();
-        }
-        float total=0;
-        for (int i=0; i<waitingTimes.size(); i++) {
-            total+=waitingTimes[i];
-        }
-        cout<<"Average Wait "<<total/waitingTimes.size()<<" secs "<<printQueue.size()<<" tasks remaining."<<endl;
-    }
-
-    int main() {
-        srand(time(NULL));
-
-        for (int i=0; i<10; i++) {
-            simulation(3600, 10);
+            cout<<"Average Wait "<<total/waitingTimes.size()<<" secs "<<printQueue.size()<<" tasks remaining."<<endl;
         }
 
-        return 0;
-    }
+        int main() {
+            srand(time(NULL));
+
+            for (int i=0; i<10; i++) {
+                simulation(3600, 10);
+            }
+
+            return 0;
+        }
 
 .. highlight:: python
    :linenothreshold: 500
