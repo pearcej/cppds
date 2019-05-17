@@ -24,20 +24,10 @@ of identical type in which each element can be identified by an array index.
 More technically, an array data structure is an ordered arrangement of values
 located at equally spaced addresses in contiguous computer memory.
 
-<<<<<<< HEAD
-::
-
-    A C++ array is always stored in contiguous memory. C++ arrays can be allocated in two different ways:
-
-    1) *statically allocated* in which the array size is fixed at compile-time and cannot change
-    2) *dynamically allocated* in which pointers are used in the allocation process so the size can change at run-time
-
-=======
 NOTE: A C++ **array** is always stored in contiguous memory. C++ arrays can be allocated in two different ways:
 
     1) *statically allocated* in which the array size is fixed at compile-time and cannot change
     2) *dynamically allocated* in which pointers are used in the allocation process so the size can change at run-time
->>>>>>> 176b7a590ec8400c6082f6cd9452ba02d8aca77c
 
 In modern C++, the statically allocated array is typically used
 in situations when speed is essential or where hardware constraints exist, and a data structure
