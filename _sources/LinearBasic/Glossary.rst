@@ -15,7 +15,7 @@ Glossary
         each opening symbol has a corresponding closing symbol and the pairs of parentheses are properly nested
 
     deque
-         an ordered collection of items with two ends and the items remain positioned in the collection. New items can be added at either the front or the rear
+        an ordered collection of items with two ends and the items remain positioned in the collection. New items can be added at either the front or the rear
 
     first-in first-out (FIFO)
         ordering principle in which the first item added is also the first removed
