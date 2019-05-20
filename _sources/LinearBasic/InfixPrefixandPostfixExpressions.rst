@@ -196,6 +196,18 @@ notations.
 
    Figure 8: Converting a Complex Expression to Prefix and Postfix Notations
 
+.. parsonsprob:: question1_100_4
+
+   What does the prefix expression of this infix expression look like: ((A+B)*(C-D)) if this were modeled using a stack with the top being the end of the expression and the bottom being the beginning of the expression?
+   -----
+   D
+   C
+   -
+   A
+   B
+   *
+   +
+
 General Infix-to-Postfix Conversion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

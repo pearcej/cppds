@@ -226,8 +226,6 @@ seconds. By arbitrarily choosing 180 from the range of random integers
 allows us to set the total time and the pages per minute for the
 printer.
 
-
-
 .. _lst_qumainsim:
 
 **Listing 4**
@@ -235,8 +233,8 @@ printer.
 .. highlight:: cpp
     :linenothreshold: 5
 
-::
-    
+:: 
+
         #include <iostream>
         #include <queue>
         #include <vector>
