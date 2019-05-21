@@ -340,8 +340,3 @@ Although on average they may need to traverse only half of the nodes,
 these methods are all :math:`O(n)` since in the worst case each will
 process every node in the linked list.
 
-You may also have noticed that the performance of this linked list implementation
-differs from the performance given earlier for Python lists. This
-suggests that linked lists are not the way Python lists are implemented.
-The actual implementation of a Python list is based on the notion of an array.
-We discuss this in more detail in Chapter 8.
