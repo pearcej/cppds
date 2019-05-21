@@ -155,6 +155,16 @@ output line. The next level of subclasses breaks the logic gates into
 two families, those that have one input line and those that have two.
 Below that, the specific logic functions of each appear.
 
+.. figure:: Figures/logicquestion.png
+	:align: center
+
+.. fillintheblank:: logicquestion
+
+  What will the logic gate yield? (One / Zero)
+
+ - :Zero: Correct!
+   :One: Take a closer look at the logic gates.  
+
 .. _fig_gates:
 
 .. figure:: Figures/gates.png
