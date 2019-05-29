@@ -340,3 +340,7 @@ Although on average they may need to traverse only half of the nodes,
 these methods are all :math:`O(n)` since in the worst case each will
 process every node in the linked list.
 
+.. dragndrop:: bigO
+    :feedback: Try again!
+    :match_1: 
+    :match_2:
