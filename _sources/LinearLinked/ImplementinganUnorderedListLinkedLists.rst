@@ -572,7 +572,9 @@ You can try out the ``UnorderedList`` class in ActiveCode 1.
    #include <iostream>
    using namespace std;
 
+   //creates a node class
    class Node {
+       //defines data, and next as a pointer.
        private:
        	   int data;
        	   Node *next;

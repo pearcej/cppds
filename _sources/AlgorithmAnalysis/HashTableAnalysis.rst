@@ -73,13 +73,10 @@ performing exactly the same operation, ``number in container``. The
 difference is that on line 7 ``x`` is vector, and on line 9 ``x`` is a
 hash table.
 
-.. _lst_vectvshash_cpp:
-
 **Listing 6**
 
 .. sourcecode:: cpp
-    :linenos:
-
+    
     #include <iostream>
     #include <ctime>
     #include <vector>
@@ -88,7 +85,7 @@ hash table.
 
     int main() {
 
-        for( int a = 10000; a < 1000001; a = a + 20000) {
+        for(int a = 10000; a < 1000001; a = a + 20000) {
             // vector Part
             clock_t begin = clock();
             vector<int> avector;
