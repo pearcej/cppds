@@ -163,11 +163,11 @@ d) Read + as the next token. By rule 2, set the root value of the
    current node to + and add a new node as the right child. The new
    right child becomes the current node.
 
-e) Read a ( as the next token. By rule 1, create a new node as the left
+e) Read ( as the next token. By rule 1, create a new node as the left
    child of the current node. The new left child becomes the current
    node.
 
-f) Read a 4 as the next token. By rule 3, set the value of the current
+f) Read 4 as the next token. By rule 3, set the value of the current
    node to 4. Make the parent of 4 the current node.
 
 g) Read \* as the next token. By rule 2, set the root value of the

@@ -64,7 +64,7 @@ method from the Base class.
 
   class Base {
       public:
-          virtual void printType() {
+          virtual void printType() { // Creates function called  printType
               subfunction();
               cout << "I'm inherited!" << endl << endl;
           }
@@ -87,11 +87,11 @@ method from the Base class.
   };
 
   int main() {
-      SubFirst first;
-      first.printType();
+      SubFirst first;       // runs  subfirst class using printType virtual function
+      first.printType();    // calls Subfirst class, and runs virtual function on it's own
 
-      SubSecond second;
-      second.printType();
+      SubSecond second;    // runs  subsecond class using printType virtual function
+      second.printType();  // calls Subsecond class, and runs virtual function on it's own 
 
       return 0;
   }
@@ -154,6 +154,16 @@ characteristics of logic gates: namely, a label for the gate and an
 output line. The next level of subclasses breaks the logic gates into
 two families, those that have one input line and those that have two.
 Below that, the specific logic functions of each appear.
+
+.. figure:: Figures/logicquestion.png
+	:align: center
+
+.. fillintheblank:: logicquestion
+
+  What will the logic gate yield? (One / Zero)
+
+ - :Zero: Correct!
+   :One: Take a closer look at the logic gates.  
 
 .. _fig_gates:
 

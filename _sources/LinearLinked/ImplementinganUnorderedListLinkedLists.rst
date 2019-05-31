@@ -100,11 +100,14 @@ to access and modify the data and the next reference.
 
 The special C++ reference value ``NULL`` will play an important role
 in the ``Node`` class and later in the linked list itself. A reference
-to ``NULL`` will denote the fact that there is no next node. Note in the
-constructor that a node is initially created with ``next`` and a pointer to
-``NULL``. Since this is sometimes referred to as “grounding the node,”
-we will use the standard ground symbol to denote a reference that is
-referring to ``NULL``.
+to ``NULL`` will denote the fact that there is no next node. 
+
+Note:
+
+    in the constructor that a node is initially created with ``next`` and a pointer to
+    ``NULL``. Since this is sometimes referred to as “grounding the node,”
+    we will use the standard ground symbol to denote a reference that is
+    referring to ``NULL``.
 
 
 .. _fig_node:
@@ -163,10 +166,23 @@ the list does not refer to anything. Eventually, the example list given
 earlier will be represented by a linked list as shown in
 :ref:`Figure 6 <fig_linkedlist>`. The head of the list points to the first node
 which contains the first item of the list. In turn, that node holds a
-reference to the next node (the next item) and so on. It is very
-important to note that the list class itself does not contain any node
-objects. Instead it contains a single pointer to only the first node
-in the linked structure.
+reference to the next node (the next item) and so on. **It is very important to note that the list class itself does not contain any node**
+**objects. Instead it contains a single pointer to only the first node**
+**in the linked structure.**
+
+.. mchoice:: beheadedq
+    :multiple_answers:
+    :answer_a: If you lose the head, the next node becomes the head.
+    :answer_b: If you lose the head, the list is still in memory, you just cannot find it.
+    :answer_c: It is impossible to lose the head. 
+    :answer_d: If you lose the head, you lose the entire linked list.
+    :correct: b, d
+    :feedback_a: No, if you lose the head node, your pointer will be pointing at nothing. 
+    :feedback_b: Yes, this occurs because the delete keyword is never used to get rid of the list.
+    :feedback_c: No, if you lose the head node, your pointer will be pointing at nothing.
+    :feedback_d: Right, however, it remains in memory, unknown to you.
+
+    What would happen if you lose the head of a singularly-linked linked list?
 
 .. _lst_listclass_py:
 
@@ -203,8 +219,7 @@ the boolean expression ``this->head==NULL`` will only be true if there
 are no nodes in the linked list. Since a new list is empty, the
 constructor and the check for empty must be consistent with one another.
 This shows the advantage to using the reference ``NULL`` to denote the
-“end” of the linked structure. In Python, ``None`` can be compared to
-any reference. Two references are equal if they both refer to the same
+“end” of the linked structure. Two references are equal if they both refer to the same
 object. We will use this often in our remaining methods.
 
 ^^^^^^^^^^^^^^^^^^^
@@ -382,6 +397,15 @@ set to ``True``.
         return false;
     }
 
+.. mchoice:: travq
+    :answer_a: True
+    :answer_b: False
+    :correct: a
+    :feedback_a: Correct! 
+    :feedback_b: Not quite, without the while loop, the traversal could go for as long as the program is allowed to run.
+
+    True / false: The while loop is needed to keep the traversal from going past the end of the list.
+
 As an example, consider invoking the ``search`` method looking for the
 item 17.
 
@@ -548,7 +572,9 @@ You can try out the ``UnorderedList`` class in ActiveCode 1.
    #include <iostream>
    using namespace std;
 
+   //creates a node class
    class Node {
+       //defines data, and next as a pointer.
        private:
        	   int data;
        	   Node *next;

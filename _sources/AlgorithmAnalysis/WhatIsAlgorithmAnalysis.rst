@@ -277,7 +277,7 @@ Similarly, :math:`\sum_{i=2}^{4} i^2` means :math:`2^2+3^2+4^2`.
     :answer_c: 25
     :answer_d: 36
     :answer_e: None of the above.
-    :correct: a
+    :correct: d
     :feedback_a: No. Use i = 1, i = 2, and i = 3, plugging into i^3.
     :feedback_b: No. Use i = 1, i = 2, and i = 3, plugging into i^3.
     :feedback_c: No. Use i = 1, i = 2, and i = 3, plugging into i^3.
