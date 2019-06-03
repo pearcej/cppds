@@ -342,5 +342,5 @@ process every node in the linked list.
 
 .. dragndrop:: bigO
     :feedback: Try again!
-    :match_1: 
-    :match_2:
+    :match_1: isEmpty, add (unordered linked list)|||O(1)
+    :match_2: length,add, search, and remove(ordered linked list)|||O(n)
