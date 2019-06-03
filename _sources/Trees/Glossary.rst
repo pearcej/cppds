@@ -104,3 +104,26 @@ Glossary
 
     tree
         a hierarchal data structure with a root, branches, and leaves.
+Matching
+--------
+
+
+.. dragndrop:: matching_sort
+    :feedback: Review classes and their properties
+    :match_1: tree|||a hierarchal data structure with a root, branches, and leaves.
+    :match_2: AVL tree|||Binary search tree that automatically makes sure the tree remains balanced at all times
+    :match_3: binary search tree|||a binary tree in which each node has no more than 2 children.
+    :match_4: bst propery|||node values in the left sub-tree are less than the parent while node values in the right sub-tree are
+    :match_5: tree|||Hierarchal data structure with a root, branches, and leaves.
+    :match_6: root|||the starting point of the tree; has no incoming edges
+    :match_7: path|||an ordered list of nodes connected by edges 
+    :match_8: parent|||a node that leads to other nodes
+    :match_9: sibling|||children of the same parent node
+    :match_10: short bubble|||Stops if there are no exchanges to do
+    :match_11: shell sort|||Divides the collection into subsets, sorts the subsets individually using insertion sort, then also sorts the combination of the sorted subsets using insertion sort
+    :match_12: sorting|||Process of placing elements from a collection in some kind of order
+    :match_13: split point|||Position of the pivot value in the sorted collection; used to divide the collection for subsequent calls to quick sort
+    :match_14: quick sort|||Uses recursion to split a collection in half and places elements on the proper side of the split point
+   
+
+    Drag the word on the left to its corresponding definition (Note not all words in the glossary are here)
