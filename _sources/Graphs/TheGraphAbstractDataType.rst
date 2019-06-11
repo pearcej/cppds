@@ -33,3 +33,14 @@ described above. There are two well-known implementations of a graph,
 the **adjacency matrix** and the **adjacency list**. We will explain
 both of these options, and then implement one as a Python class.
 
+.. dragndrop:: gadt
+    :feedback: This is feedback.
+    :match_1: Graph()|||creates a new, empty graph.
+    :match_2: addVertex(vert)|||adds an instance of Vertex to the graph.
+    :match_3: addEdge(fromVert, toVert)|||Adds a new, directed edge to the graph that connects two vertices.
+    :match_4: addEdge(fromVert, toVert, weight)|||Adds a new, weighted, directed edge to the graph that connects two vertices.
+    :match_5: getVertex(vertKey)|||finds the vertex in the graph named vertKey.
+    :match_6: getVertices()|||returns the list of all vertices in the graph.
+    :match_7: in|||returns True for a statement of the form vertex in graph, if the given vertex is in the graph, False otherwise.
+   
+    Drag and drop each graph abstract data type to its corresponding definition.

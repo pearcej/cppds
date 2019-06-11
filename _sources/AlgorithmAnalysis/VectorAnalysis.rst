@@ -276,3 +276,11 @@ that the vector is decreasing in size by 1 each time through the loop.
 
         return 0;
     }
+
+.. dragndrop:: matching_VectorBO
+    :feedback: Review operations and thier Big(O)
+    :match_1: reserve(), begin(), end(), size(), index [], index assignment = ,push_back(), pop_back()||| O(1) 
+    :match_2: erase(i), insert(i, item),find(srt, stp, item)|||O(n)
+    :match_3: find(srt, stp, item)|||O(log n)
+   
+    Drag the operation(s) on the left to their corresponding Big(O)

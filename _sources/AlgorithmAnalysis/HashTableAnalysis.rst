@@ -73,13 +73,10 @@ performing exactly the same operation, ``number in container``. The
 difference is that on line 7 ``x`` is vector, and on line 9 ``x`` is a
 hash table.
 
-.. _lst_vectvshash_cpp:
-
 **Listing 6**
 
 .. sourcecode:: cpp
-    :linenos:
-
+    
     #include <iostream>
     #include <ctime>
     #include <vector>
@@ -88,7 +85,7 @@ hash table.
 
     int main() {
 
-        for( int a = 10000; a < 1000001; a = a + 20000) {
+        for(int a = 10000; a < 1000001; a = a + 20000) {
             // vector Part
             clock_t begin = clock();
             vector<int> avector;
@@ -185,6 +182,13 @@ data structures can be found on the C++ website.
         :feedback_e: The only hash table operations that are not O(1) are those that require iteration.
 
         Which of the hash table operations shown below is O(1)?
+    
+    .. dragndrop:: matching_htBO
+        :feedback: Review operations and thier Big(O)
+        :match_1: erase, insert, find, contains|||O(1)
+        :match_2: iteration|||O(n)
+    
+        Drag the operation(s) on the left to its corresponding Big(O)
 
 ..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
@@ -238,3 +242,4 @@ Self Check
   :feedback_d: No, a very efficient algorithm can be programmed efficiently in C++ without any extra spaces making it unreadable, however the solution would still be efficient.
 
   When considering the Big O of an algorithm, what do we use to quantify our description of an algorithm.
+

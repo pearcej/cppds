@@ -11,9 +11,9 @@ general problem of balancing and nesting different kinds of opening and
 closing symbols occurs frequently. For example, in Python
 square brackets, ``[`` and ``]``, are used for lists; curly braces, ``{`` and ``}``, are
 used for dictionaries; and parentheses, ``(`` and ``)``, are used for tuples and
-arithmetic expressions. .. include:: file C++, square brackets, `[` and `]`, are used for arrays and vectors,
-brackets `{` and `}` separate possibly nested blocks of code,
-and operations are given inside of possibly nested parentheses `(` and `)`.
+arithmetic expressions. .. include:: file C++, square brackets, ``[`` and ``]``, are used for arrays and vectors,
+brackets ``{`` and ``}`` separate possibly nested blocks of code,
+and operations are given inside of possibly nested parentheses ``(`` and ``)``.
 It is possible to mix symbols as long as each
 maintains its own open and close relationship. Strings of symbols such
 as

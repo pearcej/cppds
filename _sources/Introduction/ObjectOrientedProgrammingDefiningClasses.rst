@@ -30,6 +30,7 @@ type, we will do so with a new class which will provide the blueprint or templat
 all of the objects of that type.
 
 Four key principles are associated with object-oriented programming:
+
     1) abstraction
     2) encapsulation
     3) inheritance
@@ -163,6 +164,13 @@ keyword will only be able to be accessed by the object's class methods, not by t
 Only C++'s '``public`` methods can be accessed and used by the user. Because we
 want our user to be able to call every constructor directly, we always place the
 constructor under ``public``. A third access keyword, ``protected`` will be discussed later.
+
+.. dragndrop:: aande
+    :feedback: Review the definitions of the key words.
+    :match_1: Encapsulation|||A situation where bank software programmers want to protect users' personal information.
+    :match_2: Abstraction|||A situation where software programmers want to develop similar objects without having to redefine the most similar properties.
+
+    Match the corresponding key word to the appropriate scenario. 
 
 Polymorphism
 ^^^^^^^^^^^^

@@ -25,12 +25,11 @@ a string is simple. A number less than 10 sounds like a good base case.
 Knowing what our base is suggests that the overall algorithm will
 involve three components:
 
-#. Reduce the original number to a series of single-digit numbers.
+    #. Reduce the original number to a series of single-digit numbers.
 
-#. Convert the single digit-number to a string using a lookup.
+    #. Convert the single digit-number to a string using a lookup.
 
-#. Concatenate the single-digit strings together to form the final
-   result.
+    #. Concatenate the single-digit strings together to form the final result.
 
 The next step is to figure out how to change state and make progress
 toward the base case. Since we are working with an integer, let’s

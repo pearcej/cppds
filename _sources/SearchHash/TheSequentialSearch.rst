@@ -159,6 +159,17 @@ of the items to report that the item was not found. It can stop
 immediately. :ref:`CodeLens 2 <lst_seqsearchpython2>` shows this variation of the
 sequential search function.
 
+
+.. fillintheblank:: Fill_sqsearch
+
+    For the following unordered sequential list: {0, 1, 2, 13, 8, 19, 17, 32, 42}, |blank| would produce the best case scenario, and |blank| would produce the worst case scenario.
+
+    - :0: Correct! 0 is at the beginning of the list wich would provide the best case of O(1)
+      :.*: No! try again, only value place in this list will produce the best case. 
+
+    - :42: Correct! 42 is at the end of the list wich would provide the worst case of O(n)
+      :.*: No! try again, only one value in this list will produce the worst case. 
+
 .. _fig_seqsearch2:
 
 .. figure:: Figures/seqsearch2.png

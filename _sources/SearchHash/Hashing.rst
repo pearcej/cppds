@@ -686,6 +686,7 @@ Next we will access and modify some items in the hash table. Note that
 the value for the key 20 is being replaced.
 
 ::
+        
     ...
     h.put(20,"chicken");
     h.put(17,"tiger");
@@ -937,17 +938,6 @@ unsuccessful search gives
 If we are using chaining, the average number of comparisons is
 :math:`1 + \frac {\lambda}{2}` for the successful case, and simply
 :math:`\lambda` comparisons if the search is unsuccessful.
-
-Summary
-~~~~~~~
--  A sequential search is :math:`O(n)` for ordered and unordered
-   lists.
-
--  A binary search of an ordered list is :math:`O(\log n)` in the
-   worst case.
-
--  Hash tables can provide constant time searching.
-
 
 Self Check
 ~~~~~~~~~~
