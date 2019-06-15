@@ -227,8 +227,7 @@ solution shown above, the recursive call,
 uses the slice operator to create the left half of the list that is then
 passed to the next invocation (similarly for the right half as well).
 The analysis that we did above assumed that the slice operator takes
-constant time. However, we know that the slice operator in Python is
-actually O(k). This means that the binary search using slice will not
+constant time. This means that the binary search using slice will not
 perform in strict logarithmic time. Luckily this can be remedied by
 passing the list along with the starting and ending indices. The indices
 can be calculated as we did in :ref:`Listing 3 <lst_binarysearchpy>`. This is especially relevant in C++, where we are initializing a new vector for each split of our list. To truly optimize this algorithm, we could use an array and manually keep track of start and end indices of our array. Below is an example of such an implementation.

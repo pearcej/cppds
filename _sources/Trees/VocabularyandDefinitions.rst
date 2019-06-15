@@ -114,5 +114,4 @@ nodes than that, but we do not know unless we look deeper into the tree.
 
 .. shortanswer:: treeDefinition
 
-   In your own words, define a tree relative to the first definition provided
-   above.
+   In your own words, define a tree relative to the first definition provided above.

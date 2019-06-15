@@ -64,7 +64,7 @@ method from the Base class.
 
   class Base {
       public:
-          virtual void printType() {
+          virtual void printType() { // Creates function called  printType
               subfunction();
               cout << "I'm inherited!" << endl << endl;
           }
@@ -87,11 +87,11 @@ method from the Base class.
   };
 
   int main() {
-      SubFirst first;
-      first.printType();
+      SubFirst first;       // runs  subfirst class using printType virtual function
+      first.printType();    // calls Subfirst class, and runs virtual function on it's own
 
-      SubSecond second;
-      second.printType();
+      SubSecond second;    // runs  subsecond class using printType virtual function
+      second.printType();  // calls Subsecond class, and runs virtual function on it's own 
 
       return 0;
   }

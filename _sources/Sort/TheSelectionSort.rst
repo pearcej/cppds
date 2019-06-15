@@ -15,7 +15,7 @@ As with a bubble
 sort, after the first step, the largest item is in the correct place.
 After the second step, the next largest is in place. This process
 continues and requires :math:`n-1` steps to sort *n* items, since the
-final item must be in place after the :math:`(n-1)` st step.
+final item must be in place after the :math:`(n-1)` step.
 
 On each step,
 the largest remaining item is selected and then placed in its proper

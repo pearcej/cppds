@@ -63,7 +63,7 @@ work. Since doubling is a constant factor it does not change worst case
 
 .. fillintheblank:: searchTreeAnalysis
 
-    What is the worst-case performance of the del function?
+    The worst-case performance of the del function is O(|blank|)?
 
-    - :O(n): Is the correct answer!
-      :.*: Read carefully the restrictions of the the functions
+    - :n: Is the correct answer!
+      :.*:   Read carefully the restrictions of the the functions

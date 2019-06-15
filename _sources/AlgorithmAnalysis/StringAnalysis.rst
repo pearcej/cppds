@@ -55,3 +55,11 @@ Just like vectors, the `push_back()` operation is :math:`O(1)` unless there is i
 in which case the entire
 string is moved to a larger contiguous underlying array, which
 is :math:`O(n)`.
+
+.. dragndrop:: matching_StringBO
+    :feedback: Review operations and thier Big(O)
+    :match_1: reserve(), begin(), end(), index [], index assignment = ,push_back(), pop_back()||| O(1) 
+    :match_2: erase(i), insert(i, item),find(srt, stp, item)|||O(n)
+    :match_3: find(srt, stp, item)|||O(log n)
+   
+    Drag the operation(s) on the left to their corresponding Big(O) (Notice the similarities to the Vectors Big(O))
