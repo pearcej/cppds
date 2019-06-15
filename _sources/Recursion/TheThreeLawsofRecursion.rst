@@ -8,6 +8,7 @@ The Three Laws of Recursion
 Like the robots of Asimov, all recursive algorithms must obey three
 important laws:
 
+
    #. A recursive algorithm must have a **base case**.
 
    #. A recursive algorithm must change its state and move toward the base
