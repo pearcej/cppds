@@ -179,5 +179,37 @@ and end at the same square.
    Figure 11: A Complete Tour of the Board
        
 
+.. admonition:: Self Check
 
+    .. mchoice:: KnightsTour
+        :answer_a: True
+        :answer_b: False
+        :correct: a
+        :feedback_a: You are correct!
+        :feedback_b: No; remember the implementation of Matrix graphs.
+
+        True/False: The Knight's Tour Graph contains as many vertices as there are tiles on a chessboard.
+
+    .. clickablearea:: clickKnight
+        :question: What line denotes the base case of the Knight's Tour function?
+        :iscode:
+        :feedback: Remember, the base case is usually the first comparison in the function!
+
+        :click-incorrect:def knightTour(n,path,u,limit)::endclick:
+        :click-incorrect:u.setColor('gray'):endclick:
+        :click-incorrect:path.append(u):endclick:
+        :click-correct:if n < limit::endclick:
+            :click-incorrect:nbrList = list(u.getConnections()):endclick:
+            :click-incorrect:i = 0:endclick:
+            :click-incorrect:done = False:endclick:
+            :click-incorrect:while i < len(nbrList) and not done::endclick:
+                :click-incorrect:if nbrList[i].getColor() == 'white'::endclick:
+                    :click-incorrect:done = knightTour(n+1, path, nbrList[i], limit):endclick:
+                :click-incorrect:i = i + 1:endclick:
+            :click-incorrect:if not done:  # prepare to backtrack:endclick:
+                :click-incorrect:path.pop():endclick:
+                :click-incorrect:u.setColor('white'):endclick:
+        :click-incorrect:else::endclick:
+            :click-incorrect:done = True:endclick:
+        :click-incorrect:return done:endclick:
 

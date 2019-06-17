@@ -119,5 +119,17 @@ algorithm, named after H. C. Warnsdorff who published his idea in 1823.
 .. highlight:: python
     :linenothreshold: 500
     
+.. admonition:: Self Check
+    
+    .. mchoice:: knightO
+        :answer_a: O(k^n)
+        :answer_b: O(n)
+        :answer_c: O(n^2)
+        :answer_d: O(n!)
+        :correct: a
+        :feedback_a: You are correct! K is a small constant, and N is the total number of vertices (or spaces on a chessboard).
+        :feedback_b: No, the Knight's Tour is not linear.
+        :feedback_c: No, the Knight's Tour does not have a nested loop that iterates through all values twice.
+        :feedback_d: No, the input is not processed in a fashion indicative of a factorial.
 
-
+        What is the big O of the Knight's Tour function?
