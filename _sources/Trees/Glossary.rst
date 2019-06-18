@@ -110,7 +110,7 @@ Matching
 
 
 .. dragndrop:: matching_trees
-    :feedback: Review classes and their properties
+    :feedback: Look at your glossary
     :match_1: tree|||Hierarchal data structure with a root, branches, and leaves.
     :match_2: AVL tree|||Binary search tree that automatically makes sure the tree remains balanced at all times
     :match_3: binary search tree|||Binary tree in which each node has no more than 2 children.
