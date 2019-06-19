@@ -340,7 +340,9 @@ Although on average they may need to traverse only half of the nodes,
 these methods are all :math:`O(n)` since in the worst case each will
 process every node in the linked list.
 
-.. dragndrop:: bigO
+.. dragndrop:: LinkedlistAnalysis
     :feedback: Try again!
-    :match_1: isEmpty, add (unordered linked list)|||O(1)
-    :match_2: length,add, search, and remove(ordered linked list)|||O(n)
+    :match_1: O(1)|||isEmpty, add (unordered linked list)
+    :match_2: O(n)|||length,add, search, and remove(ordered linked list)
+
+    Match the Big O() analysis to their corresponding  opperation.
