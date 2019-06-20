@@ -9,7 +9,7 @@ C++ considers data to be the focal point of the problem-solving process.
 We stated above that C++ supports the object-oriented programming
 paradigm. In C++, as well as in any other
 object-oriented programming language, we define a **class** to be a
-description of what the data look like (the state) and what the data can
+description of what the data looks like (the state) and what the data can
 do (the behavior). Classes are analogous to abstract data types because
 a user of a class only sees the state and behavior of a data item.
 Data items are called **objects** in the object-oriented paradigm. An object
@@ -19,8 +19,7 @@ is an instance of a class.
 Built-in Atomic Data Types
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-C++ requires the users specify the specific data type of each variable
-before it is used.
+C++ requires users to specify the data type of each variable before it is used..
 The primary C++ built-in atomic data types are: integer (``int``),
 floating point (``float``), double precision floating point (``double``),
 Boolean (``bool``), and character (``char``). There is also a special
@@ -125,7 +124,7 @@ to ensure space is used as efficiently as possible.
   :answer_b: ``5**4``
   :answer_c: ``4^5``
   :answer_d: ``pow(4, 5)``
-  :correct: e
+  :correct: d
   :feedback_a: No, ``**`` is used in other languages, but not C++.
   :feedback_b: No, ``**`` is used in other languages, but not C++, and the operators are reversed.
   :feedback_c: No. The ``^`` is a valid operator in C++, but it does something else.
@@ -288,7 +287,7 @@ complaining. Note what happened in the code above in the final output.
    :answer_a: Setting theBool to anything other than true or false is ignored.
    :answer_b: Setting theBool to anything > 0 will be true and false otherwise.
    :answer_c: false == 0 and true = !false i.e. anything that is not zero and can be converted to a Boolean is not false, thus it must be true.
-   :answer_d: I have no idea. It makes no sense.
+   :answer_d: None of the above.
    :correct: c
    :feedback_a: No. Try changing the code and setting theBool to 0.
    :feedback_b: No. Try changing the code and setting theBool to -4.
@@ -360,8 +359,8 @@ Try the following question.
    :correct: b
    :feedback_a: No, single quotes are only used for single characters.
    :feedback_b: Good job reading!
-   :feedback_c: No. Try again.
-   :feedback_d: No. Try again.
+   :feedback_c: No. Only one set of symbols may be used.
+   :feedback_d: No. No matter what, the implementation is consistent.
    :feedback_e: One of the above is indeed correct.
 
    If I want to create a string in C++, what set of symbols may be used?
@@ -545,7 +544,7 @@ in memory:
           int *ptrN = &varN; // ptrN points to varN address
 
           cout << "varN value: " << varN << endl;
-          cout << "ptrN location: " << ptrN << endl;
+          cout << "varN location: " << ptrN << endl;
           cout << "dereference ptrN: " << *ptrN << "endl";
 
           
@@ -597,7 +596,7 @@ and had the following instructions instead?
                 // You might get an error or you might not!
 
              cout << "varN value: " << varN << endl;
-             cout << "ptrN location: " << ptrN << endl;
+             cout << "varN location: " << ptrN << endl;
              cout << "ptrN points to varN: " << endl;
              cout << "dereference ptrN: " << *ptrN << "\n\n";
 
@@ -680,8 +679,8 @@ is valid or not.
    :correct: a
    :feedback_a: Right!
    :feedback_b: No. Double quotes are only used for strings.
-   :feedback_c: No. Try again.
-   :feedback_d: No. Try again.
+   :feedback_c: No. Only one set of symbols may be used.
+   :feedback_d: No. The implementation is consistent.
    :feedback_e: One of the above is indeed correct.
 
    If I want to use the ``char`` type in C++, what set of symbols must be used?
