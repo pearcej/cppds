@@ -67,8 +67,7 @@ terms so that no matter what computation is performed, we always end up
 with the most common form.
 
 In C++, we define a new class by providing a name and a set of method
-definitions that are syntactically similar to function definitions. For
-this example:
+definitions that are syntactically similar to function definitions. For example:
 
 ::
 
@@ -501,8 +500,8 @@ Let's rewrite the addition operator as a friend function.
 
 
 How you choose to overload operators  like ``+`` is a design choice
-since both methods will work perfectly well. This is Another
-example of encapsulation; your user does not need to
+since both methods will work perfectly well. This is another
+example of encapsulation; your user does not need to know 
 which you choose to use!
 
 There is one more thing we can improve in our addition function.
@@ -779,16 +778,75 @@ Self Check
 
 To make sure you understand how operators are implemented in C++ classes, and how to properly write methods, write some methods to implement ``*, /,`` and ``-`` .  Also implement comparison operators > and <.
   .. actex:: self_check_4cpp
-      :language: cpp
-      :nocodelens:
+    :language: cpp
+    :nocodelens:
 
-      #include <iostream>
-      using namespace std;
+    #include <iostream>
+    using namespace std;
 
-      int main() {
+    int gcd(int m, int n) {
+        while (m%n != 0) {
+            int oldm = m;
+            int oldn = n;
 
-          return 0;
-      }
+            m = oldn;
+            n = oldm%oldn;
+        }
+        return n;
+    }
+
+    class Fraction {
+        public:
+            Fraction(int top, int bottom) {
+                num = top;
+                den = bottom;
+            }
+            Fraction(int top){
+                num = top;
+                den = 1;
+            }
+            Fraction(){
+                num = 1;
+                den = 1;
+            }
+            Fraction operator +(Fraction otherFrac) {
+                int newnum = num*otherFrac.den + den*otherFrac.num;
+                int newden = den*otherFrac.den;
+                int common = gcd(newnum, newden);
+
+                return Fraction(newnum/common,newden/common);
+            }
+            bool operator ==(Fraction &otherFrac) {
+                int firstnum = num*otherFrac.den;
+                int secondnum = otherFrac.num*den;
+
+                return firstnum==secondnum;
+            }
+
+        friend ostream& operator<<(ostream& stream, const Fraction& fraction);
+
+        private:
+            int num, den;
+    };
+
+    ostream& operator << (ostream& stream, const Fraction& fraction) {
+        stream << fraction.num << "/" << fraction.den;
+
+        return stream;
+    }
+
+    int main(){
+        Fraction x(1, 2);
+        Fraction y(2, 4);
+        cout << x << " + " << y << " = " << x+y << endl;
+        if (x==y){
+            cout << "x is equal y" << endl;
+        }
+        else{
+            cout << "x is not equal y" << endl;
+        }
+        return 0;
+    }
 
 Our the next section will introduce another important aspect of
 object-oriented programming, namely **inheritance**.

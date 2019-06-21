@@ -166,7 +166,6 @@ this algorithm is shown in :ref:`ActiveCode 1 <lst_parcheck1>`.
 
        main()
 
-
 This function, ``parChecker``, assumes that a ``Stack`` class is
 available and returns a Boolean result as to whether the string of
 parentheses is balanced. Note that the Boolean variable ``balanced`` is

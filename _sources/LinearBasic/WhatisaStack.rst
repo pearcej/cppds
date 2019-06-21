@@ -31,7 +31,6 @@ stack, we need to remove the ones that are sitting on top of them.
 
 .. figure:: Figures/bookstack2.png
    :align: center
-   :scale: 50 %
 
    Figure 1: A Stack of Books
 
@@ -39,7 +38,6 @@ stack, we need to remove the ones that are sitting on top of them.
 
 .. figure:: Figures/primitive.png
    :align: center
-   :scale: 50 %
 
    Figure 2: A Stack of Primitive Python Objects
 
@@ -62,6 +60,14 @@ objects.
 
    Figure 3: The Reversal Property of Stacks
 
+.. parsonsprob:: stack_prob
+    
+    Say we create a stack by pushing numbers 1 to 4 from lowest to highest. What would the stack look like afterwards?
+    -----
+    4
+    3
+    2
+    1
 
 Considering this reversal property, you can perhaps think of examples of
 stacks that occur as you use your computer. For example, every web
