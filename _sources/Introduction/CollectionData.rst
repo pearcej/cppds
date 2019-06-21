@@ -442,7 +442,7 @@ we will likely not be surprised by the following:
   :answer_c: Vectors don't use contiguous memory, so elements can be inserted.
   :answer_d: more than one of the above
   :answer_e: none of the above
-  :correct: b
+  :correct: a
   :feedback_a: Right! Good job!
   :feedback_b: Not all of the protections of lists are offered by vectors; one can still iterate off of either end.
   :feedback_c: No. Although elements can be inserted in vectors, they do require contiguous memory.
@@ -489,6 +489,19 @@ Since C++ strings are so much nicer, I would not recommend using C-strings unles
 Because strings are sequences, all of the typical sequence operations work as you would expect.
 In addition, the string library offers a huge number of
 methods, some of the most useful of which are shown in :ref:`Table 4<tab_stringmethods>`.
+
+.. mchoice:: cstringquestion1_1
+    :answer_a: An array of characters that ends with a terminating null character. i.e. \0
+    :answer_b: A sequential data structure consisting of zero or more characters
+    :answer_c: A data structure consisting of an ordered collection of data elements of identical type in which each element can be identified by an array index.
+    :answer_d: sequence container storing data of a single type that is stored in a dynamically allocated array which can change in size.
+    :correct: a
+    :feedback_a: Correct! a c-string is different from a string
+    :feedback_b: Close, but that is the definition of a string, not a c-string
+    :feedback_c: Sorry, thats not a string or a c-string
+    :feedback_d: No, that's a vector
+
+    What is the correct definition of c-strings?
 
 .. _tab_stringmethods:
 
@@ -782,6 +795,38 @@ provides a summary. Examples of their use follow.
                   ``clear``                  ``aset.clear()``                                Removes all elements from the set
    ======================== ================================= ================================================================
 
+The code below is an example of a program that can detect if a specific char is in an unordered set.
+
+.. activecode:: UnorderedSetExample
+    :language: cpp
+
+    #include <iostream>
+    #include <unordered_set>
+    using namespace std;
+
+    void checker(unordered_set<char> set, char letter){
+        if(set.find(letter) == set.end()){
+            cout << "letter " << letter << " is not in the set." << endl;
+        }
+        else{
+            cout << "letter " << letter << " is in the set." << endl;
+        }
+    }
+
+    int main(){
+        unordered_set<char> charSet = {'d', 'c', 'b', 'a'};
+
+        char letter = 'e';
+        checker(charSet, letter);
+        charSet.insert('e');
+        checker(charSet, letter);
+        return 0;
+    }
+
+the ``find`` method used for a conditional in ``Checker`` compares each item in the set 
+with the given parameter until there is a match. the ``set.find(letter) == set.end()`` 
+section means that if ``find`` cannot find the letter before reaching the end of the 
+set, then ``letter`` is not contained in the set.
 
 Matching
 ^^^^^^^^
