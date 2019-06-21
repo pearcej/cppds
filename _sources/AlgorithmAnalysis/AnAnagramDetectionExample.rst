@@ -237,7 +237,7 @@ time and so it will still generate :math:`n!` different strings.
 It turns out that :math:`n!` grows even faster than :math:`2^{n}` as
 *n* gets large. In fact, if ``s1`` were 20 characters long, there would
 be :math:`20!=2,432,902,008,176,640,000` possible candidate strings.
-If we processed one possibility every second, it would still take us
+If we processed one possibility every second, it would take us
 77,146,816,596 years to go through the entire array. This is probably not
 going to be a good solution.
 

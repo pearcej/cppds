@@ -162,6 +162,44 @@ mismatch occurs, the Boolean variable ``balanced`` is set to ``false``.
            print(parChecker('[{()]'))
        main()
 
+.. clickablearea:: stackclick
+    :question: Using the program above, click on the line of code that adds an open parentheses to the stack.
+    :iscode:
+    :feedback: Remember that the function to do this would be the push function.
+
+    :click-incorrect:bool parChecker(string symbolString){:endclick:
+          :click-incorrect:stack<string> s;:endclick:
+          :click-incorrect:bool balanced = true;:endclick:
+          :click-incorrect:int index = 0;:endclick:
+          :click-incorrect:int symbolLength = symbolString.length();:endclick:
+
+          while(index < symbolLength && balanced){
+              :click-incorrect:string symbol;:endclick:
+              :click-incorrect:symbol = symbolString[index];:endclick:
+              :click-incorrect:string opens = "({[";:endclick:
+              :click-incorrect:if (inString(symbol, opens)){:endclick:
+                  :click-correct:s.push(symbol);:endclick:
+              } else {
+                  if (s.empty()){
+                      :click-incorrect:balanced = false;:endclick:
+                  } else {
+                      :click-incorrect:string top = s.top();:endclick:
+                      :click-incorrect:s.pop();:endclick:
+                      :click-incorrect:if (!matches(top, symbol)){:endclick:
+                          :click-incorrect:balanced = false;:endclick:
+                      }
+                  }
+              }
+              :click-incorrect:index = index + 1;:endclick:
+          }
+          :click-incorrect:if(balanced && s.empty()){:endclick:
+              :click-incorrect:return true;:endclick:
+          } else {
+              :click-incorrect:return false;:endclick:
+          }
+    }
+
+
 These two examples show that stacks are very important data structures
 for the processing of language constructs in computer science. Almost
 any notation you can think of has some type of nested symbols that must
