@@ -66,20 +66,20 @@ to access and modify the data and the next reference.
 
     class Node {
         private:
-        	int data;
-        	Node *next;
+        	int data; //data in the beginning node 
+        	Node *next; //pointer to the next node
 
         public:
         	Node(int initdata) {
-        		data = initdata;
-        		next = NULL;
+        		data = initdata; //the initialized data is set as the head
+        		next = NULL; //the next node is set as NULL, as there is no next node yet.
         	}
 
-        	int getData() {
-        		return data;
+        	int getData() { //function that return data of a given node. 
+        		return data; 
         	}
 
-        	Node *getNext() {
+        	Node *getNext() { 
         		return next;
         	}
 
@@ -94,8 +94,8 @@ to access and modify the data and the next reference.
 
 ::
 
-        >>> temp = Node(93)
-        >>> temp.getData()
+        >>> temp = Node(93) //sets the nodes data to the integer 93
+        >>> temp.getData() // calls the getData() function.
         93
 
 The special C++ reference value ``NULL`` will play an important role
