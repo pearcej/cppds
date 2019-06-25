@@ -183,12 +183,20 @@ data structures can be found on the C++ website.
 
         Which of the hash table operations shown below is O(1)?
     
-    .. dragndrop:: matching_htBO
-        :feedback: Review operations and thier Big(O)
-        :match_1: erase, insert, find, contains|||O(1)
-        :match_2: iteration|||O(n)
-    
-        Drag the operation(s) on the left to its corresponding Big(O)
+    .. mchoice:: manswer_shtBO
+        :answer_a: erase
+        :answer_b: insert
+        :answer_c: iteration
+        :answer_d: contains
+        :answer_e: find
+        :correct: c
+        :feedback_a: The efficiency of erase in hash tables is constant.
+        :feedback_b: The efficiency of insert in hash tables is constant.
+        :feedback_c: Correct!
+        :feedback_d: The efficiency of contains in hash tables is constant.
+        :feedback_e: The efficiency of find in hash tables is constant.
+
+        What is an operator for hash tables with an efficiency other than O(1)?
 
 ..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
@@ -209,8 +217,8 @@ Self Check
 
 .. dragndrop:: growth
     :feedback: Compare the functions at different values to see how they compare
-    :match_1: 2^n|||1st
-    :match_2: n^2|||2nd
+    :match_1: 2<sup>n</sup>|||1st
+    :match_2: n<sup>2</sup>|||2nd
     :match_3: nlogn|||3rd
     :match_4: logn|||4th
 
