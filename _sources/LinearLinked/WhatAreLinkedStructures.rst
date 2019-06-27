@@ -50,7 +50,7 @@ Observe what happens when you play the following videos simultaneously:
 You can hear and see all of these videos simultaneously, but only because your
 computer switches from one task to another so fast that it appears seamless. Just
 like you, your computer gives each task some time to use its resources and cycles
-between them really fast makes. Timesharing explains why a computer slows down
+between them really fast. Timesharing explains why a computer slows down
 when there are a bunch of tabs open on a browser: the more things you have to
 switch between, the more time it takes to finish them.
 
