@@ -28,7 +28,7 @@ see whether a value is in the hash table or not is also :math:`O(1)`.
 The efficiency of all hash table operations is summarized in
 :ref:`Table 6 <tbl_hashbigo_cpp>`. One important side note on hash table performance
 is that the efficiencies we provide in the table below are for average
-performance. In some rare cases the contains, get item, and set item
+performance. In some rare cases the **contains**, **get item**, and **set item**
 operations can degenerate into :math:`O(n)` performance but we will
 get into that in a later chapter when we talk about the different ways
 that a hash table could be implemented.
@@ -56,7 +56,7 @@ For our last performance experiment we will compare the performance of
 the contains operation between vectors and hash tables. In the process we
 will confirm that the contains operator for vectors is :math:`O(n)` and
 the contains operator for hash tables is :math:`O(1)`. The experiment
-we will use to compare the two is simple. We’ll make an vector with a range
+we will use to compare the two is simple. We’ll make a vector with a range
 of numbers in it. Then we will pick numbers at random and check to see
 if the numbers are in the vector. If our performance tables are correct
 the bigger the vector the longer it should take to determine if any one
@@ -131,7 +131,7 @@ hash table.
 :ref:`Figure 4 <fig_vectvshash_cpp>` summarizes the results of running
 :ref:`Listing 6 <lst_vectvshash_cpp>`. You can see that the hash table is consistently
 faster. For the smallest vector size of 10,000 elements a hash table is
-89.4 times faster than an vector. For the largest vector size of 990,000
+89.4 times faster than a vector. For the largest vector size of 990,000
 elements the hash table is 11,603 times faster! You can also see that
 the time it takes for the contains operator on the vector grows linearly
 with the size of the vector. This verifies the assertion that the contains
@@ -154,15 +154,15 @@ data structures can be found on the C++ website.
 .. admonition:: Self Check
 
     .. mchoice:: mccppmapperfcpp3
-        :answer_a: Popping the first index from an vector.
-        :answer_b: Popping an element from the end of an vector.
-        :answer_c: Adding a new element to an vector.
+        :answer_a: Popping the first index from a vector.
+        :answer_b: Popping an element from the end of a vector.
+        :answer_c: Adding a new element to a vector.
         :answer_d: vector[10]
         :answer_e: all of the above are O(1)
         :correct: a
         :feedback_a: When you remove the first element of a vector, all the other elements of the vector must be shifted forward.
         :feedback_b: Removing an element from the end of the vector is a constant operation.
-        :feedback_c: Adding to the end of an vector is a constant operation
+        :feedback_c: Adding to the end of a vector is a constant operation
         :feedback_d: Indexing a vector is a constant operation
         :feedback_e: There is one operation that requires all other vector elements to be moved.
 
@@ -183,12 +183,20 @@ data structures can be found on the C++ website.
 
         Which of the hash table operations shown below is O(1)?
     
-    .. dragndrop:: matching_htBO
-        :feedback: Review operations and thier Big(O)
-        :match_1: erase, insert, find, contains|||O(1)
-        :match_2: iteration|||O(n)
-    
-        Drag the operation(s) on the left to its corresponding Big(O)
+    .. mchoice:: manswer_shtBO
+        :answer_a: erase
+        :answer_b: insert
+        :answer_c: iteration
+        :answer_d: contains
+        :answer_e: find
+        :correct: c
+        :feedback_a: The efficiency of erase in hash tables is constant.
+        :feedback_b: The efficiency of insert in hash tables is constant.
+        :feedback_c: Correct!
+        :feedback_d: The efficiency of contains in hash tables is constant.
+        :feedback_e: The efficiency of find in hash tables is constant.
+
+        What is an operator for hash tables with an efficiency other than O(1)?
 
 ..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
@@ -209,8 +217,8 @@ Self Check
 
 .. dragndrop:: growth
     :feedback: Compare the functions at different values to see how they compare
-    :match_1: n^2|||1st
-    :match_2: 2^n|||2nd
+    :match_1: 2<sup>n</sup>|||1st
+    :match_2: n<sup>2</sup>|||2nd
     :match_3: nlogn|||3rd
     :match_4: logn|||4th
 
@@ -228,7 +236,7 @@ Self Check
    :feedback_c: Yes, we consider how much time it takes to solve a problem
    :feedback_d: No, we do not consider how much energy it takes at this point.
 
-   When considering computer resources, what factors do we have in mind?
+   When considering computer resources, what factors do we have in mind? Select all that apply.
 
 .. mchoice:: bigO
   :answer_a: the space it takes

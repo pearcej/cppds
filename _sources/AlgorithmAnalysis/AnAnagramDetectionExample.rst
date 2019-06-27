@@ -237,7 +237,7 @@ time and so it will still generate :math:`n!` different strings.
 It turns out that :math:`n!` grows even faster than :math:`2^{n}` as
 *n* gets large. In fact, if ``s1`` were 20 characters long, there would
 be :math:`20!=2,432,902,008,176,640,000` possible candidate strings.
-If we processed one possibility every second, it would still take us
+If we processed one possibility every second, it would take us
 77,146,816,596 years to go through the entire array. This is probably not
 going to be a good solution.
 
@@ -363,12 +363,12 @@ problem.
 
    .. mchoice:: analysis_1
        :answer_a: O(n)
-       :answer_b: O(n^2)
+       :answer_b: O(n<sup>2</sup>)
        :answer_c: O(log n)
-       :answer_d: O(n^3)
+       :answer_d: O(n<sup>3</sup>)
        :correct: b
        :feedback_a: No. In an example like this you want to count the nested loops, especially the loops that are dependent on the same variable, in this case, n.
-       :feedback_b: Right! A nested loop like this is O(n^2).
+       :feedback_b: Right! A nested loop like this is O(n<sup>2</sup>).
        :feedback_c: No. log n typically is indicated when the problem is iteratively made smaller
        :feedback_d: No. In an example like this you want to count the nested loops. especially the loops that are dependent on the same variable, in this case, n.
 
@@ -388,9 +388,9 @@ problem.
 
    .. mchoice:: analysis_2
        :answer_a: O(n)
-       :answer_b: O(n^2)
+       :answer_b: O(n<sup>2</sup>)
        :answer_c: O(log n)
-       :answer_d: O(n^3)
+       :answer_d: O(n<sup>3</sup>)
        :correct: a
        :feedback_a: Right! Even though there are two loops they are not nested.  You might think of this as O(2n) but we can ignore the constant 2.
        :feedback_b: No. Be careful, in counting loops you want to look carefully at whether or not the loops are nested.
@@ -414,9 +414,9 @@ problem.
 
    .. mchoice:: analysis_3
        :answer_a: O(n)
-       :answer_b: O(n^2)
+       :answer_b: O(n<sup>2</sup>)
        :answer_c: O(log n)
-       :answer_d: O(n^3)
+       :answer_d: O(n<sup>3</sup>)
        :correct: c
        :feedback_a: No. Look carefully at the loop variable i.  Notice that the value of i is cut in half each time through the loop.  This is a big hint that the performance is better than O(n)
        :feedback_b: No. Check again, is this a nested loop?
@@ -436,3 +436,12 @@ problem.
              }
              return 0;
          }
+
+   .. fillintheblank:: fill1512
+
+       If an algorithm performing at :math:`O(n^{2})` has the integer 8 as input, what is the worst case scenario for the algorithm?
+
+       - :64: Correct!
+         :16: That would be 2n, which would be simplified as n.
+         :8: That would be n.
+

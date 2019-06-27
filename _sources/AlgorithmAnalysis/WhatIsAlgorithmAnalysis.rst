@@ -309,7 +309,7 @@ half of the rectangle.
 So, the area with blue squares
 is also just :math:`\sum_{i=1}^{8} i = \frac {(8)(8+1)}{2}`.
 
-Hence, when we have a variable `n`, we have learned that we can just the
+Hence, when we have a variable `n`, we have learned that we can just use the
 closed equation :math:`\sum_{i=1}^{n} i = \frac {(n)(n+1)}{2}` to
 compute the sum of the first ``n`` integers without iterating.
 
@@ -398,7 +398,7 @@ that the iterative solutions seem to be doing more work since some
 program steps are being repeated. This is likely the reason it is taking
 longer. Also, the time required for the iterative solution seems to
 increase as we increase the value of ``n``. However, there is a problem.
-If we ran the same function on a different computer or used a different
+If we run the same function on a different computer or used a different
 programming language, we would likely get different results. It could
 take even longer to perform ``sumOfN3`` if the computer were older.
 

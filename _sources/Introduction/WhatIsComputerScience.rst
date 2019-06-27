@@ -124,7 +124,6 @@ parameters), and what will be returned. The details are hidden inside
 .. _fig_procabstraction:
 
 .. figure::  Figures/blackbox.png
-   :scale: 50 %
    :align: center
 
    Figure 1: Procedural Abstraction
