@@ -223,3 +223,48 @@ to see that :math:`T(n)` then follows the quadratic function as
 .. admonition:: Self Check
 
    Write two C++ functions to find the minimum number in an array.  The first function should compare each number to every other number on the array. :math:`O(n^2)`.  The second function should be linear :math:`O(n)`.
+
+    .. fillintheblank:: bigOquestion
+        :casei:
+
+        The Big O of a particular algorithm is O(n^2). Given that it takes 2 seconds to do 1 million operations;
+
+        how long would it take with 2 million inputs? ``|blank|`` 
+        
+        10 million? ``|blank|``
+
+        -   :8: Correct!
+            :x: Incorrect. Remember, think about what it means for the n to be squared.
+        -   :200: Correct! 
+            :x: Incorrect. Remember, think about what it means for the n to be squared.
+
+    .. fillintheblank:: bigologn
+        :casei:
+
+        The Big O of a particular algorithm is O(logn). Given that it takes 2 seconds to do 3 million operations;
+        how long would it take with 4 million inputs? 
+        ``|blank|`` seconds.
+         
+        10 million? 
+        ``|blank|`` seconds.
+
+        -   :.74: Correct!
+            :x: Incorrect. Think about what happens to the time as more operations occur.
+        -   :3.44: Correct! 
+            :x: Incorrect. Think about what happens to the time as more operations occur.
+        
+    .. fillintheblank:: bigon3
+        :casei:
+
+        The Big O of a particular algorithm is O(n^3). Given that it takes 2 seconds to do 1000 operations;
+        h ow long would it take with 2000 inputs? 
+        ``|blank|`` seconds.
+
+        10,000? 
+        ``|blank|`` seconds. 
+
+        -   :16: Correct!
+            :x: Incorrect. Think about what happens to the time as more operations occur.
+        -   :2000: Correct!
+            :x: Incorrect. Think about what happens to the time as more operations occur. 
+        
