@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -19,13 +19,27 @@ is an instance of a class.
 Built-in Atomic Data Types
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-C++ requires users to specify the data type of each variable before it is used..
+C++ requires users to specify the data type of each variable before it is used.
 The primary C++ built-in atomic data types are: integer (``int``),
 floating point (``float``), double precision floating point (``double``),
 Boolean (``bool``), and character (``char``). There is also a special
 type which holds a memory location called ``pointer``. C++ also has
 collection or compound data types, which will be discussed in a future
 chapter.
+
+.. mchoice:: atomicq1
+	:answer_a: It must be mutable so that it can change at any time.
+	:answer_b: Its memory size cannot be too big, relating to how atoms are naturally very small.
+	:answer_c: It must be statically allocated so it cannot change in size.
+	:answer_d: It cannot be broken down any smaller while still being easily operable.
+	:correct: d
+	:feedback_a: Incorrect, Atomic data types are not required to be mutable.
+	:feedback_b: Incorrect, The data type can be any size, but you're close. (hint: atomic data types got their name when scientists thought atoms were the smallest things in existence.)
+	:feedback_c: Incorrect, atomic data types have nothing to do with being static or dynamic.
+	:feedback_d: Correct, the atomic data type actually got its name when scientists thought atoms were the smallest things in existence. That is why they are data types that cannot be broken down.
+
+	After reading the above paragraph, what makes a data type categorized as an atomic data type? (hint: 
+	arrays and vectors are not atomic)
 
 Numeric Data
 ^^^^^^^^^^^^
