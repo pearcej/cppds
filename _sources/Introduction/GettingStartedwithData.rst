@@ -19,7 +19,7 @@ is an instance of a class.
 Built-in Atomic Data Types
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-C++ requires users to specify the data type of each variable before it is used..
+C++ requires users to specify the data type of each variable before it is used.
 The primary C++ built-in atomic data types are: integer (``int``),
 floating point (``float``), double precision floating point (``double``),
 Boolean (``bool``), and character (``char``). There is also a special
