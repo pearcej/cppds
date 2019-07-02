@@ -355,7 +355,7 @@ process every node in the linked list.
     :correct: b
     :feedback_a: Wrong! the head Node of the list will only contain a pointer to the second Node.
     :feedback_b: Correct! the final Node of the linked list will contain a pointer to the first node so that it is possible to make "circles" around the list.
-    :feedback_c: Wrong! None of the nodes in the middle of the list will ever point to the head node.
-    :feedback_d: Wrong! This would be possible in a circular doubly linked list, but not a circular linked list.
+    :feedback_c: Wrong! None of the nodes in the middle of the list will ever point to the head node in a circular linked list.
+    :feedback_d: Hint: This would be possible in a circular doubly linked list, but not a circular linked list.
     
-    After thinking about the example at the beginning of the chapter, how would a circular linked list be different than an ordered or unordered linked list?
+    After having read over unordered and ordered linked lists, what do you think a circular linked list would do differently from an ordered or unordered linked list? (Hint: think about the example from the beginning of the chapter.)
