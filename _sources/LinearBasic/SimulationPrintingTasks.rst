@@ -231,7 +231,6 @@ printer.
 **Listing 4**
 
 .. highlight:: cpp
-    :linenothreshold: 5
 
 :: 
 
@@ -345,7 +344,6 @@ printer.
         }
 
 .. highlight:: python
-   :linenothreshold: 500
 
 When we run the simulation, we should not be concerned that the
 results are different each time. This is due to the probabilistic nature

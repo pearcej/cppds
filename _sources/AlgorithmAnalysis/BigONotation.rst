@@ -71,13 +71,13 @@ magnitude :math:`f(n)=n^{2}`, or simply that it is :math:`O(n^{2})`.
     .. mchoice:: bigo3
         :answer_a: O(2n)
         :answer_b: O(n)
-        :answer_c: O(3n^2)
-        :answer_d: O(n^2)
+        :answer_c: O(3n<sup>2</sup>)
+        :answer_d: O(n<sup>2</sup>)
         :answer_e: More than one of the above
         :correct: d
-        :feedback_a: No, 3n^2 dominates 2n. Try again.
-        :feedback_b: No, n^2 dominates n. Try again.
-        :feedback_c: No, the 3 should be omitted because n^2 dominates.
+        :feedback_a: No, 3n<sup>2</sup> dominates 2n. Try again.
+        :feedback_b: No, n<sup>2</sup> dominates n. Try again.
+        :feedback_c: No, the 3 should be omitted because n<sup>2</sup> dominates.
         :feedback_d: Right!
         :feedback_e: No, only one of them is correct. Try again.
 
@@ -134,6 +134,18 @@ another.
 
    Figure 1: Common Big-O Functions
 
+
+.. parsonsprob:: parsonsBigO
+
+    Without looking at the graph above, from top to bottom order the following from most to least efficient.
+    -----
+    constant
+    logarithmic
+    linear
+    log linear
+    quadratic
+    cubic
+    exponential
 
 As a final example, suppose that we have the fragment of C++ code
 shown in :ref:`Listing 2 <lst_dummycode>`. Although this program does not really do
@@ -219,9 +231,9 @@ n grows, the cubic function quickly overtakes :math:`T(n)`. It is easy
 to see that :math:`T(n)` then follows the quadratic function as
 :math:`n` continues to grow.
 
-
 .. admonition:: Self Check
 
+<<<<<<< HEAD
    Write two C++ functions to find the minimum number in an array.  The first function should compare each number to every other number on the array. :math:`O(n^2)`.  The second function should be linear :math:`O(n)`.
     
 
@@ -275,3 +287,6 @@ to see that :math:`T(n)` then follows the quadratic function as
             :2500 499: Incorrect. Try lower. Think about what happens to the time as more operations occur. 
             :.*: Incorrect. 
         
+=======
+   Write two C++ functions to find the minimum number in an array.  The first function should compare each number to every other number on the array. :math:`O(n^{2})`.  The second function should be linear :math:`O(n)`.
+>>>>>>> 5145b2a10ac484bdcaa6aca532d2b90c08c6c3fe

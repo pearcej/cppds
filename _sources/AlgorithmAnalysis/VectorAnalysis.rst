@@ -76,7 +76,7 @@ mechanisms that are as similar as possible across operating systems.
 To use ``ctime`` you create two ``clock`` objects. The first clock object marks
 the current start time; the second clock object marks the current time after
 the function runs a set number of times (the end time). To get the total runtime,
-you subtract the start time from the end time to get the elapsed time.
+you subtract the end time from the start time to get the elapsed time.
 The following session shows how long it takes to run each
 of our test functions 10,000 times within a ``for`` loop.
 
@@ -192,7 +192,7 @@ was a good one.
                  erase(i)               O(n)
           insert(i, item)               O(n)
      find(srt, stp, item)   O(log n) or O(n)
-                reserve()               O(1)
+                reserve()               O(n)
                   begin()               O(1)
                     end()               O(1)
                    size()               O(1)
@@ -204,7 +204,7 @@ vector is moved to a larger contiguous underlying array, which
 is :math:`O(n)`.
 
 Note that the vector class provides a find command which can determine
-whether a given item is in the vector. It is is :math:`O(log n)` if
+whether a given item is in the vector. It is :math:`O(log n)` if
 the vector is sorted and is :math:`O(n)` otherwise. We will explain
 why this is in Chapter 3.
 
@@ -279,8 +279,8 @@ that the vector is decreasing in size by 1 each time through the loop.
 
 .. dragndrop:: matching_VectorBO
     :feedback: Review operations and thier Big(O)
-    :match_1: reserve(), begin(), end(), size(), index [], index assignment = ,push_back(), pop_back()||| O(1) 
-    :match_2: erase(i), insert(i, item),find(srt, stp, item)|||O(n)
+    :match_1: begin(), end(), size(), index [], index assignment = ,push_back(), pop_back()||| O(1) 
+    :match_2: reserve(), erase(i), insert(i, item),find(srt, stp, item)|||O(n)
     :match_3: find(srt, stp, item)|||O(log n)
    
     Drag the operation(s) on the left to their corresponding Big(O)

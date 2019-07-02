@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -340,7 +340,22 @@ Although on average they may need to traverse only half of the nodes,
 these methods are all :math:`O(n)` since in the worst case each will
 process every node in the linked list.
 
-.. dragndrop:: bigO
+.. dragndrop:: LinkedlistAnalysis
     :feedback: Try again!
-    :match_1: isEmpty, add (unordered linked list)|||O(1)
-    :match_2: length,add, search, and remove(ordered linked list)|||O(n)
+    :match_1: O(1)|||isEmpty, add (unordered linked list)
+    :match_2: O(n)|||length,add, search, and remove(ordered linked list)
+
+    Match the Big O() analysis to their corresponding  opperation.
+
+.. mchoice:: LinkedListMChoice
+    :answer_a: In a circular linked list, the head Node of the linked list contains a pointer to the last node in the list.
+    :answer_b: In a circular linked list, the last Node of the linked list contains a pointer to the head node of the list rather than pointing to NULL.
+    :answer_c: In a circular linked list, every node contains a pointer to the head of the list, making it possible to return back to the beginning of the list at any time.
+    :answer_d: In a circular linked list, the head and final Node of the linked list point to each other, making it possible to traverse through the list in both directions.
+    :correct: b
+    :feedback_a: Wrong! the head Node of the list will only contain a pointer to the second Node.
+    :feedback_b: Correct! the final Node of the linked list will contain a pointer to the first node so that it is possible to make "circles" around the list.
+    :feedback_c: Wrong! None of the nodes in the middle of the list will ever point to the head node.
+    :feedback_d: Wrong! This would be possible in a circular doubly linked list, but not a circular linked list.
+    
+    After thinking about the example at the beginning of the chapter, how would a circular linked list be different than an ordered or unordered linked list?

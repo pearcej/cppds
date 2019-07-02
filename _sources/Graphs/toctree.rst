@@ -28,6 +28,6 @@ Graphs and Graph Algorithms
     AnalysisofDijkstrasAlgorithm.rst
     PrimsSpanningTreeAlgorithm.rst
     Summary.rst
-    KeyTerms.rst
     DiscussionQuestions.rst
     ProgrammingExercises.rst
+    Glossary.rst

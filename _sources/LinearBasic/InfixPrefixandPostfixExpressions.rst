@@ -203,10 +203,10 @@ notations.
    D
    C
    -
-   A
    B
-   *
+   A
    +
+   *
 
 General Infix-to-Postfix Conversion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
