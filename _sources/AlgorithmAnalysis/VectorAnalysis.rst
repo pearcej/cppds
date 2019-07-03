@@ -87,6 +87,8 @@ of our test functions 10,000 times within a ``for`` loop.
     #include <vector>
     using namespace std;
 
+    //Tests the time of the vector "push_back()" operation 
+
     void test1(int num){
         vector<int> vect;
         for (int i = 0; i < num; i++){
@@ -121,6 +123,8 @@ adequately sized space in memory.
     #include <iostream>
     #include <vector>
     using namespace std;
+
+    //Tests the time of the vector push_back() operation "reserved" versus "unreserved"
 
     void test1(int num){
         vector<int> vect;
@@ -239,6 +243,8 @@ that the vector is decreasing in size by 1 each time through the loop.
     #include <vector>
     using namespace std;
 
+    //Tests the time of the vector "pop_back()" operation versus the vector "erase" operation
+    
     int main(){
         int num = 10000;
         vector<int> vect;

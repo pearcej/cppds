@@ -192,6 +192,10 @@ linked list is now ordered.
    :caption: OrderedList Class Thus Far
    :language: cpp
 
+  
+  
+   // similar to unordered lists except it orders the data 
+
    #include <iostream>
    using namespace std;
 
