@@ -716,8 +716,8 @@ starting with 0.
     .. mchoice:: LLq1
         :answer_a: Every Node is contained within the UnorderedList class object. Making access to every Node of the linked list possible.
         :answer_b: Every Node in the linked list is exactly one space in memory away from the next. Making it possible to find the next Node and traverse through the list.
-        :answer_c: Every Node in the list is in various locations in memory, and those memory addresses are stored in an array inside of the UnorderedList object.
-        :answer_d: Every Node in the list is in various locations in memory, and each node contains a pointer to the next node in the list. Making traversal possible.
+        :answer_c: Every Node in the list is in various locations in memory, and those memory addresses are stored in an array inside of the UnorderedList object, which makes accessing each Node possible.
+        :answer_d: Every Node in the list is in various locations in memory, and each Node contains a pointer to the next Node in the list without needing to be contained in the UnorderedList class.
         :correct: d
         :feedback_a: Wrong! An UnorderedList class object will only reference the first item of the linked list.
         :feedback_b: Wrong! A Node in a linked list can be in various locations in memory. This is very important to understand how linked lists operate.

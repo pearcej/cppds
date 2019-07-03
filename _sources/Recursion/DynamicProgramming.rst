@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -97,6 +97,7 @@ where we satisfy the base case condition immediately.
 
             #include <iostream>
             #include <vector>
+	    #include <algorithm>
             using namespace std;
 
             int recMC_greedy(vector<int> coinValueList, int change){
@@ -195,7 +196,7 @@ algorithm to incorporate our table lookup scheme.
             #include <vector>
             using namespace std;
 
-            int recDC(vector<int> coinValueList, int change, vector<int>   knownResults){
+            int recDC(vector<int> coinValueList, int change, int knownResults[]){
                 int minCoins, numCoins;
                 minCoins = change;
 
@@ -221,12 +222,13 @@ algorithm to incorporate our table lookup scheme.
             }
 
             int main(){
-                vector<int> coinValueList = {1,5,10,25};
+                vector<int> coinValueList = {1,5,10, 21, 25};
                 int change = 63;
-                vector<int> knownResults(64, 0);
+                int knownResults[64] = {0};
                 cout<<recDC(coinValueList,change,knownResults)<<endl;
                 return 0;
             }
+
 
     .. tab:: Python
 
@@ -589,5 +591,4 @@ Self-check
 
 .. shortanswer:: recursiveWeakness
 
-   Sometimes recursion can be more computationally expensive than an alternative.
-   In what ways would this be?
+   Sometimes recursion can be more computationally expensive than an alternative. In what ways would this be?
