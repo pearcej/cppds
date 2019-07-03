@@ -91,6 +91,7 @@ perform computations such as
       :caption: Sqrt in C++
       :language: cpp
 
+      //Outputs the square root of a given number.
       #include <iostream>
       #include <cmath>
       using namespace std;
@@ -104,6 +105,7 @@ perform computations such as
     .. activecode:: Python
        :caption: Sqrt in Python
 
+       #Outputs the square root of a given number.
        import math
 
        print(math.sqrt(16))
