@@ -74,7 +74,7 @@ exist further out in the linked list.
 :ref:`Listing 9 <lst_ordersearch>` shows the complete ``search`` method. It is
 easy to incorporate the new condition discussed above by adding another
 boolean variable, ``stop``, and initializing it to ``False`` (line 4).
-While ``stop`` is ``False`` (not ``stop``) we can continue to look
+While ``stop`` is ``False`` (in other words, while the search is still ongoing) we can continue to look
 forward in the linked list (line 5). If any node is ever discovered that
 contains data greater than the item we are looking for, we will set
 ``stop`` to ``True`` (lines 9–10). The remaining lines are identical to

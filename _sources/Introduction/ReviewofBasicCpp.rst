@@ -26,6 +26,7 @@ The following is an example of C++ code that writes to the console:
   :caption: A simple C++ program with output
   :language: cpp
 
+  //Outputs strings to command line.
   #include <iostream>
   using namespace std;
 
