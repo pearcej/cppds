@@ -67,55 +67,47 @@ and four things happen:
 
 **Listing 2**
 
-.. tabbed:: bfs_impl1
+::
 
-    .. tab:: C++
+    from pythonds.graphs import Graph, Vertex
+    from pythonds.basic import Queue
 
-        ::
-        
-            Graph bfs(Graph g, Vertex *start) {
-                start->dist = 0;
-                start->pred = NULL;
-                queue<Vertex *> vertQueue;
-                vertQueue.push(start);
-                while (vertQueue.size() > 0) {
-                    Vertex *currentVert = vertQueue.front();
-                    vertQueue.pop();
-                // For each neighbor of the current vertex
-                    for (unsigned int nbr = 0; nbr < currentVert->getConnections().size(); nbr++) {
-                        if (g.vertList[currentVert->getConnections()[nbr]].color == 'w') {
-                            g.vertList[currentVert->getConnections()[nbr]].color = 'g';
-                            g.vertList[currentVert->getConnections()[nbr]].dist = currentVert->dist + 1;
-                            g.vertList[currentVert->getConnections()[nbr]].pred = currentVert;
-                            vertQueue.push(&g.vertList[currentVert->getConnections()[nbr]]);
-                        }
-                    }
-                    currentVert->color = 'b';
+    def bfs(g,start):
+        start.setDistance(0)
+        start.setPred(None)
+        vertQueue = Queue()
+        vertQueue.enqueue(start)
+        while (vertQueue.size() > 0):
+            currentVert = vertQueue.dequeue()
+            for nbr in currentVert.getConnections():
+                if (nbr.getColor() == 'white'):
+                    nbr.setColor('gray')
+                    nbr.setDistance(currentVert.getDistance() + 1)
+                    nbr.setPred(currentVert)
+                    vertQueue.enqueue(nbr)
+            currentVert.setColor('black')
+
+    Graph bfs(Graph g, Vertex *start) {
+        start->dist = 0;
+        start->pred = NULL;
+        queue<Vertex *> vertQueue;
+        vertQueue.push(start);
+        while (vertQueue.size() > 0) {
+            Vertex *currentVert = vertQueue.front();
+            vertQueue.pop();
+        // For each neighbor of the current vertex
+            for (unsigned int nbr = 0; nbr < currentVert->getConnections().size(); nbr++) {
+                if (g.vertList[currentVert->getConnections()[nbr]].color == 'w') {
+                    g.vertList[currentVert->getConnections()[nbr]].color = 'g';
+                    g.vertList[currentVert->getConnections()[nbr]].dist = currentVert->dist + 1;
+                    g.vertList[currentVert->getConnections()[nbr]].pred = currentVert;
+                    vertQueue.push(&g.vertList[currentVert->getConnections()[nbr]]);
                 }
-                return g;
             }
-
-    .. tab:: Python
-
-        ::
-
-            from pythonds.graphs import Graph, Vertex
-            from pythonds.basic import Queue
-
-            def bfs(g,start):
-                start.setDistance(0)
-                start.setPred(None)
-                vertQueue = Queue()
-                vertQueue.enqueue(start)
-                while (vertQueue.size() > 0):
-                    currentVert = vertQueue.dequeue()
-                    for nbr in currentVert.getConnections():
-                        if (nbr.getColor() == 'white'):
-                            nbr.setColor('gray')
-                            nbr.setDistance(currentVert.getDistance() + 1)
-                            nbr.setPred(currentVert)
-                            vertQueue.enqueue(nbr)
-                    currentVert.setColor('black')
+            currentVert->color = 'b';
+        }
+        return g;
+    }
 
 Let’s look at how the ``bfs`` function would construct the breadth first
 tree corresponding to the graph in :ref:`Figure 1 <fig_wordladder>`. Starting
@@ -187,38 +179,19 @@ print out the word ladder.
 
 **Listing 3**
 
+::
 
-.. tabbed:: traverse_impl1
+    void traverse(Vertex *y) {
+        Vertex *x = y;
 
-    .. tab:: C++
+        while (x->pred) {
+            cout << x->id << endl;
+            x = x->pred;
+        }
+        cout << x->id << endl;
+    }
 
-        ::
-
-            void traverse(Vertex *y) {
-                Vertex *x = y;
-
-                while (x->pred) {
-                    cout << x->id << endl;
-                    x = x->pred;
-                }
-                cout << x->id << endl;
-            }
-
-            //traverse(g.getVertex("sage"))
-
-    .. tab:: Python
-
-        ::
-            
-            def traverse(vertex):
-                cur = vertex
-
-                while cur.getPred():
-                    print(cur.getId())
-                    cur = cur.getPred()
-                print(cur.getId())
-
-            traverse(g.getVertex('sage'))
+    traverse(g.getVertex('sage'))
 
 Because of syntactic changes to C++ between C++98 and C++11, the following code
 will not run in your ActiveCode window and must be copied and pasted into a compiler using C++11 to run.
