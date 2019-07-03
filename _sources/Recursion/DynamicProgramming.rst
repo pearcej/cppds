@@ -66,7 +66,7 @@ following:
 
 
 The algorithm for doing what we have just described is shown in
-:ref:`Listing 7 <lst_change1cpp>`. In line 3 we are checking our base case;
+:ref:`Listing 7 <lst_change1cpp>`. In line 7 we are checking our base case;
 that is, we are trying to make change in the exact amount of one of our
 coins. If we do not have a coin equal to the amount of change, we make
 recursive calls for each different coin value less than the amount of
@@ -101,22 +101,22 @@ where we satisfy the base case condition immediately.
             using namespace std;
 
             int recMC_greedy(vector<int> coinValueList, int change){
-                    if (change==0){ //base case if, change is 0, then the number of coins have been finalized
+                    if (change == 0){ //base case if, change is 0, then the number of coins have been finalized
                         return 0;
                     }
                     else{
-                        int cur_max=*max_element(coinValueList.begin(), coinValueList.end());//use the maximum in the list to see how many of these can be used to form the sum
+                        int cur_max =* max_element(coinValueList.begin(), coinValueList.end());//use the maximum in the list to see how many of these can be used to form the sum
                         int count=int(change/cur_max); //find how many of the max is needed to make the change so that the number of coins used is minimum
                         coinValueList.erase(std::remove(coinValueList.begin(), coinValueList.end(), cur_max), coinValueList.end()); //erasing the current max so that a different max can be
                                                                                                                                     //used in next recursion and continue the greedy process
-                        return count + recMC_greedy(coinValueList, change-cur_max*count); //returns the counts of the coins using recursion
+                        return count + recMC_greedy(coinValueList, change-cur_max * count); //returns the counts of the coins using recursion
                         }
             }
 
             int main() {
-              int arr2[] = {1, 5, 10,21, 25};
-              vector<int> coinValueList(arr2,arr2+(sizeof(arr2)/ sizeof(arr2[0])));  //Initializing vector
-              cout<<recMC_greedy(coinValueList,63)<<endl; //using the greedy algorithm for the edge case 63 whose optimal solution is 3 coins of 21
+              int arr2[] = {1, 5, 10, 21, 25};
+              vector<int> coinValueList(arr2, arr2 + (sizeof(arr2)/ sizeof(arr2[0])));  //Initializing vector
+              cout<<recMC_greedy(coinValueList, 63)<<endl; //using the greedy algorithm for the edge case 63 whose optimal solution is 3 coins of 21
               return 0;                                  //but greedy algorithm gives 6 coins which is not the most optimum solution
             }
 
@@ -128,18 +128,18 @@ where we satisfy the base case condition immediately.
            :language: python
 
            def recMC_greedy(coinValueList,change):
-             if change==0:  #base case if, change is 0, then the number of coins have been finalized
+             if change == 0:  #base case if, change is 0, then the number of coins have been finalized
                return 0
              else:
-               cur_max=max(coinValueList) #use the maximum in the list to see how many of these can be used to form the sum
-               count=change//cur_max #find how many of the max is needed to make the change so that the number of coins used is minimum
-               index=coinValueList.index(cur_max)
+               cur_max = max(coinValueList) #use the maximum in the list to see how many of these can be used to form the sum
+               count = change//cur_max #find how many of the max is needed to make the change so that the number of coins used is minimum
+               index = coinValueList.index(cur_max)
                del coinValueList[index]   #erasing the current max so that a different max can be
                                           #used in next recursion and continue the greedy process
-               return count + recMC_greedy(coinValueList, change-cur_max*count) #returns the counts of the coins using recursion
+               return count + recMC_greedy(coinValueList, change-cur_max * count) #returns the counts of the coins using recursion
 
            def main():
-             print(recMC_greedy([1,5,10,21,25],63)) #using the greedy algorithm for the edge case 63 whose optimal solution is 3 coins of 21
+             print(recMC_greedy([1, 5, 10, 21, 25], 63)) #using the greedy algorithm for the edge case 63 whose optimal solution is 3 coins of 21
                                                     #but greedy algorithm gives 6 coins which is not the most optimum solution
            main()
 
@@ -181,7 +181,9 @@ A simple solution is to store the results for the minimum number of
 coins in a table when we find them. Then before we compute a new
 minimum, we first check the table to see if a result is already known.
 If there is already a result in the table, we use the value from the
-table rather than recomputing. :ref:`ActiveCode 1 <lst_change2cpp>` shows a modified
+table rather than recomputing. This technique is called **memoization** 
+and is a very useful method for speeding up frequent yet hardware-demanding function calls.
+:ref:`ActiveCode 1 <lst_change2cpp>` shows a modified
 algorithm to incorporate our table lookup scheme.
 
 .. tabbed:: coin2cpp
@@ -222,10 +224,10 @@ algorithm to incorporate our table lookup scheme.
             }
 
             int main(){
-                vector<int> coinValueList = {1,5,10, 21, 25};
+                vector<int> coinValueList = {1, 5, 10, 21, 25};
                 int change = 63;
                 int knownResults[64] = {0};
-                cout<<recDC(coinValueList,change,knownResults)<<endl;
+                cout<<recDC(coinValueList, change, knownResults)<<endl;
                 return 0;
             }
 
@@ -236,7 +238,7 @@ algorithm to incorporate our table lookup scheme.
            :caption: Recursively Counting Coins with Table Lookup Python
            :language: python
 
-           def recDC(coinValueList,change,knownResults):
+           def recDC(coinValueList, change, knownResults):
               minCoins = change
               if change in coinValueList:
                   knownResults[change] = 1
@@ -245,14 +247,14 @@ algorithm to incorporate our table lookup scheme.
                   return knownResults[change]
               else:
                   for i in [c for c in coinValueList if c <= change]:
-                      numCoins = 1 + recDC(coinValueList, change-i, knownResults)
+                      numCoins = 1 + recDC(coinValueList, change - i, knownResults)
                       if numCoins < minCoins:
                           minCoins = numCoins
                           knownResults[change] = minCoins
                   return minCoins
 
            def main():
-                print(recDC([1,5,10,21,25],63,[0]*64))
+                print(recDC([1, 5, 10, 21, 25], 63, [0]*64))
            main()
 
 Notice that in line 15 we have added a test to see if our table
@@ -342,12 +344,12 @@ from 0 to the value of ``change``.
             using namespace std;
 
             int dpMakeChange(vector<int> coinValueList, int change, vector<int> minCoins){
-                for (int cents = 0 ; cents < change+1; cents++){
+                for (int cents = 0 ; cents < change + 1; cents++){
                     int coinCount = cents;
                     for (int j : coinValueList){
                         if (j <= cents){
                             if (minCoins[cents-j] + 1 < coinCount){
-                                coinCount = minCoins[cents-j]+1;
+                                coinCount = minCoins[cents-j] + 1;
                             }
                         }
                     }
@@ -357,7 +359,7 @@ from 0 to the value of ``change``.
             }
 
             int main(){
-                vector<int> coinValueList = {1,5,10,21,25};
+                vector<int> coinValueList = {1, 5, 10, 21, 25};
                 int change = 63;
                 vector<int> minCoins(64, 0);
                 cout << dpMakeChange(coinValueList, change, minCoins) << endl;
@@ -375,14 +377,14 @@ from 0 to the value of ``change``.
                   coinCount = cents
                   for j in [c for c in coinValueList if c <= cents]:
                       if minCoins[cents-j] + 1 < coinCount:
-                          coinCount = minCoins[cents-j]+1
+                          coinCount = minCoins[cents-j] + 1
                   minCoins[cents] = coinCount
 
               return minCoins[change]
 
 
            def main():
-              print([1,5,10,21,25], 63, [0]*64)
+              print([1, 5, 10, 21, 25], 63, [0]*64)
            main()
 
 Note that ``dpMakeChange`` is not a recursive function, even though we
@@ -436,35 +438,40 @@ array also contains 21, giving us the three 21 cent pieces.
             using namespace std;
 
             int dpMakeChange(vector<int> coinValueList, int change, vector<int> minCoins,   vector<int> coinsUsed){
-                for (int cents = 0 ; cents < change+1; cents++){
+		for (int cents = 0 ; cents < change+1; cents++){
                     int coinCount = cents;
                     int newCoin = 1;
+
                     for (int j : coinValueList){
                         if (j <= cents){
                             if (minCoins[cents-j] + 1 < coinCount){
-                                coinCount = minCoins[cents-j]+1;
+                                coinCount = minCoins[cents-j] + 1;
                                 newCoin = j;
                             }
                         }
                     }
+
                     minCoins[cents] = coinCount;
                     coinsUsed[cents] = newCoin;
                 }
+
                 return minCoins[change];
             }
 
             vector<int> dpMakeChange2(vector<int> coinValueList, int change, vector<int>   minCoins, vector<int> coinsUsed){
-                for (int cents = 0 ; cents < change+1; cents++){
+		for (int cents = 0; cents < change + 1; cents++){
                     int coinCount = cents;
                     int newCoin = 1;
+
                     for (int j : coinValueList){
                         if (j <= cents){
                             if (minCoins[cents-j] + 1 < coinCount){
-                                coinCount = minCoins[cents-j]+1;
+                                coinCount = minCoins[cents-j] + 1;
                                 newCoin = j;
                             }
                         }
                     }
+
                     minCoins[cents] = coinCount;
                     coinsUsed[cents] = newCoin;
                 }
@@ -473,6 +480,7 @@ array also contains 21, giving us the three 21 cent pieces.
 
             int printCoins(vector<int> coinsUsed, int change){
                 int coin = change;
+
                 while (coin > 0){
                     int thisCoin = coinsUsed[coin];
                     cout << thisCoin << endl;
@@ -481,23 +489,24 @@ array also contains 21, giving us the three 21 cent pieces.
             }
 
             int main(){
-                vector<int> clist = {1,5,10,21,25};
+                vector<int> clist = {1, 5, 10, 21, 25};
                 int amnt = 63;
-                vector<int> minCoins(amnt+1, 0);
+                vector<int> minCoins(amnt + 1, 0);
+                vector<int> coinsUsed(amnt + 1, 0);
+                vector<int> coinCount(amnt + 1, 0);
 
-                vector<int> coinsUsed(amnt+1, 0);
-                vector<int> coinCount(amnt+1, 0);
-
-                cout<<"Making change for " << amnt << " requires" << endl;
-                cout<<dpMakeChange(clist,amnt,minCoins,coinsUsed)<< " coins" << endl;
+                cout << "Making change for " << amnt << " requires" << endl;
+                cout << dpMakeChange(clist, amnt, minCoins, coinsUsed)<< " coins" << endl;
                 cout << "They are: " << endl;
-                printCoins(dpMakeChange2(clist,amnt,minCoins,coinsUsed),amnt);
+                printCoins(dpMakeChange2(clist, amnt, minCoins, coinsUsed), amnt);
                 cout << "The used list is as follows: " << endl;
-                vector<int> coinsUsed2 = dpMakeChange2(clist,amnt,minCoins,coinsUsed);
+                vector<int> coinsUsed2 = dpMakeChange2(clist, amnt, minCoins, coinsUsed);
                 cout << "[";
+
                 for (int i = 0; i<coinsUsed2.size(); i++){
                     cout << coinsUsed2[i] << ", ";
                 }
+
                 cout << "]" << endl;
                 return 0;
             }
@@ -514,7 +523,7 @@ array also contains 21, giving us the three 21 cent pieces.
                     newCoin = 1
                     for j in [c for c in coinValueList if c <= cents]:
                         if minCoins[cents-j] + 1 < coinCount:
-                            coinCount = minCoins[cents-j]+1
+                            coinCount = minCoins[cents-j] + 1
                             newCoin = j
                     minCoins[cents] = coinCount
                     coinsUsed[cents] = newCoin
@@ -529,7 +538,7 @@ array also contains 21, giving us the three 21 cent pieces.
 
             def main():
                 amnt = 63
-                clist = [1,5,10,21,25]
+                clist = [1, 5, 10, 21, 25]
                 coinsUsed = [0]*(amnt+1)
                 coinCount = [0]*(amnt+1)
 
