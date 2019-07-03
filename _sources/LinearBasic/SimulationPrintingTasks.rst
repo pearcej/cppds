@@ -560,5 +560,5 @@ necessary to construct a robust simulation.
 
 .. admonition:: Self Check
 
-   How would you modify the printer simulation to reflect a larger number of students?  Suppose that the number of students was doubled.  You make need to make some reasonable assumptions about how this simulation was put together but what would you change?  Modify the code.  Also suppose that the length of the average print task was cut in half.  Change the code to reflect that change.  Finally how would you parameterize the number of students, rather than changing the code we would like
+   How would you modify the printer simulation to reflect a larger number of students?  Suppose that the number of students was doubled.  You may need to make some reasonable assumptions about how this simulation was put together but what would you change?  Modify the code.  Also suppose that the length of the average print task was cut in half.  Change the code to reflect that change.  Finally how would you parameterize the number of students, rather than changing the code we would like
    to make the number of students a parameter of the simulation.
