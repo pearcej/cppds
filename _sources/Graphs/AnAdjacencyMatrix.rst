@@ -38,3 +38,31 @@ fill the matrix is :math:`|V|^2`. A matrix is full when every vertex
 is connected to every other vertex. There are few real problems that
 approach this sort of connectivity. The problems we will look at in this
 chapter all involve graphs that are sparsely connected.
+
+.. admonition:: Self Check
+
+    .. mchoice:: adjmatrix_1
+        :answer_a: The summation of all surrounding vertices.
+        :answer_b: The total number of vertices in the matrix' graph.
+        :answer_c: An intersection between a column and a row.
+        :answer_d: A single column in the matrix.
+        :correct: c
+        :feedback_a: Not quite, the value of a vertex doesn't have to be related to its neighbors.
+        :feedback_b: No, an elements' value is not always indicative of the graph as a whole.
+        :feedback_c: You are correct!
+        :feedback_d: No, there are two dimensions by which the vertices can be represented in.
+
+        A vertex in an adjacency matrix represents ____?
+
+    .. mchoice:: adjmatrix_2
+        :answer_a: Tiny
+        :answer_b: Broken
+        :answer_c: Null
+        :answer_d: Sparse
+        :correct: d
+        :feedback_a: Not quite, the graph remains the same size regardless of empty values.
+        :feedback_b: No, the graph still works with empty values.
+        :feedback_c: No, the graph object's value is not Null.
+        :feedback_d: You are correct!
+
+        What may an adjacency matrix graph be called if it is not completely full?
