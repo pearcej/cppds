@@ -69,28 +69,6 @@ and four things happen:
 
 .. tabbed:: bfs_impl1
 
-    .. tab:: Python
-
-        ::
-
-            from pythonds.graphs import Graph, Vertex
-            from pythonds.basic import Queue
-
-            def bfs(g,start):
-                start.setDistance(0)
-                start.setPred(None)
-                vertQueue = Queue()
-                vertQueue.enqueue(start)
-                while (vertQueue.size() > 0):
-                    currentVert = vertQueue.dequeue()
-                    for nbr in currentVert.getConnections():
-                        if (nbr.getColor() == 'white'):
-                            nbr.setColor('gray')
-                            nbr.setDistance(currentVert.getDistance() + 1)
-                            nbr.setPred(currentVert)
-                            vertQueue.enqueue(nbr)
-                    currentVert.setColor('black')
-
     .. tab:: C++
 
         ::
@@ -116,6 +94,28 @@ and four things happen:
                 }
                 return g;
             }
+
+    .. tab:: Python
+
+        ::
+
+            from pythonds.graphs import Graph, Vertex
+            from pythonds.basic import Queue
+
+            def bfs(g,start):
+                start.setDistance(0)
+                start.setPred(None)
+                vertQueue = Queue()
+                vertQueue.enqueue(start)
+                while (vertQueue.size() > 0):
+                    currentVert = vertQueue.dequeue()
+                    for nbr in currentVert.getConnections():
+                        if (nbr.getColor() == 'white'):
+                            nbr.setColor('gray')
+                            nbr.setDistance(currentVert.getDistance() + 1)
+                            nbr.setPred(currentVert)
+                            vertQueue.enqueue(nbr)
+                    currentVert.setColor('black')
 
 Let’s look at how the ``bfs`` function would construct the breadth first
 tree corresponding to the graph in :ref:`Figure 1 <fig_wordladder>`. Starting
@@ -190,20 +190,6 @@ print out the word ladder.
 
 .. tabbed:: traverse_impl1
 
-    .. tab:: Python
-
-        ::
-            
-            def traverse(vertex):
-                cur = vertex
-
-                while cur.getPred():
-                    print(cur.getId())
-                    cur = cur.getPred()
-                print(cur.getId())
-
-            traverse(g.getVertex('sage'))
-
     .. tab:: C++
 
         ::
@@ -219,6 +205,20 @@ print out the word ladder.
             }
 
             //traverse(g.getVertex("sage"))
+
+    .. tab:: Python
+
+        ::
+            
+            def traverse(vertex):
+                cur = vertex
+
+                while cur.getPred():
+                    print(cur.getId())
+                    cur = cur.getPred()
+                print(cur.getId())
+
+            traverse(g.getVertex('sage'))
 
 Because of syntactic changes to C++ between C++98 and C++11, the following code
 will not run in your ActiveCode window and must be copied and pasted into a compiler using C++11 to run.

@@ -20,7 +20,8 @@ Built-in Atomic Data Types
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 C++ requires the users specify the specific data type of each variable
-before it is used.
+before it is used. "Atomic", as it is used in Computer Science in relation to data types,
+means that the type is an irreducible unit working within a larger system. 
 The primary C++ built-in atomic data types are: integer (``int``),
 floating point (``float``), double precision floating point (``double``),
 Boolean (``bool``), and character (``char``). There is also a special

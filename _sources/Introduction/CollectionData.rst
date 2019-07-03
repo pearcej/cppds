@@ -329,7 +329,7 @@ Matching
 
        #include <iostream>
        #include <vector>
-       using namespace std;
+       using namespace std; 
 
        int main(){
 
@@ -349,6 +349,8 @@ Matching
        :caption: Using a Python list
 
        def main():
+           # Python doesn't have an analog that allows us to reserve space
+           # in arrays in the same manner C++ does for Vectors. 
            intlist=[]
            for i in range(50):
                intlist.append(i*i)
