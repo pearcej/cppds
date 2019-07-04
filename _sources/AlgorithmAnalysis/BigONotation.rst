@@ -233,7 +233,6 @@ to see that :math:`T(n)` then follows the quadratic function as
 
 .. admonition:: Self Check
 
-<<<<<<< HEAD
    Write two C++ functions to find the minimum number in an array.  The first function should compare each number to every other number on the array. :math:`O(n^2)`.  The second function should be linear :math:`O(n)`.
     
 
@@ -287,6 +286,3 @@ to see that :math:`T(n)` then follows the quadratic function as
             :2500 499: Incorrect. Try lower. Think about what happens to the time as more operations occur. 
             :.*: Incorrect. 
         
-=======
-   Write two C++ functions to find the minimum number in an array.  The first function should compare each number to every other number on the array. :math:`O(n^{2})`.  The second function should be linear :math:`O(n)`.
->>>>>>> 5145b2a10ac484bdcaa6aca532d2b90c08c6c3fe
