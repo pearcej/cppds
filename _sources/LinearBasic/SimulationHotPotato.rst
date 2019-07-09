@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -71,6 +71,8 @@ The program is shown in :ref:`ActiveCode 1 <lst_josephussim>`. A call to the
       :caption: Using Queues in C++ to simulate Hot Potato
       :language: cpp
 
+      //This program creates a simulation of hot potato.
+
       #include <iostream>
       #include <queue>
       #include <string>
@@ -81,10 +83,11 @@ The program is shown in :ref:`ActiveCode 1 <lst_josephussim>`. A call to the
           queue<string> simqueue;
           int namelsLenght = nameArray->length();
           for (int i = 0; i < namelsLenght; i++) {
+	      //puts the entire array into a queue.
               simqueue.push(nameArray[i]);
           }
 
-      while (simqueue.size() > 1) {
+      while (simqueue.size() > 1) { //loop continues until there is one remaining item.
               for (int i = 0; i < num; i++) {
                   simqueue.push(simqueue.front());
                   simqueue.pop();
@@ -109,14 +112,17 @@ The program is shown in :ref:`ActiveCode 1 <lst_josephussim>`. A call to the
     .. activecode:: hot_potato_py
        :caption: Hot Potato Simulation
 
+       #This program creates a simulation of hot potato.
+
        from pythonds.basic.queue import Queue
 
        def hotPotato(namelist, num):
            simqueue = Queue()
            for name in namelist:
+	       #adds all items in the list into a queue.
                simqueue.enqueue(name)
 
-           while simqueue.size() > 1:
+           while simqueue.size() > 1: #continues until there is only one remaining item.
                for i in range(num):
                    simqueue.enqueue(simqueue.dequeue())
 

@@ -65,6 +65,8 @@ mismatch occurs, the Boolean variable ``balanced`` is set to ``false``.
       :caption: Solving the General Balanced Symbol Problem
       :language: cpp
 
+      //Program does the same as before, except with 2 extra symbols.
+
       #include <iostream>
       #include <string>
       #include <stack>
@@ -72,6 +74,7 @@ mismatch occurs, the Boolean variable ``balanced`` is set to ``false``.
       using namespace std;
 
       bool inString(string symbol, string symbols){
+	  //Checks if symbol is contained in symbols.
           int n = symbols.length();
           int symb = symbols.find(symbol);
           if (symb < n){
@@ -81,6 +84,7 @@ mismatch occurs, the Boolean variable ``balanced`` is set to ``false``.
       }
 
       bool matches(string open, string close){
+	  //Checks if the type of an open and closed symbol are the same.
           string opens = "({[";
           string closers = ")]}";
           return inString(open, opens) == inString(close, closers);
@@ -96,22 +100,27 @@ mismatch occurs, the Boolean variable ``balanced`` is set to ``false``.
               string symbol;
               symbol = symbolString[index];
               string opens = "({[";
-              if (inString(symbol, opens)){
+              if (inString(symbol, opens)){ //if the current symbol ==
+					    //an open symbol.
                   s.push(symbol);
               } else {
-                  if (s.empty()){
+                  if (s.empty()){ //if there is a closed symbol
+				  //but no open symbol is pending.
                       balanced = false;
                   } else {
                       string top = s.top();
                       s.pop();
-                      if (!matches(top, symbol)){
+                      if (!matches(top, symbol)){ //if the current closed symbol
+						  //is a different type than the
+   						  //pending open one.
                           balanced = false;
                       }
                   }
               }
               index = index + 1;
           }
-          if(balanced && s.empty()){
+          if(balanced && s.empty()){ //if the string is completely analyzed with
+				     //no remaining open symbols.
               return true;
           } else {
               return false;
@@ -129,6 +138,8 @@ mismatch occurs, the Boolean variable ``balanced`` is set to ``false``.
     .. activecode:: parcheck2_py
        :caption: Solving the General Balanced Symbol Problem
 
+       #Program does the same as before, except with 2 extra symbols.
+
        from pythonds.basic.stack import Stack
 
        def parChecker(symbolString):
@@ -137,22 +148,28 @@ mismatch occurs, the Boolean variable ``balanced`` is set to ``false``.
            index = 0
            while index < len(symbolString) and balanced:
                symbol = symbolString[index]
-               if symbol in "([{":
+               if symbol in "([{": #if the current symbol ==
+				   #an open symbol.
                    s.push(symbol)
                else:
-                   if s.isEmpty():
+                   if s.isEmpty(): #if there is a closed symbol
+				   #but no open symbol is pending.
                        balanced = False
                    else:
                        top = s.pop()
-                       if not matches(top,symbol):
+                       if not matches(top,symbol): #if the current closed symbol
+						   #is a different type than the
+   						   #pending open one.
                               balanced = False
                index = index + 1
-           if balanced and s.isEmpty():
+           if balanced and s.isEmpty(): #if the string is completely analyzed with
+				        #no remaining open symbols.
                return True
            else:
                return False
 
        def matches(open,close):
+	   #Checks if the type of an open and closed symbol are the same.
            opens = "([{"
            closers = ")]}"
            return opens.index(open) == closers.index(close)

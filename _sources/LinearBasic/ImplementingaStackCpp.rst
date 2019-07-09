@@ -31,6 +31,9 @@ of the array. ``pop`` operations will manipulate that same end.
        :caption: Using the Stack methods from the STL in C++
        :language: cpp
 
+	
+       //Tests the push, empty, size, pop, and top methods of the stack library.
+
        #include <iostream>
        #include <stack>    // Calling Stack from the STL
 
@@ -39,17 +42,17 @@ of the array. ``pop`` operations will manipulate that same end.
        int main() {
            stack<int> newStack;
 
-           newStack.push(3);
+           newStack.push(3); //Adds 3 to the stack
            newStack.push(8);
            newStack.push(15);
 
-           cout << "Stack Empty? " << newStack.empty() << endl;
+           cout << "Stack Empty? " << newStack.empty() << endl; //Checks if stack is empty.
 
-           cout << "Stack Size: " << newStack.size() << endl;
+           cout << "Stack Size: " << newStack.size() << endl; //returns the number of items in the stack.
 
-           cout << "Top Element of the Stack: " << newStack.top() << endl;
+           cout << "Top Element of the Stack: " << newStack.top() << endl; //returns the top item of the stack.
 
-           newStack.pop();
+           newStack.pop(); //removes the top item of the stack.
 
            cout << "Top Element of the Stack: " << newStack.top() << endl;
 
@@ -61,23 +64,30 @@ of the array. ``pop`` operations will manipulate that same end.
     .. activecode:: stack_1ac_py
        :caption: Implementing a Stack class using Python lists
 
+       #Tests the push, empty, size, pop, and top methods of the stack library.
+
        class Stack:
            def __init__(self):
                self.items = []
 
            def isEmpty(self):
+	       #checks if the stack is empty.
                return self.items == []
 
            def push(self, item):
+	       #adds item to the top of the stack.
                self.items.append(item)
 
            def pop(self):
+	       #removes the top item of the stack.
                return self.items.pop()
 
            def top(self):
+	       #returns the top item of the stack.
                return self.items[len(self.items)-1]
 
            def size(self):
+	       #returns the number of items in the stack.
                return len(self.items)
 
        def main():
