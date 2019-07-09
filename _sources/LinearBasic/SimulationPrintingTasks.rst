@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -121,6 +121,7 @@ the printer to idle (line 11) if the task is completed.
     :linenothreshold: 5
 
 ::
+
 
     class Printer {
         public:
@@ -407,6 +408,8 @@ You can run the simulation for yourself in ActiveCode 2.
    :caption: Printer Queue Simulation
    :language: cpp
 
+   //Program that simulates printing task management.
+
    #include <iostream>
    #include <queue>
    #include <vector>
@@ -450,6 +453,7 @@ You can run the simulation for yourself in ActiveCode 2.
        }
 
        void tick() {
+	   //manages the current task's status.
            if (currentTask != NULL) {
                timeRemaining--;
                if (timeRemaining <= 0) {
@@ -473,6 +477,7 @@ You can run the simulation for yourself in ActiveCode 2.
    };
 
    bool newPrintTask() {
+       //uses random to decide if there is a new print task.
        int num = rand()%180+1;
        if (num==180) {
            return true;
@@ -487,12 +492,13 @@ You can run the simulation for yourself in ActiveCode 2.
        vector<int> waitingTimes;
 
        for (int i=0; i<numSeconds; i++) {
-           if (newPrintTask()) {
+	   //continues printing tasks until the printer has no more in progress or queue.
+           if (newPrintTask()) { //checks for a new printing task.
                Task *task = new Task(i);
-               printQueue.push(task);
+               printQueue.push(task); //pushes the task to a queue.
            }
-           if (!labprinter.busy() &&!printQueue.empty()) {
-               Task *nexttask = printQueue.front();
+           if (!labprinter.busy() &&!printQueue.empty()) { //if the printer is not busy and the queue is not empty:
+               Task *nexttask = printQueue.front(); //assigns a new task.
                printQueue.pop();
                waitingTimes.push_back(nexttask->waitTime(i));
                labprinter.startNext(nexttask);

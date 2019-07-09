@@ -45,6 +45,8 @@ complete function for palindrome-checking appears in
       :caption: Using a Deque to check palindromes
       :language: cpp
 
+      //program that detects palindromes.
+
       #include <deque>
       #include <iostream>
       #include <string>
@@ -55,6 +57,7 @@ complete function for palindrome-checking appears in
           deque<char> chardeque;
           int strLen = aString.length();
           for (int i = 0; i < strLen; i++) {
+	      //pushes each char in the string to the deque.
               chardeque.push_back(aString[i]);
           }
 
@@ -65,7 +68,9 @@ complete function for palindrome-checking appears in
               chardeque.pop_front();
               char last = chardeque.back();
               chardeque.pop_back();
-              if (first != last) {
+              if (first != last) { //if the two opposite positions of the
+				   //word is not the same, then it is not
+				   //a palindrome.
                   stillEqual = false;
               }
 
@@ -86,12 +91,15 @@ complete function for palindrome-checking appears in
     .. activecode:: palchecker
        :caption: A Palindrome Checker Using Deque
 
+       #Program that detects palindromes.
+
        from pythonds.basic.deque import Deque
 
        def palchecker(aString):
            chardeque = Deque()
 
            for ch in aString:
+	       #pushes each char in the string to the deque.
                chardeque.addRear(ch)
 
            stillEqual = True
@@ -99,7 +107,9 @@ complete function for palindrome-checking appears in
            while chardeque.size() > 1 and stillEqual:
                first = chardeque.removeFront()
                last = chardeque.removeRear()
-               if first != last:
+               if first != last: #if the two opposite positions of the
+				 #word is not the same, then it is not
+				 #a palindrome.
                    stillEqual = False
 
            return stillEqual
