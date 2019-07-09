@@ -403,9 +403,10 @@ addition, and then printing our result.
   :language: cpp
   :caption: Addition overloaded for Fraction
 
+  //using functions to abstract the idea of a fraction
   #include <iostream>
   using namespace std;
-
+  
   class Fraction {
       public:
           Fraction(int top = 0, int bottom = 1) {
@@ -466,6 +467,7 @@ Let's rewrite the addition operator as a friend function.
   :language: cpp
   :caption: Addition overloaded for Fraction
 
+  //overloading the addition operator to create clearer syntax
   #include <iostream>
   using namespace std;
 
@@ -538,6 +540,7 @@ represented by a negative numerator.
     :language: cpp
     :caption: The Greatest Common Divisor Function
 
+    //
     #include <iostream>
     using namespace std;
 

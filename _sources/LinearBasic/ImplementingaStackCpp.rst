@@ -43,15 +43,21 @@ of the array. ``pop`` operations will manipulate that same end.
            newStack.push(8);
            newStack.push(15);
 
-           cout << "Stack Empty? " << newStack.empty() << endl;
+           // returns a boolean response depending on if the stack is empty or not
+           cout << "Stack Empty? " << newStack.empty() << endl; 
+           
+           // returns the size of the stack itself
+           cout << "Stack Size: " << newStack.size() << endl; 
+
+           // returns the topmost element of the stack 
+           cout << "Top Element of the Stack: " << newStack.top() << endl; 
+
+           // removes the topmost element of the stack
+           newStack.pop(); 
+
+           cout << "Top Element of the Stack: " << newStack.top() << endl;
 
            cout << "Stack Size: " << newStack.size() << endl;
-
-           cout << "Top Element of the Stack: " << newStack.top() << endl;
-
-           newStack.pop();
-
-           cout << "Top Element of the Stack: " << newStack.top() << endl;
 
            return 0;
        }
@@ -62,22 +68,22 @@ of the array. ``pop`` operations will manipulate that same end.
        :caption: Implementing a Stack class using Python lists
 
        class Stack:
-           def __init__(self):
+           def __init__(self): #initializes new stack instance
                self.items = []
 
-           def isEmpty(self):
+           def isEmpty(self): #returns boolean 
                return self.items == []
 
-           def push(self, item):
+           def push(self, item): #pushes new item onto stack
                self.items.append(item)
 
-           def pop(self):
+           def pop(self): #removes topmost item from stack
                return self.items.pop()
 
-           def top(self):
+           def top(self): #returns the topmost item from the stack
                return self.items[len(self.items)-1]
 
-           def size(self):
+           def size(self): returns the size of the stack 
                return len(self.items)
 
        def main():
