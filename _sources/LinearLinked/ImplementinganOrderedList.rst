@@ -74,7 +74,7 @@ exist further out in the linked list.
 :ref:`Listing 9 <lst_ordersearch>` shows the complete ``search`` method. It is
 easy to incorporate the new condition discussed above by adding another
 boolean variable, ``stop``, and initializing it to ``False`` (line 4).
-While ``stop`` is ``False`` (not ``stop``) we can continue to look
+While ``stop`` is ``False`` (in other words, while the search is still ongoing) we can continue to look
 forward in the linked list (line 5). If any node is ever discovered that
 contains data greater than the item we are looking for, we will set
 ``stop`` to ``True`` (lines 9–10). The remaining lines are identical to
@@ -191,6 +191,10 @@ linked list is now ordered.
 .. activecode:: orderedlistclass_cpp
    :caption: OrderedList Class Thus Far
    :language: cpp
+
+  
+  
+   // similar to unordered lists except it orders the data 
 
    #include <iostream>
    using namespace std;
@@ -355,7 +359,7 @@ process every node in the linked list.
     :correct: b
     :feedback_a: Wrong! the head Node of the list will only contain a pointer to the second Node.
     :feedback_b: Correct! the final Node of the linked list will contain a pointer to the first node so that it is possible to make "circles" around the list.
-    :feedback_c: Wrong! None of the nodes in the middle of the list will ever point to the head node.
-    :feedback_d: Wrong! This would be possible in a circular doubly linked list, but not a circular linked list.
+    :feedback_c: Wrong! None of the nodes in the middle of the list will ever point to the head node in a circular linked list.
+    :feedback_d: Hint: This would be possible in a circular doubly linked list, but not a circular linked list.
     
-    After thinking about the example at the beginning of the chapter, how would a circular linked list be different than an ordered or unordered linked list?
+    After having read over unordered and ordered linked lists, what do you think a circular linked list would do differently from an ordered or unordered linked list? (Hint: think about the example from the beginning of the chapter.)

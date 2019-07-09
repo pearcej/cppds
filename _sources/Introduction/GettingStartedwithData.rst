@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -26,6 +26,20 @@ Boolean (``bool``), and character (``char``). There is also a special
 type which holds a memory location called ``pointer``. C++ also has
 collection or compound data types, which will be discussed in a future
 chapter.
+
+.. mchoice:: atomicq1
+	:answer_a: It must be mutable so that it can change at any time.
+	:answer_b: Its memory size cannot be too big, relating to how atoms are naturally very small.
+	:answer_c: It must be statically allocated so it cannot change in size.
+	:answer_d: It cannot be broken down any smaller while still being easily operable.
+	:correct: d
+	:feedback_a: Incorrect, Atomic data types are not required to be mutable.
+	:feedback_b: Incorrect, The data type can be any size, but you're close. (hint: atomic data types got their name when scientists thought atoms were the smallest things in existence.)
+	:feedback_c: Incorrect, atomic data types have nothing to do with being static or dynamic.
+	:feedback_d: Correct, the atomic data type actually got its name when scientists thought atoms were the smallest things in existence. That is why they are data types that cannot be broken down.
+
+	After reading the above paragraph, what makes a data type categorized as an atomic data type? (hint: 
+	arrays and vectors are not atomic)
 
 Numeric Data
 ^^^^^^^^^^^^
@@ -56,6 +70,7 @@ Run the following code to see that you understand each result.
         :caption: Basic Arithmetic Operators C++
         :language: cpp
 
+        //outputs results from various math expressions
         #include <iostream>
         #include <cmath>
         using namespace std;
@@ -82,6 +97,7 @@ Run the following code to see that you understand each result.
     .. activecode:: intro_1py
         :caption: Basic Arithmetic Operators Python
 
+        #outputs results from various math expressions
         def main():
 
             print(2+3*4)
@@ -156,6 +172,7 @@ are actually ``1`` and ``0`` respectively. Hence, we see this in output as well.
         :caption: Logical Operators C++
         :language: cpp
 
+        //outputs boolean results to the command line
         #include <iostream>
         using namespace std;
 
@@ -172,6 +189,7 @@ are actually ``1`` and ``0`` respectively. Hence, we see this in output as well.
         .. activecode:: logical_1py
             :caption: Logical Operators Python
 
+            #outputs boolean results to the command line
             def main():
                 print(True)
                 print(False)
@@ -213,6 +231,7 @@ and logical operators with examples shown in the session that follows.
         :caption: Basic Relational and Logical Operators C++
         :language: cpp
 
+        //outputs the results from the relational and logical operators
         #include <iostream>
         using namespace std;
 
@@ -230,6 +249,7 @@ and logical operators with examples shown in the session that follows.
     .. activecode:: logicalpy
         :caption: Basic Relational and Logical Operators Python
 
+        #outputs the results from the relational and logical operators
         def main():
 
             print(5 == 10)
@@ -249,6 +269,7 @@ Consider the following session:
 .. activecode:: booleanpitfall
     :language: cpp
 
+    //showcases how variables work in C++
     #include <iostream>
     using namespace std;
 
@@ -313,6 +334,7 @@ Consider the following code.
     .. activecode:: charpy
         :caption: Python strings
 
+        #outputs the boolean results to show how strings and chars differ in C++
         def main():
 
             strvar = "b"
@@ -331,6 +353,7 @@ Consider the following code.
         :caption: Considering characters and strings
         :language: cpp
 
+        //outputs the boolean results to show how strings and chars differ in C++
         #include <iostream>
         #include <string>
         using namespace std;
@@ -418,6 +441,7 @@ In C++ we use the *address-of operator*, ``&`` to reference the address.
         :caption: Memory addresses in C++
         :language: cpp
 
+        //outputs both the value of varN and the location in memory of varN
         #include <iostream>
         using namespace std;
 
@@ -433,6 +457,7 @@ In C++ we use the *address-of operator*, ``&`` to reference the address.
     .. activecode:: address_py
         :caption: Memory identifier in Python
 
+        #because python is an interpreted language, variables stored at a virtual memory address. 
         def main():
             varN = 101;
             print(varN)
@@ -536,6 +561,7 @@ in memory:
   .. activecode:: firstptr
       :language: cpp
 
+      //prints a variable by pointer and value
       #include <iostream>
       using namespace std;
 
@@ -585,12 +611,13 @@ and had the following instructions instead?
     .. activecode:: cpp_address_error1
         :language: cpp
 
+        //showcases what happens when reading from unknown memory locations
         #include <iostream>
         using namespace std;
 
-        int main( ) {
+        int main() {
             int varN = 100;
-            int ptrN = varN; // Note no asterisk,
+            int ptrN = varN; // Note: no asterisk,
                 // ptrN now refers to memory position 100,
                 // whatever happens to be there!
                 // You might get an error or you might not!
@@ -649,7 +676,8 @@ thereby ending the loop:
 
     .. activecode:: NULLexamplecpp
         :language: cpp
-
+        
+        //showcases how you can use NULL.
         #include <iostream>
         using namespace std;
 
@@ -658,11 +686,11 @@ thereby ending the loop:
             int *ptrx = &x;
 
             while (ptrx) {
-                cout << "Pointer ptrx points to " << &ptrx << endl;
+                cout << "Pointer ptrx points to " << ptrx << endl;
                 ptrx = NULL;
             }
 
-            cout << "Pointer ptrx points to nothing!\n";
+            cout << "Pointer ptrx points to nothing!" <<endl;
         }
 
 Helpful Tip: The NULL pointer becomes very useful when you must test

@@ -88,7 +88,7 @@ so the following are not the same.
 
 The speed and low-level control that arrays offer us
 as programmers is powerful... and dangerous.
-C+ is designed for speed, and using a C++ array will
+C++ is designed for speed, and using a C++ array will
 help you better understand the trade-offs inherent in this.
 
 Here are examples of iteration.
@@ -101,6 +101,7 @@ Here are examples of iteration.
         :caption: Iterating an array in C++
         :language: cpp
 
+        //showcases an iteration through an array in C++
         #include <iostream>
         using namespace std;
 
@@ -117,9 +118,10 @@ Here are examples of iteration.
     .. activecode:: listarray_py
         :caption: Iterating a list in Python
 
+        #showcases an iteration through an array in Python
         def main():
             mylist = [2, 4, 6, 8]
-            for i in range(8):
+            for i in range(4):
                 print(mylist[i])
 
         main()
@@ -143,6 +145,7 @@ generally try to do everything you ask for.
         :caption: Iterating an array in C++
         :language: cpp
 
+        //outputs the result of trying to access a value outside of an array
         #include <iostream>
         using namespace std;
 
@@ -160,6 +163,7 @@ generally try to do everything you ask for.
     .. activecode:: array_error_py
         :caption: Iterating a list in Python
 
+        #outputs the result of trying to access a value outside of an array
         def main():
             mylist = [2,4,6,8]
             print(mylist)

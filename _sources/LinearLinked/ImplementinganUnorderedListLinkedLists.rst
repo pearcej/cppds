@@ -66,20 +66,20 @@ to access and modify the data and the next reference.
 
     class Node {
         private:
-        	int data;
-        	Node *next;
+        	int data; //data in the beginning node 
+        	Node *next; //pointer to the next node
 
         public:
         	Node(int initdata) {
-        		data = initdata;
-        		next = NULL;
+        		data = initdata; //the initialized data is set as the head
+        		next = NULL; //the next node is set as NULL, as there is no next node yet.
         	}
 
-        	int getData() {
-        		return data;
+        	int getData() { //function that return data of a given node. 
+        		return data; 
         	}
 
-        	Node *getNext() {
+        	Node *getNext() { 
         		return next;
         	}
 
@@ -94,8 +94,8 @@ to access and modify the data and the next reference.
 
 ::
 
-        >>> temp = Node(93)
-        >>> temp.getData()
+        >>> temp = Node(93) //sets the nodes data to the integer 93
+        >>> temp.getData() // calls the getData() function.
         93
 
 The special C++ reference value ``NULL`` will play an important role
@@ -576,51 +576,52 @@ You can try out the ``UnorderedList`` class in ActiveCode 1.
    class Node {
        //defines data, and next as a pointer.
        private:
-       	   int data;
-       	   Node *next;
+       	   int data; //data in the beginning node
+       	   Node *next; //pointer to the next node
 
        public:
        	   Node(int initdata) {
-       		   data = initdata;
-       		   next = NULL;
+       		   data = initdata; //the initialized data is set as the head
+       		   next = NULL; //the next node is set as NULL, as there is no next node yet.
        	   }
 
-       	   int getData() {
+       	   int getData() { //function that return data of a given node. 
        		   return data;
        	   }
 
-       	   Node *getNext() {
+       	   Node *getNext() { // pointer that gets the next node 
        		   return next;
        	   }
 
-       	   void setData(int newData) {
+       	   void setData(int newData) { // sets data in node 
        		   data = newData;
        	   }
 
-       	   void setNext(Node *newnext) {
+       	   void setNext(Node *newnext) { 
        		   next = newnext;
        	   }
    };
 
+    // creates unorderedlist that points to the head of the linked list
    class UnorderedList {
        public:
    	       Node *head;
 
-   	       UnorderedList() {
+   	       UnorderedList() { // makes the head node equal to null 
    		       head = NULL;
    	       }
 
-           bool isEmpty() {
+           bool isEmpty() { // the head node is empty if it is null 
                return head == NULL;
            }
 
-           void add(int item) {
+           void add(int item) { //cerates a "temp" pointer that adds the new node to the head of the list
                Node *temp = new Node(item);
                temp->setNext(head);
                head = temp;
            }
 
-           int size() {
+           int size() { //cereates a "current" pointer that iterates through the list until it reaches null 
                Node *current = head;
                int count = 0;
                while (current != NULL) {
@@ -631,7 +632,10 @@ You can try out the ``UnorderedList`` class in ActiveCode 1.
                return count;
            }
 
-           bool search(int item) {
+           // creates "current" pointer that iterates through the list
+           // untli it finds the item being searched for, and returns a boolean value
+
+           bool search(int item) { 
                Node *current = head;
                while (current != NULL) {
                    if (current->getData() == item) {
@@ -643,7 +647,10 @@ You can try out the ``UnorderedList`` class in ActiveCode 1.
                return false;
            }
 
-           void remove(int item) {
+           // uses current and previous pointer to iterate through the lists
+           // finds the items that is searched for, and removes it 
+
+           void remove(int item) { 
                Node *current = head;
                Node *previous = NULL;
                bool found = false;
@@ -716,8 +723,8 @@ starting with 0.
     .. mchoice:: LLq1
         :answer_a: Every Node is contained within the UnorderedList class object. Making access to every Node of the linked list possible.
         :answer_b: Every Node in the linked list is exactly one space in memory away from the next. Making it possible to find the next Node and traverse through the list.
-        :answer_c: Every Node in the list is in various locations in memory, and those memory addresses are stored in an array inside of the UnorderedList object.
-        :answer_d: Every Node in the list is in various locations in memory, and each node contains a pointer to the next node in the list. Making traversal possible.
+        :answer_c: Every Node in the list is in various locations in memory, and those memory addresses are stored in an array inside of the UnorderedList object, which makes accessing each Node possible.
+        :answer_d: Every Node in the list is in various locations in memory, and each Node contains a pointer to the next Node in the list without needing to be contained in the UnorderedList class.
         :correct: d
         :feedback_a: Wrong! An UnorderedList class object will only reference the first item of the linked list.
         :feedback_b: Wrong! A Node in a linked list can be in various locations in memory. This is very important to understand how linked lists operate.
