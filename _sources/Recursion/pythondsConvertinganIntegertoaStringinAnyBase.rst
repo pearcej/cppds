@@ -72,6 +72,8 @@ outlined above for any base between 2 and 16.
        :caption: Recursively Converting from  Integer to String
        :language: cpp
 
+       //Recursive example of converting from int to string.
+
        #include <iostream>
        #include <string>
        using namespace std;
@@ -81,7 +83,7 @@ outlined above for any base between 2 and 16.
            if (n < base) {
                return string(1, convertString[n]); // converts char to string, and returns it
            } else {
-               return toStr(n/base, base) + convertString[n%base];
+               return toStr(n/base, base) + convertString[n%base]; // function makes a recursive call to itself.
            }
        }
 
@@ -95,12 +97,14 @@ outlined above for any base between 2 and 16.
     .. activecode:: lst_rectostrpy
        :caption: Recursively Converting from Integer to String
 
+       #Recursive example of converting an int to str.
+
        def toStr(n,base):
           convertString = "0123456789ABCDEF"
           if n < base:
              return convertString[n]
           else:
-             return toStr(n//base,base) + convertString[n%base]
+             return toStr(n//base,base) + convertString[n%base] #function makes a recursive call to itself.
 
        def main():
           print(toStr(1453,16))
