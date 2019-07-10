@@ -110,7 +110,7 @@ manipulate the opposite side, the **front** end.
      :feedback_a: Remember the first item added to the queue is the first item removed. Remember FIFO.
      :feedback_b: Yes, first in first out means that the 10 is now gone.
      :feedback_c: Queues and stacks are both data structures where you can only access the first or the last items.
-     :feedback_d: Ooops, maybe you missed the pop call at the end?
+     :feedback_d: Oops, maybe you missed the pop call at the end?
 
      Suppose you have the following series of queue operations.
 

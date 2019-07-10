@@ -273,7 +273,7 @@ resulting string.
       |blank|
 
       -  :31: Correct because 25 = 3x8 + 1.
-         :x: Incorrect. Try again.
+         :x: No. You might want to modify the baseConverter function, or simply find a pattern in the conversion of bases.
 
    .. fillintheblank:: baseconvert2
 
@@ -282,7 +282,7 @@ resulting string.
       |blank|
 
       -  :100: Correct because 265 = 1x16^2.
-         :x: Incorrect. Try again.
+         :x: No. You might want to modify the baseConverter function, or simply find a pattern in the conversion of bases.
 
    .. fillintheblank:: baseconvert3
 

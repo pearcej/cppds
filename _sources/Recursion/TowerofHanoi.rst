@@ -179,7 +179,7 @@ The program in ActiveCode 1 provides the entire solution for three disks.
 
     - :63: Correct, you can make a global counter at line 3, and then cout the increasing total under line 11. 
       :62: Technically you are correct but, you are off by one.  
-      :.*: Please try again you need to add a statment at line 3, and under line 11. 
+      :.*: Please try again you need to add a statement at line 3, and under line 11. 
 
 
 Now that you have seen the code for both ``moveTower`` and ``moveDisk``,

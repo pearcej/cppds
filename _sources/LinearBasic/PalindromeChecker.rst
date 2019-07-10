@@ -140,3 +140,18 @@ complete function for palindrome-checking appears in
  :click-incorrect:d.push_front("Panda");:endclick:
  :click-incorrect:d.push_back("Catfish");:endclick:
  :click-incorrect:d.push_back("Giraffe");:endclick:
+
+.. mchoice:: structureefficiency
+   :answer_a: Deque
+   :answer_b: Stack
+   :answer_c: Queue
+   :answer_d: Both B & C
+   :answer_e: Both A & C
+   :correct: e
+   :feedback_a: Yes, but it is not the only option.
+   :feedback_b: No, a stack would pop from the top, thus having more entries in the way before it gets to rutabega. 
+   :feedback_c: Yes, but it is not the only option.
+   :feedback_d: One of these two would be correct, but the other would not.
+   :feedback_e: Correct!
+
+   If you add five items to your code in this order “potato”, “rutabaga”, “avocado”, “squash”, “eggplant” which structure would take the least steps to retrieve “rutabaga”?

@@ -759,6 +759,51 @@ Self Check
           :click-incorrect:int den; // den attribute:endclick:
             :click-correct:}:endclick:
 
+.. OOP class example:
+
+**Question example**
+
+.. highlight:: cpp 
+    :linenothreshold: 5 
+
+::
+
+    #include<iostream>
+    using namespace std;
+    
+    class Vehicle
+    { 
+    
+        protected:
+            int wheels;
+            int windows;
+            int engine;
+    };
+    
+    class Airplane: public Vehicle
+    {
+        protected:
+            // wheels
+            // windows
+            // engine
+            int wings;
+    };
+
+.. mchoice:: OOPclassquestion
+    :answer_a: Inheritance
+    :answer_b: Encapsulation
+    :answer_c: Polymorphism
+    :answer_d: Abstraction
+    :correct: a
+    :feedback_a: Correct! Airplane inherits many things from Vehicle
+    :feedback_b: Encapsulation is the principle of hiding the contents of a class except when absolutely necessary. Wings is not hidden from Vehicle, it simply does not exist in the Vehicle class.
+    :feedback_c: Polymorphism is the ability to process objects or methods differently depending on their data type, class, number of arguments, etc. A subclass using parts of a pre-existing class is not an example of polymorphism because they are used in the same way.
+    :feedback_d: Abstraction is the principle of focusing on desired behaviors and properties while disregarding what is irrelevant/unimportant. Take another look at what the two classes have in common.
+
+    Which OOP principle is the above code an example of?
+
+
+
 .. dragndrop:: elements_of_OOP
     :feedback: Review the elements of object oriented programming
     :match_1: Encapsulation|||hiding the contents of a class except when absolutely necessary

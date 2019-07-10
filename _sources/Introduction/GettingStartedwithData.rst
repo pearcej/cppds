@@ -734,7 +734,7 @@ is valid or not.
   :feedback_a: Right! ``&`` is the "address-of" operator, used to reference an address.
   :feedback_b: No. ``int *p;`` defines a pointer to an integer, and ``*p`` would dereference that pointer, i.e. retrieve the data that p points to.
   :feedback_c: No. This is used in other languages such as Python.
-  :feedback_d: No. Try again.
+  :feedback_d: No. The implementation remains consistent.
   :feedback_e: One of the above is indeed correct.
 
   How may one reference a variable's memory address in C++?
