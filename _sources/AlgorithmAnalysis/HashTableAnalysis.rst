@@ -215,6 +215,19 @@ Summary
 Self Check
 -----------
 
+.. mchoice:: bigOefficiency
+    :answer_a: 10000(n<sup>3</sup> + n<sup>2</sup>)
+    :answer_b: 45n<sup>3</sup> + 1710n<sup>2</sup> + 16n + 5
+    :answer_c: (n<sup>3</sup> + n) (n<sup>2</sup> + 1) 
+    :answer_d: A and B would be equally efficient/inefficient 
+    :correct: c
+    :feedback_a: Incorrect, even though n<sup>3</sup> is the most significant part for all of these formulas, the way it interacts with the rest of the equation is also important to note.
+    :feedback_b: Incorrect, even though n<sup>3</sup> is the most significant part for all of these formulas, the way it interacts with the rest of the equation is also important to note.
+    :feedback_c: Correct!
+    :feedback_d: Look closer, the efficiencies would be different
+
+    Which of the following algorithms has the least efficient big O complexity?
+
 .. dragndrop:: growth
     :feedback: Compare the functions at different values to see how they compare
     :match_1: 2<sup>n</sup>|||1st
