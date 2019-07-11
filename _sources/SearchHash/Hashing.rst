@@ -211,10 +211,13 @@ to ``tablesize``-1.
   #include <string>
   using namespace std;
 
+  // uses ordinal values, of strings  and using positional values to weight them  
+  //to generate A hash value 
   int hashfunc(string a, int tablesize) {
       int sum=0;
       for (unsigned int pos=0; pos<a.length(); pos++) {
-          sum += int(a[pos]);
+          sum += int(a[pos]); // getting ordinal values, and using positional values to weight them 
+          //adding them up, and using the remainder method to get a hash value.   
       }
 
       return sum%tablesize;
@@ -586,9 +589,6 @@ be available. We leave the remaining methods as exercises.
 
 **Listing 4**
 
-.. highlight:: cpp
-    :linenothreshold: 5
-
 ::
 
     def get(self,key):
@@ -638,10 +638,6 @@ be available. We leave the remaining methods as exercises.
         return val;
     }
 
-
-
-.. highlight:: cpp
-    :linenothreshold: 500
 
 
 
@@ -724,19 +720,23 @@ The complete hash table example can be found in ActiveCode 1.
 
       class HashTable{
           public:
-          static const int size=11;
-          int slots[size];
-          string data[size];
+          static const int size=11; // initial size of hash table is prime to help with collision resolution
+          int slots[size]; // list to hold key items
+          string data[size]; // list to hold data values 
 
-          int hashfunction(int key) {
+          int hashfunction(int key) { // implements remainder method 
               return key%size;
           }
 
-          int rehash(int oldhash) {
+            // Computes original hashvalue, and if slot is 
+            // not empty iterates until empty slot is found
+          int rehash(int oldhash) {  
               return (oldhash+1)%size;
           }
 
-          void put(int key, string val){
+          // Function that assumes there will eventually be 
+          // an empty slot unless the key is alread present in the slot 
+          void put(int key, string val){ 
               int hashvalue = hashfunction(key);
               int count = 0;
 
@@ -768,6 +768,9 @@ The complete hash table example can be found in ActiveCode 1.
               }
           }
 
+          // computes the initial hash value 
+          // if value is not in the initial slot, uses 
+          // rehash to locate the next position
           string get(int key) {
               int startslot = hashfunction(key);
 
@@ -833,9 +836,9 @@ The complete hash table example can be found in ActiveCode 1.
 
        class HashTable:
            def __init__(self):
-               self.size = 11
-               self.slots = [None] * self.size
-               self.data = [None] * self.size
+               self.size = 11 # initial size of hash table is prime to help with collision resolution 
+               self.slots = [None] * self.size # list to hold key items
+               self.data = [None] * self.size # list to hold data values
 
            def put(self,key,data):
              hashvalue = self.hashfunction(key,len(self.slots))
@@ -858,12 +861,19 @@ The complete hash table example can be found in ActiveCode 1.
                  else:
                    self.data[nextslot] = data #replace
 
-           def hashfunction(self,key,size):
+            # Function that assumes there will eventually be 
+            # an empty slot unless the key is alread present in the slot
+           def hashfunction(self,key,size): # implements remainder method 
                 return key%size
 
+            # Fomputes original hashvalue, and if slot is 
+            # not empty iterates until empty slot is found
            def rehash(self,oldhash,size):
                return (oldhash+1)%size
 
+            # computes the initial hash value 
+            # if value is not in the initial slot, uses 
+            # rehash to locate the next position
            def get(self,key):
              startslot = self.hashfunction(key,len(self.slots))
 

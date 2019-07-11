@@ -40,6 +40,9 @@ assigned the value ``True`` if we discover the item in the list (Or vector, in t
 .. codelens:: search1
     :caption: Sequential Search of an Unordered List
 
+    # Checks to see if item is in a list 
+    # retruns true or false 
+    # using sequential search 
     def sequentialSearch(alist, item):
         pos = 0
         found = False
@@ -68,6 +71,9 @@ assigned the value ``True`` if we discover the item in the list (Or vector, in t
   #include <vector>
   using namespace std;
 
+  // Checks to see if item is in a vector  
+  // retruns true or false (1 or 0) 
+  //using sequential Search
   bool sequentialSearch(vector<int> avector, int item) {
       unsigned int pos = 0;
       bool found = false;
@@ -184,6 +190,9 @@ sequential search function.
 .. codelens:: search2
     :caption: Sequential Search of an Ordered List
 
+    # Checks to see if item is in a list 
+    # retruns true or false 
+    # using ordered sequential search
     def orderedSequentialSearch(alist, item):
         pos = 0
         found = False
@@ -211,6 +220,9 @@ sequential search function.
   #include <vector>
   using namespace std;
 
+  // Checks to see if item is in a vector  
+  // retruns true or false (1 or 0) 
+  // using ordered sequential Search
   bool orderedSequentialSearch(vector<int> avector, int item) {
       unsigned int pos = 0;
       bool found = false;
