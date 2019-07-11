@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -270,7 +270,7 @@ to see that :math:`T(n)` then follows the quadratic function as
         :casei:
 
         The Big O of a particular algorithm is O(logn). Given that it takes 2 seconds to do 3 million operations;
-        how long would it take with 4 million inputs? 
+        how long would it take with 4 million inputs? You may use a calculator on this one.
         ``|blank|`` seconds.
          
         10 million? 
@@ -288,7 +288,7 @@ to see that :math:`T(n)` then follows the quadratic function as
         :casei:
 
         The Big O of a particular algorithm is O(n^3). Given that it takes 2 seconds to do 1000 operations;
-        h ow long would it take with 2000 inputs? 
+        how long would it take with 2000 inputs? 
         ``|blank|`` seconds.
 
         10,000? 

@@ -21,6 +21,8 @@ the front of the deque is at position 0 in the array.
       :caption: Using Deque in C++
       :language: cpp
 
+      //Example code of a deque.
+
       #include <iostream>
       #include <deque>
       #include <string>
@@ -33,9 +35,9 @@ the front of the deque is at position 0 in the array.
           d.push_back("Zebra");
           cout << "Deque Empty? " << d.empty() << endl;
 
-          d.push_front("Turtle");
+          d.push_front("Turtle"); //pushes to the front of the deque.
           d.push_front("Panda");
-          d.push_back("Catfish");
+          d.push_back("Catfish"); //pushes to the back of the deque.
           d.push_back("Giraffe");
 
           cout << "Deque Size: " << d.size() << endl;
@@ -45,6 +47,7 @@ the front of the deque is at position 0 in the array.
           cout << endl << "Items in the Deque: " << endl;
           int dsize = d.size();
           for(int i = 0; i < dsize; i++){
+	      //prints each item in the deque.
               cout << d.at(i) << " ";
           }
 
@@ -60,6 +63,7 @@ the front of the deque is at position 0 in the array.
           cout << endl << "Items in the Deque: " << endl;
           int dsize2 = d.size();
           for(int i = 0; i < dsize2; i++){
+	      //prints each item in the deque.
               cout << d.at(i) << " ";
 
           return 0;
@@ -70,6 +74,8 @@ the front of the deque is at position 0 in the array.
 
     .. activecode:: dequecode_py
        :caption: Using Deque in Python
+
+       #Example code of a deque.
 
        class Deque:
            def __init__(self):
@@ -109,9 +115,9 @@ the front of the deque is at position 0 in the array.
            d.push_back("Zebra")
            print("Deque Empty? ", d.empty())
 
-           d.push_front("Turtle")
+           d.push_front("Turtle") #pushes to the front of the deque.
            d.push_front("Panda")
-           d.push_back("Catfish")
+           d.push_back("Catfish") #pushes to the back of the deque.
            d.push_back("Giraffe")
 
            print("Deque Size: ", d.size())
@@ -121,6 +127,7 @@ the front of the deque is at position 0 in the array.
            print("\n")
            print("Items in the Deque: ")
            for i in range(d.size()):
+	       #prints each item in the deque.
                print(d.at(i), end=" ")
            print("\n")
 
@@ -134,6 +141,7 @@ the front of the deque is at position 0 in the array.
            print("\n")
            print("Items in the Deque: ")
            for i in range(d.size()):
+	       #prints each item in the deque.
                print(d.at(i), end=" ")
            print("\n")
        main()

@@ -41,9 +41,12 @@ generated the Sierpinski Triangle in :ref:`Figure 3 <fig_sierpinski>` is shown i
     :caption: Drawing a Sierpinski Triangle
     :nocodelens:
 
+    #Recursive example of the Sierpinski Triangle.
+
     import turtle
 
     def drawTriangle(points,color,myTurtle):
+	#Draws a triangle using the diven points and color.
         myTurtle.fillcolor(color)
         myTurtle.up()
         myTurtle.goto(points[0][0],points[0][1])
@@ -65,15 +68,15 @@ generated the Sierpinski Triangle in :ref:`Figure 3 <fig_sierpinski>` is shown i
             sierpinski([points[0],
                             getMid(points[0], points[1]),
                             getMid(points[0], points[2])],
-                       degree-1, myTurtle)
+                       degree-1, myTurtle) #Recursive call
             sierpinski([points[1],
                             getMid(points[0], points[1]),
                             getMid(points[1], points[2])],
-                       degree-1, myTurtle)
+                       degree-1, myTurtle) #Recursive call
             sierpinski([points[2],
                             getMid(points[2], points[1]),
                             getMid(points[0], points[2])],
-                       degree-1, myTurtle)
+                       degree-1, myTurtle) #Recursive call
 
     def main():
        myTurtle = turtle.Turtle()
