@@ -38,7 +38,10 @@ in :ref:`CodeLens 3 <lst_binarysearchpy>`.
 
 .. codelens:: search3
     :caption: Binary Search of an Ordered List
-
+    
+    # Checks to see if item is in a list  
+    # retruns true or false 
+    # using binary Search
     def binarySearch(alist, item):
         first = 0
         last = len(alist)-1
@@ -74,6 +77,9 @@ A similar implementation can be carried out using vectors in C++.
   #include <vector>
   using namespace std;
 
+  // Checks to see if item is in a vector  
+  // retruns true or false (1 or 0) 
+  // using binary Search
   bool binarySearch(vector<int> avector, int item) {
       int first = 0;
       int last = avector.size() - 1;
@@ -122,6 +128,9 @@ shows this recursive version.
 .. codelens:: search4
     :caption: A Binary Search--Recursive Version
 
+    # Checks to see if item is in a list  
+    # retruns true or false 
+    # using binary Search recursively 
     def binarySearch(alist, item):
         if len(alist) == 0:
             return False
@@ -149,6 +158,11 @@ however this can only be used when new vectors are created.
   #include <iostream>
   #include <vector>
   using namespace std;
+
+   // Checks to see if item is in a vector
+   // retruns true or false (1 or 0)
+   // using binary Search and 
+   // seperating the vector in halves
 
   bool binarySearch(vector<int> alist, int item) {
   	if (alist.size() == 0) {
@@ -239,6 +253,10 @@ can be calculated as we did in :ref:`Listing 3 <lst_binarysearchpy>`. This is es
   #include <iostream>
   using namespace std;
 
+  // Checks to see if item is in a vector
+  // retruns true or false (1 or 0)
+  // using binary Search and 
+  // uses start and end indices
   bool binarySearch(int arr[], int item, int start, int end) {
   	if (end >= start) {
   		int mid = start + (end - start) / 2;
