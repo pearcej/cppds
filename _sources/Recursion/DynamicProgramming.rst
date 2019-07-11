@@ -95,6 +95,8 @@ where we satisfy the base case condition immediately.
             :caption: Recursively Counting Coins with Table Lookup C++
             :language: cpp
 
+	    //Recursive example of trying to get the least amount of coins to make up an amount of change.
+
             #include <iostream>
             #include <vector>
 	    #include <algorithm>
@@ -126,6 +128,8 @@ where we satisfy the base case condition immediately.
         .. activecode:: lst_change12cpp
            :caption: Recursively Counting Coins with Table Lookup Python
            :language: python
+
+	   #Recursive example of trying to get the least amount of coins to make up an amount of change.
 
            def recMC_greedy(coinValueList,change):
              if change == 0:  #base case if, change is 0, then the number of coins have been finalized
@@ -194,6 +198,8 @@ algorithm to incorporate our table lookup scheme.
             :caption: Recursively Counting Coins with Table Lookup C++
             :language: cpp
 
+	    //A different attempt at making the change algorithm.
+
             #include <iostream>
             #include <vector>
             using namespace std;
@@ -202,7 +208,9 @@ algorithm to incorporate our table lookup scheme.
                 int minCoins, numCoins;
                 minCoins = change;
 
-                for (unsigned int i = 0; i< coinValueList.size(); i++){
+                for (unsigned int i = 0; i< coinValueList.size(); i++){ //this loop contains the base case,
+									//as it returns items that are not
+									//returning a call to the recDC function. 
                     if (coinValueList[i] == change){
                         knownResults[change] = 1;
                         return 1;
@@ -213,7 +221,7 @@ algorithm to incorporate our table lookup scheme.
                 }
                 for (unsigned int y=0; y<coinValueList.size(); y++){
                     if (coinValueList[y] <= change){
-                        numCoins = 1 + recDC(coinValueList, change - coinValueList[y], knownResults);
+                        numCoins = 1 + recDC(coinValueList, change - coinValueList[y], knownResults); //Recursive call
                         if (numCoins < minCoins){
                             minCoins = numCoins;
                             knownResults[change] = minCoins;
@@ -238,16 +246,18 @@ algorithm to incorporate our table lookup scheme.
            :caption: Recursively Counting Coins with Table Lookup Python
            :language: python
 
+	   #A different attempt at making the change algorithm.
+
            def recDC(coinValueList, change, knownResults):
               minCoins = change
-              if change in coinValueList:
+              if change in coinValueList: #base case
                   knownResults[change] = 1
                   return 1
-              elif knownResults[change] > 0:
+              elif knownResults[change] > 0: #base case
                   return knownResults[change]
               else:
                   for i in [c for c in coinValueList if c <= change]:
-                      numCoins = 1 + recDC(coinValueList, change - i, knownResults)
+                      numCoins = 1 + recDC(coinValueList, change - i, knownResults) #Recursive call.
                       if numCoins < minCoins:
                           minCoins = numCoins
                           knownResults[change] = minCoins
@@ -339,17 +349,19 @@ from 0 to the value of ``change``.
            :caption: Recursively Counting Coins with Table Lookup C++
            :language: cpp
 
+	    //Program that stores the solution for all possible amounts of change up to a given integer.
+
             #include <iostream>
             #include <vector>
             using namespace std;
 
             int dpMakeChange(vector<int> coinValueList, int change, vector<int> minCoins){
-                for (int cents = 0 ; cents < change + 1; cents++){
+                for (int cents = 0 ; cents < change + 1; cents++){ //loop finds solution for all sets of change from 0 to int change.
                     int coinCount = cents;
                     for (int j : coinValueList){
                         if (j <= cents){
                             if (minCoins[cents-j] + 1 < coinCount){
-                                coinCount = minCoins[cents-j] + 1;
+                                coinCount = minCoins[cents-j] + 1; //assigns the number of coins that is used to make the change.
                             }
                         }
                     }
@@ -372,19 +384,21 @@ from 0 to the value of ``change``.
            :caption: Recursively Counting Coins with Table Lookup Python
            :language: python
 
+	   #Program that stores the solution for all possible amounts of change up to a given integer.
+
            def dpMakeChange(coinValueList,change,minCoins):
-              for cents in range(change+1):
+              for cents in range(change+1): #loops finds solution for all sets of change from 0 to change parameter.
                   coinCount = cents
                   for j in [c for c in coinValueList if c <= cents]:
                       if minCoins[cents-j] + 1 < coinCount:
-                          coinCount = minCoins[cents-j] + 1
+                          coinCount = minCoins[cents-j] + 1 #assigns the number of coins that will be used to make the sum.
                   minCoins[cents] = coinCount
 
               return minCoins[change]
 
 
            def main():
-              print([1, 5, 10, 21, 25], 63, [0]*64)
+              print(dpMakeChange([1, 5, 10, 21, 25], 63, [0]*64))
            main()
 
 Note that ``dpMakeChange`` is not a recursive function, even though we
@@ -431,22 +445,25 @@ array also contains 21, giving us the three 21 cent pieces.
 
         .. activecode:: lst_dpremembercpp
             :caption: Complete Solution to the Change Problem C++
-            :language: cpp
+            :language: cpp	
+
+	    //Addition to the precious program that finds the types of coins used and the process of doing it.
 
             #include <iostream>
             #include <vector>
             using namespace std;
 
             int dpMakeChange(vector<int> coinValueList, int change, vector<int> minCoins,   vector<int> coinsUsed){
+		//This function keeps track of the number of coins needed to create the change.
 		for (int cents = 0 ; cents < change+1; cents++){
                     int coinCount = cents;
                     int newCoin = 1;
 
-                    for (int j : coinValueList){
+                    for (int j : coinValueList){ //loop finds solution for all sets of change from 0 to int change.
                         if (j <= cents){
                             if (minCoins[cents-j] + 1 < coinCount){
-                                coinCount = minCoins[cents-j] + 1;
-                                newCoin = j;
+                                coinCount = minCoins[cents-j] + 1; //assigns the number of coins used to make the sum.
+                                newCoin = j; //assigns the type of coins that is used to find the sum.
                             }
                         }
                     }
@@ -459,6 +476,7 @@ array also contains 21, giving us the three 21 cent pieces.
             }
 
             vector<int> dpMakeChange2(vector<int> coinValueList, int change, vector<int>   minCoins, vector<int> coinsUsed){
+		//This function keeps track of the exact coins used to make the change.
 		for (int cents = 0; cents < change + 1; cents++){
                     int coinCount = cents;
                     int newCoin = 1;
@@ -466,8 +484,8 @@ array also contains 21, giving us the three 21 cent pieces.
                     for (int j : coinValueList){
                         if (j <= cents){
                             if (minCoins[cents-j] + 1 < coinCount){
-                                coinCount = minCoins[cents-j] + 1;
-                                newCoin = j;
+                                coinCount = minCoins[cents-j] + 1; //assigns the number of coins that have been used to make the sum.
+                                newCoin = j; //assigns the current type of coin that will be used to make the sum.
                             }
                         }
                     }
@@ -478,7 +496,7 @@ array also contains 21, giving us the three 21 cent pieces.
                 return coinsUsed;
             }
 
-            int printCoins(vector<int> coinsUsed, int change){
+            void printCoins(vector<int> coinsUsed, int change){
                 int coin = change;
 
                 while (coin > 0){
@@ -503,7 +521,7 @@ array also contains 21, giving us the three 21 cent pieces.
                 vector<int> coinsUsed2 = dpMakeChange2(clist, amnt, minCoins, coinsUsed);
                 cout << "[";
 
-                for (int i = 0; i<coinsUsed2.size(); i++){
+                for (unsigned int i = 0; i<coinsUsed2.size(); i++){
                     cout << coinsUsed2[i] << ", ";
                 }
 
@@ -517,14 +535,16 @@ array also contains 21, giving us the three 21 cent pieces.
             :caption: Complete Solution to the Change Problem Python
             :nocodelens:
 
+	    #Addition to the precious program that finds the types of coins used and the process of doing it.
+
             def dpMakeChange(coinValueList,change,minCoins,coinsUsed):
                 for cents in range(change+1):
                     coinCount = cents
                     newCoin = 1
                     for j in [c for c in coinValueList if c <= cents]:
                         if minCoins[cents-j] + 1 < coinCount:
-                            coinCount = minCoins[cents-j] + 1
-                            newCoin = j
+                            coinCount = minCoins[cents-j] + 1 #assigns the amount of coins used.
+                            newCoin = j #assigns the type of coin used.
                     minCoins[cents] = coinCount
                     coinsUsed[cents] = newCoin
                 return minCoins[change]
