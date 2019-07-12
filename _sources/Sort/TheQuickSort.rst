@@ -339,3 +339,16 @@ Self Check
    :match_4: Shell Sort|||between O(n) and O(n^2)
 
    Match each sorting method with its appropriate estimated comparisons.
+
+.. mchoice:: sortefficiencyrandom
+   :answer_a: Merge
+   :answer_b: Selection
+   :answer_c: Bubble
+   :answer_d: Insertion
+   :correct: a
+   :feedback_a: Correct!
+   :feedback_b: Selection sort is inefficient in large lists.
+   :feedback_c: Bubble sort works best with mostly sorted lists.
+   :feedback_d: Insertion sort works best with either small or mostly sorted lists.
+
+   Which sort should you use for best efficiency If you need to sort through 100,000 random items in a list?
