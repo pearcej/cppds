@@ -65,72 +65,64 @@ mismatch occurs, the Boolean variable ``balanced`` is set to ``false``.
       :caption: Solving the General Balanced Symbol Problem
       :language: cpp
 
-      //Program does the same as before, except with 2 extra symbols.
+      //program that returns whether a string is balanced or not
+        #include <iostream>
+        #include <string>
+        #include <stack>
 
-      #include <iostream>
-      #include <string>
-      #include <stack>
+        using namespace std;
+        //checks if a symbol is in the string of "{[("
+        bool inString(string symbol, string symbols){
+            return symbols.find(symbol) != string::npos;
+        }
+        //function that returns a boolean value based on whether the strings match
+        bool matches(string open, string close){
+            string opens = "({[";
+            string closers = ")]}";
+            bool val = inString(open, opens) == inString(close, closers);
+            return val;
+        }
 
-      using namespace std;
+        bool parChecker(string symbolString){
+            stack<string> s;
+            bool balanced = true;
+            int index = 0;  
+            int symbolLength = symbolString.length();
 
-      bool inString(string symbol, string symbols){
-	  //Checks if symbol is contained in symbols.
-          int n = symbols.length();
-          int symb = symbols.find(symbol);
-          if (symb < n){
-              return true;
-          }
-          return false;
-      }
+            while(index < symbolLength && balanced){
+                string symbol;
+                symbol = symbolString[index];
+                string opens = "([{";
+                string closes = "}])";
+                if (inString(symbol, opens)){
+                    s.push(symbol);
+                } else if(inString(symbol, closes)){
+                    if (s.empty()){
+                        balanced = false;
+                    } else {
+                        string top = s.top();
+                        s.pop();
+                        if (!matches(top, symbol)){
+                            balanced = false;
+                            break;
+                        }
+                    }
+                }
+                index = index + 1;
+            }
+            if(balanced && s.empty()){
+                return true;
+            } else {
+                return false;
+            }
+        }
 
-      bool matches(string open, string close){
-	  //Checks if the type of an open and closed symbol are the same.
-          string opens = "({[";
-          string closers = ")]}";
-          return inString(open, opens) == inString(close, closers);
-      }
+        int main() {
+            cout << parChecker("{}") << endl;
+            cout << parChecker("[{()}]") << endl;
+            return 0;
+        }
 
-      bool parChecker(string symbolString){
-          stack<string> s;
-          bool balanced = true;
-          int index = 0;
-          int symbolLength = symbolString.length();
-
-          while(index < symbolLength && balanced){
-              string symbol;
-              symbol = symbolString[index];
-              string opens = "({[";
-              if (inString(symbol, opens)){ //if the current symbol ==
-					    //an open symbol.
-                  s.push(symbol);
-              } else {
-                  if (s.empty()){ //if there is a closed symbol
-				  //but no open symbol is pending.
-                      balanced = false;
-                  } else {
-                      string top = s.top();
-                      s.pop();
-                      if (!matches(top, symbol)){ //if the current closed symbol
-						  //is a different type than the
-   						  //pending open one.
-                          balanced = false;
-                      }
-                  }
-              }
-              index = index + 1;
-          }
-          if(balanced && s.empty()){ //if the string is completely analyzed with
-				     //no remaining open symbols.
-              return true;
-          } else {
-              return false;
-          }
-      }
-
-      int main() {
-          cout << parChecker("{{([][])}()}") << endl;
-          cout << parChecker("[{()]") << endl;
-      }
 
 
   .. tab:: Python

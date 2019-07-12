@@ -46,15 +46,21 @@ of the array. ``pop`` operations will manipulate that same end.
            newStack.push(8);
            newStack.push(15);
 
-           cout << "Stack Empty? " << newStack.empty() << endl; //Checks if stack is empty.
+           // returns a boolean response depending on if the stack is empty or not
+           cout << "Stack Empty? " << newStack.empty() << endl; 
+           
+           // returns the size of the stack itself
+           cout << "Stack Size: " << newStack.size() << endl; 
 
-           cout << "Stack Size: " << newStack.size() << endl; //returns the number of items in the stack.
+           // returns the topmost element of the stack 
+           cout << "Top Element of the Stack: " << newStack.top() << endl; 
 
-           cout << "Top Element of the Stack: " << newStack.top() << endl; //returns the top item of the stack.
-
-           newStack.pop(); //removes the top item of the stack.
+           // removes the topmost element of the stack
+           newStack.pop(); 
 
            cout << "Top Element of the Stack: " << newStack.top() << endl;
+
+           cout << "Stack Size: " << newStack.size() << endl;
 
            return 0;
        }
@@ -67,27 +73,22 @@ of the array. ``pop`` operations will manipulate that same end.
        #Tests the push, empty, size, pop, and top methods of the stack library.
 
        class Stack:
-           def __init__(self):
+           def __init__(self): #initializes new stack instance
                self.items = []
 
-           def isEmpty(self):
-	       #checks if the stack is empty.
+           def isEmpty(self): #returns boolean 
                return self.items == []
 
-           def push(self, item):
-	       #adds item to the top of the stack.
+           def push(self, item): #pushes new item onto stack
                self.items.append(item)
 
-           def pop(self):
-	       #removes the top item of the stack.
+           def pop(self): #removes topmost item from stack
                return self.items.pop()
 
-           def top(self):
-	       #returns the top item of the stack.
+           def top(self): #returns the topmost item from the stack
                return self.items[len(self.items)-1]
 
-           def size(self):
-	       #returns the number of items in the stack.
+           def size(self): returns the size of the stack 
                return len(self.items)
 
        def main():

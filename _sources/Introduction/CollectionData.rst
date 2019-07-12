@@ -189,6 +189,8 @@ the *vector*.
         :caption: Array write error in C++
         :language: cpp
 
+        /*shows how C++ allows you to easily overwrite values in memory even when
+        you don't mean to. */
         #include <iostream>
         using namespace std;
 
@@ -216,6 +218,9 @@ the *vector*.
     .. activecode:: array_werror_py
         :caption: Write error in Python
 
+        """shows how C++ allows you to easily
+        overwrite values in memory even when
+        you dont mean to."""
         def main():
             mylist = [2, 4]
             otherdata = [777, 777]
@@ -331,6 +336,8 @@ Matching
        :caption: Using a vector in C++
        :language: cpp
 
+       /*shows the use of the reserve member, and how it 
+       can be effective in saving time with a growing vector.*/
        #include <iostream>
        #include <vector>
        using namespace std;
@@ -352,6 +359,7 @@ Matching
    .. activecode:: introvector_py
        :caption: Using a Python list
 
+       #Python doesn't have vectors, simply stating the limit is enough
        def main():
            intlist=[]
            for i in range(50):
@@ -374,6 +382,7 @@ example that follows.
    :caption: With use of ``reserve``
    :language: cpp
 
+   //code from above but without the reserve
    #include <iostream>
    #include <vector>
    using namespace std;
@@ -403,6 +412,7 @@ we will likely not be surprised by the following:
        :caption: Vectors out of bounds
        :language: cpp
 
+       //shows errors when a vector goes out of bounds
        #include <iostream>
        #include <vector>
        using namespace std;
@@ -428,6 +438,7 @@ we will likely not be surprised by the following:
    .. activecode:: vector_errors_py
        :caption: Python list out of bounds
 
+       #shows errors when a vector goes out of bounds
        def main():
            intlist=[]
            for i in range(10):
@@ -446,11 +457,11 @@ we will likely not be surprised by the following:
   :answer_c: Vectors don't use contiguous memory, so elements can be inserted.
   :answer_d: more than one of the above
   :answer_e: none of the above
-  :correct: a
-  :feedback_a: Right! Good job!
-  :feedback_b: Not all of the protections of lists are offered by vectors; one can still iterate off of either end.
+  :correct: d
+  :feedback_a: Yes, however, there are more benefits to using vectors.
+  :feedback_b: Not all of the protections of arrays are offered by vectors; one can still iterate off of either end.
   :feedback_c: No. Although elements can be inserted in vectors, they do require contiguous memory.
-  :feedback_d: No. Only one of the above is correct.
+  :feedback_d:  Right! Good job!
   :feedback_e: One of the above is indeed correct.
 
   Which of the following is the biggest difference between a C++ array and a C++ vector?
@@ -552,6 +563,7 @@ Matching
         :caption: Strings in C++
         :language: cpp
 
+        //shows basic string usage in C++
         #include <iostream>
         #include <string>
         using namespace std;
@@ -576,6 +588,7 @@ Matching
     .. activecode:: introstring_py
         :caption: Python strings
 
+        #shows basic string usage in Python
         def main():
             mystring1 = "Hello"
             mystring2 = "World!"
@@ -640,6 +653,7 @@ associated value.
            :caption: Using a Hash Table C++
            :language: cpp
 
+           //shows how hash tables can be used in C++
            #include <iostream>
            #include <unordered_map>
            #include <string>
@@ -664,6 +678,7 @@ associated value.
        .. activecode:: hashtable1_py
            :caption: Using a Dictionary
 
+           #shows how hash tables can be used in python 
            def main():
                spnumbers = {"one":"uno","two":"dos"}
 
@@ -695,6 +710,7 @@ the following example.
            :caption: Iterating a Hash Table C++
            :language: cpp
 
+           //shows how to iterate through a hash table in C++
            #include <iostream>
            #include <unordered_map>
            #include <string>
@@ -716,6 +732,7 @@ the following example.
        .. activecode:: hashtable2_py
            :caption: Iterating a Dictionary
 
+           #shows how to iterate through a hash table in python 
            def main():
                spnumbers = {"one":"uno","two":"dos","three":"tres","four":"cuatro","five":"cinco" }
 
@@ -804,6 +821,7 @@ The code below is an example of a program that can detect if a specific char is 
 .. activecode:: UnorderedSetExample
     :language: cpp
 
+    //code detects if a specific char is in an unordered set.
     #include <iostream>
     #include <unordered_set>
     using namespace std;

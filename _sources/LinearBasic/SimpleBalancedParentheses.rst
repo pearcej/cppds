@@ -92,14 +92,13 @@ this algorithm is shown in :ref:`ActiveCode 1 <lst_parcheck1>`.
       :caption: Solving the Balanced Parentheses Problem
       :language: cpp
 
-      //Program that detects if a set of parentheses is complete.
-	  
+      //simple program that checks for missing parantheses
       #include <iostream>
       #include <stack>
       #include <string>
 
       using namespace std;
-
+      // returns whether the parentheses in the input are balanced
       bool parChecker(string symbolString) {
           stack<string> s;
           bool balanced = true;
@@ -143,8 +142,10 @@ this algorithm is shown in :ref:`ActiveCode 1 <lst_parcheck1>`.
 	   
        #Program that detects if a set of parentheses is complete.
 
+       #simple program that checks for missing parantheses 
        from pythonds.basic.stack import Stack
 
+       #returns whether the parentheses in the input are balanced  
        def parChecker(symbolString):
            s = Stack()
            balanced = True
