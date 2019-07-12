@@ -40,6 +40,9 @@ assigned the value ``True`` if we discover the item in the list (Or vector, in t
 .. codelens:: search1
     :caption: Sequential Search of an Unordered List
 
+    # Checks to see if item is in a list 
+    # retruns true or false 
+    # using sequential search 
     def sequentialSearch(alist, item):
         pos = 0
         found = False
@@ -68,6 +71,9 @@ assigned the value ``True`` if we discover the item in the list (Or vector, in t
   #include <vector>
   using namespace std;
 
+  // Checks to see if item is in a vector  
+  // retruns true or false (1 or 0) 
+  //using sequential Search
   bool sequentialSearch(vector<int> avector, int item) {
       unsigned int pos = 0;
       bool found = false;
@@ -165,7 +171,7 @@ sequential search function.
     For the following unordered sequential list: {0, 1, 2, 13, 8, 19, 17, 32, 42}, |blank| would produce the best case scenario, and |blank| would produce the worst case scenario.
 
     - :0: Correct! 0 is at the beginning of the list wich would provide the best case of O(1)
-      :.*: No! try again, only value place in this list will produce the best case. 
+      :.*: No! try again, only one value place in this list will produce the best case. 
 
     - :42: Correct! 42 is at the end of the list wich would provide the worst case of O(n)
       :.*: No! try again, only one value in this list will produce the worst case. 
@@ -184,6 +190,9 @@ sequential search function.
 .. codelens:: search2
     :caption: Sequential Search of an Ordered List
 
+    # Checks to see if item is in a list 
+    # retruns true or false 
+    # using ordered sequential search
     def orderedSequentialSearch(alist, item):
         pos = 0
         found = False
@@ -211,6 +220,9 @@ sequential search function.
   #include <vector>
   using namespace std;
 
+  // Checks to see if item is in a vector  
+  // retruns true or false (1 or 0) 
+  // using ordered sequential Search
   bool orderedSequentialSearch(vector<int> avector, int item) {
       unsigned int pos = 0;
       bool found = false;

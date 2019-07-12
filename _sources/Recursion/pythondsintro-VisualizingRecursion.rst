@@ -1,12 +1,9 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
 Introduction: Visualizing Recursion
 ===================================
-
-Visualizing Recursion
-------------------------------------
 
 In the previous section we looked at some problems that were easy to
 solve using recursion; however, it can still be difficult to find a
@@ -52,13 +49,15 @@ the window, after which the program cleans up and exits.
 .. activecode:: lst_turt1
     :caption: Drawing a Recursive Spriral using turtle
 
+    #Creates an inward spiral through recursion.
+
     import turtle
 
     def drawSpiral(myTurtle, lineLen):
         if lineLen > 0:
             myTurtle.forward(lineLen)
             myTurtle.right(90)
-            drawSpiral(myTurtle,lineLen-5)
+            drawSpiral(myTurtle,lineLen-5) #function makes recursive call.
 
     def main():
         myTurtle = turtle.Turtle()
@@ -153,18 +152,21 @@ shape simultaneously? Will it be drawn right side first then left side?
 .. activecode:: lst_complete_tree
     :caption: Recursively Drawing a Tree
 
+    #Creates a tree by using recursion.
 
     import turtle
 
     def tree(branchLen,t):
         if branchLen > 5:
-            t.forward(branchLen)
+            t.forward(branchLen) #Turtle goes forward.
             t.right(20)
-            tree(branchLen-15,t)
+            tree(branchLen-15,t) #Recursive call
             t.left(40)
-            tree(branchLen-15,t)
+            tree(branchLen-15,t) #Recursive call
             t.right(20)
-            t.backward(branchLen)
+            t.backward(branchLen) #Turtle must go back the same distance
+	        		  #as it went forward to draw the tree
+				  #evenly.
 
     def main():
         t = turtle.Turtle()

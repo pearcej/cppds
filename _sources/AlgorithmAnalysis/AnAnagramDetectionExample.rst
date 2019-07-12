@@ -44,6 +44,8 @@ and if found, checked off by replacement. :ref:`ActiveCode 1 <lst_anagramSolutio
         #include <string>
         using namespace std;
 
+        //checks to see if the anagrams have the same number of characters
+
         bool anagramsolution1(string s1, string s2){
             bool stillOK = true;
             if (s1.length() != s2.length()) {
@@ -53,6 +55,8 @@ and if found, checked off by replacement. :ref:`ActiveCode 1 <lst_anagramSolutio
             string locals2 = s2;
             int n = s1.length();
             unsigned int pos1 = 0;
+
+            // checks to see if all of the letters are the same in both inputs 
 
             while (pos1 < s1.length() && stillOK){
                 int pos2 = 0;
@@ -86,6 +90,8 @@ and if found, checked off by replacement. :ref:`ActiveCode 1 <lst_anagramSolutio
     .. activecode:: active0py
         :caption: Checking Off Python
 
+        #checks to see if the anagrams have the same number of characters
+
         def anagramSolution1(s1,s2):
             stillOK = True
             if len(s1) != len(s2):
@@ -95,6 +101,7 @@ and if found, checked off by replacement. :ref:`ActiveCode 1 <lst_anagramSolutio
             lists2 = list(s2)
             pos1 = 0
 
+            # checks to see if all of the letters are the same in both inputs 
             while pos1 < len(s1) and stillOK:
                 pos2 = 0
                 found = False
@@ -158,6 +165,7 @@ this solution.
         #include <algorithm>
         using namespace std;
 
+        // sorts anagrams in order from a-z, and then compares them 
         bool anagramsolution2(string s1, string s2){
             sort(s1.begin(), s1.end());
             sort(s2.begin(), s2.end());
@@ -186,6 +194,7 @@ this solution.
     .. activecode:: active6py
         :caption: Sort and Compare
 
+        # sorts anagrams in order from a-z, and then compares them
         def anagramSolution2(s1,s2):
             alist1 = list(s1)
             alist2 = list(s2)
@@ -268,6 +277,9 @@ anagrams. :ref:`ActiveCode 3 <lst_ana4>` shows this solution.
         #include <string>
         using namespace std;
 
+        // uses an array to count the number of a ocurrences of the two inputs 
+        // if the number of occurrences is the same then the input is an anagram
+
         bool anagramSolution4(string s1, string s2){
             int c1[26] = {0};
             int c2[26] = {0};
@@ -311,6 +323,9 @@ anagrams. :ref:`ActiveCode 3 <lst_ana4>` shows this solution.
     .. activecode:: active7py
         :caption: Count and Compare Python
 
+        """ uses an array to count the number of a ocurrences of the two inputs 
+        if the number of occurrences is the same then the input is an anagram """ 
+        
         def anagramSolution4(s1,s2):
             c1 = [0]*26
             c2 = [0]*26

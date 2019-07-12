@@ -109,18 +109,21 @@ this algorithm is shown in :ref:`ActiveCode 1 <lst_parcheck1>`.
       		    string symbol;
       		    symbol = symbolString[index];
       		    if (symbol == "(") {
-      		        s.push(symbol);
+      		        s.push(symbol); //pushes the open parentheses to the stack.
       		    } else {
-      		        if (s.empty()) {
+      		        if (s.empty()) { //if there is no open parentheses in the stack, 
+					 //the closing parentheses just found makes the string unbalanced.
                               balanced = false;
-      		        } else {
+      		        } else { //if there is an open parentheses in the stack,
+				 //the closing parentheses just found has a matching open parentheses.
                              s.pop();
       		        }
       		    }
       	  index = index + 1;
       	  }
 
-          if (balanced && s.empty()) {
+          if (balanced && s.empty()) { //if the string is balanced and there are no
+		  		       //remaining open parentheses.
       	      return true;
       	  } else {
               return false;
@@ -136,6 +139,8 @@ this algorithm is shown in :ref:`ActiveCode 1 <lst_parcheck1>`.
 
     .. activecode:: parcheck1_py
        :caption: Solving the Balanced Parentheses Problem
+	   
+       #Program that detects if a set of parentheses is complete.
 
        #simple program that checks for missing parantheses 
        from pythonds.basic.stack import Stack
@@ -148,16 +153,19 @@ this algorithm is shown in :ref:`ActiveCode 1 <lst_parcheck1>`.
            while index < len(symbolString) and balanced:
                symbol = symbolString[index]
                if symbol == "(":
-                   s.push(symbol)
+                   s.push(symbol) #pushes the open parentheses to the stack.
                else:
-                   if s.isEmpty():
+                   if s.isEmpty(): #if there is no open parentheses in the stack, 
+				   #the closing parentheses just found makes the string unbalanced.
                        balanced = False
-                   else:
+                   else: #if there is an open parentheses in the stack, the
+			 #closing parentheses just found has a matching open parentheses.
                        s.pop()
 
                index = index + 1
 
-           if balanced and s.isEmpty():
+           if balanced and s.isEmpty(): #if the string is balanced and there are no
+		   			#remaining open parentheses.
                return True
            else:
                return False

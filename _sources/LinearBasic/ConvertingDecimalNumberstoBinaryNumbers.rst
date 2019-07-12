@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 Converting Decimal Numbers to Binary Numbers
@@ -69,6 +69,8 @@ right-hand end of the string. The binary string is then returned.
       :caption: Converts to Binary
       :language: cpp
 
+      //converts a given decimal number into binary.	
+
       #include <iostream>
       #include <stack>
       #include <string>
@@ -76,9 +78,12 @@ right-hand end of the string. The binary string is then returned.
       using namespace std;
 
       string divideBy2(int decNumber) {
+	//performs the conversion process.
       	stack<int> remstack;
 
       	while (decNumber > 0) {
+		//gets the remainder of division by 2
+		//and adds the remainder to a stack.
       		int rem = decNumber % 2;
       		remstack.push(rem);
       		decNumber = decNumber / 2;
@@ -86,6 +91,7 @@ right-hand end of the string. The binary string is then returned.
 
       	string binString = "";
       	while (!remstack.empty()) {
+		//adds the remainder numbers in the stack into a string.
       		binString.append(to_string(remstack.top()));
       		remstack.pop();
       	}
@@ -104,17 +110,23 @@ right-hand end of the string. The binary string is then returned.
     .. activecode:: binconvert_py
       :caption: Converting Decimal to Binary
 
+      #converts a given decimal number into binary.
+
       from pythonds.basic.stack import Stack
       def divideBy2(decNumber):
+	  #performs the conversion process.
           remstack = Stack()
 
           while decNumber > 0:
+	      #gets the remainder of division by 2
+	      #and adds the remainder to a stack.
               rem = decNumber % 2
               remstack.push(rem)
               decNumber = decNumber // 2
 
           binString = ""
           while not remstack.isEmpty():
+	      #adds the numbers in the stack to a string.
               binString = binString + str(remstack.pop())
 
           return binString
@@ -166,6 +178,8 @@ beyond 9.
       :caption: Converting numbers from base 10 into desired base.
       :language: cpp
 
+      //converts a decimal number into desired base 1-16.
+
       #include <iostream>
       #include <stack>
       #include <string>
@@ -173,11 +187,13 @@ beyond 9.
       using namespace std;
 
       string baseConverter(int decNumber, int base) {
-      	string digits[] = {"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"};
+	//performs the conversion process.
+      	string digits[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"};
 
       	stack<int> remstack;
 
       	while (decNumber > 0) {
+		//adds the remainder after division of base, to the stack.
       		int rem = decNumber % base;
       		remstack.push(rem);
       		decNumber = decNumber / base;
@@ -185,6 +201,7 @@ beyond 9.
 
       	string newString = "";
       	while (!remstack.empty()) {
+		//makes a string out of all the items in the stack.
       		newString.append(digits[remstack.top()]);
       		remstack.pop();
       	}
@@ -205,20 +222,25 @@ beyond 9.
     .. activecode:: baseconvert
         :caption: Converting from Decimal to any Base
 
+	#converts a decimal number into desired base 1-16.
+
         from pythonds.basic.stack import Stack
 
         def baseConverter(decNumber,base):
+	    #performs the conversion process.
             digits = "0123456789ABCDEF"
 
             remstack = Stack()
 
             while decNumber > 0:
+		#adds the remainder after division of base, to the stack.
                 rem = decNumber % base
                 remstack.push(rem)
                 decNumber = decNumber // base
 
             newString = ""
             while not remstack.isEmpty():
+		#makes a string out of all the items in the stack.
                 newString = newString + digits[remstack.pop()]
 
             return newString
@@ -251,7 +273,7 @@ resulting string.
       |blank|
 
       -  :31: Correct because 25 = 3x8 + 1.
-         :x: Incorrect. Try again.
+         :x: No. You might want to modify the baseConverter function, or simply find a pattern in the conversion of bases.
 
    .. fillintheblank:: baseconvert2
 
@@ -260,7 +282,7 @@ resulting string.
       |blank|
 
       -  :100: Correct because 265 = 1x16^2.
-         :x: Incorrect. Try again.
+         :x: No. You might want to modify the baseConverter function, or simply find a pattern in the conversion of bases.
 
    .. fillintheblank:: baseconvert3
 

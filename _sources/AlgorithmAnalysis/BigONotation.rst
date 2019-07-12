@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -231,6 +231,22 @@ n grows, the cubic function quickly overtakes :math:`T(n)`. It is easy
 to see that :math:`T(n)` then follows the quadratic function as
 :math:`n` continues to grow.
 
+.. mchoice:: crossoverefficiency
+        :answer_a: Algorithm 1 will require a greater number of steps to complete than Algorithm 2
+        :answer_b: Algorithm 2 will require a greater number of steps to complete than Algorithm 1
+        :answer_c: Algorithm 1 will require a greater number of steps to complete than Algorithm 2 until they reach the crossover point
+        :answer_d: Algorithm 1 and 2 will always require the same number of steps to complete
+        :correct: c
+        :feedback_a: This could be true depending on the input, but consider the broader picture
+        :feedback_b: This could be true depending on the input, but consider the broader picture
+        :feedback_c: Correct!
+        :feedback_d: No, the efficiency of both will depend on the input
+
+        Which of the following statements is true about the two algorithms?
+        Algorithm 1: 100n + 1
+        Algorithm 2: n^2 + n + 1
+
+
 .. admonition:: Self Check
 
    Write two C++ functions to find the minimum number in an array.  The first function should compare each number to every other number on the array. :math:`O(n^2)`.  The second function should be linear :math:`O(n)`.
@@ -254,7 +270,7 @@ to see that :math:`T(n)` then follows the quadratic function as
         :casei:
 
         The Big O of a particular algorithm is O(logn). Given that it takes 2 seconds to do 3 million operations;
-        how long would it take with 4 million inputs? 
+        how long would it take with 4 million inputs? You may use a calculator on this one.
         ``|blank|`` seconds.
          
         10 million? 
@@ -272,7 +288,7 @@ to see that :math:`T(n)` then follows the quadratic function as
         :casei:
 
         The Big O of a particular algorithm is O(n^3). Given that it takes 2 seconds to do 1000 operations;
-        h ow long would it take with 2000 inputs? 
+        how long would it take with 2000 inputs? 
         ``|blank|`` seconds.
 
         10,000? 

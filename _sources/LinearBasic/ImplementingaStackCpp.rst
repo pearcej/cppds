@@ -31,6 +31,9 @@ of the array. ``pop`` operations will manipulate that same end.
        :caption: Using the Stack methods from the STL in C++
        :language: cpp
 
+	
+       //Tests the push, empty, size, pop, and top methods of the stack library.
+
        #include <iostream>
        #include <stack>    // Calling Stack from the STL
 
@@ -39,7 +42,7 @@ of the array. ``pop`` operations will manipulate that same end.
        int main() {
            stack<int> newStack;
 
-           newStack.push(3);
+           newStack.push(3); //Adds 3 to the stack
            newStack.push(8);
            newStack.push(15);
 
@@ -66,6 +69,8 @@ of the array. ``pop`` operations will manipulate that same end.
 
     .. activecode:: stack_1ac_py
        :caption: Implementing a Stack class using Python lists
+
+       #Tests the push, empty, size, pop, and top methods of the stack library.
 
        class Stack:
            def __init__(self): #initializes new stack instance

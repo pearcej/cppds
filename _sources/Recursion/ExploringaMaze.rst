@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -382,7 +382,8 @@ Note that it is a much more simple example file in that the exit is very close t
             self.mazelist = []
             mazeFile = open(mazeFileName,'r')
             rowsInMaze = 0
-            for line in mazeFile:
+            for line in mazeFile: 
+		#Gets the dimensions and layout of the maze.
                 rowList = []
                 col = 0
                 for ch in line[:-1]:

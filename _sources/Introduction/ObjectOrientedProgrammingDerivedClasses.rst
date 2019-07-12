@@ -470,6 +470,7 @@ connection.
     #include <string>
     using namespace std;
 
+	// creates a class with a logic gate that returns the label, and boolean value 
     class LogicGate {
     	public:
     		LogicGate(string n){
@@ -495,6 +496,7 @@ connection.
     		bool output;
     };
 
+	//class that allows for the gates to have two inputs 
     class BinaryGate : public LogicGate {
     	public:
     		BinaryGate(string n) : LogicGate(n) {
@@ -531,6 +533,7 @@ connection.
     		bool pinA, pinATaken, pinB, pinBTaken;
     };
 
+	//allows for the creation of a logic gate with  one input 
     class UnaryGate : public LogicGate {
     	public:
     		UnaryGate(string n) : LogicGate(n) {
@@ -557,7 +560,8 @@ connection.
     		bool pin, pinTaken;
     };
 
-    class AndGate : public BinaryGate{
+    //Class that sets up the logic for an "and" gate 
+	class AndGate : public BinaryGate{
     	public:
     		AndGate(string n) : BinaryGate(n) {};
 
@@ -573,7 +577,8 @@ connection.
     		}
     };
 
-    class OrGate : public BinaryGate {
+    //class that sets up the logic for an "or" gate 
+	class OrGate : public BinaryGate {
     	public:
     		OrGate(string n) : BinaryGate(n) {};
 
@@ -589,7 +594,8 @@ connection.
     		}
     };
 
-    class NotGate : public UnaryGate {
+    //class that sets up the logic for a "not" gate
+	class NotGate : public UnaryGate {
     	public:
     		NotGate(string n) : UnaryGate(n) {};
 
@@ -603,7 +609,8 @@ connection.
     		}
     };
 
-    class Connector{
+    // class that sets up logic for the connection of one gate to another
+	class Connector{
     	public:
     		Connector(LogicGate *fgate, LogicGate *tgate) {
     			fromgate = fgate;
