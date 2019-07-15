@@ -290,27 +290,27 @@ in :ref:`ActiveCode 1 <lst_buildparse>`.
 
             for (unsigned int i = 0; i<fplist.size(); i++){
 
-                if (fplist[i] == "("){
+                if (fplist[i] == "("){ 
                     currentTree->insertLeft("");
                     pStack.push(currentTree);
                     currentTree = currentTree->getLeftChild();
                 }
 
-                else if (find(vect.begin(), vect.end(), fplist[i]) != vect.end()){
+                else if (find(vect.begin(), vect.end(), fplist[i]) != vect.end()){ 
                     currentTree->setRootVal(fplist[i]);
                     currentTree->insertRight("");
                     pStack.push(currentTree);
                     currentTree = currentTree->getRightChild();
                 }
 
-                else if (fplist[i] == ")"){
+                else if (fplist[i] == ")"){ 
                     currentTree = pStack.top();
                     pStack.pop();
                 }
 
                 else if (find(vect2.begin(), vect2.end(), fplist[i]) == vect2.end()) {
                     try {
-                        currentTree->setRootVal(fplist[i]);
+                        currentTree->setRootVal(fplist[i]); 
                         BinaryTree *parent = pStack.top();
                         pStack.pop();
                         currentTree = parent;
@@ -324,7 +324,7 @@ in :ref:`ActiveCode 1 <lst_buildparse>`.
             return eTree;
         }
 
-        void postorder(BinaryTree *tree){
+        void postorder(BinaryTree *tree){ 
             if (tree != NULL){
                 postorder(tree->getLeftChild());
                 postorder(tree->getRightChild());
@@ -358,13 +358,13 @@ in :ref:`ActiveCode 1 <lst_buildparse>`.
             currentTree = eTree
 
             for i in fplist:
-                if i == '(':
+                if i == '(': # adds a new node as the left child of the current node, and descend to the left child
                     currentTree.insertLeft('')
                     pStack.push(currentTree)
                     currentTree = currentTree.getLeftChild()
 
                 elif i in ['+', '-', '*', '/']:
-                    currentTree.setRootVal(i)
+                    currentTree.setRootVal(i) # adds a new node as the right child of the current node, and descend to the left child
                     currentTree.insertRight('')
                     pStack.push(currentTree)
                     currentTree = currentTree.getRightChild()
@@ -372,7 +372,7 @@ in :ref:`ActiveCode 1 <lst_buildparse>`.
                 elif i == ')':
                     currentTree = pStack.pop()
 
-                elif i not in ['+', '-', '*', '/', ')']:
+                elif i not in ['+', '-', '*', '/', ')']: # sets root value of the current node to the operator represented by the current token or number.  
                     try:
                         currentTree.setRootVal(int(i))
                         parent = pStack.pop()
