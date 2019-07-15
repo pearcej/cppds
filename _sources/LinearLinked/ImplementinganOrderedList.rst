@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -74,7 +74,7 @@ exist further out in the linked list.
 :ref:`Listing 9 <lst_ordersearch>` shows the complete ``search`` method. It is
 easy to incorporate the new condition discussed above by adding another
 boolean variable, ``stop``, and initializing it to ``False`` (line 4).
-While ``stop`` is ``False`` (not ``stop``) we can continue to look
+While ``stop`` is ``False`` (in other words, while the search is still ongoing) we can continue to look
 forward in the linked list (line 5). If any node is ever discovered that
 contains data greater than the item we are looking for, we will set
 ``stop`` to ``True`` (lines 9–10). The remaining lines are identical to
@@ -192,6 +192,10 @@ linked list is now ordered.
    :caption: OrderedList Class Thus Far
    :language: cpp
 
+  
+  
+   // similar to unordered lists except it orders the data 
+
    #include <iostream>
    using namespace std;
 
@@ -202,40 +206,46 @@ linked list is now ordered.
 
        public:
            Node(int initdata) {
-    	   data = initdata;
-    	   next = NULL;
+    	   data = initdata; //the nodes data.
+    	   next = NULL; //next will become a pointer to another Node object.
        }
 
        int getData() {
+	   //returns the data of the Node.
     	   return data;
        }
 
        Node *getNext() {
+	   //returns the next Node in the linked list.
            return next;
        }
 
        void setData(int newData) {
+	   //Changes the data of the Node.
            data = newData;
        }
 
        void setNext(Node *newnext) {
+	   //assigns the next item in the linked list.
            next = newnext;
        }
    };
 
    class OrderedList {
        public:
-   	       Node *head;
+   	       Node *head; //The first Node of the linked list.
 
     	   OrderedList() {
     		   head = NULL;
     	   }
 
            bool search(int item) {
+	       //finds a Node that contains item in the linked list.
                Node *current = head;
                bool found = false;
                bool stop = false;
                while (current != NULL && !found && !stop) {
+		   //iterates through the entire list until item is found.
                    if (current->getData() == item) {
                        found = true;
                    } else {
@@ -259,7 +269,7 @@ linked list is now ordered.
                    Node *previous = NULL;
                    bool stop = false;
                    while (current != NULL && !stop) {
-                       if (current->getData() > item) {
+                       if (current->getData() > item) { //if the data of the current Node is greater than item:
                            stop = true;
                        } else {
                            previous = current;
@@ -268,9 +278,13 @@ linked list is now ordered.
                    }
                    Node *temp = new Node(item);
                    if (previous == NULL) {
+		       //sets the current head as temp's next item,
+		       //sets temp as the new head.
                        temp->setNext(head);
                        head = temp;
                    } else {
+		       //sets the current Node as temp's next Node,
+		       //sets temp to previous's next Node.
                        temp->setNext(current);
                        previous->setNext(temp);
                    }
@@ -278,10 +292,12 @@ linked list is now ordered.
            }
 
            bool isEmpty() {
+	       //Returns true if the head is NULL.
                return head == NULL;
            }
 
            int size() {
+	       //returns the length of the linked list.
                Node *current = head;
                int count = 0;
                while (current != NULL) {
@@ -296,6 +312,7 @@ linked list is now ordered.
    };
 
    ostream& operator<<(ostream& os, const OrderedList& ol) {
+       //operator for printing the data of every Node in the list.
        Node *current = ol.head;
        while (current != NULL) {
            os<<current->getData()<<endl;
@@ -340,7 +357,22 @@ Although on average they may need to traverse only half of the nodes,
 these methods are all :math:`O(n)` since in the worst case each will
 process every node in the linked list.
 
-.. dragndrop:: bigO
+.. dragndrop:: LinkedlistAnalysis
     :feedback: Try again!
-    :match_1: isEmpty, add (unordered linked list)|||O(1)
-    :match_2: length,add, search, and remove(ordered linked list)|||O(n)
+    :match_1: O(1)|||isEmpty, add (unordered linked list)
+    :match_2: O(n)|||length,add, search, and remove(ordered linked list)
+
+    Match the Big O() analysis to their corresponding  opperation.
+
+.. mchoice:: LinkedListMChoice
+    :answer_a: In a circular linked list, the head Node of the linked list contains a pointer to the last node in the list.
+    :answer_b: In a circular linked list, the last Node of the linked list contains a pointer to the head node of the list rather than pointing to NULL.
+    :answer_c: In a circular linked list, every node contains a pointer to the head of the list, making it possible to return back to the beginning of the list at any time.
+    :answer_d: In a circular linked list, the head and final Node of the linked list point to each other, making it possible to traverse through the list in both directions.
+    :correct: b
+    :feedback_a: Wrong! the head Node of the list will only contain a pointer to the second Node.
+    :feedback_b: Correct! the final Node of the linked list will contain a pointer to the first node so that it is possible to make "circles" around the list.
+    :feedback_c: Wrong! None of the nodes in the middle of the list will ever point to the head node in a circular linked list.
+    :feedback_d: Hint: This would be possible in a circular doubly linked list, but not a circular linked list.
+    
+    After having read over unordered and ordered linked lists, what do you think a circular linked list would do differently from an ordered or unordered linked list? (Hint: think about the example from the beginning of the chapter.)

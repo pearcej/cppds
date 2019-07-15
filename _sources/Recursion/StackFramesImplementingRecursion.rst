@@ -21,6 +21,8 @@ call. The code for this modified algorithm is shown in
        :caption: Converting an Integer to a String  Using a Stack
        :language: cpp
 
+       //Example of the toStr function using a stack instead of recursion.
+
        #include <iostream>
        #include <string>
        #include <stack>
@@ -32,14 +34,15 @@ call. The code for this modified algorithm is shown in
            string convertString = "0123456789ABCDEF";
            while (n > 0) {
                if (n < base) {
-                   rStack.push(convertString[n]);
+                   rStack.push(convertString[n]); //pushes string n to the stack
                } else {
-                   rStack.push(convertString[n % base]);
+                   rStack.push(convertString[n % base]); //pushes string n modulo base to the stack.
                }
                n = n/base;
            }
            string res;
            while (!rStack.empty()) {
+	       //combines all the items in the stack into a full string.
                res = res + (string(1,  rStack.top()));
                rStack.pop();
            }
@@ -55,6 +58,8 @@ call. The code for this modified algorithm is shown in
     .. activecode:: lst_recstackpy
        :caption:  Converting an Integer to a String Using a Stack
 
+       #Example of the toStr function using a stack instead of recursion.
+
        from pythonds.basic.stack import Stack
 
        rStack = Stack()
@@ -63,12 +68,13 @@ call. The code for this modified algorithm is shown in
            convertString = "0123456789ABCDEF"
            while n > 0:
                if n < base:
-                   rStack.push(convertString[n])
+                   rStack.push(convertString[n]) #adds string n to the stack.
                else:
-                   rStack.push(convertString[n % base])
+                   rStack.push(convertString[n % base]) #adds string n modulo base to the stack.
                n = n // base
            res = ""
            while not rStack.isEmpty():
+	       #combines all the items in the stack to make the full string.
                res = res + str(rStack.pop())
            return res
 

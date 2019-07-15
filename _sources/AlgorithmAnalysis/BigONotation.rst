@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -71,13 +71,13 @@ magnitude :math:`f(n)=n^{2}`, or simply that it is :math:`O(n^{2})`.
     .. mchoice:: bigo3
         :answer_a: O(2n)
         :answer_b: O(n)
-        :answer_c: O(3n^2)
-        :answer_d: O(n^2)
+        :answer_c: O(3n<sup>2</sup>)
+        :answer_d: O(n<sup>2</sup>)
         :answer_e: More than one of the above
         :correct: d
-        :feedback_a: No, 3n^2 dominates 2n. Try again.
-        :feedback_b: No, n^2 dominates n. Try again.
-        :feedback_c: No, the 3 should be omitted because n^2 dominates.
+        :feedback_a: No, 3n<sup>2</sup> dominates 2n. Try again.
+        :feedback_b: No, n<sup>2</sup> dominates n. Try again.
+        :feedback_c: No, the 3 should be omitted because n<sup>2</sup> dominates.
         :feedback_d: Right!
         :feedback_e: No, only one of them is correct. Try again.
 
@@ -134,6 +134,18 @@ another.
 
    Figure 1: Common Big-O Functions
 
+
+.. parsonsprob:: parsonsBigO
+
+    Without looking at the graph above, from top to bottom order the following from most to least efficient.
+    -----
+    constant
+    logarithmic
+    linear
+    log linear
+    quadratic
+    cubic
+    exponential
 
 As a final example, suppose that we have the fragment of C++ code
 shown in :ref:`Listing 2 <lst_dummycode>`. Although this program does not really do
@@ -219,7 +231,74 @@ n grows, the cubic function quickly overtakes :math:`T(n)`. It is easy
 to see that :math:`T(n)` then follows the quadratic function as
 :math:`n` continues to grow.
 
+.. mchoice:: crossoverefficiency
+        :answer_a: Algorithm 1 will require a greater number of steps to complete than Algorithm 2
+        :answer_b: Algorithm 2 will require a greater number of steps to complete than Algorithm 1
+        :answer_c: Algorithm 1 will require a greater number of steps to complete than Algorithm 2 until they reach the crossover point
+        :answer_d: Algorithm 1 and 2 will always require the same number of steps to complete
+        :correct: c
+        :feedback_a: This could be true depending on the input, but consider the broader picture
+        :feedback_b: This could be true depending on the input, but consider the broader picture
+        :feedback_c: Correct!
+        :feedback_d: No, the efficiency of both will depend on the input
+
+        Which of the following statements is true about the two algorithms?
+        Algorithm 1: 100n + 1
+        Algorithm 2: n^2 + n + 1
+
 
 .. admonition:: Self Check
 
    Write two C++ functions to find the minimum number in an array.  The first function should compare each number to every other number on the array. :math:`O(n^2)`.  The second function should be linear :math:`O(n)`.
+    
+
+    .. fillintheblank:: bigOquestion
+        :casei:
+
+        The Big O of a particular algorithm is O(n^2). Given that it takes 2 seconds to do 1 million operations;
+
+        how long would it take with 2 million inputs? ``|blank|`` 
+        
+        10 million? ``|blank|``
+
+        -   :8: Correct!
+            :2: Incorrect. Remember, think about what it means for the n to be squared.
+        -   :200: Correct! 
+            :x: Incorrect. Remember, think about what it means for the n to be squared.
+
+    .. fillintheblank:: bigologn
+        :casei:
+
+        The Big O of a particular algorithm is O(logn). Given that it takes 2 seconds to do 3 million operations;
+        how long would it take with 4 million inputs? You may use a calculator on this one.
+        ``|blank|`` seconds.
+         
+        10 million? 
+        ``|blank|`` seconds.
+
+        -   :.74: Correct!
+            :.2 .53: Try higher.
+            :2.26 3: Try lower.
+            :.*: Incorrect. try again.
+        -   :3.44: Correct! 
+            :.43 3: Incorrect. Try higher. Think about what happens to the time as more operations occur.
+            :6.45 3: Incorrect. Try lower. Think about what happens to the time as more operations occur.
+            :.*: Incorrect. try again.
+    .. fillintheblank:: bigon3
+        :casei:
+
+        The Big O of a particular algorithm is O(n^3). Given that it takes 2 seconds to do 1000 operations;
+        how long would it take with 2000 inputs? 
+        ``|blank|`` seconds.
+
+        10,000? 
+        ``|blank|`` seconds. 
+
+        -   :16: Correct!
+            :6 9: Incorrect. Try higher. Think about what happens to the time as more operations occur.
+            :23 6: Incorrect. Try lower. Think about what happens to the time as more operations occur.
+        -   :2000: Correct!
+            :1500 499: Incorrect. Try higher. Think about what happens to the time as more operations occur. 
+            :2500 499: Incorrect. Try lower. Think about what happens to the time as more operations occur. 
+            :.*: Incorrect. 
+        

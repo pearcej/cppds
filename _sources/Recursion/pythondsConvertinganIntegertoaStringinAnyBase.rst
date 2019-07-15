@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -72,6 +72,8 @@ outlined above for any base between 2 and 16.
        :caption: Recursively Converting from  Integer to String
        :language: cpp
 
+       //Recursive example of converting from int to string.
+
        #include <iostream>
        #include <string>
        using namespace std;
@@ -81,7 +83,7 @@ outlined above for any base between 2 and 16.
            if (n < base) {
                return string(1, convertString[n]); // converts char to string, and returns it
            } else {
-               return toStr(n/base, base) + convertString[n%base];
+               return toStr(n/base, base) + convertString[n%base]; // function makes a recursive call to itself.
            }
        }
 
@@ -95,12 +97,14 @@ outlined above for any base between 2 and 16.
     .. activecode:: lst_rectostrpy
        :caption: Recursively Converting from Integer to String
 
+       #Recursive example of converting an int to str.
+
        def toStr(n,base):
           convertString = "0123456789ABCDEF"
           if n < base:
              return convertString[n]
           else:
-             return toStr(n//base,base) + convertString[n%base]
+             return toStr(n//base,base) + convertString[n%base] #function makes a recursive call to itself.
 
        def main():
           print(toStr(1453,16))
@@ -138,7 +142,16 @@ discussion of stacks back in the previous chapter.
 
 .. admonition:: Self Check
 
-   Write a function that takes a string as a parameter and returns a new string that is the reverse of the old string.
+   .. mchoice:: RecursiveQ1
+      :answer_a: A stack, because a recursive function will complete the final function call before any of the other function calls, similar to how a stack has the Last-in-First-out principle.
+      :answer_b: A queue, because a recursive function will complete its intial function call before any of the other function calls, similar to how a queue has the First-in-First-out principle.
+      :correct: a
+      :feedback_a: Correct! a recursive function will complete the final function call first, because the rest of the calls are waiting for the results of the calls they made.
+      :feedback_b: Incorrect. Think of it this way, when a function is called and it calls itself, the original function call cannot be completed until the new function call is completed.
+      
+      Is the process of stepping through a recursive function similar to the construct of a stack or a queue?    
+
+   Write a function that takes a string as a parameter and returns a new string that is the reverse of the old string. Hint: using the substr(strIndex1, strIndex2) method for returning specific sections of a string can help.
 
     .. actex:: recursion_sc_1cpp
         :language: cpp

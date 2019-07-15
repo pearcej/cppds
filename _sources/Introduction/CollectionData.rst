@@ -88,7 +88,7 @@ so the following are not the same.
 
 The speed and low-level control that arrays offer us
 as programmers is powerful... and dangerous.
-C+ is designed for speed, and using a C++ array will
+C++ is designed for speed, and using a C++ array will
 help you better understand the trade-offs inherent in this.
 
 Here are examples of iteration.
@@ -101,6 +101,7 @@ Here are examples of iteration.
         :caption: Iterating an array in C++
         :language: cpp
 
+        //showcases an iteration through an array in C++
         #include <iostream>
         using namespace std;
 
@@ -117,9 +118,10 @@ Here are examples of iteration.
     .. activecode:: listarray_py
         :caption: Iterating a list in Python
 
+        #showcases an iteration through an array in Python
         def main():
             mylist = [2, 4, 6, 8]
-            for i in range(8):
+            for i in range(4):
                 print(mylist[i])
 
         main()
@@ -143,6 +145,7 @@ generally try to do everything you ask for.
         :caption: Iterating an array in C++
         :language: cpp
 
+        //outputs the result of trying to access a value outside of an array
         #include <iostream>
         using namespace std;
 
@@ -160,6 +163,7 @@ generally try to do everything you ask for.
     .. activecode:: array_error_py
         :caption: Iterating a list in Python
 
+        #outputs the result of trying to access a value outside of an array
         def main():
             mylist = [2,4,6,8]
             print(mylist)
@@ -185,6 +189,8 @@ the *vector*.
         :caption: Array write error in C++
         :language: cpp
 
+        /*shows how C++ allows you to easily overwrite values in memory even when
+        you don't mean to. */
         #include <iostream>
         using namespace std;
 
@@ -212,6 +218,9 @@ the *vector*.
     .. activecode:: array_werror_py
         :caption: Write error in Python
 
+        """shows how C++ allows you to easily
+        overwrite values in memory even when
+        you dont mean to."""
         def main():
             mylist = [2, 4]
             otherdata = [777, 777]
@@ -327,6 +336,8 @@ Matching
        :caption: Using a vector in C++
        :language: cpp
 
+       /*shows the use of the reserve member, and how it 
+       can be effective in saving time with a growing vector.*/
        #include <iostream>
        #include <vector>
        using namespace std;
@@ -348,6 +359,7 @@ Matching
    .. activecode:: introvector_py
        :caption: Using a Python list
 
+       #Python doesn't have vectors, simply stating the limit is enough
        def main():
            intlist=[]
            for i in range(50):
@@ -370,6 +382,7 @@ example that follows.
    :caption: With use of ``reserve``
    :language: cpp
 
+   //code from above but without the reserve
    #include <iostream>
    #include <vector>
    using namespace std;
@@ -399,6 +412,7 @@ we will likely not be surprised by the following:
        :caption: Vectors out of bounds
        :language: cpp
 
+       //shows errors when a vector goes out of bounds
        #include <iostream>
        #include <vector>
        using namespace std;
@@ -424,6 +438,7 @@ we will likely not be surprised by the following:
    .. activecode:: vector_errors_py
        :caption: Python list out of bounds
 
+       #shows errors when a vector goes out of bounds
        def main():
            intlist=[]
            for i in range(10):
@@ -442,11 +457,11 @@ we will likely not be surprised by the following:
   :answer_c: Vectors don't use contiguous memory, so elements can be inserted.
   :answer_d: more than one of the above
   :answer_e: none of the above
-  :correct: b
-  :feedback_a: Right! Good job!
-  :feedback_b: Not all of the protections of lists are offered by vectors; one can still iterate off of either end.
+  :correct: d
+  :feedback_a: Yes, however, there are more benefits to using vectors.
+  :feedback_b: Not all of the protections of arrays are offered by vectors; one can still iterate off of either end.
   :feedback_c: No. Although elements can be inserted in vectors, they do require contiguous memory.
-  :feedback_d: No. Only one of the above is correct.
+  :feedback_d:  Right! Good job!
   :feedback_e: One of the above is indeed correct.
 
   Which of the following is the biggest difference between a C++ array and a C++ vector?
@@ -489,6 +504,19 @@ Since C++ strings are so much nicer, I would not recommend using C-strings unles
 Because strings are sequences, all of the typical sequence operations work as you would expect.
 In addition, the string library offers a huge number of
 methods, some of the most useful of which are shown in :ref:`Table 4<tab_stringmethods>`.
+
+.. mchoice:: cstringquestion1_1
+    :answer_a: An array of characters that ends with a terminating null character. i.e. \0
+    :answer_b: A sequential data structure consisting of zero or more characters
+    :answer_c: A data structure consisting of an ordered collection of data elements of identical type in which each element can be identified by an array index.
+    :answer_d: sequence container storing data of a single type that is stored in a dynamically allocated array which can change in size.
+    :correct: a
+    :feedback_a: Correct! a c-string is different from a string
+    :feedback_b: Close, but that is the definition of a string, not a c-string
+    :feedback_c: Sorry, thats not a string or a c-string
+    :feedback_d: No, that's a vector
+
+    What is the correct definition of c-strings?
 
 .. _tab_stringmethods:
 
@@ -535,6 +563,7 @@ Matching
         :caption: Strings in C++
         :language: cpp
 
+        //shows basic string usage in C++
         #include <iostream>
         #include <string>
         using namespace std;
@@ -559,6 +588,7 @@ Matching
     .. activecode:: introstring_py
         :caption: Python strings
 
+        #shows basic string usage in Python
         def main():
             mystring1 = "Hello"
             mystring2 = "World!"
@@ -623,6 +653,7 @@ associated value.
            :caption: Using a Hash Table C++
            :language: cpp
 
+           //shows how hash tables can be used in C++
            #include <iostream>
            #include <unordered_map>
            #include <string>
@@ -647,6 +678,7 @@ associated value.
        .. activecode:: hashtable1_py
            :caption: Using a Dictionary
 
+           #shows how hash tables can be used in python 
            def main():
                spnumbers = {"one":"uno","two":"dos"}
 
@@ -678,6 +710,7 @@ the following example.
            :caption: Iterating a Hash Table C++
            :language: cpp
 
+           //shows how to iterate through a hash table in C++
            #include <iostream>
            #include <unordered_map>
            #include <string>
@@ -699,6 +732,7 @@ the following example.
        .. activecode:: hashtable2_py
            :caption: Iterating a Dictionary
 
+           #shows how to iterate through a hash table in python 
            def main():
                spnumbers = {"one":"uno","two":"dos","three":"tres","four":"cuatro","five":"cinco" }
 
@@ -782,6 +816,39 @@ provides a summary. Examples of their use follow.
                   ``clear``                  ``aset.clear()``                                Removes all elements from the set
    ======================== ================================= ================================================================
 
+The code below is an example of a program that can detect if a specific char is in an unordered set.
+
+.. activecode:: UnorderedSetExample
+    :language: cpp
+
+    //code detects if a specific char is in an unordered set.
+    #include <iostream>
+    #include <unordered_set>
+    using namespace std;
+
+    void checker(unordered_set<char> set, char letter){
+        if(set.find(letter) == set.end()){
+            cout << "letter " << letter << " is not in the set." << endl;
+        }
+        else{
+            cout << "letter " << letter << " is in the set." << endl;
+        }
+    }
+
+    int main(){
+        unordered_set<char> charSet = {'d', 'c', 'b', 'a'};
+
+        char letter = 'e';
+        checker(charSet, letter);
+        charSet.insert('e');
+        checker(charSet, letter);
+        return 0;
+    }
+
+the ``find`` method used for a conditional in ``Checker`` compares each item in the set 
+with the given parameter until there is a match. the ``set.find(letter) == set.end()`` 
+section means that if ``find`` cannot find the letter before reaching the end of the 
+set, then ``letter`` is not contained in the set.
 
 Matching
 ^^^^^^^^

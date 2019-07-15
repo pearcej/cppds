@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -7,6 +7,7 @@ The Three Laws of Recursion
 
 Like the robots of Asimov, all recursive algorithms must obey three
 important laws:
+
 
    #. A recursive algorithm must have a **base case**.
 
@@ -39,8 +40,8 @@ function to solve each problem. When we talk about recursion it may seem
 that we are talking ourselves in circles. We have a problem to solve
 with a function, but that function solves the problem by calling itself!
 But the logic is not circular at all; the logic of recursion is an
-elegant expression of solving a problem by breaking it down into a
-smaller and easier problems.
+elegant expression of solving a problem by breaking it down into smaller 
+and easier problems.
 
 In the remainder of this chapter we will look at more examples of
 recursion. In each case we will focus on designing a solution to a
@@ -50,6 +51,19 @@ problem by using the three laws of recursion.
 .. admonition:: Self Check
 
    .. mchoice:: question_recsimp_1
+      :answer_c: If a recursive function didn't have a base case, then the function would continue to make recursive calls creating an infinite loop.
+      :answer_b: If a recursive function didn't have a base case, then the function would return an undesired outcome.
+      :answer_a: If a recursive function didn't have a base case, then the function would end too early.
+      :answer_d: If a recursive function didn't have a base case, then the function would not be able to ever make recursive calls in the first place.
+      :correct: c
+      :feedback_c: Correct! a base case is needed to end the continuous recursive calls, so that the program doesn't get stuck in a never ending loop.
+      :feedback_b: Incorrect. In fact, the program wouldn't return anything. 
+      :feedback_a: Incorrect. The complete opposite would happen instead.
+      :feedback_d: Incorrect. Recursive calls will continue to be called even without a base case.
+
+      Why is a base case needed in a recursive function?
+
+   .. mchoice:: question_recsimp_2
       :correct: c
       :answer_a: 6
       :answer_b: 5
@@ -62,7 +76,7 @@ problem by using the three laws of recursion.
 
       How many recursive calls are made when computing the sum of the vector {2,4,6,8,10}?
 
-   .. mchoice:: question_recsimp_2
+   .. mchoice:: question_recsimp_3
       :correct: d
       :answer_a: n == 0
       :answer_b: n == 1
@@ -73,4 +87,4 @@ problem by using the three laws of recursion.
       :feedback_c: This base case would be true for all numbers greater than zero so fact of any positive number would be 1.
       :feedback_d: Good, this is the most efficient, and even keeps your program from crashing if you try to compute the factorial of a negative number.
 
-      Suppose you are going to write a recusive function to calculate the factorial of a number.  fact(n) returns n * n-1 * n-2 * ... Where the factorial of zero is defined to be 1.  What would be the most appropriate base case?
+      Suppose you are going to write a recursive function to calculate the factorial of a number.  fact(n) returns n * n-1 * n-2 * ... Where the factorial of zero is defined to be 1.  What would be the most appropriate base case?

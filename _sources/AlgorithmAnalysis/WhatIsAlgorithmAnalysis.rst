@@ -42,6 +42,7 @@ iterates through the *n* integers, adding each to the accumulator.
         #include <iostream>
         using namespace std;
 
+         //adds the sum of (n + n-1 + n-2 ...)
         int sumOfN(int n){
             int theSum = 0;
             for (int i = 0; i < n+1; i++){
@@ -51,7 +52,9 @@ iterates through the *n* integers, adding each to the accumulator.
         }
 
         int main(){
-            cout << sumOfN(10);
+        
+            // n is 10 (10 + 9 + 8 ...)
+            cout << sumOfN(10); 
             return 0;
         }
 
@@ -60,6 +63,7 @@ iterates through the *n* integers, adding each to the accumulator.
     .. activecode:: ec1_py
         :caption: Python
 
+        # adds the sum of (n + n-1 + n-2 ...)
         def sumOfN(n):
             theSum = 0
             for i in range(1,n+1):
@@ -68,7 +72,7 @@ iterates through the *n* integers, adding each to the accumulator.
             return theSum
 
         def main():
-            print(sumOfN(10))
+            print(sumOfN(10)) # n is 10 (10 + 9 + 8 ...)
         main()
 
 Now look at the function in :ref:`ActiveCode 2 <lst_sum2>`.
@@ -94,6 +98,9 @@ during the accumulation step that was not really necessary.
             #include <iostream>
             using namespace std;
 
+            //Performs same function as listing 1, but is less descriptive 
+            //This is not good practice 
+
             int foo(int tom){
                 int fred = 0;
                 for (int bill = 0; bill < tom+1; bill++){
@@ -112,6 +119,9 @@ during the accumulation step that was not really necessary.
 
         .. activecode:: ec2_py
             :caption: Another Summation of the First n Integers in python
+
+            #Performs same function as listing 1, but is less descriptive 
+            #This is not good practice 
 
             def foo(tom):
                 fred = 0
@@ -182,6 +192,9 @@ and then computing the difference, we can get an exact number of seconds
         #include <ctime>
         using namespace std;
 
+        //Performs same function as listing one, and also list the time it takes to perform 
+        //the function 
+
         int sumofN2(int n) {
             clock_t begin = clock();
             int theSum = 0;
@@ -208,6 +221,9 @@ and then computing the difference, we can get an exact number of seconds
         :caption: Python
 
         import time
+
+        """ Performs same function as listing one, and also list the time it takes to perform 
+        the function """
 
         def sumOfN2(n):
             start = time.time()
@@ -245,7 +261,7 @@ Consider the following code block:
 
 .. fillintheblank:: bigo1
 
-   How many times is the `count = count + 1` line executed?
+   How many times is the `theSum = theSum + 1` line executed?
 
    - :1001: Right! Good job!
      :1000: No. Look carefully at the loop condition i<n+1.
@@ -309,7 +325,7 @@ half of the rectangle.
 So, the area with blue squares
 is also just :math:`\sum_{i=1}^{8} i = \frac {(8)(8+1)}{2}`.
 
-Hence, when we have a variable `n`, we have learned that we can just the
+Hence, when we have a variable `n`, we have learned that we can just use the
 closed equation :math:`\sum_{i=1}^{n} i = \frac {(n)(n+1)}{2}` to
 compute the sum of the first ``n`` integers without iterating.
 
@@ -347,6 +363,9 @@ taking advantage of the formula we just developed.
         :caption: Summation Without Iteration C++
         :language: cpp
 
+        //Performs same function as listing one, and also list the time it takes to perfrom 
+        //the function, and it performs better with larger inputs or (n)
+
         #include <iostream>
         using namespace std;
         #include <ctime>
@@ -366,6 +385,9 @@ taking advantage of the formula we just developed.
 
     .. activecode:: active3_py
         :caption: Summation Without Iteration Python
+
+        """ Performs same function as listing one, and also list the time it takes to perform 
+        the function, and it performs better with larger inputs or (n) """
 
         def sumOfN3(n):
             return (n*(n+1))//2
@@ -398,7 +420,7 @@ that the iterative solutions seem to be doing more work since some
 program steps are being repeated. This is likely the reason it is taking
 longer. Also, the time required for the iterative solution seems to
 increase as we increase the value of ``n``. However, there is a problem.
-If we ran the same function on a different computer or used a different
+If we run the same function on a different computer or used a different
 programming language, we would likely get different results. It could
 take even longer to perform ``sumOfN3`` if the computer were older.
 

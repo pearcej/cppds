@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -122,6 +122,7 @@ the printer to idle (line 11) if the task is completed.
 
 ::
 
+
     class Printer {
         public:
         int pagerate;
@@ -231,7 +232,6 @@ printer.
 **Listing 4**
 
 .. highlight:: cpp
-    :linenothreshold: 5
 
 :: 
 
@@ -345,7 +345,6 @@ printer.
         }
 
 .. highlight:: python
-   :linenothreshold: 500
 
 When we run the simulation, we should not be concerned that the
 results are different each time. This is due to the probabilistic nature
@@ -409,6 +408,8 @@ You can run the simulation for yourself in ActiveCode 2.
    :caption: Printer Queue Simulation
    :language: cpp
 
+   //Program that simulates printing task management.
+
    #include <iostream>
    #include <queue>
    #include <vector>
@@ -452,6 +453,7 @@ You can run the simulation for yourself in ActiveCode 2.
        }
 
        void tick() {
+	   //manages the current task's status.
            if (currentTask != NULL) {
                timeRemaining--;
                if (timeRemaining <= 0) {
@@ -475,6 +477,7 @@ You can run the simulation for yourself in ActiveCode 2.
    };
 
    bool newPrintTask() {
+       //uses random to decide if there is a new print task.
        int num = rand()%180+1;
        if (num==180) {
            return true;
@@ -489,12 +492,13 @@ You can run the simulation for yourself in ActiveCode 2.
        vector<int> waitingTimes;
 
        for (int i=0; i<numSeconds; i++) {
-           if (newPrintTask()) {
+	   //continues printing tasks until the printer has no more in progress or queue.
+           if (newPrintTask()) { //checks for a new printing task.
                Task *task = new Task(i);
-               printQueue.push(task);
+               printQueue.push(task); //pushes the task to a queue.
            }
-           if (!labprinter.busy() &&!printQueue.empty()) {
-               Task *nexttask = printQueue.front();
+           if (!labprinter.busy() &&!printQueue.empty()) { //if the printer is not busy and the queue is not empty:
+               Task *nexttask = printQueue.front(); //assigns a new task.
                printQueue.pop();
                waitingTimes.push_back(nexttask->waitTime(i));
                labprinter.startNext(nexttask);
@@ -562,5 +566,5 @@ necessary to construct a robust simulation.
 
 .. admonition:: Self Check
 
-   How would you modify the printer simulation to reflect a larger number of students?  Suppose that the number of students was doubled.  You make need to make some reasonable assumptions about how this simulation was put together but what would you change?  Modify the code.  Also suppose that the length of the average print task was cut in half.  Change the code to reflect that change.  Finally how would you parameterize the number of students, rather than changing the code we would like
+   How would you modify the printer simulation to reflect a larger number of students?  Suppose that the number of students was doubled.  You may need to make some reasonable assumptions about how this simulation was put together but what would you change?  Modify the code.  Also suppose that the length of the average print task was cut in half.  Change the code to reflect that change.  Finally how would you parameterize the number of students, rather than changing the code we would like
    to make the number of students a parameter of the simulation.

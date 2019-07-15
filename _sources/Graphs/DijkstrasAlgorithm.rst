@@ -12,8 +12,8 @@ starting node to all other nodes in the graph. Again this is similar to
 the results of a breadth first search.
 
 To keep track of the total cost from the start node to each destination
-we will make use of the ``dist`` instance variable in the Vertex class.
-The ``dist`` instance variable will contain the current total weight of
+we will make use of the ``dist`` variable in the Vertex class.
+The ``dist`` variable will contain the current total weight of
 the smallest weight path from the start to the vertex in question. The
 algorithm iterates once for every vertex in the graph; however, the
 order that we iterate over the vertices is controlled by a priority
@@ -159,3 +159,17 @@ variations of the algorithm allow each router to discover the graph as
 they go. One such algorithm that you may want to read about is called
 the “distance vector” routing algorithm.
 
+.. admonition:: Self Check
+
+    .. mchoice:: dijkstraq1
+        :answer_a: It only holds a series of vertices to traverse.
+        :answer_b: It holds an unsorted list of unvisited vertices.
+        :answer_c: It notes what vertices have been visited.
+        :answer_d: It holds an appropriately sorted list of vertices to traverse.
+        :correct: d
+        :feedback_a: Not quite, Priority Queues serve a purpose beyond storage.
+        :feedback_b: No, the vertices will be sorted.
+        :feedback_c: No, it does not store any visited vertices. 
+        :feedback_d: Correct!
+
+        What purpose does the Priority Queue in the Dijkstra's algorithm serve?

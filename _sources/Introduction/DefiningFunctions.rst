@@ -117,8 +117,8 @@ marker. Any characters that follow the // on a line are ignored.
   }
 
   int main() {
-  	  cout << squareroot(9) << endl;
-  	  cout << squareroot(4563) << endl;
+  	cout << squareroot(9) << endl;
+  	cout << squareroot(4563) << endl;
 
   	return 0;
   }
@@ -129,31 +129,36 @@ marker. Any characters that follow the // on a line are ignored.
 
     ::
 
-        #include <iostream>
+        #include <iostream> 
         using namespace std;
 
-        dog walk(int steps){
-        
+        void dogWalk(int steps){
+
             for (int step = 0; step < steps; step++){
                 cout << "dog walked "<< step << " steps!"<< endl;
 
-            };
-
             }
-        int main() {
-        walk(11);
-        
+
         }
+
+        int main() {
+
+            dogWalk(11);
+
+            return 0;
+
+        }
+
 
 .. mchoice:: dog_walker
     :answer_a: void
     :answer_b: int
     :answer_c: dog
-    :answer_d: walk
-    :correct: c
-    :feedback_a: Not quite, check the value preceding the name of the function!
+    :answer_d: dogWalk
+    :correct: a
+    :feedback_a: Correct, nothing is returned!
     :feedback_b: Not quite, check the value preceding the name of the function!
-    :feedback_c: Correct! The type of the function walk is dog!
+    :feedback_c: Not quite, dog is not even a data type!
     :feedback_d: Not quite, that is the name of the function itself!
 
     What is the correct return type of the function above **int main()**?
@@ -296,7 +301,7 @@ because the array parameter *list[]* does not include that information):
         return (total / length);
     }
 
-Array parameters look like pass by value, but they are effectively like call by reference parameters. When they execute, the functions with these parameters do not make private copies of the arrays they are passed because doing so this could potentially be very expensive in terms of memory. Arrays can therefore always be permanently changed when passed as arguments to functions.
+Array parameters look like pass by value, but they are effectively similar to pass by reference parameters. When they execute, the functions with these parameters do not make private copies of the arrays. Instead, the reference is passed to reduce the impact on memory. Arrays can therefore always be permanently changed when passed as arguments to functions.
 
 After a call to the following function, each element in the third array argument is equal to the sum of the corresponding two elements in the first and second arguments:
 
@@ -331,7 +336,7 @@ but different implementations.
 Not all languages support function overloading. Python does not, for example, 
 but an optional parameter can often be used to accomplish the same task.
 
-In C++ programming, two or more functions can have same
+In C++ programming, two or more functions can have the same
 name when they can be distinguished by the parameters.
 Hence, C++  allows function overloading when either the data types of the parameters differ
 or the number of parameters differ.
@@ -347,6 +352,7 @@ Overloading is a nice feature of the C++ language.
         :caption: function overloading in C++
         :language: cpp
 
+        //showcases function overloading in C++
         #include <iostream>
         using namespace std;
 
@@ -373,7 +379,8 @@ Overloading is a nice feature of the C++ language.
 
     .. activecode:: foverload_py
         :caption: Function Overloading in Python
-
+        
+        #showcases function overloading in Python
         def myfunct(n, m=None):
             if m is None:
                 print("1 parameter: " + str(n))
@@ -389,15 +396,16 @@ Overloading is a nice feature of the C++ language.
         main()
 
 .. mchoice:: foverloading
+    :multiple_answers:
     :answer_a: Helps keep consintency in the way your functions are named across your program.
     :answer_b: Functions that do similar tasks differ based on parameters rather than by name.
     :answer_c: A function in essence can fulfill multiple tasks depending on the parameters.
-    :answer_d: All of the above.
-    :correct: d
+    :answer_d: Removes the limit on how many parameters can be written or passed.
+    :correct: a, b, c
     :feedback_a: Take a look at the other answers as well...
     :feedback_b: Take a look at the other answers as well...
     :feedback_c: Take a look at the other answers as well...
-    :feedback_d: Correct! There are many more benefits for overloading!
+    :feedback_d: Wrong! function overloading has nothing to do with removing the limit of parameters.
 
     What are benefits of function overloading?
 

@@ -37,7 +37,6 @@ the implementation.
 
 .. figure:: Figures/adt.png
    :align: center
-   :scale: 50 %
 
    Figure 2: Abstract Data Type
 

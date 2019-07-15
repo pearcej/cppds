@@ -199,3 +199,19 @@ to the tree.
 
    Figure 17: Tracing Prim’s Algorithm
 
+.. admonition:: Self Check
+
+    .. figure:: Figures/primsalg.png
+
+    .. mchoice:: primswhims
+        :answer_a: {E, D, A, B, C}
+        :answer_b: {E, C, B, A, D}
+        :answer_c: {E, C, B, D, A}
+        :answer_d: Both B and C
+        :correct: b
+        :feedback_a: Not quite, remember, this is a is a greedy algorithm, so it will try to choose the cheapest next step.
+        :feedback_b: Correct!
+        :feedback_c: Not quite, try again!
+        :feedback_d: No, there is only one correct answer!
+
+        Beginning at node E, how will Prim's algorithm span across the graph?  

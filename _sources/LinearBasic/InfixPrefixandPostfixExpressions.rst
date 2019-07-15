@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -203,10 +203,10 @@ notations.
    D
    C
    -
-   A
    B
-   *
+   A
    +
+   *
 
 General Infix-to-Postfix Conversion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -319,6 +319,8 @@ shown in :ref:`ActiveCode 1 <lst_intopost>`.
       :caption: Converting Infix Expressions to Postfix Expressions
       :language: cpp
 
+      //Converts an infix expression to a postfix expression.	
+
       #include <iostream>
       #include <stack>
       #include <unordered_map>
@@ -328,6 +330,7 @@ shown in :ref:`ActiveCode 1 <lst_intopost>`.
       using namespace std;
 
       string infixToPostfix(string infixexpr) {
+	  //performs the postfix process.
           unordered_map <char,int> prec;
           prec['*']=3;
           prec['/']=3;
@@ -339,11 +342,12 @@ shown in :ref:`ActiveCode 1 <lst_intopost>`.
           string letsnums = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
           for (char token:infixexpr) {
+	      //for each character in infixexpr
               if (token == ' ') {
                   continue;
               }
-              else if (letsnums.find(token)<=letsnums.length()) {
-                  postfixVector.emplace_back(token);
+              else if (letsnums.find(token)<=letsnums.length()) { //finds if the token is inside of letsnums
+                  postfixVector.emplace_back(token); // appends to the end of the container.
               } else if (token == '(') {
                   opStack.push(token);
               } else if (token == ')') {
@@ -355,8 +359,10 @@ shown in :ref:`ActiveCode 1 <lst_intopost>`.
                       topToken=opStack.top();
                       opStack.pop();
                   }
-              } else {
-                  while (!opStack.empty() && (prec[opStack.top()]>=prec[token]))
+              } else { //if the token is not inside of letsnums.
+                  while (!opStack.empty() && (prec[opStack.top()]>=prec[token])) //while the stack is not empty and
+										 //the top item of the stack is on a
+										 //higher level of PEMDAS than token.
                   {
                       postfixVector.emplace_back(opStack.top());
                       opStack.pop();
@@ -389,9 +395,12 @@ shown in :ref:`ActiveCode 1 <lst_intopost>`.
      :caption: Converting Infix Expressions to Postfix Expressions
      :nocodelens:
 
+     #Converts an infix expression to a postfix expression.
+
      from pythonds.basic.stack import Stack
 
      def infixToPostfix(infixexpr):
+	 #performs the postfix process.
          prec = {}
          prec["*"] = 3
          prec["/"] = 3
@@ -403,6 +412,7 @@ shown in :ref:`ActiveCode 1 <lst_intopost>`.
          tokenList = infixexpr.split()
 
          for token in tokenList:
+	     #for each character in infixexpr
              if token in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" or token in "0123456789":
                  postfixList.append(token)
              elif token == '(':
@@ -413,13 +423,16 @@ shown in :ref:`ActiveCode 1 <lst_intopost>`.
                      postfixList.append(topToken)
                      topToken = opStack.pop()
              else:
-                 while (not opStack.isEmpty()) and (prec[opStack.peek()] >= prec[token]):
+                 while (not opStack.isEmpty()) and (prec[opStack.peek()] >= prec[token]): #while the stack is not empty and
+										 	  #the top item of the stack is on a
+										 	  #higher level of PEMDAS than token.
                        postfixList.append(opStack.pop())
                  opStack.push(token)
 
          while not opStack.isEmpty():
              postfixList.append(opStack.pop())
          return " ".join(postfixList)
+
      def main():
          print(infixToPostfix("A * B + C * D"))
          print(infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )"))
@@ -534,6 +547,8 @@ operator and then perform the proper arithmetic operation.
       :caption: Postfix evaluation
       :language: cpp
 
+      //Solves a postfix math problem.
+
       #include <iostream>
       #include <stack>
       #include <string>
@@ -541,6 +556,7 @@ operator and then perform the proper arithmetic operation.
       using namespace std;
 
       int doMath(char op, int op1, int op2) {
+	  //Does math based on what op is passed as.
           if (op == '*') {
               return (op1 * op2);
           } else if (op == '/') {
@@ -585,6 +601,8 @@ operator and then perform the proper arithmetic operation.
        :caption: Postfix Evaluation
        :nocodelens:
 
+       #Solves a postfix math problem.
+
        from pythonds.basic.stack import Stack
 
        def postfixEval(postfixExpr):
@@ -602,6 +620,7 @@ operator and then perform the proper arithmetic operation.
            return operandStack.pop()
 
        def doMath(op, op1, op2):
+	   #Does math based on what op is passed as.
            if op == "*":
                return op1 * op2
            elif op == "/":
