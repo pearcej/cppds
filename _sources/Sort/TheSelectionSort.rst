@@ -33,7 +33,7 @@ places 55, and so on. The function is shown in :ref:`ActiveCode 1 <lst_selection
       #include <iostream>
       #include <vector>
       using namespace std;
-
+      //function that sorts through values in vector through selection sort
       vector<int> selectionSort(vector<int> avector) {
           for (int fillslot = (avector.size() - 1); fillslot >= 0; fillslot--) {
               int positionOfMax = 0;
@@ -72,7 +72,8 @@ places 55, and so on. The function is shown in :ref:`ActiveCode 1 <lst_selection
 
     .. activecode:: lst_selectionsortcode
         :caption: Selection Sort
-
+        
+        #function sorts through values in list using selection sort
         def selectionSort(alist):
            for fillslot in range(len(alist)-1,0,-1):
                positionOfMax=0
