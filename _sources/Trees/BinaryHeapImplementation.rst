@@ -85,7 +85,7 @@ that simple integer division can be used in later methods.
             vector<int> heapvector;
             int currentSize;
 
-        public:
+        public: 
             BinHeap(vector<int> heapvector){
                 this->heapvector = heapvector;
                 this->currentSize = 0;
@@ -329,6 +329,7 @@ The complete binary heap implementation can be seen in ActiveCode 1.
         #include <vector>
         using namespace std;
 
+        // uses a vector to creat a Binar Heap
         class BinHeap{
 
         private:
@@ -336,12 +337,17 @@ The complete binary heap implementation can be seen in ActiveCode 1.
             int currentSize;
 
         public:
-            BinHeap(vector<int> heapvector){
+            // initializes the vector and an attribute currentSize 
+            // as 0 to allow for interger division. 
+            BinHeap(vector<int> heapvector){ 
                 this->heapvector = heapvector;
                 this->currentSize = 0;
             }
 
-            void percUp(int i){
+            // prelocates and item as far up in the 
+            // tree as possible to maintain 
+            // the Heap property
+            void percUp(int i){ 
                 while ((i / 2) > 0){
                     if (this->heapvector[i] < this->heapvector[i/2]){
                         int tmp = this->heapvector[i/2];
@@ -352,13 +358,17 @@ The complete binary heap implementation can be seen in ActiveCode 1.
                 }
 
             }
-
-            void insert(int k){
+            
+            // appends item to the end of the vector 
+            void insert(int k){ 
                 this->heapvector.push_back(k);
                 this->currentSize = this->currentSize + 1;
                 this->percUp(this->currentSize);
             }
 
+            // prelocates and item as far up in the 
+            // tree as possible to maintain 
+            // the Heap property
             void percDown(int i){
                 while ((i*2) <= this->currentSize){
                     int mc = this->minChild(i);
@@ -385,6 +395,10 @@ The complete binary heap implementation can be seen in ActiveCode 1.
                 }
             }
 
+            // restores full complince with the heap structure
+            // and heap order properties after the root is removed
+            // by  taking the last item and moving it to the root position
+            // and pushing the new root node down the tree to its proper postion. 
             int delMin(){
                 int retval = this->heapvector[1];
                 this->heapvector[1] = this->heapvector[this->currentSize];
@@ -442,12 +456,18 @@ The complete binary heap implementation can be seen in ActiveCode 1.
         :caption: The Complete Binary Heap Example Python
         :language: python
 
+        # uses a vector to creat a Binar Heap
         class BinHeap:
+            """initializes the vector and an attribute currentSize 
+            as 0 to allow for interger division.""" 
             def __init__(self):
                 self.heapList = [0]
                 self.currentSize = 0
 
 
+            """ prelocates and item as far up in the 
+            tree as possible to maintain 
+            the Heap property """
             def percUp(self,i):
                 while i // 2 > 0:
                     if self.heapList[i] < self.heapList[i // 2]:
@@ -456,11 +476,15 @@ The complete binary heap implementation can be seen in ActiveCode 1.
                         self.heapList[i] = tmp
                     i = i // 2
 
+            # appends item to the end of the vector
             def insert(self,k):
                 self.heapList.append(k)
                 self.currentSize = self.currentSize + 1
                 self.percUp(self.currentSize)
 
+            """ prelocates and item as far down in the 
+            tree as possible to maintain 
+            the Heap property """
             def percDown(self,i):
                 while (i * 2) <= self.currentSize:
                     mc = self.minChild(i)
@@ -479,6 +503,10 @@ The complete binary heap implementation can be seen in ActiveCode 1.
                     else:
                         return i * 2 + 1
 
+            """ restores full complince with the heap structure
+            and heap order properties after the root is removed
+            by  taking the last item and moving it to the root position
+            and pushing the new root node down the tree to its proper postion."""
             def delMin(self):
                 retval = self.heapList[1]
                 self.heapList[1] = self.heapList[self.currentSize]
