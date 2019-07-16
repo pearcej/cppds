@@ -57,7 +57,8 @@ most one.
       #include <iostream>
       #include <vector>
       using namespace std;
-
+      
+      //function that prints the vector
       void printl(vector<int> avector) {
           for (unsigned int i=0; i<avector.size(); i++) {
               cout << avector[i] << " ";
@@ -65,6 +66,7 @@ most one.
           cout << endl;
       }
 
+      //function sorts using mergesort.
       vector<int> mergeSort(vector<int> avector) {
           cout<<"Splitting ";
           printl(avector);
@@ -262,7 +264,8 @@ It is important to notice that the ``mergeSort`` function requires extra
 space to hold the two halves as they are extracted with the slicing
 operations. This additional space can be a critical factor if the vector
 is large and can make this sort problematic when working on large data
-sets.
+sets. In the case with using lists in python, the space complexity is :math:`O(log n)`. 
+ 
 
 
 .. admonition:: Self Check
