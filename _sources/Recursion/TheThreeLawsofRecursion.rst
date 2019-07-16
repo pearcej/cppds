@@ -43,6 +43,45 @@ But the logic is not circular at all; the logic of recursion is an
 elegant expression of solving a problem by breaking it down into smaller 
 and easier problems.
 
+It is important to note that regardless of whether or not a recursive function
+implements these three rules, it may still take an unrealistic amount of time
+to compute (and thus not be particularly useful). A great example of this is the
+ackermann function, named after Wilhelm Ackermann, which recursively expands to 
+unrealistic proportions. An example as to how many calls this function makes to 
+itself is the case of ackermann(4,3). In this case, it calls itself well over 100
+billion times, with an average time of expected completion that falls after the
+predicted end of the universe. Despite this, it will eventually come to an answer,
+but you probably won't be around to see it. This goes to show that the efficiency
+of recursive functions are largely dependent on how they're implemented.
+
+.. activecode:: ackermann
+   :language: cpp
+   :nocodelens:
+
+   //ackermann function example
+   #include <iostream>
+   using namespace std;
+
+   unsigned int ackermann(unsigned int m, unsigned int n) {
+      if (m == 0) {//Base case
+         return n + 1;
+      }
+      if (n == 0) {
+         return ackermann(m - 1, 1);// subtract, move to base case
+      }
+      //notice a call to the ackermann function as a parameter
+      //for another call to the ackermann function. This is where
+      //it gets unrealistically complicated.
+      return ackermann(m - 1, ackermann(m, n - 1));//subtract here too
+   }
+
+   int main(){
+      //compute the ackermann function.
+      //Try replacing the 1,2 parameters with 4,3 and see what happens
+      cout << ackermann(1,2) << endl;
+      return 0;
+   }
+
 In the remainder of this chapter we will look at more examples of
 recursion. In each case we will focus on designing a solution to a
 problem by using the three laws of recursion.
