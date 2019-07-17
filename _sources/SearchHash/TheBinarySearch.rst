@@ -246,45 +246,84 @@ perform in strict logarithmic time. Luckily this can be remedied by
 passing the list along with the starting and ending indices. The indices
 can be calculated as we did in :ref:`Listing 3 <lst_binarysearchpy>`. This is especially relevant in C++, where we are initializing a new vector for each split of our list. To truly optimize this algorithm, we could use an array and manually keep track of start and end indices of our array. Below is an example of such an implementation.
 
-.. activecode:: binary_search_cpp_array
-  :caption: Optimized Binary Search
-  :language: cpp
+.. tabbed:: binary_search
 
-  #include <iostream>
-  using namespace std;
+    .. tab:: C++
 
-  // Checks to see if item is in a vector
-  // retruns true or false (1 or 0)
-  // using binary Search and 
-  // uses start and end indices
-  bool binarySearch(int arr[], int item, int start, int end) {
-  	if (end >= start) {
-  		int mid = start + (end - start) / 2;
-  		if (arr[mid] == item)
-  			return true;
-  		if (arr[mid] > item)
-  			return binarySearch(arr, item, start, mid - 1);
-  		else {
-  			return binarySearch(arr, item, mid + 1, end);
-  		}
-  	}
+        .. activecode:: binary_search_cpp_array
+            :caption: Optimized Binary Search
+            :language: cpp
 
-  	return false;
-  }
+            #include <iostream>
+            using namespace std;
 
-  bool binarySearchHelper(int arr[], int size, int item) {
-  	return binarySearch(arr, item, 0, size);
-  }
+            //Checks to see if item is in a vector
+            //retruns true or false (1 or 0)
+            //using binary Search and 
+            //uses start and end indices
+            bool binarySearch(int arr[], int item, int start, int end) {
+                if (end >= start) {
+                    int mid = start + (end - start) / 2;
+                    if (arr[mid] == item)
+                        return true;
+                    if (arr[mid] > item)
+                        return binarySearch(arr, item, start, mid - 1);
+                    else {
+                        return binarySearch(arr, item, mid + 1, end);
+                    }
+                }
 
-  int main(void) {
-  	int arr[] = {0, 1, 2, 8, 13, 17, 19, 32, 42};
-  	int arrLength = sizeof(arr) / sizeof(arr[0]);
+                return false;
+            }
 
-  	cout << binarySearchHelper(arr, arrLength, 3) << endl;
-  	cout << binarySearchHelper(arr, arrLength, 13) << endl;
+            bool binarySearchHelper(int arr[], int size, int item) {
+                return binarySearch(arr, item, 0, size);
+            }
 
-  	return 0;
-  }
+            int main(void) {
+                int arr[] = {0, 1, 2, 8, 13, 17, 19, 32, 42};
+                int arrLength = sizeof(arr) / sizeof(arr[0]);
+
+                cout << binarySearchHelper(arr, arrLength, 3) << endl;
+                cout << binarySearchHelper(arr, arrLength, 13) << endl;
+
+                return 0;
+            }
+
+    .. tab:: Python
+
+        .. activecode:: binary_search_python_array
+            :caption: Optimized Binary Search
+
+            '''Checks to see if item is in a list
+            retruns true or false (1 or 0)
+            using binary Search and 
+            uses start and end indices'''
+            
+            def binarySearch(array, item, start, end):
+                
+                if end == start: 
+                    return False
+                if end >= start: 
+                    mid = start + (end - start) // 2
+                    if array[mid] == item:
+                        return True
+                    if array[mid] > item:
+                        return binarySearch(array, item, start, mid - 1)
+                    else:
+                        return binarySearch(array, item, mid + 1, end)
+
+                return False
+
+            def main():
+                array = [0, 1, 2, 8, 13, 17, 19, 32, 42]
+                
+                a = binarySearch(array, 17, 0 , len(array))
+                print("answer is ", a)
+                b = binarySearch(array, 99, 0, len(array))
+                print("answer is", b) 
+            main()
+            
 
 Even though a binary search is generally better than a sequential
 search, it is important to note that for small values of *n*, the
