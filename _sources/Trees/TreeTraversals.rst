@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -139,7 +139,7 @@ then the function returns without taking any action.
 We can also implement ``preorder`` as a method of the ``BinaryTree``
 class. The code for implementing ``preorder`` as an internal method is
 shown in :ref:`Listing 3 <lst_preorder2>`. Notice what happens when we move the
-code from internal to external. In general, we just replace ``tree``
+code from external to internal. In general, we just replace ``tree``
 with ``self``. However, we also need to modify the base case. The
 internal method must check for the existence of the left and the right
 children *before* making the recursive call to ``preorder``.
@@ -464,7 +464,7 @@ asked to modify the ``printexp`` function to remove this set of parentheses.
     Drag the tree traversal to its corresponding pattern.
 
 .. mchoice:: question1_1
-   :answer_a: Book, Chapter 1, Section 1.1, Section 1.2, Section 1.1.2,
+   :answer_a: Book, Chapter 1, Section 1.1, Section 1.2, Section 1.2.2,
     Section 1.2.2, Chapter 2, Section 2.1, Section 2.2, Section 2.2.1, Section 2.2.2
    :answer_b: Section 1.1, Chapter 1.2, Section 1.2.1, Section 1.2, Section 1.2.2,
     Section 2.1, Chapter 2, Section 2.2.1, Section 2.2, Section 2.2.2

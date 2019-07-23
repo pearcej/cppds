@@ -157,22 +157,85 @@ is removed each time.  We will now turn our attention to creating an implementat
     .. activecode:: heap1py
         :caption: Using the Binary Heap Python
 
-        from pythonds.trees.binheap import BinHeap
+        #you can use the command below to import the binheap library:
+        #from pythonds.trees.binheap import BinHeap
+
+        class BinHeap:
+
+            def __init__(self, heaparray):
+                self.heaparray = heaparray
+                self.size = 0
+
+            def percUp(self, i):
+                while ((i//2) > 0):
+                    if(self.heaparray[i] < self.heaparray[i//2]):
+                        temp = self.heaparray[i//2]
+                        self.heaparray[i//2] = self.heaparray[i]
+                        self.heaparray[i] = temp
+                    i = i//2
+
+            def insert(self, k):
+                self.heaparray.append(k)
+                self.size += 1
+                self.percUp(self.size)
+
+            def percDown(self, i): 
+                while (i*2) <= self.size:
+                    mc = self.minChild(i)
+                    if self.heaparray[i] > self.heaparray[mc]:
+                        temp = self.heaparray[i]
+                        self.heaparray[i] = self.heaparray[mc]
+                        self.heaparray[mc] = temp
+                    i = mc
+
+            def minChild(self, i):
+                if ((i*2)+1) > self.size:
+                    return i*2;
+                else:
+                    if self.heaparray[i*2] < self.heaparray[(i*2)+1]:
+                        return i*2
+                    else:
+                        return (i*2) + 1
+
+            def delMin(self):
+                retval = self.heaparray[1]
+                self.heaparray[1] = self.heaparray[self.size]
+                self.size = self.size - 1
+                del self.heaparray[-1]
+                self.percDown(1)
+                return retval   
+
+            def buildheap(self, alist):
+                # might be wrong
+                i = len(alist) / 2
+                self.size = len(alist)
+                self.heaparray.insert(self.heaparray[-1], alist[0], alist[-1])
+                while i > 0:
+                    self.perdDown(i)
+                    i -= 1
+
+            def isEmpty(self):
+                if len(self.heaparray) > 0:
+                    return False;
+                return True
+
+            def findMin(self):
+                return self.heaparray[1]
 
         def main():
+            alist = []
+            alist.append(0) #required for indexing in the class methods!!
 
-            bh = BinHeap()
-            bh.insert(5)
-            bh.insert(7)
-            bh.insert(3)
-            bh.insert(11)
+            bh = BinHeap(alist);
+
+            bh.insert(5);
+            bh.insert(7);
+            bh.insert(3);
+            bh.insert(11);
 
             print(bh.delMin())
-
             print(bh.delMin())
-
             print(bh.delMin())
-
             print(bh.delMin())
 
         main()

@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -410,16 +410,16 @@ the analysis for hashing at the end of this section.
 
    .. mchoice:: HASH_2
       :correct: b
-      :answer_a: 100, __, __, 113, 114, 105, 116, 117, 97, 108, 99
-      :answer_b: 99, 100, __, 113, 114, __, 116, 117, 105, 97, 108
-      :answer_c: 100, 113, 117, 97, 14, 108, 116, 105, 99, __, __
-      :answer_d: 117, 114, 108, 116, 105, 99, __, __, 97, 100, 113
+      :answer_a: 100, __, __, 113, 114, 105, 121, 117, 97, 108, 99
+      :answer_b: 99, 100, 121, 113, 114, __, __, 117, 105, 97, 108
+      :answer_c: 100, 113, 117, 97, 14, 108, 121, 105, 99, __, __
+      :answer_d: 117, 114, 108, 121, 105, 99, __, __, 97, 100, 113
       :feedback_a:  It looks like you may have been doing modulo 2 arithmentic.  You need to use the hash table size as the modulo value.
       :feedback_b:  Using modulo 11 arithmetic and linear probing gives these values
       :feedback_c: It looks like you are using modulo 10 arithmetic, use the table size.
       :feedback_d: Be careful to use modulo not integer division.
 
-      Suppose you are given the following set of keys to insert into a hash table that holds exactly 11 values:  113 , 117 , 97 , 100 , 114 , 108 , 116 , 105 , 99 Which of the following best demonstrates the contents of the hash table after all the keys have been inserted using linear probing?
+      Suppose you are given the following set of keys to insert into a hash table that holds exactly 11 values:  113 , 117 , 97 , 100 , 114 , 108 , 121 , 105 , 99 Which of the following best demonstrates the contents of the hash table after all the keys have been inserted using linear probing?
 
 Implementing the ``Map`` Abstract Data Type
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -508,13 +508,13 @@ Dealing with the situation where there are no empty slots left is an exercise.
         if self.slots[hashvalue] == None:
             self.slots[hashvalue] = key
             self.data[hashvalue] = data
-            else:
+        else:
             if self.slots[hashvalue] == key:
                 self.data[hashvalue] = data  #replace
             else:
                 nextslot = self.rehash(hashvalue,len(self.slots))
-            while self.slots[nextslot] != None and self.slots[nextslot] != key:
-                nextslot = self.rehash(nextslot,len(self.slots))
+            	while self.slots[nextslot] != None and self.slots[nextslot] != key:
+                    nextslot = self.rehash(nextslot,len(self.slots))
 
             if self.slots[nextslot] == None:
                 self.slots[nextslot] = key
