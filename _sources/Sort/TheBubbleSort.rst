@@ -156,7 +156,7 @@ the elements being looked at.
 
 To analyze the bubble sort, we should note that regardless of how the
 items are arranged in the initial array, :math:`n-1` passes will be
-made to sort a array of size *n*. :ref:`Table 1 <tbl_bubbleanalysis>` shows the number
+made to sort an array of size *n*. :ref:`Table 1 <tbl_bubbleanalysis>` shows the number
 of comparisons for each pass. The total number of comparisons is the sum
 of the first :math:`n-1` integers. Recall that the sum of the first
 *n* integers is :math:`\frac{1}{2}n^{2} + \frac{1}{2}n`. The sum of
