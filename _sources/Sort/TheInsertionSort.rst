@@ -174,8 +174,8 @@ during a pass.
       :answer_b: [15, 5, 4, 10, 12, 8, 14, 18, 19, 20]
       :answer_c: [4, 5, 15, 18, 12, 19, 14, 10, 8, 20]
       :answer_d: [15, 5, 4, 18, 12, 19, 14, 8, 10, 20]
-      :feedback_a: This is a bubble sort.
-      :feedback_b:  This is the result of selection sort.
+      :feedback_a: This is the result of bubble sort.
+      :feedback_b: This is the result of selection sort.
       :feedback_c: Insertion sort works at the start of the list.  Each pass produces a longer sorted list.
       :feedback_d: Insertion sort works on the front of the list not the end.
 

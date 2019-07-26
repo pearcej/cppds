@@ -966,3 +966,16 @@ Self Check
 
     Drag the search method to the type of data that it is more efficient for
     compared to the other search method.
+
+.. mchoice:: hashcollisions
+   :answer_a: when pairs of different hash values are mapped to the same key.
+   :answer_b: when pairs of different hash values do not share the same key.
+   :answer_c: when pairs of different keys are mapped to the same hash value.
+   :answer_d: when pairs of different keys do not share the same hash value.
+   :correct: c
+   :feedback_a: Think about what keys refer to and what hash values refer to
+   :feedback_b: Think about what keys refer to and what hash values refer to
+   :feedback_c: Correct!
+   :feedback_d: Think about what keys refer to and what hash values refer to
+
+   What creates hash collisions?

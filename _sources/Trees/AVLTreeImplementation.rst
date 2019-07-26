@@ -416,3 +416,18 @@ operation remains :math:`O(log_2(n))`.
 At this point we have implemented a functional AVL-Tree, unless you need
 the ability to delete a node. We leave the deletion of the node and
 subsequent updating and rebalancing as an exercise for you.
+
+.. mchoice:: AVLbalancetree
+   :answer_a: A left leaf reduces the balance factor by 1
+   :answer_b: A right leaf reduces the balance factor by 2
+   :answer_c: A left leaf increases the balance factor by 1 and the right leaf reduces the balance factor by 1 and does not affect the grandparent's balance factor
+   :answer_d: A left leaf increases the balance factor by 1 and the right leaf reduces the balance factor by 1 of the parent
+   :answer_e: The leaves do not affect the parent’s balance factor, only the ancestor nodes
+   :correct: d
+   :feedback_a: Carefully think about what you read in AVL performance
+   :feedback_b: Carefully think about what you read in AVL performance
+   :feedback_c: Carefully think about what you read in AVL performance
+   :feedback_d: Correct!
+   :feedback_e: Carefully think about what you read in AVL performance
+
+   How does adding a new leaf in an AVL Tree affect the parent's balance factor?
