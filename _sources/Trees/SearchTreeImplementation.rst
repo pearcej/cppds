@@ -41,7 +41,7 @@ greater than 14, so it becomes the right child of 14.
 
 To implement the binary search tree, we will use the nodes and
 references approach similar to the one we used to implement the linked
-list, and the expression tree. However, because we must be able create
+list, and the expression tree. However, because we must be able to create
 and work with a binary search tree that is empty, our implementation
 will use two classes. The first class we will call ``BinarySearchTree``,
 and the second class we will call ``TreeNode``. The ``BinarySearchTree``

@@ -33,7 +33,7 @@ places 55, and so on. The function is shown in :ref:`ActiveCode 1 <lst_selection
       #include <iostream>
       #include <vector>
       using namespace std;
-
+      //function that sorts through values in vector through selection sort
       vector<int> selectionSort(vector<int> avector) {
           for (int fillslot = (avector.size() - 1); fillslot >= 0; fillslot--) {
               int positionOfMax = 0;
@@ -72,7 +72,8 @@ places 55, and so on. The function is shown in :ref:`ActiveCode 1 <lst_selection
 
     .. activecode:: lst_selectionsortcode
         :caption: Selection Sort
-
+        
+        #function sorts through values in list using selection sort
         def selectionSort(alist):
            for fillslot in range(len(alist)-1,0,-1):
                positionOfMax=0
@@ -139,7 +140,7 @@ the bubble sort makes 20 exchanges, while the selection sort makes only
       :answer_d: [11, 7, 12, 14, 8, 1, 6, 18, 19, 20]
       :feedback_a: Selection sort is similar to bubble sort (which you appear to have done) but uses fewer swaps
       :feedback_b: This looks like an insertion sort.
-      :feedback_c: This one looks similar to the correct answer but instead of swapping the numbers have been shifted to the left to make room for the correct numbers.
+      :feedback_c: This one looks similar to the correct answer, however, it is not how selection sort works. With this answer, instead of swapping values through each sweep, the values have been shifted to the left to make room for the correct numbers.
       :feedback_d: Selection sort improves upon bubble sort by making fewer swaps.
 
       Suppose you have the following vector of numbers to sort:

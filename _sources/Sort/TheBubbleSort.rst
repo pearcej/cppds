@@ -73,7 +73,9 @@ shown above.
       #include <vector>
       using namespace std;
 
-      vector<int> bubbleSort(vector<int> avector) {
+      //function goes through list sorting adjacent values as it bubbles 
+      //the largest value to the top.
+      vector<int> bubbleSort(vector<int> avector) { //the vector for bubble sort
         for (int passnum = avector.size()-1; passnum > 0; passnum -= 1) {
             for (int i = 0; i < passnum; i++) {
                 if (avector[i] > avector[i+1]) {
@@ -103,7 +105,9 @@ shown above.
 
     .. activecode:: lst_bubble_py
        :caption: The Bubble Sort
-
+    
+       """function goes through list sorting adjacent values as it bubbles 
+       the largest value to the top."""
        def bubbleSort(alist):
            for passnum in range(len(alist)-1,0,-1):
                for i in range(passnum):
@@ -152,7 +156,7 @@ the elements being looked at.
 
 To analyze the bubble sort, we should note that regardless of how the
 items are arranged in the initial array, :math:`n-1` passes will be
-made to sort a array of size *n*. :ref:`Table 1 <tbl_bubbleanalysis>` shows the number
+made to sort an array of size *n*. :ref:`Table 1 <tbl_bubbleanalysis>` shows the number
 of comparisons for each pass. The total number of comparisons is the sum
 of the first :math:`n-1` integers. Recall that the sum of the first
 *n* integers is :math:`\frac{1}{2}n^{2} + \frac{1}{2}n`. The sum of
@@ -204,14 +208,14 @@ to as the **short bubble**.
       #include <vector>
 
       using namespace std;
-
-      vector<int> shortBubbleSort(vector<int> avector){
+      
+      vector<int> shortBubbleSort(vector<int> avector){ //the vector for bubble sort
           bool exchanges = true;
           int passnum = avector.size();
-
+          //while vector size is greater than 0 and exchanges = true 
           while (passnum > 0 && exchanges) {
               exchanges = false;
-
+             //loops through vector, exchanging values until it reaches the end of vector.
               for(int i = 0; i < passnum; i++){
                   if(avector[i] > avector[i+1]){
                       exchanges = true;
@@ -220,6 +224,8 @@ to as the **short bubble**.
                       avector[i+1] = temp;
                   }
               }
+              //subtracts from the passnum variable so that the next passthrough is one less
+              //than the previous, because the largest value has already 'bubbled' all the way up.
               passnum = passnum - 1;
           }
           return avector;
@@ -228,14 +234,14 @@ to as the **short bubble**.
       int main() {
           // Vector initialized using a static array
           static const int arr[] = {20,30,40,90,50,60,70,80,110,100};
-          vector<int> avector (arr, arr+ sizeof(arr)/sizeof(arr[0]));
+          vector<int> avector (arr, arr+ sizeof(arr)/sizeof(arr[0])); //intializes vector
 
           vector<int> bvector = shortBubbleSort(avector);
 
           for(unsigned int i = 0; i < bvector.size(); i++){
             cout<< bvector[i] << " ";
           }
-          return 0;
+          return 0; 
       }
 
 
@@ -256,6 +262,8 @@ to as the **short bubble**.
                       temp = alist[i]
                       alist[i] = alist[i+1]
                       alist[i+1] = temp
+              """subtracts from the passnum variable so that the next passthrough is one less
+              than the previous, because the largest value has already 'bubbled' all the way up"""
               passnum = passnum-1
 
        alist=[20,30,40,90,50,60,70,80,100,110]
