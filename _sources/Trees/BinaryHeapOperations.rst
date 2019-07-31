@@ -229,7 +229,7 @@ is removed each time.  We will now turn our attention to creating an implementat
             bh = BinHeap(alist);
 
             bh.insert(5);
-            bh.insert(7);
+            bh.insert(7); 
             bh.insert(3);
             bh.insert(11);
 

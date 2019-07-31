@@ -618,6 +618,11 @@ Self-check
 
   Which implementation would be ideal for each problem.
 
-.. shortanswer:: recursiveWeakness
-
-   Sometimes recursion can be more computationally expensive than an alternative. In what ways would this be?
+.. mchoice:: recursionefficiencyq
+   :answer_a: True
+   :answer_b: False
+   :correct: a
+   :feedback_a: Correct! Sometimes simple problems only need simple solutions, like a loop
+   :feedback_b: Incorrect. Recursion is not always the ideal solution. 
+   
+    Sometimes recursion can be more computationally expensive than an alternative, True or False?

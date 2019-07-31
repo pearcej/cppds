@@ -92,72 +92,70 @@ list that was used in the example above.
       :caption: The Quick Sort
       :language: cpp
 
-	#include <iostream>
-	#include <vector>
-	using namespace std;
+      #include <iostream>
+      #include <vector>
+      using namespace std;
 
-	void printl(vector<int> avector) {
-		for (unsigned i=0; i<avector.size(); i++) {
-			cout<<avector[i]<<" ";
-		}
-		cout<<endl;
-	}
+      void printl(vector<int> avector) {
+        for (unsigned i=0; i<avector.size(); i++) {
+          cout<<avector[i]<<" ";
+        }
+        cout<<endl;
+      }
 
-	int partition(vector<int> &avector, int first, int last) {
-		int pivotvalue = avector[first];
+      //function partitions vector depending on pivot value
+      int partition(vector<int> &avector, int first, int last) {
+        int pivotvalue = avector[first];
 
-		int rightmark = last;
-		int leftmark = first+1;
-		
-		bool done = false;
-		
-		while(not done){
-			while(leftmark<=rightmark and avector[leftmark]<=pivotvalue){
-				leftmark++;
-			} 
-			while(rightmark>=leftmark and avector[rightmark]>=pivotvalue){
-				rightmark--;
-			}
-			if(rightmark<leftmark){
-				done = true;
-			}
-			else{
-				swap(avector[rightmark], avector[leftmark]);
-			}
-		}
-		
-		swap(avector[rightmark], avector[first]);
-		
-		return rightmark;
-	}
+        int rightmark = last;
+        int leftmark = first+1;
+        
+        bool done = false;
+        
+        while(not done){
+          while(leftmark<=rightmark and avector[leftmark]<=pivotvalue){
+            leftmark++;
+          } 
+          while(rightmark>=leftmark and avector[rightmark]>=pivotvalue){
+            rightmark--;
+          }
+          if(rightmark<leftmark){
+            done = true;
+          }
+          else{
+            swap(avector[rightmark], avector[leftmark]);
+          }
+        }
+        
+        swap(avector[rightmark], avector[first]);
+        
+        return rightmark;
+      }
 
-	void quickSortHelper(vector<int> &avector, int first, int last) {
-		int splitpoint;
+      //recursive function that quicksorts through a given vector
+      void quickSort(vector<int> &avector, int first, int last) {
+        int splitpoint;
 
-		if (first<last) {
-			splitpoint = partition(avector,first,last);
+        if (first<last) {
+          splitpoint = partition(avector,first,last);
 
-			quickSortHelper(avector,first,splitpoint);
-			quickSortHelper(avector,splitpoint+1,last);
+          quickSort(avector,first,splitpoint);
+          quickSort(avector,splitpoint+1,last);
 
-		}
-	}
+        }
+      }
 
-	void quickSort(vector<int> &avector) {
-		quickSortHelper(avector,0,avector.size()-1);
-	}
+      int main() {
+        // Vector initialized using a static array
+        static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
+        vector<int> avector (arr, arr + sizeof(arr) / sizeof(arr[0]) );
 
-	int main() {
-		// Vector initialized using a static array
-		static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
-		vector<int> avector (arr, arr + sizeof(arr) / sizeof(arr[0]) );
+        quickSort(avector,0,avector.size()-1);
 
-		quickSort(avector);
+        printl(avector);
 
-		printl(avector);
-
-		return 0;
-	}
+        return 0;
+      }
 
 
   .. tab:: Python
@@ -165,51 +163,53 @@ list that was used in the example above.
     .. activecode:: lst_quick
         :caption: Quick Sort
 
-	def quickSort(alist,first,last):
-	   if first<last:
+        #recursive function that calls itself to quicksort through a given list of values
+        def quickSort(alist,first,last):
+          if first<last:
 
-		   splitpoint = partition(alist,first,last)
+            splitpoint = partition(alist,first,last)
 
-		   quickSort(alist,first,splitpoint-1)
-		   quickSort(alist,splitpoint+1,last)
+            quickSort(alist,first,splitpoint-1)
+            quickSort(alist,splitpoint+1,last)
+
+        #function partitions vector depending on pivot value
+        def partition(alist,first,last):
+          pivotvalue = alist[first]
+
+          leftmark = first+1
+          rightmark = last
+
+          done = False
+          while not done:
+            while alist[leftmark]<=pivotvalue and leftmark<=rightmark:
+              leftmark += 1
+
+            while alist[rightmark]>=pivotvalue and rightmark>=leftmark:
+              rightmark -= 1
+
+            if rightmark < leftmark:
+              done = True
+
+            else:
+              temp = alist[rightmark]
+              alist[rightmark] = alist[leftmark]
+              alist[leftmark] = temp
+
+          temp = alist[rightmark]
+          alist[rightmark] = alist[first]
+          alist[first] = temp
+
+          return rightmark
 
 
-	def partition(alist,first,last):
-		pivotvalue = alist[first]
-		leftmark = first+1
-		rightmark = last
 
-		done = False
+        def main():
 
-		while not done:
-		  while alist[leftmark]<=pivotvalue and leftmark<=rightmark:
-			leftmark += 1
-		  while alist[rightmark]>=pivotvalue and rightmark>=leftmark:
-			rightmark -= 1
-		  if rightmark < leftmark:
-			done = True
-		  else:
-			temp = 0
-			temp = alist[rightmark]
-			alist[rightmark] = alist[leftmark]
-			alist[leftmark] = temp
+          alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+          quickSort(alist,0,len(alist)-1)
+          print(alist)
 
-		temp = 0
-		temp = alist[rightmark]
-		alist[rightmark] = alist[first]
-		alist[first] = temp
-
-		return rightmark
-
-
-
-	def main():
-
-		alist = [54,26,93,17,77,31,44,55,20]
-		quickSort(alist,0,len(alist)-1)
-		print(alist)
-
-	main()
+        main()
 
 
 
@@ -351,3 +351,16 @@ Self Check
    :match_4: Shell Sort|||between O(n) and O(n^2)
 
    Match each sorting method with its appropriate estimated comparisons.
+
+.. mchoice:: sortefficiencyrandom
+   :answer_a: Merge
+   :answer_b: Selection
+   :answer_c: Bubble
+   :answer_d: Insertion
+   :correct: a
+   :feedback_a: Correct!
+   :feedback_b: Selection sort is inefficient in large lists.
+   :feedback_c: Bubble sort works best with mostly sorted lists.
+   :feedback_d: Insertion sort works best with either small or mostly sorted lists.
+
+   Which sort should you use for best efficiency If you need to sort through 100,000 random items in a list?

@@ -92,7 +92,7 @@ an insertion sort with an increment of one.
           }
           cout << endl;
       }
-
+      // function returns sorted subvector
       vector<int> gapInsertionSort(vector<int> avector, int start, int gap) {
           for (unsigned int i = start + gap; i < avector.size(); i += gap) {
               int currentvalue = avector[i];
@@ -107,18 +107,21 @@ an insertion sort with an increment of one.
           return avector;
       }
 
+      //function shellsorts through the vector
       vector<int> shellSort(vector<int> avector) {
-          int subvectorcount = avector.size() / 2;
+          int subvectorcount = avector.size() / 2; //cuts vector by half
           while (subvectorcount > 0) {
               for (int startposition = 0; startposition < subvectorcount;
                    startposition++) {
-                  avector = gapInsertionSort(avector, startposition, subvectorcount);
+                  avector = gapInsertionSort(avector, startposition, subvectorcount);/*
+            runs avector through gapInsertionSort function
+             */
               }
               cout << "After increments of size " << subvectorcount
                    << " The vector is: " << endl;
               printl(avector);
 
-              subvectorcount = subvectorcount / 2;
+              subvectorcount = subvectorcount / 2; //cuts vector in half
           }
 
           return avector;
@@ -127,7 +130,7 @@ an insertion sort with an increment of one.
       int main() {
           // Vector initialized using a static array
           static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
-          vector<int> avector (arr, arr + sizeof(arr) / sizeof(arr[0]) );
+          vector<int> avector (arr, arr + sizeof(arr) / sizeof(arr[0]));
 
           printl(shellSort(avector));
 
@@ -185,19 +188,22 @@ an insertion sort with an increment of one.
 .. .. codelens:: shellSorttrace
 ..     :caption: Tracing the Shell Sort
 ..
-..     def shellSort(alist):
-..         sublistcount = len(alist)//2
+..     def shellSort(alist): #function shellsorts through the vector
+
+..         sublistcount = len(alist)//2 #cuts vector by half
 ..         while sublistcount > 0:
 ..
 ..           for startposition in range(sublistcount):
 ..             gapInsertionSort(alist,startposition,sublistcount)
+               #runs avector through gapInsertionSort function
+
 ..
 ..           print("After increments of size",sublistcount,
 ..                                        "The list is",alist)
 ..
 ..           sublistcount = sublistcount // 2
 ..
-..     def gapInsertionSort(alist,start,gap):
+..     def gapInsertionSort(alist,start,gap): # sorts values through Insertion Sort
 ..         for i in range(start+gap,len(alist),gap):
 ..
 ..             currentvalue = alist[i]
@@ -210,7 +216,7 @@ an insertion sort with an increment of one.
 ..             alist[position]=currentvalue
 
 ..     def main():
-..         alist = [54,26,93,17,77,31,44,55,20]
+..         alist = [54,26,93,17,77,31,44,55,20]#initializes a list of numbers
 ..         shellSort(alist)
 ..         print(alist)
        main()
@@ -247,5 +253,5 @@ at :math:`O(n^{\frac {3}{2}})`.
       :feedback_c: This is list completely sorted, you have gone too far.
       :feedback_d: The gap size of three indicates that the group represented by every third number e.g. 0, 3, 6, 9  and 1, 4, 7 and 2, 5, 8 are sorted not groups of 3.
 
-      Given the following list of numbers:  [5, 16, 20, 12, 3, 8, 9, 17, 19, 7]
-      Which answer illustrates the contents of the list after all swapping is complete for a gap size of 3?
+      Given the following list of numbers:  [5, 16, 20, 12, 3, 8, 9, 17, 19, 7],
+      which answer illustrates the contents of the list after all swapping is complete for a gap size of 3?
