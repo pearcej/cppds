@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -81,7 +81,8 @@ function, ``quickSortHelper``. ``quickSortHelper`` begins with the same
 base case as the merge sort. If the length of the list is less than or
 equal to one, it is already sorted. If it is greater, then it can be
 partitioned and recursively sorted. The ``partition`` function
-implements the process described earlier.
+implements the process described earlier. The following program sorts the 
+list that was used in the example above.
 
 .. tabbed:: lst_quick_sort
 
@@ -97,52 +98,65 @@ implements the process described earlier.
 
       void printl(vector<int> avector) {
         for (unsigned i=0; i<avector.size(); i++) {
-            cout<<avector[i]<<" ";
+          cout<<avector[i]<<" ";
         }
         cout<<endl;
       }
+
       //function partitions vector depending on pivot value
       int partition(vector<int> &avector, int first, int last) {
         int pivotvalue = avector[first];
 
-        int i = first;
-        int j;
-
-        for(j=first+1; j<last; j++) {
-            if(avector[j]<=pivotvalue) {
-                i++;
-                swap(avector[i],avector[j]);
-            }
+        int rightmark = last;
+        int leftmark = first+1;
+        
+        bool done = false;
+        
+        while(not done){
+          while(leftmark<=rightmark and avector[leftmark]<=pivotvalue){
+            leftmark++;
+          } 
+          while(rightmark>=leftmark and avector[rightmark]>=pivotvalue){
+            rightmark--;
+          }
+          if(rightmark<leftmark){
+            done = true;
+          }
+          else{
+            swap(avector[rightmark], avector[leftmark]);
+          }
         }
-        swap(avector[i],avector[first]);
-        return i;
+        
+        swap(avector[rightmark], avector[first]);
+        
+        return rightmark;
       }
-      //recursive function that quicksorts through a given vector  
+
+      //recursive function that quicksorts through a given vector
       void quickSort(vector<int> &avector, int first, int last) {
         int splitpoint;
 
         if (first<last) {
-            splitpoint = partition(avector,first,last);
+          splitpoint = partition(avector,first,last);
 
-            quickSort(avector,first,splitpoint);
-            quickSort(avector,splitpoint+1,last);
+          quickSort(avector,first,splitpoint);
+          quickSort(avector,splitpoint+1,last);
 
         }
       }
-
-
 
       int main() {
         // Vector initialized using a static array
         static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
         vector<int> avector (arr, arr + sizeof(arr) / sizeof(arr[0]) );
 
-        quickSort(avector,0,avector.size());
+        quickSort(avector,0,avector.size()-1);
 
         printl(avector);
 
         return 0;
       }
+
 
   .. tab:: Python
 
@@ -151,50 +165,52 @@ implements the process described earlier.
 
         #recursive function that calls itself to quicksort through a given list of values
         def quickSort(alist,first,last):
-            if first<last:
+          if first<last:
 
-                splitpoint = partition(alist,first,last)
+            splitpoint = partition(alist,first,last)
 
-                quickSort(alist,first,splitpoint-1)
-                quickSort(alist,splitpoint+1,last)
+            quickSort(alist,first,splitpoint-1)
+            quickSort(alist,splitpoint+1,last)
 
         #function partitions vector depending on pivot value
         def partition(alist,first,last):
-            pivotvalue = alist[first]
+          pivotvalue = alist[first]
 
-            leftmark = first+1
-            rightmark = last
+          leftmark = first+1
+          rightmark = last
 
-            done = False
-            while not done:
+          done = False
+          while not done:
+            while alist[leftmark]<=pivotvalue and leftmark<=rightmark:
+              leftmark += 1
 
-                while leftmark <= rightmark and alist[leftmark] <= pivotvalue:
-                    leftmark = leftmark + 1
+            while alist[rightmark]>=pivotvalue and rightmark>=leftmark:
+              rightmark -= 1
 
-                while alist[rightmark] >= pivotvalue and rightmark >= leftmark:
-                    rightmark = rightmark -1
+            if rightmark < leftmark:
+              done = True
 
-                if rightmark < leftmark:
-                    done = True
-                else:
-                    temp = alist[leftmark]
-                    alist[leftmark] = alist[rightmark]
-                    alist[rightmark] = temp
+            else:
+              temp = alist[rightmark]
+              alist[rightmark] = alist[leftmark]
+              alist[leftmark] = temp
 
-            temp = alist[first]
-            alist[first] = alist[rightmark]
-            alist[rightmark] = temp
+          temp = alist[rightmark]
+          alist[rightmark] = alist[first]
+          alist[first] = temp
+
+          return rightmark
 
 
-            return rightmark
 
         def main():
 
-            alist = [54,26,93,17,77,31,44,55,20]
-            quickSort(alist,0,len(alist)-1)
-            print(alist)
+          alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+          quickSort(alist,0,len(alist)-1)
+          print(alist)
 
         main()
+
 
 
 

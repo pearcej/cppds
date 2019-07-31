@@ -299,4 +299,4 @@ the vector only in the case where we do not find the item.
       :feedback_c: Since 14 is greater than the key value 13 you can stop.
       :feedback_d: Because 12 is less than the key value 13 you need to keep going.
 
-      Suppose you are doing a sequential search of the ordered list [3, 5, 6, 8, 11, 12, 14, 15, 17, 18].  How many comparisons would you need to do in order to find the key 13?
+      Suppose you are doing a sequential search using a program that is enhanced to handle ordered lists more efficiently. When passing the list [3, 5, 6, 8, 11, 12, 14, 15, 17, 18] as a parameter, how many comparisons would you need to do in order to find the key 13?
