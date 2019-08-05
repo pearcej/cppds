@@ -5,6 +5,7 @@ import paver.setuputils
 paver.setuputils.install_distutils_tasks()
 from os import environ
 import pkg_resources
+from runestone import get_master_url
 
 ######## CHANGE THIS ##########
 project_name = "cppds"
@@ -16,19 +17,15 @@ project_name = "cppds"
 
 master_url = None
 if master_url is None:
-    if gethostname() == 'runestone-deploy':
-        master_url = 'https://runestone.academy'
-        doctrees = '../../custom_courses/{}/doctrees'.format(project_name)        
-    elif gethostname() == 'web407.webfaction.com':
-        master_url = 'http://interactivepython.org'
-        doctrees = '../../custom_courses/{}/doctrees'.format(project_name)
-    else:
-        master_url = 'http://127.0.0.1:8000'
-        doctrees = './build/{}/doctrees'.format(project_name)
+    master_url = get_master_url()
 
 master_app = 'runestone'
 serving_dir = './build/cppds'
-dest = '../../static'
+dynamic_pages = True
+if dynamic_pages:
+    dest = './published'
+else:
+    dest = '../../static'
 
 options(
     sphinx = Bunch(docroot=".",),
@@ -39,17 +36,21 @@ options(
         outdir="./build/"+project_name,
         confdir=".",
         project_name = project_name,
-        doctrees = doctrees,
         template_args = {
             'course_id':project_name,
             'login_required':'false',
             'appname':master_app,
+            'dynamic_pages': True,
             'loglevel':10,
+            'default_ac_lang': 'cpp',
             'course_url':master_url,
             'use_services': 'true',
             'python3': 'true',
             'dburl': 'postgresql://bmiller@localhost/runestone',
             'basecourse': 'cppds',
+            'downloads_enabled': 'false',
+            'enable_chatcodes': 'false',
+            'allow_pairs': 'false'
 #            'jobe_server': 'http://jobe2.cosc.canterbury.ac.nz',
 #            'proxy_uri_runs': '/jobe/index.php/restapi/runs/',
 #            'proxy_uri_files': '/jobe/index.php/restapi/files/'
