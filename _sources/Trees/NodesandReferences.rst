@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -230,25 +230,27 @@ tree as a binary tree itself.
         #include <cstdlib>
         using namespace std;
 
+        //creates a binary tree, allows you to insert nodes
+        // and access those nodes. 
         class BinaryTree {
 
             private:
             char key;
-            BinaryTree *leftChild;
-            BinaryTree *rightChild;
+            BinaryTree *leftChild;  // reference other instances of the binary tree the BinaryTree class
+            BinaryTree *rightChild; // reference other instances of the binary tree the BinaryTree class
 
-            public:
+            public: //constructor function expects to get some kind of object to store in the root
             BinaryTree(char rootObj){
                 this->key = rootObj;
                 this->leftChild = NULL;
                 this->rightChild = NULL;
             }
 
-            void insertLeft(char newNode){
+            void insertLeft(char newNode){ // Handles insertion if there is no left child simply adds a node to the tree.
                 if (this->leftChild == NULL){
                 this->leftChild = new BinaryTree(newNode);
                 }
-                else {
+                else { // handles insertion if there is a left child pushes the existing child down one level in the tree.
                 BinaryTree *t = new BinaryTree(newNode);
                 t->leftChild = this->leftChild;
                 this->leftChild = t;
@@ -266,19 +268,19 @@ tree as a binary tree itself.
                 }
             }
 
-            BinaryTree *getRightChild(){
+            BinaryTree *getRightChild(){ // accessor method 
                 return this->rightChild;
             }
 
-            BinaryTree *getLeftChild(){
+            BinaryTree *getLeftChild(){ // accessor method
                 return this->leftChild;
             }
 
-            void setRootVal(char obj){
+            void setRootVal(char obj){ // accessor method
                 this->key = obj;
             }
 
-            char getRootVal(){
+            char getRootVal(){ // accessor method
                 return this->key;
             }
         };
@@ -304,39 +306,41 @@ tree as a binary tree itself.
     .. activecode:: bintree_py
         :caption: Exercising the Node and Reference Implementation Python
 
+        """ creates a binary tree, allows you to insert nodes
+         and access those nodes. """
         class BinaryTree:
-            def __init__(self,rootObj):
+            def __init__(self,rootObj): # initializer function expects to get some kind of object to store in the root
                 self.key = rootObj
-                self.leftChild = None
-                self.rightChild = None
+                self.leftChild = None  # reference other instances of the binary tree the BinaryTree class
+                self.rightChild = None # reference other instances of the binary tree the BinaryTree class
 
-            def insertLeft(self,newNode):
+            def insertLeft(self,newNode): # Handles insertion if there is no left child simply adds a node to the tree.
                 if self.leftChild == None:
                     self.leftChild = BinaryTree(newNode)
                 else:
-                    t = BinaryTree(newNode)
+                    t = BinaryTree(newNode) # handles insertion if there is a left child pushes the existing child down one level in the tree.
                     t.leftChild = self.leftChild
                     self.leftChild = t
 
-            def insertRight(self,newNode):
+            def insertRight(self,newNode): # Handles insertion if there is no right child simply adds a node to the tree
                 if self.rightChild == None:
                     self.rightChild = BinaryTree(newNode)
-                else:
-                    t = BinaryTree(newNode)
+                else: # handles insertion if there is a right child pushes the existing child down one level in the tree.
+                    t = BinaryTree(newNode) 
                     t.rightChild = self.rightChild
                     self.rightChild = t
 
 
-            def getRightChild(self):
+            def getRightChild(self): # accessor method
                 return self.rightChild
 
-            def getLeftChild(self):
+            def getLeftChild(self): # accessor method
                 return self.leftChild
 
-            def setRootVal(self,obj):
+            def setRootVal(self,obj): # accessor method
                 self.key = obj
 
-            def getRootVal(self):
+            def getRootVal(self): # accessor method
                 return self.key
 
 
@@ -353,3 +357,16 @@ tree as a binary tree itself.
             r.getRightChild().setRootVal('d')
             print(r.getRightChild().getRootVal())
         main()
+
+.. mchoice:: treeLike
+   :answer_a: Hash Table
+   :answer_b: Linked List
+   :answer_c: Queue
+   :answer_d: Stack
+   :correct: b
+   :feedback_a: Incorrect, a hash table maps key, value pairs for quick access. To access an item in our tree, we have to go through everything before it.
+   :feedback_b: Correct, this tree is essentially a linked list connecting other linked lists
+   :feedback_c: Incorrect, a queue is good for putting data in to fit a FIFO sequence
+   :feedback_d: Incorrect, a stack is good for putting data in to fit a LIFO sequence
+
+   Which data structure resembles the above implementation of a tree?

@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -163,11 +163,11 @@ d) Read + as the next token. By rule 2, set the root value of the
    current node to + and add a new node as the right child. The new
    right child becomes the current node.
 
-e) Read a ( as the next token. By rule 1, create a new node as the left
+e) Read ( as the next token. By rule 1, create a new node as the left
    child of the current node. The new left child becomes the current
    node.
 
-f) Read a 4 as the next token. By rule 3, set the value of the current
+f) Read 4 as the next token. By rule 3, set the value of the current
    node to 4. Make the parent of 4 the current node.
 
 g) Read \* as the next token. By rule 2, set the root value of the
@@ -290,27 +290,27 @@ in :ref:`ActiveCode 1 <lst_buildparse>`.
 
             for (unsigned int i = 0; i<fplist.size(); i++){
 
-                if (fplist[i] == "("){
+                if (fplist[i] == "("){ 
                     currentTree->insertLeft("");
                     pStack.push(currentTree);
                     currentTree = currentTree->getLeftChild();
                 }
 
-                else if (find(vect.begin(), vect.end(), fplist[i]) != vect.end()){
+                else if (find(vect.begin(), vect.end(), fplist[i]) != vect.end()){ 
                     currentTree->setRootVal(fplist[i]);
                     currentTree->insertRight("");
                     pStack.push(currentTree);
                     currentTree = currentTree->getRightChild();
                 }
 
-                else if (fplist[i] == ")"){
+                else if (fplist[i] == ")"){ 
                     currentTree = pStack.top();
                     pStack.pop();
                 }
 
                 else if (find(vect2.begin(), vect2.end(), fplist[i]) == vect2.end()) {
                     try {
-                        currentTree->setRootVal(fplist[i]);
+                        currentTree->setRootVal(fplist[i]); 
                         BinaryTree *parent = pStack.top();
                         pStack.pop();
                         currentTree = parent;
@@ -324,7 +324,7 @@ in :ref:`ActiveCode 1 <lst_buildparse>`.
             return eTree;
         }
 
-        void postorder(BinaryTree *tree){
+        void postorder(BinaryTree *tree){ 
             if (tree != NULL){
                 postorder(tree->getLeftChild());
                 postorder(tree->getRightChild());
@@ -334,7 +334,7 @@ in :ref:`ActiveCode 1 <lst_buildparse>`.
 
         int main() {
 
-            BinaryTree *pt = buildParseTree("( ( 10 + 5 ) * 3 ) )");
+            BinaryTree *pt = buildParseTree("( ( 10 + 5 ) * 3 )");
 
 
             postorder(pt);
@@ -358,13 +358,13 @@ in :ref:`ActiveCode 1 <lst_buildparse>`.
             currentTree = eTree
 
             for i in fplist:
-                if i == '(':
+                if i == '(': # adds a new node as the left child of the current node, and descend to the left child
                     currentTree.insertLeft('')
                     pStack.push(currentTree)
                     currentTree = currentTree.getLeftChild()
 
                 elif i in ['+', '-', '*', '/']:
-                    currentTree.setRootVal(i)
+                    currentTree.setRootVal(i) # adds a new node as the right child of the current node, and descend to the left child
                     currentTree.insertRight('')
                     pStack.push(currentTree)
                     currentTree = currentTree.getRightChild()
@@ -372,7 +372,7 @@ in :ref:`ActiveCode 1 <lst_buildparse>`.
                 elif i == ')':
                     currentTree = pStack.pop()
 
-                elif i not in ['+', '-', '*', '/', ')']:
+                elif i not in ['+', '-', '*', '/', ')']: # sets root value of the current node to the operator represented by the current token or number.  
                     try:
                         currentTree.setRootVal(int(i))
                         parent = pStack.pop()
@@ -557,3 +557,8 @@ With the two parameters evaluated, we return the result of
 the top level ``'+'`` operator and all that is left to do is finish the
 call to ``operator.add(3,20)``. The result of the evaluation of the
 entire expression tree for :math:`(3 + (4 * 5))` is 23.
+
+.. shortanswer:: drawParseTree
+
+   Take a moment and draw the parse tree for the expression (2*12/6+3)-17+2*0.
+   You do not need to write anything here.

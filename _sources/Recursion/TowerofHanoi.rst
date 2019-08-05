@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -135,6 +135,8 @@ The program in ActiveCode 1 provides the entire solution for three disks.
         :caption: Solving Tower of Hanoi Recursively C++
         :language: cpp
 
+	//Simulation of the tower of hanoi.
+
         #include <iostream>
         using namespace std;
 
@@ -144,9 +146,9 @@ The program in ActiveCode 1 provides the entire solution for three disks.
 
         void moveTower(int height, char fromPole, char toPole, char withPole){
             if (height >= 1){
-                moveTower(height-1, fromPole, withPole, toPole);
+                moveTower(height-1, fromPole, withPole, toPole); //Recursive call
                 moveDisk(fromPole, toPole);
-                moveTower(height-1, withPole, toPole, fromPole);
+                moveTower(height-1, withPole, toPole, fromPole); //Recursive call
             }
         }
 
@@ -159,11 +161,13 @@ The program in ActiveCode 1 provides the entire solution for three disks.
     .. activecode:: hanoipy
        :caption: Solving Tower of Hanoi Recursively Python
 
+       #Simulation of the tower of hanoi.
+
        def moveTower(height,fromPole, toPole, withPole):
            if height >= 1:
-               moveTower(height-1,fromPole,withPole,toPole)
+               moveTower(height-1,fromPole,withPole,toPole) #Recursive call
                moveDisk(fromPole,toPole)
-               moveTower(height-1,withPole,toPole,fromPole)
+               moveTower(height-1,withPole,toPole,fromPole) #Recursive call
 
        def moveDisk(fp,tp):
            print("moving disk from",fp,"to",tp)
@@ -172,6 +176,15 @@ The program in ActiveCode 1 provides the entire solution for three disks.
            moveTower(3,"A","B","C")
 
        main()
+
+.. fillintheblank:: Hanoitower_fitb
+
+    If you change the tower height in Line 17 from 3 to 6, how many moves must you make to complete the Hanoi tower? (hint, try implementing a counter to return the correct number)
+
+    - :63: Correct, you can make a global counter at line 3, and then cout the increasing total under line 11. 
+      :62: Technically you are correct but, you are off by one.  
+      :.*: Please try again you need to add a statement at line 3, and under line 11. 
+
 
 Now that you have seen the code for both ``moveTower`` and ``moveDisk``,
 you may be wondering why we do not have a data structure that explicitly

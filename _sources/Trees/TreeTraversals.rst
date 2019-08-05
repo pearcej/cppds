@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -16,20 +16,52 @@ at are called **preorder**, **inorder**, and **postorder**. Let’s start
 out by defining these three traversals more carefully, then look at some
 examples where these patterns are useful.
 
+.. _fig_trav_tree:
+
+.. figure:: Figures/trav_tree.png
+   :align: center
+   :alt: image
+
+   Figure 5: Example tree to be traversed.
+
 preorder
     In a preorder traversal, we visit the root node first, then
     recursively do a preorder traversal of the left subtree, followed by
     a recursive preorder traversal of the right subtree.
+
+.. _fig_pre_order_tree:
+
+.. figure:: Figures/pre_order.gif
+   :align: center
+   :alt: image
+
+   Figure 6: Traversal pattern for preorder.
 
 inorder
     In an inorder traversal, we recursively do an inorder traversal on
     the left subtree, visit the root node, and finally do a recursive
     inorder traversal of the right subtree.
 
+.. _fig_in_order_tree:
+
+.. figure:: Figures/in_order.gif
+   :align: center
+   :alt: image
+
+   Figure 7: Traversal pattern for inorder.
+
 postorder
     In a postorder traversal, we recursively do a postorder traversal of
     the left subtree and the right subtree followed by a visit to the
     root node.
+
+.. _fig_post_order_tree:
+
+.. figure:: Figures/post_order.gif
+   :align: center
+   :alt: image
+
+   Figure 8: Traversal pattern for postorder.
 
 Let’s look at some examples that illustrate each of these three kinds of
 traversals. First let’s look at the preorder traversal. As an example of
@@ -47,7 +79,7 @@ will stick with binary trees for now.
    :align: center
    :alt: image
 
-   Figure 5: Representing a Book as a Tree
+   Figure 9: Representing a Book as a Tree
 
 Suppose that you wanted to read this book from front to back. The
 preorder traversal gives you exactly that ordering. Starting at the root
@@ -107,7 +139,7 @@ then the function returns without taking any action.
 We can also implement ``preorder`` as a method of the ``BinaryTree``
 class. The code for implementing ``preorder`` as an internal method is
 shown in :ref:`Listing 3 <lst_preorder2>`. Notice what happens when we move the
-code from internal to external. In general, we just replace ``tree``
+code from external to internal. In general, we just replace ``tree``
 with ``self``. However, we also need to modify the base case. The
 internal method must check for the existence of the left and the right
 children *before* making the recursive call to ``preorder``.
@@ -422,3 +454,26 @@ Notice that the ``printexp`` function as we have implemented it puts
 parentheses around each number. While not incorrect, the parentheses are
 clearly not needed. In the exercises at the end of this chapter you are
 asked to modify the ``printexp`` function to remove this set of parentheses.
+
+.. dragndrop:: treeTraversalTypes
+    :feedback: Review the tree traversal patterns.
+    :match_1: preorder|||root, left, right
+    :match_2: inorder|||left, root, right
+    :match_3: postorder|||left, right, root
+
+    Drag the tree traversal to its corresponding pattern.
+
+.. mchoice:: question1_1
+   :answer_a: Book, Chapter 1, Section 1.1, Section 1.2, Section 1.2.2,
+    Section 1.2.2, Chapter 2, Section 2.1, Section 2.2, Section 2.2.1, Section 2.2.2
+   :answer_b: Section 1.1, Chapter 1.2, Section 1.2.1, Section 1.2, Section 1.2.2,
+    Section 2.1, Chapter 2, Section 2.2.1, Section 2.2, Section 2.2.2
+   :answer_c: Section 1.1, Section 1.2.1, Section 1.2.2, Section 1.2, Chapter 1,
+    Section 2.1, Section 2.2.1, Section 2.2.2, Section 2.2, Chapter 2, Book
+   :correct: a
+   :feedback_a: correct
+   :feedback_b: Incorrect, this is postorder traversal
+   :feedback_c: Incorrect, this is inorder traversal
+
+   If you print out the data at each node, what would be the result of using
+   the preorder traversal method on :ref:`Figure 5 <fig_booktree>`?

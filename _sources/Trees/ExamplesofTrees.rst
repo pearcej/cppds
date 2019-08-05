@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -128,3 +128,17 @@ level of nesting inside the HTML tags. The first tag in the source is
 ``<html>`` and the last is ``</html>`` All the rest of the tags in the
 page are inside the pair. If you check, you will see that this nesting
 property is true at all levels of the tree.
+
+.. mchoice:: treeProperties
+   :multiple_answers:
+   :answer_a: each node is unique
+   :answer_b: children of one node are independent from children of another
+   :answer_c: each node has children
+   :answer_d: hierarchy
+   :correct: a,b,d
+   :feedback_a: correct
+   :feedback_b: correct
+   :feedback_c: nodes can have no children
+   :feedback_d: correct
+
+   Which of the following are properties of a tree?

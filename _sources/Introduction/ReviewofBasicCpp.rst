@@ -26,10 +26,12 @@ The following is an example of C++ code that writes to the console:
   :caption: A simple C++ program with output
   :language: cpp
 
+  //Outputs strings to command line.
   #include <iostream>
   using namespace std;
 
   int main() {
-      cout << "Welcome to Problem Solving with";
-      cout << "Algorithms and Data Structures!";
+      cout << "Welcome to Problem Solving with" << endl;
+      cout << "Algorithms and Data Structures!" << endl;
+      return  0;
   }

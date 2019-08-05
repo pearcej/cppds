@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -9,7 +9,7 @@ C++ considers data to be the focal point of the problem-solving process.
 We stated above that C++ supports the object-oriented programming
 paradigm. In C++, as well as in any other
 object-oriented programming language, we define a **class** to be a
-description of what the data look like (the state) and what the data can
+description of what the data looks like (the state) and what the data can
 do (the behavior). Classes are analogous to abstract data types because
 a user of a class only sees the state and behavior of a data item.
 Data items are called **objects** in the object-oriented paradigm. An object
@@ -19,14 +19,27 @@ is an instance of a class.
 Built-in Atomic Data Types
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-C++ requires the users specify the specific data type of each variable
-before it is used.
+C++ requires users to specify the data type of each variable before it is used.
 The primary C++ built-in atomic data types are: integer (``int``),
 floating point (``float``), double precision floating point (``double``),
 Boolean (``bool``), and character (``char``). There is also a special
 type which holds a memory location called ``pointer``. C++ also has
 collection or compound data types, which will be discussed in a future
 chapter.
+
+.. mchoice:: atomicq1
+	:answer_a: It must be mutable so that it can change at any time.
+	:answer_b: Its memory size cannot be too big, relating to how atoms are naturally very small.
+	:answer_c: It must be statically allocated so it cannot change in size.
+	:answer_d: It cannot be broken down any smaller while still being easily operable.
+	:correct: d
+	:feedback_a: Incorrect, Atomic data types are not required to be mutable.
+	:feedback_b: Incorrect, The data type can be any size, but you're close. (hint: atomic data types got their name when scientists thought atoms were the smallest things in existence.)
+	:feedback_c: Incorrect, atomic data types have nothing to do with being static or dynamic.
+	:feedback_d: Correct, the atomic data type actually got its name when scientists thought atoms were the smallest things in existence. That is why they are data types that cannot be broken down.
+
+	After reading the above paragraph, what makes a data type categorized as an atomic data type? (hint: 
+	arrays and vectors are not atomic)
 
 Numeric Data
 ^^^^^^^^^^^^
@@ -57,6 +70,7 @@ Run the following code to see that you understand each result.
         :caption: Basic Arithmetic Operators C++
         :language: cpp
 
+        //outputs results from various math expressions
         #include <iostream>
         #include <cmath>
         using namespace std;
@@ -83,6 +97,7 @@ Run the following code to see that you understand each result.
     .. activecode:: intro_1py
         :caption: Basic Arithmetic Operators Python
 
+        #outputs results from various math expressions
         def main():
 
             print(2+3*4)
@@ -125,7 +140,7 @@ to ensure space is used as efficiently as possible.
   :answer_b: ``5**4``
   :answer_c: ``4^5``
   :answer_d: ``pow(4, 5)``
-  :correct: e
+  :correct: d
   :feedback_a: No, ``**`` is used in other languages, but not C++.
   :feedback_b: No, ``**`` is used in other languages, but not C++, and the operators are reversed.
   :feedback_c: No. The ``^`` is a valid operator in C++, but it does something else.
@@ -157,6 +172,7 @@ are actually ``1`` and ``0`` respectively. Hence, we see this in output as well.
         :caption: Logical Operators C++
         :language: cpp
 
+        //outputs boolean results to the command line
         #include <iostream>
         using namespace std;
 
@@ -173,6 +189,7 @@ are actually ``1`` and ``0`` respectively. Hence, we see this in output as well.
         .. activecode:: logical_1py
             :caption: Logical Operators Python
 
+            #outputs boolean results to the command line
             def main():
                 print(True)
                 print(False)
@@ -214,6 +231,7 @@ and logical operators with examples shown in the session that follows.
         :caption: Basic Relational and Logical Operators C++
         :language: cpp
 
+        //outputs the results from the relational and logical operators
         #include <iostream>
         using namespace std;
 
@@ -231,6 +249,7 @@ and logical operators with examples shown in the session that follows.
     .. activecode:: logicalpy
         :caption: Basic Relational and Logical Operators Python
 
+        #outputs the results from the relational and logical operators
         def main():
 
             print(5 == 10)
@@ -250,6 +269,7 @@ Consider the following session:
 .. activecode:: booleanpitfall
     :language: cpp
 
+    //showcases how variables work in C++
     #include <iostream>
     using namespace std;
 
@@ -288,7 +308,7 @@ complaining. Note what happened in the code above in the final output.
    :answer_a: Setting theBool to anything other than true or false is ignored.
    :answer_b: Setting theBool to anything > 0 will be true and false otherwise.
    :answer_c: false == 0 and true = !false i.e. anything that is not zero and can be converted to a Boolean is not false, thus it must be true.
-   :answer_d: I have no idea. It makes no sense.
+   :answer_d: None of the above.
    :correct: c
    :feedback_a: No. Try changing the code and setting theBool to 0.
    :feedback_b: No. Try changing the code and setting theBool to -4.
@@ -314,6 +334,7 @@ Consider the following code.
     .. activecode:: charpy
         :caption: Python strings
 
+        #outputs the boolean results to show how strings and chars differ in C++
         def main():
 
             strvar = "b"
@@ -332,6 +353,7 @@ Consider the following code.
         :caption: Considering characters and strings
         :language: cpp
 
+        //outputs the boolean results to show how strings and chars differ in C++
         #include <iostream>
         #include <string>
         using namespace std;
@@ -360,8 +382,8 @@ Try the following question.
    :correct: b
    :feedback_a: No, single quotes are only used for single characters.
    :feedback_b: Good job reading!
-   :feedback_c: No. Try again.
-   :feedback_d: No. Try again.
+   :feedback_c: No. Only one set of symbols may be used.
+   :feedback_d: No. No matter what, the implementation is consistent.
    :feedback_e: One of the above is indeed correct.
 
    If I want to create a string in C++, what set of symbols may be used?
@@ -381,14 +403,14 @@ for either a reference or an object. This makes access faster, but it is one of
 the reasons we need to declare each variable because different types take differing
 amounts of space in memory!
 
-The following code declares a variable called *varName* that has in it a
+The following code declares a variable called *varN* that has in it a
 value of 100:
 
 
 ::
 
     // C++ variable declaration and assignment of an integer value
-    int varName = 100;
+    int varN = 100;
 
 In C++ the results of running this code will look like the diagram below:
 
@@ -396,7 +418,7 @@ In C++ the results of running this code will look like the diagram below:
 
 .. figure:: Figures/cpp_var.png
    :align: center
-   :alt: "Box named varName containing value of 100"
+   :alt: "Box named varN containing value of 100"
 
    Figure 4: C++ variable
 
@@ -419,13 +441,14 @@ In C++ we use the *address-of operator*, ``&`` to reference the address.
         :caption: Memory addresses in C++
         :language: cpp
 
+        //outputs both the value of varN and the location in memory of varN
         #include <iostream>
         using namespace std;
 
         int main(){
-            int varName = 101;
-            cout << varName << endl;
-            cout << &varName << endl;
+            int varN = 101;
+            cout << varN << endl;
+            cout << &varN << endl;
             return 0;
         }
 
@@ -434,10 +457,11 @@ In C++ we use the *address-of operator*, ``&`` to reference the address.
     .. activecode:: address_py
         :caption: Memory identifier in Python
 
+        #because python is an interpreted language, variables stored at a virtual memory address. 
         def main():
-            varName = 101;
-            print(varName)
-            print(id(varName))
+            varN = 101;
+            print(varN)
+            print(id(varN))
 
         main()
 
@@ -487,25 +511,25 @@ refer to another variable by using the address-of operator, which is denoted by 
 ampersand symbol, ``&``. The address-of operator ``&`` does exactly what it indicates,
 namely it returns the address.
 
-The syntax is shown below, where varName stores the value, and varPntr stores
-the address of where varName is located:
+The syntax is shown below, where varN stores the value, and ptrN stores
+the address of where varN is located:
 
 ::
 
-    variableType varName;  // a variable to hold the value
-    variableType *varPntr = &varName;  // a variable pointing to the address of varName
+    variableType varN;  // a variable to hold the value
+    variableType *ptrN = &varN;  // a variable pointing to the address of varN
 
 Keep in mind that when declaring a C++ pointer, the pointer needs to
 reference the same type as the variable or constant to which it points.
 
-Expanding on the example above where varName has the value of 100.
+Expanding on the example above where varN has the value of 100.
 
 ::
 
     //variable declaration for a single integer value
-    int varName = 100;
-    int *varPntr;
-    varPntr = &varName;
+    int varN = 100;
+    int *ptrN;
+    ptrN = &varN;
 
 The results of running this C++ code will look like the diagram below.
 
@@ -526,49 +550,56 @@ goes to that address, effectively *dereferencing* the pointer,
 meaning that it will find the location of the value stored where the pointer was
 pointing.
 
-In other words, varName and \*varPntr (note the asterisk in front!) reference the same
+In other words, varN and \*ptrN (note the asterisk in front!) reference the same
 value in the code above.
 
 Let's extend the example above to output the value of a variable and its address
 in memory:
 
-.. _dereferencing:
+... _dereferencing:
 
-  .. activecode:: examplecpp
+  .. activecode:: firstptr
       :language: cpp
 
+      //prints a variable by pointer and value
       #include <iostream>
       using namespace std;
 
       int main( ) {
-          int varName = 100;
-          int *varPntr = &varName;
+          int varN = 100;
+          int *ptrN = &varN; // ptrN points to varN address
 
-          cout << "varName value: " << varName << endl;
-          cout << "varPntr location: " << varPntr << endl;
-          cout << "varPntr points to varName: " << endl;
-          cout << "dereference varPntr: " << *varPntr << "\n\n";
+          cout << "varN value: " << varN << endl;
+          cout << "varN location: " << ptrN << endl;
+          cout << "dereference ptrN: " << *ptrN << "endl";
 
-          varName = 50;
-
-          cout << "varName changed: " << varName << endl;
-          cout << "varPntr still points to varName: " << endl;
-          cout << "dereference varPntr: " << *varPntr << "\n\n";
-
-          *varPntr = 2000;
-          cout << "Changed *varPntr, ie varName to: " << endl;
-          cout << "dereference varPntr: " << *varPntr << "\n\n";
-
+          
           return 0;
       }
+      
+
+.. mchoice:: mc_pntrhlp
+   :answer_a: varPntr: 100
+   :answer_b: varPntr: 50
+   :answer_c: varPntr: 150
+   :answer_d: 0x7ffeb9ce053c
+   :answer_e: none of the above
+   :correct: b
+   :feedback_a: Not quite, the variable varN no longer equals 100 past line 7!
+   :feedback_b: Right!
+   :feedback_c: No, the values do not add together!
+   :feedback_d: We are dereferencing the pointer, so you would not get the address of varN. Try again!
+   :feedback_e: One of the above is indeed correct.
+  
+   If the lines (varN = 50;) and  (cout << \*ptrN << endl;) were inserted into line 7-8, what would it cout? 
 
 Compiling and running the above code will have the program output the
-value in varName,
-what is in varPntr (the memory address of varName),
+value in varN,
+what is in ptrN (the memory address of varN),
 and what value is located at that
 memory location.
 
-The second output sentence is the address of varName, which would most likely be
+The second output sentence is the address of varN, which would most likely be
 different if you run the program on your machine.
 
 WARNING: What happens if you forget the asterisk
@@ -580,20 +611,21 @@ and had the following instructions instead?
     .. activecode:: cpp_address_error1
         :language: cpp
 
+        //showcases what happens when reading from unknown memory locations
         #include <iostream>
         using namespace std;
 
-        int main( ) {
-            int varName = 100;
-            int varPntr = varName; // Note no asterisk,
-                // varPntr now refers to memory position 100,
+        int main() {
+            int varN = 100;
+            int ptrN = varN; // Note: no asterisk,
+                // ptrN now refers to memory position 100,
                 // whatever happens to be there!
                 // You might get an error or you might not!
 
-             cout << "varName value: " << varName << endl;
-             cout << "varPntr location: " << varPntr << endl;
-             cout << "varPntr points to varName: " << endl;
-             cout << "dereference varPntr: " << *varPntr << "\n\n";
+             cout << "varN value: " << varN << endl;
+             cout << "varN location: " << ptrN << endl;
+             cout << "ptrN points to varN: " << endl;
+             cout << "dereference ptrN: " << *ptrN << "\n\n";
 
              return 0;
         }
@@ -614,9 +646,9 @@ the first ``cout`` instruction outputs:
 
 ::
 
-    After changing *varPntr, varName now has: 50
+    After changing *ptrN, varN now has: 50
 
-which is expected because you changed where varPntr is pointing to and
+which is expected because you changed where ptrN is pointing to and
 NOT the contents of where it is pointing.
 
 The second ``cout`` instruction is a disaster because
@@ -644,7 +676,8 @@ thereby ending the loop:
 
     .. activecode:: NULLexamplecpp
         :language: cpp
-
+        
+        //showcases how you can use NULL.
         #include <iostream>
         using namespace std;
 
@@ -653,11 +686,11 @@ thereby ending the loop:
             int *ptrx = &x;
 
             while (ptrx) {
-                cout << "Pointer ptrx points to " << &ptrx << endl;
+                cout << "Pointer ptrx points to " << ptrx << endl;
                 ptrx = NULL;
             }
 
-            cout << "Pointer ptrx points to nothing!\n";
+            cout << "Pointer ptrx points to nothing!" <<endl;
         }
 
 Helpful Tip: The NULL pointer becomes very useful when you must test
@@ -674,8 +707,8 @@ is valid or not.
    :correct: a
    :feedback_a: Right!
    :feedback_b: No. Double quotes are only used for strings.
-   :feedback_c: No. Try again.
-   :feedback_d: No. Try again.
+   :feedback_c: No. Only one set of symbols may be used.
+   :feedback_d: No. The implementation is consistent.
    :feedback_e: One of the above is indeed correct.
 
    If I want to use the ``char`` type in C++, what set of symbols must be used?
@@ -701,7 +734,7 @@ is valid or not.
   :feedback_a: Right! ``&`` is the "address-of" operator, used to reference an address.
   :feedback_b: No. ``int *p;`` defines a pointer to an integer, and ``*p`` would dereference that pointer, i.e. retrieve the data that p points to.
   :feedback_c: No. This is used in other languages such as Python.
-  :feedback_d: No. Try again.
+  :feedback_d: No. The implementation remains consistent.
   :feedback_e: One of the above is indeed correct.
 
   How may one reference a variable's memory address in C++?

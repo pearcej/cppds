@@ -16,9 +16,9 @@ traversed with the help of iterators, and they
 can also be accessed randomly using indexes.
 
 Like vectors, strings have a dynamic size meaning that whenever
-a new characters is inserted or deleted,
+a new character is inserted or deleted,
 their size changes automatically.
-Just like vectors, new element can be inserted into or deleted from any part of a string,
+Just like vectors, new elements can be inserted into or deleted from any part of a string,
 and automatic reallocation for other existing items in the string is applied.
 
 Indexing and assigning a new character to an index position
@@ -32,7 +32,7 @@ the implementations are so similar.
 
 .. _tbl_strbigocpp:
 
-.. table:: **Table 3: Big-O Efficiency of C++ Sting Operations**
+.. table:: **Table 3: Big-O Efficiency of C++ String Operations**
 
     ===================== ==================
                 Operation   Big-O Efficiency
@@ -44,7 +44,7 @@ the implementations are so similar.
                  erase(i)               O(n)
           insert(i, item)               O(n)
      find(srt, stp, item)   O(log n) or O(n)
-                reserve()               O(1)
+                reserve()               O(n)
                   begin()               O(1)
                     end()               O(1)
                    size()               O(1)

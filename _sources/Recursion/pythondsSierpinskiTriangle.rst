@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -10,7 +10,7 @@ Another fractal that exhibits the property of self-similarity is the
 Sierpinski triangle. An example is shown in :ref:`Figure 3 <fig_sierpinski>`. The
 Sierpinski triangle illustrates a three-way recursive algorithm. The
 procedure for drawing a Sierpinski triangle by hand is simple. Start
-with a single large triangle. Divide this large triangle into four new
+with a single large triangle. Divide this large triangle into three new
 triangles by connecting the midpoint of each side. Ignoring the middle
 triangle that you just created, apply the same procedure to each of the
 three corner triangles. Each time you create a new set of triangles, you
@@ -41,9 +41,12 @@ generated the Sierpinski Triangle in :ref:`Figure 3 <fig_sierpinski>` is shown i
     :caption: Drawing a Sierpinski Triangle
     :nocodelens:
 
+    #Recursive example of the Sierpinski Triangle.
+
     import turtle
 
     def drawTriangle(points,color,myTurtle):
+	#Draws a triangle using the diven points and color.
         myTurtle.fillcolor(color)
         myTurtle.up()
         myTurtle.goto(points[0][0],points[0][1])
@@ -65,15 +68,15 @@ generated the Sierpinski Triangle in :ref:`Figure 3 <fig_sierpinski>` is shown i
             sierpinski([points[0],
                             getMid(points[0], points[1]),
                             getMid(points[0], points[2])],
-                       degree-1, myTurtle)
+                       degree-1, myTurtle) #Recursive call
             sierpinski([points[1],
                             getMid(points[0], points[1]),
                             getMid(points[1], points[2])],
-                       degree-1, myTurtle)
+                       degree-1, myTurtle) #Recursive call
             sierpinski([points[2],
                             getMid(points[2], points[1]),
                             getMid(points[0], points[2])],
-                       degree-1, myTurtle)
+                       degree-1, myTurtle) #Recursive call
 
     def main():
        myTurtle = turtle.Turtle()

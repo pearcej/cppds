@@ -64,7 +64,7 @@ method from the Base class.
 
   class Base {
       public:
-          virtual void printType() {
+          virtual void printType() { // Creates function called  printType
               subfunction();
               cout << "I'm inherited!" << endl << endl;
           }
@@ -87,11 +87,11 @@ method from the Base class.
   };
 
   int main() {
-      SubFirst first;
-      first.printType();
+      SubFirst first;       // runs  subfirst class using printType virtual function
+      first.printType();    // calls Subfirst class, and runs virtual function on it's own
 
-      SubSecond second;
-      second.printType();
+      SubSecond second;    // runs  subsecond class using printType virtual function
+      second.printType();  // calls Subsecond class, and runs virtual function on it's own 
 
       return 0;
   }
@@ -154,6 +154,16 @@ characteristics of logic gates: namely, a label for the gate and an
 output line. The next level of subclasses breaks the logic gates into
 two families, those that have one input line and those that have two.
 Below that, the specific logic functions of each appear.
+
+.. figure:: Figures/logicquestion.png
+	:align: center
+
+.. fillintheblank:: logicquestion
+
+  What will the logic gate yield (1 / 0)?
+
+ - :0: Correct!
+   :1: Take a closer look at the logic gates. 
 
 .. _fig_gates:
 
@@ -434,6 +444,23 @@ connection.
 
    Figure 13: Circit of NOT(AND(ganda,gnadb)OR AND(gandc,gandd))
 
+.. mchoice:: mc_IS-A_HAS-A
+	:multiple_answers:
+	:answer_a: An IS-A class object is an instance of an inherited class.
+	:answer_b: A HAS-A class object has all of the methods of another class.
+	:answer_c: An IS-A class object contains instances of another class.
+	:answer_d: A HAS-A class object is an instance of an inherited class.
+	:answer_e: A HAS-A class object contains instances of another class.	
+	:correct: a, e
+	:feedback_a: Correct!
+	:feedback_b: No. HAS-A relationships do not mean that one class is copying another class.
+	:feedback_c: No. IS-A relationships do not mean that an object contains different class instances.
+	:feedback_d: No, HAS-A reltionships do not use inheritance.
+	:feedback_e: Correct!
+	
+	What is the difference between HAS-A and IS-A relationships? Select all that apply. 
+   
+
 
 .. activecode:: desiredcircuit
   :language: cpp
@@ -443,6 +470,7 @@ connection.
     #include <string>
     using namespace std;
 
+	// creates a class with a logic gate that returns the label, and boolean value 
     class LogicGate {
     	public:
     		LogicGate(string n){
@@ -468,6 +496,7 @@ connection.
     		bool output;
     };
 
+	//class that allows for the gates to have two inputs 
     class BinaryGate : public LogicGate {
     	public:
     		BinaryGate(string n) : LogicGate(n) {
@@ -504,6 +533,7 @@ connection.
     		bool pinA, pinATaken, pinB, pinBTaken;
     };
 
+	//allows for the creation of a logic gate with  one input 
     class UnaryGate : public LogicGate {
     	public:
     		UnaryGate(string n) : LogicGate(n) {
@@ -530,7 +560,8 @@ connection.
     		bool pin, pinTaken;
     };
 
-    class AndGate : public BinaryGate{
+    //Class that sets up the logic for an "and" gate 
+	class AndGate : public BinaryGate{
     	public:
     		AndGate(string n) : BinaryGate(n) {};
 
@@ -546,7 +577,8 @@ connection.
     		}
     };
 
-    class OrGate : public BinaryGate {
+    //class that sets up the logic for an "or" gate 
+	class OrGate : public BinaryGate {
     	public:
     		OrGate(string n) : BinaryGate(n) {};
 
@@ -562,7 +594,8 @@ connection.
     		}
     };
 
-    class NotGate : public UnaryGate {
+    //class that sets up the logic for a "not" gate
+	class NotGate : public UnaryGate {
     	public:
     		NotGate(string n) : UnaryGate(n) {};
 
@@ -576,7 +609,8 @@ connection.
     		}
     };
 
-    class Connector{
+    // class that sets up logic for the connection of one gate to another
+	class Connector{
     	public:
     		Connector(LogicGate *fgate, LogicGate *tgate) {
     			fromgate = fgate;

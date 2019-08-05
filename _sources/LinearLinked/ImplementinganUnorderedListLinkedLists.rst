@@ -1,14 +1,14 @@
-..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
 Implementing an Unordered Linked List
 -------------------------------------
 
-A linked list is a linear collection of data elements whose order
+A **linked list** is a linear collection of data elements whose order
 is not determined by the placement in memory. Instead, each element is stored
 in a node which points to the next node.
-In the next sections we implement this **linked list** data structure.
+In the next sections we implement this linked list data structure.
 In doing so, we need to be sure that
 we can maintain the relative positioning of the items. However, there is
 no requirement that we maintain that positioning in contiguous memory.
@@ -66,20 +66,20 @@ to access and modify the data and the next reference.
 
     class Node {
         private:
-        	int data;
-        	Node *next;
+        	int data; //data in the beginning node 
+        	Node *next; //pointer to the next node
 
         public:
         	Node(int initdata) {
-        		data = initdata;
-        		next = NULL;
+        		data = initdata; //the initialized data is set as the head
+        		next = NULL; //the next node is set as NULL, as there is no next node yet.
         	}
 
-        	int getData() {
-        		return data;
+        	int getData() { //function that return data of a given node. 
+        		return data; 
         	}
 
-        	Node *getNext() {
+        	Node *getNext() { 
         		return next;
         	}
 
@@ -94,17 +94,20 @@ to access and modify the data and the next reference.
 
 ::
 
-        >>> temp = Node(93)
-        >>> temp.getData()
+        >>> temp = Node(93) //sets the nodes data to the integer 93
+        >>> temp.getData() // calls the getData() function.
         93
 
 The special C++ reference value ``NULL`` will play an important role
 in the ``Node`` class and later in the linked list itself. A reference
-to ``NULL`` will denote the fact that there is no next node. Note in the
-constructor that a node is initially created with ``next`` and a pointer to
-``NULL``. Since this is sometimes referred to as “grounding the node,”
-we will use the standard ground symbol to denote a reference that is
-referring to ``NULL``.
+to ``NULL`` will denote the fact that there is no next node. 
+
+Note:
+
+    in the constructor that a node is initially created with ``next`` and a pointer to
+    ``NULL``. Since this is sometimes referred to as “grounding the node,”
+    we will use the standard ground symbol to denote a reference that is
+    referring to ``NULL``.
 
 
 .. _fig_node:
@@ -125,10 +128,9 @@ referring to ``NULL``.
 The ``Unordered Linked List`` Class
 -----------------------------------
 
-As we suggested above, the
-will be built from a
-collection of nodes, each linked to the next by explicit pointers. As
-long as we know where to find the first node (containing the first
+As we suggested above, the **unordered linked list**
+will be built from a collection of nodes, each linked to the next by explicit
+pointers. As long as we know where to find the first node (containing the first
 item), each item after that can be found by successively following the
 next links. With this in mind, the ``UnorderedList`` class must maintain
 a reference to the first node. :ref:`Listing 2 <lst_listclass>` shows the
@@ -150,7 +152,7 @@ to the head of the list.
             }
     }
 
-Initially when we construct a list, there are no items. The assignment
+Initially when we construct a list, there are no items. The assignment and declaration 
 statement
 
 ::
@@ -164,10 +166,23 @@ the list does not refer to anything. Eventually, the example list given
 earlier will be represented by a linked list as shown in
 :ref:`Figure 6 <fig_linkedlist>`. The head of the list points to the first node
 which contains the first item of the list. In turn, that node holds a
-reference to the next node (the next item) and so on. It is very
-important to note that the list class itself does not contain any node
-objects. Instead it contains a single pointer to only the first node
-in the linked structure.
+reference to the next node (the next item) and so on. **It is very important to note that the list class itself does not contain any node**
+**objects. Instead it contains a single pointer to only the first node**
+**in the linked structure.**
+
+.. mchoice:: beheadedq
+    :multiple_answers:
+    :answer_a: If you lose the head, the next node becomes the head.
+    :answer_b: If you lose the head, the list is still in memory, you just cannot find it.
+    :answer_c: It is impossible to lose the head. 
+    :answer_d: If you lose the head, you lose access to the entire linked list.
+    :correct: b, d
+    :feedback_a: No, if you lose the head node, your pointer will be pointing at nothing. 
+    :feedback_b: Yes, this occurs because the delete keyword is never used to get rid of the list.
+    :feedback_c: No, if you lose the head node, your pointer will be pointing at nothing.
+    :feedback_d: Right, however, it remains in memory, unknown to you.
+
+    What would happen if you lose the head of a singularly-linked linked list?
 
 .. _lst_listclass_py:
 
@@ -204,8 +219,7 @@ the boolean expression ``this->head==NULL`` will only be true if there
 are no nodes in the linked list. Since a new list is empty, the
 constructor and the check for empty must be consistent with one another.
 This shows the advantage to using the reference ``NULL`` to denote the
-“end” of the linked structure. In Python, ``None`` can be compared to
-any reference. Two references are equal if they both refer to the same
+“end” of the linked structure. Two references are equal if they both refer to the same
 object. We will use this often in our remaining methods.
 
 ^^^^^^^^^^^^^^^^^^^
@@ -383,6 +397,15 @@ set to ``True``.
         return false;
     }
 
+.. mchoice:: travq
+    :answer_a: True
+    :answer_b: False
+    :correct: a
+    :feedback_a: Correct! 
+    :feedback_b: Not quite, without the while loop, the traversal could go for as long as the program is allowed to run.
+
+    True / false: The while loop is needed to keep the traversal from going past the end of the list.
+
 As an example, consider invoking the ``search`` method looking for the
 item 17.
 
@@ -549,53 +572,56 @@ You can try out the ``UnorderedList`` class in ActiveCode 1.
    #include <iostream>
    using namespace std;
 
+   //creates a node class
    class Node {
+       //defines data, and next as a pointer.
        private:
-       	   int data;
-       	   Node *next;
+       	   int data; //data in the beginning node
+       	   Node *next; //pointer to the next node
 
        public:
        	   Node(int initdata) {
-       		   data = initdata;
-       		   next = NULL;
+       		   data = initdata; //the initialized data is set as the head
+       		   next = NULL; //the next node is set as NULL, as there is no next node yet.
        	   }
 
-       	   int getData() {
+       	   int getData() { //function that return data of a given node. 
        		   return data;
        	   }
 
-       	   Node *getNext() {
+       	   Node *getNext() { // pointer that gets the next node 
        		   return next;
        	   }
 
-       	   void setData(int newData) {
+       	   void setData(int newData) { // sets data in node 
        		   data = newData;
        	   }
 
-       	   void setNext(Node *newnext) {
+       	   void setNext(Node *newnext) { 
        		   next = newnext;
        	   }
    };
 
+    // creates unorderedlist that points to the head of the linked list
    class UnorderedList {
        public:
    	       Node *head;
 
-   	       UnorderedList() {
+   	       UnorderedList() { // makes the head node equal to null 
    		       head = NULL;
    	       }
 
-           bool isEmpty() {
+           bool isEmpty() { // the head node is empty if it is null 
                return head == NULL;
            }
 
-           void add(int item) {
+           void add(int item) { //cerates a "temp" pointer that adds the new node to the head of the list
                Node *temp = new Node(item);
                temp->setNext(head);
                head = temp;
            }
 
-           int size() {
+           int size() { //cereates a "current" pointer that iterates through the list until it reaches null 
                Node *current = head;
                int count = 0;
                while (current != NULL) {
@@ -606,7 +632,10 @@ You can try out the ``UnorderedList`` class in ActiveCode 1.
                return count;
            }
 
-           bool search(int item) {
+           // creates "current" pointer that iterates through the list
+           // untli it finds the item being searched for, and returns a boolean value
+
+           bool search(int item) { 
                Node *current = head;
                while (current != NULL) {
                    if (current->getData() == item) {
@@ -618,7 +647,10 @@ You can try out the ``UnorderedList`` class in ActiveCode 1.
                return false;
            }
 
-           void remove(int item) {
+           // uses current and previous pointer to iterate through the lists
+           // finds the items that is searched for, and removes it 
+
+           void remove(int item) { 
                Node *current = head;
                Node *previous = NULL;
                bool found = false;
@@ -688,6 +720,21 @@ starting with 0.
 
 .. admonition:: Self Check
 
-   Part I:  Implement the append method for UnorderedList.  What is the time complexity of the method you created?
+    .. mchoice:: LLq1
+        :answer_a: Every Node is contained within the UnorderedList class object. Making access to every Node of the linked list possible.
+        :answer_b: Every Node in the linked list is exactly one space in memory away from the next. Making it possible to find the next Node and traverse through the list.
+        :answer_c: Every Node in the list is in various locations in memory, and those memory addresses are stored in an array inside of the UnorderedList object, which makes accessing each Node possible.
+        :answer_d: Every Node in the list is in various locations in memory, and each Node contains a pointer to the next Node in the list without needing to be contained in the UnorderedList class.
+        :correct: d
+        :feedback_a: Wrong! An UnorderedList class object will only reference the first item of the linked list.
+        :feedback_b: Wrong! A Node in a linked list can be in various locations in memory. This is very important to understand how linked lists operate.
+        :feedback_c: Wrong! While every Node can and will likely be in various locations in memory, all those locations will not be contained in the UnorderedList class object.
+        :feedback_d: Correct! An unordered linked list class object will have a pointer to the first Node of the list. That Node will contain a pointer to the second Node of the list, and so on.
 
-   Part II:  In the previous problem, you most likely created an append method that was :math:`O(n)`  If you add an instance variable to the UnorderedList class you can create an append method that is :math:`O(1)`.  Modify your append method to be :math:`O(1)`  Be Careful!  To really do this correctly you will need to consider a couple of special cases that may require you to make a modification to the add method as well.
+        Select the correct statement below.
+
+    If you had a rough time with understanding the use of pointers in the question above, it might be a good idea to look back at chapter 1.9 and review how pointers work again.
+
+    Part I:  Implement the append method for UnorderedList.  What is the time complexity of the method you created?
+
+    Part II:  In the previous problem, you most likely created an append method that was :math:`O(n)`  If you add an instance variable to the UnorderedList class you can create an append method that is :math:`O(1)`.  Modify your append method to be :math:`O(1)`  Be Careful!  To really do this correctly you will need to consider a couple of special cases that may require you to make a modification to the add method as well.

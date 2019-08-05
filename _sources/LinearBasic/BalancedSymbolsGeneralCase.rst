@@ -11,9 +11,9 @@ general problem of balancing and nesting different kinds of opening and
 closing symbols occurs frequently. For example, in Python
 square brackets, ``[`` and ``]``, are used for lists; curly braces, ``{`` and ``}``, are
 used for dictionaries; and parentheses, ``(`` and ``)``, are used for tuples and
-arithmetic expressions. .. include:: file C++, square brackets, `[` and `]`, are used for arrays and vectors,
-brackets `{` and `}` separate possibly nested blocks of code,
-and operations are given inside of possibly nested parentheses `(` and `)`.
+arithmetic expressions. .. include:: file C++, square brackets, ``[`` and ``]``, are used for arrays and vectors,
+brackets ``{`` and ``}`` separate possibly nested blocks of code,
+and operations are given inside of possibly nested parentheses ``(`` and ``)``.
 It is possible to mix symbols as long as each
 maintains its own open and close relationship. Strings of symbols such
 as
@@ -65,69 +65,72 @@ mismatch occurs, the Boolean variable ``balanced`` is set to ``false``.
       :caption: Solving the General Balanced Symbol Problem
       :language: cpp
 
-      #include <iostream>
-      #include <string>
-      #include <stack>
+      //program that returns whether a string is balanced or not
+        #include <iostream>
+        #include <string>
+        #include <stack>
 
-      using namespace std;
+        using namespace std;
+        //checks if a symbol is in the string of "{[("
+        bool inString(string symbol, string symbols){
+            return symbols.find(symbol) != string::npos;
+        }
+        //function that returns a boolean value based on whether the strings match
+        bool matches(string open, string close){
+            string opens = "({[";
+            string closers = ")]}";
+            bool val = inString(open, opens) == inString(close, closers);
+            return val;
+        }
 
-      bool inString(string symbol, string symbols){
-          int n = symbols.length();
-          int symb = symbols.find(symbol);
-          if (symb < n){
-              return true;
-          }
-          return false;
-      }
+        bool parChecker(string symbolString){
+            stack<string> s;
+            bool balanced = true;
+            int index = 0;  
+            int symbolLength = symbolString.length();
 
-      bool matches(string open, string close){
-          string opens = "({[";
-          string closers = ")]}";
-          return inString(open, opens) == inString(close, closers);
-      }
+            while(index < symbolLength && balanced){
+                string symbol;
+                symbol = symbolString[index];
+                string opens = "([{";
+                string closes = "}])";
+                if (inString(symbol, opens)){
+                    s.push(symbol);
+                } else if(inString(symbol, closes)){
+                    if (s.empty()){
+                        balanced = false;
+                    } else {
+                        string top = s.top();
+                        s.pop();
+                        if (!matches(top, symbol)){
+                            balanced = false;
+                            break;
+                        }
+                    }
+                }
+                index = index + 1;
+            }
+            if(balanced && s.empty()){
+                return true;
+            } else {
+                return false;
+            }
+        }
 
-      bool parChecker(string symbolString){
-          stack<string> s;
-          bool balanced = true;
-          int index = 0;
-          int symbolLength = symbolString.length();
+        int main() {
+            cout << parChecker("{}") << endl;
+            cout << parChecker("[{()}]") << endl;
+            return 0;
+        }
 
-          while(index < symbolLength && balanced){
-              string symbol;
-              symbol = symbolString[index];
-              string opens = "({[";
-              if (inString(symbol, opens)){
-                  s.push(symbol);
-              } else {
-                  if (s.empty()){
-                      balanced = false;
-                  } else {
-                      string top = s.top();
-                      s.pop();
-                      if (!matches(top, symbol)){
-                          balanced = false;
-                      }
-                  }
-              }
-              index = index + 1;
-          }
-          if(balanced && s.empty()){
-              return true;
-          } else {
-              return false;
-          }
-      }
-
-      int main() {
-          cout << parChecker("{{([][])}()}") << endl;
-          cout << parChecker("[{()]") << endl;
-      }
 
 
   .. tab:: Python
 
     .. activecode:: parcheck2_py
        :caption: Solving the General Balanced Symbol Problem
+
+       #Program does the same as before, except with 2 extra symbols.
 
        from pythonds.basic.stack import Stack
 
@@ -137,22 +140,28 @@ mismatch occurs, the Boolean variable ``balanced`` is set to ``false``.
            index = 0
            while index < len(symbolString) and balanced:
                symbol = symbolString[index]
-               if symbol in "([{":
+               if symbol in "([{": #if the current symbol ==
+				   #an open symbol.
                    s.push(symbol)
                else:
-                   if s.isEmpty():
+                   if s.isEmpty(): #if there is a closed symbol
+				   #but no open symbol is pending.
                        balanced = False
                    else:
                        top = s.pop()
-                       if not matches(top,symbol):
+                       if not matches(top,symbol): #if the current closed symbol
+						   #is a different type than the
+   						   #pending open one.
                               balanced = False
                index = index + 1
-           if balanced and s.isEmpty():
+           if balanced and s.isEmpty(): #if the string is completely analyzed with
+				        #no remaining open symbols.
                return True
            else:
                return False
 
        def matches(open,close):
+	   #Checks if the type of an open and closed symbol are the same.
            opens = "([{"
            closers = ")]}"
            return opens.index(open) == closers.index(close)
@@ -161,6 +170,44 @@ mismatch occurs, the Boolean variable ``balanced`` is set to ``false``.
            print(parChecker('{{([][])}()}'))
            print(parChecker('[{()]'))
        main()
+
+.. clickablearea:: stackclick
+    :question: Using the program above, click on the line of code that adds an open parentheses to the stack.
+    :iscode:
+    :feedback: Remember that the function to do this would be the push function.
+
+    :click-incorrect:bool parChecker(string symbolString){:endclick:
+          :click-incorrect:stack<string> s;:endclick:
+          :click-incorrect:bool balanced = true;:endclick:
+          :click-incorrect:int index = 0;:endclick:
+          :click-incorrect:int symbolLength = symbolString.length();:endclick:
+
+          while(index < symbolLength && balanced){
+              :click-incorrect:string symbol;:endclick:
+              :click-incorrect:symbol = symbolString[index];:endclick:
+              :click-incorrect:string opens = "({[";:endclick:
+              :click-incorrect:if (inString(symbol, opens)){:endclick:
+                  :click-correct:s.push(symbol);:endclick:
+              } else {
+                  if (s.empty()){
+                      :click-incorrect:balanced = false;:endclick:
+                  } else {
+                      :click-incorrect:string top = s.top();:endclick:
+                      :click-incorrect:s.pop();:endclick:
+                      :click-incorrect:if (!matches(top, symbol)){:endclick:
+                          :click-incorrect:balanced = false;:endclick:
+                      }
+                  }
+              }
+              :click-incorrect:index = index + 1;:endclick:
+          }
+          :click-incorrect:if(balanced && s.empty()){:endclick:
+              :click-incorrect:return true;:endclick:
+          } else {
+              :click-incorrect:return false;:endclick:
+          }
+    }
+
 
 These two examples show that stacks are very important data structures
 for the processing of language constructs in computer science. Almost

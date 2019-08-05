@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -68,11 +68,11 @@ Programming Exercises
    have them shaped like rectangles.
 
 #. Pascal’s triangle is a number triangle with numbers arranged in
-   staggered rows such that 
+   staggered rows such that
 
    .. math::
       a_{nr} = {n! \over{r! (n-r)!}}
-   
+
    This equation is the equation for a binomial coefficient. You can
    build Pascal’s triangle by adding the two numbers that are diagonally
    above a number in the triangle. An example of Pascal’s triangle is
@@ -98,8 +98,8 @@ Programming Exercises
    sample problem for you to use to get started: Suppose your knapsack
    can hold a total weight of 20. You have 5 items as follows:
 
-   :: 
-   
+   ::
+
         item     weight      value
           1        2           3
           2        3           4
@@ -117,4 +117,3 @@ Programming Exercises
    to one another. Use dynamic programming techniques to develop an
    algorithm that gives you the smallest edit distance between any two
    words.
-

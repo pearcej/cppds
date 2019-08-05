@@ -23,6 +23,7 @@ Linear Structures
     TheDequeAbstractDataType.rst
     ImplementingaDequeCpp.rst
     PalindromeChecker.rst
-    Glossary.rst
+    Summary.rst
     DiscussionQuestions.rst
     ProgrammingExercises.rst
+    Glossary.rst

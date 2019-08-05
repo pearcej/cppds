@@ -186,17 +186,20 @@ at the end of this session against :ref:`Figure 2 <fig_dgsimple>`.
       	int id;
       	map<int, int> connectedTo;
 
+		//Empty constructor.
       	Vertex() {
       	}
 
+		//Constructor that defines the key of the vertex.
       	Vertex(int key) {
       		id = key;
       	}
 
+		//Adds a neighbor to this vertex with the specified ID and weight.
       	void addNeighbor(int nbr, int weight = 0) {
       		connectedTo[nbr] = weight;
       	}
-
+		//Returns a vector (e.g, list) of vertices connected to this one.
       	vector<int> getConnections() {
       		vector<int> keys;
       		// Use of iterator to find all keys
@@ -208,14 +211,17 @@ at the end of this session against :ref:`Figure 2 <fig_dgsimple>`.
       		return keys;
       	}
 
+		//Returns the ID of this vertex.
       	int getId() {
       		return id;
       	}
 
+		//Returns the weight of the connection between this vertex and the specified neighbor.
       	int getWeight(int nbr) {
       		return connectedTo[nbr];
       	}
 
+		//Output stream overload operator for printing to the screen.
       	friend ostream &operator<<(ostream &, Vertex &);
       };
 
@@ -233,10 +239,12 @@ at the end of this session against :ref:`Figure 2 <fig_dgsimple>`.
       	map<int, Vertex> vertList;
       	int numVertices;
 
+		//Empty constructor.
       	Graph() {
       		numVertices = 0;
       	}
 
+		//Adds the specified vertex and returns a copy of it.
       	Vertex addVertex(int key) {
       		numVertices++;
       		Vertex newVertex = Vertex(key);
@@ -244,6 +252,8 @@ at the end of this session against :ref:`Figure 2 <fig_dgsimple>`.
       		return newVertex;
       	}
 
+		//Returns the vertex with the specified ID.
+		//Will return NULl if the vertex doesn't exist.
       	Vertex *getVertex(int n) {
       		for (map<int, Vertex>::iterator it = vertList.begin();
       			 it != vertList.end();
@@ -257,7 +267,7 @@ at the end of this session against :ref:`Figure 2 <fig_dgsimple>`.
       			}
       		}
       	}
-
+		//Returns a boolean indicating if an index with the specified ID exists.
       	bool contains(int n) {
       		for (map<int, Vertex>::iterator it = vertList.begin();
       			 it != vertList.end();
@@ -269,6 +279,7 @@ at the end of this session against :ref:`Figure 2 <fig_dgsimple>`.
       		return false;
       	}
 
+		//Adds an edge between vertices F and T with a weight equivalent to cost.
       	void addEdge(int f, int t, int cost = 0) {
       		if (!this->contains(f)) {
       			cout << f << " was not found, adding!" << endl;
@@ -280,6 +291,7 @@ at the end of this session against :ref:`Figure 2 <fig_dgsimple>`.
       		vertList[f].addNeighbor(t, cost);
       	}
 
+		//Returns a vector (e.g, list) of all vertices in this graph.
       	vector<int> getVertices() {
       		vector<int> verts;
 
@@ -291,6 +303,7 @@ at the end of this session against :ref:`Figure 2 <fig_dgsimple>`.
       		return verts;
       	}
 
+		//Overloaded Output stream operator for printing to the screen
       	friend ostream &operator<<(ostream &, Graph &);
       };
 
@@ -331,47 +344,55 @@ at the end of this session against :ref:`Figure 2 <fig_dgsimple>`.
       :caption: Graph and Vertex implementation
 
       class Vertex:
+	    # Contructor that specifies the key of the vertex.
       	def __init__(self, key):
       		self.id = key
       		self.connectedTo = {}
-
+		# Adds a neighbor with the specified weight.
       	def addNeighbor(self, nbr, weight=0):
       		self.connectedTo[nbr] = weight
 
+		# Converts this vertex to a string representation.
       	def __str__(self):
       		return str(self.id) + ' connectedTo: ' + str(
       		    [x.id for x in self.connectedTo])
 
+		# Returns the list of vertex IDs that are connected to this one.
       	def getConnections(self):
       		return self.connectedTo.keys()
 
+		# Returns the ID of this vertex.
       	def getId(self):
       		return self.id
 
+		# Returns the weight of this vertex in relation to the specified neighbor.
       	def getWeight(self, nbr):
       		return self.connectedTo[nbr]
 
 
       class Graph:
+	  	# Empty constructor.
       	def __init__(self):
       		self.vertList = {}
       		self.numVertices = 0
-
+		# Adds a vertex with the specified ID (key) and returns it.
       	def addVertex(self, key):
       		self.numVertices = self.numVertices + 1
       		newVertex = Vertex(key)
       		self.vertList[key] = newVertex
       		return newVertex
-
+		# Returns the vertex (or None if nonexistant) with the specified ID n.
       	def getVertex(self, n):
       		if n in self.vertList:
       			return self.vertList[n]
       		else:
       			return None
 
+		# Returns a boolean indicating if the specified vertex ID is in this graph.
       	def __contains__(self, n):
       		return n in self.vertList
 
+		# Adds an edge between F and T with a weight of cost.
       	def addEdge(self, f, t, cost=0):
       		if f not in self.vertList:
       			self.addVertex(f)
@@ -379,9 +400,11 @@ at the end of this session against :ref:`Figure 2 <fig_dgsimple>`.
       			self.addVertex(t)
       		self.vertList[f].addNeighbor(self.vertList[t], cost)
 
+		# Returns a list of all vertices in this graph.
       	def getVertices(self):
       		return self.vertList.keys()
 
+		# Iteration overload (useful in python).
       	def __iter__(self):
       		return iter(self.vertList.values())
 

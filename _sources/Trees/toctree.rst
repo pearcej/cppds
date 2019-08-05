@@ -23,6 +23,6 @@ Trees and Tree Algorithms
     AVLTreeImplementation.rst
     SummaryofMapADTImplementations.rst
     Summary.rst
-    KeyTerms.rst
     DiscussionQuestions.rst
     ProgrammingExercises.rst
+    Glossary.rst

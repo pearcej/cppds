@@ -44,6 +44,8 @@ and if found, checked off by replacement. :ref:`ActiveCode 1 <lst_anagramSolutio
         #include <string>
         using namespace std;
 
+        //checks to see if the anagrams have the same number of characters
+
         bool anagramsolution1(string s1, string s2){
             bool stillOK = true;
             if (s1.length() != s2.length()) {
@@ -53,6 +55,8 @@ and if found, checked off by replacement. :ref:`ActiveCode 1 <lst_anagramSolutio
             string locals2 = s2;
             int n = s1.length();
             unsigned int pos1 = 0;
+
+            // checks to see if all of the letters are the same in both inputs 
 
             while (pos1 < s1.length() && stillOK){
                 int pos2 = 0;
@@ -86,6 +90,8 @@ and if found, checked off by replacement. :ref:`ActiveCode 1 <lst_anagramSolutio
     .. activecode:: active0py
         :caption: Checking Off Python
 
+        #checks to see if the anagrams have the same number of characters
+
         def anagramSolution1(s1,s2):
             stillOK = True
             if len(s1) != len(s2):
@@ -95,6 +101,7 @@ and if found, checked off by replacement. :ref:`ActiveCode 1 <lst_anagramSolutio
             lists2 = list(s2)
             pos1 = 0
 
+            # checks to see if all of the letters are the same in both inputs 
             while pos1 < len(s1) and stillOK:
                 pos2 = 0
                 found = False
@@ -158,6 +165,7 @@ this solution.
         #include <algorithm>
         using namespace std;
 
+        // sorts anagrams in order from a-z, and then compares them 
         bool anagramsolution2(string s1, string s2){
             sort(s1.begin(), s1.end());
             sort(s2.begin(), s2.end());
@@ -186,6 +194,7 @@ this solution.
     .. activecode:: active6py
         :caption: Sort and Compare
 
+        # sorts anagrams in order from a-z, and then compares them
         def anagramSolution2(s1,s2):
             alist1 = list(s1)
             alist2 = list(s2)
@@ -237,7 +246,7 @@ time and so it will still generate :math:`n!` different strings.
 It turns out that :math:`n!` grows even faster than :math:`2^{n}` as
 *n* gets large. In fact, if ``s1`` were 20 characters long, there would
 be :math:`20!=2,432,902,008,176,640,000` possible candidate strings.
-If we processed one possibility every second, it would still take us
+If we processed one possibility every second, it would take us
 77,146,816,596 years to go through the entire array. This is probably not
 going to be a good solution.
 
@@ -267,6 +276,9 @@ anagrams. :ref:`ActiveCode 3 <lst_ana4>` shows this solution.
         #include <iostream>
         #include <string>
         using namespace std;
+
+        // uses an array to count the number of a ocurrences of the two inputs 
+        // if the number of occurrences is the same then the input is an anagram
 
         bool anagramSolution4(string s1, string s2){
             int c1[26] = {0};
@@ -311,6 +323,9 @@ anagrams. :ref:`ActiveCode 3 <lst_ana4>` shows this solution.
     .. activecode:: active7py
         :caption: Count and Compare Python
 
+        """ uses an array to count the number of a ocurrences of the two inputs 
+        if the number of occurrences is the same then the input is an anagram """ 
+        
         def anagramSolution4(s1,s2):
             c1 = [0]*26
             c2 = [0]*26
@@ -363,12 +378,12 @@ problem.
 
    .. mchoice:: analysis_1
        :answer_a: O(n)
-       :answer_b: O(n^2)
+       :answer_b: O(n<sup>2</sup>)
        :answer_c: O(log n)
-       :answer_d: O(n^3)
+       :answer_d: O(n<sup>3</sup>)
        :correct: b
        :feedback_a: No. In an example like this you want to count the nested loops, especially the loops that are dependent on the same variable, in this case, n.
-       :feedback_b: Right! A nested loop like this is O(n^2).
+       :feedback_b: Right! A nested loop like this is O(n<sup>2</sup>).
        :feedback_c: No. log n typically is indicated when the problem is iteratively made smaller
        :feedback_d: No. In an example like this you want to count the nested loops. especially the loops that are dependent on the same variable, in this case, n.
 
@@ -388,9 +403,9 @@ problem.
 
    .. mchoice:: analysis_2
        :answer_a: O(n)
-       :answer_b: O(n^2)
+       :answer_b: O(n<sup>2</sup>)
        :answer_c: O(log n)
-       :answer_d: O(n^3)
+       :answer_d: O(n<sup>3</sup>)
        :correct: a
        :feedback_a: Right! Even though there are two loops they are not nested.  You might think of this as O(2n) but we can ignore the constant 2.
        :feedback_b: No. Be careful, in counting loops you want to look carefully at whether or not the loops are nested.
@@ -414,9 +429,9 @@ problem.
 
    .. mchoice:: analysis_3
        :answer_a: O(n)
-       :answer_b: O(n^2)
+       :answer_b: O(n<sup>2</sup>)
        :answer_c: O(log n)
-       :answer_d: O(n^3)
+       :answer_d: O(n<sup>3</sup>)
        :correct: c
        :feedback_a: No. Look carefully at the loop variable i.  Notice that the value of i is cut in half each time through the loop.  This is a big hint that the performance is better than O(n)
        :feedback_b: No. Check again, is this a nested loop?
@@ -436,3 +451,13 @@ problem.
              }
              return 0;
          }
+
+   .. fillintheblank:: fill1512
+
+       If an algorithm performing at :math:`O(n^{2})` has the integer 8 as input, what is the worst case scenario for the algorithm?
+
+       - :64: Correct!
+         :16: That would be 2n, which would be simplified as n.
+         :8: That would be n.
+         :.*: Wrong, Try again!
+

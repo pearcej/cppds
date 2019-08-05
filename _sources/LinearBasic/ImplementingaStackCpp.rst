@@ -31,6 +31,9 @@ of the array. ``pop`` operations will manipulate that same end.
        :caption: Using the Stack methods from the STL in C++
        :language: cpp
 
+	
+       //Tests the push, empty, size, pop, and top methods of the stack library.
+
        #include <iostream>
        #include <stack>    // Calling Stack from the STL
 
@@ -39,19 +42,25 @@ of the array. ``pop`` operations will manipulate that same end.
        int main() {
            stack<int> newStack;
 
-           newStack.push(3);
+           newStack.push(3); //Adds 3 to the stack
            newStack.push(8);
            newStack.push(15);
 
-           cout << "Stack Empty? " << newStack.empty() << endl;
+           // returns a boolean response depending on if the stack is empty or not
+           cout << "Stack Empty? " << newStack.empty() << endl; 
+           
+           // returns the size of the stack itself
+           cout << "Stack Size: " << newStack.size() << endl; 
+
+           // returns the topmost element of the stack 
+           cout << "Top Element of the Stack: " << newStack.top() << endl; 
+
+           // removes the topmost element of the stack
+           newStack.pop(); 
+
+           cout << "Top Element of the Stack: " << newStack.top() << endl;
 
            cout << "Stack Size: " << newStack.size() << endl;
-
-           cout << "Top Element of the Stack: " << newStack.top() << endl;
-
-           newStack.pop();
-
-           cout << "Top Element of the Stack: " << newStack.top() << endl;
 
            return 0;
        }
@@ -61,23 +70,25 @@ of the array. ``pop`` operations will manipulate that same end.
     .. activecode:: stack_1ac_py
        :caption: Implementing a Stack class using Python lists
 
+       #Tests the push, empty, size, pop, and top methods of the stack library.
+
        class Stack:
-           def __init__(self):
+           def __init__(self): #initializes new stack instance
                self.items = []
 
-           def isEmpty(self):
+           def isEmpty(self): #returns boolean 
                return self.items == []
 
-           def push(self, item):
+           def push(self, item): #pushes new item onto stack
                self.items.append(item)
 
-           def pop(self):
+           def pop(self): #removes topmost item from stack
                return self.items.pop()
 
-           def top(self):
+           def top(self): #returns the topmost item from the stack
                return self.items[len(self.items)-1]
 
-           def size(self):
+           def size(self): returns the size of the stack 
                return len(self.items)
 
        def main():
@@ -106,9 +117,9 @@ of the array. ``pop`` operations will manipulate that same end.
       :answer_d: The stack is empty
       :correct: c
       :feedback_a: Remember that a stack is built from the bottom up.
-      :feedback_b: Remember that a stack is built from the bottom up.
-      :feedback_c: Good job.
-      :feedback_d: Remember that a stack is built from the bottom up.
+      :feedback_b: pay attention to the line that says m.pop();. 
+      :feedback_c: Good job. This is correct because the 12 was poped of from the end and the 27 was pushed. 
+      :feedback_d: This would mean everyting is removed from the stack, when does that happen?
 
       Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?
 
@@ -129,7 +140,7 @@ of the array. ``pop`` operations will manipulate that same end.
       :correct: c
       :feedback_a: You may want to check out the docs for
       :feedback_b: There is an odd number of things on the stack but each time through the loop 2 things are popped.
-      :feedback_c: Good Job.
+      :feedback_c: Good Job, this is true because the stack can not evenly pop off every item within itself, because there is an odd number of items.
       :feedback_d: You may want to check out the docs for isEmpty
 
       Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?

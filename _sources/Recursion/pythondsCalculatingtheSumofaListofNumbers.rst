@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+﻿..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -21,6 +21,8 @@ by starting with :math:`0` and adding each number in the vector.
         :caption: Iterative Summation C++
         :language: cpp
 
+	//Example of summing up a vector without using recursion.
+
         #include <iostream>
         using namespace std;
 
@@ -33,7 +35,7 @@ by starting with :math:`0` and adding each number in the vector.
         }
 
         int main() {
-            int numVect[5] = {1,3,5,7,9};
+            int numVect[5] = {1, 3, 5, 7, 9};
             cout << vectsum(numVect) << endl;
 
             return 0;
@@ -44,14 +46,18 @@ by starting with :math:`0` and adding each number in the vector.
     .. activecode:: lst_itsumpy
        :caption: Iterative Summation Python
 
+       #Example of summing up a list without using recursion.
+
        def listsum(numList):
            theSum = 0
+
            for i in numList:
                theSum = theSum + i
+
            return theSum
 
        def main():
-           print(listsum([1,3,5,7,9]))
+           print(listsum([1, 3, 5, 7, 9]))
 
        main()
 
@@ -89,7 +95,7 @@ sequence of simplifications to compute a final sum.
 
 
 How can we take this idea and turn it into a C++ program? First,
-let’s restate the sum problem in terms of C++ arrays. We might say the
+let’s restate the sum problem in terms of C++ arrays. We might say
 the sum of the vector ``numVect`` is the sum of the first element of the
 vector (``numVect[0]``), and the sum of the numbers in the rest of the array (``numVect.erase(numVect.begin()+0)``).
 
@@ -106,6 +112,8 @@ the first element. This is easily expressed in C++ as shown in
     .. activecode:: lst_recsumcpp
       :caption: Recursion Summation C++
       :language: cpp
+	
+      //Example of summing a vector by using recursion.
 
       #include <iostream>
       #include <vector>
@@ -116,14 +124,14 @@ the first element. This is easily expressed in C++ as shown in
               return numVect[0];
           }
           else {
-              vector<int> slice(numVect.begin()+1, numVect.begin()+numVect.size());
-              return numVect[0] + vectsum(slice);
+              vector<int> slice(numVect.begin() + 1, numVect.begin()+numVect.size());
+              return numVect[0] + vectsum(slice); //function makes a recursive call to itself.
           }
       }
 
       int main() {
           int arr2[] = {1, 3, 5, 7, 9};
-          vector<int> numVect(arr2,arr2+(sizeof(arr2)/ sizeof(arr2[0])));  //Initializing vector
+          vector<int> numVect(arr2, arr2 + (sizeof(arr2) / sizeof(arr2[0])));  //Initializes vector with same items as arr2.
           cout << vectsum(numVect) << endl;
 
           return 0;
@@ -134,14 +142,16 @@ the first element. This is easily expressed in C++ as shown in
     .. activecode:: lst_recsumpy
        :caption: Recursion Summation Python
 
+       #Example of summing a list using recurison.
+
        def listsum(numList):
            if len(numList) == 1:
                return numList[0]
            else:
-               return numList[0] + listsum(numList[1:])
+               return numList[0] + listsum(numList[1:]) #function makes a recursive call to itself.
 
        def main():
-           print(listsum([1,3,5,7,9]))
+           print(listsum([1, 3, 5, 7, 9]))
 
        main()
 

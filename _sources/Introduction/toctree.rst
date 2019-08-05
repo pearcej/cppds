@@ -17,7 +17,6 @@ Introduction
     ObjectOrientedProgrammingDefiningClasses.rst
     ObjectOrientedProgrammingDerivedClasses.rst
     Summary.rst
-    KeyTerms.rst
-    Glossary.rst
     DiscussionQuestions.rst
     ProgrammingExercises.rst
+    Glossary.rst

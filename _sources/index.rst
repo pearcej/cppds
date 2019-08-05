@@ -31,7 +31,8 @@ and Jan Pearce, Berea College
    LinearBasic/toctree.rst
    LinearLinked/toctree.rst
    Recursion/toctree.rst
-   SortSearch/toctree.rst
+   SearchHash/toctree.rst
+   Sort/toctree.rst
    Trees/toctree.rst
    Graphs/toctree.rst
 

@@ -1,4 +1,4 @@
-..  Copyright (C)  Brad Miller, David Ranum
+..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
@@ -60,3 +60,10 @@ to search for the successor before the deletion operation can complete.
 But remember that the worst-case scenario to find the successor is also
 just the height of the tree which means that you would simply double the
 work. Since doubling is a constant factor it does not change worst case
+
+.. fillintheblank:: searchTreeAnalysis
+
+    The worst-case performance of the del function is O(|blank|)?
+
+    - :n: Is the correct answer!
+      :.*:   Read carefully the restrictions of the the functions
