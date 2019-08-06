@@ -86,7 +86,7 @@ mismatch occurs, the Boolean variable ``balanced`` is set to ``false``.
         bool parChecker(string symbolString){
             stack<string> s;
             bool balanced = true;
-            int index = 0;  
+            int index = 0;
             int symbolLength = symbolString.length();
 
             while(index < symbolLength && balanced){
@@ -167,7 +167,7 @@ mismatch occurs, the Boolean variable ``balanced`` is set to ``false``.
            return opens.index(open) == closers.index(close)
 
        def main():
-           print(parChecker('{{([][])}()}'))
+           print(parChecker('{[([][])]()}'))
            print(parChecker('[{()]'))
        main()
 

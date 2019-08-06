@@ -316,11 +316,11 @@ Matching
 ^^^^^^^^
 .. dragndrop:: matching_vectors
    :feedback: Feedback shows incorrect matches.
-   :match_1: [ ]|||Accesses value of an element. 
-   :match_2: =||| Assigns value to an element. 
+   :match_1: [ ]|||Accesses value of an element.
+   :match_2: =||| Assigns value to an element.
    :match_3: push_back|||Appends item to the end of the vector.
    :match_4: pop_back||| Deletes last item of the vector.
-   :match_5: insert|||Injects an item into the vector. 
+   :match_5: insert|||Injects an item into the vector.
    :match_6: erase|||Deletes an element from the choosen index.
    :match_7: size|||Returns the actual capacity used by elements.
    :match_8: capacity|||Returns the ammount of allocated storage space.
@@ -336,7 +336,7 @@ Matching
        :caption: Using a vector in C++
        :language: cpp
 
-       /*shows the use of the reserve member, and how it 
+       /*shows the use of the reserve member, and how it
        can be effective in saving time with a growing vector.*/
        #include <iostream>
        #include <vector>
@@ -542,18 +542,18 @@ Matching
 ^^^^^^^^
 .. dragndrop:: matching_strings
    :feedback: Feedback shows incorrect matches.
-   :match_1: [ ]|||Accesses value of an element. 
-   :match_2: =||| Assigns value to an element. 
+   :match_1: [ ]|||Accesses value of an element.
+   :match_2: =||| Assigns value to an element.
    :match_3: push_back|||Adjoins a character to the end of the string.
    :match_4: pop_back|||Removes the last character from the end of the string.
-   :match_5: insert|||Injects a string at a specific index. 
+   :match_5: insert|||Injects a string at a specific index.
    :match_6: erase|||Deletes an element from one index to another.
    :match_7: size|||Returns the capacity of the string.
    :match_8: +|||connects strings.
    :match_9: append|||Adjoins a string to the end of the string.
    :match_10: find||| Returns the index of the first occurrence of item.
 
-    Match the String operations with their corresponding explination. 
+    Match the String operations with their corresponding explination.
 
 .. tabbed:: intro_string
 
@@ -662,7 +662,7 @@ associated value.
            int main() {
                unordered_map<string, string> spnumbers;
 
-               spnumbers = {{"one", "uno"}, {"two", "dos"}};
+               spnumbers = { {"one", "uno"}, {"two", "dos"} };
 
                spnumbers["three"] = "tres";
                spnumbers["four"] = "cuatro";
@@ -678,7 +678,7 @@ associated value.
        .. activecode:: hashtable1_py
            :caption: Using a Dictionary
 
-           #shows how hash tables can be used in python 
+           #shows how hash tables can be used in python
            def main():
                spnumbers = {"one":"uno","two":"dos"}
 
@@ -719,7 +719,7 @@ the following example.
            int main() {
                unordered_map<string, string> spnumbers;
 
-               spnumbers = {{"one","uno"},{"two","dos"},{"three","tres"},{"four","cuatro"},{"five","cinco"}};
+               spnumbers = { {"one","uno"},{"two","dos"},{"three","tres"},{"four","cuatro"},{"five","cinco"} };
 
                for (auto i=spnumbers.begin(); i!=spnumbers.end(); i++ ){
                    cout << i->first << ":";
@@ -732,7 +732,7 @@ the following example.
        .. activecode:: hashtable2_py
            :caption: Iterating a Dictionary
 
-           #shows how to iterate through a hash table in python 
+           #shows how to iterate through a hash table in python
            def main():
                spnumbers = {"one":"uno","two":"dos","three":"tres","four":"cuatro","five":"cinco" }
 
@@ -770,8 +770,8 @@ Matching
    :match_3: count|||Returns true if key is in the hash table, and false otherwise.
    :match_4: begin|||An iterator to the first element in the hash table.
    :match_5: end|||An iterator pointing to past-the-end element of the hash table.
-   
-    Match the Hash Table operations with their corresponding explination. 
+
+    Match the Hash Table operations with their corresponding explination.
 
 Unordered Sets
 --------------
@@ -845,9 +845,9 @@ The code below is an example of a program that can detect if a specific char is 
         return 0;
     }
 
-the ``find`` method used for a conditional in ``Checker`` compares each item in the set 
-with the given parameter until there is a match. the ``set.find(letter) == set.end()`` 
-section means that if ``find`` cannot find the letter before reaching the end of the 
+the ``find`` method used for a conditional in ``Checker`` compares each item in the set
+with the given parameter until there is a match. the ``set.find(letter) == set.end()``
+section means that if ``find`` cannot find the letter before reaching the end of the
 set, then ``letter`` is not contained in the set.
 
 Matching
@@ -860,8 +860,8 @@ Matching
    :match_4: add|||Adds item to the set.
    :match_5: remove|||erases item from the set.
    :match_6: clear|||Removes all elements from the set.
-   
-    Match the Unordered Sets operations with their corresponding explination. 
+
+    Match the Unordered Sets operations with their corresponding explination.
 
 
 .. mchoice:: mc_fixed
