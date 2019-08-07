@@ -886,6 +886,6 @@ Matching
   :match_1: Array|||{“What”, “am”, “I”, "am"}
   :match_2: Set|||{“What”, “am”, “I”}
   :match_3: String|||“What am I”
-  :match_4: Hash Table|||{{“What”, “am I”}}
+  :match_4: Hash Table|||{ {“What”, “am I”} }
 
   Drag each data type to its' corresponding C++ initialization syntax.
