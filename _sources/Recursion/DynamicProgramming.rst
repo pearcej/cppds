@@ -279,15 +279,21 @@ feels like a bit of a hack.  Also, if we look at the ``knownResults`` lists
 we can see that there are some holes in the table. In fact the term for
 what we have done is not dynamic programming but rather we have improved
 the performance of our program by using a technique known as
-“memoization,” or more commonly called “caching.”
+“memoization,” or more commonly called “caching.” Memoization uses what is sometimes 
+called an opportunistic top-down approach. When you need the result of a computation, 
+you check to see if you have already computed it, otherwise you do the new 
+calculation and store the result.
 
-A truly dynamic programming algorithm will take a more systematic
-approach to the problem. Our dynamic programming solution is going to
+A truly dynamic programming algorithm will take a more systematic bottom-up
+approach to the problem. Memoization and dynamic programming are both code optimization 
+techniques that avoid recalculating duplicate work. 
+Our dynamic programming solution is going to
 start with making change for one cent and systematically work its way up
 to the amount of change we require. This guarantees us that at each step
 of the algorithm we already know the minimum number of coins needed to
-make change for any smaller amount.
+make change for any smaller amount. 
 
+This is often called synamic programming with tabulation. 
 Let’s look at how we would fill in a table of minimum coins to use in
 making change for 11 cents. :ref:`Figure 4 <fig_dpcoinscpp>` illustrates the
 process. We start with one cent. The only solution possible is one coin
