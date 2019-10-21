@@ -4,8 +4,6 @@ Problem Solving with Algorithms and Data Structures Using C++
 This book began as the paper book, *Problem Solving with Algorithms and Data Structures Using Python*, first published by Franklin Beedle & Associates written by Brad Miller and David Ranum back in 2005.  It was translated to C++ by Jan Pearce and a team of excellent Berea
 College students in the summer of 2018. We are all grateful for the vision of Jim Leisy who gave permission to take the original Python version of this text and freely publish it online as an interactive textbook.
 
-.. image:: http://bnmnetp.me:8088/buildStatus/icon?job=pythondsBuild
-
 Getting Started
 ===============
 
