@@ -255,9 +255,9 @@ to see that :math:`T(n)` then follows the quadratic function as
     .. fillintheblank:: bigOquestion
         :casei:
 
-        The Big O of a particular algorithm is O(n^2). Given that it takes 2 seconds to do 1 million operations;
+        The Big O of a particular algorithm is :math:`O(n^{2})`. Given that it takes 2 seconds to complete the algorithm with 1 million inputs;
 
-        how long would it take with 2 million inputs? ``|blank|`` 
+        how long would it take with 2 million inputs? ``|blank|`` seconds. 
         
         10 million? ``|blank|``
 
@@ -269,7 +269,7 @@ to see that :math:`T(n)` then follows the quadratic function as
     .. fillintheblank:: bigologn
         :casei:
 
-        The Big O of a particular algorithm is O(logn). Given that it takes 2 seconds to do 3 million operations;
+        The Big O of a particular algorithm is :math:`O(log_{2}n)`. Given that it takes 2 seconds to complete the algorithm with 3 million inputs;
         how long would it take with 4 million inputs? You may use a calculator on this one.
         ``|blank|`` seconds.
          
@@ -287,7 +287,7 @@ to see that :math:`T(n)` then follows the quadratic function as
     .. fillintheblank:: bigon3
         :casei:
 
-        The Big O of a particular algorithm is O(n^3). Given that it takes 2 seconds to do 1000 operations;
+        The Big O of a particular algorithm is :math:`O(n^{3})`. Given that it takes 2 seconds to complete the algorithm with 1000 inputs;
         how long would it take with 2000 inputs? 
         ``|blank|`` seconds.
 
