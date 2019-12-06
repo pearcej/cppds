@@ -73,11 +73,8 @@ complete function for palindrome-checking appears in
 				   //a palindrome.
                   stillEqual = false;
               }
-
-              return stillEqual;
           }
-
-          return true;
+          return stillEqual;
       }
 
       int main() {
