@@ -117,6 +117,104 @@ complete function for palindrome-checking appears in
        main()
 
 
+
+Below we can see an upgraded code for checking palindromes, which
+is able to handle strings with capital letters, spaces, and special
+characters.
+
+:ref:`ActiveCode 2 <advanced_palinedrome_cpp>`.
+
+.. _lst_andrejsind:
+
+  .. tabbed:: pd1
+
+    .. tab:: C++
+
+      .. activecode:: advanced_palinedrome_cpp
+        :caption: A palindrome checker that handles complicated text
+        :language: cpp
+
+        //program that detects palindromes.
+
+        /*
+        The Advanced Palindrome Checker
+        By: David Reynoso and David Andrejšín
+        */
+
+        using namespace std;
+        #include <deque>
+        #include <fstream> // for file handling
+        #include <iostream>
+        #include <string>
+        #include "stdlib.h" // for the system command
+        #include <algorithm> // provides an algorithm for easier removal of characters from a string
+
+        string processor(string aString) {
+	    // goes through string and finds uppercase letters and converts
+            // them to lower case, also finds special characters and gets rid of them
+	    // ultimately, prepares a string for a correct palindrome evaluation
+	    int strLen = aString.length();
+	    string str = "";
+	    for (int i = 0; i < strLen; i++) {
+                str += tolower(aString[i]);
+	    }
+            str.erase(remove(str.begin(), str.end(), ' '), str.end());
+	    str.erase(remove(str.begin(), str.end(), '.'), str.end());
+	    str.erase(remove(str.begin(), str.end(), '?'), str.end());
+	    str.erase(remove(str.begin(), str.end(), '!'), str.end());
+            str.erase(remove(str.begin(), str.end(), ','), str.end());
+            str.erase(remove(str.begin(), str.end(), ';'), str.end());
+            str.erase(remove(str.begin(), str.end(), ':'), str.end());
+            str.erase(remove(str.begin(), str.end(), '#'), str.end());
+            str.erase(remove(str.begin(), str.end(), '"'), str.end());
+            str.erase(remove(str.begin(), str.end(), '\''), str.end());
+            // we had to use a backslash to espace the function of '
+            str.erase(remove(str.begin(), str.end(), '’'), str.end());
+            str.erase(remove(str.begin(), str.end(), '“'), str.end());
+            str.erase(remove(str.begin(), str.end(), '”'), str.end());
+            str.erase(remove(str.begin(), str.end(), '-'), str.end());
+            str.erase(remove(str.begin(), str.end(), '('), str.end());
+            str.erase(remove(str.begin(), str.end(), ')'), str.end());
+
+            return str;
+        }
+
+        bool palchecker(string aString) {
+            // an algorithm that checks whether a string is a palindrome
+            aString = processor(aString); // calls a function that prepares the string for a proper evaluation of the palindrome
+
+            deque<char> chardeque;
+            int strLen = aString.length();
+            for (int i = 0; i < strLen; i++) {
+            //pushes each char in the string to the deque.
+                chardeque.push_back(aString[i]);
+            }
+
+            bool stillEqual = true;
+
+            while (chardeque.size() > 1 && stillEqual) {
+                char first = chardeque.front();
+                chardeque.pop_front();
+                char last = chardeque.back();
+                chardeque.pop_back();
+                if (first != last) { //if the two opposite positions of the
+                     //word is not the same, then it is not
+                     //a palindrome.
+                    stillEqual = false;
+                }
+            }
+            return stillEqual;
+        }
+
+        int main() {
+            cout << palchecker(("Do geese, see God?!") << endl;
+            cout << palchecker("Radar") << endl;
+            cout << palchecker("Are we not pure? “No sir!” Panama’s moody Noriega brags. “It is garbage!” Irony dooms a man; a prisoner up to new era."") << endl;
+            cout << palchecker("Barge in! Relate mere war of 1991 for a were-metal Ernie grab!") << endl;
+            cout << palchecker("not a palindrome") << endl;
+        }
+
+
 .. dragndrop:: orderingPrinciples
    :feedback: This is feedback.
    :match_1: Stack|||last-in first-out
@@ -146,7 +244,7 @@ complete function for palindrome-checking appears in
    :answer_e: Both A & C
    :correct: e
    :feedback_a: Yes, but it is not the only option.
-   :feedback_b: No, a stack would pop from the top, thus having more entries in the way before it gets to rutabega. 
+   :feedback_b: No, a stack would pop from the top, thus having more entries in the way before it gets to rutabega.
    :feedback_c: Yes, but it is not the only option.
    :feedback_d: One of these two would be correct, but the other would not.
    :feedback_e: Correct!
