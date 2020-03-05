@@ -13,7 +13,7 @@ and you are told the deadlines for those homeworks: 3, 10, 5, 8, 7, 2 days respe
 .. _PQ_insertion:
 
 .. figure:: Figures/Homework_PQ.png
-   :scale: 30%
+   :scale: 25%
    :align: center
    :alt: image
 
@@ -29,3 +29,5 @@ Now that we have the priority queue of which homeworks we need to do in the orde
    :alt: image
 
    Figure 1: Homework insertion process into priority queue
+   
+As we continue to complete the homework with the closest deadline we will continue to remove the homeworks in the demostrated fashion until we are done.
