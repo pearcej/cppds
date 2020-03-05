@@ -21,7 +21,7 @@ if master_url is None:
 
 master_app = 'runestone'
 serving_dir = './build/cppds'
-dynamic_pages = True
+dynamic_pages = False
 if dynamic_pages:
     dest = './published'
 else:
@@ -40,7 +40,7 @@ options(
             'course_id':project_name,
             'login_required':'false',
             'appname':master_app,
-            'dynamic_pages': True,
+            'dynamic_pages': False,
             'loglevel':10,
             'default_ac_lang': 'cpp',
             'course_url':master_url,
