@@ -662,12 +662,13 @@ this as an exercise at the end of the chapter.
       -  :9: Correct.
          :x: Remember to push each intermediate result back on the stack
 
-
    .. fillintheblank:: postfix3
 
-      Modify the infixToPostfix function so that it can convert the following expression:  ``5 * 3 ** (4 - 2)``. Run the function on the expression and paste the answer here:
+      Modify the infixToPostfix function so that it can convert the following expression:  ``5 * 3 /(4 - 2)``.
 
       |blank|
 
-      -  :5\s+3\s+4\s+2\s*-\s*\*\*\s*\*: Correct.
-         :x: Hint: You only need to add one line to the function!!
+      -  :5\s+3\s+4\s+2\s*-\s*/\s*\*: Correct.
+         :5.*3.*5.*4.*2\s+[-/*]*: The numbers appear to be in the correct order check your operators
+         :x: Hint: You just need to change one line of code.
+
