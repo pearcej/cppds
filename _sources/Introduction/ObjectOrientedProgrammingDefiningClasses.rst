@@ -169,7 +169,7 @@ constructor under ``public``. A third access keyword, ``protected`` will be disc
     :match_1: Encapsulation|||A situation where bank software programmers want to protect users' personal information.
     :match_2: Abstraction|||A situation where software programmers want to develop similar objects without having to redefine the most similar properties.
 
-    Match the corresponding key word to the appropriate scenario. 
+    Match the corresponding key word to the appropriate scenario.
 
 Polymorphism
 ^^^^^^^^^^^^
@@ -315,7 +315,7 @@ stream is changed by the stream operator.
   :language: cpp
   :caption: An overloaded cout operator for the Fraction class
 
-  /*overloading functions to take in different 
+  /*overloading functions to take in different
   inputs and output the correct results*/
   #include <iostream>
   using namespace std;
@@ -347,7 +347,7 @@ stream is changed by the stream operator.
       return 0;
   }
 
-We can override many other operators for our new ``Fraction`` class. Some
+We can overload many other operators for our new ``Fraction`` class. Some
 of the most important of these are the basic arithmetic operations. We
 would like to be able to create two ``Fraction`` objects and then be able to add
 them together using the standard “+” notation. At this point, if we try
@@ -373,7 +373,7 @@ We can, of course create something like:
 which would ask the ``Fraction`` object ``f1`` to add the ``Fraction`` object
 ``f2`` to itself. It would be much better to be written in the standard notation,
 ``f1 + f2``. We can fix this by providing the ``Fraction`` class with a friend that
-overrides the ``+``  operator.
+overloads the ``+``  operator.
 
 As you know, two fractions must have the same denominator to be added. The easiest
 way to make sure they have the same denominator is to simply use the
@@ -406,7 +406,7 @@ addition, and then printing our result.
   //using functions to abstract the idea of a fraction
   #include <iostream>
   using namespace std;
-  
+
   class Fraction {
       public:
           Fraction(int top = 0, int bottom = 1) {
@@ -508,7 +508,7 @@ Let's rewrite the addition operator as a friend function.
 
 How you choose to overload operators  like ``+`` is a design choice
 since both methods will work perfectly well. This is another
-example of encapsulation; your user does not need to know 
+example of encapsulation; your user does not need to know
 which you choose to use!
 
 There is one more thing we can improve in our addition function.
@@ -771,23 +771,23 @@ Self Check
 
 **Question example**
 
-.. highlight:: cpp 
-    :linenothreshold: 5 
+.. highlight:: cpp
+    :linenothreshold: 5
 
 ::
 
     #include<iostream>
     using namespace std;
-    
+
     class Vehicle
-    { 
-    
+    {
+
         protected:
             int wheels;
             int windows;
             int engine;
     };
-    
+
     class Airplane: public Vehicle
     {
         protected:
