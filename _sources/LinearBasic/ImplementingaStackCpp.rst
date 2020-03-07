@@ -31,7 +31,7 @@ of the array. ``pop`` operations will manipulate that same end.
        :caption: Using the Stack methods from the STL in C++
        :language: cpp
 
-	
+
        //Tests the push, empty, size, pop, and top methods of the stack library.
 
        #include <iostream>
@@ -47,16 +47,16 @@ of the array. ``pop`` operations will manipulate that same end.
            newStack.push(15);
 
            // returns a boolean response depending on if the stack is empty or not
-           cout << "Stack Empty? " << newStack.empty() << endl; 
-           
-           // returns the size of the stack itself
-           cout << "Stack Size: " << newStack.size() << endl; 
+           cout << "Stack Empty? " << newStack.empty() << endl;
 
-           // returns the topmost element of the stack 
-           cout << "Top Element of the Stack: " << newStack.top() << endl; 
+           // returns the size of the stack itself
+           cout << "Stack Size: " << newStack.size() << endl;
+
+           // returns the topmost element of the stack
+           cout << "Top Element of the Stack: " << newStack.top() << endl;
 
            // removes the topmost element of the stack
-           newStack.pop(); 
+           newStack.pop();
 
            cout << "Top Element of the Stack: " << newStack.top() << endl;
 
@@ -76,7 +76,7 @@ of the array. ``pop`` operations will manipulate that same end.
            def __init__(self): #initializes new stack instance
                self.items = []
 
-           def isEmpty(self): #returns boolean 
+           def isEmpty(self): #returns boolean
                return self.items == []
 
            def push(self, item): #pushes new item onto stack
@@ -88,7 +88,7 @@ of the array. ``pop`` operations will manipulate that same end.
            def top(self): #returns the topmost item from the stack
                return self.items[len(self.items)-1]
 
-           def size(self): returns the size of the stack 
+           def size(self): #returns the size of the stack 
                return len(self.items)
 
        def main():
@@ -117,8 +117,8 @@ of the array. ``pop`` operations will manipulate that same end.
       :answer_d: The stack is empty
       :correct: c
       :feedback_a: Remember that a stack is built from the bottom up.
-      :feedback_b: pay attention to the line that says m.pop();. 
-      :feedback_c: Good job. This is correct because the 12 was poped of from the end and the 27 was pushed. 
+      :feedback_b: pay attention to the line that says m.pop();.
+      :feedback_c: Good job. This is correct because the 12 was poped of from the end and the 27 was pushed.
       :feedback_d: This would mean everyting is removed from the stack, when does that happen?
 
       Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?
