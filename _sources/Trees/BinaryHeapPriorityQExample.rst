@@ -28,6 +28,6 @@ Now that we have the priority queue of which homeworks we need to do in the orde
    :align: center
    :alt: image
 
-   Figure 1: Homework insertion process into priority queue
+   Figure 2: After finishing the earliest homework, the root is removed and rearranges the priority queue
    
 As we continue to complete the homework with the closest deadline we will continue to remove the homeworks in the demostrated fashion until we are done.
