@@ -668,7 +668,7 @@ this as an exercise at the end of the chapter.
 
       |blank|
 
-      -  :5\s+3\s+4\s+2\s*-\s*/\s*\*: Correct.
+      -  :5\s+3\s*\*\s*4\s+2\s*\-\s*\/: Correct.
          :5.*3.*5.*4.*2\s+[-/*]*: The numbers appear to be in the correct order check your operators
          :x: Hint: You just need to change one line of code.
 
