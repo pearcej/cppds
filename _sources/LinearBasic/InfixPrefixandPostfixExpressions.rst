@@ -664,7 +664,7 @@ this as an exercise at the end of the chapter.
 
    .. fillintheblank:: postfix3
 
-      Modify the infixToPostfix function so that it can convert the following expression:  ``5 * 3 /(4 - 2)``.
+      Modify the infixToPostfix function above so that it can convert the following expression. Once you have the answer from the code put it in the blank below:  ``5 * 3 /(4 - 2)``.
 
       |blank|
 
