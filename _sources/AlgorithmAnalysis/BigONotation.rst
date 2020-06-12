@@ -252,71 +252,71 @@ to see that :math:`T(n)` then follows the quadratic function as
     Write two C++ functions to find the minimum number in an array.  The first function should compare each number to every other number on the array. :math:`O(n^2)`.  The second function should be linear :math:`O(n)`.
 
 
-.. mchoice:: BIGO1
-    :answer_a: 3.444
-    :answer_b: 2.53
-    :answer_c: 2
-    :answer_d: 4
-    :answer_e: More than one of the above
-    :correct: b
-    :feedback_a: Incorrect. Try again.
-    :feedback_b: Correct!
-    :feedback_c: Incorrect. Try again.
-    :feedback_d:  Incorrect. Try again.
-    :feedback_e: No, only one of them is correct. Try again.
+    .. mchoice:: BIGO1
+        :answer_a: 3.444
+        :answer_b: 2.53
+        :answer_c: 2
+        :answer_d: 4
+        :answer_e: More than one of the above
+        :correct: b
+        :feedback_a: Incorrect. Try again.
+        :feedback_b: Correct!
+        :feedback_c: Incorrect. Try again.
+        :feedback_d:  Incorrect. Try again.
+        :feedback_e: No, only one of them is correct. Try again.
 
-    The Big O of a particular algorithm is :math:`O(log_{2}n)`.
-    Given that it takes 2 seconds to complete the algorithm with 3 million inputs;
-    how long would it take with 4 million inputs?
+        The Big O of a particular algorithm is :math:`O(log_{2}n)`.
+        Given that it takes 2 seconds to complete the algorithm with 3 million inputs;
+        how long would it take with 4 million inputs?
 
 
-.. mchoice:: BIGO2
-    :answer_a: 3.444
-    :answer_b: 2.53
-    :answer_c: 2
-    :answer_d: 4.2
-    :answer_e: More than one of the above
-    :correct: d
-    :feedback_a: Incorrect. Try again.
-    :feedback_b: Incorrect. Try again.
-    :feedback_c: Incorrect. Try again.
-    :feedback_d: Right!
-    :feedback_e: No, only one of them is correct. Try again.
+    .. mchoice:: BIGO2
+        :answer_a: 3.444
+        :answer_b: 2.53
+        :answer_c: 2
+        :answer_d: 4.2
+        :answer_e: More than one of the above
+        :correct: d
+        :feedback_a: Incorrect. Try again.
+        :feedback_b: Incorrect. Try again.
+        :feedback_c: Incorrect. Try again.
+        :feedback_d: Right!
+        :feedback_e: No, only one of them is correct. Try again.
 
-    The Big O of a particular algorithm is :math:`O(log_{2}n)`.
-    Given that it takes 2 seconds to complete the algorithm with 3 million inputs;
-    how long would it take with 10 million inputs?
+        The Big O of a particular algorithm is :math:`O(log_{2}n)`.
+        Given that it takes 2 seconds to complete the algorithm with 3 million inputs;
+        how long would it take with 10 million inputs?
 
-.. mchoice:: BIGO3
-    :answer_a: 2000
-    :answer_b: 3000
-    :answer_c: 16
-    :answer_d: 1500
-    :answer_e: More than one of the above
-    :correct: c
-    :feedback_a: Incorrect. Try again. Think about what happens to the time as more operations occur.
-    :feedback_b: Incorrect. Try again. Think about what happens to the time as more operations occur.
-    :feedback_c: Correct!
-    :feedback_d:  Incorrect. Try again. Think about what happens to the time as more operations occur.
-    :feedback_e: No, only one of them is correct. Try again.
+    .. mchoice:: BIGO3
+        :answer_a: 2000
+        :answer_b: 3000
+        :answer_c: 16
+        :answer_d: 1500
+        :answer_e: More than one of the above
+        :correct: c
+        :feedback_a: Incorrect. Try again. Think about what happens to the time as more operations occur.
+        :feedback_b: Incorrect. Try again. Think about what happens to the time as more operations occur.
+        :feedback_c: Correct!
+        :feedback_d:  Incorrect. Try again. Think about what happens to the time as more operations occur.
+        :feedback_e: No, only one of them is correct. Try again.
 
-    The Big O of a particular algorithm is :math:`O(n^{3})`.
-    Given that it takes 2 seconds to complete the algorithm with 1000 inputs;
-    how long would it take with 2000 inputs?
+        The Big O of a particular algorithm is :math:`O(n^{3})`.
+        Given that it takes 2 seconds to complete the algorithm with 1000 inputs;
+        how long would it take with 2000 inputs?
 
-.. mchoice:: BIGO4
-    :answer_a: 2000
-    :answer_b: 3000
-    :answer_c: 16
-    :answer_d: 1500
-    :answer_e: More than one of the above
-    :correct: a
-    :feedback_a: Right!
-    :feedback_b: Incorrect. Try again. Think about what happens to the time as more operations occur.
-    :feedback_c: Incorrect. Try again. Think about what happens to the time as more operations occur.
-    :feedback_d:  Incorrect. Try again. Think about what happens to the time as more operations occur.
-    :feedback_e: No, only one of them is correct. Try again.
+    .. mchoice:: BIGO4
+        :answer_a: 2000
+        :answer_b: 3000
+        :answer_c: 16
+        :answer_d: 1500
+        :answer_e: More than one of the above
+        :correct: a
+        :feedback_a: Right!
+        :feedback_b: Incorrect. Try again. Think about what happens to the time as more operations occur.
+        :feedback_c: Incorrect. Try again. Think about what happens to the time as more operations occur.
+        :feedback_d:  Incorrect. Try again. Think about what happens to the time as more operations occur.
+        :feedback_e: No, only one of them is correct. Try again.
 
-    The Big O of a particular algorithm is :math:`O(n^{3})`.
-    Given that it takes 2 seconds to complete the algorithm with 1000 inputs;
-    how long would it take with 10,000 inputs?
+        The Big O of a particular algorithm is :math:`O(n^{3})`.
+        Given that it takes 2 seconds to complete the algorithm with 1000 inputs;
+        how long would it take with 10,000 inputs?
