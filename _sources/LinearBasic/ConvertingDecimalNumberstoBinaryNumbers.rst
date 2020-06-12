@@ -247,8 +247,8 @@ beyond 9.
 
         def main():
             imynum = 25
-            print(baseConverter(mynum, 2))
-            print(baseConverter(mynum, 16))
+            print(baseConverter(imynum, 2))
+            print(baseConverter(imynum, 16))
         main()
 
 A solution to this problem is to extend the digit set to include some
