@@ -45,40 +45,58 @@ the function ``myWin.exitonclick()``, this is a handy little method of
 the window that puts the turtle into a wait mode until you click inside
 the window, after which the program cleans up and exits.
 
+.. tabbed:: tab_lst_turtle1
 
-.. activecode:: lst_turt1
-    :caption: Drawing a Recursive Spriral using turtle
+   .. tab:: C++
 
-    #Creates an inward spiral through recursion.
+    .. activecode:: lst_cturt1
+        :caption: Drawing a Recursive Spiral using Turtles
+        :language: cpp
 
-    import turtle
+        #include <CTurtle.hpp>
+        namespace ct = cturtle;
 
-    def drawSpiral(myTurtle, lineLen):
-        if lineLen > 0:
-            myTurtle.forward(lineLen)
-            myTurtle.right(90)
-            drawSpiral(myTurtle,lineLen-5) #function makes recursive call.
-
-    def main():
-        myTurtle = turtle.Turtle()
-        myWin = turtle.Screen()
-        drawSpiral(myTurtle,100)
-        myWin.exitonclick()
-
-    main()
-
-::
-
-    //C++ code
-
-    void drawSpiral(Turtle myTurtle, int lineLen) {
-        // Compare with ActiveCode 2
-        if (lineLen > 0) {
-            myTurtle.forward(lineLen);
-            myTurtle.right(90);
-            drawSpiral(myTurtle, lineLen - 5);
+        void spiral(ct::Turtle& turtle, int length) {
+            if (len > 0) {
+                rt.forward(length);
+                rt.right(90);
+                spiral(rt, len - 5);
+            }
         }
-    }
+
+        int main(int argc, char** argv) {
+            ct::TurtleScreen screen;
+            ct::Turtle turtle(scr);
+
+            spiral(turtle, 100);
+
+            scr.bye();
+            return 0;
+        }
+
+
+   .. tab:: Python
+
+    .. activecode:: lst_turt1
+        :caption: Drawing a Recursive Spiral using turtle
+
+        #Creates an inward spiral through recursion.
+
+        import turtle
+
+        def drawSpiral(myTurtle, lineLen):
+            if lineLen > 0:
+                myTurtle.forward(lineLen)
+                myTurtle.right(90)
+                drawSpiral(myTurtle,lineLen-5) #function makes recursive call.
+
+        def main():
+            myTurtle = turtle.Turtle()
+            myWin = turtle.Screen()
+            drawSpiral(myTurtle,100)
+            myWin.exitonclick()
+
+        main()
 
 That is really about all the turtle graphics you need to know in order
 to make some pretty impressive drawings. For our next program we are
