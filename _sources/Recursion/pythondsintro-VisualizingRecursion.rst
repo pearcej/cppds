@@ -166,56 +166,81 @@ the recursive calls and think about how this tree will unfold. Will it
 be drawn symmetrically with the right and left halves of the tree taking
 shape simultaneously? Will it be drawn right side first then left side?
 
+.. tabbed:: tab_lst_complete_tree
 
-.. activecode:: lst_complete_tree
-    :caption: Recursively Drawing a Tree
+   .. tab:: C++
 
-    #Creates a tree by using recursion.
+    .. activecode:: lst_complete_ctree
+        :caption: Recursively Drawing a Tree
+        :language: cpp
 
-    import turtle
+        #include <CTurtle.hpp>
 
-    def tree(branchLen,t):
-        if branchLen > 5:
-            t.forward(branchLen) #Turtle goes forward.
-            t.right(20)
-            tree(branchLen-15,t) #Recursive call
-            t.left(40)
-            tree(branchLen-15,t) #Recursive call
-            t.right(20)
-            t.backward(branchLen) #Turtle must go back the same distance
-	        		  #as it went forward to draw the tree
-				  #evenly.
+        namespace ct = cturtle;
 
-    def main():
-        t = turtle.Turtle()
-        myWin = turtle.Screen()
-        t.left(90)
-        t.up()
-        t.backward(100)
-        t.down()
-        t.color("green")
-        tree(75,t)
-        myWin.exitonclick()
+        void tree(ct::Turtle& rt, int len) {
+            if(len > 5){
+                rt.forward(len);
+                rt.right(20);
+                tree(rt, len - 15);
+                rt.left(40);
+                tree(rt, len - 15);
+                rt.right(20);
+                rt.back(len);
+            }
+        }
 
-    main()
+        int main(int argc, char** argv) {
+            ct::TurtleScreen scr;
+            ct::Turtle rt(scr);
+            //Make the trees "grow" upwards
+            rt.left(90);
+            rt.pencolor({"green"});
+            
+            scr.onclick([&](int x, int y) {
+                rt.penup();
+                rt.goTo(x, y);
+                rt.pendown();
+                tree(rt, 100);
+            }, ct::MOUSEB_LEFT);
 
-::
+            scr.mainloop();
+            return 0;
+        }
 
-    //C++ code
+   .. tab:: Python
 
-    void tree(double branchLen, Turtle t) {
-    	//Compare with ActiveCode 1
-      	if (branchLen > 5) {
-    		t.forward(branchLen);
-    		t.right(20);
-    		tree(branchLen - 15, t);
-    		t.left(40);
-    		tree(branchLen - 15, t);
-    		t.right(20);
-    		t.forward(-branchLen);
-      	}
-    }
+    .. activecode:: lst_complete_tree
+        :caption: Recursively Drawing a Tree
 
+        #Creates a tree by using recursion.
+
+        import turtle
+
+        def tree(branchLen,t):
+            if branchLen > 5:
+                t.forward(branchLen) #Turtle goes forward.
+                t.right(20)
+                tree(branchLen-15,t) #Recursive call
+                t.left(40)
+                tree(branchLen-15,t) #Recursive call
+                t.right(20)
+                t.backward(branchLen) #Turtle must go back the same distance
+                        #as it went forward to draw the tree
+                    #evenly.
+
+        def main():
+            t = turtle.Turtle()
+            myWin = turtle.Screen()
+            t.left(90)
+            t.up()
+            t.backward(100)
+            t.down()
+            t.color("green")
+            tree(75,t)
+            myWin.exitonclick()
+
+        main()
 
 Notice how each branch point on the tree corresponds to a recursive
 call, and notice how the tree is drawn to the right all the way down to
