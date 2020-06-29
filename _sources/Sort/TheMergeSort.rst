@@ -127,6 +127,7 @@ most one.
 
     .. activecode:: lst_mergeSort
         :caption: Merge Sort
+        :optional:
 
         def mergeSort(alist):
             print("Splitting ",alist)

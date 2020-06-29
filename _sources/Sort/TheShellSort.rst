@@ -142,6 +142,7 @@ an insertion sort with an increment of one.
 
     .. activecode:: lst_shell_py
        :caption: Shell Sort
+       :optional:
 
        def shellSort(alist):
            sublistcount = len(alist)//2

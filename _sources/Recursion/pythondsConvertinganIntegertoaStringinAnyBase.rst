@@ -96,6 +96,7 @@ outlined above for any base between 2 and 16.
 
     .. activecode:: lst_rectostrpy
        :caption: Recursively Converting from Integer to String
+       :optional:
 
        #Recursive example of converting an int to str.
 

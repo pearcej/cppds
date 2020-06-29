@@ -833,6 +833,7 @@ The complete hash table example can be found in ActiveCode 1.
 
     .. activecode:: complete_hash_py
        :caption: Complete Hash Table Example
+       :optional:
 
        class HashTable:
            def __init__(self):

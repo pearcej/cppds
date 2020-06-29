@@ -105,6 +105,7 @@ shown above.
 
     .. activecode:: lst_bubble_py
        :caption: The Bubble Sort
+       :optional:
     
        """function goes through list sorting adjacent values as it bubbles 
        the largest value to the top."""
@@ -250,6 +251,7 @@ to as the **short bubble**.
 
     .. activecode:: lst_shortbubble_py
        :caption: The Short Bubble Sort in Python
+       :optional:
 
        def shortBubbleSort(alist):
            exchanges = True
