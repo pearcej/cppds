@@ -180,8 +180,6 @@ an insertion sort with an increment of one.
    :model: ShellSortModel
    :viewer: BarViewer
 
-
-
 .. For more detail, CodeLens 5 allows you to step through the algorithm.
 ..
 ..

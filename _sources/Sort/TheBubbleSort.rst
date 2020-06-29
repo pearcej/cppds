@@ -123,16 +123,21 @@ shown above.
 
        main()
 
-
-
-
-The following animation shows ``bubbleSort`` in action.
-
 .. animation:: bubble_anim
    :modelfile: sortmodels.js
    :viewerfile: sortviewers.js
    :model: BubbleSortModel
    :viewer: BarViewer
+
+The following animation shows ``bubbleSort`` in action. The sort compares two
+items at a time. Once it finds two out of place blocks it will find the correct place
+for the smaller block and then resets for another pass through.
+
+.. video:: bubble_sort
+    :controls:
+    :thumb: ../_static/vis_bubble_sort_thumb.png
+
+    ../_static/vis_bubble_sort.webm
 
 .. For more detail, CodeLens 1 allows you to step through the algorithm.
 ..
