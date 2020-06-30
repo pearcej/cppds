@@ -124,7 +124,7 @@ and blue represents the last element to look at during a step.
 
 The following visualization shows selection sort in action. Each pass compares the bars 
 in sequential order. The smallest bar is selected on each pass and is set as the minimum, 
-represented in orange. Every remaining bar is thencompared to the minimum. If the bar is 
+represented in orange. Every remaining bar is then compared to the minimum. If the bar is 
 larger, it is represented in blue, if it is smaller, it becomes the new orange bar. 
 After each pass, a counter will increment which bar in our container will start with. 
 This increment is representedby a thin black line falling before the bar to be started at.
