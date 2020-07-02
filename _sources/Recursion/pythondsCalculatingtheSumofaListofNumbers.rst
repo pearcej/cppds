@@ -45,6 +45,7 @@ by starting with :math:`0` and adding each number in the vector.
 
     .. activecode:: lst_itsumpy
        :caption: Iterative Summation Python
+       :optional:
 
        #Example of summing up a list without using recursion.
 
@@ -141,6 +142,7 @@ the first element. This is easily expressed in C++ as shown in
 
     .. activecode:: lst_recsumpy
        :caption: Recursion Summation Python
+       :optional:
 
        #Example of summing a list using recurison.
 

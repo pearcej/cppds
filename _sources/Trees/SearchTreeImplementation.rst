@@ -987,6 +987,7 @@ full version of the ``BinarySearchTree`` and ``TreeNode`` classes.
   .. tab:: Python
 
     .. activecode:: completebstcodepy
+        :optional:
 
         #The TreeNode class represents a node, or vertex, in a tree heirarchy. 
         class TreeNode:
