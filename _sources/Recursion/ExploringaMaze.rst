@@ -9,28 +9,29 @@ In this section we will look at a problem that has relevance to the
 expanding world of robotics: How do you find your way out of a maze? If you have
 a Roomba vacuum cleaner for your dorm room (don’t all college students?)
 you will wish that you could reprogram it using what you have learned in
-this section. The problem we want to solve is to help our turtle find
-its way out of a virtual maze. The maze problem has roots as deep as the
+this section. The problem we want to solve is to find an exit to a virtual maze
+when starting at a pre-defined location. The maze problem has roots as deep as the
 Greek myth about Theseus who was sent into a maze to kill the minotaur.
 Theseus used a ball of thread to help him find his way back out again
 once he had finished off the beast. In our problem we will assume that
-our turtle is dropped down somewhere into the middle of the maze and
-must find its way out. Look at :ref:`Figure 2 <fig_mazescreen>` to get an idea of
+our starting position is dropped down somewhere into the middle of the maze,
+a fair distance from any exit. Look at :ref:`Figure 2 <fig_mazescreen>` to get an idea of
 where we are going in this section.
 
 .. _fig_mazescreen:
 
-.. figure:: Figures/maze.png
-   :align: center
+.. video:: vis_maze
+   :controls:
+   :thumb: ../_static/vis_maze_thumb.png
 
-   Figure 2: The Finished Maze Search Program
+    ../_static/vis_maze.webm
 
 
 To make it easier for us we will assume that our maze is divided up into
 “squares.” Each square of the maze is either open or occupied by a
-section of wall. The turtle can only pass through the open squares of
-the maze. If the turtle bumps into a wall it must try a different
-direction. The turtle will require a systematic procedure to find its
+section of wall. We can only pass through the open squares of
+the maze. If we bump into a wall, we must try a different
+direction. We will require a systematic procedure to find our
 way out of the maze. Here is the procedure:
 
 -  From our starting position we will first try going North one square
@@ -70,10 +71,10 @@ of them you may already have guessed based on the description in the
 previous paragraph. In this algorithm, there are four base cases to
 consider:
 
-#. The turtle has run into a wall. Since the square is occupied by a
+#. We have run into a wall. Since the square is occupied by a
    wall no further exploration can take place.
 
-#. The turtle has found a square that has already been explored. We do
+#. We have found a square that has already been explored. We do
    not want to continue exploring from this position or we will get into
    a loop.
 
@@ -83,22 +84,17 @@ consider:
 #. We have explored a square unsuccessfully in all four directions.
 
 For our program to work we will need to have a way to represent the
-maze. To make this even more interesting we are going to use the turtle
-module to draw and explore our maze so we can watch this algorithm in
-action. The maze object will provide the following methods for us to use
-in writing our search algorithm:
+maze. In this instance, we will stick to a text-only representation (ASCII). 
 
--  ``__init__`` Reads in a data file representing a maze, initializes
-   the internal representation of the maze, and finds the starting
-   position for the turtle.
+-  ``__init__`` Initializes basic variables to default values, and calls ``readMazeFile``
 
--  ``drawMaze`` Draws the maze in a window on the screen.
+-  ``readMazeFile`` Reads the text of the maze text file, and calls ``findStartPosition``.
 
--  ``updatePosition`` Updates the internal representation of the maze
-   and changes the position of the turtle in the window.
+-  ``findStartPosition`` Finds the row and column of the starting position.
 
--  ``isExit`` Checks to see if the current position is an exit from the
-   maze.
+-  ``isOnEdge`` Checks to see if the current position is on the edge, and therefore an exit.
+
+-  ``print`` Prints the text of the maze to the screen.
 
 The ``Maze`` class also overloads the index operator ``[]`` so that our
 algorithm can easily access the status of any particular square.
@@ -117,42 +113,48 @@ function the search logically starts again with each recursive call.
 **Listing 3**
 
 ::
-
+    
     def searchFrom(maze, startRow, startColumn):
-        maze.updatePosition(startRow, startColumn)
-       #  Check for base cases:
-       #  1. We have run into an obstacle, return false
-       if maze[startRow][startColumn] == OBSTACLE :
+        #  Check for base cases (Steps 1, 2, and 3):
+
+        #  1. We have run into an obstacle, return false
+        if maze[startRow][startColumn] == MAZE_OBSTACLE:
             return False
         #  2. We have found a square that has already been explored
-        if maze[startRow][startColumn] == TRIED:
+        if maze[startRow][startColumn] == MAZE_TRIED:
             return False
-        # 3. Success, an outside edge not occupied by an obstacle
-        if maze.isExit(startRow,startColumn):
-            maze.updatePosition(startRow, startColumn, PART_OF_PATH)
-            return True
-        maze.updatePosition(startRow, startColumn, TRIED)
 
-        # Otherwise, use logical short circuiting to try each
-        # direction in turn (if needed)
-        found = searchFrom(maze, startRow-1, startColumn) or \
-                searchFrom(maze, startRow+1, startColumn) or \
-                searchFrom(maze, startRow, startColumn-1) or \
-                searchFrom(maze, startRow, startColumn+1)
+        # 3. Success, an outside edge not occupied by an obstacle
+        if maze.isOnEdge(startRow, startColumn):
+            maze[startRow][startColumn] = MAZE_PATH
+            return True
+
+        # 4. Indicate that the currently visited space has been tried.
+        # Refer to step two.
+        maze[startRow][startColumn] = MAZE_TRIED
+
+        # 5. Otherwise, check each cardinal direction (North, south, east, and west).
+        # We are checking one space in each direction, thus the plus or minus one below.
+        found = searchFrom(maze, startRow - 1, startColumn) or \
+                searchFrom(maze, startRow + 1, startColumn) or \
+                searchFrom(maze, startRow, startColumn - 1) or \
+                searchFrom(maze, startRow, startColumn + 1)
+        
+        # 6. Mark the location as either part of the path or a dead end,
+        # depending on whether or not an exit has been found. 
         if found:
-            maze.updatePosition(startRow, startColumn, PART_OF_PATH)
+            maze[startRow][startColumn] = MAZE_PATH
         else:
-            maze.updatePosition(startRow, startColumn, DEAD_END)
+            maze[startRow][startColumn] = MAZE_DEAD_END
+
         return found
 
 As you look through the algorithm you will see that the first thing the
-code does (line 2) is call ``updatePosition``. This is simply to help
-you visualize the algorithm so that you can watch exactly how the turtle
-explores its way through the maze. Next the algorithm checks for the
-first three of the four base cases: Has the turtle run into a wall (line
-5)? Has the turtle circled back to a square already explored (line 8)?
-Has the turtle found an exit (line 11)? If none of these conditions is
-true then we continue the search recursively.
+code does (steps 1 and 2) is determine if the space *should be visited*.
+This is done by checking if the spot is an obstacle (:code:`MAZE_OBSTACLE`),
+or has already been visited (:code:`MAZE_TRIED`). The algorithm then
+determines if it has found an exit (step 3). If none of these cases
+are true, it continues the search recursively.
 
 You will notice that in the recursive step there are four recursive
 calls to ``searchFrom``. It is hard to predict how many of these
@@ -173,7 +175,7 @@ only parameter. This file is a text file that represents a maze by using
 “+” characters for walls, spaces for open squares, and the letter “S” to
 indicate the starting position. :ref:`Figure 3 <fig_exmaze>` is an example of a
 maze data file. The internal representation of the maze is a list of
-lists. Each row of the ``mazelist`` instance variable is also a list.
+lists. Each row of the ``mazeList`` instance variable is also a list.
 This secondary list contains one character per square using the
 characters described above. For the data file in :ref:`Figure 3 <fig_exmaze>` the
 internal representation looks like the following:
@@ -183,7 +185,7 @@ internal representation looks like the following:
 
 ::
 
-    [ ['+','+','+','+',...,'+','+','+','+','+','+','+'],
+     [['+','+','+','+',...,'+','+','+','+','+','+','+'],
       ['+',' ',' ',' ',...,' ',' ',' ','+',' ',' ',' '],
       ['+',' ','+',' ',...,'+','+',' ','+',' ','+','+'],
       ['+',' ','+',' ',...,' ',' ',' ','+',' ','+','+'],
@@ -195,40 +197,31 @@ internal representation looks like the following:
       ['+',' ',' ',' ',...,' ',' ','+',' ','+','+','+'],
       ['+','+','+','+',...,'+','+','+',' ','+','+','+']]
 
-The ``drawMaze`` method uses this internal representation to draw the
-initial view of the maze on the screen.
+The ``searchFrom`` method uses this internal representation to traverse
+throughout the maze.
 
 .. _fig_exmaze:
 
 
 Figure 3: An Example Maze Data File
 
-::
+.. datafile:: maze1.txt
 
-      ++++++++++++++++++++++
-      +   +   ++ ++     +
-      + +   +       +++ + ++
-      + + +  ++  ++++   + ++
-      +++ ++++++    +++ +  +
-      +          ++  ++    +
-      +++++ ++++++   +++++ +
-      +     +   +++++++  + +
-      + +++++++      S +   +
-      +                + +++
-      ++++++++++++++++++ +++
+    ++++++++++++++++++++++
+    +   +   ++ ++     +   ‏‏‎ ‎
+    + +   +       +++ + ++
+    + + +  ++  ++++   + ++
+    +++ ++++++    +++ +  +
+    +          ++  ++    +
+    +++++ ++++++   +++++ +
+    +     +   +++++++  + +
+    + +++++++      S +   +
+    +                + +++
+    ++++++++++++++++++ +++
 
-
-The ``updatePosition`` method, as shown in :ref:`Listing 5 <lst_maze1>` uses the
-same internal representation to see if the turtle has run into a wall.
-It also updates the internal representation with a “.” or “-” to
-indicate that the turtle has visited a particular square or if the
-square is part of a dead end. In addition, the ``updatePosition`` method
-uses two helper methods, ``moveTurtle`` and ``dropBreadCrumb``, to
-update the view on the screen.
-
-Finally, the ``isExit`` method uses the current position of the turtle
-to test for an exit condition. An exit condition is whenever the turtle
-has navigated to the edge of the maze, either row zero or column zero,
+Finally, the ``isOnEdge`` method uses our current position
+to test for an exit condition. An exit condition occurs whenever we
+have navigated to the edge of the maze, either row zero or column zero,
 or the far right column or the bottom row.
 
 .. _lst_maze:
@@ -240,266 +233,201 @@ or the far right column or the bottom row.
 
 ::
 
-    class Maze:
-        def __init__(self,mazeFileName):
-            rowsInMaze = 0
-            columnsInMaze = 0
-            self.mazelist = []
-            mazeFile = open(mazeFileName,'r')
-            rowsInMaze = 0
-            for line in mazeFile:
-                rowList = []
-                col = 0
-                for ch in line[:-1]:
-                    rowList.append(ch)
-                    if ch == 'S':
-                        self.startRow = rowsInMaze
-                        self.startCol = col
-                    col = col + 1
-                rowsInMaze = rowsInMaze + 1
-                self.mazelist.append(rowList)
-                columnsInMaze = len(rowList)
+    MAZE_OBSTACLE = '+'
+    MAZE_START = 'S'
+    MAZE_PATH = 'O'
+    MAZE_DEAD_END = '-'
+    MAZE_TRIED = '.'
 
-            self.rowsInMaze = rowsInMaze
-            self.columnsInMaze = columnsInMaze
-            self.xTranslate = -columnsInMaze/2
-            self.yTranslate = rowsInMaze/2
-            self.t = Turtle(shape='turtle')
-            setup(width=600,height=600)
-            setworldcoordinates(-(columnsInMaze-1)/2-.5,
-                                -(rowsInMaze-1)/2-.5,
-                                (columnsInMaze-1)/2+.5,
-                                (rowsInMaze-1)/2+.5)
+    class Maze:
+        def __init__(self, mazeFileName):
+            # Initialize all of our default variables.
+            self.mazeList = []
+            self.totalRows = 0
+            self.totalColumns = 0
+
+            self.startRow = 0
+            self.startColumn = 0
+            
+            # And read the maze file.
+            self.readMazeFile(mazeFileName)
+
+        def readMazeFile(self, mazeFileName):
+            # The maze list is a list of strings.
+            # Components of the maze are indicated by specific characters.
+            # These characters are listed at the top of the file.
+            
+            # The line below says the following:
+            # For every line of text in our maze text file, add every single character to a list.
+            # The final result is a list of lists, where each element is a single character.
+            self.mazeList = [[char for char in line] for line in open(mazeFileName).read().split("\n")]
+
+            # The total number of rows is the total number of strings in the list.
+            self.totalRows = len(self.mazeList)
+
+            # The total number of columns is the length of a single line.
+            # We can assume all lines of text for the maze are the same length.
+            self.totalColumns = len(self.mazeList[0])
+
+            # Lastly, find the start position.
+            self.findStartPosition()
+
+        def findStartPosition(self):
+            # Iterate through every individual character in the maze list.
+            # If we come across the MAZE_START character ('S'),
+            # we save the row and column of where it was found, and stop looking.
+
+            # enumerate(...) is very much like using a typical list,
+            # except it gives you two pieces of information instead of one.
+            # It assumes the format of (index_of_item, item).
+            for (row, text) in enumerate(self.mazeList):
+                for(column, component) in enumerate(text):
+                    if component == MAZE_START:
+                        self.startRow = row
+                        self.startColumn = column
+                        return
+        
+        def isOnEdge(self, row, column):
+            return (row == 0 or
+                    row == self.totalRows - 1 or
+                    column == 0 or
+                    column == self.totalColumns - 1)
+
+        # This allows us to use the Maze class like a list, e.g, maze[index]
+        def __getitem__(self, index):
+            return self.mazeList[index]
 
 .. _lst_maze1:
 
-**Listing 5**
+The complete program is shown in ActiveCode 1.  This program uses the data file ``maze1.txt`` shown above.
+Feel free to also attempt to use ``maze2.txt`` from up above.
+Note that it is a much more simple example file in that the exit is very close to the starting position.
 
-::
+.. datafile:: maze2.txt
 
-        def drawMaze(self):
-            for y in range(self.rowsInMaze):
-                for x in range(self.columnsInMaze):
-                    if self.mazelist[y][x] == OBSTACLE:
-                        self.drawCenteredBox(x+self.xTranslate,
-                                             -y+self.yTranslate,
-                                             'tan')
-            self.t.color('black','blue')
-
-        def drawCenteredBox(self,x,y,color):
-            tracer(0)
-            self.t.up()
-            self.t.goto(x-.5,y-.5)
-            self.t.color('black',color)
-            self.t.setheading(90)
-            self.t.down()
-            self.t.begin_fill()
-            for i in range(4):
-                self.t.forward(1)
-                self.t.right(90)
-            self.t.end_fill()
-            update()
-            tracer(1)
-
-        def moveTurtle(self,x,y):
-            self.t.up()
-            self.t.setheading(self.t.towards(x+self.xTranslate,
-                                             -y+self.yTranslate))
-            self.t.goto(x+self.xTranslate,-y+self.yTranslate)
-
-        def dropBreadcrumb(self,color):
-            self.t.dot(color)
-
-        def updatePosition(self,row,col,val=None):
-            if val:
-                self.mazelist[row][col] = val
-            self.moveTurtle(col,row)
-
-            if val == PART_OF_PATH:
-                color = 'green'
-            elif val == OBSTACLE:
-                color = 'red'
-            elif val == TRIED:
-                color = 'black'
-            elif val == DEAD_END:
-                color = 'red'
-            else:
-                color = None
-
-            if color:
-                self.dropBreadcrumb(color)
-
-.. _lst_maze2:
-
-**Listing 6**
-
-::
-
-       def isExit(self,row,col):
-            return (row == 0 or
-                    row == self.rowsInMaze-1 or
-                    col == 0 or
-                    col == self.columnsInMaze-1 )
-
-       def __getitem__(self,idx):
-            return self.mazelist[idx]
-
-
-The complete program is shown in ActiveCode 1.  This program uses the data file ``maze2.txt`` shown below.
-Note that it is a much more simple example file in that the exit is very close to the starting position of the turtle.
-
-.. raw:: html
-
-	<pre id="maze2.txt">
-  ++++++++++++++++++++++
-  +   +   ++ ++        +
-        +     ++++++++++
-  + +    ++  ++++ +++ ++
-  + +   + + ++    +++  +
-  +          ++  ++  + +
-  +++++ + +      ++  + +
-  +++++ +++  + +  ++   +
-  +          + + S+ +  +
-  +++++ +  + + +     + +
-  ++++++++++++++++++++++
-    </pre>
+    ++++++++++++++++++++++
+    +   +   ++ ++        +
+    +     ++++++++++      ‏‏‎ ‎‎‏‏‎ 
+    + +    ++  ++++ +++ ++
+    + +   + + ++    +++  +
+    +          ++  ++  + +
+    +++++ + +      ++  + +
+    +++++ +++  + +  ++   +
+    +          + + S+ +  +
+    +++++ +  + + +       +
+    ++++++++++++++++++++++
 
 .. activecode:: completemaze
     :caption: Complete Maze Solver
     :timelimit: off
 
-    import turtle
-
-    PART_OF_PATH = 'O'
-    TRIED = '.'
-    OBSTACLE = '+'
-    DEAD_END = '-'
+    MAZE_OBSTACLE = '+'
+    MAZE_START = 'S'
+    MAZE_PATH = 'O'
+    MAZE_DEAD_END = '-'
+    MAZE_TRIED = '.'
 
     class Maze:
-        def __init__(self,mazeFileName):
-            rowsInMaze = 0
-            columnsInMaze = 0
-            self.mazelist = []
-            mazeFile = open(mazeFileName,'r')
-            rowsInMaze = 0
-            for line in mazeFile: 
-		#Gets the dimensions and layout of the maze.
-                rowList = []
-                col = 0
-                for ch in line[:-1]:
-                    rowList.append(ch)
-                    if ch == 'S':
-                        self.startRow = rowsInMaze
-                        self.startCol = col
-                    col = col + 1
-                rowsInMaze = rowsInMaze + 1
-                self.mazelist.append(rowList)
-                columnsInMaze = len(rowList)
+        def __init__(self, mazeFileName):
+            # Initialize all of our default variables.
+            self.mazeList = []
+            self.totalRows = 0
+            self.totalColumns = 0
 
-            self.rowsInMaze = rowsInMaze
-            self.columnsInMaze = columnsInMaze
-            self.xTranslate = -columnsInMaze/2
-            self.yTranslate = rowsInMaze/2
-            self.t = turtle.Turtle()
-            self.t.shape('turtle')
-            self.wn = turtle.Screen()
-            self.wn.setworldcoordinates(-(columnsInMaze-1)/2-.5,-(rowsInMaze-1)/2-.5,(columnsInMaze-1)/2+.5,(rowsInMaze-1)/2+.5)
+            self.startRow = 0
+            self.startColumn = 0
+            
+            # And read the maze file.
+            self.readMazeFile(mazeFileName)
 
-        def drawMaze(self):
-            self.t.speed(10)
-            self.wn.tracer(0)
-            for y in range(self.rowsInMaze):
-                for x in range(self.columnsInMaze):
-                    if self.mazelist[y][x] == OBSTACLE:
-                        self.drawCenteredBox(x+self.xTranslate,-y+self.yTranslate,'orange')
-            self.t.color('black')
-            self.t.fillcolor('blue')
-            self.wn.update()
-            self.wn.tracer(1)
+        def readMazeFile(self, mazeFileName):
+            # The maze list is a list of strings.
+            # Components of the maze are indicated by specific characters.
+            # These characters are listed at the top of the file.
+            
+            # The line below says the following:
+            # For every line of text in our maze text file, add every single character to a list.
+            # The final result is a list of lists, where each element is a single character.
+            self.mazeList = [[char for char in line] for line in open(mazeFileName).read().split("\n")]
 
-        def drawCenteredBox(self,x,y,color):
-            self.t.up()
-            self.t.goto(x-.5,y-.5)
-            self.t.color(color)
-            self.t.fillcolor(color)
-            self.t.setheading(90)
-            self.t.down()
-            self.t.begin_fill()
-            for i in range(4):
-                self.t.forward(1)
-                self.t.right(90)
-            self.t.end_fill()
+            # The total number of rows is the total number of strings in the list.
+            self.totalRows = len(self.mazeList)
 
-        def moveTurtle(self,x,y):
-            self.t.up()
-            self.t.setheading(self.t.towards(x+self.xTranslate,-y+self.yTranslate))
-            self.t.goto(x+self.xTranslate,-y+self.yTranslate)
+            # The total number of columns is the length of a single line.
+            # We can assume all lines of text for the maze are the same length.
+            self.totalColumns = len(self.mazeList[0])
 
-        def dropBreadcrumb(self,color):
-            self.t.dot(10,color)
+            # Lastly, find the start position.
+            self.findStartPosition()
 
-        def updatePosition(self,row,col,val=None):
-            if val:
-                self.mazelist[row][col] = val
-            self.moveTurtle(col,row)
+        def findStartPosition(self):
+            # Iterate through every individual character in the maze list.
+            # If we come across the MAZE_START character ('S'),
+            # we save the row and column of where it was found, and stop looking.
 
-            if val == PART_OF_PATH:
-                color = 'green'
-            elif val == OBSTACLE:
-                color = 'red'
-            elif val == TRIED:
-                color = 'black'
-            elif val == DEAD_END:
-                color = 'red'
-            else:
-                color = None
+            # enumerate(...) is very much like using a typical list,
+            # except it gives you two pieces of information instead of one.
+            # It assumes the format of (index_of_item, item).
+            for (row, text) in enumerate(self.mazeList):
+                for(column, component) in enumerate(text):
+                    if component == MAZE_START:
+                        self.startRow = row
+                        self.startColumn = column
+                        return
 
-            if color:
-                self.dropBreadcrumb(color)
-
-        def isExit(self,row,col):
+        def isOnEdge(self, row, column):
             return (row == 0 or
-                    row == self.rowsInMaze-1 or
-                    col == 0 or
-                    col == self.columnsInMaze-1 )
+                    row == self.totalRows - 1 or
+                    column == 0 or
+                    column == self.totalColumns - 1)
+        
+        def print(self):
+            for row in self.mazeList:
+                # "join" every character in the row into a single string.
+                rowText = "".join(row)
+                print(rowText)
 
-        def __getitem__(self,idx):
-            return self.mazelist[idx]
-
+        # This allows us to use the Maze class like a list, e.g, maze[index]
+        def __getitem__(self, index):
+            return self.mazeList[index]
 
     def searchFrom(maze, startRow, startColumn):
-        # try each of four directions from this point until we find a way out.
-        # base Case return values:
+        #  Check for base cases:
         #  1. We have run into an obstacle, return false
-        maze.updatePosition(startRow, startColumn)
-        if maze[startRow][startColumn] == OBSTACLE :
+        if maze[startRow][startColumn] == MAZE_OBSTACLE:
             return False
         #  2. We have found a square that has already been explored
-        if maze[startRow][startColumn] == TRIED or maze[startRow][startColumn] == DEAD_END:
+        if maze[startRow][startColumn] == MAZE_TRIED:
             return False
-        # 3. We have found an outside edge not occupied by an obstacle
-        if maze.isExit(startRow,startColumn):
-            maze.updatePosition(startRow, startColumn, PART_OF_PATH)
+
+        # 3. Success, an outside edge not occupied by an obstacle
+        if maze.isOnEdge(startRow, startColumn):
+            maze[startRow][startColumn] = MAZE_PATH
             return True
-        maze.updatePosition(startRow, startColumn, TRIED)
-        # Otherwise, use logical short circuiting to try each direction
-        # in turn (if needed)
-        found = searchFrom(maze, startRow-1, startColumn) or \
-                searchFrom(maze, startRow+1, startColumn) or \
-                searchFrom(maze, startRow, startColumn-1) or \
-                searchFrom(maze, startRow, startColumn+1)
+
+        maze[startRow][startColumn] = MAZE_TRIED
+
+        # Otherwise, check each cardinal direction (North, south, east, and west).
+        # We are checking one space in each direction, thus the plus or minus one below.
+        found = searchFrom(maze, startRow - 1, startColumn) or \
+                searchFrom(maze, startRow + 1, startColumn) or \
+                searchFrom(maze, startRow, startColumn - 1) or \
+                searchFrom(maze, startRow, startColumn + 1)
+
         if found:
-            maze.updatePosition(startRow, startColumn, PART_OF_PATH)
+            maze[startRow][startColumn] = MAZE_PATH
         else:
-            maze.updatePosition(startRow, startColumn, DEAD_END)
+            maze[startRow][startColumn] = MAZE_DEAD_END
+
         return found
 
     def main():
-        myMaze = Maze('maze2.txt')
-        myMaze.drawMaze()
-        myMaze.updatePosition(myMaze.startRow,myMaze.startCol)
-
-        searchFrom(myMaze, myMaze.startRow, myMaze.startCol)
+        maze = Maze("maze1.txt")
+        print("Before:")
+        maze.print()
+        searchFrom(maze, maze.startRow, maze.startColumn)
+        print("After:")
+        maze.print()
 
     main()
 
@@ -507,13 +435,14 @@ Note that it is a much more simple example file in that the exit is very close t
 
     Now that you're familiar with this simple maze exploring algorithm, use what you've learned about file handling, classes, and IO to implement this in C++!
     To visualize the exploration, print out the characters using ``cout`` to create an ASCII representation of your cave. For example, your program should be able to read and operate from a file formatted as follows:
+    You can also use CTurtle to visualize the traversal throughout the maze.
 
 ::
 
         7 5
 
         +++++++
-        +--+-S+
-        +--+--+
-        -----++
+        +  + S+
+        +  +  +
+             ++
         +++++++
