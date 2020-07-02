@@ -156,6 +156,7 @@ is removed each time.  We will now turn our attention to creating an implementat
 
     .. activecode:: heap1py
         :caption: Using the Binary Heap Python
+        :optional:
 
         #you can use the command below to import the binheap library:
         #from pythonds.trees.binheap import BinHeap

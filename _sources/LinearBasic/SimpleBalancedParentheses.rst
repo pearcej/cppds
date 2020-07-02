@@ -139,6 +139,7 @@ this algorithm is shown in :ref:`ActiveCode 1 <lst_parcheck1>`.
 
     .. activecode:: parcheck1_py
        :caption: Solving the Balanced Parentheses Problem
+       :optional:
 	   
        #Program that detects if a set of parentheses is complete.
 

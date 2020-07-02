@@ -128,6 +128,7 @@ where we satisfy the base case condition immediately.
         .. activecode:: lst_change12cpp
            :caption: Recursively Counting Coins with Table Lookup Python
            :language: python
+           :optional:
 
 	   #Recursive example of trying to get the least amount of coins to make up an amount of change.
 
@@ -245,6 +246,7 @@ algorithm to incorporate our table lookup scheme.
         .. activecode:: lst_change14cpp
            :caption: Recursively Counting Coins with Table Lookup Python
            :language: python
+           :optional:
 
 	   #A different attempt at making the change algorithm.
 
@@ -389,6 +391,7 @@ from 0 to the value of ``change``.
         .. activecode:: lst_change100cpp
            :caption: Recursively Counting Coins with Table Lookup Python
            :language: python
+           :optional:
 
 	   #Program that stores the solution for all possible amounts of change up to a given integer.
 
@@ -540,6 +543,7 @@ array also contains 21, giving us the three 21 cent pieces.
         .. activecode:: lst_dprememberpy
             :caption: Complete Solution to the Change Problem Python
             :nocodelens:
+            :optional:
 
 	    #Addition to the precious program that finds the types of coins used and the process of doing it.
 

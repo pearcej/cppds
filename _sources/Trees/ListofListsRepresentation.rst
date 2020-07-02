@@ -55,6 +55,7 @@ is more than a binary tree, another subtree is just another list.
 
 .. activecode:: tree_list1
     :caption: Using Indexing to Access Subtrees
+    :optional:
 
     myTree = ['a', ['b', ['d',[],[]], ['e',[],[]] ], ['c', ['f',[],[]], []] ]
     print(myTree)
@@ -151,6 +152,7 @@ structure resulting from this set of calls.
 
 .. activecode:: bin_tree
     :caption: A Python Session to Illustrate Basic Tree Functions
+    :optional:
 
     def BinaryTree(r):
         return [r, [], []]

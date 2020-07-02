@@ -320,6 +320,7 @@ Note that it is a much more simple example file in that the exit is very close t
 .. activecode:: completemaze
     :caption: Complete Maze Solver
     :timelimit: off
+    :optional:
 
     MAZE_OBSTACLE = '+'
     MAZE_START = 'S'

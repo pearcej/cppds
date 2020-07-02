@@ -394,6 +394,7 @@ shown in :ref:`ActiveCode 1 <lst_intopost>`.
     .. activecode:: intopost
      :caption: Converting Infix Expressions to Postfix Expressions
      :nocodelens:
+     :optional:
 
      #Converts an infix expression to a postfix expression.
 
@@ -600,6 +601,7 @@ operator and then perform the proper arithmetic operation.
     .. activecode:: postfixeval 
        :caption: Postfix Evaluation
        :nocodelens:
+       :optional:
 
        #Solves a postfix math problem.
 
