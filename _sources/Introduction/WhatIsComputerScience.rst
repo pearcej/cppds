@@ -104,6 +104,7 @@ perform computations such as
 
     .. activecode:: Python
        :caption: Sqrt in Python
+       :optional:
 
        #Outputs the square root of a given number.
        import math

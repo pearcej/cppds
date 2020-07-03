@@ -87,6 +87,7 @@ complete function for palindrome-checking appears in
 
     .. activecode:: palchecker
        :caption: A Palindrome Checker Using Deque
+       :optional:
 
        #Program that detects palindromes.
 

@@ -305,6 +305,7 @@ tree as a binary tree itself.
 
     .. activecode:: bintree_py
         :caption: Exercising the Node and Reference Implementation Python
+        :optional:
 
         """ creates a binary tree, allows you to insert nodes
          and access those nodes. """

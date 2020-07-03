@@ -117,6 +117,7 @@ Here are examples of iteration.
 
     .. activecode:: listarray_py
         :caption: Iterating a list in Python
+        :optional:
 
         #showcases an iteration through an array in Python
         def main():
@@ -162,6 +163,7 @@ generally try to do everything you ask for.
 
     .. activecode:: array_error_py
         :caption: Iterating a list in Python
+        :optional:
 
         #outputs the result of trying to access a value outside of an array
         def main():
@@ -217,6 +219,7 @@ the *vector*.
 
     .. activecode:: array_werror_py
         :caption: Write error in Python
+        :optional:
 
         """shows how C++ allows you to easily
         overwrite values in memory even when
@@ -358,6 +361,7 @@ Matching
 
    .. activecode:: introvector_py
        :caption: Using a Python list
+       :optional:
 
        #Python doesn't have vectors, simply stating the limit is enough
        def main():
@@ -437,6 +441,7 @@ we will likely not be surprised by the following:
 
    .. activecode:: vector_errors_py
        :caption: Python list out of bounds
+       :optional:
 
        #shows errors when a vector goes out of bounds
        def main():
@@ -587,6 +592,7 @@ Matching
 
     .. activecode:: introstring_py
         :caption: Python strings
+        :optional:
 
         #shows basic string usage in Python
         def main():
@@ -677,6 +683,7 @@ associated value.
 
        .. activecode:: hashtable1_py
            :caption: Using a Dictionary
+           :optional:
 
            #shows how hash tables can be used in python
            def main():
@@ -731,6 +738,7 @@ the following example.
 
        .. activecode:: hashtable2_py
            :caption: Iterating a Dictionary
+           :optional:
 
            #shows how to iterate through a hash table in python
            def main():

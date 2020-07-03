@@ -69,6 +69,7 @@ of the array. ``pop`` operations will manipulate that same end.
 
     .. activecode:: stack_1ac_py
        :caption: Implementing a Stack class using Python lists
+       :optional:
 
        #Tests the push, empty, size, pop, and top methods of the stack library.
 

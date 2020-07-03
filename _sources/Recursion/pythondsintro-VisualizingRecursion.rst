@@ -48,6 +48,7 @@ the window, after which the program cleans up and exits.
 
 .. activecode:: lst_turt1
     :caption: Drawing a Recursive Spriral using turtle
+    :optional:
 
     #Creates an inward spiral through recursion.
 
@@ -151,6 +152,7 @@ shape simultaneously? Will it be drawn right side first then left side?
 
 .. activecode:: lst_complete_tree
     :caption: Recursively Drawing a Tree
+    :optional:
 
     #Creates a tree by using recursion.
 

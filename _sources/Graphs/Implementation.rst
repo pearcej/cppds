@@ -342,6 +342,7 @@ at the end of this session against :ref:`Figure 2 <fig_dgsimple>`.
 
     .. activecode:: graph_implementation_py
       :caption: Graph and Vertex implementation
+      :optional:
 
       class Vertex:
 	    # Contructor that specifies the key of the vertex.

@@ -60,6 +60,7 @@ manipulate the opposite side, the **front** end.
 
     .. activecode:: queue1acpy
        :caption: Implementing a Queue class using Python lists
+       :optional:
 
        class Queue:
            def __init__(self):
