@@ -111,6 +111,7 @@ studies, insertion sort will show very good performance.
 
     .. activecode:: lst_insertion
         :caption: Insertion Sort
+        :optional:
 
         def insertionSort(alist): #function that insertsorts through the list
            for index in range(1,len(alist)): 

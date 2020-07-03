@@ -160,6 +160,7 @@ The program in ActiveCode 1 provides the entire solution for three disks.
 
     .. activecode:: hanoipy
        :caption: Solving Tower of Hanoi Recursively Python
+       :optional:
 
        #Simulation of the tower of hanoi.
 

@@ -72,6 +72,7 @@ places 55, and so on. The function is shown in :ref:`ActiveCode 1 <lst_selection
 
     .. activecode:: lst_selectionsortcode
         :caption: Selection Sort
+        :optional:
         
         #function sorts through values in list using selection sort
         def selectionSort(alist):
