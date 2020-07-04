@@ -40,6 +40,7 @@ generated the Sierpinski Triangle in :ref:`Figure 3 <fig_sierpinski>` is shown i
 .. activecode:: lst_st
     :caption: Drawing a Sierpinski Triangle
     :nocodelens:
+    :optional:
 
     #Recursive example of the Sierpinski Triangle.
 

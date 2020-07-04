@@ -142,6 +142,7 @@ an insertion sort with an increment of one.
 
     .. activecode:: lst_shell_py
        :caption: Shell Sort
+       :optional:
 
        def shellSort(alist):
            sublistcount = len(alist)//2
@@ -179,8 +180,6 @@ an insertion sort with an increment of one.
    :viewerfile: sortviewers.js
    :model: ShellSortModel
    :viewer: BarViewer
-
-
 
 .. For more detail, CodeLens 5 allows you to step through the algorithm.
 ..

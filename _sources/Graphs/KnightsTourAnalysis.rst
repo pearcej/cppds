@@ -94,6 +94,27 @@ decisions, heuristic searches are often used in the field of artificial
 intelligence. This particular heuristic is called Warnsdorff’s
 algorithm, named after H. C. Warnsdorff who published his idea in 1823.
 
+The visualization below depicts the full process of a Knight's Tour solution.
+It portrays the visitation of every spot on the chess board and an analysis
+on all neighboring locations, and finishes by showing the final solution wherein
+all locations on the chess board have been visited. The Warnsdorff heuristic is used
+in this visualization, so all neighbors with less moves are prioritized over neighbors
+with more moves. The individual components of the visualization are indicated by color
+and shape, which is described below.
+
+- The currently focused point on the chess board is a black circle.
+- Neighbors of that point that are being examined are higlighted in blue hexagon.
+- Distant neighbors are orange or brown triangles.
+
+  - Triangles are orange if the spot on the chess board *has not been* visited yet.
+  - Triangles are brown if the spot on the chess board *has already been* visited.
+
+.. video:: knights_tour_vis
+    :controls:
+    :thumb: ../_static/kt_vis_thumb.png
+
+    ../_static/knights_tour_vis.webm
+
 .. _lst_avail:
 
 **Listing 4**
