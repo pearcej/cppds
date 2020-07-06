@@ -162,6 +162,7 @@ list that was used in the example above.
 
     .. activecode:: lst_quick
         :caption: Quick Sort
+        :optional:
 
         #recursive function that calls itself to quicksort through a given list of values
         def quickSort(alist,first,last):

@@ -52,6 +52,7 @@ vertices in an instance of a graph is a natural thing to do.
     .. tab:: Python
 
         .. activecode:: pythondfs0
+            :optional:
 
             from pythonds.graphs import Graph
             class DFSGraph(Graph):

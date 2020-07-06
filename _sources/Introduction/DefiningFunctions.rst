@@ -379,6 +379,7 @@ Overloading is a nice feature of the C++ language.
 
     .. activecode:: foverload_py
         :caption: Function Overloading in Python
+        :optional:
         
         #showcases function overloading in Python
         def myfunct(n, m=None):
