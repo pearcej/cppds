@@ -294,6 +294,7 @@ can be calculated as we did in :ref:`Listing 3 <lst_binarysearchpy>`. This is es
 
         .. activecode:: binary_search_python_array
             :caption: Optimized Binary Search
+            :optional:
 
             '''Checks to see if item is in a list
             retruns true or false (1 or 0)

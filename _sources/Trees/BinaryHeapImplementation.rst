@@ -455,6 +455,7 @@ The complete binary heap implementation can be seen in ActiveCode 1.
     .. activecode:: completeheappy
         :caption: The Complete Binary Heap Example Python
         :language: python
+        :optional:
 
         # uses a vector to creat a Binar Heap
         class BinHeap:
