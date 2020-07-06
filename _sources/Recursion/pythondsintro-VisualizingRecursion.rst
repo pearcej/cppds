@@ -24,12 +24,6 @@ line as it moves. To increase the artistic value of the turtle you can
 change the width of the tail as well as the color of the ink the tail is
 dipped in.
 
-Turtle does not exist the same way in C++, so for convenience in visualizing these
-illustrations a simplified version of a Turtle class is provided here. This .sln
-runs a C++ windows application and is written in C++ code:
-
-https://github.com/CodyWMitchell/visual-recursion
-
 Here is a simple example to illustrate some turtle graphics basics. We
 will use the turtle module to draw a spiral recursively.
 :ref:`ActiveCode 1 <lst_turt1>` shows how it is done. After importing the ``turtle``
@@ -40,45 +34,60 @@ want to draw, as given by the ``len`` parameter, is reduced to zero or
 less. If the length of the line is longer than zero we instruct the
 turtle to go forward by ``len`` units and then turn right 90 degrees.
 The recursive step is when we call drawSpiral again with a reduced
-length. At the end of :ref:`ActiveCode 1 <lst_turt1>` you will notice that we call
-the function ``myWin.exitonclick()``, this is a handy little method of
-the window that puts the turtle into a wait mode until you click inside
-the window, after which the program cleans up and exits.
+length. 
 
+.. tabbed:: tab_lst_turtle1
 
-.. activecode:: lst_turt1
-    :caption: Drawing a Recursive Spriral using turtle
+   .. tab:: C++
 
-    #Creates an inward spiral through recursion.
+    .. activecode:: lst_cturt1
+        :caption: Drawing a Recursive Spiral using Turtles
+        :language: cpp
 
-    import turtle
+        #include <CTurtle.hpp>
+        namespace ct = cturtle;
 
-    def drawSpiral(myTurtle, lineLen):
-        if lineLen > 0:
-            myTurtle.forward(lineLen)
-            myTurtle.right(90)
-            drawSpiral(myTurtle,lineLen-5) #function makes recursive call.
-
-    def main():
-        myTurtle = turtle.Turtle()
-        myWin = turtle.Screen()
-        drawSpiral(myTurtle,100)
-        myWin.exitonclick()
-
-    main()
-
-::
-
-    //C++ code
-
-    void drawSpiral(Turtle myTurtle, int lineLen) {
-        // Compare with ActiveCode 2
-        if (lineLen > 0) {
-            myTurtle.forward(lineLen);
-            myTurtle.right(90);
-            drawSpiral(myTurtle, lineLen - 5);
+        void spiral(ct::Turtle& turtle, int length) {
+            if (len > 0) {
+                rt.forward(length);
+                rt.right(90);
+                spiral(rt, len - 5);
+            }
         }
-    }
+
+        int main(int argc, char** argv) {
+            ct::TurtleScreen screen;
+            ct::Turtle turtle(scr);
+
+            spiral(turtle, 100);
+
+            scr.bye();
+            return 0;
+        }
+
+
+   .. tab:: Python
+
+    .. activecode:: lst_turt1
+        :caption: Drawing a Recursive Spiral using turtle
+
+        #Creates an inward spiral through recursion.
+
+        import turtle
+
+        def drawSpiral(myTurtle, lineLen):
+            if lineLen > 0:
+                myTurtle.forward(lineLen)
+                myTurtle.right(90)
+                drawSpiral(myTurtle,lineLen-5) #function makes recursive call.
+
+        def main():
+            myTurtle = turtle.Turtle()
+            myWin = turtle.Screen()
+            drawSpiral(myTurtle,100)
+            myWin.exitonclick()
+
+        main()
 
 That is really about all the turtle graphics you need to know in order
 to make some pretty impressive drawings. For our next program we are
@@ -148,56 +157,81 @@ the recursive calls and think about how this tree will unfold. Will it
 be drawn symmetrically with the right and left halves of the tree taking
 shape simultaneously? Will it be drawn right side first then left side?
 
+.. tabbed:: tab_lst_complete_tree
 
-.. activecode:: lst_complete_tree
-    :caption: Recursively Drawing a Tree
+   .. tab:: C++
 
-    #Creates a tree by using recursion.
+    .. activecode:: lst_complete_ctree
+        :caption: Recursively Drawing a Tree
+        :language: cpp
 
-    import turtle
+        #include <CTurtle.hpp>
 
-    def tree(branchLen,t):
-        if branchLen > 5:
-            t.forward(branchLen) #Turtle goes forward.
-            t.right(20)
-            tree(branchLen-15,t) #Recursive call
-            t.left(40)
-            tree(branchLen-15,t) #Recursive call
-            t.right(20)
-            t.backward(branchLen) #Turtle must go back the same distance
-	        		  #as it went forward to draw the tree
-				  #evenly.
+        namespace ct = cturtle;
 
-    def main():
-        t = turtle.Turtle()
-        myWin = turtle.Screen()
-        t.left(90)
-        t.up()
-        t.backward(100)
-        t.down()
-        t.color("green")
-        tree(75,t)
-        myWin.exitonclick()
+        void tree(ct::Turtle& rt, int len) {
+            if(len > 5){
+                rt.forward(len);
+                rt.right(20);
+                tree(rt, len - 15);
+                rt.left(40);
+                tree(rt, len - 15);
+                rt.right(20);
+                rt.back(len);
+            }
+        }
 
-    main()
+        int main(int argc, char** argv) {
+            ct::TurtleScreen scr;
+            ct::Turtle rt(scr);
+            //Make the trees "grow" upwards
+            rt.left(90);
+            rt.pencolor({"green"});
+            
+            scr.onclick([&](int x, int y) {
+                rt.penup();
+                rt.goTo(x, y);
+                rt.pendown();
+                tree(rt, 100);
+            }, ct::MOUSEB_LEFT);
 
-::
+            scr.mainloop();
+            return 0;
+        }
 
-    //C++ code
+   .. tab:: Python
 
-    void tree(double branchLen, Turtle t) {
-    	//Compare with ActiveCode 1
-      	if (branchLen > 5) {
-    		t.forward(branchLen);
-    		t.right(20);
-    		tree(branchLen - 15, t);
-    		t.left(40);
-    		tree(branchLen - 15, t);
-    		t.right(20);
-    		t.forward(-branchLen);
-      	}
-    }
+    .. activecode:: lst_complete_tree
+        :caption: Recursively Drawing a Tree
 
+        #Creates a tree by using recursion.
+
+        import turtle
+
+        def tree(branchLen,t):
+            if branchLen > 5:
+                t.forward(branchLen) #Turtle goes forward.
+                t.right(20)
+                tree(branchLen-15,t) #Recursive call
+                t.left(40)
+                tree(branchLen-15,t) #Recursive call
+                t.right(20)
+                t.backward(branchLen) #Turtle must go back the same distance
+                        #as it went forward to draw the tree
+                    #evenly.
+
+        def main():
+            t = turtle.Turtle()
+            myWin = turtle.Screen()
+            t.left(90)
+            t.up()
+            t.backward(100)
+            t.down()
+            t.color("green")
+            tree(75,t)
+            myWin.exitonclick()
+
+        main()
 
 Notice how each branch point on the tree corresponds to a recursive
 call, and notice how the tree is drawn to the right all the way down to

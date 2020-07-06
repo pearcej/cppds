@@ -129,6 +129,7 @@ mismatch occurs, the Boolean variable ``balanced`` is set to ``false``.
 
     .. activecode:: parcheck2_py
        :caption: Solving the General Balanced Symbol Problem
+       :optional:
 
        #Program does the same as before, except with 2 extra symbols.
 

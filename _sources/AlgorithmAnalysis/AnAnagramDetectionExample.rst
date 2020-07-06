@@ -89,6 +89,7 @@ and if found, checked off by replacement. :ref:`ActiveCode 1 <lst_anagramSolutio
 
     .. activecode:: active0py
         :caption: Checking Off Python
+        :optional:
 
         #checks to see if the anagrams have the same number of characters
 
@@ -193,6 +194,7 @@ this solution.
 
     .. activecode:: active6py
         :caption: Sort and Compare
+        :optional:
 
         # sorts anagrams in order from a-z, and then compares them
         def anagramSolution2(s1,s2):
@@ -322,6 +324,7 @@ anagrams. :ref:`ActiveCode 3 <lst_ana4>` shows this solution.
 
     .. activecode:: active7py
         :caption: Count and Compare Python
+        :optional:
 
         """ uses an array to count the number of a ocurrences of the two inputs 
         if the number of occurrences is the same then the input is an anagram """ 

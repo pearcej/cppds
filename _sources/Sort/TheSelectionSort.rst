@@ -72,6 +72,7 @@ places 55, and so on. The function is shown in :ref:`ActiveCode 1 <lst_selection
 
     .. activecode:: lst_selectionsortcode
         :caption: Selection Sort
+        :optional:
         
         #function sorts through values in list using selection sort
         def selectionSort(alist):
@@ -122,13 +123,25 @@ This visualization allows you to step through the algorithm. Yellow bars
 represent the current element, red represents the element being looked at,
 and blue represents the last element to look at during a step.
 
+The following visualization shows selection sort in action. Each pass compares the bars 
+in sequential order. The smallest bar is selected on each pass and is set as the minimum, 
+represented in orange. Every remaining bar is then compared to the minimum. If the bar is 
+larger, it is represented in blue, if it is smaller, it becomes the new orange bar. 
+After each pass, a counter will increment which bar in our container will start with. 
+This increment is representedby a thin black line falling before the bar to be started at.
+
+
+.. video:: vis_selection_sort
+    :controls:
+    :thumb: ../_static/vis_selection_sort_thumb.png
+
+    ../_static/vis_selection_sort.webm
+
+
 You may see that the selection sort makes the same number of comparisons
 as the bubble sort and is therefore also :math:`O(n^{2})`. However,
 due to the reduction in the number of exchanges, the selection sort
-typically executes faster in benchmark studies. In fact, for our particular vector,
-the bubble sort makes 20 exchanges, while the selection sort makes only
-8.
-
+typically executes faster in benchmark studies.
 
 .. admonition:: Self Check
 

@@ -62,6 +62,7 @@ iterates through the *n* integers, adding each to the accumulator.
 
     .. activecode:: ec1_py
         :caption: Python
+        :optional:
 
         # adds the sum of (n + n-1 + n-2 ...)
         def sumOfN(n):
@@ -119,6 +120,7 @@ during the accumulation step that was not really necessary.
 
         .. activecode:: ec2_py
             :caption: Another Summation of the First n Integers in python
+            :optional:
 
             #Performs same function as listing 1, but is less descriptive 
             #This is not good practice 
@@ -219,6 +221,7 @@ and then computing the difference, we can get an exact number of seconds
 
     .. activecode:: ec2py
         :caption: Python
+        :optional:
 
         import time
 
@@ -385,6 +388,7 @@ taking advantage of the formula we just developed.
 
     .. activecode:: active3_py
         :caption: Summation Without Iteration Python
+        :optional:
 
         """ Performs same function as listing one, and also list the time it takes to perform 
         the function, and it performs better with larger inputs or (n) """

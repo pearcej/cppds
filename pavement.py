@@ -21,7 +21,7 @@ if master_url is None:
 
 master_app = 'runestone'
 serving_dir = './build/cppds'
-dynamic_pages = False
+dynamic_pages = True
 if dynamic_pages:
     dest = './published'
 else:

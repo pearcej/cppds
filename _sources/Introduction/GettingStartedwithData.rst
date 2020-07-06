@@ -96,6 +96,7 @@ Run the following code to see that you understand each result.
 
     .. activecode:: intro_1py
         :caption: Basic Arithmetic Operators Python
+        :optional:
 
         #outputs results from various math expressions
         def main():
@@ -188,6 +189,7 @@ are actually ``1`` and ``0`` respectively. Hence, we see this in output as well.
 
         .. activecode:: logical_1py
             :caption: Logical Operators Python
+            :optional:
 
             #outputs boolean results to the command line
             def main():
@@ -248,6 +250,7 @@ and logical operators with examples shown in the session that follows.
 
     .. activecode:: logicalpy
         :caption: Basic Relational and Logical Operators Python
+        :optional:
 
         #outputs the results from the relational and logical operators
         def main():
@@ -333,6 +336,7 @@ Consider the following code.
 
     .. activecode:: charpy
         :caption: Python strings
+        :optional:
 
         #outputs the boolean results to show how strings and chars differ in C++
         def main():
@@ -456,6 +460,7 @@ In C++ we use the *address-of operator*, ``&`` to reference the address.
 
     .. activecode:: address_py
         :caption: Memory identifier in Python
+        :optional:
 
         #because python is an interpreted language, variables stored at a virtual memory address. 
         def main():
@@ -535,11 +540,11 @@ The results of running this C++ code will look like the diagram below.
 
 .. _fig_point2:
 
-.. figure:: Figures/point2.png
+.. figure:: Figures/new_point2.png
    :align: center
    :alt: image
 
-   Figure 5: FIXME2
+   Figure 5: View into memory with pointers
 
 Accessing Values from Pointers
 ------------------------------
@@ -617,7 +622,7 @@ and had the following instructions instead?
 
         int main() {
             int varN = 100;
-            int ptrN = varN; // Note: no asterisk,
+            int *ptrN = varN; // Note: no asterisk,
                 // ptrN now refers to memory position 100,
                 // whatever happens to be there!
                 // You might get an error or you might not!
@@ -635,11 +640,11 @@ and had the following instructions instead?
 
 .. _fig_point3:
 
-.. figure:: Figures/point_broken.png
+.. figure:: Figures/new_point_broken.png
    :align: center
    :alt: image
 
-   Figure 6: FIXME3
+   Figure 6: dangling pointer reference
 
 If your compiler does not catch that error (the one for this class may),
 the first ``cout`` instruction outputs:
