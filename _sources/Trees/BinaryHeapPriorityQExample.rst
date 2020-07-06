@@ -21,7 +21,7 @@ and you are told the deadlines for those homeworks: 3, 10, 5, 8, 7, 2 days respe
 
    Figure 1: Homework insertion process into priority queue
 
-Now that we have the priority queue of which homeworks we need to prioritize in order. Let us do the homework with 2 day deadline. We would remove it from the root and put the left most leaf in it place and than rearange the heap back to the proper state, as shown in :ref:`Figure 2 <PQ_del>`.
+Now that we have the priority queue of which homeworks we need to do in the order. Let us start by doing the homework with 2 day deadline. We would remove it from the root and put the left most leaf in its place and than rearange the heap back to the proper state, as shown in :ref:`Figure 2 <PQ_del>`.
 
 .. _PQ_del:
 
@@ -30,6 +30,6 @@ Now that we have the priority queue of which homeworks we need to prioritize in 
    :align: center
    :alt: image
 
-   Figure 1: Homework insertion process into priority queue
+   Figure 2: After finishing the earliest homework, the root is removed and rearranges the priority queue
    
 As we continue to complete the homework with the closest deadline we will continue to remove the homeworks in the demostrated fashion until we are done.
