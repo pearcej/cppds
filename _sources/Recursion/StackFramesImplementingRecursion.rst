@@ -57,6 +57,7 @@ call. The code for this modified algorithm is shown in
 
     .. activecode:: lst_recstackpy
        :caption:  Converting an Integer to a String Using a Stack
+       :optional:
 
        #Example of the toStr function using a stack instead of recursion.
 

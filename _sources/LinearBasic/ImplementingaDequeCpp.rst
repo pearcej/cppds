@@ -74,6 +74,7 @@ the front of the deque is at position 0 in the array.
 
     .. activecode:: dequecode_py
        :caption: Using Deque in Python
+       :optional:
 
        #Example code of a deque.
 
