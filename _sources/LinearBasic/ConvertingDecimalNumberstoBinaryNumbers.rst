@@ -109,6 +109,7 @@ right-hand end of the string. The binary string is then returned.
 
     .. activecode:: binconvert_py
       :caption: Converting Decimal to Binary
+      :optional:
 
       #converts a given decimal number into binary.
 
@@ -221,6 +222,7 @@ beyond 9.
 
     .. activecode:: baseconvert
         :caption: Converting from Decimal to any Base
+        :optional:
 
 	#converts a decimal number into desired base 1-16.
 

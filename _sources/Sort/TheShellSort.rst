@@ -142,6 +142,7 @@ an insertion sort with an increment of one.
 
     .. activecode:: lst_shell_py
        :caption: Shell Sort
+       :optional:
 
        def shellSort(alist):
            sublistcount = len(alist)//2
@@ -179,8 +180,6 @@ an insertion sort with an increment of one.
    :viewerfile: sortviewers.js
    :model: ShellSortModel
    :viewer: BarViewer
-
-
 
 .. For more detail, CodeLens 5 allows you to step through the algorithm.
 ..
@@ -222,6 +221,15 @@ an insertion sort with an increment of one.
        main()
 
 
+The following visualization shows the "gap" attribute in the form of brown, vertical bars.
+There are marker arrows that portray the "current values" being compared during the sort.
+It finishes by performing a full insertion sort on the full set of bars.
+
+.. video:: vis_shell_sort
+    :controls:
+    :thumb: ../_static/vis_shell_sort_thumb.png
+
+    ../_static/vis_shell_sort.webm
 
 At first glance you may think that a shell sort cannot be better than an
 insertion sort, since it does a complete insertion sort as the last
