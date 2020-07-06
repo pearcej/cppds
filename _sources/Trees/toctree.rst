@@ -12,6 +12,7 @@ Trees and Tree Algorithms
     ParseTree.rst
     TreeTraversals.rst
     PriorityQueueswithBinaryHeaps.rst
+    BinaryHeapPriorityQExample.rst
     BinaryHeapOperations.rst
     BinaryHeapImplementation.rst
     BinarySearchTrees.rst
