@@ -274,6 +274,12 @@ list that was used in the example above.
 ..     quickSort(alist)
 ..     print(alist)
 
+.. video:: vis_quick_sort
+    :controls:
+    :thumb: ../_static/vis_quick_sort_thumb.png
+
+    ../_static/vis_quick_sort.webm
+
 To analyze the ``quickSort`` function, note that for a list of length
 *n*, if the partition always occurs in the middle of the list, there
 will again be :math:`\log n` divisions. In order to find the split
