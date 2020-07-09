@@ -274,6 +274,18 @@ list that was used in the example above.
 ..     quickSort(alist)
 ..     print(alist)
 
+.. video:: vis_quick_sort
+    :controls:
+    :thumb: ../_static/vis_quick_sort_thumb.png
+
+    ../_static/vis_quick_sort.webm
+
+The visualization above shows how quick sort works in action. Our pivot 
+is represented by the arrow on screen. If an object is bigger than the pivot,
+it will turn blue and stay where it is. If it is smaller it will turn red and 
+swap to the left side of the pivot. Once an object is sorted, it will turn
+yellow.
+
 To analyze the ``quickSort`` function, note that for a list of length
 *n*, if the partition always occurs in the middle of the list, there
 will again be :math:`\log n` divisions. In order to find the split
