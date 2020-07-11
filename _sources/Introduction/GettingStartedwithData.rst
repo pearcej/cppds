@@ -540,11 +540,11 @@ The results of running this C++ code will look like the diagram below.
 
 .. _fig_point2:
 
-.. figure:: Figures/point2.png
+.. figure:: Figures/new_point2.png
    :align: center
    :alt: image
 
-   Figure 5: FIXME2
+   Figure 5: View into memory with pointers
 
 Accessing Values from Pointers
 ------------------------------
@@ -622,7 +622,7 @@ and had the following instructions instead?
 
         int main() {
             int varN = 100;
-            int ptrN = varN; // Note: no asterisk,
+            int *ptrN = varN; // Note: no asterisk,
                 // ptrN now refers to memory position 100,
                 // whatever happens to be there!
                 // You might get an error or you might not!
@@ -640,11 +640,11 @@ and had the following instructions instead?
 
 .. _fig_point3:
 
-.. figure:: Figures/point_broken.png
+.. figure:: Figures/new_point_broken.png
    :align: center
    :alt: image
 
-   Figure 6: FIXME3
+   Figure 6: dangling pointer reference
 
 If your compiler does not catch that error (the one for this class may),
 the first ``cout`` instruction outputs:

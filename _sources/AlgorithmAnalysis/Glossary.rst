@@ -52,11 +52,12 @@ Glossary
           complex: :math:`ax^{2} + bx + c`
 
 
-    worst case
-        refers to when an algorithm performs especially poorly given a certain data set or circumstance
-
     vector
         sequence container storing data of a single type that is stored in a dynamically allocated array which can change in size.
+        
+    
+    worst case
+        refers to when an algorithm performs especially poorly given a certain data set or circumstance
 
 Matching 
 --------

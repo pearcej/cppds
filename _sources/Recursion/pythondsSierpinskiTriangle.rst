@@ -36,57 +36,105 @@ reach a degree of 0, we stop making recursive calls. The code that
 generated the Sierpinski Triangle in :ref:`Figure 3 <fig_sierpinski>` is shown in
 :ref:`ActiveCode 1 <lst_st>`.
 
+.. tabbed:: tab_1st_st
 
-.. activecode:: lst_st
-    :caption: Drawing a Sierpinski Triangle
-    :nocodelens:
-    :optional:
+    .. tab:: C++
 
-    #Recursive example of the Sierpinski Triangle.
+        .. activecode:: 1st_csierpinksi_tri
+            :caption: Drawing a Sierpinski Triangle
+            :language: cpp
 
-    import turtle
+            #include <CTurtle.hpp>
 
-    def drawTriangle(points,color,myTurtle):
-	#Draws a triangle using the diven points and color.
-        myTurtle.fillcolor(color)
-        myTurtle.up()
-        myTurtle.goto(points[0][0],points[0][1])
-        myTurtle.down()
-        myTurtle.begin_fill()
-        myTurtle.goto(points[1][0],points[1][1])
-        myTurtle.goto(points[2][0],points[2][1])
-        myTurtle.goto(points[0][0],points[0][1])
-        myTurtle.end_fill()
+            namespace ct = cturtle;
 
-    def getMid(p1,p2):
-        return ( (p1[0]+p2[0]) / 2, (p1[1] + p2[1]) / 2)
+            void draw_triangle(ct::Point a, ct::Point b, ct::Point c, ct::Color color, ct::Turtle& myTurtle){
+                myTurtle.fillcolor(color);
+                myTurtle.penup();
+                myTurtle.goTo(a.x, a.y);
+                myTurtle.pendown();
+                myTurtle.begin_fill();
+                myTurtle.goTo(c.x, c.y);
+                myTurtle.goTo(b.x, b.y);
+                myTurtle.goTo(a.x, a.y);
+                myTurtle.end_fill();
+            }
 
-    def sierpinski(points,degree,myTurtle):
-        colormap = ['blue','red','green','white','yellow',
-                    'violet','orange']
-        drawTriangle(points,colormap[degree],myTurtle)
-        if degree > 0:
-            sierpinski([points[0],
-                            getMid(points[0], points[1]),
-                            getMid(points[0], points[2])],
-                       degree-1, myTurtle) #Recursive call
-            sierpinski([points[1],
-                            getMid(points[0], points[1]),
-                            getMid(points[1], points[2])],
-                       degree-1, myTurtle) #Recursive call
-            sierpinski([points[2],
-                            getMid(points[2], points[1]),
-                            getMid(points[0], points[2])],
-                       degree-1, myTurtle) #Recursive call
+            //getMid already defined as "middle" function in C-Turtle namespace :)
 
-    def main():
-       myTurtle = turtle.Turtle()
-       myWin = turtle.Screen()
-       myPoints = [[-100,-50],[0,100],[100,-50]]
-       sierpinski(myPoints,3,myTurtle)
-       myWin.exitonclick()
+            void sierpinski(ct::Point a, ct::Point b, ct::Point c, int degree, ct::Turtle& myTurtle){
+                const std::string colormap[] = {"blue", "red", "green", "white", "yellow", "violet", "orange"};
+                draw_triangle(a,b,c, {colormap[degree]}, myTurtle);
+                if(degree > 0){
+                    sierpinski(a, ct::middle(a, b), ct::middle(a, c), degree - 1, myTurtle);
+                    sierpinski(b, ct::middle(a, b), ct::middle(b, c), degree - 1, myTurtle);
+                    sierpinski(c, ct::middle(c, b), ct::middle(a, c), degree - 1, myTurtle);
+                }
+            }
 
-    main()
+            int main(int argc, char** argv) {
+                ct::TurtleScreen scr;
+                ct::Turtle rt(scr);
+                
+                ct::Point myPoints[] = {{-200, -100}, {0, 200}, {200, -100}};
+                sierpinski(myPoints[0], myPoints[1], myPoints[2], 3, rt);
+                
+                scr.exitonclick();
+                return 0;
+            }
+        
+
+    .. tab:: Python
+
+        .. activecode:: lst_st
+            :caption: Drawing a Sierpinski Triangle
+            :nocodelens:
+
+            #Recursive example of the Sierpinski Triangle.
+
+            import turtle
+
+            def drawTriangle(points,color,myTurtle):
+            #Draws a triangle using the diven points and color.
+                myTurtle.fillcolor(color)
+                myTurtle.up()
+                myTurtle.goto(points[0][0],points[0][1])
+                myTurtle.down()
+                myTurtle.begin_fill()
+                myTurtle.goto(points[1][0],points[1][1])
+                myTurtle.goto(points[2][0],points[2][1])
+                myTurtle.goto(points[0][0],points[0][1])
+                myTurtle.end_fill()
+
+            def getMid(p1,p2):
+                return ( (p1[0]+p2[0]) / 2, (p1[1] + p2[1]) / 2)
+
+            def sierpinski(points,degree,myTurtle):
+                colormap = ['blue','red','green','white','yellow',
+                            'violet','orange']
+                drawTriangle(points,colormap[degree],myTurtle)
+                if degree > 0:
+                    sierpinski([points[0],
+                                    getMid(points[0], points[1]),
+                                    getMid(points[0], points[2])],
+                            degree-1, myTurtle) #Recursive call
+                    sierpinski([points[1],
+                                    getMid(points[0], points[1]),
+                                    getMid(points[1], points[2])],
+                            degree-1, myTurtle) #Recursive call
+                    sierpinski([points[2],
+                                    getMid(points[2], points[1]),
+                                    getMid(points[0], points[2])],
+                            degree-1, myTurtle) #Recursive call
+
+            def main():
+            myTurtle = turtle.Turtle()
+            myWin = turtle.Screen()
+            myPoints = [[-100,-50],[0,100],[100,-50]]
+            sierpinski(myPoints,3,myTurtle)
+            myWin.exitonclick()
+
+            main()
 
 
 The program in :ref:`ActiveCode 1 <lst_st>` follows the ideas outlined above. The

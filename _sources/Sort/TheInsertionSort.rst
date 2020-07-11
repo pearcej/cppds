@@ -139,7 +139,6 @@ studies, insertion sort will show very good performance.
    :model: InsertionSortModel
    :viewer: BarViewer
 
-
 .. For more detail, CodeLens 4 allows you to step through the algorithm.
 ..
 .. .. codelens:: insertionsortcodetrace
@@ -163,9 +162,19 @@ studies, insertion sort will show very good performance.
 ..          print(alist)
        main()
 
-This visualization allows you to step through the algorithm. Red bars represent
+The visualization above allows you to step through the algorithm. Red bars represent
 the element being looked at and blue represents the last element to look at
 during a pass.
+
+The visualization below allows you to examine the individual steps of the algorithm at a slower pace.
+Bars that are orange indicate that it is being compared to items to the left.
+Bars that are blue indicate that it is one of the items currently being compared against the orange bar.
+
+.. video:: vis_insertion_sort
+    :controls:
+    :thumb: ../_static/vis_insertion_sort_thumb.png
+
+    ../_static/vis_insertion_sort.webm
 
 .. admonition:: Self Check
 
