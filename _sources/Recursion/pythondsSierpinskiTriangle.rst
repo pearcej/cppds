@@ -51,12 +51,12 @@ generated the Sierpinski Triangle in :ref:`Figure 3 <fig_sierpinski>` is shown i
             void draw_triangle(ct::Point a, ct::Point b, ct::Point c, ct::Color color, ct::Turtle& myTurtle){
                 myTurtle.fillcolor(color);
                 myTurtle.penup();
-                myTurtle.goTo(a.x, a.y);
+                myTurtle.goTo(a);
                 myTurtle.pendown();
                 myTurtle.begin_fill();
-                myTurtle.goTo(c.x, c.y);
-                myTurtle.goTo(b.x, b.y);
-                myTurtle.goTo(a.x, a.y);
+                myTurtle.goTo(c);
+                myTurtle.goTo(b);
+                myTurtle.goTo(a);
                 myTurtle.end_fill();
             }
 
@@ -72,19 +72,20 @@ generated the Sierpinski Triangle in :ref:`Figure 3 <fig_sierpinski>` is shown i
                 }
             }
 
-            int main(int argc, char** argv) {
-                ct::TurtleScreen scr;
-                ct::Turtle rt(scr);
+            int main() {
+                ct::TurtleScreen screen;
+                screen.tracer(3);//Draw faster.
+                ct::Turtle turtle(screen);
                 
                 ct::Point myPoints[] = {
-                    {-200, -100},
-                    {0, 200},
-                    {200, -100}
+                    {-100, -50},
+                    {0, 100},
+                    {100, -50}
                 };
 
-                sierpinski(myPoints[0], myPoints[1], myPoints[2], 3, rt);
+                sierpinski(myPoints[0], myPoints[1], myPoints[2], 3, turtle);
                 
-                scr.exitonclick();
+                screen.bye();
                 return 0;
             }
         
