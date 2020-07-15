@@ -352,7 +352,7 @@ performing a sequential search from the start may be the best choice.
 
    .. mchoice:: BSRCH_2
       :correct: d
-      :answer_a: 11, 14, 17, 15
+      :answer_a: 11, 17, 14, 15
       :answer_b: 18, 17, 14, 15
       :answer_c: 14, 12, 17, 15
       :answer_d: 12, 17, 14, 15
