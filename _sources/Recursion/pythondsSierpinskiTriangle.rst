@@ -76,7 +76,12 @@ generated the Sierpinski Triangle in :ref:`Figure 3 <fig_sierpinski>` is shown i
                 ct::TurtleScreen scr;
                 ct::Turtle rt(scr);
                 
-                ct::Point myPoints[] = {{-200, -100}, {0, 200}, {200, -100}};
+                ct::Point myPoints[] = {
+                    {-200, -100},
+                    {0, 200},
+                    {200, -100}
+                };
+
                 sierpinski(myPoints[0], myPoints[1], myPoints[2], 3, rt);
                 
                 scr.exitonclick();
@@ -163,7 +168,6 @@ outlined in black, and the inactive function calls are in gray. The
 farther you go toward the bottom of :ref:`Figure 4 <fig_stcalltree>`, the smaller the
 triangles. The function finishes drawing one level at a time; once it is
 finished with the bottom left it moves to the bottom middle, and so on.
-
 
 .. _fig_stcalltree:
 
