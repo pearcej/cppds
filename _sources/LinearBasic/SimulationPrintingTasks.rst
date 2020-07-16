@@ -122,40 +122,39 @@ the printer to idle (line 11) if the task is completed.
 
 ::
 
-
     class Printer {
-        public:
-        int pagerate;
-        Task *currentTask;
-        int timeRemaining;
-
-        Printer(int ppm) {
-            pagerate=ppm;
-            currentTask=NULL;
+    public:
+        Printer(int pagesPerMinute) {
+            pagerate = pagesPerMinute;
             timeRemaining=0;
+            working = false;
         }
 
         void tick() {
-            if (currentTask != NULL) {
-                timeRemaining--;
-                if (timeRemaining <= 0) {
-                    currentTask=NULL;
-                }
+            //Performed once per second in the simulation.
+            
+            if (working) { // If we're working on something...
+                timeRemaining--;// Subtract the remaining time.
+                if (timeRemaining <= 0)
+                    working = false; // When finished, stop working.
             }
         }
 
         bool busy() {
-            if (currentTask != NULL) {
-                return true;
-            } else {
-                return false;
-            }
+            return working;
         }
 
-        void startNext(Task *newtask) {
+        void startNext(Task newtask) {
             currentTask=newtask;
-            timeRemaining=newtask->getPages()*60/pagerate;
+            timeRemaining=newtask.getPages()*60/pagerate;
+            working = true;
         }
+        
+    private:
+        int pagerate; // unit is pages per minute.
+        Task currentTask = {0};// Current task. default is a dummy value.
+        bool working; // Are we working on the current task?
+        int timeRemaining; // Time remaining, in "seconds".
     };
 
 .. highlight:: python
@@ -170,12 +169,11 @@ numbers based on the computer's current time.
 
 ::
 
-    >>srand(time(NULL));
-    >>> rand()%21+1;
+    >> srand(time(NULL));
+    >>> rand()%20+1;
     18
-    >>> rand()%21+1;
+    >>> rand()%20+1;
     8
-    >>>
 
 
 Each task will also need to keep a timestamp to be used for computing
@@ -190,31 +188,30 @@ printing begins.
 
 
 
-.. sourcecode:: cpp
+.. code-block:: cpp
 
-   class Task {
-       private:
-       int timestamp;
-       int pages;
+    class Task {
+    public:
+        Task(int time) {
+            timestamp = time;
+            pages=(rand()%20) + 1;
+        }
 
-       public:
-       Task(int time) {
-           timestamp = time;
-           pages=(rand()%21)+1;
-       }
+        int getStamp() {
+            return timestamp;
+        }
 
-       int getStamp() {
-           return timestamp;
-       }
+        int getPages() {
+            return pages;
+        }
 
-       int getPages() {
-           return pages;
-       }
-
-       int waitTime(int currenttime) {
-           return (currenttime - timestamp);
-       }
-   };
+        int waitTime(int currenttime) {
+            return (currenttime - timestamp);
+        }
+    private:
+        int timestamp;
+        int pages;
+    };
 
 The main simulation (:ref:`Listing 4 <lst_qumainsim>`) implements the algorithm
 described above. The ``printQueue`` object is an instance of our
@@ -235,116 +232,45 @@ printer.
 
 :: 
 
-        #include <iostream>
-        #include <queue>
-        #include <vector>
-        #include <random>
-        using namespace std;
-
-        class Task {
-            private:
-            int timestamp;
-            int pages;
-
-            public:
-            Task(int time) {
-                timestamp = time;
-                pages=(rand()%21)+1;
-            }
-
-            int getStamp() {
-                return timestamp;
-            }
-
-            int getPages() {
-                return pages;
-            }
-
-            int waitTime(int currenttime) {
-                return (currenttime - timestamp);
-            }
-        };
-
-        class Printer {
-            public:
-            int pagerate;
-            Task *currentTask;
-            int timeRemaining;
-
-            Printer(int ppm) {
-                pagerate=ppm;
-                currentTask=NULL;
-                timeRemaining=0;
-            }
-
-            void tick() {
-                if (currentTask != NULL) {
-                    timeRemaining--;
-                    if (timeRemaining <= 0) {
-                        currentTask=NULL;
-                    }
-                }
-            }
-
-            bool busy() {
-                if (currentTask != NULL) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-
-            void startNext(Task *newtask) {
-                currentTask=newtask;
-                timeRemaining=newtask->getPages()*60/pagerate;
-            }
-        };
-
-        bool newPrintTask() {
-            int num = rand()%180+1;
-            if (num==180) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
         void simulation(int numSeconds, int pagesPerMinute) {
             Printer labprinter(pagesPerMinute);
-            queue<Task*> printQueue;
+            
+            //The Queue ADT from the standard container library.
+            queue<Task> printQueue;
+            
+            //A vector of wait-times for each task.
             vector<int> waitingTimes;
 
-            for (int i=0; i<numSeconds; i++) {
-                if (newPrintTask()) {
-                    Task *task = new Task(i);
-                    printQueue.push(task);
+            //For every second in the simulation...
+            for (int i = 0; i < numSeconds; i++) {
+                
+                //If there's a new printing task, add it to the queue.
+                if (newPrintTask()) { 
+                    Task task(i);//Create it...
+                    printQueue.push(task);//Push it.
                 }
+
+                //If the printer is not busy and the queue is not empty:
                 if (!labprinter.busy() &&!printQueue.empty()) {
-                    Task *nexttask = printQueue.front();
-                    printQueue.pop();
-                    waitingTimes.push_back(nexttask->waitTime(i));
-                    labprinter.startNext(nexttask);
+                    Task nextTask = printQueue.front(); // Assign a new task from the queue.
+                    printQueue.pop(); // Remove it from the front
+                    
+                    //Add the estimated wait time to our vector.
+                    waitingTimes.push_back(nextTask.waitTime(i));
+                    labprinter.startNext(nextTask);
                 }
+                
+                //Process the current task.
                 labprinter.tick();
             }
+            
+            //Average out every wait time for the simulation.
             float total=0;
-            for (int i=0; i<waitingTimes.size(); i++) {
-                total+=waitingTimes[i];
-            }
-            cout<<"Average Wait "<<total/waitingTimes.size()<<" secs "<<printQueue.size()<<" tasks remaining."<<endl;
+            for (int waitTime : waitingTimes)
+                total += waitTime;
+            
+            cout << "Average Wait "<<total/waitingTimes.size()<<" secs "<<printQueue.size()<<" tasks remaining."<<endl;
         }
-
-        int main() {
-            srand(time(NULL));
-
-            for (int i=0; i<10; i++) {
-                simulation(3600, 10);
-            }
-
-            return 0;
-        }
-
-.. highlight:: python
 
 When we run the simulation, we should not be concerned that the
 results are different each time. This is due to the probabilistic nature
@@ -405,122 +331,133 @@ would be completed in the one hour time frame.
 You can run the simulation for yourself in ActiveCode 2.
 
 .. activecode:: qumainsim
-   :caption: Printer Queue Simulation
-   :language: cpp
+    :caption: Printer Queue Simulation
+    :language: cpp
 
-   //Program that simulates printing task management.
+    //Program that simulates printing task management.
 
-   #include <iostream>
-   #include <queue>
-   #include <vector>
-   #include <cstdlib>
-   using namespace std;
+    #include <iostream>
+    #include <queue>
+    #include <vector>
+    #include <cstdlib>
+    using namespace std;
 
-   class Task {
-       private:
-       int timestamp;
-       int pages;
+    class Task {
+    public:
+        Task(int time) {
+            timestamp = time;
+            pages=(rand()%20) + 1;
+        }
 
-       public:
-       Task(int time) {
-           timestamp = time;
-           pages=(rand()%21)+1;
-       }
+        int getStamp() {
+            return timestamp;
+        }
 
-       int getStamp() {
-           return timestamp;
-       }
+        int getPages() {
+            return pages;
+        }
 
-       int getPages() {
-           return pages;
-       }
+        int waitTime(int currenttime) {
+            return (currenttime - timestamp);
+        }
+    private:
+        int timestamp;
+        int pages;
+    };
 
-       int waitTime(int currenttime) {
-           return (currenttime - timestamp);
-       }
-   };
+    class Printer {
+    public:
+        Printer(int pagesPerMinute) {
+            pagerate = pagesPerMinute;
+            timeRemaining=0;
+            working = false;
+        }
 
-   class Printer {
-       public:
-       int pagerate;
-       Task *currentTask;
-       int timeRemaining;
+        void tick() {
+            //Performed once per second in the simulation.
+            
+            if (working) { // If we're working on something...
+                timeRemaining--;// Subtract the remaining time.
+                if (timeRemaining <= 0)
+                    working = false; // When finished, stop working.
+            }
+        }
 
-       Printer(int ppm) {
-           pagerate=ppm;
-           currentTask=NULL;
-           timeRemaining=0;
-       }
+        bool busy() {
+            return working;
+        }
 
-       void tick() {
-	   //manages the current task's status.
-           if (currentTask != NULL) {
-               timeRemaining--;
-               if (timeRemaining <= 0) {
-                   currentTask=NULL;
-               }
-           }
-       }
+        void startNext(Task newtask) {
+            currentTask=newtask;
+            timeRemaining=newtask.getPages()*60/pagerate;
+            working = true;
+        }
+        
+    private:
+        int pagerate; // unit is pages per minute.
+        Task currentTask = {0};// Current task. default is a dummy value.
+        bool working; // Are we working on the current task?
+        int timeRemaining; // Time remaining, in "seconds".
+    };
 
-       bool busy() {
-           if (currentTask != NULL) {
-               return true;
-           } else {
-               return false;
-           }
-       }
+    bool newPrintTask() {
+        //uses random to decide if there is a new print task.
+        //generates a random number from 1...180, and returns 
+        //a boolean indicating whether or not it equals 180.
+        return (rand() % 180 + 1) == 180;
+    }
 
-       void startNext(Task *newtask) {
-           currentTask=newtask;
-           timeRemaining=newtask->getPages()*60/pagerate;
-       }
-   };
+    void simulation(int numSeconds, int pagesPerMinute) {
+        Printer labprinter(pagesPerMinute);
+        
+        //The Queue ADT from the standard container library.
+        queue<Task> printQueue;
+        
+        //A vector of wait-times for each task.
+        vector<int> waitingTimes;
 
-   bool newPrintTask() {
-       //uses random to decide if there is a new print task.
-       int num = rand()%180+1;
-       if (num==180) {
-           return true;
-       } else {
-           return false;
-       }
-   }
+        //For every second in the simulation...
+        for (int i = 0; i < numSeconds; i++) {
+            
+            //If there's a new printing task, add it to the queue.
+            if (newPrintTask()) { 
+                Task task(i);//Create it...
+                printQueue.push(task);//Push it.
+            }
 
-   void simulation(int numSeconds, int pagesPerMinute) {
-       Printer labprinter(pagesPerMinute);
-       queue<Task*> printQueue;
-       vector<int> waitingTimes;
+            //If the printer is not busy and the queue is not empty:
+            if (!labprinter.busy() &&!printQueue.empty()) {
+                Task nextTask = printQueue.front(); // Assign a new task from the queue.
+                printQueue.pop(); // Remove it from the front
+                
+                //Add the estimated wait time to our vector.
+                waitingTimes.push_back(nextTask.waitTime(i));
+                labprinter.startNext(nextTask);
+            }
+            
+            //Process the current task.
+            labprinter.tick();
+        }
+        
+        //Average out every wait time for the simulation.
+        float total=0;
+        for (int waitTime : waitingTimes)
+            total += waitTime;
+        
+        cout << "Average Wait "<<total/waitingTimes.size()<<" secs "<<printQueue.size()<<" tasks remaining."<<endl;
+    }
 
-       for (int i=0; i<numSeconds; i++) {
-	   //continues printing tasks until the printer has no more in progress or queue.
-           if (newPrintTask()) { //checks for a new printing task.
-               Task *task = new Task(i);
-               printQueue.push(task); //pushes the task to a queue.
-           }
-           if (!labprinter.busy() &&!printQueue.empty()) { //if the printer is not busy and the queue is not empty:
-               Task *nexttask = printQueue.front(); //assigns a new task.
-               printQueue.pop();
-               waitingTimes.push_back(nexttask->waitTime(i));
-               labprinter.startNext(nexttask);
-           }
-           labprinter.tick();
-       }
-       float total=0;
-       for (unsigned int i=0; i<waitingTimes.size(); i++) {
-           total+=waitingTimes[i];
-       }
-       cout<<"Average Wait "<<total/waitingTimes.size()<<" secs "<<printQueue.size()<<" tasks remaining."<<endl;
-   }
+    int main() {
+        //Seed random number generator with the current time
+        //This ensures a unique random simulation every time it's ran.
+        srand(time(NULL));
 
-   int main() {
-       srand(time(NULL));
+        for (int i=0; i<10; i++) {
+            simulation(3600, 5);
+        }
 
-       for (int i=0; i<10; i++) {
-           simulation(3600, 5);
-       }
-
-       return 0;
-   }
+        return 0;
+    }
 
 
 Discussion
