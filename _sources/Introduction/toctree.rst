@@ -16,6 +16,7 @@ Introduction
     DefiningFunctions.rst
     ObjectOrientedProgrammingDefiningClasses.rst
     ObjectOrientedProgrammingDerivedClasses.rst
+    Graphics.rst
     Summary.rst
     DiscussionQuestions.rst
     ProgrammingExercises.rst
