@@ -66,7 +66,7 @@ Glossary
         Keyword that makes a variable or value immutable. i.e. constant and unchanging.
 
     constructor
-        An class' special function that initializes an object of that class.
+        A class' special function that initializes an object of that class.
     
     data abstraction
         The act of only providing essential information within your work. Representing your data without reavling the details.
@@ -166,10 +166,10 @@ Glossary
         A variable in a function or method definition that accepts data passed from an argument.
     
     pass by reference
-        To pass an object by refrencing their identifier
+        To pass an object to a function by referencing its location in memory.
 
     pass by value
-        To pass an object by using its value instead of its specific refrence ID.
+        To pass an object to a function by copying its value.
     
     programming
         The use of logic to create specified computing operations.
