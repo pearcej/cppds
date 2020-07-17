@@ -45,6 +45,7 @@ the same thing. Try running both and comparing how the code looks between the tw
 
         .. activecode:: cturtle_1
             :language: cpp
+            :optional:
 
             #include <CTurtle.hpp>
             namespace ct = cturtle;
@@ -67,7 +68,7 @@ the same thing. Try running both and comparing how the code looks between the tw
     .. tab:: Python
 
         .. activecode:: cturtle_python_1
-            :language: python
+            :optional:
 
             import turtle
 
@@ -83,6 +84,7 @@ the same thing. Try running both and comparing how the code looks between the tw
             turt.bye()
 
 .. mchoice:: cturtle_question_1
+    :optional:
     :answer_a: Students receive instant feedback and gratification for their work.
     :answer_b: Students will pay less attention to how their code works, and more attention to its end result.
     :answer_c: Students get more acquainted with RGB values common in web development.
@@ -159,6 +161,7 @@ Consider the following annotated example.
 
 .. activecode:: cturtle_4
     :language: cpp
+    :optional:
 
     #include <CTurtle.hpp>
     namespace ct = cturtle;
@@ -203,6 +206,7 @@ one after another. A good example of this is the :code:`begin_fill` and :code:`e
 pattern, which must be called in that specified order to actually fill a shape.
 
 .. parsonsprob:: cturtle_question_3
+    :optional:
 
     Construct a program that fills a green triangle using begin_fill and end_fill
     using the example code above as a guide.
@@ -236,22 +240,24 @@ There are 14 commonly used methods for Turtles. Many of them have names that ind
 See if you can match each method description with their names!
 
 .. dragndrop:: cturtle_dnd_1
-   :match_1: turn to the left.|||turtle.left
-   :match_2: turn to the left.|||turtle.right
-   :match_3: pick pen up.|||turtle.penup
-   :match_4: put pen down.|||turtle.pendown
-   :match_5: what color to fill drawing with.|||turtle.fillcolor
-   :match_6: start filling the shape.|||turtle.beginfill
-   :match_7: stops filling the shape.|||turtle.endfill
-   :match_8: change the pen color.|||turtle.pencolor
-   :match_9: change the pen size.|||turtle.width
-   :match_10: change the speed|||turtle.speed
-   :match_11: move backward.|||turtle.back
-   :match_12: move forward.|||turtle.forward
-   :match_13: move to a specific coordinate.|||turtle.goto
-   :match_14: write some text to the canvas.|||turtle.write
+    :optional:
 
-   Match the turtle method descriptions to the methods they belong to.
+    :match_1: turn to the left.|||turtle.left
+    :match_2: turn to the left.|||turtle.right
+    :match_3: pick pen up.|||turtle.penup
+    :match_4: put pen down.|||turtle.pendown
+    :match_5: what color to fill drawing with.|||turtle.fillcolor
+    :match_6: start filling the shape.|||turtle.beginfill
+    :match_7: stops filling the shape.|||turtle.endfill
+    :match_8: change the pen color.|||turtle.pencolor
+    :match_9: change the pen size.|||turtle.width
+    :match_10: change the speed|||turtle.speed
+    :match_11: move backward.|||turtle.back
+    :match_12: move forward.|||turtle.forward
+    :match_13: move to a specific coordinate.|||turtle.goto
+    :match_14: write some text to the canvas.|||turtle.write
+
+    Match the turtle method descriptions to the methods they belong to.
 
 Geometry, Shapes, and Stamps
 ----------------------------
@@ -313,6 +319,7 @@ the coordinates of the polygon, you might surprise yourself with what shape you 
 
 .. activecode:: cturtle_geometry_ac_1
     :language: cpp
+    :optional:
     
     #include <CTurtle.hpp>
     namespace ct = cturtle;
@@ -345,6 +352,7 @@ The following code is a full example showing how to combine custom shapes with s
 
 .. activecode:: cturtle_geometry_ac_2
     :language: cpp
+    :optional:
 
     #include <CTurtle.hpp>
     namespace ct = cturtle;
@@ -465,17 +473,18 @@ Consider the following example and related questions.
     }
 
 .. mchoice:: cturtle_advanced_mchoice_1
-   :answer_a: 3
-   :answer_b: 6
-   :answer_c: 1
-   :answer_d: 12
-   :correct: c
-   :feedback_a: Incorrect! Consider how many actions the turtle takes in the for loop.
-   :feedback_b: Incorrect! Consider the tracer setting for the screen.
-   :feedback_c: Correct!
-   :feedback_d: Incorrect! Consider how many actions the turtle takes in the for loop.
+    :optional:
+    :answer_a: 3
+    :answer_b: 6
+    :answer_c: 1
+    :answer_d: 12
+    :correct: c
+    :feedback_a: Incorrect! Consider how many actions the turtle takes in the for loop.
+    :feedback_b: Incorrect! Consider the tracer setting for the screen.
+    :feedback_c: Correct!
+    :feedback_d: Incorrect! Consider how many actions the turtle takes in the for loop.
 
-   How many frames of animation does the above code create?
+    How many frames of animation does the above code create?
 
 Similarly to tracer settings, every action a turtle takes is also added to the *undo queue*. This allows it to keep track
 of actions it is performing over a period of time. The queue is only allowed to grow to a certain size, starting at 100 actions total.
@@ -484,6 +493,7 @@ the action doesn't change anything visually. This feature is comparable to the "
 Turtles can "undo" their progress with the :code:`undo` method.
 
 .. mchoice:: cturtle_advanced_mchoice_2
+    :optional:
     :answer_a: 3
     :answer_b: 6
     :answer_c: 1
