@@ -56,23 +56,24 @@ In this example, the two derived subclasses inherit the printType
 method from the Base class.
 
 .. activecode:: virtualfunction
-  :language: cpp
-  :caption: Using a virtual function with inheritence
+	:language: cpp
+	:caption: Using a virtual function with inheritence
 
-  #include <iostream>
-  using namespace std;
+	#include <iostream>
+	using namespace std;
 
-  class Base {
-      public:
-          virtual void printType() { // Creates function called  printType
-              subfunction();
-              cout << "I'm inherited!" << endl << endl;
-          }
+	class Base {
+	public:
+	
+		virtual void printType() { // Creates function called  printType
+			subfunction();
+			cout << "I'm inherited!" << endl << endl;
+		}
 
-          virtual void subfunction(){
-          // empty
-          }
-  };
+		virtual void subfunction(){
+		// empty
+		}
+	};
 
   class SubFirst : public Base {
       virtual void subfunction() {
@@ -188,24 +189,47 @@ class is shown in :ref:`Listing 8 <lst_logicgateclass>`.
 
 **Listing 8**
 
-.. sourcecode:: cpp
+.. tabbed:: 1st_logicgateclass
+		
+	.. tab:: C++
 
-    class LogicGate {
-        public:
-          	LogicGate(string n) {
-            		label = n;
-          	}
-          	string getLabel() {
-            		return label;
-          	}
-        	bool getOutput() {
-          		output = performGateLogic();
-          		return output;
-    	    }
-        protected:
-            string label;
-            bool output;
-    };
+		.. code-block:: cpp
+
+			class LogicGate {
+			public:
+				LogicGate(string n) {
+						label = n;
+				}
+				string getLabel() {
+						return label;
+				}
+				bool getOutput() {
+					output = performGateLogic();
+					return output;
+				}
+			protected:
+				string label;
+				bool output;
+			};
+
+
+	.. tab:: Python
+
+		.. code-block:: Python
+
+				class LogicGate:
+
+					def __init__(self,n):
+						self.label = n
+						self.output = None
+
+					def getLabel(self):
+						return self.label
+
+					def getOutput(self):
+						self.output = self.performGateLogic()
+						return self.output
+
 
 A protected member variable or function is similar to a
 private member but it has the additional benefit that they
@@ -238,62 +262,104 @@ we will use that terminology in our implementation.
 
 **Listing 9**
 
-.. sourcecode:: cpp
+.. tabbed:: 1st_binarygateclass
 
-    class BinaryGate : public LogicGate {
-        public:
-            BinaryGate(string n) : LogicGate(n) {
-                pinATaken = false;
-                pinBTaken = false;
-            }
+	.. tab:: C++
 
-            bool getPinA() {
-                if (pinATaken==false) {
-                    cout << "Enter Pin input for gate " << getLabel() << " : ";
-                    cin >> pinA;
-                    pinATaken = true;
-                }
-                return pinA;
-            }
+		.. code-block:: cpp
 
-            bool getPinB() {
-                if (pinBTaken==false ) {
-                    cout << "Enter Pin input for gate " << getLabel() << " : ";
-                    cin >> pinB;
-                    pinBTaken = true;
-                }
-                return pinB;
-            }
-            protected:
-                bool pinA;
-                bool pinATaken;
-                bool pinB;
-                bool pinBTaken;
-    };
+			class BinaryGate : public LogicGate {
+			public:
+				BinaryGate(string n) : LogicGate(n) {
+					pinATaken = false;
+					pinBTaken = false;
+				}
+
+				bool getPinA() {
+					if (pinATaken==false) {
+						cout << "Enter Pin input for gate " << getLabel() << " : ";
+						cin >> pinA;
+						pinATaken = true;
+					}
+					return pinA;
+				}
+
+				bool getPinB() {
+					if (pinBTaken==false ) {
+						cout << "Enter Pin input for gate " << getLabel() << " : ";
+						cin >> pinB;
+						pinBTaken = true;
+					}
+					return pinB;
+				}
+
+			protected:
+				bool pinA;
+				bool pinATaken;
+				bool pinB;
+				bool pinBTaken;
+			};
+	
+	.. tab:: Python
+
+		.. code-block:: Python
+
+			class BinaryGate(LogicGate):
+
+				def __init__(self,n):
+					LogicGate.__init__(self,n)
+
+					self.pinA = None
+					self.pinB = None
+
+				def getPinA(self):
+					return int(input("Enter Pin A input for gate "+ self.getLabel()+"-->"))
+
+				def getPinB(self):
+					return int(input("Enter Pin B input for gate "+ self.getLabel()+"-->"))
+			
 
 .. _lst_unarygateclass:
 
 **Listing 10**
 
-.. sourcecode:: cpp
+.. tabbed:: 1st_unarygateclass
 
-    class UnaryGate : public LogicGate {
-        public:
-            UnaryGate(string n) : LogicGate(n) {
-                pinTaken = false;
-            }
-            bool getPin() {
-                if (pinTaken==false) {
-                    cout << "Enter Pin input for gate " << getLabel() << ": ";
-                    cin >> pin;
-                    pinTaken = true;
-                }
-                return pin;
-            }
-        protected:
-            bool pin;
-            bool pinTaken;
-    };
+	.. tab:: C++
+
+		.. code-block:: cpp
+
+			class UnaryGate : public LogicGate {
+			public:
+				UnaryGate(string n) : LogicGate(n) {
+					pinTaken = false;
+				}
+				bool getPin() {
+					if (pinTaken==false) {
+						cout << "Enter Pin input for gate " << getLabel() << ": ";
+						cin >> pin;
+						pinTaken = true;
+					}
+					return pin;
+				}
+			protected:
+				bool pin;
+				bool pinTaken;
+			};
+
+	.. tab:: Python
+
+		.. code-block:: Python
+
+			class UnaryGate(LogicGate):
+
+				def __init__(self,n):
+					LogicGate.__init__(self,n)
+
+					self.pin = None
+
+				def getPin(self):
+					return int(input("Enter Pin input for gate "+ self.getLabel()+"-->"))
 
 
 
@@ -327,23 +393,45 @@ inherits two input lines, one output line, and a label.
 
 **Listing 11**
 
-.. sourcecode:: cpp
+.. tabbed:: 1st_andgateclass
 
-    class AndGate : public BinaryGate {
-        public:
-            AndGate(string n) : BinaryGate(n) {};
+	.. tab:: C++		
+		
+		.. code-block:: cpp
 
-            virtual bool performGateLogic() {
-                bool a = getPinA();
-                bool b = getPinB();
-                if (a == 1 && b == 1) {
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            }
-    };
+			class AndGate : public BinaryGate {
+			public:
+				AndGate(string n) : BinaryGate(n) {};
+
+				virtual bool performGateLogic() {
+					bool a = getPinA();
+					bool b = getPinB();
+					if (a == 1 && b == 1) {
+						return true;
+					}
+					else {
+						return false;
+					}
+				}
+			};
+
+	.. tab:: Python		
+
+		.. code-block:: Python
+
+			class AndGate(BinaryGate):
+
+				def __init__(self,n):
+					super(AndGate,self).__init__(n)
+
+				def performGateLogic(self):
+
+					a = self.getPinA()
+					b = self.getPinB()
+					if a==1 and b==1:
+						return 1
+					else:
+						return 0
 
 
 The only thing ``AndGate`` needs to add is the specific behavior that
@@ -360,13 +448,27 @@ invoke the ``getOutput`` method, the object must first call its
 ``performGateLogic`` method which in turn queries the two input lines.
 Once the values are provided, the correct output is shown.
 
-::
+.. tabbed::get_ouput
 
-   >>> AndGate gand1("gand1")
-   >>> gand1.getOutput()
-   Enter Pin A input for gate gand1: 1
-   Enter Pin B input for gate gand1: 0
-   0
+	.. tab:: C++		
+		
+		.. code-block:: cpp
+
+			>>> AndGate gand1("gand1")
+			>>> gand1.getOutput()
+			Enter Pin A input for gate gand1: 1
+			Enter Pin B input for gate gand1: 0
+			0
+
+	.. tab:: Python
+
+		.. code-block:: Python
+
+			>>> g1 = AndGate("G1")
+			>>> g1.getOutput()
+			Enter Pin A input for gate G1-->1
+			Enter Pin B input for gate G1-->0
+			0
 
 
 The same development can be done for **OR** gates and **NOT** gates. The
@@ -379,21 +481,43 @@ We can use a single gate by first constructing an instance of one of the
 gate classes and then asking the gate for its output (which will in turn
 need inputs to be provided). For example:
 
-::
+.. tabbed:: get_output2
 
-    >>> OrGate gand2("gand2")
-    >>> gand2.getOutput()
-    Enter Pin A input for gate gand2: 1
-    Enter Pin B input for gate gand2: 1
-    1
-    >>> gand2.getOutput()
-    Enter Pin A input for gate gand2: 0
-    Enter Pin B input for gate gand2: 0
-    0
-    >>> NotGate gor2("gor2")
-    >>> gor2.getOutput()
-    Enter Pin input for gate gor2: 0
-    1
+	.. tab:: C++
+
+		.. code-block:: cpp
+
+			>>> OrGate gand2("gand2")
+			>>> gand2.getOutput()
+			Enter Pin A input for gate gand2: 1
+			Enter Pin B input for gate gand2: 1
+			1
+			>>> gand2.getOutput()
+			Enter Pin A input for gate gand2: 0
+			Enter Pin B input for gate gand2: 0
+			0
+			>>> NotGate gor2("gor2")
+			>>> gor2.getOutput()
+			Enter Pin input for gate gor2: 0
+			1
+
+	.. tab:: Python
+
+		.. code-block:: Python
+
+			>>> g2 = OrGate("G2")
+			>>> g2.getOutput()
+			Enter Pin A input for gate G2-->1
+			Enter Pin B input for gate G2-->1
+			1
+			>>> g2.getOutput()
+			Enter Pin A input for gate G2-->0
+			Enter Pin B input for gate G2-->0
+			0
+			>>> g3 = NotGate("G3")
+			>>> g3.getOutput()
+			Enter Pin input for gate G3-->0
+			1
 
 
 Building Circuits
@@ -428,8 +552,7 @@ that have the IS-A relationship (which requires inheritance) and those
 that have HAS-A relationships (with no inheritance).
 
 :ref:`Listing 12 <lst_Connectorclass>` shows the ``Connector`` class.
-The two gate
-instances within each connector object will be referred to as the
+The two gate instances within each connector object will be referred to as the
 ``fromgate`` and the ``togate``, recognizing that data values will
 “flow” from the output of one gate into an input line of the next. The
 call to ``setNextPin`` is very important for making connections (see
@@ -463,8 +586,8 @@ connection.
 
 
 .. activecode:: desiredcircuit
-  :language: cpp
-  :caption: Implementing our desired circuit
+	:language: cpp
+	:caption: Implementing our desired circuit
 
     #include <iostream>
     #include <string>
@@ -472,162 +595,163 @@ connection.
 
 	// creates a class with a logic gate that returns the label, and boolean value 
     class LogicGate {
-    	public:
-    		LogicGate(string n){
-    			label = n;
-    		}
-    		string getLabel(){
-    			return label;
-    		}
-    		bool getOutput(){
-    			output = performGateLogic();
-    			return output;
-    		}
-    		virtual bool performGateLogic(){
-    			cout << "ERROR! performGateLogic BASE" << endl;
-    			return false;
-    		}
+	public:
+		LogicGate(string n){
+			label = n;
+		}
+		string getLabel(){
+			return label;
+		}
+		bool getOutput(){
+			output = performGateLogic();
+			return output;
+		}
+		virtual bool performGateLogic(){
+			cout << "ERROR! performGateLogic BASE" << endl;
+			return false;
+		}
 
-    		virtual void setNextPin(bool source) {
-    			cout << "ERROR! setNextPin BASE" << endl;
-    		}
-    	private:
-    		string label;
-    		bool output;
+		virtual void setNextPin(bool source) {
+			cout << "ERROR! setNextPin BASE" << endl;
+		}
+	private:
+		string label;
+		bool output;
     };
 
 	//class that allows for the gates to have two inputs 
     class BinaryGate : public LogicGate {
-    	public:
-    		BinaryGate(string n) : LogicGate(n) {
-    			pinATaken = false;
-    			pinBTaken = false;
-    		}
-    		bool getPinA() {
-    			if (pinATaken == false) {
-    				cout << "Enter Pin A input for gate " << getLabel() << ": ";
-    				cin >> pinA;
-    				pinATaken = true;
-    			}
-    			return pinA;
-    		}
-    		bool getPinB() {
-    			if (pinBTaken == false) {
-    				cout << "Enter Pin B input for gate " << getLabel() << ": ";
-    				cin >> pinB;
-    				pinBTaken = true;
-    			}
-    			return pinB;
-    		}
-    		virtual void setNextPin(bool source) {
-    			if (pinATaken == false) {
-    				pinA = source;
-    				this->pinATaken = true;
-    			}
-    			else if (pinBTaken == false) {
-    				pinB = source;
-    				this->pinBTaken = true;
-    			}
-    		}
-    	private:
-    		bool pinA, pinATaken, pinB, pinBTaken;
+	public:
+		BinaryGate(string n) : LogicGate(n) {
+			pinATaken = false;
+			pinBTaken = false;
+		}
+		bool getPinA() {
+			if (pinATaken == false) {
+				cout << "Enter Pin A input for gate " << getLabel() << ": ";
+				cin >> pinA;
+				pinATaken = true;
+			}
+			return pinA;
+		}
+		bool getPinB() {
+			if (pinBTaken == false) {
+				cout << "Enter Pin B input for gate " << getLabel() << ": ";
+				cin >> pinB;
+				pinBTaken = true;
+			}
+			return pinB;
+		}
+		virtual void setNextPin(bool source) {
+			if (pinATaken == false) {
+				pinA = source;
+				this->pinATaken = true;
+			}
+			else if (pinBTaken == false) {
+				pinB = source;
+				this->pinBTaken = true;
+			}
+		}
+	private:
+		bool pinA, pinATaken, pinB, pinBTaken;
     };
 
 	//allows for the creation of a logic gate with  one input 
     class UnaryGate : public LogicGate {
-    	public:
-    		UnaryGate(string n) : LogicGate(n) {
-    			pinTaken = false;
-    		}
-    		bool getPin() {
-    			if (pinTaken == false) {
-    				cout << "Enter Pin input for gate " << getLabel() << ": ";
-    				cin >> pin;
-    				pinTaken = true;
-    			}
-    			return pin;
-    		}
-    		virtual void setNextPin(bool source) {
-    			if (pinTaken == false) {
-    				pin = source;
-    				pinTaken = true;
-    			}
-    			else {
-    				return;
-    			}
-    		}
-    	private:
-    		bool pin, pinTaken;
+	public:
+		UnaryGate(string n) : LogicGate(n) {
+			pinTaken = false;
+		}
+		bool getPin() {
+			if (pinTaken == false) {
+				cout << "Enter Pin input for gate " << getLabel() << ": ";
+				cin >> pin;
+				pinTaken = true;
+			}
+			return pin;
+		}
+		virtual void setNextPin(bool source) {
+			if (pinTaken == false) {
+				pin = source;
+				pinTaken = true;
+			}
+			else {
+				return;
+			}
+		}
+	private:
+		bool pin, pinTaken;
     };
 
     //Class that sets up the logic for an "and" gate 
 	class AndGate : public BinaryGate{
-    	public:
-    		AndGate(string n) : BinaryGate(n) {};
+	public:
+		AndGate(string n) : BinaryGate(n) {};
 
-    		virtual bool performGateLogic(){
-    			bool a = getPinA();
-    			bool b = getPinB();
-    			if (a == 1 && b == 1) {
-    				return true;
-    			}
-    			else {
-    				return false;
-    			}
-    		}
+		virtual bool performGateLogic(){
+			bool a = getPinA();
+			bool b = getPinB();
+			if (a == 1 && b == 1) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
     };
 
     //class that sets up the logic for an "or" gate 
 	class OrGate : public BinaryGate {
-    	public:
-    		OrGate(string n) : BinaryGate(n) {};
+	public:
+		OrGate(string n) : BinaryGate(n) {};
 
-    		virtual bool performGateLogic() {
-    			bool a = getPinA();
-    			bool b = getPinB();
-    			if (a == 1 || b == 1) {
-    				return true;
-    			}
-    			else {
-    				return false;
-    			}
-    		}
+		virtual bool performGateLogic() {
+			bool a = getPinA();
+			bool b = getPinB();
+			if (a == 1 || b == 1) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
     };
 
     //class that sets up the logic for a "not" gate
 	class NotGate : public UnaryGate {
-    	public:
-    		NotGate(string n) : UnaryGate(n) {};
+	public:
+		NotGate(string n) : UnaryGate(n) {};
 
-    		virtual bool performGateLogic() {
-    			if (getPin()) {
-    				return false;
-    			}
-    			else {
-    				return true;
-    			}
-    		}
+		virtual bool performGateLogic() {
+			if (getPin()) {
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
     };
 
     // class that sets up logic for the connection of one gate to another
 	class Connector{
-    	public:
-    		Connector(LogicGate *fgate, LogicGate *tgate) {
-    			fromgate = fgate;
-    			togate = tgate;
-    			tgate->setNextPin(fromgate->getOutput());
-    		}
-    		LogicGate *getFrom() {
-    			return fromgate;
-    		}
-    		LogicGate *getTo() {
-    			return togate;
-    		}
-    	private:
-    		LogicGate *fromgate, *togate;
+	public:
+		Connector(LogicGate *fgate, LogicGate *tgate) {
+			fromgate = fgate;
+			togate = tgate;
+			tgate->setNextPin(fromgate->getOutput());
+		}
+		LogicGate *getFrom() {
+			return fromgate;
+		}
+		LogicGate *getTo() {
+			return togate;
+		}
+	private:
+		LogicGate *fromgate, *togate;
     };
 
     int main() {
+
     	char stopme;
 
     	//Setting labels

@@ -69,11 +69,27 @@ with the most common form.
 In C++, we define a new class by providing a name and a set of method
 definitions that are syntactically similar to function definitions. For example:
 
-::
+.. tabbed:: class_creation
 
-    class Fraction {
-        // The class methods and class variables go here
-    };  // The ";" is required by C++ to end a class definition
+  .. tab:: C++
+
+    .. code-block:: C++
+
+         class Fraction {
+             // The class methods and class variables go here
+         };  // The ";" is required by C++ to end a class definition
+        
+    Creating a class in C++
+
+  .. tab:: Python
+
+    .. code-block:: Python
+
+         class Fraction:
+
+         #the methods go here
+    
+    Creating a class in Python
 
 
 provides the framework for us to define the methods. The first method
@@ -92,19 +108,39 @@ and is shown in :ref:`Listing 2 <lst_constructor>`.
 
 **Listing 2**
 
-.. sourcecode:: cpp
+.. tabbed:: constructor
 
-    class Fraction {
-        public:
-            Fraction(int top, int bottom) {
-                /** Fraction contructor method */
-                num = top;     // setting num's value
-                den = bottom;  // setting den's value
-            }
-        private:
-            int num; // num atribute
-            int den; // den attribute
-    };
+  .. tab:: C++
+
+    .. code-block:: C++
+
+        class Fraction {
+            public:
+              Fraction(int top, int bottom) {
+                 /** Fraction contructor method */
+                  num = top;     // setting num's value
+                  den = bottom;  // setting den's value
+                }
+             private:
+               int num; // num atribute
+               int den; // den attribute
+        };
+
+    Creating a constructor in C++
+
+  .. tab:: Python
+
+    .. code-block:: Python
+
+        class Fraction:
+
+            def __init__(self,top,bottom):
+
+                self.num = top
+                self.den = bottom
+
+    Creating a constructor in Python
+
 
 As described earlier, fractions require
 two pieces of state data, the numerator and the denominator. The
@@ -118,9 +154,25 @@ To create an object or instance of the ``Fraction`` class, we must invoke the
 constructor. This happens by using the name of the class and passing
 actual values for the necessary state after the variable name. For example,
 
-::
+.. tabbed:: InvokingConstructor
 
-    Fraction myfraction(3, 5);
+  .. tab:: C++
+
+    .. code-block:: C++
+
+        Fraction myfraction(3, 5); 
+
+    Invoking constructor in C++
+
+  .. tab:: Python
+
+    .. code-block:: Python
+
+        myfraction = Fraction(3, 5)
+
+    Invoking constructor in Python
+
+      
 
 creates an object called ``myfraction`` representing the fraction
 :math:`\frac {3}{5}` (three-fifths). :ref:`Figure 5 <fig_fraction1cpp>` shows this
@@ -245,39 +297,51 @@ format by invoking the show method on our fractions.
 
 **Listing 3**
 
-.. _lst_showmethod:
+.. tabbed:: lst_showmethod
 
-.. activecode:: showmethod
-  :language: cpp
-  :caption: Show method implementation
+    .. tab:: C++
 
-  //using functions to print fractions to the command line.
-  #include <iostream>
-  using namespace std;
+        .. activecode:: showmethod_cpp
+            :language: cpp
+            :caption: Show method implementation
 
-  class Fraction {
-      public:
-          Fraction(int top = 0, int bottom = 1){
-              num = top;
-              den = bottom;
-          }
-          void show(){
-              cout << num << "/" << den << endl;
-          }
-      private:
-          int num, den;
-  };
+            //using functions to print fractions to the command line.
+            #include <iostream>
+            using namespace std;
 
-  int main() {
-      Fraction fraca(3, 5);
-      Fraction fracb(3);
-      Fraction fracc; //notice there are no parentheses here.
-      // cout << fraca << endl; //uncomment to see error
-      fraca.show();
-      fracb.show();
-      fracc.show();
-      return 0;
-  }
+            class Fraction {
+                public:
+                    Fraction(int top = 0, int bottom = 1){
+                        num = top;
+                        den = bottom;
+                    }
+
+                    void show(){
+                        cout << num << "/" << den << endl;                    
+                    }
+                private:
+                    int num, den;
+            };
+
+            int main() {
+                Fraction fraca(3, 5);
+                Fraction fracb(3);
+                Fraction fracc; //notice there are no parentheses here.
+                // cout << fraca << endl; //uncomment to see error
+                fraca.show();
+                fracb.show();
+                fracc.show();
+                return 0;
+            }
+
+    .. tab:: Python
+
+        .. code-block:: Python
+
+            def show(self):
+                print(self.num,"/",self.den)
+
+
 
 The downside of this that it is not how we expect to print to the console.
 In C++, there are many operators that are provided for atomic and STL data types
@@ -307,45 +371,58 @@ Note that stream operators
 need to return the address of the stream because of the fact that the
 stream is changed by the stream operator.
 
-.. _lst_str:
-
 **Listing 4**
 
-.. activecode:: overloadedcout
-  :language: cpp
-  :caption: An overloaded cout operator for the Fraction class
+.. tabbed:: overloading
+    
+    .. tab:: C++
 
-  /*overloading functions to take in different 
-  inputs and output the correct results*/
-  #include <iostream>
-  using namespace std;
+        .. activecode:: overloaded_cpp
+            :language: cpp
+            :caption: An overloaded cout operator for the Fraction class
 
-  class Fraction {
-      public:
-          Fraction(int top = 0, int bottom = 1){
-              num = top;
-              den = bottom;
-          }
+            /*overloading functions to take in different 
+            inputs and output the correct results*/
+            #include <iostream>
+            using namespace std;
 
-      //the following tells the compiler to look for this friend's definition outside the class
-      friend ostream &operator << (ostream &stream, const Fraction &frac);
+            class Fraction {
+                public:
+                    Fraction(int top = 0, int bottom = 1){
+                        num = top;
+                        den = bottom;
+                    }
 
-      private:
-          int num, den;
-  };
+                //the following tells the compiler to look for this friend's definition outside the class
+                friend ostream &operator << (ostream &stream, const Fraction &frac);
 
-  ostream &operator << (ostream &stream, const Fraction &frac) {
-      /** this is the definition. */
-      stream << frac.num << "/" << frac.den;
-      return stream;
-  }
+                private:
+                    int num, den;
+            };
 
-  int main() {
-      Fraction myfraction(3, 5);
-      cout << myfraction;
+            ostream &operator << (ostream &stream, const Fraction &frac) {
+                /** this is the definition. */
+                stream << frac.num << "/" << frac.den;
+                return stream;
+            }
 
-      return 0;
-  }
+            int main() {
+                Fraction myfraction(3, 5);
+                cout << myfraction;
+
+                return 0;
+            }
+
+    .. tab:: Python
+        
+        .. code-block:: Python
+
+            def __str__(self):
+                return str(self.num)+"/"+str(self.den)
+
+                myf = Fraction(3,5)
+                print(myf)
+                print("I ate", myf, "of the pizza")
 
 We can override many other operators for our new ``Fraction`` class. Some
 of the most important of these are the basic arithmetic operations. We
@@ -353,22 +430,54 @@ would like to be able to create two ``Fraction`` objects and then be able to add
 them together using the standard “+” notation. At this point, if we try
 to add two fractions using "+", we get the following:
 
-::
+.. tabbed:: frac_err
 
-    Fraction f1(1, 4);
-    Fraction f2(1, 2);
-    Fraction f3 = f1 + f2;
+    .. tab:: C++
 
-    >>error: no match for ‘operator+’ (operand types are ‘Fraction’ and ‘Fraction’))
+        .. code-block:: C++
+        
+            Fraction f1(1, 4);
+            Fraction f2(1, 2);
+            Fraction f3 = f1 + f2;
+
+            // >> error: no match for ‘operator+’ (operand types are ‘Fraction’ and ‘Fraction’))
+
+        An error received before overloading
+
+
+    
+    .. tab:: Python
+
+        .. code-block:: Python
+
+            f1 = Fraction(1,4)
+            f2 = Fraction(1,2)
+            f1+f2
+
+            Traceback (most recent call last):
+            File "<pyshell#173>", line 1, in -toplevel- f1+f2
+            TypeError: unsupported operand type(s) for +: 'instance' and 'instance'
+        
+        An error received before overloading
 
 If you look closely at the error, you see that the problem is that the
 “+” operator does not understand the ``Fraction`` operands.
 
 We can, of course create something like:
 
-::
+.. tabbed:: add_frac
 
-    f1.add(f2)
+    .. tab:: C++
+
+        .. code-block:: C++
+          
+            f1.add(f2)
+    
+    .. tab:: Python
+
+        .. code-block:: Python
+
+            f1.__add__(f2)
 
 which would ask the ``Fraction`` object ``f1`` to add the ``Fraction`` object
 ``f2`` to itself. It would be much better to be written in the standard notation,
@@ -389,54 +498,81 @@ addition, and then printing our result.
 
 **Listing 5**
 
-.. sourcecode:: cpp
+.. tabbed:: frac_1
 
-        Fraction operator +(const Fraction &otherFrac){
-            //Note the return type is a Fraction
-            int newnum = num*otherFrac.den + den*otherFrac.num;
-            int newden = den*otherFrac.den;
-            return Fraction(newnum, newden);
-        }
+    .. tab:: C++
 
+        .. code-block:: C++
 
-.. activecode:: addfrac2
-  :language: cpp
-  :caption: Addition overloaded for Fraction
+                Fraction operator +(const Fraction &otherFrac){
+                    //Note the return type is a Fraction
+                    int newnum = num*otherFrac.den + den*otherFrac.num;
+                    int newden = den*otherFrac.den;
+                    return Fraction(newnum, newden);
+                }
+    
+    .. tab:: Python
 
-  //using functions to abstract the idea of a fraction
-  #include <iostream>
-  using namespace std;
-  
-  class Fraction {
-      public:
-          Fraction(int top = 0, int bottom = 1) {
-              num = top;
-              den = bottom;
-          }
-          Fraction operator +(const Fraction &otherFrac) {
-              int newnum = otherFrac.num*den + otherFrac.den*num;
-              int newden = den*otherFrac.den;
-              return Fraction(newnum, newden);
-          }
+        .. code-block:: Python
+            
+                def __add__(self, otherfraction):
 
-      friend ostream &operator << (ostream &stream, const Fraction &frac);
+                    newnum = self.num*otherfraction.den + self.den*otherfraction.num
+                    newden = self.den * otherfraction.den
 
-      private:
-          int num, den;
-  };
+                    return Fraction(newnum,newden)
 
-  ostream &operator << (ostream &stream, const Fraction &frac) {
-      stream << frac.num << "/" << frac.den;
-      return stream;
-  }
+.. tabbed:: frac_2
 
-  int main(){
-      Fraction f1(1, 4);
-      Fraction f2(1, 2);
-      Fraction f3 = f1 + f2;
-      cout << f3 << " is "<< f1 << " + " << f2 << endl;
-      return 0;
-  }
+    .. tab:: C++
+
+        .. activecode:: addfrac_cpp
+            :language: cpp
+            :caption: Addition overloaded for Fraction
+
+            //using functions to abstract the idea of a fraction
+            #include <iostream>
+            using namespace std;
+            
+            class Fraction {
+                public:
+                    Fraction(int top = 0, int bottom = 1) {
+                        num = top;
+                        den = bottom;
+                    }
+                    Fraction operator +(const Fraction &otherFrac) {
+                        int newnum = otherFrac.num*den + otherFrac.den*num;
+                        int newden = den*otherFrac.den;
+                        return Fraction(newnum, newden);
+                    }
+
+                friend ostream &operator << (ostream &stream, const Fraction &frac);
+
+                private:
+                    int num, den;
+            };
+
+            ostream &operator << (ostream &stream, const Fraction &frac) {
+                stream << frac.num << "/" << frac.den;
+                return stream;
+            }
+
+            int main(){
+                Fraction f1(1, 4);
+                Fraction f2(1, 2);
+                Fraction f3 = f1 + f2;
+                cout << f3 << " is "<< f1 << " + " << f2 << endl;
+                return 0;
+            }
+    
+    .. tab:: Python
+
+        .. code-block:: Python
+
+            f1=Fraction(1,4)
+            f2=Fraction(1,2)
+            f3=f1+f2
+            print(f3)
 
 The addition method works as we desire, but a couple of things
 can be improved. When we use a binary operator like ``+`` we
@@ -449,18 +585,31 @@ or friend functions.
 However, that is not true for ``+``.
 Let's rewrite the addition operator as a friend function.
 
-.. _lst_addmethod2:
-
 **Listing 6**
 
-.. sourcecode:: cpp
+.. tabbed:: frac_friend
 
-        Fraction operator +(const &Fraction otherFrac){
-            //Note the return type is a Fraction
-            int newnum = num*otherFrac.den + den*otherFrac.num;
-            int newden = den*otherFrac.den;
-            return Fraction(newnum, newden);
-        }
+    .. tab:: C++
+
+        .. code-block:: C++
+
+                Fraction operator +(const &Fraction otherFrac){
+                    //Note the return type is a Fraction
+                    int newnum = num*otherFrac.den + den*otherFrac.num;
+                    int newden = den*otherFrac.den;
+                    return Fraction(newnum, newden);
+                }
+        
+        Rewriting addition operator as a friend function
+    
+    .. tab:: Python
+
+        .. code-block:: Python
+
+                def __add__(self,otherfraction):
+                    newnum = self.num*otherfraction.den + self.den*otherfraction.num
+                    newden = self.den * otherfraction.den
+                    return Fraction(newnum,newden)
 
 
 .. activecode:: addfrac
@@ -534,32 +683,55 @@ works when the denominator is positive. This is acceptable for our
 fraction class because we have said that a negative fraction will be
 represented by a negative numerator.
 
-.. _lst_gcd:
 
-.. activecode::  gcd_cl
-    :language: cpp
-    :caption: The Greatest Common Divisor Function
 
-    //
-    #include <iostream>
-    using namespace std;
+.. _1st_gcd:
 
-    int gcd(int m, int n) {
-        while (m%n != 0) {
-            int oldm = m;
-            int oldn = n;
+.. tabbed:: _lst_gcd
 
-            m = oldn;
-            n = oldm%oldn;
-        }
+    .. tab:: C++
 
-        return n;
-    }
+        .. activecode::  gcd_cpp
+            :language: cpp
+            :caption: The Greatest Common Divisor Function
 
-    int main() {
-        cout << gcd(20, 10) << endl;
-        return 0;
-    }
+            #include <iostream>
+            using namespace std;
+
+            int gcd(int m, int n) {
+                while (m%n != 0) {
+                    int oldm = m;
+                    int oldn = n;
+
+                    m = oldn;
+                    n = oldm%oldn;
+                }
+
+                return n;
+            }
+
+            int main() {
+                cout << gcd(20, 10) << endl;
+                return 0;
+            }
+    
+
+    .. tab:: Python
+
+        .. activecode:: gcd_py
+            :optional:
+
+            def gcd(m,n):
+                while m%n != 0:
+                    oldm = m
+                    oldn = n
+
+                    m = oldn
+                    n = oldm%oldn
+                return n
+
+            print(gcd(20,10))
+
 
 Now we can use this function to help reduce any fraction. To put a
 fraction in lowest terms, we will divide the numerator and the
@@ -661,60 +833,12 @@ Of course there are other relational operators that can be overridden. For examp
 
 **Listing 7**
 
-.. sourcecode:: cpp
+.. tabbed:: overload
 
-        bool operator ==(Fraction &otherFrac) {
-            int firstnum = num*otherFrac.den;
-            int secondnum = otherFrac.num*den;
+    .. tab:: C++
 
-            return firstnum==secondnum;
-        }
+        .. code-block:: C++
 
-The complete ``Fraction`` class, up to this point, is shown in
-:ref:`ActiveCode 6 <lst_fractioncode>`. We leave the remaining arithmetic and relational
-methods as exercises.
-
-.. _lst_fractioncode:
-
-.. activecode:: fraction_class
-   :language: cpp
-   :caption: The Fraction Class
-
-    #include <iostream>
-    using namespace std;
-
-    int gcd(int m, int n) {
-        while (m%n != 0) {
-            int oldm = m;
-            int oldn = n;
-
-            m = oldn;
-            n = oldm%oldn;
-        }
-        return n;
-    }
-
-    class Fraction {
-        public:
-            Fraction(int top, int bottom) {
-                num = top;
-                den = bottom;
-            }
-            Fraction(int top){
-                num = top;
-                den = 1;
-            }
-            Fraction(){
-                num = 1;
-                den = 1;
-            }
-            Fraction operator +(Fraction otherFrac) {
-                int newnum = num*otherFrac.den + den*otherFrac.num;
-                int newden = den*otherFrac.den;
-                int common = gcd(newnum, newden);
-
-                return Fraction(newnum/common,newden/common);
-            }
             bool operator ==(Fraction &otherFrac) {
                 int firstnum = num*otherFrac.den;
                 int secondnum = otherFrac.num*den;
@@ -722,30 +846,139 @@ methods as exercises.
                 return firstnum==secondnum;
             }
 
-        friend ostream& operator<<(ostream& stream, const Fraction& fraction);
 
-        private:
-            int num, den;
-    };
+    .. tab:: Python
 
-    ostream& operator << (ostream& stream, const Fraction& fraction) {
-        stream << fraction.num << "/" << fraction.den;
+        .. code-block:: Python
 
-        return stream;
-    }
+            def __eq__(self, other):
+                firstnum = self.num * other.den
+                secondnum = other.num * self.den
 
-    int main(){
-        Fraction x(1, 2);
-        Fraction y(2, 4);
-        cout << x << " + " << y << " = " << x+y << endl;
-        if (x==y){
-            cout << "x is equal y" << endl;
-        }
-        else{
-            cout << "x is not equal y" << endl;
-        }
-        return 0;
-    }
+                return firstnum == secondnum
+
+
+The complete ``Fraction`` class, up to this point, is shown in
+:ref:`ActiveCode 6 <lst_fractioncode>`. We leave the remaining arithmetic and relational
+methods as exercises.
+
+.. tabbed:: _lst_fractioncode
+
+    .. tab:: C++
+
+        .. activecode:: fraction_class_cpp
+            :language: cpp
+            :caption: The Fraction Class
+
+            #include <iostream>
+            using namespace std;
+
+            int gcd(int m, int n) {
+                while (m%n != 0) {
+                    int oldm = m;
+                    int oldn = n;
+
+                    m = oldn;
+                    n = oldm%oldn;
+                }
+                return n;
+            }
+
+            class Fraction {
+                public:
+                    Fraction(int top, int bottom) {
+                        num = top;
+                        den = bottom;
+                    }
+                    Fraction(int top){
+                        num = top;
+                        den = 1;
+                    }
+                    Fraction(){
+                        num = 1;
+                        den = 1;
+                    }
+                    Fraction operator +(Fraction otherFrac) {
+                        int newnum = num*otherFrac.den + den*otherFrac.num;
+                        int newden = den*otherFrac.den;
+                        int common = gcd(newnum, newden);
+
+                        return Fraction(newnum/common,newden/common);
+                    }
+                    bool operator ==(Fraction &otherFrac) {
+                        int firstnum = num*otherFrac.den;
+                        int secondnum = otherFrac.num*den;
+
+                    }
+                        return firstnum==secondnum;
+
+                friend ostream& operator<<(ostream& stream, const Fraction& fraction);
+
+                private:
+                    int num, den;
+            };
+
+            ostream& operator << (ostream& stream, const Fraction& fraction) {
+                stream << fraction.num << "/" << fraction.den;
+
+                return stream;
+            }
+
+            int main(){
+                Fraction x(1, 2);
+                Fraction y(2, 4);
+                cout << x << " + " << y << " = " << x+y << endl;
+                if (x==y){
+                    cout << "x is equal y" << endl;
+                }
+                else{
+                    cout << "x is not equal y" << endl;
+                }
+                return 0;
+            }
+
+    .. tab:: Python
+
+        .. activecode:: fraction_class_py
+            :optional:
+
+            def gcd(m,n):
+                while m%n != 0:
+                    oldm = m
+                    oldn = n
+
+                    m = oldn
+                    n = oldm%oldn
+                return n
+
+            class Fraction:
+                def __init__(self,top,bottom):
+                    self.num = top
+                    self.den = bottom
+
+                def __str__(self):
+                    return str(self.num)+"/"+str(self.den)
+
+                def show(self):
+                    print(self.num,"/",self.den)
+
+                def __add__(self,otherfraction):
+                    newnum = self.num*otherfraction.den + \
+                                self.den*otherfraction.num
+                    newden = self.den * otherfraction.den
+                    common = gcd(newnum,newden)
+                    return Fraction(newnum//common,newden//common)
+
+                def __eq__(self, other):
+                    firstnum = self.num * other.den
+                    secondnum = other.num * self.den
+
+                    return firstnum == secondnum
+
+            x = Fraction(1,2)
+            y = Fraction(2,3)
+            print(x + y)
+            print(x == y)
 
 Self Check
 ^^^^^^^^^^
@@ -765,7 +998,7 @@ Self Check
       :click-incorrect:private::endclick:
           :click-incorrect:int num; // num atribute:endclick:
           :click-incorrect:int den; // den attribute:endclick:
-            :click-correct:}:endclick:
+    :click-correct:}:endclick:
 
 .. OOP class example:
 
@@ -829,8 +1062,10 @@ Self Check
 
     Drag the word on the left to its corresponding definition
 
-To make sure you understand how operators are implemented in C++ classes, and how to properly write methods, write some methods to implement ``*, /,`` and ``-`` .  Also implement comparison operators > and <.
-  .. actex:: self_check_4cpp
+To make sure you understand how operators are implemented in C++ classes, and how to properly write methods, write some methods to implement
+:code:`*`, :code:`/`, and :code:`-`.  Also implement comparison operators :code:`>` and :code:`<`.
+
+.. activecode:: self_check_4cpp
     :language: cpp
     :nocodelens:
 
