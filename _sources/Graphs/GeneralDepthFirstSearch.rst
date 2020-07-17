@@ -148,9 +148,11 @@ vertices in an instance of a graph is a natural thing to do.
     .. tab:: Python
 
         .. activecode:: pythondfs0
+            :language: python3
             :optional:
 
             from pythonds.graphs import Graph
+
             class DFSGraph(Graph):
                 def __init__(self):
                     super().__init__()
@@ -166,6 +168,8 @@ vertices in an instance of a graph is a natural thing to do.
 
                 def dfsvisit(self,startVertex):
                     startVertex.setColor('gray')
+                    print("Visiting vertex with ID# " + str(startVertex.id))
+
                     self.time += 1
                     startVertex.setDiscovery(self.time)
                     for nextVertex in startVertex.getConnections():
@@ -175,6 +179,26 @@ vertices in an instance of a graph is a natural thing to do.
                     startVertex.setColor('black')
                     self.time += 1
                     startVertex.setFinish(self.time)
+
+            def main():
+                graph = DFSGraph()
+
+                graph.addEdge(0, 1)
+                graph.addEdge(0, 2)
+                graph.addEdge(0, 5)
+
+                graph.addEdge(3, 4)
+                graph.addEdge(3, 2)
+
+                graph.addEdge(1, 5)
+                graph.addEdge(1, 2)
+
+                graph.addEdge(5, 4)
+                graph.addEdge(5, 3)
+
+                graph.dfs()
+
+            main()
 
 
 Although our implementation of ``bfs`` was only interested in
