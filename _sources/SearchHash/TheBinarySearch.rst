@@ -352,10 +352,10 @@ performing a sequential search from the start may be the best choice.
 
    .. mchoice:: BSRCH_2
       :correct: d
-      :answer_a: 11, 14, 17, 15
+      :answer_a: 11, 17, 14, 15
       :answer_b: 18, 17, 14, 15
       :answer_c: 14, 12, 17, 15
-      :answer_d: 12, 14, 17, 15
+      :answer_d: 12, 17, 14, 15
       :feedback_a:  Looks like you might be guilty of an off-by-one error.  Remember the first position is index 0.
       :feedback_b:  Remember binary search starts in the middle and halves the list.
       :feedback_c:  Looks like you might be off by one, be careful that you are calculating the midpont using integer arithmetic.

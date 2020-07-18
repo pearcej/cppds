@@ -48,20 +48,20 @@ length.
         namespace ct = cturtle;
 
         void spiral(ct::Turtle& turtle, int length) {
-            if (len > 0) {
-                rt.forward(length);
-                rt.right(90);
-                spiral(rt, len - 5);
+            if (length > 0) {
+                turtle.forward(length);
+                turtle.right(90);
+                spiral(turtle, length - 5);
             }
         }
 
-        int main(int argc, char** argv) {
+        int main() {
             ct::TurtleScreen screen;
-            ct::Turtle turtle(scr);
+            ct::Turtle turtle(screen);
 
             spiral(turtle, 100);
 
-            scr.bye();
+            screen.bye();
             return 0;
         }
 
@@ -169,33 +169,36 @@ shape simultaneously? Will it be drawn right side first then left side?
 
         namespace ct = cturtle;
 
-        void tree(ct::Turtle& rt, int len) {
-            if(len > 5){
-                rt.forward(len);
-                rt.right(20);
-                tree(rt, len - 15);
-                rt.left(40);
-                tree(rt, len - 15);
-                rt.right(20);
-                rt.back(len);
+        void tree(ct::Turtle& turtle, int length) {
+            if(length > 5){
+                turtle.forward(length);
+                turtle.right(20);
+                tree(turtle, length - 15);
+                turtle.left(40);
+                tree(turtle, length - 15);
+                turtle.right(20);
+                turtle.back(length);
             }
         }
 
-        int main(int argc, char** argv) {
-            ct::TurtleScreen scr;
-            ct::Turtle rt(scr);
-            //Make the trees "grow" upwards
-            rt.left(90);
-            rt.pencolor({"green"});
-            
-            scr.onclick([&](int x, int y) {
-                rt.penup();
-                rt.goTo(x, y);
-                rt.pendown();
-                tree(rt, 100);
-            }, ct::MOUSEB_LEFT);
+        int main() {
+            ct::TurtleScreen screen;
+            screen.tracer(3);//Draw faster.
+            ct::Turtle turtle(screen);
+            turtle.pencolor({"green"});
 
-            scr.mainloop();
+            //Make the trees "grow" upwards
+            turtle.left(90);
+
+            //Start growing from further down.
+            turtle.penup();
+            turtle.backward(100);
+            turtle.pendown();
+            
+            //Draw the tree.
+            tree(turtle, 75);
+
+            screen.bye();
             return 0;
         }
 
