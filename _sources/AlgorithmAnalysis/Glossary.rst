@@ -23,6 +23,9 @@ Glossary
     brute force
         technique that tries to exhaust all possibilities of a problem
 
+    :code:`contains`
+        A hash operation used to check if a table contains a specific element.
+
     contiguous
         adjacent or next to
 
@@ -31,6 +34,9 @@ Glossary
 
     exponential
         function represented as a number being raised to a power that increases like :math:`f(n)= 2^{n}`
+
+    :code:`get_item`
+        A hash operation used to retrieve the information associated with a hash key.
 
     hash table
         a collection consisting of key-value pairs with an associated hash function that maps the key to the associated value.
@@ -50,12 +56,13 @@ Glossary
           simplified: :math:`f(n) = x^{2}`
 
           complex: :math:`ax^{2} + bx + c`
-
+    
+    :code:`set_item`
+        A hash operation used to add an item to your table.
 
     vector
         sequence container storing data of a single type that is stored in a dynamically allocated array which can change in size.
         
-    
     worst case
         refers to when an algorithm performs especially poorly given a certain data set or circumstance
 
