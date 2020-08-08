@@ -78,7 +78,7 @@ definitions that are syntactically similar to function definitions. For example:
          class Fraction {
              // The class methods and class variables go here
          };  // The ";" is required by C++ to end a class definition
-        
+
     Creating a class in C++
 
   .. tab:: Python
@@ -88,7 +88,7 @@ definitions that are syntactically similar to function definitions. For example:
          class Fraction:
 
          #the methods go here
-    
+
     Creating a class in Python
 
 
@@ -160,7 +160,7 @@ actual values for the necessary state after the variable name. For example,
 
     .. code-block:: C++
 
-        Fraction myfraction(3, 5); 
+        Fraction myfraction(3, 5);
 
     Invoking constructor in C++
 
@@ -172,7 +172,7 @@ actual values for the necessary state after the variable name. For example,
 
     Invoking constructor in Python
 
-      
+
 
 creates an object called ``myfraction`` representing the fraction
 :math:`\frac {3}{5}` (three-fifths). :ref:`Figure 5 <fig_fraction1cpp>` shows this
@@ -221,7 +221,7 @@ constructor under ``public``. A third access keyword, ``protected`` will be disc
     :match_1: Encapsulation|||A situation where bank software programmers want to protect users' personal information.
     :match_2: Abstraction|||A situation where software programmers want to develop similar objects without having to redefine the most similar properties.
 
-    Match the corresponding key word to the appropriate scenario. 
+    Match the corresponding key word to the appropriate scenario.
 
 Polymorphism
 ^^^^^^^^^^^^
@@ -317,7 +317,7 @@ format by invoking the show method on our fractions.
                     }
 
                     void show(){
-                        cout << num << "/" << den << endl;                    
+                        cout << num << "/" << den << endl;
                     }
                 private:
                     int num, den;
@@ -374,14 +374,14 @@ stream is changed by the stream operator.
 **Listing 4**
 
 .. tabbed:: overloading
-    
+
     .. tab:: C++
 
         .. activecode:: overloaded_cpp
             :language: cpp
             :caption: An overloaded cout operator for the Fraction class
 
-            /*overloading functions to take in different 
+            /*overloading functions to take in different
             inputs and output the correct results*/
             #include <iostream>
             using namespace std;
@@ -414,7 +414,7 @@ stream is changed by the stream operator.
             }
 
     .. tab:: Python
-        
+
         .. code-block:: Python
 
             def __str__(self):
@@ -424,7 +424,7 @@ stream is changed by the stream operator.
                 print(myf)
                 print("I ate", myf, "of the pizza")
 
-We can override many other operators for our new ``Fraction`` class. Some
+We can overload many other operators for our new ``Fraction`` class. Some
 of the most important of these are the basic arithmetic operations. We
 would like to be able to create two ``Fraction`` objects and then be able to add
 them together using the standard “+” notation. At this point, if we try
@@ -435,7 +435,7 @@ to add two fractions using "+", we get the following:
     .. tab:: C++
 
         .. code-block:: C++
-        
+
             Fraction f1(1, 4);
             Fraction f2(1, 2);
             Fraction f3 = f1 + f2;
@@ -445,7 +445,7 @@ to add two fractions using "+", we get the following:
         An error received before overloading
 
 
-    
+
     .. tab:: Python
 
         .. code-block:: Python
@@ -457,7 +457,7 @@ to add two fractions using "+", we get the following:
             Traceback (most recent call last):
             File "<pyshell#173>", line 1, in -toplevel- f1+f2
             TypeError: unsupported operand type(s) for +: 'instance' and 'instance'
-        
+
         An error received before overloading
 
 If you look closely at the error, you see that the problem is that the
@@ -470,9 +470,9 @@ We can, of course create something like:
     .. tab:: C++
 
         .. code-block:: C++
-          
+
             f1.add(f2)
-    
+
     .. tab:: Python
 
         .. code-block:: Python
@@ -482,7 +482,7 @@ We can, of course create something like:
 which would ask the ``Fraction`` object ``f1`` to add the ``Fraction`` object
 ``f2`` to itself. It would be much better to be written in the standard notation,
 ``f1 + f2``. We can fix this by providing the ``Fraction`` class with a friend that
-overrides the ``+``  operator.
+overloads the ``+``  operator.
 
 As you know, two fractions must have the same denominator to be added. The easiest
 way to make sure they have the same denominator is to simply use the
@@ -510,11 +510,11 @@ addition, and then printing our result.
                     int newden = den*otherFrac.den;
                     return Fraction(newnum, newden);
                 }
-    
+
     .. tab:: Python
 
         .. code-block:: Python
-            
+
                 def __add__(self, otherfraction):
 
                     newnum = self.num*otherfraction.den + self.den*otherfraction.num
@@ -533,7 +533,7 @@ addition, and then printing our result.
             //using functions to abstract the idea of a fraction
             #include <iostream>
             using namespace std;
-            
+
             class Fraction {
                 public:
                     Fraction(int top = 0, int bottom = 1) {
@@ -564,7 +564,7 @@ addition, and then printing our result.
                 cout << f3 << " is "<< f1 << " + " << f2 << endl;
                 return 0;
             }
-    
+
     .. tab:: Python
 
         .. code-block:: Python
@@ -599,9 +599,9 @@ Let's rewrite the addition operator as a friend function.
                     int newden = den*otherFrac.den;
                     return Fraction(newnum, newden);
                 }
-        
+
         Rewriting addition operator as a friend function
-    
+
     .. tab:: Python
 
         .. code-block:: Python
@@ -657,7 +657,7 @@ Let's rewrite the addition operator as a friend function.
 
 How you choose to overload operators  like ``+`` is a design choice
 since both methods will work perfectly well. This is another
-example of encapsulation; your user does not need to know 
+example of encapsulation; your user does not need to know
 which you choose to use!
 
 There is one more thing we can improve in our addition function.
@@ -714,7 +714,7 @@ represented by a negative numerator.
                 cout << gcd(20, 10) << endl;
                 return 0;
             }
-    
+
 
     .. tab:: Python
 
@@ -1004,23 +1004,23 @@ Self Check
 
 **Question example**
 
-.. highlight:: cpp 
-    :linenothreshold: 5 
+.. highlight:: cpp
+    :linenothreshold: 5
 
 ::
 
     #include<iostream>
     using namespace std;
-    
+
     class Vehicle
-    { 
-    
+    {
+
         protected:
             int wheels;
             int windows;
             int engine;
     };
-    
+
     class Airplane: public Vehicle
     {
         protected:
