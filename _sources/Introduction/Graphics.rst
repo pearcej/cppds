@@ -34,7 +34,7 @@ This is particularly useful for abstract concepts such as recursion and iteratio
 For C++, a library titled C-Turtle is used to provide an equivalent of Python's Turtles.
 It acts as a close replacement to provide easy to use graphics to C++, while maintaining
 the objects and commands present in Python. It was developed by Jesse Walker-Schadler
-at Berea College during the summer of 2019.
+at Berea College during the summer of 2019 and can be found on GitHub here: https://github.com/walkerje/C-Turtle/
 
 Below is a comparison of two versions, C++ and Python, which should do
 the same thing. Try running both and comparing how the code looks between the two versions.
