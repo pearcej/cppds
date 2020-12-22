@@ -177,14 +177,11 @@ finished with the bottom left it moves to the bottom middle, and so on.
 
     Figure 4: Building a Sierpinski Triangle
 
-The ``sierpinski`` function relies heavily on the ``getMid`` function.
-``getMid`` takes as arguments two endpoints and returns the point
+The ``sierpinski`` function relies heavily on the ``middle`` function.
+``middle`` takes as arguments two endpoints and returns the point
 halfway between them. In addition, :ref:`ActiveCode 1 <lst_st>` has a function that
 draws a filled triangle using the ``begin_fill`` and ``end_fill`` turtle
 methods.
 
-Visual Studio can be used to create similar turtle-like graphics in C++ using the provided class
-"Turtle.cpp". Visual Studio files can be opened together with the as a .sln file. Try downloading and running
-the following code from GitHub. https://github.com/CodyWMitchell/TestVSGraphics
-
-Look at the Turtle.cpp file. Try changing the code within the turtle's draw loop and using the predefined functions.
+The above sierpinski triangle visualization utilizes C-Turtle, a C++ equivalent of
+Python's ``turtle`` library, and can be found on GitHub here: https://github.com/walkerje/C-Turtle/
