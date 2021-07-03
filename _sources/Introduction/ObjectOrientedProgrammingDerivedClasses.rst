@@ -75,27 +75,28 @@ method from the Base class.
 		}
 	};
 
-  class SubFirst : public Base {
-      virtual void subfunction() {
-          cout << "I'm one type of sub-class!" << endl;
-      }
-  };
+	class SubFirst : public Base {
+      	virtual void subfunction() {
+          	cout << "I'm one type of sub-class!" << endl;
+    	}
+  	};
 
-  class SubSecond : public Base {
-      virtual void subfunction() {
-          cout << "I'm another type of sub class!" << endl;
-      }
-  };
+  	class SubSecond : public Base {
+      	virtual void subfunction() {
+          	cout << "I'm another type of sub class!" << endl;
+      	}
+  	};
 
-  int main() {
-      SubFirst first;       // runs  subfirst class using printType virtual function
-      first.printType();    // calls Subfirst class, and runs virtual function on it's own
+  	int main() {
+      	SubFirst first;       // runs  subfirst class using printType virtual function
+      	first.printType();    // calls Subfirst class, and runs virtual function on it's own
 
-      SubSecond second;    // runs  subsecond class using printType virtual function
-      second.printType();  // calls Subsecond class, and runs virtual function on it's own 
+      	SubSecond second;    // runs  subsecond class using printType virtual function
+      	second.printType();  // calls Subsecond class, and runs virtual function on it's own 
 
-      return 0;
-  }
+      	return 0;
+  	}
+
 
 
 Logic Gates and Circuits
@@ -586,14 +587,14 @@ connection.
 
 
 .. activecode:: desiredcircuit
-	:language: cpp
-	:caption: Implementing our desired circuit
+    :language: cpp
+    :caption: Implementing our desired circuit
 
     #include <iostream>
     #include <string>
     using namespace std;
 
-	// creates a class with a logic gate that returns the label, and boolean value 
+    // creates a class with a logic gate that returns the label, and boolean value 
     class LogicGate {
 	public:
 		LogicGate(string n){
@@ -781,6 +782,8 @@ connection.
     	cin >> stopme; //holds open window under some conditions.
     	return 0;
     }
+
+
 
 .. admonition:: Self  Check Challenge
 
