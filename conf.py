@@ -45,6 +45,9 @@ master_doc = 'index'
 # General information about the project.
 project = 'Problem Solving with Algorithms and Data Structures'
 copyright = '2018 Brad Miller, David Ranum, Jan Pearce'
+key_words = 'data structures, algorithms, C++'
+course_description = 'The understanding of data structures and algorithms is central to understanding computer science. Presented in C++, this textbook is designed to serve as a text for a first course on data structures and algorithms, typically taught as the second course in the computer science curriculum. We cover abstract data types and basic data structures, writing algorithms to solve problems, as well as using data structures to solve classic problems. The first chapter offers a review of basic C++, so this book is most appropriate for use after either a first programming course in C++ or after first programming course in any language.'
+shelf_section = 'Data Structures'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
