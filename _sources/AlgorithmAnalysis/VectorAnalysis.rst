@@ -113,6 +113,7 @@ of our test functions 10,000 times within a ``for`` loop.
 In the experiment above the statement that we are timing is the function
 call to ``test1``. From the experiment, we see the amount of time taken by the push_back operation. 
 Not only is the ``push_back()`` function call duration being measured, but the time to allocate space is being measured.
+
 We can improve the runtime a bit further by setting an adequate reserve for the vector
 in advance. Doing this will keep us from having to move the entire vector to an
 adequately sized space in memory.
