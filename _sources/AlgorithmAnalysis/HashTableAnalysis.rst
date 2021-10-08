@@ -35,7 +35,7 @@ that a hash table could be implemented.
 
 .. _tbl_hashbigo_cpp:
 
-.. table:: **Table 6: Big-O Efficiency of C++ hash table Operations**
+.. table:: **Table 4: Big-O Efficiency of C++ hash table Operations**
 
     ================== ==================
              operation   Big-O Efficiency
