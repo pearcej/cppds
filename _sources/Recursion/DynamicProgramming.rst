@@ -4,14 +4,17 @@
 
 Dynamic Programming
 -------------------
+**Dynamic programming** is a technique of breaking the main problem into 
+smaller subproblems and then using those subproblems to construct the answer 
+to the main problem.
 
 Many programs in computer science are written to optimize some value;
 for example, find the shortest path between two points, find the line
 that best fits a set of points, or find the smallest set of objects that
 satisfies some criteria. There are many strategies that computer
 scientists use to solve these problems. One of the goals of this book is
-to expose you to several different problem solving strategies. **Dynamic
-programming** is one strategy for these types of optimization problems.
+to expose you to several different problem solving strategies. Dynamic
+programming is one strategy for these types of optimization problems.
 
 A classic example of an optimization problem involves making change
 using the fewest coins. Suppose you are a programmer for a vending
