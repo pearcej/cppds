@@ -8,7 +8,7 @@ The interactive version was then translated to C++ by Jan Pearce and a team of e
 How to use this book
 ====================
 
-- The generic version of this book is located at `2https://runestone.academy/ns/books/published/cppds/index.html <https://runestone.academy/ns/books/published/cppds/index.html>`_ 
+- The generic version of this book is located at `https://runestone.academy/ns/books/published/cppds/index.html <https://runestone.academy/ns/books/published/cppds/index.html>`_ 
 - Instructors who wish to use this book go to `https://runestone.academy/ <https://runestone.academy/>`_ and make an account using *cppds* as the base book.
 - Those wishing to report bugs or suggest improvements can do so at `https://github.com/pearcej/cppds/issues <hhttps://github.com/pearcej/cppds/issues>`_.
 
