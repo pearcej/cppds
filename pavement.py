@@ -40,7 +40,7 @@ options(
             'course_id':project_name,
             'login_required':'false',
             'appname':master_app,
-            'dynamic_pages': False,
+            'dynamic_pages': dynamic_pages,
             'loglevel':10,
             'default_ac_lang': 'cpp',
             'course_url':master_url,
