@@ -5,14 +5,6 @@
 Summary
 -------
 
--  A sequential search is :math:`O(n)` for ordered and unordered
-   lists.
-
--  A binary search of an ordered list is :math:`O(\log n)` in the
-   worst case.
-
--  Hash tables can provide constant time searching.
-
 -  A bubble sort, a selection sort, and an insertion sort are
    :math:`O(n^{2})` algorithms.
 
