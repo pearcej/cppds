@@ -578,10 +578,10 @@ addition, and then printing our result.
 The addition method works as we desire, but a couple of things
 can be improved. When we use a binary operator like ``+`` we
 like more symmetry.
-Binary operators can either be members of their
-left-hand argument's class or friend functions.
-Since the stream operators' left-hand argument is a stream,
-stream operators either have to be members of the stream class
+A binary operator can be a member of the argument’s class if on 
+the left side of the operator or a friend function.
+Since the argument on the left side of the stream operator is a stream,
+the stream operators will either have to be members of the stream class
 or friend functions.
 However, that is not true for ``+``.
 Let's rewrite the addition operator as a friend function.
