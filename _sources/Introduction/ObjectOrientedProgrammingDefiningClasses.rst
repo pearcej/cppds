@@ -908,9 +908,9 @@ methods as exercises.
                     bool operator ==(Fraction &otherFrac) {
                         int firstnum = num*otherFrac.den;
                         int secondnum = otherFrac.num*den;
-
-                    }
                         return firstnum==secondnum;
+                    }
+                        
 
                 friend ostream& operator<<(ostream& stream, const Fraction& fraction);
 

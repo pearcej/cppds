@@ -349,7 +349,7 @@ consider whether they require traversal. Consider a linked list that has
 one step to check the head reference for ``NULL``. ``size``, on the
 other hand, will always require *n* steps since there is no way to know
 how many nodes are in the linked list without traversing from head to
-end. Therefore, ``length`` is :math:`O(n)`. Adding an item to an
+end. Therefore, ``size`` is :math:`O(n)`. Adding an item to an
 unordered linked list will always be O(1) since we simply place the new node at
 the head of the linked list. However, ``search`` and ``remove``, as well
 as ``add`` for an ordered linked list, all require the traversal process.
