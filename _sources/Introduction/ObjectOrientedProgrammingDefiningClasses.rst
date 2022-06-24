@@ -1055,7 +1055,7 @@ Self Check
 
 .. dragndrop:: elements_of_classses
     :feedback: Review classes and their properties
-    :match_4: instance|||an occurrence
+    :match_4: instance|||an object of a class
     :match_5: constructor|||an special function to initialize
     :match_6: access keywords||| private and public
     :match_7: class|||a template for creating objects
