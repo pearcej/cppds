@@ -343,7 +343,7 @@ format by invoking the show method on our fractions.
 
 
 
-The downside of this that it is not how we expect to print to the console.
+The downside of this approach is that it is not how we expect to print to the console.
 In C++, there are many operators that are provided for atomic and STL data types
 that may not work as expected with a user defined class until you **overload** them.
 One of these, ``<<``, is the operator to
