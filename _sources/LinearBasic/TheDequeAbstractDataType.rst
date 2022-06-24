@@ -31,7 +31,7 @@ either front or rear. The deque operations are given below.
    parameters and returns an integer.
 
 As an example, if we assume that ``d`` is a deque that has been created
-and is currently empty, then Table 1 shows the results
+and is currently empty, then :ref:`Table 1 <tbl_dequeoperations>` shows the results
 of a sequence of deque operations. Note that the contents in front are
 listed on the right. It is very important to keep track of the front and
 the rear as you move items in and out of the collection as things can
