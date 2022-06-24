@@ -196,7 +196,7 @@ following figure:
 
 Since we are using classes to create abstract data types, we should probably discuss the meaning of
 the word "abstract" in this context.
-**Abstraction** in object-oriented programming requires you to focus only the desired properties
+**Abstraction** in object-oriented programming requires you to focus only on the desired properties
 and behaviors of the objects
 and discard what is unimportant or irrelevant. Hence, if we do not need to think about
 the "parts of a whole" metaphor, then we will not include it in the class. If that metaphor
@@ -343,7 +343,7 @@ format by invoking the show method on our fractions.
 
 
 
-The downside of this that it is not how we expect to print to the console.
+The downside of this approach is that it is not how we expect to print to the console.
 In C++, there are many operators that are provided for atomic and STL data types
 that may not work as expected with a user defined class until you **overload** them.
 One of these, ``<<``, is the operator to
@@ -908,9 +908,9 @@ methods as exercises.
                     bool operator ==(Fraction &otherFrac) {
                         int firstnum = num*otherFrac.den;
                         int secondnum = otherFrac.num*den;
-
-                    }
                         return firstnum==secondnum;
+                    }
+                        
 
                 friend ostream& operator<<(ostream& stream, const Fraction& fraction);
 

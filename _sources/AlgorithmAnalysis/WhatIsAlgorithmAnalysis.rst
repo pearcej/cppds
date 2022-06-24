@@ -401,8 +401,29 @@ taking advantage of the formula we just developed.
         main()
 
 
-If we do the same benchmark measurement for ``sumOfN3``,
-using the value  10,000 for ``n`` and we get the following result:
+If we do the same benchmark measurement for ``sumOfN3`` for differnet values of ``n``, we get the following results:
+
+When the value of ``n`` is 10:
+
+::
+
+    Sum is 55 required 0.000000 seconds
+    Sum is 55 required 0.000000 seconds
+    Sum is 55 required 0.000000 seconds
+    Sum is 55 required 0.000001 seconds
+    Sum is 55 required 0.000000 seconds
+
+When the value of ``n`` is 1000:
+
+::
+
+    Sum is 500500 required 0.000000 seconds
+    Sum is 500500 required 0.000000 seconds
+    Sum is 500500 required 0.000001 seconds
+    Sum is 500500 required 0.000000 seconds
+    Sum is 500500 required 0.000001 seconds
+
+When the value of ``n`` is 10,000:
 
 ::
 
@@ -411,7 +432,6 @@ using the value  10,000 for ``n`` and we get the following result:
     Sum is 50005000 required 0.000001 seconds
     Sum is 50005000 required 0.000001 seconds
     Sum is 50005000 required 0.000000 seconds
-
 
 There are two important things to notice about this output. First, the
 times recorded above are shorter than any of the previous examples.

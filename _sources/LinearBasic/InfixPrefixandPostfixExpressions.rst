@@ -657,7 +657,7 @@ this as an exercise at the end of the chapter.
 
    .. fillintheblank:: postfix2
 
-      What is the result of evaluating the following: ``17 10 + 3 * 9 / ==`` ?
+      What is the result of evaluating the following: ``17 10 + 3 * 9 / =`` 
 
       |blank|
 
