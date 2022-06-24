@@ -9,9 +9,9 @@ Prior to C++11 the string class was not required to store its
 character elements contiguously. Now string acts much like the vector class, except
 for some string optimizations and other minor differences.
 
-Since C++11 strings use contiguous storage locations
+C++11 strings use contiguous storage locations
 in an underlying (typically larger) array just like vectors do.
-The character elements in strings can be accessed and
+Due to this, the character elements in strings can be accessed and
 traversed with the help of iterators, and they
 can also be accessed randomly using indexes.
 
