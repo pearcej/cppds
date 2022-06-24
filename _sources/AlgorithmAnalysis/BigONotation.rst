@@ -89,10 +89,10 @@ Although we do not see this in the summation example, sometimes the
 performance of an algorithm depends on the exact values of the data
 rather than simply the size of the problem. For these kinds of
 algorithms we need to characterize their performance in terms of **best
-case**, **worst case**, or **average case** performance. The worst case
-performance refers to a particular data set where the algorithm performs
-especially poorly. Whereas a different data set for the exact same
-algorithm might have extraordinarily good performance. However, in most
+case**, **worst case**, or **average case** performance. The worst-case 
+performance refers to a particular data set where the algorithm performs 
+extremely poorly. At the same time, a different data set for the exact 
+same algorithm might have outstanding performance. However, in most
 cases the algorithm performs somewhere in between these two extremes
 (average case). It is important for a computer scientist to understand
 these distinctions so they are not misled by one particular case.
