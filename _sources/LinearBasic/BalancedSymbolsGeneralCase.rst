@@ -9,8 +9,8 @@ The balanced parentheses problem shown above is a specific case of a
 more general situation that arises in many programming languages. The
 general problem of balancing and nesting different kinds of opening and
 closing symbols occurs frequently. For example, in Python
-square brackets, ``[`` and ``]``, are used for lists; curly braces, ``{`` and ``}``, are
-used for dictionaries; and parentheses, ``(`` and ``)``, are used for tuples and
+square brackets, ``[`` and ``]``, are used for lists; curly brackets, ``{`` and ``}``, are
+used for dictionaries; and parenthesis, ``(`` and ``)``, are used for tuples and
 arithmetic expressions. .. include:: file C++, square brackets, ``[`` and ``]``, are used for arrays and vectors,
 brackets ``{`` and ``}`` separate possibly nested blocks of code,
 and operations are given inside of possibly nested parentheses ``(`` and ``)``.
