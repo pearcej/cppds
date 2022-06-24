@@ -283,7 +283,7 @@ resulting string.
 
       |blank|
 
-      -  :100: Correct because 265 = 1x16^2.
+      -  :100: Correct because 256 = 1x16^2.
          :x: No. You might want to modify the baseConverter function, or simply find a pattern in the conversion of bases.
 
    .. fillintheblank:: baseconvert3

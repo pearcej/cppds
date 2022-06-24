@@ -411,7 +411,7 @@ the analysis for hashing at the end of this section.
    .. mchoice:: HASH_2
       :correct: b
       :answer_a: 100, __, __, 113, 114, 105, 121, 117, 97, 108, 99
-      :answer_b: 99, 100, 121, 113, 114, __, __, 117, 105, 97, 108
+      :answer_b: 121, 100, 99, 113, 114, __, 105, 117, __, 97, 108
       :answer_c: 100, 113, 117, 97, 14, 108, 121, 105, 99, __, __
       :answer_d: 117, 114, 108, 121, 105, 99, __, __, 97, 100, 113
       :feedback_a:  It looks like you may have been doing modulo 2 arithmentic.  You need to use the hash table size as the modulo value.
