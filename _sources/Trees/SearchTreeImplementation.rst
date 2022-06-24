@@ -400,7 +400,7 @@ node in the parent. The code for this case is shown in here.
 
    Figure 3: Deleting Node 16, a Node without Children
 
-The second case is only slightly more complicated (see :ref:`Listing 10 <lst_bst10>`). If a node has only a
+The second case is only slightly more complicated (see :ref:`Listing 9 <lst_bst10>`). If a node has only a
 single child, then we can simply promote the child to take the place of
 its parent. The code for this case is shown in the next listing. As
 you look at this code you will see that there are six cases to consider.
@@ -425,7 +425,7 @@ left child. The decision proceeds as follows:
 
 .. _lst_bst10:
 
-**Listing 10**
+**Listing 9**
 
 ::
 
@@ -472,7 +472,7 @@ left child. The decision proceeds as follows:
 
    Figure 4: Deleting Node 25, a Node That Has a Single Child
 
-The third case is the most difficult case to handle (see :ref:`Listing 10 <lst_bst10>`). If a node has two
+The third case is the most difficult case to handle (see :ref:`Listing 9 <lst_bst10>`). If a node has two
 children, then it is unlikely that we can simply promote one of them to
 take the node’s place. We can, however, search the tree for a node that
 can be used to replace the one scheduled for deletion. What we need is a
@@ -502,7 +502,7 @@ time re-searching for the key node.
 
 .. _lst_bst11:
 
-**Listing 11**
+**Listing 10**
 
 ::
 
@@ -513,7 +513,7 @@ time re-searching for the key node.
         currentNode->payload = succ->payload;
     }
 
-The code to find the successor is shown below (see :ref:`Listing 12 <lst_bst12>`) and as
+The code to find the successor is shown below (see :ref:`Listing 11 <lst_bst12>`) and as
 you can see is a method of the ``TreeNode`` class. This code makes use
 of the same properties of binary search trees that cause an inorder
 traversal to print out the nodes in the tree from smallest to largest.
@@ -542,7 +542,7 @@ subtree until it reaches a node that does not have a left child.
 
 .. _lst_bst12:
 
-**Listing 12**
+**Listing 11**
 
 
 ::
@@ -896,7 +896,7 @@ full version of the ``BinarySearchTree`` and ``TreeNode`` classes.
                 // In either case if the key is not found an error is raised.
                 // If the node is found and has no childeren it is deleted
                 // If the node has a single child, the child takes the place of the parent. 
-                // Look at explination for listing 10 
+                // Look at explanation for listing 9 
                 void del(int key){
                     if (this->size > 1){
                         TreeNode *nodeToRemove = this->_get(key, this->root);
