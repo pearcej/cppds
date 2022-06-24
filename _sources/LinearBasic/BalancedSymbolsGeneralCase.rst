@@ -173,7 +173,7 @@ mismatch occurs, the Boolean variable ``balanced`` is set to ``false``.
        main()
 
 .. clickablearea:: stackclick
-    :question: Using the program above, click on the line of code that adds an open parentheses to the stack.
+    :question: Using the program below, click on the line of code that adds an open parenthesis to the stack.
     :iscode:
     :feedback: Remember that the function to do this would be the push function.
 
