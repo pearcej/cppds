@@ -184,6 +184,10 @@ parentheses is balanced. Note that the Boolean variable ``balanced`` is
 initialized to `true`` as there is no reason to assume otherwise at the
 start. If the current symbol is ``(``, then it is pushed on the stack
 (lines 15-16). Note also in line 22 that ``pop`` simply removes a symbol
+<<<<<<< HEAD
 from the stack, and returns nothing. At the end (lines 28-31), as long as the
+=======
+from the stack, which is not returned. At the end (lines 28-31), as long as the
+>>>>>>> d84e7bfda496b6215e5e0ec59722484ff9b2bd36
 expression is balanced and the stack has been completely cleaned off,
 the string represents a correctly balanced sequence of parentheses.
