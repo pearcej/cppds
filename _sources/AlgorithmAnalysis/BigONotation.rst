@@ -60,8 +60,8 @@ steps is :math:`T(n)=5n^{2}+27n+1005`. When *n* is small, say 1 or 2,
 the constant 1005 seems to be the dominant part of the function.
 However, as *n* gets larger, the :math:`n^{2}` term becomes the most
 important. In fact, when *n* is really large, the other two terms become
-insignificant in the role that they play in determining the final
-result. Again, to approximate :math:`T(n)` as *n* gets large, we can
+insignificant in the role that they play in determining the number
+ of steps needed. Again, to approximate :math:`T(n)` as *n* gets large, we can
 ignore the other terms and focus on :math:`5n^{2}`. In addition, the
 coefficient :math:`5` becomes insignificant as *n* gets large. We
 would say then that the function :math:`T(n)` has an order of
