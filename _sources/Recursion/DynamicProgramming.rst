@@ -298,7 +298,7 @@ to the amount of change we require. This guarantees us that at each step
 of the algorithm we already know the minimum number of coins needed to
 make change for any smaller amount. 
 
-This is often called synamic programming with tabulation. 
+This is often called dynamic programming with tabulation. 
 Let’s look at how we would fill in a table of minimum coins to use in
 making change for 11 cents. :ref:`Figure 4 <fig_dpcoinscpp>` illustrates the
 process. We start with one cent. The only solution possible is one coin
