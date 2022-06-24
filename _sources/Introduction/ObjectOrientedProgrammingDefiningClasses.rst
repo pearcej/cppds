@@ -231,7 +231,7 @@ Polymorphism
 on their data type, class, number of arguments, etc.
 For example, we can overload a constructor with different numbers and types of arguments
 to give us more optional ways to instantiate an object of the class in question.
-For example,
+Thus,
 we can add additional constructors to handle whole numbers and instances with no parameters given:
 
 ::
