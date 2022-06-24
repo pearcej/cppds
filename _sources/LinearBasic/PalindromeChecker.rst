@@ -139,7 +139,7 @@ characters.
 
         /*
         The Advanced Palindrome Checker
-        By: David Reynoso and David Andrejšín
+        By: David Reynoso and David Andrejsin
         */
 
         using namespace std;
@@ -170,9 +170,6 @@ characters.
             str.erase(remove(str.begin(), str.end(), '"'), str.end());
             str.erase(remove(str.begin(), str.end(), '\''), str.end());
             // we had to use a backslash to espace the function of '
-            str.erase(remove(str.begin(), str.end(), '’'), str.end());
-            str.erase(remove(str.begin(), str.end(), '“'), str.end());
-            str.erase(remove(str.begin(), str.end(), '”'), str.end());
             str.erase(remove(str.begin(), str.end(), '-'), str.end());
             str.erase(remove(str.begin(), str.end(), '('), str.end());
             str.erase(remove(str.begin(), str.end(), ')'), str.end());
@@ -208,9 +205,8 @@ characters.
         }
 
         int main() {
-            cout << palchecker("Do geese, see God?!") << endl;
             cout << palchecker("Radar") << endl;
-            cout << palchecker("Are we not pure? “No sir!” Panama’s moody Noriega brags. “It is garbage!” Irony dooms a man; a prisoner up to new era.") << endl;
+            cout << palchecker("Are we not pure? 'No sir!' Panama's moody Noriega brags. 'It is garbage!' Irony dooms a man; a prisoner up to new era.") << endl;
             cout << palchecker("Barge in! Relate mere war of 1991 for a were-metal Ernie grab!") << endl;
             cout << palchecker("not a palindrome") << endl;
         }
