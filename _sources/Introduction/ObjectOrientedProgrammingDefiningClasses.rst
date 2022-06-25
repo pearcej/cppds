@@ -196,7 +196,7 @@ following figure:
 
 Since we are using classes to create abstract data types, we should probably discuss the meaning of
 the word "abstract" in this context.
-**Abstraction** in object-oriented programming requires you to focus only the desired properties
+**Abstraction** in object-oriented programming requires you to focus only on the desired properties
 and behaviors of the objects
 and discard what is unimportant or irrelevant. Hence, if we do not need to think about
 the "parts of a whole" metaphor, then we will not include it in the class. If that metaphor
@@ -232,7 +232,7 @@ on their data type, class, number of arguments, etc.
 For example, we can overload a constructor with different numbers and types of arguments
 to give us more optional ways to instantiate an object of the class in question.
 For example,
-we can add additional constructors to handle whole numbers and instances with no parameters given:
+we can add additional constructors to handle fractions that are whole numbers and instances with no parameters given:
 
 ::
 
@@ -343,7 +343,7 @@ format by invoking the show method on our fractions.
 
 
 
-The downside of this that it is not how we expect to print to the console.
+The downside of this approach is that it is not how we expect to print to the console.
 In C++, there are many operators that are provided for atomic and STL data types
 that may not work as expected with a user defined class until you **overload** them.
 One of these, ``<<``, is the operator to
@@ -364,11 +364,12 @@ of polymorphism in object-oriented programming.
 A **friend function** of a class is a function defined outside that class' scope
 but with the right to access
 all private and protected members of the class.
-In C++, we do operator overloading by declaring a **friend**
-function with the name ``<<``
-give it a new implementation outside as shown in :ref:`Listing 4 <lst_str>`.
+In C++, we overload an operator by declaring it a **friend**
+function in the class definition and giving it a new implementation.
+:ref:`Listing 4 <lst_str>` shows an example of the ``<<`` operator being overloaded
+in the ``Fraction`` class.
 Note that stream operators
-need to return the address of the stream because of the fact that the
+need to return the address of the stream because of the fact that the 
 stream is changed by the stream operator.
 
 **Listing 4**
@@ -908,9 +909,9 @@ methods as exercises.
                     bool operator ==(Fraction &otherFrac) {
                         int firstnum = num*otherFrac.den;
                         int secondnum = otherFrac.num*den;
-
-                    }
                         return firstnum==secondnum;
+                    }
+                        
 
                 friend ostream& operator<<(ostream& stream, const Fraction& fraction);
 
@@ -1055,7 +1056,7 @@ Self Check
 
 .. dragndrop:: elements_of_classses
     :feedback: Review classes and their properties
-    :match_4: instance|||an occurrence
+    :match_4: instance|||an object of a class
     :match_5: constructor|||an special function to initialize
     :match_6: access keywords||| private and public
     :match_7: class|||a template for creating objects
