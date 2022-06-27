@@ -285,16 +285,16 @@ until it gets to a non-matching leaf node or finds a matching key. When
 a matching key is found, the value stored in the payload of the node is
 returned.
 
-:ref:`Listing 5 <lst_bst5>` shows the code for ``get``  and ``_get``. The search code in the ``_get`` method uses the same
+:ref:`Listing 4 <lst_bst4>` shows the code for ``get``  and ``_get``. The search code in the ``_get`` method uses the same
 logic for choosing the left or right child as the ``_put`` method. Notice
 that the ``_get`` method returns a ``TreeNode`` to ``get``, this allows
 ``_get`` to be used as a flexible helper method for other
 ``BinarySearchTree`` methods that may need to make use of other data
 from the ``TreeNode`` besides the payload.
 
-.. _lst_bst5:
+.. _lst_bst4:
 
-**Listing 5**
+**Listing 4**
 
 ::
 
@@ -329,7 +329,7 @@ from the ``TreeNode`` besides the payload.
     }
 
 Finally, we turn our attention to the most challenging method in the
-binary search tree, the deletion of a key (see :ref:`Listing 7 <lst_bst7>`). The first task is to find the
+binary search tree, the deletion of a key (see :ref:`Listing 5 <lst_bst5>`). The first task is to find the
 node to delete by searching the tree. If the tree has more than one node
 we search using the ``_get`` method to find the ``TreeNode`` that needs
 to be removed. If the tree only has a single node, that means we are
@@ -337,9 +337,9 @@ removing the root of the tree, but we still must check to make sure the
 key of the root matches the key that is to be deleted. In either case if
 the key is not found the ``del`` operator raises an error.
 
-.. _lst_bst7:
+.. _lst_bst5:
 
-**Listing 7**
+**Listing 5**
 
 ::
 
@@ -372,14 +372,14 @@ are three cases that we must consider:
 
 #. The node to be deleted has two children (see :ref:`Figure 5 <fig_bstdel3>`).
 
-The first case is straightforward (see :ref:`Listing 8 <lst_bst8>`). If the current node has no children
+The first case is straightforward (see :ref:`Listing 6 <lst_bst6>`). If the current node has no children
 all we need to do is delete the node and remove the reference to this
 node in the parent. The code for this case is shown in here.
 
 
-.. _lst_bst8:
+.. _lst_bst6:
 
-**Listing 8**
+**Listing 6**
 
 
 ::
@@ -400,7 +400,7 @@ node in the parent. The code for this case is shown in here.
 
    Figure 3: Deleting Node 16, a Node without Children
 
-The second case is only slightly more complicated (see :ref:`Listing 10 <lst_bst10>`). If a node has only a
+The second case is only slightly more complicated (see :ref:`Listing 7 <lst_bst7>`). If a node has only a
 single child, then we can simply promote the child to take the place of
 its parent. The code for this case is shown in the next listing. As
 you look at this code you will see that there are six cases to consider.
@@ -423,9 +423,9 @@ left child. The decision proceeds as follows:
    ``rightChild`` data by calling the ``replaceNodeData`` method on the
    root.
 
-.. _lst_bst10:
+.. _lst_bst7:
 
-**Listing 10**
+**Listing 7**
 
 ::
 
@@ -472,7 +472,7 @@ left child. The decision proceeds as follows:
 
    Figure 4: Deleting Node 25, a Node That Has a Single Child
 
-The third case is the most difficult case to handle (see :ref:`Listing 10 <lst_bst10>`). If a node has two
+The third case is the most difficult case to handle (see :ref:`Listing 7 <lst_bst7>`). If a node has two
 children, then it is unlikely that we can simply promote one of them to
 take the node’s place. We can, however, search the tree for a node that
 can be used to replace the one scheduled for deletion. What we need is a
@@ -500,9 +500,9 @@ goes directly to the node we want to splice out and makes the right
 changes. We could call ``delete`` recursively, but then we would waste
 time re-searching for the key node.
 
-.. _lst_bst11:
+.. _lst_bst8:
 
-**Listing 11**
+**Listing 8**
 
 ::
 
@@ -513,7 +513,7 @@ time re-searching for the key node.
         currentNode->payload = succ->payload;
     }
 
-The code to find the successor is shown below (see :ref:`Listing 12 <lst_bst12>`) and as
+The code to find the successor is shown below (see :ref:`Listing 9 <lst_bst9>`) and as
 you can see is a method of the ``TreeNode`` class. This code makes use
 of the same properties of binary search trees that cause an inorder
 traversal to print out the nodes in the tree from smallest to largest.
@@ -540,9 +540,9 @@ search tree is the leftmost child of the tree. Therefore the ``findMin``
 method simply follows the ``leftChild`` references in each node of the
 subtree until it reaches a node that does not have a left child.
 
-.. _lst_bst12:
+.. _lst_bst9:
 
-**Listing 12**
+**Listing 9**
 
 
 ::
