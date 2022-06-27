@@ -325,9 +325,9 @@ nodes in the linked list. The external reference is called ``current`` and is
 initialized to the head of the linked list in line 2. At the start of the
 process we have not seen any nodes so the count is set to :math:`0`.
 Lines 4–6 actually implement the traversal. As long as the current
-reference has not seen the end of the linked list (``None``), we move current
+reference has not seen the end of the linked list (``NULL``), we move current
 along to the next node via the assignment statement in line 6. Again,
-the ability to compare a reference to ``None`` is very useful. Every
+the ability to compare a reference to ``NULL`` is very useful. Every
 time current moves to a new node, we add :math:`1` to ``count``.
 Finally, ``count`` gets returned after the iteration stops.
 :ref:`Figure 9 <fig_traversal>` shows this process as it proceeds down the linked list.
@@ -369,15 +369,11 @@ present. Also, if we do find the item, there is no need to continue.
 
 :ref:`Listing 6 <lst_search>` shows the implementation for the ``search`` method.
 As in the ``size`` method, the traversal is initialized to start at
-the head of the linked list (line 2). We also use a boolean variable called
-``found`` to remember whether we have located the item we are searching
-for. Since we have not found the item at the start of the traversal,
-``found`` can be set to ``False`` (line 3). The iteration in line 4
-takes into account both conditions discussed above. As long as there are
+the head of the linked list (line 2). As long as there are
 more nodes to visit and we have not found the item we are looking for,
-we continue to check the next node. The question in line 5 asks whether
-the data item is present in the current node. If so, ``found`` can be
-set to ``True``.
+we continue to check the next node. The question in line 4 asks whether
+the data item is present in the current node. If so, we return ``True``.
+When we reach the end of the list and the value has not been found, we return ``False``.
 
 .. _lst_search:
 
