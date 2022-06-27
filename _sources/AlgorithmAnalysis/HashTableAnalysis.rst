@@ -128,7 +128,7 @@ hash table.
         print("%d,%10.3f,%10.3f" % (i, lst_time, d_time))
 
 
-:ref:`Figure 4 <fig_vectvshash_cpp>` summarizes the results of running
+:ref:`Figure 3 <fig_vectvshash_cpp>` summarizes the results of running
 :ref:`Listing 6 <lst_vectvshash_cpp>`. You can see that the hash table is consistently
 faster. For the smallest vector size of 10,000 elements a hash table is
 89.4 times faster than a vector. For the largest vector size of 990,000
@@ -145,7 +145,7 @@ of 990,000 it also took 0.004 milliseconds.
 
 .. figure:: Figures/vectvshash.png
 
-    Figure 4: Comparing the ``in`` Operator for C++ vectors and Hash Tables
+    Figure 3: Comparing the ``in`` Operator for C++ vectors and Hash Tables
 
 Since C++ is an evolving language, there are always changes going on
 behind the scenes. The latest information on the performance of C++
