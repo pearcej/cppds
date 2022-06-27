@@ -373,7 +373,7 @@ the head of the linked list (line 2). As long as there are
 more nodes to visit and we have not found the item we are looking for,
 we continue to check the next node. The question in line 4 asks whether
 the data item is present in the current node. If so, we return ``True``.
-When we reach the end of the list and the value has not been found, we return ``False``.
+When we reach the end of the list and the item has not been found, we return ``False``.
 
 .. _lst_search:
 
