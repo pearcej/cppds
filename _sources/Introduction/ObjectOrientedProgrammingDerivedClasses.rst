@@ -271,7 +271,8 @@ we will use that terminology in our implementation.
 
 			class BinaryGate : public LogicGate {
 			public:
-				BinaryGate(string n) : LogicGate(n) {
+				BinaryGate(string n) : LogicGate(n) { // When we create an instance of 
+				// BinaryGate, data inherited from LogicGate are initialized with n;
 					pinATaken = false;
 					pinBTaken = false;
 				}

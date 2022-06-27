@@ -232,7 +232,7 @@ on their data type, class, number of arguments, etc.
 For example, we can overload a constructor with different numbers and types of arguments
 to give us more optional ways to instantiate an object of the class in question.
 For example,
-we can add additional constructors to handle whole numbers and instances with no parameters given:
+we can add additional constructors to handle fractions that are whole numbers and instances with no parameters given:
 
 ::
 
@@ -364,11 +364,12 @@ of polymorphism in object-oriented programming.
 A **friend function** of a class is a function defined outside that class' scope
 but with the right to access
 all private and protected members of the class.
-In C++, we do operator overloading by declaring a **friend**
-function with the name ``<<``
-give it a new implementation outside as shown in :ref:`Listing 4 <lst_str>`.
+In C++, we overload an operator by declaring it a **friend**
+function in the class definition and giving it a new implementation.
+:ref:`Listing 4 <lst_str>` shows an example of the ``<<`` operator being overloaded
+in the ``Fraction`` class.
 Note that stream operators
-need to return the address of the stream because of the fact that the
+need to return the address of the stream because of the fact that the 
 stream is changed by the stream operator.
 
 **Listing 4**
