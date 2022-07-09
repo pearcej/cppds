@@ -325,9 +325,9 @@ nodes in the linked list. The external reference is called ``current`` and is
 initialized to the head of the linked list in line 2. At the start of the
 process we have not seen any nodes so the count is set to :math:`0`.
 Lines 4–6 actually implement the traversal. As long as the current
-reference has not seen the end of the linked list (``None``), we move current
+reference has not seen the end of the linked list (``NULL``), we move current
 along to the next node via the assignment statement in line 6. Again,
-the ability to compare a reference to ``None`` is very useful. Every
+the ability to compare a reference to ``NULL`` is very useful. Every
 time current moves to a new node, we add :math:`1` to ``count``.
 Finally, ``count`` gets returned after the iteration stops.
 :ref:`Figure 9 <fig_traversal>` shows this process as it proceeds down the linked list.
@@ -369,15 +369,11 @@ present. Also, if we do find the item, there is no need to continue.
 
 :ref:`Listing 6 <lst_search>` shows the implementation for the ``search`` method.
 As in the ``size`` method, the traversal is initialized to start at
-the head of the linked list (line 2). We also use a boolean variable called
-``found`` to remember whether we have located the item we are searching
-for. Since we have not found the item at the start of the traversal,
-``found`` can be set to ``False`` (line 3). The iteration in line 4
-takes into account both conditions discussed above. As long as there are
+the head of the linked list (line 2). As long as there are
 more nodes to visit and we have not found the item we are looking for,
-we continue to check the next node. The question in line 5 asks whether
-the data item is present in the current node. If so, ``found`` can be
-set to ``True``.
+we continue to check the next node. The question in line 4 asks whether
+the data item is present in the current node. If so, we return ``True``.
+When we reach the end of the list and the item has not been found, we return ``False``.
 
 .. _lst_search:
 
@@ -434,7 +430,7 @@ first step is very similar to ``search``. Starting with an external
 reference set to the head of the linked list, we traverse the links until we
 discover the item we are looking for. Since we assume that item is
 present, we know that the iteration will stop before ``current`` gets to
-``None``. This means that we can simply use the boolean ``found`` in the
+``NULL``. This means that we can simply use the boolean ``found`` in the
 condition.
 
 When ``found`` becomes ``True``, ``current`` will be a reference to the
@@ -465,7 +461,7 @@ assign initial values to the two references. Note that ``current``
 starts out at the linked list head as in the other traversal examples.
 ``previous``, however, is assumed to always travel one node behind
 current. For this reason, ``previous`` starts out with a value of
-``None`` since there is no node before the head (see
+``NULL`` since there is no node before the head (see
 :ref:`Figure 11 <fig_removeinit>`). The boolean variable ``found`` will again be
 used to control the iteration.
 
@@ -526,7 +522,7 @@ remove the node from the linked list. :ref:`Figure 13 <fig_removepic1>` shows th
 link that must be modified. However, there is a special case that needs
 to be addressed. If the item to be removed happens to be the first item
 in the linked list, then ``current`` will reference the first node in the
-linked list. This also means that ``previous`` will be ``None``. We said
+linked list. This also means that ``previous`` will be ``NULL``. We said
 earlier that ``previous`` would be referring to the node whose next
 reference needs to be modified in order to complete the remove. In this
 case, it is not ``previous`` but rather the head of the linked list that needs
@@ -550,10 +546,10 @@ to be changed (see :ref:`Figure 14 <fig_removehead>`).
 
 Line 12 allows us to check whether we are dealing with the special case
 described above. If ``previous`` did not move, it will still have the
-value ``None`` when the boolean ``found`` becomes ``True``. In that case
+value ``NULL`` when the boolean ``found`` becomes ``True``. In that case
 (line 13) the head of the linked list is modified to refer to the node after
 the current node, in effect removing the first node from the linked
-list. However, if previous is not ``None``, the node to be removed is
+list. However, if previous is not ``NULL``, the node to be removed is
 somewhere down the linked list structure. In this case the previous
 reference is providing us with the node whose next reference must be
 changed. Line 15 uses the ``setNext`` method from ``previous`` to
