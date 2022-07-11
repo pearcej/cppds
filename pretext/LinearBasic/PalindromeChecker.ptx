@@ -1,0 +1,262 @@
+<section xml:id="linear-basic_palindrome-checker">
+        <title>Palindrome-Checker</title>
+        <p>An interesting problem that can be easily solved using the deque data
+            structure is the classic palindrome problem. A <term>palindrome</term> is a
+            string that reads the same forward and backward, for example, <em>radar</em>,
+            <em>toot</em>, and <em>madam</em>. We would like to construct an algorithm to input a
+            string of characters and check whether it is a palindrome.</p>
+        <p>The solution to this problem will use a deque to store the characters of
+            the string. We will process the string from left to right and add each
+            character to the rear of the deque. At this point, the deque will be
+            acting very much like an ordinary queue. However, we can now make use of
+            the dual functionality of the deque. The front of the deque will hold
+            the first character of the string and the rear of the deque will hold
+            the last character (see <xref ref="fig-palindrome"/>).</p>
+        
+        <figure align="center" xml:id="fig-palindrome"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 2: A Deque</caption><image source="LinearBasic/Figures/palindromesetup.png" width="50%"/></figure>
+        <p>Since we can remove both of them directly, we can compare them and
+            continue only if they match. If we can keep matching first and the last
+            items, we will eventually either run out of characters or be left with a
+            deque of size 1 depending on whether the length of the original string
+            was even or odd. In either case, the string must be a palindrome. The
+            complete function for palindrome-checking appears in
+            <xref ref="linear-basic_palinedrome-cpp"/>.</p>
+        
+        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'PalindromeChecker', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="palinedrome_cpp" interactive="activecode" language="cpp">
+        <input>
+//program that detects palindromes.
+
+#include &lt;deque&gt;
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+bool palchecker(string aString) {
+    deque&lt;char&gt; chardeque;
+    int strLen = aString.length();
+    for (int i = 0; i &lt; strLen; i++) {
+        //pushes each char in the string to the deque.
+        chardeque.push_back(aString[i]);
+    }
+
+    bool stillEqual = true;
+
+    while (chardeque.size() &gt; 1 &amp;&amp; stillEqual) {
+        char first = chardeque.front();
+        chardeque.pop_front();
+        char last = chardeque.back();
+        chardeque.pop_back();
+        if (first != last) { //if the two opposite positions of the
+                             //word is not the same, then it is not
+                             //a palindrome.
+            stillEqual = false;
+        }
+    }
+    return stillEqual;
+}
+
+int main() {
+    cout &lt;&lt; palchecker("lsdkjfskf") &lt;&lt; endl;
+    cout &lt;&lt; palchecker("radar") &lt;&lt; endl;
+}
+        </input>
+    </program>
+            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'PalindromeChecker', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="palchecker" interactive="activecode" language="python">
+        <input>
+#Program that detects palindromes.
+
+from pythonds.basic.deque import Deque
+
+def palchecker(aString):
+    chardeque = Deque()
+
+    for ch in aString:
+        #pushes each char in the string to the deque.
+        chardeque.addRear(ch)
+
+    stillEqual = True
+
+    while chardeque.size() &gt; 1 and stillEqual:
+        first = chardeque.removeFront()
+        last = chardeque.removeRear()
+        if first != last: #if the two opposite positions of the
+                          #word is not the same, then it is not
+                          #a palindrome.
+            stillEqual = False
+
+    return stillEqual
+
+def main():
+    print(palchecker("lsdkjfskf"))
+    print(palchecker("radar"))
+main()
+        </input>
+    </program>
+            </TabNode></exercise>
+        <p>Below we can see an upgraded code for checking palindromes, which
+            is able to handle strings with capital letters, spaces, and special
+            characters.</p>
+        <p><xref ref="advanced-linear-basic_palinedrome-cpp"/>.</p>
+        
+        <blockquote>
+            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'PalindromeChecker', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="advanced_palinedrome_cpp" interactive="activecode" language="cpp">
+        <input>
+//program that detects palindromes.
+
+/*
+The Advanced Palindrome Checker
+By: David Reynoso and David Andrejsin
+*/
+
+using namespace std;
+#include &lt;deque&gt;
+#include &lt;fstream&gt; // for file handling
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include "stdlib.h" // for the system command
+#include &lt;algorithm&gt; // provides an algorithm for easier removal of characters from a string
+
+string processor(string aString) {
+    // goes through string and finds uppercase letters and converts
+    // them to lower case, also finds special characters and gets rid of them
+    // ultimately, prepares a string for a correct palindrome evaluation
+    int strLen = aString.length();
+    string str = "";
+    for (int i = 0; i &lt; strLen; i++) {
+        str += tolower(aString[i]);
+    }
+    str.erase(remove(str.begin(), str.end(), ' '), str.end());
+    str.erase(remove(str.begin(), str.end(), '.'), str.end());
+    str.erase(remove(str.begin(), str.end(), '?'), str.end());
+    str.erase(remove(str.begin(), str.end(), '!'), str.end());
+    str.erase(remove(str.begin(), str.end(), ','), str.end());
+    str.erase(remove(str.begin(), str.end(), ';'), str.end());
+    str.erase(remove(str.begin(), str.end(), ':'), str.end());
+    str.erase(remove(str.begin(), str.end(), '#'), str.end());
+    str.erase(remove(str.begin(), str.end(), '"'), str.end());
+    str.erase(remove(str.begin(), str.end(), '\''), str.end());
+    // we had to use a backslash to espace the function of '
+    str.erase(remove(str.begin(), str.end(), '-'), str.end());
+    str.erase(remove(str.begin(), str.end(), '('), str.end());
+    str.erase(remove(str.begin(), str.end(), ')'), str.end());
+
+    return str;
+}
+
+bool palchecker(string aString) {
+    // an algorithm that checks whether a string is a palindrome
+    aString = processor(aString); // calls a function that prepares the string for a proper evaluation of the palindrome
+
+    deque&lt;char&gt; chardeque;
+    int strLen = aString.length();
+    for (int i = 0; i &lt; strLen; i++) {
+    //pushes each char in the string to the deque.
+        chardeque.push_back(aString[i]);
+    }
+
+    bool stillEqual = true;
+
+    while (chardeque.size() &gt; 1 &amp;&amp; stillEqual) {
+        char first = chardeque.front();
+        chardeque.pop_front();
+        char last = chardeque.back();
+        chardeque.pop_back();
+        if (first != last) { //if the two opposite positions of the
+             //word is not the same, then it is not
+             //a palindrome.
+            stillEqual = false;
+        }
+    }
+    return stillEqual;
+}
+
+int main() {
+    cout &lt;&lt; palchecker("Radar") &lt;&lt; endl;
+    cout &lt;&lt; palchecker("Are we not pure? 'No sir!' Panama's moody Noriega brags. 'It is garbage!' Irony dooms a man; a prisoner up to new era.") &lt;&lt; endl;
+    cout &lt;&lt; palchecker("Barge in! Relate mere war of 1991 for a were-metal Ernie grab!") &lt;&lt; endl;
+    cout &lt;&lt; palchecker("not a palindrome") &lt;&lt; endl;
+}
+        </input>
+    </program>
+                </TabNode></exercise>
+        </blockquote>
+
+<exercise label="orderingPrinciples">
+    <statement><p>Drag each data structure to its corresponding ordering principle</p></statement>
+    <feedback><p>This is feedback.</p></feedback>
+<matches><match order="1"><premise>Stack</premise><response>last-in first-out</response></match><match order="2"><premise>Deque</premise><response>mixed depending upon input order</response></match><match order="3"><premise>Queue</premise><response>first-in first-out</response></match></matches></exercise>
+<exercise label="Remembertypes">
+    <statement><p>Click on the cause of a syntax error in the following code.</p></statement>
+<feedback><p>Remember how we declare variables</p></feedback>
+<areas>
+<cline><area correct="yes">deque&lt;int&gt; d;</area>:</cline>
+<cline><area>d.push_back("Zebra");</area>:</cline>
+<cline><area>d.push_front("Turtle");</area>:</cline>
+<cline><area>d.push_front("Panda");</area>:</cline>
+<cline><area>d.push_back("Catfish");</area>:</cline>
+<cline><area>d.push_back("Giraffe");</area>:</cline>
+</areas></exercise>
+    <exercise label="structureefficiency">
+        <statement>
+
+        <p>Q-6: If you add five items to your code in this order <q>potato</q>, <q>rutabaga</q>, <q>avocado</q>, <q>squash</q>, <q>eggplant</q> which structure would take the least steps to retrieve <q>rutabaga</q>?</p>
+
+        </statement>
+<choices>
+
+            <choice>
+                <statement>
+                    <p>Deque</p>
+                </statement>
+                <feedback>
+                    <p>Yes, but it is not the only option.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>Stack</p>
+                </statement>
+                <feedback>
+                    <p>No, a stack would pop from the top, thus having more entries in the way before it gets to rutabega.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>Queue</p>
+                </statement>
+                <feedback>
+                    <p>Yes, but it is not the only option.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>Both B &amp; C</p>
+                </statement>
+                <feedback>
+                    <p>One of these two would be correct, but the other would not.</p>
+                </feedback>
+            </choice>
+
+            <choice correct="yes">
+                <statement>
+                    <p>Both A &amp; C</p>
+                </statement>
+                <feedback>
+                    <p>Correct!</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+    </section>
+

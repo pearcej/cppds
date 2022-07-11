@@ -1,0 +1,40 @@
+<section xml:id="sort_programming-exercises">
+        <title>Programming Exercises</title>
+        <p><ol label="1">
+            <li>
+                <p>Using a random number generator, create a list of 500 integers.
+                    Perform a benchmark analysis using some of the sorting algorithms
+                    from this chapter. What is the difference in execution speed?</p>
+            </li>
+            <li>
+                <p>Implement the bubble sort using simultaneous assignment.</p>
+            </li>
+            <li>
+                <p>A bubble sort can be modified to <q>bubble</q> in both directions. The
+                    first pass moves <q>up</q> the list, and the second pass moves <q>down.</q>
+                    This alternating pattern continues until no more passes are
+                    necessary. Implement this variation and describe under what
+                    circumstances it might be appropriate.</p>
+            </li>
+            <li>
+                <p>Implement the selection sort using simultaneous assignment.</p>
+            </li>
+            <li>
+                <p>Perform a benchmark analysis for a shell sort, using different
+                    increment sets on the same vector.</p>
+            </li>
+            <li>
+                <p>One way to improve the quick sort is to use an insertion sort on
+                    lists that have a small length (call it the <q>partition limit</q>). Why
+                    does this make sense? Re-implement the quick sort and use it to sort
+                    a random list of integers. Perform an analysis using different list
+                    sizes for the partition limit.</p>
+            </li>
+            <li>
+                <p>Implement the median-of-three method for selecting a pivot value as a
+                    modification to <c>quickSort</c>. Run an experiment to compare the two
+                    techniques.</p>
+            </li>
+        </ol></p>
+    </section>
+

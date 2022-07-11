@@ -1,0 +1,27 @@
+<section xml:id="trees_search-tree-operations">
+        <title>Search Tree Operations</title>
+        <p>Before we look at the implementation, let's review the interface
+            provided by the map ADT. You will notice that this interface is very
+            similar to the C++ Hash Table.</p>
+        <p><ul>
+            <li>
+                <p><c>Map()</c> Create a new, empty map.</p>
+            </li>
+            <li>
+                <p><c>put(key,val)</c> Add a new key-value pair to the map. If the key is
+                    already in the map then replace the old value with the new value.</p>
+            </li>
+            <li>
+                <p><c>get(key)</c> Given a key, return the value stored in the map or
+                    <c>NULL</c> otherwise.</p>
+            </li>
+            <li>
+                <p><c>del</c> Delete the key-value pair from the map using a statement of
+                    the form <c>del map[key]</c>.</p>
+            </li>
+            <li>
+                <p><c>length()</c> Return the number of key-value pairs stored in the map.</p>
+            </li>
+        </ul></p>
+    </section>
+

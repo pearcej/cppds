@@ -1,0 +1,147 @@
+<section xml:id="linear-basic_using-a-queue-in-c">
+        <title>Using a Queue in C++</title>
+        <p>Now we will turn our attention to using the queue data structure
+            with the help of the Standard Template Library (STL) in C++.</p>
+        <p>As we described in Chapter 1, in C++, as in any object-oriented
+            programming language,
+            the implementation of choice for an abstract data
+            type such as a queue is a class in which the queue
+            operations are implemented as methods.
+            Fortunately, the STL already has a well
+            written implementation of the queue class.</p>
+        <p>In following queue implementation (<xref ref="lst-queuecode1"/>)
+            as <c>push</c> operations occur, new items are always added on the <term>rear</term> end
+            of the queue and <c>pop</c> operations will
+            manipulate the opposite side, the <term>front</term> end.</p>
+        
+        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'ImplementingaQueueCpp', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="queue1accpp" interactive="activecode" language="cpp">
+        <input>
+#include &lt;iostream&gt;
+#include &lt;queue&gt; // Using an STL queue
+
+using namespace std;
+
+int main() {
+          queue&lt;int&gt; newQueue;
+
+          newQueue.push(3);
+          newQueue.push(8);
+          newQueue.push(15);
+
+          cout &lt;&lt; "Queue Empty? " &lt;&lt; newQueue.empty() &lt;&lt; endl;
+
+          cout &lt;&lt; "Queue Size: " &lt;&lt; newQueue.size() &lt;&lt; endl;
+
+          cout &lt;&lt; "Top Element of the Queue: " &lt;&lt; newQueue.front() &lt;&lt; endl;
+
+          newQueue.pop();
+
+          cout &lt;&lt; "Top Element of the Queue: " &lt;&lt; newQueue.front() &lt;&lt; endl;
+
+          return 0;
+}
+        </input>
+    </program>
+            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ImplementingaQueueCpp', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="queue1acpy" interactive="activecode" language="python">
+        <input>
+class Queue:
+    def __init__(self):
+        self.items = []
+
+    def isEmpty(self):
+        return self.items == []
+
+    def push(self, item):
+        self.items.insert(0,item)
+
+    def pop(self):
+        return self.items.pop()
+
+    def front(self):
+        return self.items[len(self.items)-1];
+
+    def size(self):
+        return len(self.items)
+
+def main():
+    q=Queue()
+
+    q.push(3)
+    q.push(8)
+    q.push(15)
+
+    print("Queue Empty? ", q.isEmpty())
+
+    print("Queue Size: ", q.size())
+
+    print("Front Element of the Queue: ", q.front())
+
+    q.pop();
+
+    print("Front Element of the Queue: ", q.front())
+main()
+        </input>
+    </program>
+            </TabNode></exercise>
+        <note>
+            <title>Self Check</title>
+
+    <exercise label="queue_1">
+        <statement>
+
+            <p>Q-3: Suppose you have the following series of queue operations.</p>
+            <pre>queue&lt;int&gt; q;
+q.push(10);
+q.push(20);
+q.push(30);
+q.pop();</pre>
+            <p>What items are left on the queue?</p>
+
+        </statement>
+<choices>
+
+            <choice>
+                <statement>
+                    <p>10, 20</p>
+                </statement>
+                <feedback>
+                    <p>Remember the first item added to the queue is the first item removed. Remember FIFO.</p>
+                </feedback>
+            </choice>
+
+            <choice correct="yes">
+                <statement>
+                    <p>20, 30</p>
+                </statement>
+                <feedback>
+                    <p>Yes, first in first out means that the 10 is now gone.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>10, 30</p>
+                </statement>
+                <feedback>
+                    <p>Queues and stacks are both data structures where you can only access the first or the last items.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>10, 20, 30</p>
+                </statement>
+                <feedback>
+                    <p>Oops, maybe you missed the pop call at the end?</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+        </note>
+    </section>
+

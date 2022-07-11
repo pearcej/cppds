@@ -1,0 +1,133 @@
+<section xml:id="algorithm-analysis_analysis-of-string-operators">
+        <title>Analysis of String Operators</title>
+        <p>Prior to C++11 the string class was not required to store its
+            character elements contiguously. Now string acts much like the vector class, except
+            for some string optimizations and other minor differences.</p>
+        <p>C++11 strings use contiguous storage locations
+            in an underlying (typically larger) array just like vectors do.
+            Due to this, the character elements in strings can be accessed and
+            traversed with the help of iterators, and they
+            can also be accessed randomly using indexes.</p>
+        <p>Like vectors, strings have a dynamic size meaning that whenever
+            a new character is inserted or deleted,
+            their size changes automatically.
+            Just like vectors, new elements can be inserted into or deleted from any part of a string,
+            and automatic reallocation for other existing items in the string is applied.</p>
+        <p>Indexing and assigning a new character to an index position
+            that already exists both take <math>O(1)</math>, the same amount of time no matter how
+            large the string is.</p>
+        <p>Now that we have seen how performance can be measured concretely you can
+            look at <xref ref="algorithm-analysis_tbl-strbigocpp"/> to see the Big-O efficiency of all the
+            basic string operations and you will see a striking resemblance to vectors because
+            the implementations are so similar.</p>
+        
+        <table xml:id="algorithm-analysis_id1"><tabular>
+            <title><term>Table 3: Big-O Efficiency of C++ String Operations</term></title>
+            
+                
+                
+                
+                    <row header="yes">
+                        <cell>
+                            Operation
+                        </cell>
+                        <cell>
+                            Big-O Efficiency
+                        </cell>
+                    </row>
+                
+                
+                    <row>
+                        <cell>
+                            index []
+                        </cell>
+                        <cell>
+                            O(1)
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            index assignment =
+                        </cell>
+                        <cell>
+                            O(1)
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            push_back()
+                        </cell>
+                        <cell>
+                            typically O(1)
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            pop_back()
+                        </cell>
+                        <cell>
+                            O(1)
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            erase(i)
+                        </cell>
+                        <cell>
+                            O(n)
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            insert(i, item)
+                        </cell>
+                        <cell>
+                            O(n)
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            find(srt, stp, item)
+                        </cell>
+                        <cell>
+                            O(log n) or O(n)
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            reserve()
+                        </cell>
+                        <cell>
+                            O(n)
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            begin()
+                        </cell>
+                        <cell>
+                            O(1)
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            end()
+                        </cell>
+                        <cell>
+                            O(1)
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            size()               O(1)
+                        </cell>
+                    </row>
+                
+            
+        </tabular></table>
+        <p>Just like vectors, the <title_reference>push_back()</title_reference> operation is <math>O(1)</math> unless there is inadequate capacity,
+            in which case the entire
+            string is moved to a larger contiguous underlying array, which
+            is <math>O(n)</math>.</p>
+    </section>
+

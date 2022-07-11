@@ -1,0 +1,27 @@
+<section xml:id="introduction_objectives">
+        <title>Objectives</title>
+        <p><ul>
+            <li>
+                <p>To review the key ideas of computer science, programming, and problem-solving using the C++ language.</p>
+            </li>
+            <li>
+                <p>To understand abstraction and the role it plays in the problem-solving process.</p>
+            </li>
+            <li>
+                <p>To develop understanding of Big O notation and other important techniques of algorithm analysis.</p>
+            </li>
+            <li>
+                <p>To develop comfort with standard data structures including queues, stacks, and trees.</p>
+            </li>
+            <li>
+                <p>To become conversant with sorting algorithms, including the advantages and disadvantages of each.</p>
+            </li>
+            <li>
+                <p>To learn to write and analyze recursive programs, functions, and methods.</p>
+            </li>
+            <li>
+                <p>To learn to traverse and to implement linked data structures such as linked lists and trees.</p>
+            </li>
+        </ul></p>
+    </section>
+

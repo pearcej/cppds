@@ -1,0 +1,397 @@
+<section xml:id="sort_the-bubble-sort">
+        <title>The Bubble Sort</title>
+        <p>The <term>bubble sort</term> makes multiple passes through an array. It compares
+            adjacent items and exchanges those that are out of order. Each pass
+            through the array places the next largest value in its proper place. In
+            essence, each item <q>bubbles</q> up to the location where it belongs.</p>
+        <p><xref ref="fig-bubblepass"/> shows the first pass of a bubble sort. The shaded
+            items are being compared to see if they are out of order. If there are
+            <em>n</em> items in the array, then there are <math>n-1</math> pairs of items that
+            need to be compared on the first pass. It is important to note that once
+            the largest value in the array is part of a pair, it will continually be
+            moved along until the pass is complete.</p>
+        
+        <figure align="center" xml:id="fig-bubblepass"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 1: <literal>bubbleSort</literal>: The First Pass</caption><image source="Sort/Figures/bubblepass.png" width="50%"/></figure>
+        <p>At the start of the second pass, the largest value is now in place.
+            There are <math>n-1</math> items left to sort, meaning that there will be
+            <math>n-2</math> pairs. Since each pass places the next largest value in
+            place, the total number of passes necessary will be <math>n-1</math>. After
+            completing the <math>n-1</math> passes, the smallest item must be in the
+            correct position with no further processing required. <xref ref="lst-bubble-cpp"/>
+            shows the complete <c>bubbleSort</c> function. It takes the array as a
+            parameter, and modifies it by swapping items as necessary.</p>
+        <p>Typically, swapping two elements in an array requires a temporary storage location (an
+            additional memory location). A code fragment such as</p>
+        <pre>temp = alist[i];
+alist[i] = alist[j];
+alist[j] = temp;</pre>
+        <p>will exchange the <title_reference>ith</title_reference> and <title_reference>jth</title_reference> items in the array. Without the
+            temporary storage, one of the values would be overwritten.</p>
+        <p>Lines 5-7 in <xref ref="lst-bubble-cpp"/> perform the exchange of the <math>i</math> and
+            <math>(i+1)th</math> items using the three&#8211;step procedure described
+            earlier. Note that we could also have used the simultaneous assignment
+            to swap the items.</p>
+        
+        <figure align="center" xml:id="fig-pythonswap"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 2: Exchanging Two Values in Python</caption><image source="Sort/Figures/swap.png" width="50%"/></figure>
+        <p>The following activecode example shows the complete <c>bubbleSort</c> function working on the array
+            shown above.</p>
+        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="lst_bubble_cpp" interactive="activecode" language="cpp">
+        <input>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+//function goes through list sorting adjacent values as it bubbles
+//the largest value to the top.
+vector&lt;int&gt; bubbleSort(vector&lt;int&gt; avector) { //the vector for bubble sort
+  for (int passnum = avector.size()-1; passnum &gt; 0; passnum -= 1) {
+      for (int i = 0; i &lt; passnum; i++) {
+          if (avector[i] &gt; avector[i+1]) {
+              int temp = avector[i];
+              avector[i] = avector[i+1];
+              avector[i+1] = temp;
+          }
+      }
+  }
+  return avector;
+}
+
+int main() {
+    // Vector initialized using a static array
+    static const int arr[] = {54,26,93,17,77,31,44,55,20};
+    vector&lt;int&gt; avector (arr, arr + sizeof(arr) / sizeof(arr[0]) );
+
+    vector&lt;int&gt; bvector = bubbleSort(avector);
+    for (unsigned int i = 0; i &lt; bvector.size(); i++) {
+        cout&lt;&lt;bvector[i]&lt;&lt; " ";
+    }
+    return 0;
+}
+        </input>
+    </program>
+            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="lst_bubble_py" interactive="activecode" language="python">
+        <input>
+"""function goes through list sorting adjacent values as it bubbles
+the largest value to the top."""
+def bubbleSort(alist):
+    for passnum in range(len(alist)-1,0,-1):
+        for i in range(passnum):
+            if alist[i]&gt;alist[i+1]:
+                temp = alist[i]
+                alist[i] = alist[i+1]
+                alist[i+1] = temp
+
+def main():
+    alist = [54,26,93,17,77,31,44,55,20]
+    bubbleSort(alist)
+    print(alist)
+
+main()
+        </input>
+    </program>
+            </TabNode></exercise>
+        <raw format="html" xml:space="preserve">&lt;script src="../_static/sortmodels.js"&gt;&lt;/script&gt;
+&lt;script src="../_static/sortviewers.js"&gt;&lt;/script&gt;
+
+&lt;div id="bubble_anim" class=""&gt;
+&lt;canvas id="bubble_anim_canvas" width="400" height="400" style="border:4px solid blue"&gt;&lt;/canvas&gt;
+&lt;br /&gt;
+&lt;button onclick="bubble_anim_anim = bubble_anim_init('bubble_anim')"&gt;Initialize&lt;/button&gt;
+&lt;button onclick="bubble_anim_anim.run('bubble_anim_anim')"&gt;Run&lt;/button&gt;
+&lt;button onclick="bubble_anim_anim.stop()"&gt;Stop&lt;/button&gt; &lt;/br&gt;
+&lt;button onclick="bubble_anim_anim.begin()"&gt;Beginning&lt;/button&gt;
+&lt;button onclick="bubble_anim_anim.forward()"&gt;Step Forward&lt;/button&gt;
+&lt;button onclick="bubble_anim_anim.backward()"&gt;Step Backward&lt;/button&gt;
+&lt;button onclick="bubble_anim_anim.end()"&gt;End&lt;/button&gt;
+
+&lt;script&gt;
+bubble_anim_init = function(divid)
+{
+   var a = new Animator(new BubbleSortModel(), new BarViewer(), divid)
+   a.init()
+   return a
+}
+&lt;/script&gt;
+
+&lt;/div&gt;
+</raw>
+        <p>The following animation shows <c>bubbleSort</c> in action. The sort compares two
+            items at a time. Once it finds two out of place blocks it will find the correct place
+            for the smaller block and then resets for another pass through.</p>
+        <raw format="html" xml:space="preserve">&lt;div id="bubble_sort" class="video_popup runestone " &gt;
+&lt;video controls preload="none"  poster="../_static/vis_bubble_sort_thumb.png"&gt;
+    &lt;source src="../_static/vis_bubble_sort.webm" type="video/webm"&gt;&lt;/source&gt;
+    No supported video types
+&lt;/video&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  window.addEventListener('load', (event) =&gt; {
+    jQuery(function($) {
+        var rb = new RunestoneBase();
+        $('#bubble_sort_thumb').click(function(e) {
+            $('#bubble_sort').show();
+            $('#bubble_sort_thumb').hide();
+            rb.logBookEvent({'event':'video','act':'play','div_id': 'bubble_sort'});
+            // Log the run event
+        });
+        $('#bubble_sort video').one("click", function(){
+            this.play();
+        });
+        $('#bubble_sort video').one("play", function(){
+            rb.logBookEvent({'event':'video','act':'play','div_id': 'bubble_sort'});
+        });
+    });
+  });
+&lt;/script&gt;
+</raw>
+        <!--For more detail, CodeLens 1 allows you to step through the algorithm.-->
+        <!---->
+        <!--.. codelens:: bubbletrace-->
+        <!--:caption: Tracing the Bubble Sort-->
+        <!---->
+        <!--def bubbleSort(alist):-->
+        <!--for passnum in range(len(alist)-1,0,-1):-->
+        <!--for i in range(passnum):-->
+        <!--if alist[i]>alist[i+1]:-->
+        <!--temp = alist[i]-->
+        <!--alist[i] = alist[i+1]-->
+        <!--alist[i+1] = temp-->
+        <!---->
+        <!--alist = [54,26,93,17,77,31,44,55,20]-->
+        <!--bubbleSort(alist)-->
+        <!--print(alist)-->
+        <p>This visualization allows you to step through the algorithm. Red bars represent
+            the elements being looked at.</p>
+        <p>To analyze the bubble sort, we should note that regardless of how the
+            items are arranged in the initial array, <math>n-1</math> passes will be
+            made to sort an array of size <em>n</em>. <xref ref="sort_tbl-bubbleanalysis"/> shows the number
+            of comparisons for each pass. The total number of comparisons is the sum
+            of the first <math>n-1</math> integers. Recall that the sum of the first
+            <em>n</em> integers is <math>\frac{1}{2}n^{2} + \frac{1}{2}n</math>. The sum of
+            the first <math>n-1</math> integers is
+            <math>\frac{1}{2}n^{2} + \frac{1}{2}n - n</math>, which is
+            <math>\frac{1}{2}n^{2} - \frac{1}{2}n</math>. This is still
+            <math>O(n^{2})</math> comparisons. In the best case, if the array is already
+            ordered, no exchanges will be made. However, in the worst case, every
+            comparison will cause an exchange. On average, we exchange half of the
+            time.</p>
+        
+        <table xml:id="sort_id3"><tabular>
+            <title><term>Table 1: Comparisons for Each Pass of Bubble Sort</term></title>
+            
+                
+                
+                
+                    <row header="yes">
+                        <cell>
+                            <term>Pass</term>
+                        </cell>
+                        <cell>
+                            <term>Comparisons</term>
+                        </cell>
+                    </row>
+                
+                
+                    <row>
+                        <cell>
+                            1
+                        </cell>
+                        <cell>
+                            <math>n-1</math>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            2
+                        </cell>
+                        <cell>
+                            <math>n-2</math>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            3
+                        </cell>
+                        <cell>
+                            <math>n-3</math>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            &#8230;
+                        </cell>
+                        <cell>
+                            &#8230;
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <math>n-1</math>
+                        </cell>
+                        <cell>
+                            <math>1</math>
+                        </cell>
+                    </row>
+                
+            
+        </tabular></table>
+        <p>A bubble sort is often considered the most inefficient sorting method
+            since it must exchange items before the final location is known. These
+            <q>wasted</q> exchange operations are very costly. However, because the
+            bubble sort makes passes through the entire unsorted portion of the
+            array, it has the capability to do something most sorting algorithms
+            cannot. In particular, if during a pass there are no exchanges, then we
+            know that the array must be sorted. A bubble sort can be modified to stop
+            early if it finds that the array has become sorted. This means that for
+            arrays that require just a few passes, a bubble sort may have an
+            advantage in that it will recognize the sorted array and stop.
+            <xref ref="lst-shortbubbles-cpp"/> shows this modification, which is often referred
+            to as the <term>short bubble</term>.</p>
+        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="lst_shortbubbles_cpp" interactive="activecode" language="cpp">
+        <input>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+vector&lt;int&gt; shortBubbleSort(vector&lt;int&gt; avector){ //the vector for bubble sort
+    bool exchanges = true;
+    int passnum = avector.size();
+    //while vector size is greater than 0 and exchanges = true
+    while (passnum &gt; 0 &amp;&amp; exchanges) {
+        exchanges = false;
+       //loops through vector, exchanging values until it reaches the end of vector.
+        for(int i = 0; i &lt; passnum; i++){
+            if(avector[i] &gt; avector[i+1]){
+                exchanges = true;
+                int temp = avector[i];
+                avector[i] = avector[i+1];
+                avector[i+1] = temp;
+            }
+        }
+        //subtracts from the passnum variable so that the next passthrough is one less
+        //than the previous, because the largest value has already 'bubbled' all the way up.
+        passnum = passnum - 1;
+    }
+    return avector;
+}
+
+int main() {
+    // Vector initialized using a static array
+    static const int arr[] = {20,30,40,90,50,60,70,80,110,100};
+    vector&lt;int&gt; avector (arr, arr+ sizeof(arr)/sizeof(arr[0])); //intializes vector
+
+    vector&lt;int&gt; bvector = shortBubbleSort(avector);
+
+    for(unsigned int i = 0; i &lt; bvector.size(); i++){
+      cout&lt;&lt; bvector[i] &lt;&lt; " ";
+    }
+    return 0;
+}
+        </input>
+    </program>
+            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="lst_shortbubble_py" interactive="activecode" language="python">
+        <input>
+def shortBubbleSort(alist):
+    exchanges = True
+    passnum = len(alist)-1
+    while passnum &gt; 0 and exchanges:
+       exchanges = False
+       for i in range(passnum):
+           if alist[i]&gt;alist[i+1]:
+               exchanges = True
+               temp = alist[i]
+               alist[i] = alist[i+1]
+               alist[i+1] = temp
+       """subtracts from the passnum variable so that the next passthrough is one less
+       than the previous, because the largest value has already 'bubbled' all the way up"""
+       passnum = passnum-1
+
+alist=[20,30,40,90,50,60,70,80,100,110]
+shortBubbleSort(alist)
+print(alist)
+        </input>
+    </program>
+            </TabNode></exercise>
+        <!--Finally, here is ``shortBubbleSort`` in CodeLens (CodeLens 2)..-->
+        <!---->
+        <!--.. codelens:: shortbubbletrace-->
+        <!--:caption: Tracing the Short Bubble Sort-->
+        <!---->
+        <!--def shortBubbleSort(alist):-->
+        <!--exchanges = True-->
+        <!--passnum = len(alist)-1-->
+        <!--while passnum > 0 and exchanges:-->
+        <!--exchanges = False-->
+        <!--for i in range(passnum):-->
+        <!--if alist[i]>alist[i+1]:-->
+        <!--exchanges = True-->
+        <!--temp = alist[i]-->
+        <!--alist[i] = alist[i+1]-->
+        <!--alist[i+1] = temp-->
+        <!--passnum = passnum-1-->
+        <!---->
+        <!--alist=[20,30,40,90,50,60,70,80,100,110]-->
+        <!--shortBubbleSort(alist)-->
+        <!--print(alist)-->
+        <note>
+            <title>Self Check</title>
+
+    <exercise label="question_sort_1">
+        <statement>
+
+            <p>Q-7: Suppose you have the following array of numbers to sort:
+                [19, 1, 9, 7, 3, 10, 13, 15, 8, 12] which array represents the partially sorted list after three complete passes of bubble sort?</p>
+
+        </statement>
+<choices>
+
+            <choice>
+                <statement>
+                    <p>[1, 9, 19, 7, 3, 10, 13, 15, 8, 12]</p>
+                </statement>
+                <feedback>
+                    <p>This answer represents three swaps.  A pass means that you continue swapping all the way to the end of the list.</p>
+                </feedback>
+            </choice>
+
+            <choice correct="yes">
+                <statement>
+                    <p>[1, 3, 7, 9, 10, 8, 12, 13, 15, 19]</p>
+                </statement>
+                <feedback>
+                    <p>Very Good</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>[1, 7, 3, 9, 10, 13, 8, 12, 15, 19]</p>
+                </statement>
+                <feedback>
+                    <p>A bubble sort contines to swap numbers up to index position passnum.  But remember that passnum starts at the length of the list - 1.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>[1, 9, 19, 7, 3, 10, 13, 15, 8, 12]</p>
+                </statement>
+                <feedback>
+                    <p>You have been doing an insertion sort, not a bubble sort.</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+        </note>
+    </section>
+

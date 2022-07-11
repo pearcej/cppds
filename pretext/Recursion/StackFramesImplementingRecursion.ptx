@@ -1,0 +1,103 @@
+<section xml:id="recursion_stack-frames-implementing-recursion">
+        <title>Stack Frames: Implementing Recursion</title>
+        <p>Suppose that instead of concatenating the result of the recursive call
+            to <c>toStr</c> with the string from <c>convertString</c>, we modified our
+            algorithm to push the strings onto a stack instead of making the recursive
+            call. The code for this modified algorithm is shown in
+            <xref ref="lst-recstackcpp"/>.</p>
+        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'StackFramesImplementingRecursion', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="lst_recstackcpp" interactive="activecode" language="cpp">
+        <input>
+//Example of the toStr function using a stack instead of recursion.
+
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;stack&gt;
+using namespace std;
+
+stack&lt;char&gt; rStack;
+
+string toStr(int n, int base) {
+    string convertString = "0123456789ABCDEF";
+    while (n &gt; 0) {
+        if (n &lt; base) {
+            rStack.push(convertString[n]); //pushes string n to the stack
+        } else {
+            rStack.push(convertString[n % base]); //pushes string n modulo base to the stack.
+        }
+        n = n/base;
+    }
+    string res;
+    while (!rStack.empty()) {
+        //combines all the items in the stack into a full string.
+        res = res + (string(1,  rStack.top()));
+        rStack.pop();
+    }
+    return res;
+}
+
+int main() {
+  cout &lt;&lt; toStr(1453, 16);
+}
+        </input>
+    </program>
+            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'StackFramesImplementingRecursion', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="lst_recstackpy" interactive="activecode" language="python">
+        <input>
+#Example of the toStr function using a stack instead of recursion.
+
+from pythonds.basic.stack import Stack
+
+rStack = Stack()
+
+def toStr(n,base):
+    convertString = "0123456789ABCDEF"
+    while n &gt; 0:
+        if n &lt; base:
+            rStack.push(convertString[n]) #adds string n to the stack.
+        else:
+            rStack.push(convertString[n % base]) #adds string n modulo base to the stack.
+        n = n // base
+    res = ""
+    while not rStack.isEmpty():
+        #combines all the items in the stack to make the full string.
+        res = res + str(rStack.pop())
+    return res
+
+def main():
+    print(toStr(1453,16))
+
+main()
+        </input>
+    </program>
+            </TabNode></exercise>
+        <p>Each time we make a call to <c>toStr</c>, we push a character on the stack.
+            Returning to the previous example we can see that after the fourth call
+            to <c>toStr</c> the stack would look like <xref ref="fig-recstack"/>. Notice
+            that now we can simply pop the characters off the stack and concatenate
+            them into the final result, <c>"1010"</c>.</p>
+        
+        <figure align="center" xml:id="fig-recstack"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 5: Strings Placed on the Stack During Conversion</caption><image source="Recursion/Figures/recstack.png" width="50%"/></figure>
+        <p>The previous example gives us some insight into how C++ implements a
+            recursive function call. When a function is called in Python, a <term>stack
+                frame</term> is allocated to handle the local variables of the function. When
+            the function returns, the return value is left on top of the stack for
+            the calling function to access. <xref ref="fig-callstack"/> illustrates the
+            call stack after the return statement on line 4.</p>
+        
+        <figure align="center" xml:id="fig-callstack"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 6: Call Stack Generated from <literal>toStr(10,2)</literal></caption><image source="Recursion/Figures/newcallstack.png" width="50%"/></figure>
+        <p>Notice that the call to <c>toStr(2//2,2)</c> leaves a return value of
+            <c>"1"</c> on the stack. This return value is then used in place of the
+            function call (<c>toStr(1,2)</c>) in the expression <c>"1" + convertString[2%2]</c>, which will leave the string <c>"10"</c> on the top of
+            the stack. In this way, the C++ call stack takes the place of the
+            stack we used explicitly in <xref ref="lst-recstackcpp"/>. In our list summing
+            example, you can think of the return value on the stack taking the place
+            of an accumulator variable.</p>
+        <p>The stack frames also provide a scope for the variables used by the
+            function. Even though we are calling the same function over and over,
+            each call creates a new scope for the variables that are local to the
+            function.</p>
+    </section>
+

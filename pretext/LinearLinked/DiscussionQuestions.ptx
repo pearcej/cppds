@@ -1,0 +1,39 @@
+<section xml:id="linear-linked_discussion-questions">
+        <title>Discussion Questions</title>
+        <p><ol label="1">
+            <li>
+                <p>Convert the following values to binary using <q>divide by 2.</q> Show the
+                    stack of remainders.</p>
+                <p><ul>
+                    <li>
+                        <p>17</p>
+                    </li>
+                    <li>
+                        <p>45</p>
+                    </li>
+                    <li>
+                        <p>96</p>
+                    </li>
+                </ul></p>
+            </li>
+            <li>
+                <p>The alternative implementation of the <c>Queue</c> ADT is to use a list
+                    such that the rear of the queue is at the end of the list. What would
+                    this mean for Big-O performance?</p>
+            </li>
+            <li>
+                <p>What is the result of carrying out both steps of the linked list
+                    <c>add</c> method in reverse order? What kind of reference results? What
+                    types of problems may result?</p>
+            </li>
+            <li>
+                <p>Explain how the linked list <c>remove</c> method works when the item to
+                    be removed is in the last node.</p>
+            </li>
+            <li>
+                <p>Explain how the <c>remove</c> method works when the item is in the
+                    <em>only</em> node in the linked list.</p>
+            </li>
+        </ol></p>
+    </section>
+

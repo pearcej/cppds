@@ -57,7 +57,25 @@ options(
         }
     )
 )
-
+template_args = {
+            'course_id':project_name,
+            'login_required':'false',
+            'appname':master_app,
+            'dynamic_pages': dynamic_pages,
+            'loglevel':10,
+            'default_ac_lang': 'cpp',
+            'course_url':master_url,
+            'use_services': 'true',
+            'python3': 'true',
+            'dburl': 'postgresql://bmiller@localhost/runestone',
+            'basecourse': 'cppds',
+            'downloads_enabled': 'false',
+            'enable_chatcodes': 'false',
+            'allow_pairs': 'false'
+#            'jobe_server': 'http://jobe2.cosc.canterbury.ac.nz',
+#            'proxy_uri_runs': '/jobe/index.php/restapi/runs/',
+#            'proxy_uri_files': '/jobe/index.php/restapi/files/'
+        }
 version = pkg_resources.require("runestone")[0].version
 options.build.template_args['runestone_version'] = version
 

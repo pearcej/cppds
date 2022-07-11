@@ -1,0 +1,349 @@
+<section xml:id="graphs_building-the-knights-tour-graph">
+        <title>Building the Knight's Tour Graph</title>
+        <p>To represent the knight's tour problem as a graph we will use the
+            following two ideas: Each square on the chessboard can be represented as
+            a node in the graph. Each legal move by the knight can be represented as
+            an edge in the graph. <xref ref="fig-knightmoves"/> illustrates the legal
+            moves by a knight and the corresponding edges in a graph.</p>
+        
+        <figure align="center" xml:id="fig-knightmoves"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 1: Legal Moves for a Knight on Square 12, and the Corresponding Graph</caption><image source="Graphs/Figures/knightmoves.png" width="50%"/></figure>
+        <p>To build the full graph for an n-by-n board we can use the C++
+            function shown in <xref ref="lst-knighttour1"/>. The <c>knightGraph</c> function
+            makes one pass over the entire board. At each square on the board the
+            <c>knightGraph</c> function calls a helper, <c>genLegalMoves</c>, to create a
+            list of legal moves for that position on the board. All legal moves are
+            then converted into edges in the graph. Another helper function
+            <c>coordToNum</c> converts a location on the board in terms of a row and a
+            column into a linear vertex number similar to the vertex numbers shown
+            in <xref ref="fig-knightmoves"/>.</p>
+        
+        <p xml:id="graphs_lst-knighttour1" names="lst_knighttour1"><term>Listing 1</term></p>
+        <pre>Graph knightGraph(int bdSize) {
+    Graph ktGraph(false);
+
+    for (int row = 0; row &lt; bdSize; row++) {
+        for (int col = 0; col &lt; bdSize; col++) {
+            int nodeId = coordToNum(row, col, bdSize);
+            vector&lt;int&gt; newPositions = genLegalMoves(nodeId, bdSize);
+            for (int i = 0; i &lt; newPositions.size(); i++) {
+                int newId = newPositions[i];
+                ktGraph.addEdge(nodeId, newId);
+            }
+        }
+    }
+
+    return ktGraph;
+}</pre>
+        <p>The <c>genLegalMoves</c> function (<xref ref="lst-knighttour2"/>) takes the position of the knight on the
+            board and generates each of the eight possible moves. The <c>legalCoord</c>
+            helper function (<xref ref="lst-knighttour2"/>) makes sure that a particular move that is generated is
+            still on the board.</p>
+        
+        <p xml:id="graphs_lst-knighttour2" names="lst_knighttour2"><term>Listing 2</term></p>
+        <pre>int coordToNum(int x, int y, int bdSize) {
+    // Takes the x y position and returns the id from 0 to (bdSize*2)-1
+    int id = 0;
+    id += y * bdSize;
+    id += x;
+
+    return id;
+}
+
+pair&lt;int, int&gt; numToCoord(int id, int bdSize) {
+    int x, y;
+    x = id % bdSize;
+    y = (id - x) / bdSize;
+
+    return make_pair(x, y);
+}
+
+bool legalCoord(int x, int bdSize) {
+    if (x &gt;= 0 &amp;&amp; x &lt; bdSize) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+vector&lt;int&gt; genLegalMoves(int id, int bdSize) {
+    pair&lt;int, int&gt; coords = numToCoord(id, bdSize);
+    int x = coords.first;
+    int y = coords.second;
+
+    vector&lt;int&gt; newMoves;
+    vector&lt;pair&lt;int, int&gt;&gt; myVec = {
+        {-1, -2}, {-1, 2}, {-2, -1}, {-2, 1}, {1, -2}, {1, 2}, {2, -1}, {2, 1}};
+
+    for (unsigned int i = 0; i &lt; myVec.size(); i++) {
+        int newX = x + myVec[i].first;
+        int newY = y + myVec[i].second;
+        if (legalCoord(newX, bdSize) &amp;&amp; legalCoord(newY, bdSize)) {
+            newMoves.push_back(coordToNum(newX, newY, bdSize));
+        }
+    }
+
+    return newMoves;
+}</pre>
+        <p><xref ref="fig-bigknight"/> shows the complete graph of possible moves on an
+            eight-by-eight board. There are exactly 336 edges in the graph. Notice
+            that the vertices corresponding to the edges of the board have fewer
+            connections (legal moves) than the vertices in the middle of the board.
+            Once again we can see how sparse the graph is. If the graph was fully
+            connected there would be 4,096 edges. Since there are only 336 edges,
+            the adjacency matrix would be only 8.2 percent full.</p>
+        
+        <figure align="center" xml:id="fig-bigknight"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 2: All Legal Moves for a Knight on an <math>8 \times 8</math> Chessboard</caption><image source="Graphs/Figures/bigknight.png" width="50%"/></figure>
+        <p>The full implementation of this is shown below, however the code must be ran in C++11
+            due to differences in Vector Initialization between C++ versions. In the below code,
+            in the main function, we traverse using our previously created breadth-first search between
+            two locations. In the next chapter, we will implement a different algorithm called a
+            <c>depth first search (DFS)</c> to solve our knight's tour problem.</p>
+        <pre>#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;queue&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+class Vertex {
+public:
+    int id;
+    map&lt;int, float&gt; connectedTo;
+    // Added for Breadth-First Algorithm
+    char color;
+    float dist;
+    Vertex *pred;
+
+    Vertex() {
+        // w for white, g for grey, b for black
+        color = 'w';
+        dist = 0;
+        pred = NULL;
+    }
+
+    Vertex(int key) {
+        id = key;
+        color = 'w';
+        dist = 0;
+        pred = NULL;
+    }
+
+    void addNeighbor(int nbr, float weight = 1) {
+        connectedTo[nbr] = weight;
+    }
+
+    vector&lt;int&gt; getConnections() {
+        vector&lt;int&gt; keys;
+        // Use of iterator to find all keys
+        for (map&lt;int, float&gt;::iterator it = connectedTo.begin();
+             it != connectedTo.end();
+             ++it) {
+            keys.push_back(it-&gt;first);
+        }
+        return keys;
+    }
+
+    int getId() {
+        return id;
+    }
+
+    float getWeight(int nbr) {
+        return connectedTo[nbr];
+    }
+
+    friend ostream &amp;operator&lt;&lt;(ostream &amp;, Vertex &amp;);
+};
+
+ostream &amp;operator&lt;&lt;(ostream &amp;stream, Vertex &amp;vert) {
+    vector&lt;int&gt; connects = vert.getConnections();
+    stream &lt;&lt; vert.id &lt;&lt; " -&gt; ";
+    for (unsigned int i = 0; i &lt; connects.size(); i++) {
+        stream &lt;&lt; connects[i] &lt;&lt; endl &lt;&lt; "\t";
+    }
+
+    return stream;
+}
+
+class Graph {
+public:
+    map&lt;int, Vertex&gt; vertList;
+    int numVertices;
+    bool directional;
+
+    Graph(bool directed = true) {
+        directional = directed;
+        numVertices = 0;
+    }
+
+    Vertex addVertex(int key) {
+        numVertices++;
+        Vertex newVertex = Vertex(key);
+        this-&gt;vertList[key] = newVertex;
+        return newVertex;
+    }
+
+    Vertex *getVertex(int n) {
+        return &amp;vertList[n];
+    }
+
+    bool contains(int n) {
+        for (map&lt;int, Vertex&gt;::iterator it = vertList.begin();
+             it != vertList.end();
+             ++it) {
+            if (it-&gt;first == n) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void addEdge(int f, int t, float cost = 1) {
+        if (!this-&gt;contains(f)) {
+            this-&gt;addVertex(f);
+        }
+        if (!this-&gt;contains(t)) {
+            this-&gt;addVertex(t);
+        }
+        vertList[f].addNeighbor(t, cost);
+
+        if (!directional) {
+            vertList[t].addNeighbor(f, cost);
+        }
+    }
+
+    vector&lt;int&gt; getVertices() {
+        vector&lt;int&gt; verts;
+
+        for (map&lt;int, Vertex&gt;::iterator it = vertList.begin();
+             it != vertList.end();
+             ++it) {
+            verts.push_back(it-&gt;first);
+        }
+        return verts;
+    }
+
+    friend ostream &amp;operator&lt;&lt;(ostream &amp;, Graph &amp;);
+};
+
+ostream &amp;operator&lt;&lt;(ostream &amp;stream, Graph &amp;grph) {
+    for (map&lt;int, Vertex&gt;::iterator it = grph.vertList.begin();
+         it != grph.vertList.end();
+         ++it) {
+        stream &lt;&lt; grph.vertList[it-&gt;first];
+        cout &lt;&lt; endl;
+    }
+
+    return stream;
+}
+
+Graph bfs(Graph g, Vertex *start) {
+    start-&gt;dist = 0;
+    start-&gt;pred = NULL;
+    queue&lt;Vertex *&gt; vertQueue;
+    vertQueue.push(start);
+    while (vertQueue.size() &gt; 0) {
+        Vertex *currentVert = vertQueue.front();
+        vertQueue.pop();
+        for (unsigned int nbr = 0; nbr &lt; currentVert-&gt;getConnections().size();
+             nbr++) {
+            if (g.vertList[currentVert-&gt;getConnections()[nbr]].color == 'w') {
+                g.vertList[currentVert-&gt;getConnections()[nbr]].color = 'g';
+
+                g.vertList[currentVert-&gt;getConnections()[nbr]].dist =
+                    currentVert-&gt;dist + 1;
+                g.vertList[currentVert-&gt;getConnections()[nbr]].pred =
+                    currentVert;
+                vertQueue.push(&amp;g.vertList[currentVert-&gt;getConnections()[nbr]]);
+            }
+        }
+        currentVert-&gt;color = 'b';
+    }
+
+    return g;
+}
+
+void traverse(Vertex *y) {
+    Vertex *x = y;
+    int count = 1;
+
+    while (x-&gt;pred) {
+        cout &lt;&lt; x-&gt;id &lt;&lt; " to " &lt;&lt; x-&gt;pred-&gt;id &lt;&lt; endl;
+        x = x-&gt;pred;
+
+        count++;
+    }
+}
+
+int coordToNum(int x, int y, int bdSize) {
+    // Takes the x y position and returns the id from 0 to (bdSize*2)-1
+    int id = 0;
+    id += y * bdSize;
+    id += x;
+
+    return id;
+}
+
+pair&lt;int, int&gt; numToCoord(int id, int bdSize) {
+    int x, y;
+    x = id % bdSize;
+    y = (id - x) / bdSize;
+
+    return make_pair(x, y);
+}
+
+bool legalCoord(int x, int bdSize) {
+    if (x &gt;= 0 &amp;&amp; x &lt; bdSize) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+vector&lt;int&gt; genLegalMoves(int id, int bdSize) {
+    pair&lt;int, int&gt; coords = numToCoord(id, bdSize);
+    int x = coords.first;
+    int y = coords.second;
+
+    vector&lt;int&gt; newMoves;
+    vector&lt;pair&lt;int, int&gt;&gt; myVec = {
+        {-1, -2}, {-1, 2}, {-2, -1}, {-2, 1}, {1, -2}, {1, 2}, {2, -1}, {2, 1}};
+
+    for (unsigned int i = 0; i &lt; myVec.size(); i++) {
+        int newX = x + myVec[i].first;
+        int newY = y + myVec[i].second;
+        if (legalCoord(newX, bdSize) &amp;&amp; legalCoord(newY, bdSize)) {
+            newMoves.push_back(coordToNum(newX, newY, bdSize));
+        }
+    }
+
+    return newMoves;
+}
+
+Graph knightGraph(int bdSize) {
+    Graph ktGraph(false);
+
+    for (int row = 0; row &lt; bdSize; row++) {
+        for (int col = 0; col &lt; bdSize; col++) {
+            int nodeId = coordToNum(row, col, bdSize);
+            vector&lt;int&gt; newPositions = genLegalMoves(nodeId, bdSize);
+            for (int i = 0; i &lt; newPositions.size(); i++) {
+                int newId = newPositions[i];
+                ktGraph.addEdge(nodeId, newId);
+            }
+        }
+    }
+
+    return ktGraph;
+}
+
+int main() {
+    Graph kt = knightGraph(8);
+
+    kt = bfs(kt, kt.getVertex(63));
+    traverse(kt.getVertex(0));
+
+    return 0;
+}</pre>
+    </section>
+

@@ -1,0 +1,397 @@
+<section xml:id="graphs_implementing-breadth-first-search">
+        <title>Implementing Breadth First Search</title>
+        <p>With the graph constructed we can now turn our attention to the
+            algorithm we will use to find the shortest solution to the word ladder
+            problem. The graph algorithm we are going to use is called the <q>breadth
+            first search</q> algorithm. <term>Breadth first search</term> (<term>BFS</term>) is one of
+            the easiest algorithms for searching a graph. It also serves as a
+            prototype for several other important graph algorithms that we will
+            study later.</p>
+        <p>Given a graph <math>G</math> and a starting vertex <math>s</math>, a breadth
+            first search proceeds by exploring edges in the graph to find all the
+            vertices in <math>G</math> for which there is a path from <math>s</math>. The
+            remarkable thing about a breadth first search is that it finds <em>all</em> the
+            vertices that are a distance <math>k</math> from <math>s</math> before it
+            finds <em>any</em> vertices that are a distance <math>k+1</math>. One good way to
+            visualize what the breadth first search algorithm does is to imagine
+            that it is building a tree, one level of the tree at a time. A breadth
+            first search adds all children of the starting vertex before it begins
+            to discover any of the grandchildren.</p>
+        <p>To keep track of its progress, BFS colors each of the vertices white,
+            gray, or black. All the vertices are initialized to white when they are
+            constructed. A white vertex is an undiscovered vertex. When a vertex is
+            initially discovered it is colored gray, and when BFS has completely
+            explored a vertex it is colored black. This means that once a vertex is
+            colored black, it has no white vertices adjacent to it. A gray node, on
+            the other hand, may have some white vertices adjacent to it, indicating
+            that there are still additional vertices to explore.</p>
+        <p>The breadth first search algorithm shown in <xref ref="lst-wordbucket2"/> below uses the
+            adjacency list graph representation we developed earlier. In addition it uses a <c>Queue</c>,
+            a crucial point as we will see, to decide which vertex to explore next.</p>
+        <p>In addition the BFS algorithm uses an extended version of the <c>Vertex</c>
+            class. This new vertex class adds three new instance variables:
+            distance, predecessor, and color.</p>
+        <p>BFS begins at the starting vertex <c>s</c> and colors <c>start</c> gray to
+            show that it is currently being explored. Two other values, the distance
+            and the predecessor, are initialized to 0 and <c>NULL</c> respectively for
+            the starting vertex. Finally, <c>start</c> is placed on a <c>Queue</c>. The
+            next step is to begin to systematically explore vertices at the front of
+            the queue. We explore each new node at the front of the queue by
+            iterating over its adjacency list. As each node on the adjacency list is
+            examined its color is checked. If it is white, the vertex is unexplored,
+            and four things happen:</p>
+        <p><ol label="1">
+            <li>
+                <p>The new, unexplored vertex <c>nbr</c>, is colored gray.</p>
+            </li>
+            <li>
+                <p>The predecessor of <c>nbr</c> is set to the current node <c>currentVert</c></p>
+            </li>
+            <li>
+                <p>The distance to <c>nbr</c> is set to the distance to <c>currentVert + 1</c></p>
+            </li>
+            <li>
+                <p><c>nbr</c> is added to the end of a queue. Adding <c>nbr</c> to the end of
+                    the queue effectively schedules this node for further exploration,
+                    but not until all the other vertices on the adjacency list of
+                    <c>currentVert</c> have been explored.</p>
+            </li>
+        </ol></p>
+        
+        <p xml:id="graphs_lst-wordbucket2" names="lst_wordbucket2"><term>Listing 2</term></p>
+        <pre>from pythonds.graphs import Graph, Vertex
+from pythonds.basic import Queue
+
+def bfs(g,start):
+    start.setDistance(0)
+    start.setPred(None)
+    vertQueue = Queue()
+    vertQueue.enqueue(start)
+    while (vertQueue.size() &gt; 0):
+        currentVert = vertQueue.dequeue()
+        for nbr in currentVert.getConnections():
+            if (nbr.getColor() == 'white'):
+                nbr.setColor('gray')
+                nbr.setDistance(currentVert.getDistance() + 1)
+                nbr.setPred(currentVert)
+                vertQueue.enqueue(nbr)
+        currentVert.setColor('black')
+
+Graph bfs(Graph g, Vertex *start) {
+    start-&gt;dist = 0;
+    start-&gt;pred = NULL;
+    queue&lt;Vertex *&gt; vertQueue;
+    vertQueue.push(start);
+    while (vertQueue.size() &gt; 0) {
+        Vertex *currentVert = vertQueue.front();
+        vertQueue.pop();
+    // For each neighbor of the current vertex
+        for (unsigned int nbr = 0; nbr &lt; currentVert-&gt;getConnections().size(); nbr++) {
+            if (g.vertList[currentVert-&gt;getConnections()[nbr]].color == 'w') {
+                g.vertList[currentVert-&gt;getConnections()[nbr]].color = 'g';
+                g.vertList[currentVert-&gt;getConnections()[nbr]].dist = currentVert-&gt;dist + 1;
+                g.vertList[currentVert-&gt;getConnections()[nbr]].pred = currentVert;
+                vertQueue.push(&amp;g.vertList[currentVert-&gt;getConnections()[nbr]]);
+            }
+        }
+        currentVert-&gt;color = 'b';
+    }
+    return g;
+}</pre>
+        <p>Let's look at how the <c>bfs</c> function would construct the breadth first
+            tree corresponding to the graph in <xref ref="graphs_buildingthe-word-ladder-graph"/>. Starting
+            from fool we take all nodes that are adjacent to fool and add them to
+            the tree. The adjacent nodes include pool, foil, foul, and cool. Each of
+            these nodes are added to the queue of new nodes to expand.
+            <xref ref="fig-bfs1"/> shows the state of the in-progress tree along with the
+            queue after this step.</p>
+        
+        <figure align="center" xml:id="fig-bfs1"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 3: The First Step in the Breadth First Search</caption><image source="Graphs/Figures/bfs1.png" width="50%"/></figure>
+        <p>In the next step <c>bfs</c> removes the next node (pool) from the front of
+            the queue and repeats the process for all of its adjacent nodes.
+            However, when <c>bfs</c> examines the node cool, it finds that the color of
+            cool has already been changed to gray. This indicates that there is a
+            shorter path to cool and that cool is already on the queue for further
+            expansion. The only new node added to the queue while examining pool is
+            poll. The new state of the tree and queue is shown in <xref ref="fig-bfs2"/>.</p>
+        
+        <figure align="center" xml:id="fig-bfs2"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: The Second Step in the Breadth First Search</caption><image source="Graphs/Figures/bfs2.png" width="50%"/></figure>
+        <p>The next vertex on the queue is foil. The only new node that foil can
+            add to the tree is fail. As <c>bfs</c> continues to process the queue,
+            neither of the next two nodes add anything new to the queue or the tree.
+            <xref ref="fig-bfs3"/> shows the tree and the queue after expanding all the
+            vertices on the second level of the tree.</p>
+        
+        <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 5: Breadth First Search Tree After Completing One Level</caption><image source="Graphs/Figures/bfs3.png" width="50%"/></figure>
+        
+        <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">FIgure 6: Final Breadth First Search Tree</caption><image source="Graphs/Figures/bfsDone.png" width="50%"/></figure>
+        <p>You should continue to work through the algorithm on your own so that
+            you are comfortable with how it works. <xref ref="fig-bfsdone"/> shows the
+            final breadth first search tree after all the vertices in
+            <xref ref="graphs_buildingthe-word-ladder-graph"/> have been expanded. The amazing thing about the
+            breadth first search solution is that we have not only solved the
+            FOOL&#8211;SAGE problem we started out with, but we have solved many other
+            problems along the way. We can start at any vertex in the breadth first
+            search tree and follow the predecessor arrows back to the root to find
+            the shortest word ladder from any word back to fool. The function below (<xref ref="lst-wordbucket3"/>) shows how to follow the predecessor links to
+            print out the word ladder.</p>
+        
+        <p xml:id="graphs_lst-wordbucket3" names="lst_wordbucket3"><term>Listing 3</term></p>
+        <pre>void traverse(Vertex *y) {
+    Vertex *x = y;
+
+    while (x-&gt;pred) {
+        cout &lt;&lt; x-&gt;id &lt;&lt; endl;
+        x = x-&gt;pred;
+    }
+    cout &lt;&lt; x-&gt;id &lt;&lt; endl;
+}
+
+traverse(g.getVertex('sage'))</pre>
+        <p>Because of syntactic changes to C++ between C++98 and C++11, the following code
+            will not run in your ActiveCode window and must be copied and pasted into a compiler using C++11 to run.</p>
+        <p>Below is a completed implementation of both the Vertex and Graph classes, along
+            with an implementation for the breadth-first search shown above.</p>
+        <pre>#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;queue&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+class Vertex {
+public:
+    string id;
+    map&lt;string, float&gt; connectedTo;
+    // Added for Breadth-First Algorithm
+    char color;
+    float dist;
+    Vertex *pred;
+
+    Vertex() {
+        // w for white, g for grey, b for black
+        color = 'w';
+        dist = 0;
+        pred = NULL;
+    }
+
+    Vertex(string key) {
+        id = key;
+        color = 'w';
+        dist = 0;
+        pred = NULL;
+    }
+
+    void addNeighbor(string nbr, float weight = 1) {
+        connectedTo[nbr] = weight;
+    }
+
+    vector&lt;string&gt; getConnections() {
+        vector&lt;string&gt; keys;
+        // Use of iterator to find all keys
+        for (map&lt;string, float&gt;::iterator it = connectedTo.begin();
+             it != connectedTo.end();
+             ++it) {
+            keys.push_back(it-&gt;first);
+        }
+        return keys;
+    }
+
+    string getId() {
+        return id;
+    }
+
+    float getWeight(string nbr) {
+        return connectedTo[nbr];
+    }
+
+    friend ostream &amp;operator&lt;&lt;(ostream &amp;, Vertex &amp;);
+};
+
+ostream &amp;operator&lt;&lt;(ostream &amp;stream, Vertex &amp;vert) {
+    vector&lt;string&gt; connects = vert.getConnections();
+    stream &lt;&lt; vert.id &lt;&lt; " -&gt; ";
+    for (unsigned int i = 0; i &lt; connects.size(); i++) {
+        stream &lt;&lt; connects[i] &lt;&lt; endl &lt;&lt; "\t";
+    }
+
+    return stream;
+}
+
+class Graph {
+    public:
+        map&lt;string, Vertex&gt; vertList;
+        int numVertices;
+        bool directional;
+
+        Graph(bool directed = true) {
+            directional = directed;
+            numVertices = 0;
+        }
+
+        Vertex addVertex(string key) {
+            numVertices++;
+            Vertex newVertex = Vertex(key);
+            this-&gt;vertList[key] = newVertex;
+            return newVertex;
+        }
+
+        Vertex *getVertex(string n) {
+            return &amp;vertList[n];
+        }
+
+        bool contains(string n) {
+            for (map&lt;string, Vertex&gt;::iterator it = vertList.begin();
+                 it != vertList.end();
+                 ++it) {
+                if (it-&gt;first == n) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        void addEdge(string f, string t, float cost = 1) {
+            if (!this-&gt;contains(f)) {
+                this-&gt;addVertex(f);
+            }
+            if (!this-&gt;contains(t)) {
+                this-&gt;addVertex(t);
+            }
+            vertList[f].addNeighbor(t, cost);
+
+            if (!directional) {
+                vertList[t].addNeighbor(f, cost);
+            }
+        }
+
+        vector&lt;string&gt; getVertices() {
+            vector&lt;string&gt; verts;
+
+            for (map&lt;string, Vertex&gt;::iterator it = vertList.begin();
+                 it != vertList.end();
+                 ++it) {
+                verts.push_back(it-&gt;first);
+            }
+            return verts;
+        }
+
+        friend ostream &amp;operator&lt;&lt;(ostream &amp;, Graph &amp;);
+};
+
+ostream &amp;operator&lt;&lt;(ostream &amp;stream, Graph &amp;grph) {
+    for (map&lt;string, Vertex&gt;::iterator it = grph.vertList.begin();
+         it != grph.vertList.end();
+         ++it) {
+        stream &lt;&lt; grph.vertList[it-&gt;first];
+        cout &lt;&lt; endl;
+    }
+
+    return stream;
+}
+
+string getBlank(string str, int index) {
+    string blank = str;
+    blank[index] = '_';
+    return blank;
+}
+
+Graph buildGraph(vector&lt;string&gt; words) {
+    Graph g(false);
+
+    map&lt;string, vector&lt;string&gt; &gt; d;
+
+    // Go through the words
+    for (unsigned int i = 0; i &lt; words.size(); i++) {
+        // Go through each letter, making it blank
+        for (unsigned int j = 0; j &lt; words[i].length(); j++) {
+            string bucket = getBlank(words[i], j);
+            // Add the word to the map at the location of the blank
+            d[bucket].push_back(words[i]);
+        }
+    }
+
+    for (map&lt;string, vector&lt;string&gt; &gt;::iterator iter = d.begin();
+         iter != d.end();
+         ++iter) {
+        for (unsigned int i = 0; i &lt; iter-&gt;second.size(); i++) {
+            for (unsigned int j = 0; j &lt; iter-&gt;second.size(); j++) {
+                if (iter-&gt;second[i] != iter-&gt;second[j]) {
+                    g.addEdge(iter-&gt;second[i], iter-&gt;second[j]);
+                }
+            }
+        }
+    }
+
+    return g;
+}
+
+Graph bfs(Graph g, Vertex *start) {
+    start-&gt;dist = 0;
+    start-&gt;pred = NULL;
+    queue&lt;Vertex *&gt; vertQueue;
+    vertQueue.push(start);
+    while (vertQueue.size() &gt; 0) {
+        Vertex *currentVert = vertQueue.front();
+        vertQueue.pop();
+        for (unsigned int nbr = 0; nbr &lt; currentVert-&gt;getConnections().size(); nbr++) {
+            if (g.vertList[currentVert-&gt;getConnections()[nbr]].color == 'w') {
+                g.vertList[currentVert-&gt;getConnections()[nbr]].color = 'g';
+
+                g.vertList[currentVert-&gt;getConnections()[nbr]].dist =
+                    currentVert-&gt;dist + 1;
+                g.vertList[currentVert-&gt;getConnections()[nbr]].pred =
+                    currentVert;
+                vertQueue.push(&amp;g.vertList[currentVert-&gt;getConnections()[nbr]]);
+            }
+        }
+        currentVert-&gt;color = 'b';
+    }
+
+    return g;
+}
+
+void traverse(Vertex *y) {
+    Vertex *x = y;
+
+    while (x-&gt;pred) {
+        cout &lt;&lt; x-&gt;id &lt;&lt; endl;
+        x = x-&gt;pred;
+    }
+    cout &lt;&lt; x-&gt;id &lt;&lt; endl;
+}
+
+int main() {
+    // Vector Initialized with an array
+    string arr[] = {"fool",
+                    "cool",
+                    "pool",
+                    "poll",
+                    "pole",
+                    "pall",
+                    "fall",
+                    "fail",
+                    "foil",
+                    "foul",
+                    "pope",
+                    "pale",
+                    "sale",
+                    "sage",
+                    "page"};
+
+    vector&lt;string&gt; words(arr, arr + (sizeof(arr) / sizeof(arr[0])));
+
+    // Graph g = buildGraph(words);
+    Graph g(false);
+
+    g = buildGraph(words);
+
+    g = bfs(g, g.getVertex("fool"));
+
+    traverse(g.getVertex("pall"));
+
+    return 0;
+}</pre>
+    </section>
+

@@ -1,0 +1,405 @@
+<section xml:id="sort_the-quick-sort">
+        <title>The Quick Sort</title>
+        <p>The <term>quick sort</term> uses divide and conquer to gain the same advantages
+            as the merge sort, while not using additional storage. As a trade-off,
+            however, it is possible that the list may not be divided in half. When
+            this happens, we will see that performance is diminished.</p>
+        <p>A quick sort first selects a value, which is called the <term>pivot value</term>.
+            Although there are many different ways to choose the pivot value, we
+            will simply use the first item in the list. The role of the pivot value
+            is to assist with splitting the list. The actual position where the
+            pivot value belongs in the final sorted list, commonly called the
+            <term>split point</term>, will be used to divide the list for subsequent calls to
+            the quick sort.</p>
+        <p><xref ref="fig-splitvalue"/> shows that 54 will serve as our first pivot value.
+            Since we have looked at this example a few times already, we know that
+            54 will eventually end up in the position currently holding 31. The
+            <term>partition</term> process will happen next. It will find the split point and
+            at the same time move other items to the appropriate side of the list,
+            either less than or greater than the pivot value.</p>
+        
+        <figure align="center" xml:id="fig-splitvalue"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 12: The First Pivot Value for a Quick Sort</caption><image source="Sort/Figures/firstsplit.png" width="50%"/></figure>
+        <p>Partitioning begins by locating two position markers&#8212;let's call them
+            <c>leftmark</c> and <c>rightmark</c>&#8212;at the beginning and end of the remaining
+            items in the list (positions 1 and 8 in <xref ref="fig-partitiona"/>). The goal
+            of the partition process is to move items that are on the wrong side
+            with respect to the pivot value while also converging on the split
+            point. <xref ref="fig-partitiona"/> shows this process as we locate the position
+            of 54.</p>
+        
+        <figure align="center" xml:id="fig-partitiona"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 13: Finding the Split Point for 54</caption><image source="Sort/Figures/partitionA.png" width="50%"/></figure>
+        <p>We begin by incrementing <c>leftmark</c> until we locate a value that is
+            greater than the pivot value. We then decrement <c>rightmark</c> until we
+            find a value that is less than the pivot value. At this point we have
+            discovered two items that are out of place with respect to the eventual
+            split point. For our example, this occurs at 93 and 20. Now we can
+            exchange these two items and then repeat the process again.</p>
+        <p>At the point where <c>rightmark</c> becomes less than <c>leftmark</c>, we
+            stop. The position of <c>rightmark</c> is now the split point. The pivot
+            value can be exchanged with the contents of the split point and the
+            pivot value is now in place (<xref ref="fig-partitionb"/>). In addition, all the
+            items to the left of the split point are less than the pivot value, and
+            all the items to the right of the split point are greater than the pivot
+            value. The list can now be divided at the split point and the quick sort
+            can be invoked recursively on the two halves.</p>
+        
+        <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 14: Completing the Partition Process to Find the Split Point for 54</caption><image source="Sort/Figures/partitionB.png" width="50%"/></figure>
+        <p>The <c>quickSort</c> function shown in <xref ref="lst-quick"/> invokes a recursive
+            function, <c>quickSortHelper</c>. <c>quickSortHelper</c> begins with the same
+            base case as the merge sort. If the length of the list is less than or
+            equal to one, it is already sorted. If it is greater, then it can be
+            partitioned and recursively sorted. The <c>partition</c> function
+            implements the process described earlier. The following program sorts the
+            list that was used in the example above.</p>
+        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'TheQuickSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="lst_quick_cpp" interactive="activecode" language="cpp">
+        <input>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+void printl(vector&lt;int&gt; avector) {
+  for (unsigned i=0; i&lt;avector.size(); i++) {
+    cout&lt;&lt;avector[i]&lt;&lt;" ";
+  }
+  cout&lt;&lt;endl;
+}
+
+//function partitions vector depending on pivot value
+int partition(vector&lt;int&gt; &amp;avector, int first, int last) {
+  int pivotvalue = avector[first];
+
+  int rightmark = last;
+  int leftmark = first+1;
+
+  bool done = false;
+
+  while(not done){
+    while(leftmark&lt;=rightmark and avector[leftmark]&lt;=pivotvalue){
+      leftmark++;
+    }
+    while(rightmark&gt;=leftmark and avector[rightmark]&gt;=pivotvalue){
+      rightmark--;
+    }
+    if(rightmark&lt;leftmark){
+      done = true;
+    }
+    else{
+      swap(avector[rightmark], avector[leftmark]);
+    }
+  }
+
+  swap(avector[rightmark], avector[first]);
+
+  return rightmark;
+}
+
+//recursive function that quicksorts through a given vector
+void quickSort(vector&lt;int&gt; &amp;avector, int first, int last) {
+  int splitpoint;
+
+  if (first&lt;last) {
+    splitpoint = partition(avector,first,last);
+
+    quickSort(avector,first,splitpoint);
+    quickSort(avector,splitpoint+1,last);
+
+  }
+}
+
+int main() {
+  // Vector initialized using a static array
+  static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
+  vector&lt;int&gt; avector (arr, arr + sizeof(arr) / sizeof(arr[0]) );
+
+  quickSort(avector,0,avector.size()-1);
+
+  printl(avector);
+
+  return 0;
+}
+        </input>
+    </program>
+            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheQuickSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="lst_quick" interactive="activecode" language="python">
+        <input>
+#recursive function that calls itself to quicksort through a given list of values
+def quickSort(alist,first,last):
+  if first&lt;last:
+
+    splitpoint = partition(alist,first,last)
+
+    quickSort(alist,first,splitpoint-1)
+    quickSort(alist,splitpoint+1,last)
+
+#function partitions vector depending on pivot value
+def partition(alist,first,last):
+  pivotvalue = alist[first]
+
+  leftmark = first+1
+  rightmark = last
+
+  done = False
+  while not done:
+    while alist[leftmark]&lt;=pivotvalue and leftmark&lt;=rightmark:
+      leftmark += 1
+
+    while alist[rightmark]&gt;=pivotvalue and rightmark&gt;=leftmark:
+      rightmark -= 1
+
+    if rightmark &lt; leftmark:
+      done = True
+
+    else:
+      temp = alist[rightmark]
+      alist[rightmark] = alist[leftmark]
+      alist[leftmark] = temp
+
+  temp = alist[rightmark]
+  alist[rightmark] = alist[first]
+  alist[first] = temp
+
+  return rightmark
+
+
+
+def main():
+
+  alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+  quickSort(alist,0,len(alist)-1)
+  print(alist)
+
+main()
+        </input>
+    </program>
+            </TabNode></exercise>
+        <raw format="html" xml:space="preserve">&lt;script src="../_static/sortmodels.js"&gt;&lt;/script&gt;
+&lt;script src="../_static/sortviewers.js"&gt;&lt;/script&gt;
+
+&lt;div id="quick_anim" class=""&gt;
+&lt;canvas id="quick_anim_canvas" width="400" height="400" style="border:4px solid blue"&gt;&lt;/canvas&gt;
+&lt;br /&gt;
+&lt;button onclick="quick_anim_anim = quick_anim_init('quick_anim')"&gt;Initialize&lt;/button&gt;
+&lt;button onclick="quick_anim_anim.run('quick_anim_anim')"&gt;Run&lt;/button&gt;
+&lt;button onclick="quick_anim_anim.stop()"&gt;Stop&lt;/button&gt; &lt;/br&gt;
+&lt;button onclick="quick_anim_anim.begin()"&gt;Beginning&lt;/button&gt;
+&lt;button onclick="quick_anim_anim.forward()"&gt;Step Forward&lt;/button&gt;
+&lt;button onclick="quick_anim_anim.backward()"&gt;Step Backward&lt;/button&gt;
+&lt;button onclick="quick_anim_anim.end()"&gt;End&lt;/button&gt;
+
+&lt;script&gt;
+quick_anim_init = function(divid)
+{
+   var a = new Animator(new QuickSortModel(), new BarViewer(), divid)
+   a.init()
+   return a
+}
+&lt;/script&gt;
+
+&lt;/div&gt;
+</raw>
+        <!--For more detail, CodeLens 7 lets you step through the algorithm.-->
+        <!---->
+        <!--.. codelens:: quicktrace-->
+        <!--:caption: Tracing the Quick Sort-->
+        <!---->
+        <!--def quickSort(alist):-->
+        <!--quickSortHelper(alist,0,len(alist)-1)-->
+        <!---->
+        <!--def quickSortHelper(alist,first,last):-->
+        <!--if first<last:-->
+        <!---->
+        <!--splitpoint = partition(alist,first,last)-->
+        <!---->
+        <!--quickSortHelper(alist,first,splitpoint-1)-->
+        <!--quickSortHelper(alist,splitpoint+1,last)-->
+        <!---->
+        <!---->
+        <!--def partition(alist,first,last):-->
+        <!--pivotvalue = alist[first]-->
+        <!---->
+        <!--leftmark = first+1-->
+        <!--rightmark = last-->
+        <!---->
+        <!--done = False-->
+        <!--while not done:-->
+        <!---->
+        <!--while leftmark <= rightmark and \-->
+        <!--alist[leftmark] <= pivotvalue:-->
+        <!--leftmark = leftmark + 1-->
+        <!---->
+        <!--while alist[rightmark] >= pivotvalue and \-->
+        <!--rightmark >= leftmark:-->
+        <!--rightmark = rightmark -1-->
+        <!---->
+        <!--if rightmark < leftmark:-->
+        <!--done = True-->
+        <!--else:-->
+        <!--temp = alist[leftmark]-->
+        <!--alist[leftmark] = alist[rightmark]-->
+        <!--alist[rightmark] = temp-->
+        <!---->
+        <!--temp = alist[first]-->
+        <!--alist[first] = alist[rightmark]-->
+        <!--alist[rightmark] = temp-->
+        <!---->
+        <!---->
+        <!--return rightmark-->
+        <!---->
+        <!--alist = [54,26,93,17,77,31,44,55,20]-->
+        <!--quickSort(alist)-->
+        <!--print(alist)-->
+        <raw format="html" xml:space="preserve">&lt;div id="vis_quick_sort" class="video_popup runestone " &gt;
+&lt;video controls preload="none"  poster="../_static/vis_quick_sort_thumb.png"&gt;
+    &lt;source src="../_static/vis_quick_sort.webm" type="video/webm"&gt;&lt;/source&gt;
+    No supported video types
+&lt;/video&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  window.addEventListener('load', (event) =&gt; {
+    jQuery(function($) {
+        var rb = new RunestoneBase();
+        $('#vis_quick_sort_thumb').click(function(e) {
+            $('#vis_quick_sort').show();
+            $('#vis_quick_sort_thumb').hide();
+            rb.logBookEvent({'event':'video','act':'play','div_id': 'vis_quick_sort'});
+            // Log the run event
+        });
+        $('#vis_quick_sort video').one("click", function(){
+            this.play();
+        });
+        $('#vis_quick_sort video').one("play", function(){
+            rb.logBookEvent({'event':'video','act':'play','div_id': 'vis_quick_sort'});
+        });
+    });
+  });
+&lt;/script&gt;
+</raw>
+        <p>The visualization above shows how quick sort works in action. Our pivot
+            is represented by the arrow on screen. If an object is bigger than the pivot,
+            it will turn blue and stay where it is. If it is smaller it will turn red and
+            swap to the left side of the pivot. Once an object is sorted, it will turn
+            yellow.</p>
+        <p>To analyze the <c>quickSort</c> function, note that for a list of length
+            <em>n</em>, if the partition always occurs in the middle of the list, there
+            will again be <math>\log n</math> divisions. In order to find the split
+            point, each of the <em>n</em> items needs to be checked against the pivot
+            value. The result is <math>n\log n</math>. In addition, there is no need
+            for additional memory as in the merge sort process.</p>
+        <p>Unfortunately, in the worst case, the split points may not be in the
+            middle and can be very skewed to the left or the right, leaving a very
+            uneven division. In this case, sorting a list of <em>n</em> items divides into
+            sorting a list of 0 items and a list of <math>n-1</math> items. Then
+            sorting a list of <math>n-1</math> divides into a list of size 0 and a list
+            of size <math>n-2</math>, and so on. The result is an <math>O(n^{2})</math>
+            sort with all of the overhead that recursion requires.</p>
+        <p>We mentioned earlier that there are different ways to choose the pivot
+            value. In particular, we can attempt to alleviate some of the potential
+            for an uneven division by using a technique called <term>median of three</term>.
+            To choose the pivot value, we will consider the first, the middle, and
+            the last element in the list. In our example, those are 54, 77, and 20.
+            Now pick the median value, in our case 54, and use it for the pivot
+            value (of course, that was the pivot value we used originally). The idea
+            is that in the case where the the first item in the list does not belong
+            toward the middle of the list, the median of three will choose a better
+            <q>middle</q> value. This will be particularly useful when the original list
+            is somewhat sorted to begin with. We leave the implementation of this
+            pivot value selection as an exercise.</p>
+
+    <exercise label="question_sort_7">
+        <statement>
+
+        <p>Q-5: Given the following list of numbers [14, 17, 13, 15, 19, 10, 3, 16, 9, 12] which answer shows the contents of the list after the second partitioning according to the quicksort algorithm?</p>
+
+        </statement>
+<choices>
+
+            <choice>
+                <statement>
+                    <p>[9, 3, 10, 13, 12]</p>
+                </statement>
+                <feedback>
+                    <p>It's important to remember that quicksort works on the entire list and sorts it in place.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>[9, 3, 10, 13, 12, 14]</p>
+                </statement>
+                <feedback>
+                    <p>Remember quicksort works on the entire list and sorts it in place.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>[9, 3, 10, 13, 12, 14, 17, 16, 15, 19]</p>
+                </statement>
+                <feedback>
+                    <p>The first partitioning works on the entire list, and the second partitioning works on the left partition not the right.</p>
+                </feedback>
+            </choice>
+
+            <choice correct="yes">
+                <statement>
+                    <p>[9, 3, 10, 13, 12, 14, 19, 16, 15, 17]</p>
+                </statement>
+                <feedback>
+                    <p>The first partitioning works on the entire list, and the second partitioning works on the left partition.</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+
+    <exercise label="question_sort_8">
+        <statement>
+
+        <p>Q-6: Given the following list of numbers [1, 20, 11, 5, 2, 9, 16, 14, 13, 19] what would be the first pivot value using the median of 3 method?</p>
+
+        </statement>
+<choices>
+
+            <choice>
+                <statement>
+                    <p>1</p>
+                </statement>
+                <feedback>
+                    <p>The three numbers used in selecting the pivot are 1, 9, 19.  1 is not the median, and would be a very bad choice for the pivot since it is the smallest number in the list.</p>
+                </feedback>
+            </choice>
+
+            <choice correct="yes">
+                <statement>
+                    <p>9</p>
+                </statement>
+                <feedback>
+                    <p>Good job.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>16</p>
+                </statement>
+                <feedback>
+                    <p>although 16 would be the median of 1, 16, 19 the middle is at len(list) // 2.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>19</p>
+                </statement>
+                <feedback>
+                    <p>the three numbers used in selecting the pivot are 1, 9, 19.  9 is the median.  19 would be a bad choice since it is almost the largest.</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+    </section>
+    

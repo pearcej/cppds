@@ -1,0 +1,13 @@
+<section xml:id="introduction_getting-started-with-data">
+        <title>Getting Started with Data</title>
+        <p>C++ considers data to be the focal point of the problem-solving process.
+            We stated above that C++ supports the object-oriented programming
+            paradigm. In C++, as well as in any other
+            object-oriented programming language, we define a <term>class</term> to be a
+            description of what the data looks like (the state) and what the data can
+            do (the behavior). Classes are analogous to abstract data types because
+            a user of a class only sees the state and behavior of a data item.
+            Data items are called <term>objects</term> in the object-oriented paradigm. An object
+            is an instance of a class.</p>
+    </section>
+    
