@@ -2,7 +2,7 @@
 <pretext xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
 <xi:include href="./bookinfo.ptx"/>
 <book xml:id="cpp4python" permid="4py">
-<title>How to Think Like a Computer Scientist</title>
+<title>Problem Solving with Algorithms and Data Structures using C++</title>
 <subtitle>The PreTeXt Interactive Edition</subtitle>
 <xi:include href="./Introduction/toctree.ptx"/>
 <xi:include href="./AlgorithmAnalysis/toctree.ptx"/>
