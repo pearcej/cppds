@@ -70,10 +70,10 @@
             We define a safe edge as any edge that connects a vertex that is in the
             spanning tree to a vertex that is not in the spanning tree. This ensures
             that the tree will always remain a tree and therefore have no cycles.</p>
-        <p>The Python code to implement Prim's algorithm is shown in <xref ref="lst-prims"/>. Prim's algorithm is similar to Dijkstra's algorithm
+        <p>The Python code to implement Prim's algorithm is shown in <term>Listing 2</term>. Prim's algorithm is similar to Dijkstra's algorithm
             in that they both use a priority queue to select the next vertex to add
             to the growing graph.</p>
-        <p><term>Listing 2</term></p>
+        <paragraphs xml:id="lst-prims"><term>Listing 2 </term></paragraphs>
         
         <pre>from pythonds.graphs import PriorityQueue, Graph, Vertex
 
