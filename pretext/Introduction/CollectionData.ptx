@@ -1,0 +1,1331 @@
+<section xml:id="introduction_collections">
+        <title>Collections</title>
+        <p>In addition to the numeric, Boolean, and character types,
+            C++ also offers built-in collection types.
+            A <term>collection</term> data type is a grouping of some number of other data items
+            (possibly only zero or one) that have some shared significance
+            or need to be operated upon together.</p>
+        <p>Arrays, vectors, strings, sets, and hash tables are among these useful
+            C++ collection types.</p>
+        <subsection xml:id="introduction_arrays">
+            <title>Arrays</title>
+            <p><term>What is an Array?</term>
+                An array is a data structure consisting of an ordered collection of data elements,
+                of identical type in which each element can be identified by an array index.
+                More technically, an array data structure is an ordered arrangement of values
+                located at equally spaced addresses in contiguous computer memory.</p>
+            <p>NOTE: A C++ <term>array</term> is always stored in contiguous memory. C++ arrays can be allocated in two different ways:</p>
+            <blockquote>
+                <p><ol label="1">
+                    <li>
+                        <p><em>statically allocated</em> in which the array size is fixed at compile-time and cannot change</p>
+                    </li>
+                    <li>
+                        <p><em>dynamically allocated</em> in which pointers are used in the allocation process so the size can change at run-time</p>
+                    </li>
+                </ol></p>
+            </blockquote>
+            <p>In modern C++, the statically allocated array is typically used
+                in situations when speed is essential or where hardware constraints exist, and a data structure
+                called a vector is typically used when more flexibility is required.</p>
+            <p>Because C++ stores variables
+                directly, each element of a C++ array must be of identical data type.
+                The indices for arrays start counting with 0.</p>
+            <p>The use of arrays permits us to utilize an ordered set
+                of memory locations that we can then manipulate as a single
+                entity, and that at the same time gives us direct access to each
+                individual component.</p>
+            <p><term>Why use an Array?</term></p>
+            <p>C++ is a language often used for real-time or low-level processing
+                where speed is essential and/or there is only a fixed amount of space
+                available.</p>
+            <p>The fact that array elements are stored in memory in contiguous
+                memory locations making look-up via index very, very fast.
+                In computing, a <term>word</term> is the unit of data used by a particular processor design,
+                such as 32 or 64 bits. For example, an array of 100 integer variables, with indices 0 through 99,
+                might be stored as 100 words at memory addresses 20000, 20004, 20008, &#8230; 20396.
+                The element with index i would be located at the address 20000 + 4 &#215; i.</p>
+            <p>Statically allocated C++ arrays must be declared with both a type and a size at compile-time.</p>
+            <pre>double darray[4];
+int iarray[10];
+char arr2[3000];</pre>
+            <p>It is also possible to initialize statically allocated arrays at compile time,
+                in which case the number of items determines the array's size.</p>
+            <pre>int arr[] = {1, 2, 3, 4};  // This is size 4.
+char arr2[] = {'a', 'b', 'c'}; // This is size 3.
+string arr3[] = {"this", "is", "an", "array"}; // This is size 4.</pre>
+            <p>Note that an array with a single element is not the same type as the <term>atomic</term> type,
+                so the following are not the same.</p>
+            <pre>double darray[] = {1.2};  // must use index to access value
+double ddouble = 1.2;     // can't use index to access value</pre>
+            <p><term>Be Cautious with Arrays</term></p>
+            <p>The speed and low-level control that arrays offer us
+                as programmers is powerful&#8230; and dangerous.
+                C++ is designed for speed, and using a C++ array will
+                help you better understand the trade-offs inherent in this.</p>
+            <p>Here are examples of iteration.</p>
+            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="listarray_cpp" interactive="activecode" language="cpp">
+        <input>
+//showcases an iteration through an array in C++
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    int myarray[] = {2,4,6,8};
+    for (int i=0; i&lt;4; i++){
+        cout &lt;&lt; myarray[i] &lt;&lt; endl;
+    }
+    return 0;
+}
+        </input>
+    </program>
+                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="listarray_py" interactive="activecode" language="python">
+        <input>
+#showcases an iteration through an array in Python
+def main():
+    mylist = [2, 4, 6, 8]
+    for i in range(4):
+        print(mylist[i])
+
+main()
+        </input>
+    </program>
+                </TabNode></exercise>
+            <p>C++ is designed for speed.
+                C++ will not only let you iterate beyond either
+                end of an array, but it will let you change the values
+                beyond either end of the array with sometimes catastrophic
+                results.</p>
+            <p>The phrase, <q>be careful what you wish for</q> is a great one
+                to remember when programming in C++. Because C++ will
+                generally try to do everything you ask for.</p>
+            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="array_error_cpp" interactive="activecode" language="cpp">
+        <input>
+//outputs the result of trying to access a value outside of an array
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    int myarray[] = {2,4,6,8};
+    for (int i=0; i&lt;=8; i++){
+        cout &lt;&lt; myarray[i] &lt;&lt; endl;
+        cout &lt;&lt; "id: " &lt;&lt; &amp;myarray[i] &lt;&lt; endl;
+    }
+    return 0;
+}
+        </input>
+    </program>
+                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="array_error_py" interactive="activecode" language="python">
+        <input>
+#outputs the result of trying to access a value outside of an array
+def main():
+    mylist = [2,4,6,8]
+    print(mylist)
+    for i in range(5):
+        print(mylist[i])
+        print("id: "+str(id(mylist[i])))
+
+main()
+        </input>
+    </program>
+                </TabNode></exercise>
+            <p>The speed of C++ comes at the cost of minimal to no error checking.
+                Sometimes this can have perplexing results such as in the next example.</p>
+            <p>You should use an array when you have a need for speed
+                or you need to work with hardware constraints.
+                Otherwise, you may want to consider using another collection data type,
+                the <em>vector</em>.</p>
+            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="array_werror_cpp" interactive="activecode" language="cpp">
+        <input>
+/*shows how C++ allows you to easily overwrite values in memory even when
+you don't mean to. */
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    int myarray[] = {2, 4};
+    int otherdata[]={777, 777};
+    for (int i=0; i&lt;4; i++){
+        myarray[i]=0;
+        cout &lt;&lt;"myarray[" &lt;&lt; i &lt;&lt; "]=";
+        cout &lt;&lt; myarray[i] &lt;&lt; endl;
+        cout &lt;&lt; "add:" &lt;&lt; &amp;myarray[i] &lt;&lt; endl;
+    }
+
+    for (int i=0; i&lt;2; i++){
+        cout &lt;&lt; "otherdata[" &lt;&lt; i &lt;&lt; "]=";
+        cout &lt;&lt; otherdata[i] &lt;&lt; endl;
+        cout &lt;&lt; "add:" &lt;&lt; &amp;otherdata[i] &lt;&lt; endl;
+    }
+
+    return 0;
+}
+        </input>
+    </program>
+                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="array_werror_py" interactive="activecode" language="python">
+        <input>
+"""shows how C++ allows you to easily
+overwrite values in memory even when
+you dont mean to."""
+def main():
+    mylist = [2, 4]
+    otherdata = [777, 777]
+    for i in range(4):
+        print(mylist[i])
+        print("id: "+str(id(mylist[i])))
+
+    for j in range(2):
+          print(otherdata[i])
+          print("id: "+str(id(otherdata[i])))
+
+main()
+        </input>
+    </program>
+                </TabNode></exercise>
+
+    <exercise label="mc_werror">
+        <statement>
+
+            <p>Q-7: In the above example, what happened to otherdata[ ] in C++?</p>
+
+        </statement>
+<choices>
+
+            <choice>
+                <statement>
+                    <p>Nothing. Everything is fine.</p>
+                </statement>
+                <feedback>
+                    <p>Actually, there is a problem. Look carefully.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>All data was automatically reinitialized.</p>
+                </statement>
+                <feedback>
+                    <p>No. C++ just does what you tell it to do.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>I have no idea. Please give me a hint.</p>
+                </statement>
+                <feedback>
+                    <p>Try again. One of these is indeed correct. Look at the memory addresses.</p>
+                </feedback>
+            </choice>
+
+            <choice correct="yes">
+                <statement>
+                    <p>The first loop went out of bounds and wrote over the values in otherdata.</p>
+                </statement>
+                <feedback>
+                    <p>Right!</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>none of the above</p>
+                </statement>
+                <feedback>
+                    <p>One of the above is indeed correct.</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+
+    <exercise label="mc_array">
+        <statement>
+
+            <p>Q-8: What is the correct way to declare an array in C++?</p>
+
+        </statement>
+<choices>
+
+            <choice>
+                <statement>
+                    <p>int myarray(5);</p>
+                </statement>
+                <feedback>
+                    <p>Check the characters at the end of the array! Right now that is a function!</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>myarray[5];</p>
+                </statement>
+                <feedback>
+                    <p>You are forgetting something important!</p>
+                </feedback>
+            </choice>
+
+            <choice correct="yes">
+                <statement>
+                    <p>int myarray[5];</p>
+                </statement>
+                <feedback>
+                    <p>Good work!</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>None of the above.</p>
+                </statement>
+                <feedback>
+                    <p>Check the characters at the end of the array!</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+        </subsection>
+        <subsection xml:id="introduction_vectors">
+            <title>Vectors</title>
+            <p><term>Vectors</term> use a dynamically allocated array to store their elements,
+                so they can change size, and they have other friendly features as well.
+                Because they use a dynamically allocated array, they use contiguous storage locations
+                which means that their elements can be accessed and traversed, and they
+                can also be accessed randomly using indexes.
+                However, vectors are dynamically sized, so their size can change automatically.
+                A new element can be inserted into or deleted from any part of a vector,
+                and automatic reallocation for other existing items in the vector will be applied.
+                Vectors are homogeneous, so every element in the vector must be of the same type.</p>
+            <p>Vectors are a class that is available through a library called the Standard Template Library (STL), and one uses a <c>&lt; &gt;</c>
+                notation to indicate the data type of the elements. In order to use vectors, One
+                needs to include the vector library.</p>
+            <pre>#include &lt;vector&gt;</pre>
+            
+            <table xml:id="introduction_id4"><tabular>
+                <title><term>Common C++ Vector Operators</term></title>
+                
+                    
+                    
+                    
+                    
+                        <row header="yes">
+                            <cell>
+                                <term>Vector Operation</term>
+                            </cell>
+                            <cell>
+                                <term>Use</term>
+                            </cell>
+                            <cell>
+                                <term>Explanation</term>
+                            </cell>
+                        </row>
+                    
+                    
+                        <row>
+                            <cell>
+                                <c>[ ]</c>
+                            </cell>
+                            <cell>
+                                <c>myvector[i]</c>
+                            </cell>
+                            <cell>
+                                access value of element at index i
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>=</c>
+                            </cell>
+                            <cell>
+                                <c>myvector[i]=value</c>
+                            </cell>
+                            <cell>
+                                assign value to element at index i
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>push_back</c>
+                            </cell>
+                            <cell>
+                                <c>myvect.push_back(item)</c>
+                            </cell>
+                            <cell>
+                                Appends item to the far end of the vector
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>pop_back</c>
+                            </cell>
+                            <cell>
+                                <c>myvect.pop_back()</c>
+                            </cell>
+                            <cell>
+                                Deletes last item (from  far end) of the vector
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>insert</c>
+                            </cell>
+                            <cell>
+                                <c>myvect.insert(i, item)</c>
+                            </cell>
+                            <cell>
+                                Inserts an item at index i
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>erase</c>
+                            </cell>
+                            <cell>
+                                <c>myvect.erase(i)</c>
+                            </cell>
+                            <cell>
+                                Erases an element from index i
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>size</c>
+                            </cell>
+                            <cell>
+                                <c>myvect.size()</c>
+                            </cell>
+                            <cell>
+                                Returns the actual size used by elements
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>capacity</c>
+                            </cell>
+                            <cell>
+                                <c>myvect.capacity()</c>
+                            </cell>
+                            <cell>
+                                Returns the size of allocated storage capacity
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>reserve</c>
+                            </cell>
+                            <cell>
+                                <c>myvect.reserve(amount)</c>
+                            </cell>
+                            <cell>
+                                Request a change in capacity to amount
+                            </cell>
+                        </row>
+                    
+                
+            </tabular></table>
+            <p>A very common programming task is to grow a vector using the <c>push_back()</c> method to append to the vector
+                as we see in the next example.
+                Because vectors can change size, vectors typically allocate some extra storage to accommodate for possible growth.
+                Thus the vector typically has an actual <em>capacity</em> greater than the storage <em>size</em> strictly needed to contain its elements.</p>
+            <subsubsection xml:id="introduction_matching">
+                <title>Matching</title>
+
+<exercise label="matching_vectors">
+    <statement><p> Match the Vector operations with their corresponding explination.</p></statement>
+    <feedback><p>Feedback shows incorrect matches.</p></feedback>
+<matches><match order="1"><premise>[ ]</premise><response>Accesses value of an element.</response></match><match order="2"><premise>=</premise><response> Assigns value to an element.</response></match><match order="3"><premise>push_back</premise><response>Appends item to the end of the vector.</response></match><match order="4"><premise>pop_back</premise><response> Deletes last item of the vector.</response></match><match order="5"><premise>insert</premise><response>Injects an item into the vector.</response></match><match order="6"><premise>erase</premise><response>Deletes an element from the choosen index.</response></match><match order="7"><premise>size</premise><response>Returns the actual capacity used by elements.</response></match><match order="8"><premise>capacity</premise><response>Returns the ammount of allocated storage space.</response></match><match order="9"><premise>reserve</premise><response> Request a change in space to amount</response></match></matches></exercise>                <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="introvector_cpp" interactive="activecode" language="cpp">
+        <input>
+/*shows the use of the reserve member, and how it
+can be effective in saving time with a growing vector.*/
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int main(){
+
+    vector&lt;int&gt; intvector;
+    intvector.reserve(50);
+
+    for (int i=0; i&lt;50; i++){
+        intvector.push_back(i*i);
+        cout &lt;&lt; intvector[i] &lt;&lt; endl;
+    }
+    return 0;
+}
+        </input>
+    </program>
+                    </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="introvector_py" interactive="activecode" language="python">
+        <input>
+#Python doesn't have vectors, simply stating the limit is enough
+def main():
+    intlist=[]
+    for i in range(50):
+        intlist.append(i*i)
+        print(intlist[i])
+
+main()
+        </input>
+    </program>
+                    </TabNode></exercise>
+                <p>In the above example, the use of <c>reserve</c> was optional. However, it is a good
+                    idea to use it before growing a vector in this way because it will save time.
+                    Because vectors are stored in underlying arrays which require contiguous memory,
+                    every time the vector's size gets too large for the capacity, the entire vector must
+                    be moved to a larger location in memory, and all that copying takes time.
+                    In a typical implementation, the capacity is doubled each time. as in the
+                    example that follows.</p>
+
+    <program xml:id="vector_no_reserve_cpp" interactive="activecode" language="cpp">
+        <input>
+//code from above but without the reserve
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int main(){
+
+    vector&lt;int&gt; intvector;
+    // without intvector.reserve(50);
+
+    for (int i=0; i&lt;50; i++){
+        intvector.push_back(i*i);
+        cout &lt;&lt; intvector[i] &lt;&lt; endl;
+        cout &lt;&lt; "capacity: " &lt;&lt; intvector.capacity() &lt;&lt; endl;
+    }
+    return 0;
+}
+        </input>
+    </program>
+                <p>Remembering that C++ is designed for speed, not protection,
+                    we will likely not be surprised by the following:</p>
+                <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="vector_errors_cpp" interactive="activecode" language="cpp">
+        <input>
+//shows errors when a vector goes out of bounds
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int main(){
+
+    vector&lt;int&gt; intvector;
+    intvector.reserve(10);
+
+    for (int i=0; i&lt;10; i++){
+        intvector.push_back(i);
+    }
+
+    for (int i=0; i&lt;=10; i++){
+        cout &lt;&lt; "intvector[" &lt;&lt; i &lt;&lt; "]="&lt;&lt;intvector[i] &lt;&lt; endl;
+    }
+
+    return 0;
+}
+        </input>
+    </program>
+                    </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="vector_errors_py" interactive="activecode" language="python">
+        <input>
+#shows errors when a vector goes out of bounds
+def main():
+    intlist=[]
+    for i in range(10):
+        intlist.append(i)
+
+    for i in range(11):
+        print("intlist[" + str(i) + "]=" + str(intlist[i]))
+
+main()
+        </input>
+    </program>
+                    </TabNode></exercise>
+
+    <exercise label="mc_array_vector">
+        <statement>
+
+                <p>Q-15: Which of the following is the biggest difference between a C++ array and a C++ vector?</p>
+
+        </statement>
+<choices>
+
+            <choice>
+                <statement>
+                    <p>Vectors can change size.</p>
+                </statement>
+                <feedback>
+                    <p>Yes, however, there are more benefits to using vectors.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>Vectors offer many more features and protections than arrays.</p>
+                </statement>
+                <feedback>
+                    <p>Not all of the protections of arrays are offered by vectors; one can still iterate off of either end.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>Vectors don't use contiguous memory, so elements can be inserted.</p>
+                </statement>
+                <feedback>
+                    <p>No. Although elements can be inserted in vectors, they do require contiguous memory.</p>
+                </feedback>
+            </choice>
+
+            <choice correct="yes">
+                <statement>
+                    <p>more than one of the above</p>
+                </statement>
+                <feedback>
+                    <p>Right! Good job!</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>none of the above</p>
+                </statement>
+                <feedback>
+                    <p>One of the above is indeed correct.</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+
+    <exercise label="mc_vector1">
+        <statement>
+
+                <p>Q-16: What good is the <c>reserve</c> method in a vector?</p>
+
+        </statement>
+<choices>
+
+            <choice>
+                <statement>
+                    <p>Nothing. It is completely optional.</p>
+                </statement>
+                <feedback>
+                    <p>It is optional but it does serve a purpose. Try again.</p>
+                </feedback>
+            </choice>
+
+            <choice correct="yes">
+                <statement>
+                    <p>Using it will save time if you know the maximum size needed.</p>
+                </statement>
+                <feedback>
+                    <p>Right!</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>It is required so memory can be allocated.</p>
+                </statement>
+                <feedback>
+                    <p>It is not required.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>none of the above</p>
+                </statement>
+                <feedback>
+                    <p>One of the above is indeed correct.</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+            </subsubsection>
+        </subsection>
+        <subsection xml:id="introduction_strings">
+            <title>Strings</title>
+            <p><term>Strings</term> are sequential collections of zero or more characters such as letters, numbers
+                and other symbols. There are actually two types of strings in C++ . The <em>C++ string</em> or just <em>string</em> from the
+                <c>&lt;string&gt;</c> library is the more modern type.
+                The old style <em>C-string</em> which is essentially
+                an array of <c>char</c> type. The char type itself is actually distinct from both types of strings.</p>
+            <pre>char cppchar = 'a';   // char values use single quotes
+string cppstring = "Hello World!";  // C++ strings use double quotes
+char cstring[] = {"Hello World!"};    // C-string or char array uses double quotes</pre>
+            <p>In older versions of C++, you must use a <c>char</c> array to work with filenames. In modern
+                C++ (from C++11 onward), however, you can use a C++ string for everything.
+                Since C++ strings are so much nicer, I would not recommend using C-strings unless you have a reason.</p>
+            <p>Because strings are sequences, all of the typical sequence operations work as you would expect.
+                In addition, the string library offers a huge number of
+                methods, some of the most useful of which are shown in <xref ref="introduction_tab-stringmethods"/>.</p>
+
+    <exercise label="cstringquestion1_1">
+        <statement>
+
+            <p>Q-17: What is the correct definition of c-strings?</p>
+
+        </statement>
+<choices>
+
+            <choice correct="yes">
+                <statement>
+                    <p>An array of characters that ends with a terminating null character. i.e. \0</p>
+                </statement>
+                <feedback>
+                    <p>Correct! a c-string is different from a string</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>A sequential data structure consisting of zero or more characters</p>
+                </statement>
+                <feedback>
+                    <p>Close, but that is the definition of a string, not a c-string</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>A data structure consisting of an ordered collection of data elements of identical type in which each element can be identified by an array index.</p>
+                </statement>
+                <feedback>
+                    <p>Sorry, thats not a string or a c-string</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>sequence container storing data of a single type that is stored in a dynamically allocated array which can change in size.</p>
+                </statement>
+                <feedback>
+                    <p>No, that's a vector</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+            
+            <table xml:id="introduction_id5"><tabular>
+                <title><term>Table 4: String Methods Provided in C++</term></title>
+                
+                    
+                    
+                    
+                    
+                        <row header="yes">
+                            <cell>
+                                <term>Method Name</term>
+                            </cell>
+                            <cell>
+                                <term>Use</term>
+                            </cell>
+                            <cell>
+                                <term>Explanation</term>
+                            </cell>
+                        </row>
+                    
+                    
+                        <row>
+                            <cell>
+                                <c>[ ]</c>
+                            </cell>
+                            <cell>
+                                <c>astring[i]</c>
+                            </cell>
+                            <cell>
+                                access value of character at index i
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>=</c>
+                            </cell>
+                            <cell>
+                                <c>astring[i]=value</c>
+                            </cell>
+                            <cell>
+                                change value of character at index i
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>+</c>
+                            </cell>
+                            <cell>
+                                <c>string1 + astring2</c>
+                            </cell>
+                            <cell>
+                                concatenate strings
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>append</c>
+                            </cell>
+                            <cell>
+                                <c>astring.append(string)</c>
+                            </cell>
+                            <cell>
+                                Append to string the end of the string
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>push_back</c>
+                            </cell>
+                            <cell>
+                                <c>astring.push_back(char)</c>
+                            </cell>
+                            <cell>
+                                Appends a character to the end of the string
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>pop_back</c>
+                            </cell>
+                            <cell>
+                                <c>astring.pop_back()</c>
+                            </cell>
+                            <cell>
+                                Deletes the last character from the end of the string
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>insert</c>
+                            </cell>
+                            <cell>
+                                <c>astring.insert(i, string)</c>
+                            </cell>
+                            <cell>
+                                Inserts a string at a specific index
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>erase</c>
+                            </cell>
+                            <cell>
+                                <c>astring.erase(i, j)</c>
+                            </cell>
+                            <cell>
+                                Erases an element from one index to another
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>find</c>
+                            </cell>
+                            <cell>
+                                <c>astring.find(item)</c>
+                            </cell>
+                            <cell>
+                                Returns the index of the first occurrence of item
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>size</c>
+                            </cell>
+                            <cell>
+                                <c>astring.size()</c>
+                            </cell>
+                            <cell>
+                                Returns the size of the string
+                            </cell>
+                        </row>
+                    
+                
+            </tabular></table>
+            <subsubsection xml:id="introduction_id1">
+                <title>Matching</title>
+
+<exercise label="matching_strings">
+    <statement><p> Match the String operations with their corresponding explination.</p></statement>
+    <feedback><p>Feedback shows incorrect matches.</p></feedback>
+<matches><match order="1"><premise>[ ]</premise><response>Accesses value of an element.</response></match><match order="10"><premise>find</premise><response> Returns the index of the first occurrence of item.</response></match><match order="2"><premise>=</premise><response> Assigns value to an element.</response></match><match order="3"><premise>push_back</premise><response>Adjoins a character to the end of the string.</response></match><match order="4"><premise>pop_back</premise><response>Removes the last character from the end of the string.</response></match><match order="5"><premise>insert</premise><response>Injects a string at a specific index.</response></match><match order="6"><premise>erase</premise><response>Deletes an element from one index to another.</response></match><match order="7"><premise>size</premise><response>Returns the capacity of the string.</response></match><match order="8"><premise>+</premise><response>connects strings.</response></match><match order="9"><premise>append</premise><response>Adjoins a string to the end of the string.</response></match></matches></exercise>                <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="introstring_cpp" interactive="activecode" language="cpp">
+        <input>
+//shows basic string usage in C++
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main(){
+
+    string mystring1 = "Hello";
+    string mystring2 = "World!";
+    string mystring3;
+
+    mystring3 = mystring1 + " " + mystring2;
+    cout &lt;&lt; mystring3 &lt;&lt; endl;
+
+    cout &lt;&lt; mystring2 &lt;&lt; " begins at ";
+    cout &lt;&lt; mystring3.find(mystring2) &lt;&lt; endl;
+
+    return 0;
+}
+        </input>
+    </program>
+                    </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="introstring_py" interactive="activecode" language="python">
+        <input>
+#shows basic string usage in Python
+def main():
+    mystring1 = "Hello"
+    mystring2 = "World!"
+
+    mystring3 = mystring1 + " " + mystring2
+    print(mystring3)
+
+    print(mystring2, end=" ")
+    print("begins at", end=" ")
+    print(str(mystring3.find(mystring2)))
+
+main()
+        </input>
+    </program>
+                    </TabNode></exercise>
+                <p>Check your understanding by completing the following question.</p>
+
+<exercise label="string_types">
+    <statement><p>Drag each data type to its' corresponding C++ initialization syntax.</p></statement>
+    <feedback><p>Feedback shows incorrect matches.</p></feedback>
+<matches><match order="1"><premise>char</premise><response>'a'</response></match><match order="2"><premise>char array</premise><response>{'a'}</response></match><match order="3"><premise>string</premise><response>"a"</response></match></matches></exercise>            </subsubsection>
+        </subsection>
+        <subsection xml:id="introduction_hash-tables">
+            <title>Hash Tables</title>
+            <p>A <term>hash table</term> is a collection of associated pairs of
+                items where each pair consists of a <em>key</em> and a <em>value</em>.
+                Hash tables are often called the more general term <em>map</em>
+                because the associated hash function <q>maps</q> the key to the value.
+                Nevertheless, it is better to use the more precise term, <em>hash table</em>
+                because other kinds of maps are sometimes implemented with a different underlying data structure.</p>
+            <p>Each hash table has a <em>hash function</em> which
+                given the key as input to the hash function
+                returns the location of the associated value as the output.
+                This makes look up fast.</p>
+            <p>In C++, the <em>unordered_map</em> implements the hash table, and the <c>&lt;unordered_map&gt;</c>
+                library must be included as follows:</p>
+            <pre>#include &lt;unordered_map&gt;</pre>
+            <p>The syntax for hash table access is much like we might expect
+                except that instead of using the index of the item for look-up, we
+                use the key. Hash tables can be initialized with key-value pairs and
+                key-value pairs can also be added later as we see in the following example.
+                In C++, the keyword <c>first</c> is used for the key, and <c>second</c> is used for the
+                associated value.</p>
+            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="hashtable1_cpp" interactive="activecode" language="cpp">
+        <input>
+//shows how hash tables can be used in C++
+#include &lt;iostream&gt;
+#include &lt;unordered_map&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    unordered_map&lt;string, string&gt; spnumbers;
+
+    spnumbers = { {"one", "uno"}, {"two", "dos"} };
+
+    spnumbers["three"] = "tres";
+    spnumbers["four"] = "cuatro";
+
+    cout &lt;&lt; "one is ";
+    cout &lt;&lt; spnumbers["one"] &lt;&lt; endl;
+
+    cout &lt;&lt; spnumbers.size() &lt;&lt; endl;
+}
+        </input>
+    </program>
+                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="hashtable1_py" interactive="activecode" language="python">
+        <input>
+#shows how hash tables can be used in python
+def main():
+    spnumbers = {"one":"uno","two":"dos"}
+
+    spnumbers["four"]="cuatro"
+    spnumbers["three"]="tres"
+
+    print("one is", end=" ")
+    print(spnumbers["one"])
+
+    print(len(spnumbers))
+main()
+        </input>
+    </program>
+                </TabNode></exercise>
+            <p>It is important to note that hash tables are organized by the location given
+                by the hash function rather than being in any
+                particular order with respect to the keys. This makes look-up extremely fast.
+                Hence, although it is possible to iterate through a hash table,
+                it is an odd thing to do
+                because the data is not typically stored sequentially.
+                Iterators of an <c>unordered_map</c> are
+                implemented using pointers to point to elements of the value type as we see in
+                the following example.</p>
+            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="hashtable2_cpp" interactive="activecode" language="cpp">
+        <input>
+//shows how to iterate through a hash table in C++
+#include &lt;iostream&gt;
+#include &lt;unordered_map&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    unordered_map&lt;string, string&gt; spnumbers;
+
+    spnumbers = { {"one","uno"},{"two","dos"},{"three","tres"},{"four","cuatro"},{"five","cinco"} };
+
+    for (auto i=spnumbers.begin(); i!=spnumbers.end(); i++ ){
+        cout &lt;&lt; i-&gt;first &lt;&lt; ":";
+        cout &lt;&lt; i-&gt;second &lt;&lt; endl;
+    }
+}
+        </input>
+    </program>
+                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="hashtable2_py" interactive="activecode" language="python">
+        <input>
+#shows how to iterate through a hash table in python
+def main():
+    spnumbers = {"one":"uno","two":"dos","three":"tres","four":"cuatro","five":"cinco" }
+
+    for key in spnumbers:
+        print(key, end=":")
+        print(spnumbers[key])
+
+main()
+        </input>
+    </program>
+                </TabNode></exercise>
+            <p>Hash Tables have both methods and operators. <xref ref="introduction_tab-hashopers"/>
+                describes them, and the session shows them in action.</p>
+            
+            <table xml:id="introduction_id6"><tabular>
+                <title><term>Table 7: Important Hash Table Operators Provided in C++</term></title>
+                
+                    
+                    
+                    
+                    
+                        <row header="yes">
+                            <cell>
+                                <term>Operator</term>
+                            </cell>
+                            <cell>
+                                <term>Use</term>
+                            </cell>
+                            <cell>
+                                <term>Explanation</term>
+                            </cell>
+                        </row>
+                    
+                    
+                        <row>
+                            <cell>
+                                <c>[ ]</c>
+                            </cell>
+                            <cell>
+                                <c>mymap[k]</c>
+                            </cell>
+                            <cell>
+                                Returns the value associated with <c>k</c>, otherwise throws error
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>count</c>
+                            </cell>
+                            <cell>
+                                <c>mymap.count(key)</c>
+                            </cell>
+                            <cell>
+                                Returns <c>true</c> if key is in <c>mymap</c>, <c>false</c> otherwise
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>erase</c>
+                            </cell>
+                            <cell>
+                                <c>mymap.erase(key)</c>
+                            </cell>
+                            <cell>
+                                Removes the entry from <c>mymap</c>
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>begin</c>
+                            </cell>
+                            <cell>
+                                <c>mymap.begin()</c>
+                            </cell>
+                            <cell>
+                                An iterator to the first element in <c>mymap</c>
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>end</c>
+                            </cell>
+                            <cell>
+                                <c>mymap.end(key)</c>
+                            </cell>
+                            <cell>
+                                An iterator pointing to past-the-end element of <c>mymap</c>
+                            </cell>
+                        </row>
+                    
+                
+            </tabular></table>
+            <subsubsection xml:id="introduction_id2">
+                <title>Matching</title>
+
+<exercise label="matching_HT">
+    <statement><p> Match the Hash Table operations with their corresponding explination.</p></statement>
+    <feedback><p>Feedback shows incorrect matches.</p></feedback>
+<matches><match order="1"><premise>[ ]</premise><response>Returns the value associated with the key, otherwise throws error.</response></match><match order="2"><premise>erase</premise><response>Deletes the entry from the hash table.</response></match><match order="3"><premise>count</premise><response>Returns true if key is in the hash table, and false otherwise.</response></match><match order="4"><premise>begin</premise><response>An iterator to the first element in the hash table.</response></match><match order="5"><premise>end</premise><response>An iterator pointing to past-the-end element of the hash table.</response></match></matches></exercise>            </subsubsection>
+        </subsection>
+        <subsection xml:id="introduction_unordered-sets">
+            <title>Unordered Sets</title>
+            <p>An <term>unordered_set</term> is an unordered collection of zero or more unique C++ data values
+                of a particular type.
+                To use unordered_sets, you import <c>unordered_set</c> from the Standard template library with
+                <c>#include &lt;unorderd_set&gt;</c>.</p>
+            <p>Unordered_sets allow for fast retrieval of individual elements based on their value.
+                In an unordered_set, the value of an element is at the same time its key, that identifies it uniquely.
+                <c>Keys</c> are <term>immutable</term>, therefore, the elements in an <c>unordered_set</c> cannot be modified once in the container -
+                However, they can be inserted and removed.</p>
+            <p>Unordered sets do not allow duplicates and are initialized using comma-delimited
+                values enclosed in curly braces. The collection can be assigned to
+                a variable as shown below.</p>
+            <pre>set&lt;int&gt; mySet = {3, 6, 4, 78, 10}</pre>
+            <p>Unordered sets support a number of methods that should be familiar to those who
+                have worked with sets in a mathematics setting. <xref ref="introduction_tab-setmethods"/>
+                provides a summary. Examples of their use follow.</p>
+            
+            <table xml:id="introduction_id7"><tabular>
+                <title><term>Table 6: Methods Provided by Sets in C++</term></title>
+                
+                    
+                    
+                    
+                    
+                        <row header="yes">
+                            <cell>
+                                <term>Method Name</term>
+                            </cell>
+                            <cell>
+                                <term>Use</term>
+                            </cell>
+                            <cell>
+                                <term>Explanation</term>
+                            </cell>
+                        </row>
+                    
+                    
+                        <row>
+                            <cell>
+                                <c>union</c>
+                            </cell>
+                            <cell>
+                                <c>set_union()</c>
+                            </cell>
+                            <cell>
+                                Returns a new set with all elements from both sets
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>intersection</c>
+                            </cell>
+                            <cell>
+                                <c>set_intersection()</c>
+                            </cell>
+                            <cell>
+                                Returns a new set with only those elements common to both sets
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>difference</c>
+                            </cell>
+                            <cell>
+                                <c>set_difference()</c>
+                            </cell>
+                            <cell>
+                                Returns a new set with all items from first set not in second
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>add</c>
+                            </cell>
+                            <cell>
+                                <c>aset.insert(item)</c>
+                            </cell>
+                            <cell>
+                                Adds item to the set
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>remove</c>
+                            </cell>
+                            <cell>
+                                <c>aset.erase(item)</c>
+                            </cell>
+                            <cell>
+                                Removes item from the set
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                <c>clear</c>
+                            </cell>
+                            <cell>
+                                <c>aset.clear()</c>
+                            </cell>
+                            <cell>
+                                Removes all elements from the set
+                            </cell>
+                        </row>
+                    
+                
+            </tabular></table>
+            <p>The code below is an example of a program that can detect if a specific char is in an unordered set.</p>
+
+    <program xml:id="UnorderedSetExample" interactive="activecode" language="cpp">
+        <input>
+//code detects if a specific char is in an unordered set.
+#include &lt;iostream&gt;
+#include &lt;unordered_set&gt;
+using namespace std;
+
+void checker(unordered_set&lt;char&gt; set, char letter){
+    if(set.find(letter) == set.end()){
+        cout &lt;&lt; "letter " &lt;&lt; letter &lt;&lt; " is not in the set." &lt;&lt; endl;
+    }
+    else{
+        cout &lt;&lt; "letter " &lt;&lt; letter &lt;&lt; " is in the set." &lt;&lt; endl;
+    }
+}
+
+int main(){
+    unordered_set&lt;char&gt; charSet = {'d', 'c', 'b', 'a'};
+
+    char letter = 'e';
+    checker(charSet, letter);
+    charSet.insert('e');
+    checker(charSet, letter);
+    return 0;
+}
+        </input>
+    </program>
+            <p>the <c>find</c> method used for a conditional in <c>Checker</c> compares each item in the set
+                with the given parameter until there is a match. the <c>set.find(letter) == set.end()</c>
+                section means that if <c>find</c> cannot find the letter before reaching the end of the
+                set, then <c>letter</c> is not contained in the set.</p>
+            <subsubsection xml:id="introduction_id3">
+                <title>Matching</title>
+
+<exercise label="matching_us">
+    <statement><p> Match the Unordered Sets operations with their corresponding explination.</p></statement>
+    <feedback><p>Feedback shows incorrect matches.</p></feedback>
+<matches><match order="1"><premise>union</premise><response>Returns a new set with all elements from both sets.</response></match><match order="2"><premise>intersection</premise><response>Returns a new set with only those elements common to both sets.</response></match><match order="3"><premise>difference</premise><response> Returns a new set with all items from first set not in second.</response></match><match order="4"><premise>add</premise><response>Adds item to the set.</response></match><match order="5"><premise>remove</premise><response>erases item from the set.</response></match><match order="6"><premise>clear</premise><response>Removes all elements from the set.</response></match></matches></exercise>
+    <exercise label="mc_fixed">
+        <statement>
+
+                <p>Q-29: Which C++ structure is the best choice for a group of ordered data of a fixed length?</p>
+
+        </statement>
+<choices>
+
+            <choice correct="yes">
+                <statement>
+                    <p>array</p>
+                </statement>
+                <feedback>
+                    <p>Correct!</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>hash table</p>
+                </statement>
+                <feedback>
+                    <p>No. hash tables are not ordered.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>string</p>
+                </statement>
+                <feedback>
+                    <p>A string would only work for character data. Try again.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>vector</p>
+                </statement>
+                <feedback>
+                    <p>There is a better choice given that the group is fixed length</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>more than one of the above</p>
+                </statement>
+                <feedback>
+                    <p>Only of the above is best.</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+
+<exercise label="collect_data_types">
+    <statement><p>Drag each data type to its' corresponding C++ initialization syntax.</p></statement>
+    <feedback><p>Feedback shows incorrect matches.</p></feedback>
+<matches><match order="1"><premise>Array</premise><response>{<q>What</q>, <q>am</q>, <q>I</q>, "am"}</response></match><match order="2"><premise>Set</premise><response>{<q>What</q>, <q>am</q>, <q>I</q>}</response></match><match order="3"><premise>String</premise><response><q>What am I</q></response></match><match order="4"><premise>Hash Table</premise><response>{ {<q>What</q>, <q>am I</q>} }</response></match></matches></exercise>            </subsubsection>
+        </subsection>
+    </section>
+

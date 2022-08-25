@@ -1,0 +1,17 @@
+<section xml:id="linear-linked_summary">
+        <title>Summary</title>
+        <p><ul>
+            <li>
+                <p>Linked lists or sometimes lists are collections of items where each item holds a relative
+                    position.</p>
+            </li>
+            <li>
+                <p>A linked list implementation maintains logical order without
+                    requiring contiguous physical storage requirements.</p>
+            </li>
+            <li>
+                <p>Modification to the head of the linked list is a special case.</p>
+            </li>
+        </ul></p>
+    </section>
+

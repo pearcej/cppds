@@ -1,0 +1,102 @@
+<section xml:id="linear-linked_the-ordered-list-abstract-data-type">
+        <title>The Ordered List Abstract Data Type</title>
+        <p>We will now consider a type of list known as an <term>ordered list</term>. For
+            example, if the list of integers shown above were an ordered list
+            (ascending order), then it could be written as 17, 26, 31, 54, 77, and
+            93. Since 17 is the smallest item, it occupies the first position in the
+            list. Likewise, since 93 is the largest, it occupies the last position.</p>
+        <p>The structure of an ordered list is a collection of items where each
+            item holds a relative position that is based upon some underlying
+            characteristic of the item. The ordering is typically either ascending
+            or descending and we assume that list items have a meaningful comparison
+            operation that is already defined. Many of the ordered list operations
+            are the same as those of the unordered list.</p>
+        <p><ul>
+            <li>
+                <p><c>OrderedList()</c> creates a new ordered list that is empty. It needs
+                    no parameters and returns an empty list.</p>
+            </li>
+            <li>
+                <p><c>add(item)</c> adds a new item to the list making sure that the order
+                    is preserved. It needs the item and returns nothing. Assume the item
+                    is not already in the list.</p>
+            </li>
+            <li>
+                <p><c>remove(item)</c> removes the item from the list. It needs the item
+                    and modifies the list. Assume the item is present in the list.</p>
+            </li>
+            <li>
+                <p><c>search(item)</c> searches for the item in the list. It needs the item
+                    and returns a boolean value.</p>
+            </li>
+            <li>
+                <p><c>isEmpty()</c> tests to see whether the list is empty. It needs no
+                    parameters and returns a boolean value.</p>
+            </li>
+            <li>
+                <p><c>size()</c> returns the number of items in the list. It needs no
+                    parameters and returns an integer.</p>
+            </li>
+            <li>
+                <p><c>index(item)</c> returns the position of item in the list. It needs
+                    the item and returns the index. Assume the item is in the list.</p>
+            </li>
+            <li>
+                <p><c>pop()</c> removes and returns the last item in the list. It needs
+                    nothing and returns an item. Assume the list has at least one item.</p>
+            </li>
+            <li>
+                <p><c>pop(pos)</c> removes and returns the item at position pos. It needs
+                    the position and returns the item. Assume the item is in the list.</p>
+            </li>
+        </ul></p>
+        <subsection xml:id="linear-linked_forward-lists">
+            <title>Forward lists</title>
+            <p><term>Forward lists</term> are sequence containers in the STL that allow you to do constant time insert and delete operations.</p>
+            <p>These containers are implemented as ordered singly-linked lists. Singly linked
+                lists are able to store each list element in different storage locations as opposed
+                to regular arrays which each element has to be stored next to each other. Each
+                element holds a link to the next element in the sequence as well as the value.</p>
+            <p>Because of the unique property of forward lists that allows them to insert and
+                delete elements at any position in the list in constant time, they perform better
+                than other sequence containers like arrays and vectors when it comes to algorithms
+                that use a lot of insertion, like sorting algorithms.</p>
+            <p>Unlike sequence containers like arrays and vectors where each element in the
+                list is right next to each other, forward lists use links that connect one element
+                to another. For this reason you cannot directly access an element in a forward
+                list without iterating through each element that comes before that element.</p>
+            <p><ul>
+                <li>
+                    <p><c>forward_list&lt;datatype&gt;</c> creates a new forward list that is empty.</p>
+                </li>
+                <li>
+                    <p><c>emplace_front()</c> Constructs and inserts an element at beginning of the forward list, right before its current first element.</p>
+                </li>
+                <li>
+                    <p><c>push_front()</c> Inserts an element at the beginning of the forward list, right before the current first element.</p>
+                </li>
+                <li>
+                    <p><c>pop_front()</c> removes the first element in the forward list container.</p>
+                </li>
+                <li>
+                    <p><c>emplace_after()</c> Constructs and inserts a new element after the element at a position.</p>
+                </li>
+                <li>
+                    <p><c>insert_after()</c> Inserts a new element after the element at a position.</p>
+                </li>
+                <li>
+                    <p><c>erase_after()</c> Removes elements from a forward list container at a position or a range of positions.</p>
+                </li>
+                <li>
+                    <p><c>clear()</c> Removes all elements from the forward list container.</p>
+                </li>
+            </ul></p>
+            <p>Click here for more information about STL <url href="http://www.cplusplus.com/reference/forward_list/forward_list/" visual="http://www.cplusplus.com/reference/forward_list/forward_list/">forward_lists</url>.</p>
+        </subsection>
+        <subsection xml:id="linear-linked_lists">
+            <title>Lists</title>
+            <p>The STL also has a <term>list</term> container which is different from the forward list container in that while a forward list holds a link to the next element in the sequence, a list holds a link to the previous element and the next element. Lists are implemented as doubly-linked-lists. This allows the list to have efficient iteration in both directions. However because of the additional storage space required to store the link to the previous element and the time it takes to insert and remove an element, a forward list is more efficient than a list.</p>
+            <p>Click here for more information about STL <url href="http://www.cplusplus.com/reference/list/list/" visual="http://www.cplusplus.com/reference/list/list/">lists</url>.</p>
+        </subsection>
+    </section>
+

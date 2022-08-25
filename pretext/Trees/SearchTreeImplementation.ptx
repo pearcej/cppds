@@ -1,0 +1,1207 @@
+<section xml:id="trees_search-tree-implementation">
+        <title>Search Tree Implementation</title>
+        <p>A binary search tree relies on the property that
+            keys that are less than the parent are found in the left subtree, and
+            keys that are greater than the parent are found in the right subtree. We
+            will call this the <term>bst property</term>. As we implement the Map interface
+            as described above, the bst property will guide our implementation.
+            <xref ref="fig-simplebst"/> illustrates this property of a binary search
+            tree, showing the keys without any associated values. Notice that the
+            property holds for each parent and child. All of the keys in the left
+            subtree are less than the key in the root. All of the keys in the right
+            subtree are greater than the root.</p>
+        
+        <figure align="center" xml:id="fig-simplebst"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 1: A Simple Binary Search Tree</caption><image source="Trees/Figures/simpleBST.png" width="50%"/></figure>
+        <p>Now that you know what a binary search tree is, we will look at how a
+            binary search tree is constructed. The search tree in
+            <xref ref="fig-simplebst"/> represents the nodes that exist after we have
+            inserted the following keys in the order shown:
+            <math>70,31,93,94,14,23,73</math>. Since 70 was the first key inserted into
+            the tree, it is the root. Next, 31 is less than 70, so it becomes the
+            left child of 70. Next, 93 is greater than 70, so it becomes the right
+            child of 70. Now we have two levels of the tree filled, so the next key
+            is going to be the left or right child of either 31 or 93. Since 94 is
+            greater than 70 and 93, it becomes the right child of 93. Similarly 14
+            is less than 70 and 31, so it becomes the left child of 31. 23 is also
+            less than 31, so it must be in the left subtree of 31. However, it is
+            greater than 14, so it becomes the right child of 14.</p>
+        <p>To implement the binary search tree, we will use the nodes and
+            references approach similar to the one we used to implement the linked
+            list, and the expression tree. However, because we must be able to create
+            and work with a binary search tree that is empty, our implementation
+            will use two classes. The first class we will call <c>BinarySearchTree</c>,
+            and the second class we will call <c>TreeNode</c>. The <c>BinarySearchTree</c>
+            class has a reference to the <c>TreeNode</c> that is the root of the binary
+            search tree. In most cases the external methods defined in the outer
+            class simply check to see if the tree is empty. If there are nodes in
+            the tree, the request is just passed on to a private method defined in
+            the <c>BinarySearchTree</c> class that takes the root as a parameter. In
+            the case where the tree is empty or we want to delete the key at the
+            root of the tree, we must take special action. The code for the
+            <c>BinarySearchTree</c> class constructor along with a few other
+            miscellaneous functions is shown in <xref ref="lst-bst1"/>.</p>
+
+    <exercise label="question1_2">
+        <statement>
+
+        <p>Q-1: How many children can a node have in a binary search tree?</p>
+
+        </statement>
+<choices>
+
+            <choice>
+                <statement>
+                    <p>At least 4</p>
+                </statement>
+                <feedback>
+                    <p>Incorrect. Refer back to the definition of a binary search tree.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>At most 3</p>
+                </statement>
+                <feedback>
+                    <p>Incorrect.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>At least 1</p>
+                </statement>
+                <feedback>
+                    <p>Incorrect, it has a limit.</p>
+                </feedback>
+            </choice>
+
+            <choice correct="yes">
+                <statement>
+                    <p>At most 2</p>
+                </statement>
+                <feedback>
+                    <p>Correct!</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+        
+        <p xml:id="trees_lst-bst1" names="lst_bst1"><term>Listing 1</term></p>
+        <pre>class BinarySearchTree{
+    private:
+        TreeNode *root;
+        int size;
+
+    public:
+        BinarySearchTree(){
+            this-&gt;root = NULL;
+            this-&gt;size = 0;
+        }
+
+        int length(){
+            return this-&gt;size;
+        }
+}</pre>
+        <p>The <c>TreeNode</c> class provides many helper functions that make the work
+            done in the <c>BinarySearchTree</c> class methods much easier. The
+            constructor for a <c>TreeNode</c>, along with these helper functions, is
+            shown in <xref ref="lst-bst2"/>. As you can see in the listing many of
+            these helper functions help to classify a node according to its own
+            position as a child, (left or right) and the kind of children the node
+            has.
+            The <c>TreeNode</c> class will also explicitly keep track
+            of the parent as an attribute of each node. You will see why this is
+            important when we discuss the implementation for the <c>del</c> operator.</p>
+        <p>Another interesting aspect of the implementation of <c>TreeNode</c> in
+            <xref ref="lst-bst2"/> is that we use C++'s optional parameters.
+            Optional parameters make it easy for us to create a <c>TreeNode</c> under
+            several different circumstances. Sometimes we will want to construct a
+            new <c>TreeNode</c> that already has both a <c>parent</c> and a <c>child</c>.
+            With an existing parent and child, we can pass parent and child as
+            parameters. At other times we will just create a <c>TreeNode</c> with the
+            key value pair, and we will not pass any parameters for <c>parent</c> or
+            <c>child</c>. In this case, the default values of the optional parameters
+            are used.</p>
+        
+        <p xml:id="trees_lst-bst2" names="lst_bst2"><term>Listing 2</term></p>
+        <pre>class TreeNode{
+    public:
+        int key;
+        string payload;
+        TreeNode *leftChild;
+        TreeNode *rightChild;
+        TreeNode *parent;
+
+        TreeNode(int key, string val, TreeNode *parent = NULL, TreeNode *left = NULL, TreeNode *right = NULL){
+            this-&gt;key = key;
+            this-&gt;payload = val;
+            this-&gt;leftChild = left;
+            this-&gt;rightChild = right;
+            this-&gt;parent = parent;
+        }
+
+        TreeNode *hasLeftChild(){
+            return this-&gt;leftChild;
+        }
+
+        TreeNode *hasRightChild(){
+            return this-&gt;rightChild;
+        }
+
+        bool isLeftChild(){
+            return this-&gt;parent &amp;&amp; this-&gt;parent-&gt;leftChild == this;
+        }
+
+        bool isRightChild(){
+            return this-&gt;parent &amp;&amp; this-&gt;parent-&gt;rightChild == this;
+        }
+
+        bool isRoot(){
+            return !this-&gt;parent;
+        }
+
+        bool isLeaf(){
+            return !(this-&gt;rightChild || this-&gt;leftChild);
+        }
+
+        bool hasAnyChildren(){
+            return this-&gt;rightChild || this-&gt;leftChild;
+        }
+
+        bool hasBothChildren(){
+            return this-&gt;rightChild &amp;&amp; this-&gt;leftChild;
+        }
+
+        void replaceNodeData(int key, string value, TreeNode *lc = NULL, TreeNode *rc = NULL){
+            this-&gt;key = key;
+            this-&gt;payload = value;
+            this-&gt;leftChild = lc;
+            this-&gt;rightChild = rc;
+            if (this-&gt;hasLeftChild()){
+                this-&gt;leftChild-&gt;parent = this;
+            }
+            if (this-&gt;hasRightChild()){
+                this-&gt;rightChild-&gt;parent = this;
+            }
+        }
+    }</pre>
+        <p>Now that we have the <c>BinarySearchTree</c> shell and the <c>TreeNode</c> it
+            is time to write the <c>put</c> method that will allow us to build our
+            binary search tree. The <c>put</c> method is a method of the
+            <c>BinarySearchTree</c> class. This method will check to see if the tree
+            already has a root. If there is not a root then <c>put</c> will create a
+            new <c>TreeNode</c> and install it as the root of the tree. If a root node
+            is already in place then <c>put</c> calls the private, recursive, helper
+            function <c>_put</c> to search the tree according to the following
+            algorithm:</p>
+        <p><ul>
+            <li>
+                <p>Starting at the root of the tree, search the binary tree comparing
+                    the new key to the key in the current node. If the new key is less
+                    than the current node, search the left subtree. If the new key is
+                    greater than the current node, search the right subtree.</p>
+            </li>
+            <li>
+                <p>When there is no left (or right) child to search, we have found the
+                    position in the tree where the new node should be installed.</p>
+            </li>
+            <li>
+                <p>To add a node to the tree, create a new <c>TreeNode</c> object and
+                    insert the object at the point discovered in the previous step.</p>
+            </li>
+        </ul></p>
+        <p><xref ref="lst-bst3"/> shows the C++ code for inserting a new node in
+            the tree. The <c>_put</c> function is written recursively following the
+            steps outlined above. Notice that when a new child is inserted into the
+            tree, the <c>currentNode</c> is passed to the new tree as the parent.</p>
+        <p>One important problem with our implementation of insert is that
+            duplicate keys are not handled properly. As our tree is implemented a
+            duplicate key will create a new node with the same key value in the
+            right subtree of the node having the original key. The result of this is
+            that the node with the new key will never be found during a search. A
+            better way to handle the insertion of a duplicate key is for the value
+            associated with the new key to replace the old value. We leave fixing
+            this bug as an exercise for you.</p>
+        
+        <p xml:id="trees_lst-bst3" names="lst_bst3"><term>Listing 3</term></p>
+        <pre>void put(int key, string val){
+    if (this-&gt;root){
+        this-&gt;_put(key, val, this-&gt;root);
+    }
+    else{
+        this-&gt;root = new TreeNode(key, val);
+    }
+    this-&gt;size = this-&gt;size + 1;
+}
+
+void _put(int key, string val, TreeNode *currentNode){
+    if (key &lt; currentNode-&gt;key){
+        if (currentNode-&gt;hasLeftChild()){
+            this-&gt;_put(key, val, currentNode-&gt;leftChild);
+        }
+        else{
+            currentNode-&gt;leftChild = new TreeNode(key, val, currentNode);
+        }
+    }
+    else{
+        if (currentNode-&gt;hasRightChild()){
+            this-&gt;_put(key, val, currentNode-&gt;rightChild);
+        }
+        else{
+            currentNode-&gt;rightChild = new TreeNode(key, val, currentNode);
+        }
+    }
+}</pre>
+        <p><xref ref="fig-bstput"/> illustrates the process for inserting a new node
+            into a binary search tree. The lightly shaded nodes indicate the nodes
+            that were visited during the insertion process.</p>
+        
+        <figure align="center" xml:id="fig-bstput"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 2: Inserting a Node with Key = 19</caption><image source="Trees/Figures/bstput.png" width="50%"/></figure>
+        <note>
+            <title>Self Check</title>
+
+    <exercise label="bst_1">
+        <statement>
+
+            <p>Q-2: Which of the trees shows a correct binary search tree given that the keys were
+                inserted in the following order 5, 30, 2, 40, 25, 4.</p>
+
+        </statement>
+<choices>
+
+            <choice>
+                <statement>
+                    <p><image source="../_static/bintree_a.png" width="50%"><description><p/></description></image></p>
+                </statement>
+                <feedback>
+                    <p>Remember, starting at the root keys less than the root must be in the left subtree, while keys greater than the root go in the right subtree.</p>
+                </feedback>
+            </choice>
+
+            <choice correct="yes">
+                <statement>
+                    <p><image source="../_static/bintree_b.png" width="50%"><description><p/></description></image></p>
+                </statement>
+                <feedback>
+                    <p>good job.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p><image source="../_static/bintree_c.png" width="50%"><description><p/></description></image></p>
+                </statement>
+                <feedback>
+                    <p>This looks like a binary tree that satisfies the full tree property needed for a heap.</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+        </note>
+        <p>Once the tree is constructed, the next task is to implement the
+            retrieval of a value for a given key. The <c>get</c> method is even easier
+            than the <c>put</c> method because it simply searches the tree recursively
+            until it gets to a non-matching leaf node or finds a matching key. When
+            a matching key is found, the value stored in the payload of the node is
+            returned.</p>
+        <p><xref ref="lst-bst4"/> shows the code for <c>get</c>  and <c>_get</c>. The search code in the <c>_get</c> method uses the same
+            logic for choosing the left or right child as the <c>_put</c> method. Notice
+            that the <c>_get</c> method returns a <c>TreeNode</c> to <c>get</c>, this allows
+            <c>_get</c> to be used as a flexible helper method for other
+            <c>BinarySearchTree</c> methods that may need to make use of other data
+            from the <c>TreeNode</c> besides the payload.</p>
+        
+        <p xml:id="trees_lst-bst4" names="lst_bst4"><term>Listing 4</term></p>
+        <pre>string get(int key){
+    if (this-&gt;root){
+        TreeNode *res = this-&gt;_get(key, this-&gt;root);
+        if (res){
+            return res-&gt;payload;
+        }
+        else{
+            return 0;
+        }
+    }
+    else{
+        return 0;
+    }
+}
+
+TreeNode  *_get(int key, TreeNode *currentNode){
+    if (!currentNode){
+        return NULL;
+    }
+    else if (currentNode-&gt;key == key){
+        return currentNode;
+    }
+    else if (key &lt; currentNode-&gt;key){
+        return this-&gt;_get(key, currentNode-&gt;leftChild);
+    }
+    else{
+        return this-&gt;_get(key, currentNode-&gt;rightChild);
+    }
+}</pre>
+        <p>Finally, we turn our attention to the most challenging method in the
+            binary search tree, the deletion of a key (see <xref ref="lst-bst5"/>). The first task is to find the
+            node to delete by searching the tree. If the tree has more than one node
+            we search using the <c>_get</c> method to find the <c>TreeNode</c> that needs
+            to be removed. If the tree only has a single node, that means we are
+            removing the root of the tree, but we still must check to make sure the
+            key of the root matches the key that is to be deleted. In either case if
+            the key is not found the <c>del</c> operator raises an error.</p>
+        
+        <p xml:id="trees_lst-bst5" names="lst_bst5"><term>Listing 5</term></p>
+        <pre>void del(int key){
+    if (this-&gt;size &gt; 1){
+        TreeNode *nodeToRemove = this-&gt;_get(key, this-&gt;root);
+        if (nodeToRemove){
+            this-&gt;remove(nodeToRemove);
+            this-&gt;size = this-&gt;size - 1;
+        }
+        else{
+            cerr &lt;&lt; "Error, key not in tree" &lt;&lt; endl;
+        }
+    }
+    else if (this-&gt;size == 1 &amp;&amp; this-&gt;root-&gt;key == key){
+        this-&gt;root = NULL;
+        this-&gt;size = this-&gt;size - 1;
+    }
+    else{
+        cerr &lt;&lt; "Error, key not in tree" &lt;&lt; endl;
+    }
+}</pre>
+        <p>Once we've found the node containing the key we want to delete, there
+            are three cases that we must consider:</p>
+        <p><ol label="1">
+            <li>
+                <p>The node to be deleted has no children (see <xref ref="fig-bstdel1"/>).</p>
+            </li>
+            <li>
+                <p>The node to be deleted has only one child (see <xref ref="fig-bstdel2"/>).</p>
+            </li>
+            <li>
+                <p>The node to be deleted has two children (see <xref ref="fig-bstdel3"/>).</p>
+            </li>
+        </ol></p>
+        <p>The first case is straightforward (see <xref ref="lst-bst6"/>). If the current node has no children
+            all we need to do is delete the node and remove the reference to this
+            node in the parent. The code for this case is shown in here.</p>
+        
+        <p xml:id="trees_lst-bst6" names="lst_bst6"><term>Listing 6</term></p>
+        <pre>if (currentNode-&gt;isLeaf()){ //leaf
+    if (currentNode == currentNode-&gt;parent-&gt;leftChild){
+        currentNode-&gt;parent-&gt;leftChild = NULL;
+    }
+    else{
+        currentNode-&gt;parent-&gt;rightChild = NULL;
+    }
+}</pre>
+        
+        <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 3: Deleting Node 16, a Node without Children</caption><image source="Trees/Figures/bstdel1.png" width="50%"/></figure>
+        <p>The second case is only slightly more complicated (see <xref ref="lst-bst7"/>). If a node has only a
+            single child, then we can simply promote the child to take the place of
+            its parent. The code for this case is shown in the next listing. As
+            you look at this code you will see that there are six cases to consider.
+            Since the cases are symmetric with respect to either having a left or
+            right child we will just discuss the case where the current node has a
+            left child. The decision proceeds as follows:</p>
+        <p><ol label="1">
+            <li>
+                <p>If the current node is a left child then we only need to update the
+                    parent reference of the left child to point to the parent of the
+                    current node, and then update the left child reference of the parent
+                    to point to the current node's left child.</p>
+            </li>
+            <li>
+                <p>If the current node is a right child then we only need to update the
+                    parent reference of the left child to point to the parent of the
+                    current node, and then update the right child reference of the parent
+                    to point to the current node's left child.</p>
+            </li>
+            <li>
+                <p>If the current node has no parent, it must be the root. In this case
+                    we will just replace the <c>key</c>, <c>payload</c>, <c>leftChild</c>, and
+                    <c>rightChild</c> data by calling the <c>replaceNodeData</c> method on the
+                    root.</p>
+            </li>
+        </ol></p>
+        
+        <p xml:id="trees_lst-bst7" names="lst_bst7"><term>Listing 7</term></p>
+        <pre>else{ // this node has one child
+    if (currentNode-&gt;hasLeftChild()){
+        if (currentNode-&gt;isLeftChild()){
+            currentNode-&gt;leftChild-&gt;parent = currentNode-&gt;parent;
+            currentNode-&gt;parent-&gt;leftChild = currentNode-&gt;leftChild;
+        }
+        else if (currentNode-&gt;isRightChild()){
+            currentNode-&gt;leftChild-&gt;parent = currentNode-&gt;parent;
+            currentNode-&gt;parent-&gt;rightChild = currentNode-&gt;leftChild;
+        }
+        else{
+            currentNode-&gt;replaceNodeData(currentNode-&gt;leftChild-&gt;key,
+                                         currentNode-&gt;leftChild-&gt;payload,
+                                         currentNode-&gt;leftChild-&gt;leftChild,
+                                         currentNode-&gt;leftChild-&gt;rightChild);
+
+        }
+    }
+    else{
+        if (currentNode-&gt;isLeftChild()){
+            currentNode-&gt;rightChild-&gt;parent = currentNode-&gt;parent;
+            currentNode-&gt;parent-&gt;leftChild = currentNode-&gt;rightChild;
+        }
+        else if (currentNode-&gt;isRightChild()){
+            currentNode-&gt;rightChild-&gt;parent = currentNode-&gt;parent;
+            currentNode-&gt;parent-&gt;rightChild = currentNode-&gt;rightChild;
+        }
+        else{
+            currentNode-&gt;replaceNodeData(currentNode-&gt;rightChild-&gt;key,
+                                         currentNode-&gt;rightChild-&gt;payload,
+                                         currentNode-&gt;rightChild-&gt;leftChild,
+                                         currentNode-&gt;rightChild-&gt;rightChild);
+        }
+    }
+}</pre>
+        
+        <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: Deleting Node 25, a Node That Has a Single Child</caption><image source="Trees/Figures/bstdel2.png" width="50%"/></figure>
+        <p>The third case is the most difficult case to handle (see <xref ref="lst-bst7"/>). If a node has two
+            children, then it is unlikely that we can simply promote one of them to
+            take the node's place. We can, however, search the tree for a node that
+            can be used to replace the one scheduled for deletion. What we need is a
+            node that will preserve the binary search tree relationships for both of
+            the existing left and right subtrees. The node that will do this is the
+            node that has the next-largest key in the tree. We call this node the
+            <term>successor</term>, and we will look at a way to find the successor shortly.
+            The successor is guaranteed to have no more than one child, so we know
+            how to remove it using the two cases for deletion that we have already
+            implemented. Once the successor has been removed, we simply put it in
+            the tree in place of the node to be deleted.</p>
+        
+        <figure align="center" xml:id="id5"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 5: Deleting Node 5, a Node with Two Children</caption><image source="Trees/Figures/bstdel3.png" width="50%"/></figure>
+        <p>The code to handle the third case is shown in the next listing.
+            Notice that we make use of the helper methods <c>findSuccessor</c> and
+            <c>findMin</c> to find the successor. To remove the successor, we make use
+            of the method <c>spliceOut</c>. The reason we use <c>spliceOut</c> is that it
+            goes directly to the node we want to splice out and makes the right
+            changes. We could call <c>delete</c> recursively, but then we would waste
+            time re-searching for the key node.</p>
+        
+        <p xml:id="trees_lst-bst8" names="lst_bst8"><term>Listing 8</term></p>
+        <pre>else if (currentNode-&gt;hasBothChildren()){ //interior
+    TreeNode *succ = currentNode-&gt;findSuccessor();
+    succ-&gt;spliceOut();
+    currentNode-&gt;key = succ-&gt;key;
+    currentNode-&gt;payload = succ-&gt;payload;
+}</pre>
+        <p>The code to find the successor is shown below (see <xref ref="lst-bst9"/>) and as
+            you can see is a method of the <c>TreeNode</c> class. This code makes use
+            of the same properties of binary search trees that cause an inorder
+            traversal to print out the nodes in the tree from smallest to largest.
+            There are three cases to consider when looking for the successor:</p>
+        <p><ol label="1">
+            <li>
+                <p>If the node has a right child, then the successor is the smallest key
+                    in the right subtree.</p>
+            </li>
+            <li>
+                <p>If the node has no right child and is the left child of its parent,
+                    then the parent is the successor.</p>
+            </li>
+            <li>
+                <p>If the node is the right child of its parent, and itself has no right
+                    child, then the successor to this node is the successor of its
+                    parent, excluding this node.</p>
+            </li>
+        </ol></p>
+        <p>The first condition is the only one that matters for us when deleting a
+            node from a binary search tree. However, the <c>findSuccessor</c> method
+            has other uses that we will explore in the exercises at the end of this
+            chapter.</p>
+        <p>The <c>findMin</c> method is called to find the minimum key in a subtree.
+            You should convince yourself that the minimum valued key in any binary
+            search tree is the leftmost child of the tree. Therefore the <c>findMin</c>
+            method simply follows the <c>leftChild</c> references in each node of the
+            subtree until it reaches a node that does not have a left child.</p>
+        
+        <p xml:id="trees_lst-bst9" names="lst_bst9"><term>Listing 9</term></p>
+        <pre>TreeNode *findSuccessor(){
+    TreeNode *succ = NULL;
+    if (this-&gt;hasRightChild()){
+        succ = this-&gt;rightChild-&gt;findMin();
+    }
+    else{
+        if (this-&gt;parent){
+            if (this-&gt;isLeftChild()){
+                succ = this-&gt;parent;
+            }
+            else{
+                this-&gt;parent-&gt;rightChild = NULL;
+                succ = this-&gt;parent-&gt;findSuccessor();
+                this-&gt;parent-&gt;rightChild = this;
+            }
+        }
+    }
+    return succ;
+}
+
+TreeNode *findMin(){
+    TreeNode *current = this;
+    while (current-&gt;hasLeftChild()){
+        current = current-&gt;leftChild;
+    }
+    return current;
+}
+
+void spliceOut(){
+    if (this-&gt;isLeaf()){
+        if (this-&gt;isLeftChild()){
+            this-&gt;parent-&gt;leftChild = NULL;
+        }
+        else{
+            this-&gt;parent-&gt;rightChild = NULL;
+        }
+    }
+    else if (this-&gt;hasAnyChildren()){
+        if (this-&gt;hasLeftChild()){
+            if (this-&gt;isLeftChild()){
+                this-&gt;parent-&gt;leftChild = this-&gt;leftChild;
+            }
+            else{
+                this-&gt;parent-&gt;rightChild = this-&gt;rightChild;
+            }
+            this-&gt;leftChild-&gt;parent = this-&gt;parent;
+        }
+        else{
+            if (this-&gt;isLeftChild()){
+                this-&gt;parent-&gt;leftChild = this-&gt;rightChild;
+            }
+            else{
+                this-&gt;parent-&gt;rightChild = this-&gt;rightChild;
+            }
+            this-&gt;rightChild-&gt;parent = this-&gt;parent;
+        }
+    }
+}</pre>
+        <p>We need to look at one last interface method for the binary search tree.
+            Suppose that we would like to simply iterate over all the keys in the
+            tree in order. This is definitely something we have done with
+            dictionaries, so why not trees? You already know how to traverse a
+            binary tree in order, using the <c>inorder</c> traversal algorithm.
+            However, writing an iterator requires a bit more work, since an iterator
+            should return only one node each time the iterator is called.</p>
+        <p>Python provides us with a very powerful function to use when creating an
+            iterator. The function is called <c>yield</c>. <c>yield</c> is similar to
+            <c>return</c> in that it returns a value to the caller. However, <c>yield</c>
+            also takes the additional step of freezing the state of the function so
+            that the next time the function is called it continues executing from
+            the exact point it left off earlier. Functions that create objects that
+            can be iterated are called generator functions.</p>
+        <p>The code for an <c>inorder</c> iterator of a binary tree is shown in the next
+            listing. Look at this code carefully; at first glance you
+            might think that the code is not recursive. However, remember that
+            <c>__iter__</c> overrides the <c>for x in</c> operation for iteration, so it
+            really is recursive! Because it is recursive over <c>TreeNode</c> instances
+            the <c>__iter__</c> method is defined in the <c>TreeNode</c> class.</p>
+        <pre>def __iter__(self):
+    if self:
+        if self.hasLeftChild():
+                for elem in self.leftChiLd:
+                    yield elem
+        yield self.key
+        if self.hasRightChild():
+                for elem in self.rightChild:
+                    yield elem</pre>
+        <p>At this point you may want to download the entire file containing the
+            full version of the <c>BinarySearchTree</c> and <c>TreeNode</c> classes.</p>
+        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'SearchTreeImplementation', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="completebstcodecpp" interactive="activecode" language="cpp">
+        <input>
+#include &lt;iostream&gt;
+#include &lt;cstdlib&gt;
+#include &lt;cstddef&gt;
+#include &lt;string&gt;
+using namespace std;
+
+//The TreeNode class represents a node, or vertex, in a tree heirarchy.
+class TreeNode{
+
+    public:
+        int key;
+        string payload;
+        TreeNode *leftChild;
+        TreeNode *rightChild;
+        TreeNode *parent;
+
+        // Using Optional parameters make it
+        // easy for us to create a TreeNode under several different circumstances.
+        TreeNode(int key, string val, TreeNode *parent = NULL, TreeNode *left = NULL, TreeNode *right = NULL){
+            this-&gt;key = key;
+            this-&gt;payload = val;
+            this-&gt;leftChild = left;
+            this-&gt;rightChild = right;
+            this-&gt;parent = parent;
+        }
+
+        // Returns a pointer to the left child of this node.
+        // If null, the child doesn't exist.
+        TreeNode *hasLeftChild(){
+            return this-&gt;leftChild;
+        }
+
+        //Returns a pointer to the right child of this node.
+        //If null, the child doesn't exist.
+        TreeNode *hasRightChild(){
+            return this-&gt;rightChild;
+        }
+
+        //Returns a boolean indicating if this node is the left child of its parent.
+        bool isLeftChild(){
+            return this-&gt;parent &amp;&amp; this-&gt;parent-&gt;leftChild == this;
+        }
+
+        //Returns a boolean indicating if this node is the right child of its parent.
+        bool isRightChild(){
+            return this-&gt;parent &amp;&amp; this-&gt;parent-&gt;rightChild == this;
+        }
+
+
+        //Returns a boolean indicating if this node is a root node (has no parent).
+        bool isRoot(){
+            return !this-&gt;parent;
+        }
+
+        //Returns a boolean indicating if this node has no children.
+        bool isLeaf(){
+            return !(this-&gt;rightChild || this-&gt;leftChild);
+        }
+
+        // Returns a boolean indicating if this node has children.
+        bool hasAnyChildren(){
+            return this-&gt;rightChild || this-&gt;leftChild;
+        }
+
+        //Returns a boolean indicating if this node has both children.
+        bool hasBothChildren(){
+            return this-&gt;rightChild &amp;&amp; this-&gt;leftChild;
+        }
+
+
+        //Removes this node from the tree it exists in,
+        //making it the root node of its own tree.
+        void spliceOut(){
+            if (this-&gt;isLeaf()){
+                if (this-&gt;isLeftChild()){
+                    this-&gt;parent-&gt;leftChild = NULL;
+                }
+                else{
+                    this-&gt;parent-&gt;rightChild = NULL;
+                }
+            }
+            else if (this-&gt;hasAnyChildren()){
+                if (this-&gt;hasLeftChild()){
+                    if (this-&gt;isLeftChild()){
+                        this-&gt;parent-&gt;leftChild = this-&gt;leftChild;
+                    }
+                    else{
+                        this-&gt;parent-&gt;rightChild = this-&gt;rightChild;
+                    }
+                    this-&gt;leftChild-&gt;parent = this-&gt;parent;
+                }
+                else{
+                    if (this-&gt;isLeftChild()){
+                        this-&gt;parent-&gt;leftChild = this-&gt;rightChild;
+                    }
+                    else{
+                        this-&gt;parent-&gt;rightChild = this-&gt;rightChild;
+                    }
+                    this-&gt;rightChild-&gt;parent = this-&gt;parent;
+                }
+            }
+        }
+
+        // Uses same properties of binary search tree
+        // that cause an inorder traversal to print out the
+        // nodes in the tree from smallest to largest.
+        TreeNode *findSuccessor(){
+            TreeNode *succ = NULL;
+            if (this-&gt;hasRightChild()){
+                succ = this-&gt;rightChild-&gt;findMin();
+            }
+            else{
+                if (this-&gt;parent){
+                    if (this-&gt;isLeftChild()){
+                        succ = this-&gt;parent;
+                    }
+                    else{
+                        this-&gt;parent-&gt;rightChild = NULL;
+                        succ = this-&gt;parent-&gt;findSuccessor();
+                        this-&gt;parent-&gt;rightChild = this;
+                    }
+                }
+            }
+            return succ;
+        }
+
+        //Finds the leftmost node out of all of this node's children.
+        TreeNode *findMin(){
+            TreeNode *current = this;
+            while (current-&gt;hasLeftChild()){
+                current = current-&gt;leftChild;
+            }
+            return current;
+        }
+
+        //Sets the variables of this node. lc/rc are left child and right child.
+        void replaceNodeData(int key, string value, TreeNode *lc = NULL, TreeNode *rc = NULL){
+            this-&gt;key = key;
+            this-&gt;payload = value;
+            this-&gt;leftChild = lc;
+            this-&gt;rightChild = rc;
+            if (this-&gt;hasLeftChild()){
+                this-&gt;leftChild-&gt;parent = this;
+            }
+
+            if (this-&gt;hasRightChild()){
+                this-&gt;rightChild-&gt;parent = this;
+            }
+        }
+};
+
+
+class BinarySearchTree{
+
+    // references the TreeNode
+    // that is the root of the binary search tree.
+    private:
+        TreeNode *root;
+        int size;
+
+        /*searches the binary tree comparing the new key to the key in the current node. If the new key is less than the current node, search the left subtree. If the new key is greater than the current node, search the right subtree.*/
+        /* When there is no left (or right) child to search, we have found the position in the tree where the new node should be installed.*/
+        /*To add a node to the tree, create a new TreeNode object and insert the object at the point discovered in the previous step.*/
+        // this is all done recursively
+        void _put(int key, string val, TreeNode *currentNode){
+            if (key &lt; currentNode-&gt;key){
+                if (currentNode-&gt;hasLeftChild()){
+                    this-&gt;_put(key, val, currentNode-&gt;leftChild);
+                }
+                else{
+                    currentNode-&gt;leftChild = new TreeNode(key, val, currentNode);
+                }
+            }
+            else{
+                if (currentNode-&gt;hasRightChild()){
+                    this-&gt;_put(key, val, currentNode-&gt;rightChild);
+                }
+                else{
+                    currentNode-&gt;rightChild = new TreeNode(key, val, currentNode);
+                }
+            }
+        }
+
+        // Uses the same search method as _put, and returns
+        // a TreeNode to get
+        TreeNode  *_get(int key, TreeNode *currentNode){
+            if (!currentNode){
+                return NULL;
+            }
+            else if (currentNode-&gt;key == key){
+                return currentNode;
+            }
+            else if (key &lt; currentNode-&gt;key){
+                return this-&gt;_get(key, currentNode-&gt;leftChild);
+            }
+            else{
+                return this-&gt;_get(key, currentNode-&gt;rightChild);
+            }
+        }
+
+    public:
+        BinarySearchTree(){
+            this-&gt;root = NULL;
+            this-&gt;size = 0;
+        }
+
+        int length(){
+            return this-&gt;size;
+        }
+
+        // Checks to see if the tree has a root,
+        // if there is not a root then it will create a new TreeNode
+        // and install it as the root of the tree.
+        // If a root node is already in place than it calls _put
+        // to search the tree
+        void put(int key, string val){
+            if (this-&gt;root){
+                this-&gt;_put(key, val, this-&gt;root);
+            }
+            else{
+                this-&gt;root = new TreeNode(key, val);
+            }
+            this-&gt;size = this-&gt;size + 1;
+        }
+
+        // prints string associated with key to console
+        string get(int key){
+            if (this-&gt;root){
+                TreeNode *res = this-&gt;_get(key, this-&gt;root);
+                if (res){
+                    return res-&gt;payload;
+                }
+                else{
+                    return 0;
+                }
+            }
+            else{
+                return 0;
+            }
+        }
+
+        // checks to make sure the key of the root matches the key that is to be deleted.
+        // In either case if the key is not found an error is raised.
+        // If the node is found and has no childeren it is deleted
+        // If the node has a single child, the child takes the place of the parent.
+        // Look at explination for listing 10
+        void del(int key){
+            if (this-&gt;size &gt; 1){
+                TreeNode *nodeToRemove = this-&gt;_get(key, this-&gt;root);
+                if (nodeToRemove){
+                    this-&gt;remove(nodeToRemove);
+                    this-&gt;size = this-&gt;size - 1;
+                }
+                else{
+                    cerr &lt;&lt; "Error, key not in tree" &lt;&lt; endl;
+                }
+            }
+            else if (this-&gt;size == 1 &amp;&amp; this-&gt;root-&gt;key == key){
+                this-&gt;root = NULL;
+                this-&gt;size = this-&gt;size - 1;
+            }
+            else{
+                cerr &lt;&lt; "Error, key not in tree" &lt;&lt; endl;
+            }
+        }
+
+        void remove(TreeNode *currentNode){
+            if (currentNode-&gt;isLeaf()){ //leaf
+                if (currentNode == currentNode-&gt;parent-&gt;leftChild){
+                    currentNode-&gt;parent-&gt;leftChild = NULL;
+                }
+                else{
+                    currentNode-&gt;parent-&gt;rightChild = NULL;
+                }
+            }
+            else if (currentNode-&gt;hasBothChildren()){ //interior
+                TreeNode *succ = currentNode-&gt;findSuccessor();
+                succ-&gt;spliceOut();
+                currentNode-&gt;key = succ-&gt;key;
+                currentNode-&gt;payload = succ-&gt;payload;
+            }
+            else{ // this node has one child
+                if (currentNode-&gt;hasLeftChild()){
+                    if (currentNode-&gt;isLeftChild()){
+                        currentNode-&gt;leftChild-&gt;parent = currentNode-&gt;parent;
+                        currentNode-&gt;parent-&gt;leftChild = currentNode-&gt;leftChild;
+                    }
+                    else if (currentNode-&gt;isRightChild()){
+                        currentNode-&gt;leftChild-&gt;parent = currentNode-&gt;parent;
+                        currentNode-&gt;parent-&gt;rightChild = currentNode-&gt;leftChild;
+                    }
+                    else{
+                        currentNode-&gt;replaceNodeData(currentNode-&gt;leftChild-&gt;key,
+                                                     currentNode-&gt;leftChild-&gt;payload,
+                                                     currentNode-&gt;leftChild-&gt;leftChild,
+                                                     currentNode-&gt;leftChild-&gt;rightChild);
+
+                    }
+                }
+                else{
+                    if (currentNode-&gt;isLeftChild()){
+                        currentNode-&gt;rightChild-&gt;parent = currentNode-&gt;parent;
+                        currentNode-&gt;parent-&gt;leftChild = currentNode-&gt;rightChild;
+                    }
+                    else if (currentNode-&gt;isRightChild()){
+                        currentNode-&gt;rightChild-&gt;parent = currentNode-&gt;parent;
+                        currentNode-&gt;parent-&gt;rightChild = currentNode-&gt;rightChild;
+                    }
+                    else{
+                        currentNode-&gt;replaceNodeData(currentNode-&gt;rightChild-&gt;key,
+                                                     currentNode-&gt;rightChild-&gt;payload,
+                                                     currentNode-&gt;rightChild-&gt;leftChild,
+                                                     currentNode-&gt;rightChild-&gt;rightChild);
+                    }
+                }
+            }
+        }
+};
+
+int main(){
+
+    BinarySearchTree *mytree = new BinarySearchTree();
+    mytree-&gt;put(3, "red");
+    mytree-&gt;put(4, "blue");
+    mytree-&gt;put(6, "yellow");
+    mytree-&gt;put(2, "at");
+
+    cout &lt;&lt; mytree-&gt;get(6) &lt;&lt; endl;
+    cout &lt;&lt; mytree-&gt;get(2) &lt;&lt; endl;
+
+    return 0;
+}
+        </input>
+    </program>
+            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'SearchTreeImplementation', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="completebstcodepy" interactive="activecode" language="python">
+        <input>
+#The TreeNode class represents a node, or vertex, in a tree heirarchy.
+class TreeNode:
+    def __init__(self,key,val,left=None,right=None,parent=None):
+        self.key = key
+        self.payload = val
+        self.leftChild = left
+        self.rightChild = right
+        self.parent = parent
+
+    """ Returns a pointer to the left child of this node.
+     If null, the child doesn't exist."""
+    def hasLeftChild(self):
+        return self.leftChild
+
+    """ Returns the right child, or None if it doesn't exist."""
+    def hasRightChild(self):
+        return self.rightChild
+
+    # Returns a boolean indicating if this node is the left child of its parent.
+    def isLeftChild(self):
+        return self.parent and self.parent.leftChild == self
+
+    # Returns a boolean indicating if this node is the right child of its parent.
+    def isRightChild(self):
+        return self.parent and self.parent.rightChild == self
+
+    # Returns a boolean indicating if this node is a root node (has no parents).
+    def isRoot(self):
+        return not self.parent
+
+    # Returns a boolean indicating if this node has no children.
+    def isLeaf(self):
+        return not (self.rightChild or self.leftChild)
+
+    # Returns a boolean indicating if this node has children.
+    def hasAnyChildren(self):
+        return self.rightChild or self.leftChild
+
+    # Returns a boolean indicating if this node has both childeren.
+    def hasBothChildren(self):
+        return self.rightChild and self.leftChild
+
+    """ Removes this node from the tree it exists in,
+    making it the root node of its own tree."""
+    def spliceOut(self):
+        if self.isLeaf():
+            if self.isLeftChild():
+                self.parent.leftChild = None
+            else:
+                self.parent.rightChild = None
+        elif self.hasAnyChildren():
+            if self.hasLeftChild():
+                if self.isLeftChild():
+                    self.parent.leftChild = self.leftChild
+                else:
+                    self.parent.rightChild = self.leftChild
+                self.leftChild.parent = self.parent
+            else:
+                if self.isLeftChild():
+                    self.parent.leftChild = self.rightChild
+                else:
+                    self.parent.rightChild = self.rightChild
+                self.rightChild.parent = self.parent
+
+    """ Uses same properties of binary search tree
+        that cause an inorder traversal to find
+        nodes in the tree from smallest to largest. """
+    def findSuccessor(self):
+        succ = None
+        if self.hasRightChild():
+            succ = self.rightChild.findMin()
+        else:
+            if self.parent:
+                   if self.isLeftChild():
+                       succ = self.parent
+                   else:
+                       self.parent.rightChild = None
+                       succ = self.parent.findSuccessor()
+                       self.parent.rightChild = self
+        return succ
+
+    #Finds the leftmost node out of all of this node's children.
+    def findMin(self):
+        current = self
+        while current.hasLeftChild():
+            current = current.leftChild
+        return current
+
+    # Sets the variables of this node. lc/rc are left child and right child.
+    def replaceNodeData(self,key,value,lc,rc):
+        self.key = key
+        self.payload = value
+        self.leftChild = lc
+        self.rightChild = rc
+        if self.hasLeftChild():
+            self.leftChild.parent = self
+        if self.hasRightChild():
+            self.rightChild.parent = self
+
+
+class BinarySearchTree:
+
+    # references the TreeNode
+    # that is the root of the binary search tree.
+    def __init__(self):
+        self.root = None
+        self.size = 0
+
+    def length(self):
+        return self.size
+
+    def __len__(self):
+        return self.size
+
+    """Checks to see if the tree has a root,
+    if there is not a root then it will create a new TreeNode
+    and install it as the root of the tree.
+    If a root node is already in place than it calls _put
+    to search the tree"""
+    def put(self,key,val):
+        if self.root:
+            self._put(key,val,self.root)
+        else:
+            self.root = TreeNode(key,val)
+        self.size = self.size + 1
+
+    """searches the binary tree comparing the new key to the key in the current node. If the new key is less than the current node, search the left subtree. If the new key is greater than the current node, search the right subtree.*\
+       When there is no left (or right) child to search, we have found the position in the tree where the new node should be installed.*\
+       To add a node to the tree, create a new TreeNode object and insert the object at the point discovered in the previous step.*\
+       this is all done recursively"""
+    def _put(self,key,val,currentNode):
+        if key &lt; currentNode.key:
+            if currentNode.hasLeftChild():
+                   self._put(key,val,currentNode.leftChild)
+            else:
+                   currentNode.leftChild = TreeNode(key,val,parent=currentNode)
+        else:
+            if currentNode.hasRightChild():
+                   self._put(key,val,currentNode.rightChild)
+            else:
+                   currentNode.rightChild = TreeNode(key,val,parent=currentNode)
+
+    # prints string associated with key to console
+    def get(self,key):
+       if self.root:
+           res = self._get(key,self.root)
+           if res:
+                  return res.payload
+           else:
+                  return None
+       else:
+           return None
+
+    # Uses the same search method as _put, and returns
+    # a TreeNode to get
+    def _get(self,key,currentNode):
+       if not currentNode:
+           return None
+       elif currentNode.key == key:
+           return currentNode
+       elif key &lt; currentNode.key:
+           return self._get(key,currentNode.leftChild)
+       else:
+           return self._get(key,currentNode.rightChild)
+
+    #def __contains__(self,key):
+     #  if self._get(key,self.root):
+      #    return True
+       #else:
+        #   return False
+
+    """ Checks to make sure the key of the root matches the key that is to be deleted.
+        In either case if the key is not found an error is raised.
+        If the node is found and has no childeren it is deleted
+        If the node has a single child, the child takes the place of the parent.
+        Look at explination for listing 10 """
+    def delete(self,key):
+      if self.size &gt; 1:
+         nodeToRemove = self._get(key,self.root)
+         if nodeToRemove:
+             self.remove(nodeToRemove)
+             self.size = self.size-1
+         else:
+             raise KeyError('Error, key not in tree')
+      elif self.size == 1 and self.root.key == key:
+         self.root = None
+         self.size = self.size - 1
+      else:
+         raise KeyError('Error, key not in tree')
+
+    # Removes the specified currentNode from this tree.
+    def remove(self,currentNode):
+         if currentNode.isLeaf(): #leaf
+           if currentNode == currentNode.parent.leftChild:
+               currentNode.parent.leftChild = None
+           else:
+               currentNode.parent.rightChild = None
+         elif currentNode.hasBothChildren(): #interior
+           succ = currentNode.findSuccessor()
+           succ.spliceOut()
+           currentNode.key = succ.key
+           currentNode.payload = succ.payload
+
+         else: # this node has one child
+           if currentNode.hasLeftChild():
+             if currentNode.isLeftChild():
+                 currentNode.leftChild.parent = currentNode.parent
+                 currentNode.parent.leftChild = currentNode.leftChild
+             elif currentNode.isRightChild():
+                 currentNode.leftChild.parent = currentNode.parent
+                 currentNode.parent.rightChild = currentNode.leftChild
+             else:
+                 currentNode.replaceNodeData(currentNode.leftChild.key,
+                                    currentNode.leftChild.payload,
+                                    currentNode.leftChild.leftChild,
+                                    currentNode.leftChild.rightChild)
+           else:
+             if currentNode.isLeftChild():
+                 currentNode.rightChild.parent = currentNode.parent
+                 currentNode.parent.leftChild = currentNode.rightChild
+             elif currentNode.isRightChild():
+                 currentNode.rightChild.parent = currentNode.parent
+                 currentNode.parent.rightChild = currentNode.rightChild
+             else:
+                 currentNode.replaceNodeData(currentNode.rightChild.key,
+                                    currentNode.rightChild.payload,
+                                    currentNode.rightChild.leftChild,
+                                    currentNode.rightChild.rightChild)
+
+
+def main():
+
+    mytree = BinarySearchTree()
+    mytree.put(3, "red")
+    mytree.put(4, "blue")
+    mytree.put(6, "yellow")
+    mytree.put(2, "at")
+
+    print(mytree.get(6))
+    print(mytree.get(2))
+
+main()
+        </input>
+    </program>
+            </TabNode></exercise>
+    </section>
+

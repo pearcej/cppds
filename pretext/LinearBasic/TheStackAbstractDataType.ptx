@@ -1,0 +1,225 @@
+<section xml:id="linear-basic_the-stack-abstract-data-type">
+        <title>The Stack Abstract Data Type</title>
+        <p>The stack abstract data type is defined by the following structure and
+            operations. A stack is structured, as described above, as an ordered
+            collection of items where items are added to and removed from the end
+            called the <q>top.</q> Stacks are ordered LIFO. The stack operations are
+            given below.</p>
+        <p><ul>
+            <li>
+                <p><c>stack&lt;datatype&gt;</c> creates a new stack that is empty. It needs no parameters
+                    and returns an empty stack. It can only contain a certain type of data. e.g. <title_reference>int</title_reference>, <title_reference>string</title_reference> etc.</p>
+            </li>
+            <li>
+                <p><c>push(item)</c> adds a new item to the top of the stack. It needs the
+                    item and returns nothing.</p>
+            </li>
+            <li>
+                <p><c>pop()</c> removes the top item from the stack. It needs no parameters
+                    and returns nothing. The stack is modified.</p>
+            </li>
+            <li>
+                <p><c>top()</c> returns the top item from the stack but does not remove
+                    it. It needs no parameters. The stack is not modified.</p>
+            </li>
+            <li>
+                <p><c>empty()</c> tests to see whether the stack is empty. It needs no
+                    parameters and returns a Boolean value.</p>
+            </li>
+            <li>
+                <p><c>size()</c> returns the number of items on the stack. It needs no
+                    parameters and returns an integer.</p>
+            </li>
+        </ul></p>
+        <p>For example, if <c>s</c> is a stack that has been created and starts out
+            empty, then <xref ref="linear-basic_tbl-stackops"/> shows the results of a sequence of
+            stack operations. Under stack contents, the top item is listed at the
+            far right.</p>
+        
+        <table xml:id="linear-basic_id1"><tabular>
+            <title><term>Table 1: Sample Stack Operations</term></title>
+            
+                
+                
+                
+                
+                    <row header="yes">
+                        <cell>
+                            <term>Stack Operation</term>
+                        </cell>
+                        <cell>
+                            <term>Stack Contents</term>
+                        </cell>
+                        <cell>
+                            <term>Return Value</term>
+                        </cell>
+                    </row>
+                
+                
+                    <row>
+                        <cell>
+                            <c>s.empty()</c>
+                        </cell>
+                        <cell>
+                            <c>[]</c>
+                        </cell>
+                        <cell>
+                            <c>1</c>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>s.push('horse')</c>
+                        </cell>
+                        <cell>
+                            <c>['horse']</c>
+                        </cell>
+                        <cell>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>s.push('dog')</c>
+                        </cell>
+                        <cell>
+                            <c>['horse','dog']</c>
+                        </cell>
+                        <cell>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>s.top()</c>
+                        </cell>
+                        <cell>
+                            <c>['horse','dog']</c>
+                        </cell>
+                        <cell>
+                            <c>'dog'</c>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>s.push('cat')</c>
+                        </cell>
+                        <cell>
+                            <c>['horse','dog','cat']</c>
+                        </cell>
+                        <cell>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>s.size()</c>
+                        </cell>
+                        <cell>
+                            <c>['horse','dog','cat']</c>
+                        </cell>
+                        <cell>
+                            <c>3</c>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>s.empty()</c>
+                        </cell>
+                        <cell>
+                            <c>['horse','dog','cat']</c>
+                        </cell>
+                        <cell>
+                            <c>0</c>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>s.push('turtle')</c>
+                        </cell>
+                        <cell>
+                            <c>['horse','dog','cat','turtle']</c>
+                        </cell>
+                        <cell>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>s.pop()</c>
+                        </cell>
+                        <cell>
+                            <c>['horse','dog','cat']</c>
+                        </cell>
+                        <cell>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>s.pop()</c>
+                        </cell>
+                        <cell>
+                            <c>['horse','dog']</c>
+                        </cell>
+                        <cell>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>s.size()</c>
+                        </cell>
+                        <cell>
+                            <c>['horse','dog']</c>
+                        </cell>
+                        <cell>
+                            <c>2</c>
+                        </cell>
+                    </row>
+                
+            
+        </tabular></table>
+
+    <exercise label="stack_datatypes">
+        <statement>
+
+        <p>Q-1: Which group of data would not make a valid Stack?</p>
+
+        </statement>
+<choices>
+
+            <choice>
+                <statement>
+                    <p>'s', 't', 'a', 'c', 'k', 's'</p>
+                </statement>
+                <feedback>
+                    <p>No, this is valid for a stack. Check the reading for what types of data a stack can have.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>"Stacks"</p>
+                </statement>
+                <feedback>
+                    <p>No, a stack can have only one item.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>115, 116, 97, 99, 107</p>
+                </statement>
+                <feedback>
+                    <p>No, this is valid for a stack similar to A. Check the reading.</p>
+                </feedback>
+            </choice>
+
+            <choice correct="yes">
+                <statement>
+                    <p>"St", 'a', "ck", 's'</p>
+                </statement>
+                <feedback>
+                    <p>Yes, stacks should have data of the same type.</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+    </section>
+

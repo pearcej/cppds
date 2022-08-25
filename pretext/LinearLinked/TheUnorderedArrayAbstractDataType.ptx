@@ -1,0 +1,27 @@
+<section xml:id="linear-linked_the-unordered-array-abstract-data-type">
+        <title>The Unordered Array Abstract Data Type</title>
+        <p>The structure of an unordered array, as described above, is a collection
+            of items where each item holds a relative position with respect to the
+            others. Some possible unordered array operations are given below.</p>
+        <p><ul>
+            <li>
+                <p><c>int list[100]</c> creates a new list that is a size of 100, and stores elements of integer data.</p>
+            </li>
+            <li>
+                <p><c>front()</c> accesses first element. Returns a reference to the first element in the array container.</p>
+            </li>
+            <li>
+                <p><c>back()</c> accesses last element. Returns a reference to the last element in the array container.</p>
+            </li>
+            <li>
+                <p><c>empty()</c> tests whether array is empty, and returns a boolean value showing whether the array is empty or not.</p>
+            </li>
+            <li>
+                <p><c>size()</c> returns size (the number of elements) in the array.</p>
+            </li>
+            <li>
+                <p><c>fill(val)</c> Sets <em>val</em> as the value for all the elements in the array object.</p>
+            </li>
+        </ul></p>
+    </section>
+    

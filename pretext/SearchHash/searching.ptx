@@ -1,0 +1,56 @@
+<section xml:id="search-hash_searching">
+        <title>Searching</title>
+        <p>In the next two chapters we will turn our attention to some of the
+            most common problems that arise in computing: searching and sorting.
+            In this chapter we will study searching and return to sorting
+            in the next chapter.</p>
+        <p><term>Searching</term> is the algorithmic process of finding a particular item in a
+            collection of items. A search typically answers either <c>True</c> or
+            <c>False</c> as to whether the item is present. On occasion it may be
+            modified to return where the item is found. For our purposes here, we
+            will simply concern ourselves with the question of membership.</p>
+        <p>In many languages, libraries provide very easy ways to ask
+            whether an item is in a container
+            of items. In Python one uses the <c>in</c> operator on a list:</p>
+        <pre>&gt;&gt;&gt; 15 in [3,5,2,4,1]
+False
+&gt;&gt;&gt; 3 in [3,5,2,4,1]
+True
+&gt;&gt;&gt;</pre>
+        <p>In C++, the STD vector library provides the <c>find</c> command
+            which works on vectors and even on arrays (although much more
+            awkwardly.) Here is an example using a vector:</p>
+        <pre>&gt;&gt;&gt; #include &lt;vector&gt;
+&gt;&gt;&gt; int myints&lt;int&gt; = {3, 5, 2, 4, 1};
+&gt;&gt;&gt; cout &lt;&lt; find(myints.begin(), myints.end(), 15);
+false
+&gt;&gt;&gt; cout &lt;&lt; find(myints.begin(), myints.end(), 3);
+true</pre>
+        <p>How does this work? Even though this is easy to write, an underlying process
+            must be carried out to do the search.</p>
+        <p>A function can be created for C++ arrays
+            by passing in the array, the
+            size of the array, and the value to search for as arguments.</p>
+        <pre>bool isIn(int alist[], int size, int value) {
+    for (unsigned i=0; i&lt;size; i++) {
+        if (alist[i] == value) {
+            return true;
+        }
+    }
+    return false;
+}
+
+int main() {
+    int myarr[] = {3, 5, 2, 4, 1};
+
+    cout&lt;&lt;isIn(myarr, 5, 15)&lt;&lt;endl;
+    cout&lt;&lt;isIn(myarr, 5, 3)&lt;&lt;endl;
+
+    return 0;
+}</pre>
+        <p>This works, but it is not the only way to search!
+            It turns out that there are multiple different
+            ways to search for the item. What we are interested in here is how these
+            algorithms work and how they compare to one another.</p>
+    </section>
+

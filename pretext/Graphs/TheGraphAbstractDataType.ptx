@@ -1,0 +1,43 @@
+<section xml:id="graphs_the-graph-abstract-data-type">
+        <title>The Graph Abstract Data Type</title>
+        <p>The graph abstract data type (ADT) is defined as follows:</p>
+        <p><ul>
+            <li>
+                <p><c>Graph()</c> creates a new, empty graph.</p>
+            </li>
+            <li>
+                <p><c>addVertex(vert)</c> adds an instance of <c>Vertex</c> to the graph.</p>
+            </li>
+            <li>
+                <p><c>addEdge(fromVert, toVert)</c> Adds a new, directed edge to the graph
+                    that connects two vertices.</p>
+            </li>
+            <li>
+                <p><c>addEdge(fromVert, toVert, weight)</c> Adds a new, weighted, directed
+                    edge to the graph that connects two vertices.</p>
+            </li>
+            <li>
+                <p><c>getVertex(vertKey)</c> finds the vertex in the graph named
+                    <c>vertKey</c>.</p>
+            </li>
+            <li>
+                <p><c>getVertices()</c> returns the list of all vertices in the graph.</p>
+            </li>
+            <li>
+                <p><c>in</c> returns <c>True</c> for a statement of the form
+                    <c>vertex in graph</c>, if the given vertex is in the graph, <c>False</c>
+                    otherwise.</p>
+            </li>
+        </ul></p>
+        <p>Beginning with the formal definition for a graph there are several ways
+            we can implement the graph ADT in Python. We will see that there are
+            trade-offs in using different representations to implement the ADT
+            described above. There are two well-known implementations of a graph,
+            the <term>adjacency matrix</term> and the <term>adjacency list</term>. We will explain
+            both of these options, and then implement one as a Python class.</p>
+
+<exercise label="gadt">
+    <statement><p>Drag and drop each graph abstract data type to its corresponding definition.</p></statement>
+    <feedback><p>This is feedback.</p></feedback>
+<matches><match order="1"><premise>Graph()</premise><response>creates a new, empty graph.</response></match><match order="2"><premise>addVertex(vert)</premise><response>adds an instance of Vertex to the graph.</response></match><match order="3"><premise>addEdge(fromVert, toVert)</premise><response>Adds a new, directed edge to the graph that connects two vertices.</response></match><match order="4"><premise>addEdge(fromVert, toVert, weight)</premise><response>Adds a new, weighted, directed edge to the graph that connects two vertices.</response></match><match order="5"><premise>getVertex(vertKey)</premise><response>finds the vertex in the graph named vertKey.</response></match><match order="6"><premise>getVertices()</premise><response>returns the list of all vertices in the graph.</response></match><match order="7"><premise>in</premise><response>returns True for a statement of the form vertex in graph, if the given vertex is in the graph, False otherwise.</response></match></matches></exercise>    </section>
+

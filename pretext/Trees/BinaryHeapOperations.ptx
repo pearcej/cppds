@@ -1,0 +1,243 @@
+<section xml:id="trees_binary-heap-operations">
+        <title>Binary Heap Operations</title>
+        <p>The basic operations we will implement for our binary heap are as
+            follows:</p>
+        <p><ul>
+            <li>
+                <p><c>BinaryHeap()</c> creates a new, empty, binary heap.</p>
+            </li>
+            <li>
+                <p><c>insert(k)</c> adds a new item to the heap.</p>
+            </li>
+            <li>
+                <p><c>findMin()</c> returns the item with the minimum key value, leaving
+                    item in the heap.</p>
+            </li>
+            <li>
+                <p><c>delMin()</c> returns the item with the minimum key value, removing
+                    the item from the heap.</p>
+            </li>
+            <li>
+                <p><c>isEmpty()</c> returns true if the heap is empty, false otherwise.</p>
+            </li>
+            <li>
+                <p><c>size()</c> returns the number of items in the heap.</p>
+            </li>
+            <li>
+                <p><c>buildHeap(vector)</c> builds a new heap from a vector of keys.</p>
+            </li>
+        </ul></p>
+        <p><xref ref="lst-heap1"/> demonstrates the use of some of the binary
+            heap methods.  Notice that no matter the order that we add items to the heap, the smallest
+            is removed each time.  We will now turn our attention to creating an implementation for this idea.</p>
+        
+        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'BinaryHeapOperations', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="heap1cpp" interactive="activecode" language="cpp">
+        <input>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+class BinHeap{
+
+private:
+    vector&lt;int&gt; heapvector;
+    int currentSize;
+
+public:
+    BinHeap(vector&lt;int&gt; heapvector){
+        this-&gt;heapvector = heapvector;
+        this-&gt;currentSize = 0;
+    }
+
+    void percUp(int i){
+        while ((i / 2) &gt; 0){
+            if (this-&gt;heapvector[i] &lt; this-&gt;heapvector[i/2]){
+                int tmp = this-&gt;heapvector[i/2];
+                this-&gt;heapvector[i/2] = this-&gt;heapvector[i];
+                this-&gt;heapvector[i] = tmp;
+            }
+            i = i/2;
+        }
+
+    }
+
+    void insert(int k){
+        this-&gt;heapvector.push_back(k);
+        this-&gt;currentSize = this-&gt;currentSize + 1;
+        this-&gt;percUp(this-&gt;currentSize);
+    }
+
+    void percDown(int i){
+        while ((i*2) &lt;= this-&gt;currentSize){
+            int mc = this-&gt;minChild(i);
+            if (this-&gt;heapvector[i] &gt; this-&gt;heapvector[mc]){
+                int tmp = this-&gt;heapvector[i];
+                this-&gt;heapvector[i] = this-&gt;heapvector[mc];
+                this-&gt;heapvector[mc] = tmp;
+            }
+            i = mc;
+        }
+    }
+
+    int minChild(int i){
+        if (((i*2)+1) &gt; this-&gt;currentSize){
+            return i * 2;
+        }
+        else{
+            if (this-&gt;heapvector[i*2] &lt; this-&gt;heapvector[(i*2)+1]){
+                return i * 2;
+            }
+            else{
+                return (i * 2) + 1;
+            }
+        }
+    }
+
+    int delMin(){
+        int retval = this-&gt;heapvector[1];
+        this-&gt;heapvector[1] = this-&gt;heapvector[this-&gt;currentSize];
+        this-&gt;currentSize = this-&gt;currentSize - 1;
+        this-&gt;heapvector.pop_back();
+        this-&gt;percDown(1);
+        return retval;
+    }
+
+    void buildheap(vector&lt;int&gt; avector){
+        int i = avector.size() / 2;
+        this-&gt;currentSize = avector.size();
+        this-&gt;heapvector.insert(this-&gt;heapvector.end(), avector.begin(), avector.end());
+        while (i &gt; 0){
+            this-&gt;percDown(i);
+            i = i - 1;
+        }
+    }
+
+    bool isEmpty(){
+        if (this-&gt;heapvector.size()&gt;0){
+            return false;
+        }
+        return true;
+    }
+
+    int findMin(){
+        return this-&gt;heapvector[1];
+    }
+};
+
+
+int main(){
+    int arr[] = {9, 5, 6, 2, 3};
+    vector&lt;int&gt; a(arr,arr+(sizeof(arr)/ sizeof(arr[0])));
+
+    vector&lt;int&gt; vec;
+    vec.push_back(0);
+
+    BinHeap *bh = new BinHeap(vec);
+
+    bh-&gt;insert(5);
+    bh-&gt;insert(7);
+    bh-&gt;insert(3);
+    bh-&gt;insert(11);
+
+    cout &lt;&lt; bh-&gt;delMin() &lt;&lt; endl;
+    cout &lt;&lt; bh-&gt;delMin() &lt;&lt; endl;
+    cout &lt;&lt; bh-&gt;delMin() &lt;&lt; endl;
+    cout &lt;&lt; bh-&gt;delMin() &lt;&lt; endl;
+
+    return 0;
+}
+        </input>
+    </program>
+            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'BinaryHeapOperations', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="heap1py" interactive="activecode" language="python">
+        <input>
+#you can use the command below to import the binheap library:
+#from pythonds.trees.binheap import BinHeap
+
+class BinHeap:
+
+    def __init__(self, heaparray):
+        self.heaparray = heaparray
+        self.size = 0
+
+    def percUp(self, i):
+        while ((i//2) &gt; 0):
+            if(self.heaparray[i] &lt; self.heaparray[i//2]):
+                temp = self.heaparray[i//2]
+                self.heaparray[i//2] = self.heaparray[i]
+                self.heaparray[i] = temp
+            i = i//2
+
+    def insert(self, k):
+        self.heaparray.append(k)
+        self.size += 1
+        self.percUp(self.size)
+
+    def percDown(self, i):
+        while (i*2) &lt;= self.size:
+            mc = self.minChild(i)
+            if self.heaparray[i] &gt; self.heaparray[mc]:
+                temp = self.heaparray[i]
+                self.heaparray[i] = self.heaparray[mc]
+                self.heaparray[mc] = temp
+            i = mc
+
+    def minChild(self, i):
+        if ((i*2)+1) &gt; self.size:
+            return i*2;
+        else:
+            if self.heaparray[i*2] &lt; self.heaparray[(i*2)+1]:
+                return i*2
+            else:
+                return (i*2) + 1
+
+    def delMin(self):
+        retval = self.heaparray[1]
+        self.heaparray[1] = self.heaparray[self.size]
+        self.size = self.size - 1
+        del self.heaparray[-1]
+        self.percDown(1)
+        return retval
+
+    def buildheap(self, alist):
+        # might be wrong
+        i = len(alist) / 2
+        self.size = len(alist)
+        self.heaparray.insert(self.heaparray[-1], alist[0], alist[-1])
+        while i &gt; 0:
+            self.perdDown(i)
+            i -= 1
+
+    def isEmpty(self):
+        if len(self.heaparray) &gt; 0:
+            return False;
+        return True
+
+    def findMin(self):
+        return self.heaparray[1]
+
+def main():
+    alist = []
+    alist.append(0) #required for indexing in the class methods!!
+
+    bh = BinHeap(alist);
+
+    bh.insert(5);
+    bh.insert(7);
+    bh.insert(3);
+    bh.insert(11);
+
+    print(bh.delMin())
+    print(bh.delMin())
+    print(bh.delMin())
+    print(bh.delMin())
+
+main()
+        </input>
+    </program>
+            </TabNode></exercise>
+    </section>
+

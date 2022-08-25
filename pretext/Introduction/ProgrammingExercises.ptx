@@ -1,0 +1,73 @@
+<section xml:id="introduction_programming-exercises">
+        <title>Programming Exercises</title>
+        <p><ol label="1">
+            <li>
+                <p>Implement the simple methods <c>getNum</c> and <c>getDen</c> that will
+                    return the numerator and denominator of a fraction.</p>
+            </li>
+            <li>
+                <p>In many ways it would be better if all fractions were maintained in
+                    lowest terms right from the start. Modify the constructor for the
+                    <c>Fraction</c> class so that <c>GCD</c> is used to reduce fractions
+                    immediately. Notice that this means the <c>+</c> function no
+                    longer needs to reduce. Make the necessary modifications.</p>
+            </li>
+            <li>
+                <p>Implement the remaining simple arithmetic operators (<c>-</c>,
+                    <c>*</c>, and <c>/</c>).</p>
+            </li>
+            <li>
+                <p>Implement the remaining relational operators (<c>&gt;</c>,
+                    <c>&gt;=</c>, <c>&lt;</c>, <c>&lt;=</c>, and <c>!=</c>)</p>
+            </li>
+            <li>
+                <p>Modify the constructor for the fraction class so that it checks to
+                    make sure that the numerator and denominator are both integers. If
+                    either is not an integer the constructor should raise an exception.</p>
+            </li>
+            <li>
+                <p>In the definition of fractions we assumed that negative fractions
+                    have a negative numerator and a positive denominator. Using a
+                    negative denominator would cause some of the relational operators to
+                    give incorrect results. In general, this is an unnecessary
+                    constraint. Modify the constructor to allow the user to pass a
+                    negative denominator so that all of the operators continue to work
+                    properly.</p>
+            </li>
+            <li>
+                <p>Repeat the last question but this time consider the <c>+=</c>
+                    method.</p>
+            </li>
+            <li>
+                <p>Research other types of gates that exist (such as NAND, NOR, and
+                    XOR). Add them to the circuit hierarchy. How much additional coding
+                    did you need to do?</p>
+            </li>
+            <li>
+                <p>The most simple arithmetic circuit is known as the half-adder.
+                    Research the simple half-adder circuit. Implement this circuit.</p>
+            </li>
+            <li>
+                <p>Now extend that circuit and implement an 8 bit full-adder.</p>
+            </li>
+            <li>
+                <p>The circuit simulation shown in this chapter works in a backward
+                    direction. In other words, given a circuit, the output is produced by
+                    working back through the input values, which in turn cause other
+                    outputs to be queried. This continues until external input lines are
+                    found, at which point the user is asked for values. Modify the
+                    implementation so that the action is in the forward direction; upon
+                    receiving inputs the circuit produces an output.</p>
+            </li>
+            <li>
+                <p>Design a class to represent a playing card. Now design a class to
+                    represent a deck of cards. Using these two classes, implement a
+                    favorite card game.</p>
+            </li>
+            <li>
+                <p>Find a Sudoku puzzle in the local newspaper. Write a program to solve
+                    the puzzle.</p>
+            </li>
+        </ol></p>
+    </section>
+

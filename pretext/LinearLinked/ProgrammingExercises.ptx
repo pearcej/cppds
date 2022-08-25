@@ -1,0 +1,91 @@
+<section xml:id="linear-linked_programming-exercises">
+        <title>Programming Exercises</title>
+        <p><ol label="1">
+            <li>
+                <p>Implement the <c>Queue</c> ADT, using a list such that the rear of the
+                    queue is at the end of the list.</p>
+            </li>
+            <li>
+                <p>Design and implement an experiment to do benchmark comparisons of the
+                    two queue implementations. What can you learn from such an
+                    experiment?</p>
+            </li>
+            <li>
+                <p>It is possible to implement a queue using a linked list such that both enqueue and
+                    dequeue have <math>O(1)</math> performance <em>on average</em>. In this case it
+                    means that most of the time enqueue and dequeue will be
+                    <math>O(1)</math> except in one particular circumstance where dequeue
+                    will be <math>O(n)</math>.</p>
+            </li>
+            <li>
+                <p>To implement the <c>length</c> method, we counted the number of nodes in
+                    the list. An alternative strategy would be to store the number of
+                    nodes in the list as an additional piece of data in the head of the
+                    list. Modify the <c>UnorderedList</c> class to include this information
+                    and rewrite the <c>length</c> method.</p>
+            </li>
+            <li>
+                <p>Implement the <c>remove</c> method so that it works correctly in the
+                    case where the item is not in the list.</p>
+            </li>
+            <li>
+                <p>Modify the list classes to allow duplicates. Which methods will be
+                    impacted by this change?</p>
+            </li>
+            <li>
+                <p>Overload the cout operator in the UnorderedList class. What
+                    would be a good printed representation for a list?</p>
+            </li>
+            <li>
+                <p>Overload the cout operator so that lists are displayed the
+                    with square brackets.</p>
+            </li>
+            <li>
+                <p>Implement the remaining operations defined in the UnorderedList ADT
+                    (append, index, pop, insert).</p>
+            </li>
+            <li>
+                <p>Implement a slice method for the <c>UnorderedList</c> class. It should
+                    take two parameters, <c>start</c> and <c>stop</c>, and return a copy of the
+                    list starting at the <c>start</c> position and going up to but not
+                    including the <c>stop</c> position.</p>
+            </li>
+            <li>
+                <p>Implement the remaining operations defined in the OrderedList ADT.</p>
+            </li>
+            <li>
+                <p>Consider the relationship between Unordered and Ordered lists. Is it
+                    possible that inheritance could be used to build a more efficient
+                    implementation? Implement this inheritance hierarchy.</p>
+            </li>
+            <li>
+                <p>Implement a stack using linked lists.</p>
+            </li>
+            <li>
+                <p>Implement a queue using linked lists.</p>
+            </li>
+            <li>
+                <p>Implement a deque using linked lists.</p>
+            </li>
+            <li>
+                <p>Design and implement an experiment that will compare the performance
+                    of a C++ vector with a list implemented as a linked list.</p>
+            </li>
+            <li>
+                <p>Design and implement an experiment that will compare the performance
+                    of the C++ vector based stack and queue with the linked list
+                    implementation.</p>
+            </li>
+            <li>
+                <p>The linked list implementation given above is called a singly linked
+                    list because each node has a single pointer to the next node in
+                    sequence. An alternative implementation is known as a doubly linked
+                    list. In this implementation, each node has a pointer to the next
+                    node (commonly called next) as well as a pointer to the preceding
+                    node (commonly called back). The head pointer also contains two
+                    pointers, one to the first node in the linked list and one to the
+                    last. Code this implementation in C++.</p>
+            </li>
+        </ol></p>
+    </section>
+

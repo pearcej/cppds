@@ -1,0 +1,145 @@
+<section xml:id="search-hash_glossary">
+        <title>Glossary</title>
+        <glossary sorted="False">
+            
+                <gi>
+                    <title>binary search</title>
+                    
+                        <p>search method in which one repeatedly divides a sorted data structure in
+                            half and determines if the item is in one half of it until the item is
+                            found or deemed not in the data.</p>
+                    
+                </gi>
+                <gi>
+                    <title>chaining</title>
+                    
+                        <p>a method of collision resolution in which each slot in a hash table holds
+                            a reference to a collection of items</p>
+                    
+                </gi>
+                <gi>
+                    <title>collision</title>
+                    
+                        <p>a conflict of having two or more items sharing the same slot in a hash
+                            table</p>
+                    
+                </gi>
+                <gi>
+                    <title>collision resolution</title>
+                    
+                        <p>a systematic method for resolving hash table collisions</p>
+                    
+                </gi>
+                <gi>
+                    <title>clustering</title>
+                    
+                        <p>items being mapped in a hash table near each other because of collisions
+                            and linear probing resulting in items with collisions being put together</p>
+                    
+                </gi>
+                <gi>
+                    <title>folding method</title>
+                    
+                        <p>a method for constructing a hash function by dividing the item into
+                            equally sized pieces and then adding the pieces together to get a hash
+                            value. The value is then divided by the size of the hash table and the
+                            remainder becomes the slot for that item.</p>
+                    
+                </gi>
+                <gi>
+                    <title>hashing</title>
+                    
+                        <p>generating a value given an input that can be used to find the input
+                            by searching for the value.</p>
+                    
+                </gi>
+                <gi>
+                    <title>hash function</title>
+                    
+                        <p>the mapping between an item and its slot in a hash table</p>
+                    
+                </gi>
+                <gi>
+                    <title>hash table</title>
+                    
+                        <p>a collection of items which are stored in such a away as to make it easy
+                            to find them</p>
+                    
+                </gi>
+                <gi>
+                    <title>linear probing</title>
+                    
+                        <p>an open addressing technique in which each slot is visited one at a time
+                            systematically</p>
+                    
+                </gi>
+                <gi>
+                    <title>load factor</title>
+                    
+                        <p>Represents how full a hash table is. Its the number of items in a hash
+                            table divided by the size of the table.</p>
+                    
+                </gi>
+                <gi>
+                    <title>map</title>
+                    
+                        <p>an associate data type that stores key-data pairs</p>
+                    
+                </gi>
+                <gi>
+                    <title>mid-square method</title>
+                    
+                        <p>a method for constructing a hash function by squaring the item and
+                            then using some portion of the result.</p>
+                    
+                </gi>
+                <gi>
+                    <title>open addressing</title>
+                    
+                        <p>a collision resolution that tries to find the next open slot/address in
+                            the hash table</p>
+                    
+                </gi>
+                <gi>
+                    <title>perfect hash function</title>
+                    
+                        <p>a hash function that maps each item to a unique hash slot</p>
+                    
+                </gi>
+                <gi>
+                    <title>quadratic probing</title>
+                    
+                        <p>a variation of linear probing in which rehashing is done using successive
+                            squared values</p>
+                    
+                </gi>
+                <gi>
+                    <title>rehashing</title>
+                    
+                        <p>putting an item into a hash table after a collision</p>
+                    
+                </gi>
+                <gi>
+                    <title>searching</title>
+                    
+                        <p>the algorithmic process of finding a particular item in a
+                            collection of items</p>
+                    
+                </gi>
+                <gi>
+                    <title>sequential search</title>
+                    
+                        <p>search method in which one follows the underlying ordering of items in a
+                            collection of data to find a specific item</p>
+                    
+                </gi>
+                <gi>
+                    <title>slot</title>
+                    
+                        <p>a position in a hash table</p>
+                    
+                </gi>
+            
+        </glossary>
+    </section>
+    

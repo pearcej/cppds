@@ -1,0 +1,44 @@
+<section xml:id="search-hash_discussion-questions">
+        <title>Discussion Questions</title>
+        <p><ol label="1">
+            <li>
+                <p>Using the hash table performance formulas given in the chapter,
+                    compute the average number of comparisons necessary when the table is</p>
+                <p><ul>
+                    <li>
+                        <p>10% full</p>
+                    </li>
+                    <li>
+                        <p>25% full</p>
+                    </li>
+                    <li>
+                        <p>50% full</p>
+                    </li>
+                    <li>
+                        <p>75% full</p>
+                    </li>
+                    <li>
+                        <p>90% full</p>
+                    </li>
+                    <li>
+                        <p>99% full</p>
+                    </li>
+                </ul></p>
+                <p>At what point do you think the hash table is too small? Explain.</p>
+            </li>
+            <li>
+                <p>Modify the hash function for strings to use positional weightings.</p>
+            </li>
+            <li>
+                <p>We used a hash function for strings that weighted the characters by
+                    position. Devise an alternative weighting scheme. What are the biases
+                    that exist with these functions?</p>
+            </li>
+            <li>
+                <p>Research perfect hash functions. Using a list of names (classmates,
+                    family members, etc.), generate the hash values using the perfect
+                    hash algorithm.</p>
+            </li>
+        </ol></p>
+    </section>
+

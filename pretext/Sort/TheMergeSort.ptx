@@ -1,0 +1,381 @@
+<section xml:id="sort_the-merge-sort">
+        <title>The Merge Sort</title>
+        <p>We now turn our attention to using a divide and conquer strategy as a
+            way to improve the performance of sorting algorithms. The first
+            algorithm we will study is the <term>merge sort</term>. Merge sort is a recursive
+            algorithm that continually splits a vector in half. If the vector is empty
+            or has one item, it is sorted by definition (the base case). If the vector
+            has more than one item, we split the vector and recursively invoke a merge
+            sort on both halves. Once the two halves are sorted, the fundamental
+            operation, called a <term>merge</term>, is performed. Merging is the process of
+            taking two smaller sorted vectors and combining them together into a
+            single, sorted, new vector. <xref ref="fig-mergesorta"/> shows our familiar example
+            vector as it is being split by <c>mergeSort</c>. <xref ref="fig-mergesortb"/> shows
+            the simple vectors, now sorted, as they are merged back together.</p>
+        
+        <figure align="center" xml:id="fig-mergesorta"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 10: Splitting the vector in a Merge Sort</caption><image source="Sort/Figures/mergesortA.png" width="50%"/></figure>
+        
+        <figure align="center" xml:id="fig-mergesortb"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 11: vectors as They Are Merged Together</caption><image source="Sort/Figures/mergesortB.png" width="50%"/></figure>
+        <p>The <c>mergeSort</c> function shown in <xref ref="lst-mergesort-cpp"/> begins by asking the
+            base case question. If the length of the vector is less than or equal to
+            one, then we already have a sorted vector and no more processing is
+            necessary. If, on the other hand, the length is greater than one, then we utilize
+            the vector intializer using .begin to extract the left and right halves.
+            This is similar to using the Python <c>slice</c> operation to extract the left and right
+            halves. It is important to note that the vector may not have an even
+            number of items. That does not matter, as the lengths will differ by at
+            most one.</p>
+        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'TheMergeSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="lst_mergeSort_cpp" interactive="activecode" language="cpp">
+        <input>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+//function that prints the vector
+void printl(vector&lt;int&gt; avector) {
+    for (unsigned int i=0; i&lt;avector.size(); i++) {
+        cout &lt;&lt; avector[i] &lt;&lt; " ";
+    }
+    cout &lt;&lt; endl;
+}
+
+//function sorts using mergesort.
+vector&lt;int&gt; mergeSort(vector&lt;int&gt; avector) {
+    cout&lt;&lt;"Splitting ";
+    printl(avector);
+    if (avector.size()&gt;1) {
+        int mid = avector.size()/2;
+        //C++ Equivalent to using Python Slices
+        vector&lt;int&gt; lefthalf(avector.begin(),avector.begin()+mid);
+        vector&lt;int&gt; righthalf(avector.begin()+mid,avector.begin()+avector.size());
+
+        lefthalf = mergeSort(lefthalf);
+        righthalf = mergeSort(righthalf);
+
+        unsigned i = 0;
+        unsigned j = 0;
+        unsigned k = 0;
+        while (i &lt; lefthalf.size() &amp;&amp; j &lt; righthalf.size()) {
+            if (lefthalf[i] &lt; righthalf[j]) {
+                avector[k]=lefthalf[i];
+                i++;
+            } else {
+                avector[k] = righthalf[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i&lt;lefthalf.size()) {
+            avector[k] = lefthalf[i];
+            i++;
+            k++;
+        }
+
+        while (j&lt;righthalf.size()) {
+            avector[k]=righthalf[j];
+            j++;
+            k++;
+        }
+
+    }
+    cout&lt;&lt;"Merging ";
+    printl(avector);
+
+    return avector;
+}
+
+int main() {
+    // Vector initialized using a static array
+    static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
+    vector&lt;int&gt; avector (arr, arr + sizeof(arr) / sizeof(arr[0]) );
+
+    printl(mergeSort(avector));
+
+    return 0;
+}
+        </input>
+    </program>
+            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheMergeSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="lst_mergeSort" interactive="activecode" language="python">
+        <input>
+def mergeSort(alist):
+    print("Splitting ",alist)
+    if len(alist)&gt;1:
+        mid = len(alist)//2
+        lefthalf = alist[:mid]
+        righthalf = alist[mid:]
+
+        mergeSort(lefthalf)
+        mergeSort(righthalf)
+
+        i=0
+        j=0
+        k=0
+        while i &lt; len(lefthalf) and j &lt; len(righthalf):
+            if lefthalf[i] &lt; righthalf[j]:
+                alist[k]=lefthalf[i]
+                i=i+1
+            else:
+                alist[k]=righthalf[j]
+                j=j+1
+            k=k+1
+
+        while i &lt; len(lefthalf):
+            alist[k]=lefthalf[i]
+            i=i+1
+            k=k+1
+
+        while j &lt; len(righthalf):
+            alist[k]=righthalf[j]
+            j=j+1
+            k=k+1
+    print("Merging ",alist)
+
+def main():
+    alist = [54,26,93,17,77,31,44,55,20]
+    mergeSort(alist)
+    print(alist)
+main()
+        </input>
+    </program>
+            </TabNode></exercise>
+        <p>Once the <c>mergeSort</c> function is invoked on the left half and the
+            right half (lines 8&#8211;9), it is assumed they are sorted. The rest of the
+            function (lines&#160;11&#8211;31) is responsible for merging the two smaller sorted
+            vectors into a larger sorted vector. Notice that the merge operation places
+            the items back into the original vector (<c>avector</c>) one at a time by
+            repeatedly taking the smallest item from the sorted vectors.</p>
+        <p>The <c>mergeSort</c> function has been augmented with a <c>print</c> statement
+            (line 2) to show the contents of the vector being sorted at the start of
+            each invocation. There is also a <c>print</c> statement (line 32) to show
+            the merging process. The transcript shows the result of executing the
+            function on our example vector. Note that the vector with 44, 55, and 20
+            will not divide evenly. The first split gives [44] and the second gives
+            [55,20]. It is easy to see how the splitting process eventually yields a
+            vector that can be immediately merged with other sorted vectors.</p>
+        <raw format="html" xml:space="preserve">&lt;script src="../_static/sortmodels.js"&gt;&lt;/script&gt;
+&lt;script src="../_static/sortviewers.js"&gt;&lt;/script&gt;
+
+&lt;div id="merge_anim" class=""&gt;
+&lt;canvas id="merge_anim_canvas" width="400" height="400" style="border:4px solid blue"&gt;&lt;/canvas&gt;
+&lt;br /&gt;
+&lt;button onclick="merge_anim_anim = merge_anim_init('merge_anim')"&gt;Initialize&lt;/button&gt;
+&lt;button onclick="merge_anim_anim.run('merge_anim_anim')"&gt;Run&lt;/button&gt;
+&lt;button onclick="merge_anim_anim.stop()"&gt;Stop&lt;/button&gt; &lt;/br&gt;
+&lt;button onclick="merge_anim_anim.begin()"&gt;Beginning&lt;/button&gt;
+&lt;button onclick="merge_anim_anim.forward()"&gt;Step Forward&lt;/button&gt;
+&lt;button onclick="merge_anim_anim.backward()"&gt;Step Backward&lt;/button&gt;
+&lt;button onclick="merge_anim_anim.end()"&gt;End&lt;/button&gt;
+
+&lt;script&gt;
+merge_anim_init = function(divid)
+{
+   var a = new Animator(new MergeSortModel(), new BarViewer(), divid)
+   a.init()
+   return a
+}
+&lt;/script&gt;
+
+&lt;/div&gt;
+</raw>
+        <!--For more detail, CodeLens 6 allows you to step through the algorithm.-->
+        <!---->
+        <!---->
+        <!--.. codelens:: mergetrace-->
+        <!--:caption: Tracing the Merge Sort-->
+        <!---->
+        <!--def mergeSort(alist):-->
+        <!--print("Splitting ",alist)-->
+        <!--if len(alist)>1:-->
+        <!--mid = len(alist)//2-->
+        <!--lefthalf = alist[:mid]-->
+        <!--righthalf = alist[mid:]-->
+        <!---->
+        <!--mergeSort(lefthalf)-->
+        <!--mergeSort(righthalf)-->
+        <!---->
+        <!--i=0-->
+        <!--j=0-->
+        <!--k=0-->
+        <!--while i<len(lefthalf) and j<len(righthalf):-->
+        <!--if lefthalf[i]<righthalf[j]:-->
+        <!--alist[k]=lefthalf[i]-->
+        <!--i=i+1-->
+        <!--else:-->
+        <!--alist[k]=righthalf[j]-->
+        <!--j=j+1-->
+        <!--k=k+1-->
+        <!---->
+        <!--while i<len(lefthalf):-->
+        <!--alist[k]=lefthalf[i]-->
+        <!--i=i+1-->
+        <!--k=k+1-->
+        <!---->
+        <!--while j<len(righthalf):-->
+        <!--alist[k]=righthalf[j]-->
+        <!--j=j+1-->
+        <!--k=k+1-->
+        <!--print("Merging ",alist)-->
+        <!--def main():
+..     alist = [54,26,93,17,77,31,44,55,20]
+..     mergeSort(alist)
+..     print(alist)
+   main()-->
+        <p>The visualization above allows you to step through the algorithm. Red bars represent
+            the element being looked at and blue represents the last element to look at
+            during a pass.</p>
+        <raw format="html" xml:space="preserve">&lt;div id="vis_merge_sort" class="video_popup runestone " &gt;
+&lt;video controls preload="none"  poster="../_static/vis_merge_sort_thumb.png"&gt;
+    &lt;source src="../_static/vis_merge_sort.webm" type="video/webm"&gt;&lt;/source&gt;
+    No supported video types
+&lt;/video&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  window.addEventListener('load', (event) =&gt; {
+    jQuery(function($) {
+        var rb = new RunestoneBase();
+        $('#vis_merge_sort_thumb').click(function(e) {
+            $('#vis_merge_sort').show();
+            $('#vis_merge_sort_thumb').hide();
+            rb.logBookEvent({'event':'video','act':'play','div_id': 'vis_merge_sort'});
+            // Log the run event
+        });
+        $('#vis_merge_sort video').one("click", function(){
+            this.play();
+        });
+        $('#vis_merge_sort video').one("play", function(){
+            rb.logBookEvent({'event':'video','act':'play','div_id': 'vis_merge_sort'});
+        });
+    });
+  });
+&lt;/script&gt;
+</raw>
+        <p>The visualization above highlights the individual components of the algorithm itself.
+            The arrows on the bottom indicate the left, middle, and right portions that the
+            algorithm is currently examining. Left and right components are indicated by the color
+            brown, while the middle is indicated by orange. Look for the <q>divide-and-conquer</q> aspect
+            of the algorithm here.</p>
+        <p>In order to analyze the <c>mergeSort</c> function, we need to consider the
+            two distinct processes that make up its implementation. First, the vector
+            is split into halves. We already computed (in a binary search) that we
+            can divide a vector in half <math>\log n</math> times where <em>n</em> is the
+            length of the vector. The second process is the merge. Each item in the
+            vector will eventually be processed and placed on the sorted vector. So the
+            merge operation which results in a vector of size <em>n</em> requires <em>n</em>
+            operations. The result of this analysis is that <math>\log n</math> splits,
+            each of which costs <math>n</math> for a total of <math>n\log n</math>
+            operations. A merge sort is an <math>O(n\log n)</math> algorithm.</p>
+        <p>Recall that the slicing operator is <math>O(k)</math> where k is the size
+            of the slice. In order to guarantee that <c>mergeSort</c> will be
+            <math>O(n\log n)</math> we will need to remove the slice operator. Again,
+            this is possible if we simply pass the starting and ending indices along
+            with the vector when we make the recursive call. We leave this as an
+            exercise.</p>
+        <p>It is important to notice that the <c>mergeSort</c> function requires extra
+            space to hold the two halves as they are extracted with the slicing
+            operations. This additional space can be a critical factor if the vector
+            is large and can make this sort problematic when working on large data
+            sets. In the case with using lists in python, the space complexity is <math>O(log n)</math>.</p>
+        <note>
+            <title>Self Check</title>
+
+    <exercise label="question_sort_5">
+        <statement>
+
+            <p>Q-5: Given the following list of numbers: [21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40] which answer illustrates the list to be sorted after 3 recursive calls to mergesort?</p>
+
+        </statement>
+<choices>
+
+            <choice>
+                <statement>
+                    <p>[16, 49, 39, 27, 43, 34, 46, 40]</p>
+                </statement>
+                <feedback>
+                    <p>This is the second half of the list.</p>
+                </feedback>
+            </choice>
+
+            <choice correct="yes">
+                <statement>
+                    <p>[21,1]</p>
+                </statement>
+                <feedback>
+                    <p>Yes, mergesort will continue to recursively move toward the beginning of the list until it hits a base case.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>[21, 1, 26, 45]</p>
+                </statement>
+                <feedback>
+                    <p>Remember mergesort doesn't work on the right half of the list until the left half is completely sorted.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>[21]</p>
+                </statement>
+                <feedback>
+                    <p>This is the list after 4 recursive calls</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+
+    <exercise label="question_sort_6">
+        <statement>
+
+            <p>Q-6: Given the following list of numbers: [21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40] which answer illustrates the first two lists to be merged?</p>
+
+        </statement>
+<choices>
+
+            <choice>
+                <statement>
+                    <p>[21, 1] and [26, 45]</p>
+                </statement>
+                <feedback>
+                    <p>The first two lists merged will be base case lists, we have not yet reached a base case.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>[[1, 2, 9, 21, 26, 28, 29, 45] and [16, 27, 34, 39, 40, 43, 46, 49]</p>
+                </statement>
+                <feedback>
+                    <p>These will be the last two lists merged</p>
+                </feedback>
+            </choice>
+
+            <choice correct="yes">
+                <statement>
+                    <p>[21] and [1]</p>
+                </statement>
+                <feedback>
+                    <p>The lists [21] and [1] are the first two base cases encountered by mergesort and will therefore be the first two lists merged.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>[9] and [16]</p>
+                </statement>
+                <feedback>
+                    <p>Although 9 and 16 are next to each other they are in different halves of the list starting with the first split.</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+        </note>
+    </section>
+

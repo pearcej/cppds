@@ -1,0 +1,81 @@
+<section xml:id="search-hash_programming-exercises">
+        <title>Programming Exercises</title>
+        <p><ol label="1">
+            <li>
+                <p>Set up a random experiment to test the difference between a
+                    sequential search and a binary search on a list of integers.</p>
+            </li>
+            <li>
+                <p>Use the binary search functions given in the text (recursive and
+                    iterative). Generate a random, ordered list of integers and do a
+                    benchmark analysis for each one. What are your results? Can you
+                    explain them?</p>
+            </li>
+            <li>
+                <p>Implement the binary search using recursion without the slice
+                    operator. Recall that you will need to pass the list along with the
+                    starting and ending index values for the sublist. Generate a random,
+                    ordered list of integers and do a benchmark analysis.</p>
+            </li>
+            <li>
+                <p>Overload the <c>cout</c> operator (&lt;&lt;) for the hash table Map ADT
+                    implementation.</p>
+            </li>
+            <li>
+                <p>Overload the <c>cin</c> operator (&gt;&gt;) for the hash table Map
+                    ADT implementation.</p>
+            </li>
+            <li>
+                <p>How can you delete items from a hash table that uses chaining for
+                    collision resolution? How about if open addressing is used? What are
+                    the special circumstances that must be handled? Implement the <c>del</c> (~)
+                    operator for the <c>HashTable</c> class.</p>
+            </li>
+            <li>
+                <p>In the hash table map implementation, the hash table size was chosen
+                    to be 101. If the table gets full, this needs to be increased.
+                    Re-implement the <c>put</c> method so that the table will automatically
+                    resize itself when the loading factor reaches a predetermined value
+                    (you can decide the value based on your assessment of load versus
+                    performance).</p>
+            </li>
+            <li>
+                <p>Implement quadratic probing as a rehash technique.</p>
+            </li>
+            <li>
+                <p>Using a random number generator, create a list of 500 integers.
+                    Perform a benchmark analysis using some of the sorting algorithms
+                    from this chapter. What is the difference in execution speed?</p>
+            </li>
+            <li>
+                <p>Implement the bubble sort using simultaneous assignment.</p>
+            </li>
+            <li>
+                <p>A bubble sort can be modified to <q>bubble</q> in both directions. The
+                    first pass moves <q>up</q> the list, and the second pass moves <q>down.</q>
+                    This alternating pattern continues until no more passes are
+                    necessary. Implement this variation and describe under what
+                    circumstances it might be appropriate.</p>
+            </li>
+            <li>
+                <p>Implement the selection sort using simultaneous assignment.</p>
+            </li>
+            <li>
+                <p>Perform a benchmark analysis for a shell sort, using different
+                    increment sets on the same vector.</p>
+            </li>
+            <li>
+                <p>One way to improve the quick sort is to use an insertion sort on
+                    lists that have a small length (call it the <q>partition limit</q>). Why
+                    does this make sense? Re-implement the quick sort and use it to sort
+                    a random list of integers. Perform an analysis using different list
+                    sizes for the partition limit.</p>
+            </li>
+            <li>
+                <p>Implement the median-of-three method for selecting a pivot value as a
+                    modification to <c>quickSort</c>. Run an experiment to compare the two
+                    techniques.</p>
+            </li>
+        </ol></p>
+    </section>
+

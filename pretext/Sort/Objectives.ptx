@@ -1,0 +1,10 @@
+<section xml:id="sort_objectives">
+        <title>Objectives</title>
+        <p><ul>
+            <li>
+                <p>To be able to explain and implement selection sort, bubble sort,
+                    merge sort, quick sort, insertion sort, and shell sort.</p>
+            </li>
+        </ul></p>
+    </section>
+

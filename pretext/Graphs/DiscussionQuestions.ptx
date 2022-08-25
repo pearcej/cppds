@@ -1,0 +1,173 @@
+<section xml:id="graphs_discussion-questions">
+        <title>Discussion Questions</title>
+        <p><ol label="1">
+            <li>
+                <p>Draw the graph corresponding to the following adjacency matrix.</p>
+            </li>
+        </ol></p>
+        <figure align="center" ><image source="Graphs/Figures/adjMatEX.png" width="50%"/></figure>
+        <p><ol label="1">
+            <li>
+                <p>Draw the graph corresponding to the following list of edges.</p>
+                <table><tabular>
+                    
+                        
+                        
+                        
+                        
+                            <row header="yes">
+                                <cell>
+                                    from
+                                </cell>
+                                <cell>
+                                    to
+                                </cell>
+                                <cell>
+                                    cost
+                                </cell>
+                            </row>
+                        
+                        
+                            <row>
+                                <cell>
+                                    1
+                                </cell>
+                                <cell>
+                                    2
+                                </cell>
+                                <cell>
+                                    10
+                                </cell>
+                            </row>
+                            <row>
+                                <cell>
+                                    1
+                                </cell>
+                                <cell>
+                                    3
+                                </cell>
+                                <cell>
+                                    15
+                                </cell>
+                            </row>
+                            <row>
+                                <cell>
+                                    1
+                                </cell>
+                                <cell>
+                                    6
+                                </cell>
+                                <cell>
+                                    5
+                                </cell>
+                            </row>
+                            <row>
+                                <cell>
+                                    2
+                                </cell>
+                                <cell>
+                                    3
+                                </cell>
+                                <cell>
+                                    7
+                                </cell>
+                            </row>
+                            <row>
+                                <cell>
+                                    3
+                                </cell>
+                                <cell>
+                                    4
+                                </cell>
+                                <cell>
+                                    7
+                                </cell>
+                            </row>
+                            <row>
+                                <cell>
+                                    3
+                                </cell>
+                                <cell>
+                                    6
+                                </cell>
+                                <cell>
+                                    10
+                                </cell>
+                            </row>
+                            <row>
+                                <cell>
+                                    4
+                                </cell>
+                                <cell>
+                                    5
+                                </cell>
+                                <cell>
+                                    7
+                                </cell>
+                            </row>
+                            <row>
+                                <cell>
+                                    6
+                                </cell>
+                                <cell>
+                                    4
+                                </cell>
+                                <cell>
+                                    5
+                                </cell>
+                            </row>
+                            <row>
+                                <cell>
+                                    5
+                                </cell>
+                                <cell>
+                                    6
+                                </cell>
+                                <cell>
+                                    13
+                                </cell>
+                            </row>
+                        
+                    
+                </tabular></table>
+            </li>
+            <li>
+                <p>Ignoring the weights, perform a breadth first search on the graph
+                    from the previous question.</p>
+            </li>
+            <li>
+                <p>What is the Big-O running time of the <c>buildGraph</c> function?</p>
+            </li>
+            <li>
+                <p>Derive the Big-O running time for the topological sort algorithm.</p>
+            </li>
+            <li>
+                <p>Derive the Big-O running time for the strongly connected components
+                    algorithm.</p>
+            </li>
+            <li>
+                <p>Show each step in applying Dijkstra's algorithm to the graph shown above.</p>
+            </li>
+            <li>
+                <p>Using Prim's algorithm, find the minimum weight spanning tree for the
+                    graph shown above.</p>
+            </li>
+            <li>
+                <p>Draw a dependency graph illustrating the steps needed to send an
+                    email. Perform a topological sort on your graph.</p>
+            </li>
+            <li>
+                <p>Derive an expression for the base of the exponent used in expressing
+                    the running time of the knights tour.</p>
+            </li>
+            <li>
+                <p>Explain why the general DFS algorithm is not suitable for solving the
+                    knights tour problem.</p>
+            </li>
+            <li>
+                <p>What is the Big-O running time for Prim's minimum spanning tree
+                    algorithm?</p>
+            </li>
+        </ol></p>
+    </section>
+

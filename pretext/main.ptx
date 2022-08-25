@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pretext xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
+<xi:include href="./bookinfo.ptx"/>
+<book xml:id="cpp4python" permid="4py">
+<title>Problem Solving with Algorithms and Data Structures using C++</title>
+<subtitle>The PreTeXt Interactive Edition</subtitle>
+<xi:include href="./Introduction/toctree.ptx"/>
+<xi:include href="./AlgorithmAnalysis/toctree.ptx"/>
+<xi:include href="./LinearBasic/toctree.ptx"/>
+<xi:include href="./LinearLinked/toctree.ptx"/>
+<xi:include href="./Recursion/toctree.ptx"/>
+<xi:include href="./SearchHash/toctree.ptx"/>
+<xi:include href="./Sort/toctree.ptx"/>
+<xi:include href="./Trees/toctree.ptx"/>
+<xi:include href="./Graphs/toctree.ptx"/>
+<backmatter>
+<!--<xi:include href="./Appendices/PrecedenceTable.ptx"/> -->
+<!-- <xi:include href="./Appendices/errorsAndDebug.ptx"/> -->
+<index>
+<index-list/>
+</index>
+</backmatter>
+</book>
+</pretext>
+
