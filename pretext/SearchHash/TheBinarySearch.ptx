@@ -1,0 +1,395 @@
+<section xml:id="search-hash_the-binary-search">
+        <title>The Binary Search</title>
+        <p>It is possible to take greater advantage of the ordered vector if we are
+            clever with our comparisons. In the sequential search, when we compare
+            against the first item, there are at most <math>n-1</math> more items to
+            look through if the first item is not what we are looking for. Instead
+            of searching the vector in sequence, a <term>binary search</term> will start by
+            examining the middle item. If that item is the one we are searching for,
+            we are done. If it is not the correct item, we can use the ordered
+            nature of the vector to eliminate half of the remaining items. If the item
+            we are searching for is greater than the middle item, we know that the
+            entire lower half of the vector as well as the middle item can be
+            eliminated from further consideration. The item, if it is in the vector,
+            must be in the upper half.</p>
+        <p>We can then repeat the process with the upper half. Start at the middle
+            item and compare it against what we are looking for. Again, we either
+            find it or split the vector in half, therefore eliminating another large
+            part of our possible search space. <xref ref="fig-binsearch"/> shows how this
+            algorithm can quickly find the value 54. The complete function is shown
+            in <xref ref="lst-binarysearchpy"/>.</p>
+        
+        <figure align="center" xml:id="fig-binsearch"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 3: Binary Search of an Ordered vector of Integers</caption><image source="SearchHash/Figures/binsearch.png" width="50%"/></figure>
+        
+        <p>A similar implementation can be carried out using vectors in C++.</p>
+
+    <program xml:id="binary_search_cpp" interactive="activecode" language="cpp">
+        <input>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+// Checks to see if item is in a vector
+// retruns true or false (1 or 0)
+// using binary Search
+bool binarySearch(vector&lt;int&gt; avector, int item) {
+    int first = 0;
+    int last = avector.size() - 1;
+    bool found = false;
+
+    while (first &lt;= last &amp;&amp; !found) {
+        int midpoint = (first + last) / 2;
+        if (avector[midpoint] == item) {
+            found = true;
+        } else {
+            if (item &lt; avector[midpoint]) {
+                last = midpoint - 1;
+            } else {
+                first = midpoint + 1;
+            }
+        }
+    }
+    return found;
+}
+
+int main() {
+    // Using static array to initialize a vector
+    static const int arr[] = {0, 1, 2, 8, 13, 17, 19, 32, 42};
+    vector&lt;int&gt; avector(arr, arr + sizeof(arr) / sizeof(arr[0]));
+
+    cout &lt;&lt; binarySearch(avector, 3) &lt;&lt; endl;
+    cout &lt;&lt; binarySearch(avector, 13) &lt;&lt; endl;
+
+    return 0;
+}
+        </input>
+    </program>
+        <p>Before we move on to the analysis, we should note that this algorithm is
+            a great example of a divide and conquer strategy. Divide and conquer
+            means that we divide the problem into smaller pieces, solve the smaller
+            pieces in some way, and then reassemble the whole problem to get the
+            result. When we perform a binary search of a list, we first check the
+            middle item. If the item we are searching for is less than the middle
+            item, we can simply perform a binary search of the left half of the
+            original list. Likewise, if the item is greater, we can perform a binary
+            search of the right half. Either way, this is a recursive call to the
+            binary search function passing a smaller list. <xref ref="lst-recbinarysearch"/>
+            shows this recursive version.</p>
+        
+        <p>There is a vector initializer within C++ that can be used much like python slices,
+            however this can only be used when new vectors are created.</p>
+
+    <program xml:id="binary_search_cpp_recursive" interactive="activecode" language="cpp">
+        <input>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+ // Checks to see if item is in a vector
+ // retruns true or false (1 or 0)
+ // using binary Search and
+ // seperating the vector in halves
+
+bool binarySearch(vector&lt;int&gt; alist, int item) {
+      if (alist.size() == 0) {
+              return false;
+      } else {
+              int midpoint = alist.size() / 2;
+              if (alist[midpoint] == item) {
+                      return true;
+              } else {
+                      if (item &lt; alist[midpoint]) {
+                              vector&lt;int&gt; lefthalf(alist.begin(), alist.begin() + midpoint);
+                              return binarySearch(lefthalf, item);
+                      } else {
+                              vector&lt;int&gt; righthalf(
+                                      alist.begin() + midpoint + 1, alist.end());
+                              return binarySearch(righthalf, item);
+                      }
+              }
+      }
+}
+
+int main() {
+      // Using static array to initialize a vector
+      static const int arr[] = {0, 1, 2, 8, 13, 17, 19, 32, 42};
+      vector&lt;int&gt; alist(arr, arr + sizeof(arr) / sizeof(arr[0]));
+
+      cout &lt;&lt; binarySearch(alist, 3) &lt;&lt; endl;
+      cout &lt;&lt; binarySearch(alist, 13) &lt;&lt; endl;
+
+      return 0;
+}
+        </input>
+    </program>
+        <subsection xml:id="search-hash_analysis-of-binary-search">
+            <title>Analysis of Binary Search</title>
+            <p>To analyze the binary search algorithm, we need to recall that each
+                comparison eliminates about half of the remaining items from
+                consideration. What is the maximum number of comparisons this algorithm
+                will require to check the entire list? If we start with <em>n</em> items, about
+                <math>\frac{n}{2}</math> items will be left after the first comparison.
+                After the second comparison, there will be about <math>\frac{n}{4}</math>.
+                Then <math>\frac{n}{8}</math>, <math>\frac{n}{16}</math>, and so on. How many
+                times can we split the list? <xref ref="search-hash_tbl-binaryanalysis"/> helps us to see the
+                answer.</p>
+            
+            <table xml:id="search-hash_id2"><tabular>
+                <title><term>Table 3: Tabular Analysis for a Binary Search</term></title>
+                
+                    
+                    
+                    
+                        <row header="yes">
+                            <cell>
+                                <term>Comparisons</term>
+                            </cell>
+                            <cell>
+                                <term>Approximate Number of Items Left</term>
+                            </cell>
+                        </row>
+                    
+                    
+                        <row>
+                            <cell>
+                                1
+                            </cell>
+                            <cell>
+                                <math>\frac {n}{2}</math>
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                2
+                            </cell>
+                            <cell>
+                                <math>\frac {n}{4}</math>
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                3
+                            </cell>
+                            <cell>
+                                <math>\frac {n}{8}</math>
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                &#8230;
+                            </cell>
+                            <cell>
+                            </cell>
+                        </row>
+                        <row>
+                            <cell>
+                                i
+                            </cell>
+                            <cell>
+                                <math>\frac {n}{2^i}</math>
+                            </cell>
+                        </row>
+                    
+                
+            </tabular></table>
+            <p>When we split the list enough times, we end up with a list that has just
+                one item. Either that is the item we are looking for or it is not.
+                Either way, we are done. The number of comparisons necessary to get to
+                this point is <em>i</em> where <math>\frac {n}{2^i} =1</math>. Solving for <em>i</em>
+                gives us <math>i=\log n</math>. The maximum number of comparisons is
+                logarithmic with respect to the number of items in the list. Therefore,
+                the binary search is <math>O(\log n)</math>.</p>
+            <p>One additional analysis issue needs to be addressed. In the recursive
+                solution shown above, the recursive call,</p>
+            <p><c>binarySearch(alist[:midpoint],item)</c></p>
+            <p>uses the slice operator to create the left half of the list that is then
+                passed to the next invocation (similarly for the right half as well).
+                The analysis that we did above assumed that the slice operator takes
+                constant time. This means that the binary search using slice will not
+                perform in strict logarithmic time. Luckily this can be remedied by
+                passing the list along with the starting and ending indices. The indices
+                can be calculated as we did in <xref ref="lst-binarysearchpy"/>. This is especially relevant in C++, where we are initializing a new vector for each split of our list. To truly optimize this algorithm, we could use an array and manually keep track of start and end indices of our array. Below is an example of such an implementation.</p>
+            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBinarySearch', 'chapter': 'SearchHash', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="binary_search_cpp_array" interactive="activecode" language="cpp">
+        <input>
+#include &lt;iostream&gt;
+using namespace std;
+
+//Checks to see if item is in a vector
+//retruns true or false (1 or 0)
+//using binary Search and
+//uses start and end indices
+bool binarySearch(int arr[], int item, int start, int end) {
+    if (end &gt;= start) {
+        int mid = start + (end - start) / 2;
+        if (arr[mid] == item)
+            return true;
+        if (arr[mid] &gt; item)
+            return binarySearch(arr, item, start, mid - 1);
+        else {
+            return binarySearch(arr, item, mid + 1, end);
+        }
+    }
+
+    return false;
+}
+
+bool binarySearchHelper(int arr[], int size, int item) {
+    return binarySearch(arr, item, 0, size);
+}
+
+int main(void) {
+    int arr[] = {0, 1, 2, 8, 13, 17, 19, 32, 42};
+    int arrLength = sizeof(arr) / sizeof(arr[0]);
+
+    cout &lt;&lt; binarySearchHelper(arr, arrLength, 3) &lt;&lt; endl;
+    cout &lt;&lt; binarySearchHelper(arr, arrLength, 13) &lt;&lt; endl;
+
+    return 0;
+}
+        </input>
+    </program>
+                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheBinarySearch', 'chapter': 'SearchHash', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="binary_search_python_array" interactive="activecode" language="python">
+        <input>
+'''Checks to see if item is in a list
+retruns true or false (1 or 0)
+using binary Search and
+uses start and end indices'''
+
+def binarySearch(array, item, start, end):
+
+    if end == start:
+        return False
+    if end &gt;= start:
+        mid = start + (end - start) // 2
+        if array[mid] == item:
+            return True
+        if array[mid] &gt; item:
+            return binarySearch(array, item, start, mid - 1)
+        else:
+            return binarySearch(array, item, mid + 1, end)
+
+    return False
+
+def main():
+    array = [0, 1, 2, 8, 13, 17, 19, 32, 42]
+
+    a = binarySearch(array, 17, 0 , len(array))
+    print("answer is ", a)
+    b = binarySearch(array, 99, 0, len(array))
+    print("answer is", b)
+main()
+        </input>
+    </program>
+                </TabNode></exercise>
+            <p>Even though a binary search is generally better than a sequential
+                search, it is important to note that for small values of <em>n</em>, the
+                additional cost of sorting is probably not worth it. In fact, we should
+                always consider whether it is cost effective to take on the extra work
+                of sorting to gain searching benefits. If we can sort once and then
+                search many times, the cost of the sort is not so significant. However,
+                for large lists, sorting even once can be so expensive that simply
+                performing a sequential search from the start may be the best choice.</p>
+            <note>
+                <title>Self Check</title>
+
+    <exercise label="BSRCH_1">
+        <statement>
+
+                <p>Q-7: Suppose you have the following sorted list [3, 5, 6, 8, 11, 12, 14, 15, 17, 18] and are using the recursive binary search algorithm.  Which group of numbers correctly shows the sequence of comparisons used to find the key 8.</p>
+
+        </statement>
+<choices>
+
+            <choice>
+                <statement>
+                    <p>11, 5, 8</p>
+                </statement>
+                <feedback>
+                    <p>Looks like you might be guilty of an off-by-one error.  Remember the first position is index 0.</p>
+                </feedback>
+            </choice>
+
+            <choice correct="yes">
+                <statement>
+                    <p>12, 6, 8</p>
+                </statement>
+                <feedback>
+                    <p>Binary search starts at the midpoint and halves the list each time.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>3, 5, 8</p>
+                </statement>
+                <feedback>
+                    <p>Binary search does not start at the beginning and search sequentially, its starts in the middle and halves the list after each compare.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>18, 12, 8</p>
+                </statement>
+                <feedback>
+                    <p>It appears that you are starting from the end and halving the list each time.</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+
+    <exercise label="BSRCH_2">
+        <statement>
+
+                <p>Q-8: Suppose you have the following sorted list [3, 5, 6, 8, 11, 12, 14, 15, 17, 18] and are using the recursive binary search algorithm.  Which group of numbers correctly shows the sequence of comparisons used to search for the key 16?</p>
+
+        </statement>
+<choices>
+
+            <choice>
+                <statement>
+                    <p>11, 17, 14, 15</p>
+                </statement>
+                <feedback>
+                    <p>Looks like you might be guilty of an off-by-one error.  Remember the first position is index 0.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>18, 17, 14, 15</p>
+                </statement>
+                <feedback>
+                    <p>Remember binary search starts in the middle and halves the list.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>14, 12, 17, 15</p>
+                </statement>
+                <feedback>
+                    <p>Looks like you might be off by one, be careful that you are calculating the midpont using integer arithmetic.</p>
+                </feedback>
+            </choice>
+
+            <choice correct="yes">
+                <statement>
+                    <p>12, 17, 14, 15</p>
+                </statement>
+                <feedback>
+                    <p>Binary search starts at the midpoint and halves the list each time. It is done when the list is empty.</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+            </note>
+        </subsection>
+    </section>
+

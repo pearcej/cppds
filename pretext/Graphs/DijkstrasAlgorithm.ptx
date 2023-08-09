@@ -1,0 +1,158 @@
+<section xml:id="graphs_dijkstras-algorithm">
+        <title>Dijkstra's Algorithm</title>
+        <p>The algorithm we are going to use to determine the shortest path is
+            called <q>Dijkstra's algorithm.</q> Dijkstra's algorithm is an iterative
+            algorithm that provides us with the shortest path from one particular
+            starting node to all other nodes in the graph. Again this is similar to
+            the results of a breadth first search.</p>
+        <p>To keep track of the total cost from the start node to each destination
+            we will make use of the <c>dist</c> variable in the Vertex class.
+            The <c>dist</c> variable will contain the current total weight of
+            the smallest weight path from the start to the vertex in question. The
+            algorithm iterates once for every vertex in the graph; however, the
+            order that we iterate over the vertices is controlled by a priority
+            queue. The value that is used to determine the order of the objects in
+            the priority queue is <c>dist</c>. When a vertex is first created <c>dist</c>
+            is set to a very large number. Theoretically you would set <c>dist</c> to
+            infinity, but in practice we just set it to a number that is larger than
+            any real distance we would have in the problem we are trying to solve.</p>
+        <p>The code for Dijkstra's algorithm is shown in <xref ref="lst-shortpath"/>. When the algorithm finishes the distances are set
+            correctly as are the predecessor links for each vertex in the graph.</p>
+        
+        <p xml:id="graphs_lst-shortpath" names="lst_shortpath"><term>Listing 1</term></p>
+        <pre>from pythonds.graphs import PriorityQueue, Graph, Vertex
+def dijkstra(aGraph,start):
+    pq = PriorityQueue()
+    start.setDistance(0)
+    pq.buildHeap([(v.getDistance(),v) for v in aGraph])
+    while not pq.isEmpty():
+        currentVert = pq.delMin()
+        for nextVert in currentVert.getConnections():
+            newDist = currentVert.getDistance() \
+                    + currentVert.getWeight(nextVert)
+            if newDist &lt; nextVert.getDistance():
+                nextVert.setDistance( newDist )
+                nextVert.setPred(currentVert)
+                pq.decreaseKey(nextVert,newDist)</pre>
+        <p>Dijkstra's algorithm uses a priority queue. You may recall that a
+            priority queue is based on the heap that we implemented in the Tree Chapter.
+            There are a couple of differences between that
+            simple implementation and the implementation we
+            use for Dijkstra's algorithm. First, the <c>PriorityQueue</c> class stores
+            tuples of key, value pairs. This is important for Dijkstra's algorithm
+            as the key in the priority queue must match the key of the vertex in the
+            graph. Secondly the value is used for deciding the priority, and thus
+            the position of the key in the priority queue. In this implementation we
+            use the distance to the vertex as the priority because as we will see
+            when we are exploring the next vertex, we always want to explore the
+            vertex that has the smallest distance. The second difference is the
+            addition of the <c>decreaseKey</c> method. As you can see, this method is used when the distance to a vertex that
+            is already in the queue is reduced, and thus moves that vertex toward
+            the front of the queue.</p>
+        <p>Let's walk through an application of Dijkstra's algorithm one vertex at
+            a time using the following sequence of figures as our guide. We begin with the vertex
+            <math>u</math>. The three vertices adjacent to <math>u</math> are
+            <math>v,w,</math> and <math>x</math>. Since the initial distances to
+            <math>v,w,</math> and <math>x</math> are all initialized to <c>sys.maxint</c>,
+            the new costs to get to them through the start node are all their direct
+            costs. So we update the costs to each of these three nodes. We also set
+            the predecessor for each node to <math>u</math> and we add each node to the
+            priority queue. We use the distance as the key for the priority queue.
+            The state of the algorithm is shown in <xref ref="fig-dija"/>.</p>
+        <p>In the next iteration of the <c>while</c> loop we examine the vertices that
+            are adjacent to <math>x</math>. The vertex <math>x</math> is next because it
+            has the lowest overall cost and therefore bubbled its way to the
+            beginning of the priority queue. At <math>x</math> we look at its neighbors
+            <math>u,v,w</math> and <math>y</math>. For each neighboring vertex we check to
+            see if the distance to that vertex through <math>x</math> is smaller than
+            the previously known distance. Obviously this is the case for
+            <math>y</math> since its distance was <c>sys.maxint</c>. It is not the case
+            for <math>u</math> or <math>v</math> since their distances are 0 and 2
+            respectively. However, we now learn that the distance to <math>w</math> is
+            smaller if we go through <math>x</math> than from <math>u</math> directly to
+            <math>w</math>. Since that is the case we update <math>w</math> with a new
+            distance and change the predecessor for <math>w</math> from <math>u</math> to
+            <math>x</math>. See <xref ref="fig-dijb"/> for the state of all the vertices.</p>
+        <p>The next step is to look at the vertices neighboring <math>v</math> (see <xref ref="fig-dijc"/>). This
+            step results in no changes to the graph, so we move on to node
+            <math>y</math>. At node <math>y</math> (see <xref ref="fig-dijd"/>) we discover that it is cheaper to get
+            to both <math>w</math> and <math>z</math>, so we adjust the distances and
+            predecessor links accordingly. Finally we check nodes <math>w</math> and
+            <math>z</math> (see see <xref ref="fig-dije"/> and see <xref ref="fig-dijf"/>). However, no additional changes are found and so the
+            priority queue is empty and Dijkstra's algorithm exits.</p>
+        
+        <figure align="center" xml:id="fig-dija"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 3: Tracing Dijkstra's Algorithm</caption><image source="Graphs/Figures/dijkstraa.png" width="50%"/></figure>
+        
+        <figure align="center" xml:id="fig-dijb"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: Tracing Dijkstra's Algorithm</caption><image source="Graphs/Figures/dijkstrab.png" width="50%"/></figure>
+        
+        <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 5: Tracing Dijkstra's Algorithm</caption><image source="Graphs/Figures/dijkstrac.png" width="50%"/></figure>
+        
+        <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 6: Tracing Dijkstra's Algorithm</caption><image source="Graphs/Figures/dijkstrad.png" width="50%"/></figure>
+        
+        <figure align="center" xml:id="id5"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 7: Tracing Dijkstra's Algorithm</caption><image source="Graphs/Figures/dijkstrae.png" width="50%"/></figure>
+        
+        <figure align="center" xml:id="id6"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 8: Tracing Dijkstra's Algorithm</caption><image source="Graphs/Figures/dijkstraf.png" width="50%"/></figure>
+        <p>It is important to note that Dijkstra's algorithm works only when the
+            weights are all positive. You should convince yourself that if you
+            introduced a negative weight on one of the edges to the graph that the algorithm would never exit.</p>
+        <p>We will note that to route messages through the Internet, other
+            algorithms are used for finding the shortest path. One of the problems
+            with using Dijkstra's algorithm on the Internet is that you must have a
+            complete representation of the graph in order for the algorithm to run.
+            The implication of this is that every router has a complete map of all
+            the routers in the Internet. In practice this is not the case and other
+            variations of the algorithm allow each router to discover the graph as
+            they go. One such algorithm that you may want to read about is called
+            the <q>distance vector</q> routing algorithm.</p>
+        <note>
+            <title>Self Check</title>
+
+    <exercise label="dijkstraq1">
+        <statement>
+
+            <p>Q-1: What purpose does the Priority Queue in the Dijkstra's algorithm serve?</p>
+
+        </statement>
+<choices>
+
+            <choice>
+                <statement>
+                    <p>It only holds a series of vertices to traverse.</p>
+                </statement>
+                <feedback>
+                    <p>Not quite, Priority Queues serve a purpose beyond storage.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>It holds an unsorted list of unvisited vertices.</p>
+                </statement>
+                <feedback>
+                    <p>No, the vertices will be sorted.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>It notes what vertices have been visited.</p>
+                </statement>
+                <feedback>
+                    <p>No, it does not store any visited vertices.</p>
+                </feedback>
+            </choice>
+
+            <choice correct="yes">
+                <statement>
+                    <p>It holds an appropriately sorted list of vertices to traverse.</p>
+                </statement>
+                <feedback>
+                    <p>Correct!</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+        </note>
+    </section>
+

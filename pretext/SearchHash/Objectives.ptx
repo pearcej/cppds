@@ -1,0 +1,22 @@
+<section xml:id="search-hash_objectives">
+        <title>Objectives</title>
+        <p><ul>
+            <li>
+                <p>To understand what search is and when it is appropriate.</p>
+            </li>
+            <li>
+                <p>To be able to explain and to implement sequential search and binary
+                    search.</p>
+            </li>
+            <li>
+                <p>To understand the idea of hashing as a search technique.</p>
+            </li>
+            <li>
+                <p>To introduce the unordered map abstract data type.</p>
+            </li>
+            <li>
+                <p>To implement a map abstract data type using hashing.</p>
+            </li>
+        </ul></p>
+    </section>
+

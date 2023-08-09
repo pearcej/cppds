@@ -1,0 +1,146 @@
+<section xml:id="graphs_glossary">
+        <title>Glossary</title>
+        <glossary sorted="False">
+            
+                <gi>
+                    <title>acyclic graph</title>
+                    
+                        <p>A graph with no cycles</p>
+                    
+                </gi>
+                <gi>
+                    <title>adjacency list</title>
+                    
+                        <p>A list implementation where we keep a master list of all the vertices in the Graph object and then each vertex object in the graph maintains a list of the other vertices that it is connected to</p>
+                    
+                </gi>
+                <gi>
+                    <title>adjacency matrix</title>
+                    
+                        <p>A matrix implementation where each of the rows and columns represent a vertex in the graph, and where if two vertices are connected by an edge, they are considered adjacent.</p>
+                    
+                </gi>
+                <gi>
+                    <title>adjacent</title>
+                    
+                        <p>When two vertices are connected by an edge.</p>
+                    
+                </gi>
+                <gi>
+                    <title>breadth first search (BFS)</title>
+                    
+                        <p>A search that proceeds to look through the edges in a graph to find all the vertices in that graph for which there is a path from the starting point.</p>
+                    
+                </gi>
+                <gi>
+                    <title>cycle</title>
+                    
+                        <p>A cycle in a directed graph is a path that starts and ends at the same vertex.</p>
+                    
+                </gi>
+                <gi>
+                    <title>cyclic graph</title>
+                    
+                        <p>A graph with at least one cycle in it.</p>
+                    
+                </gi>
+                <gi>
+                    <title>depth first forest</title>
+                    
+                        <p>The result of the groups of trees produced by a depth first search algorithm.</p>
+                    
+                </gi>
+                <gi>
+                    <title>depth first search (DFS)</title>
+                    
+                        <p>A search type where the goal is to create the deepest depth first tree, without any branches.</p>
+                    
+                </gi>
+                <gi>
+                    <title>digraph</title>
+                    
+                        <p>see directed graph</p>
+                    
+                </gi>
+                <gi>
+                    <title>directed acyclic graph (DAG)</title>
+                    
+                        <p>A directed acyclic graph, which is a directed graph with no cycles.</p>
+                    
+                </gi>
+                <gi>
+                    <title>directed graph</title>
+                    
+                        <p>A graph in which all the edges are one-way.</p>
+                    
+                </gi>
+                <gi>
+                    <title>edge cost</title>
+                    
+                        <p>The weight associated with an arc in a graph.</p>
+                    
+                </gi>
+                <gi>
+                    <title>edge</title>
+                    
+                        <p>An edge (also called an <q>arc</q>) connects two vertices to show that there is a relationship between them. Edges may be one-way or two-way.</p>
+                    
+                </gi>
+                <gi>
+                    <title>parenthesis property</title>
+                    
+                        <p>All the children of a particular node in the depth first tree have a later discovery time and an earlier finish time than their parent.</p>
+                    
+                </gi>
+                <gi>
+                    <title>path</title>
+                    
+                        <p>A path in a graph is a sequence of vertices that are connected by edges.</p>
+                    
+                </gi>
+                <gi>
+                    <title>shortest path</title>
+                    
+                        <p>The most succinct passage from one edge to another.</p>
+                    
+                </gi>
+                <gi>
+                    <title>spanning tree</title>
+                    
+                        <p>An acyclic subset of edges that connects all the vertices.</p>
+                    
+                </gi>
+                <gi>
+                    <title>strongly connected components (SCC)</title>
+                    
+                        <p>The largest subset of vertices C&#8834;V such that for every pair of vertices v,w&#8712;C we have a path from v to w and a path from w to v.</p>
+                    
+                </gi>
+                <gi>
+                    <title>topological sorting</title>
+                    
+                        <p>A topological sort takes a directed acyclic graph and produces a linear ordering of all its vertices such that if the graph G contains an edge (v,w) then the vertex v comes before the vertex w in the ordering.</p>
+                    
+                </gi>
+                <gi>
+                    <title>uncontrolled flooding</title>
+                    
+                        <p>Each message starts with a time to live (<c>ttl</c>) value set to some number greater than or equal to the number of edges between the broadcast host and its most distant listener. Each router gets a copy of the message and passes the message on to <em>all</em> of its neighboring routers. When the message is passed on the <c>ttl</c> is decreased. Each router continues to send copies of the message to all its neighbors until the <c>ttl</c> value reaches 0.</p>
+                    
+                </gi>
+                <gi>
+                    <title>vertex</title>
+                    
+                        <p>A vertex (also called a <q>node</q>) is a fundamental part of a graph. It can have a name (also called a <q>Key</q>).  A vertex may also have additional information also called a (<q>payload</q>).</p>
+                    
+                </gi>
+                <gi>
+                    <title>weight</title>
+                    
+                        <p>Shows that there is a cost to go from one vertex to another</p>
+                    
+                </gi>
+            
+        </glossary>
+    </section>
+    

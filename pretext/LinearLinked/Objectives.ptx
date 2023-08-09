@@ -1,0 +1,24 @@
+<section xml:id="linear-linked_objectives">
+        <title>Objectives</title>
+        <p><ul>
+            <li>
+                <p>To appreciate that list-like data types such as arrays and vectors which rely on storing data in contiguous memory are just one type of list-like structure.</p>
+            </li>
+            <li>
+                <p>To learn that linked lists are a different list-like data structure.</p>
+            </li>
+            <li>
+                <p>To write code which manipulates linked lists in C++.</p>
+            </li>
+            <li>
+                <p>Understand node and pointer diagrams to illustrate the linked list.</p>
+            </li>
+            <li>
+                <p>To learn how singly and doubly linked lists are implemented in C++.</p>
+            </li>
+            <li>
+                <p>To understand the abstract data types node and linked list, including the unordered list and ordered list.</p>
+            </li>
+        </ul></p>
+    </section>
+

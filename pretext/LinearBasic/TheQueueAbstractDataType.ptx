@@ -1,0 +1,170 @@
+<section xml:id="linear-basic_the-queue-abstract-data-type">
+        <title>The Queue Abstract Data Type</title>
+        <p>The <term>queue</term> abstract data type is defined by the following structure and
+            operations. A queue is structured, as described above, as an ordered
+            collection of items which are added at one end, called the <q>rear,</q> and
+            removed from the other end, called the <q>front.</q> Queues maintain a
+            <term>first-in-first-out (FIFO)</term>
+            ordering property. The standard queue operations are given below.</p>
+        <p><ul>
+            <li>
+                <p><c>queue&lt;dataType&gt; queueName</c> creates a new queue that is empty. It returns an empty queue.</p>
+            </li>
+            <li>
+                <p><c>push(item)</c> adds a new item to the rear of the queue. It needs
+                    the item and returns nothing.</p>
+            </li>
+            <li>
+                <p><c>pop()</c> removes the front item from the queue. It needs no
+                    parameters. The queue is modified.</p>
+            </li>
+            <li>
+                <p><c>empty()</c> tests to see whether the queue is empty. It needs no
+                    parameters and returns a Boolean value.</p>
+            </li>
+            <li>
+                <p><c>size()</c> returns the number of items in the queue. It needs no
+                    parameters and returns an integer.</p>
+            </li>
+            <li>
+                <p><c>front()</c> returns the first item in the queue without removing the item.</p>
+            </li>
+            <li>
+                <p><c>back()</c> returns the last item in the queue without removing the item.</p>
+            </li>
+        </ul></p>
+        <p>As an example, if we assume that <c>q</c> is a queue that has been created
+            and is currently empty, then <xref ref="linear-basic_tbl-queueoperations"/> shows the
+            results of a sequence of queue operations. The queue contents are shown
+            such that the front is on the right. 4 was the first item pushed so it
+            is the first item returned by dequeue.</p>
+        
+        <table xml:id="linear-basic_id1"><tabular>
+            <title><term>Table 1: Example Queue Operations</term></title>
+            
+                
+                
+                
+                
+                    <row header="yes">
+                        <cell>
+                            <term>Queue Operation</term>
+                        </cell>
+                        <cell>
+                            <term>Queue Contents</term>
+                        </cell>
+                        <cell>
+                            <term>Return Value</term>
+                        </cell>
+                    </row>
+                
+                
+                    <row>
+                        <cell>
+                            <c>q.empty()</c>
+                        </cell>
+                        <cell>
+                            <c>[]</c>
+                        </cell>
+                        <cell>
+                            <c>true</c>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>q.push(4)</c>
+                        </cell>
+                        <cell>
+                            <c>[4]</c>
+                        </cell>
+                        <cell>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>q.push(12)</c>
+                        </cell>
+                        <cell>
+                            <c>[12,4]</c>
+                        </cell>
+                        <cell>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>q.push(3)</c>
+                        </cell>
+                        <cell>
+                            <c>[3,12,4]</c>
+                        </cell>
+                        <cell>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>q.size()</c>
+                        </cell>
+                        <cell>
+                            <c>[3,12,4]</c>
+                        </cell>
+                        <cell>
+                            <c>3</c>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>q.empty()</c>
+                        </cell>
+                        <cell>
+                            <c>[3,12,4]</c>
+                        </cell>
+                        <cell>
+                            <c>false</c>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>q.push(97)</c>
+                        </cell>
+                        <cell>
+                            <c>[97,3,12,4]</c>
+                        </cell>
+                        <cell>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>q.pop()</c>
+                        </cell>
+                        <cell>
+                            <c>[97,3,12]</c>
+                        </cell>
+                        <cell>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>q.pop()</c>
+                        </cell>
+                        <cell>
+                            <c>[97,3]</c>
+                        </cell>
+                        <cell>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>q.size()</c>
+                        </cell>
+                        <cell>
+                            <c>[97,3]</c>
+                        </cell>
+                        <cell>
+                            <c>2</c>
+                        </cell>
+                    </row>
+                
+            
+        </tabular></table>
+    </section>
+

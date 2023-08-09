@@ -1,0 +1,411 @@
+<section xml:id="introduction_glossary">
+        <title>Glossary</title>
+        <glossary sorted="False">
+            
+                <gi>
+                    <title>abstract data type/ADT</title>
+                    
+                        <p>A mathematical model for data.</p>
+                    
+                </gi>
+                <gi>
+                    <title>abstraction</title>
+                    
+                        <p>Focusing on desired behaviors and properties while disregarding what is irrelevant/unimportant</p>
+                    
+                </gi>
+                <gi>
+                    <title>access keywords</title>
+                    
+                        <p>Keywords such as &#8216;'public'', private'', and &#8216;'protected'' that indicates what class properties/behaviors a user can change</p>
+                    
+                </gi>
+                <gi>
+                    <title>address-of</title>
+                    
+                        <p>The address-of operator (<c>&amp;</c>) is used to access the address of a C++ variable.</p>
+                    
+                </gi>
+                <gi>
+                    <title>algorithm</title>
+                    
+                        <p>A set of instructions or rules given to complete a task.</p>
+                    
+                </gi>
+                <gi>
+                    <title><c>AND</c></title>
+                    
+                        <p>A primitive logic gate. In this gate, both A AND B must be true in order to be true.</p>
+                    
+                </gi>
+                <gi>
+                    <title>argument</title>
+                    
+                        <p>Data passed to a parameter.</p>
+                    
+                </gi>
+                <gi>
+                    <title>array</title>
+                    
+                        <p>A data structure consisting of an ordered collection of data elements of identical type in which each element can be identified by an array index.</p>
+                    
+                </gi>
+                <gi>
+                    <title>array parameters</title>
+                    
+                        <p>Used to pass an array of arguments.</p>
+                    
+                </gi>
+                <gi>
+                    <title>atomic data type</title>
+                    
+                        <p>Basic data type that cannot be broken down into any simpler data elements.</p>
+                    
+                </gi>
+                <gi>
+                    <title>base class</title>
+                    
+                        <p>A class from which other classes are derived.</p>
+                    
+                </gi>
+                <gi>
+                    <title><c>bool</c></title>
+                    
+                        <p>Keyword for Boolean data type.</p>
+                    
+                </gi>
+                <gi>
+                    <title><c>char</c></title>
+                    
+                        <p>Keyword for character data type that stores a single character.</p>
+                    
+                </gi>
+                <gi>
+                    <title>class</title>
+                    
+                        <p>A template for creating (instantiating) objects, for providing initial values for state via member variables, and for implementations of behavior via member functions or methods</p>
+                    
+                </gi>
+                <gi>
+                    <title>class methods</title>
+                    
+                        <p>The functions and methods that belong to a class that describe what the class can do.</p>
+                    
+                </gi>
+                <gi>
+                    <title>collection</title>
+                    
+                        <p>A grouping of a number of data items (possibly only zero or one) that have some shared significance or need to be operated upon together.</p>
+                    
+                </gi>
+                <gi>
+                    <title>compiler</title>
+                    
+                        <p>A program that converts high-level language into machine language.</p>
+                    
+                </gi>
+                <gi>
+                    <title>computable</title>
+                    
+                        <p>The capability of being copmuted or solved.</p>
+                    
+                </gi>
+                <gi>
+                    <title><c>const</c></title>
+                    
+                        <p>Keyword that makes a variable or value immutable. i.e. constant and unchanging.</p>
+                    
+                </gi>
+                <gi>
+                    <title>constructor</title>
+                    
+                        <p>A class' special function that initializes an object of that class.</p>
+                    
+                </gi>
+                <gi>
+                    <title>data abstraction</title>
+                    
+                        <p>The act of only providing essential information within your work. Representing your data without reavling the details.</p>
+                    
+                </gi>
+                <gi>
+                    <title>data structure</title>
+                    
+                        <p>The organization of data that allows for improved search, storage, and sorting capability.</p>
+                    
+                </gi>
+                <gi>
+                    <title>data types</title>
+                    
+                        <p>A classification of various types of data, such as floating-point, integer, or Boolean, the possible values for that type,  operations that can be done on that type,
+                            and how the values of that type are stored.</p>
+                    
+                </gi>
+                <gi>
+                    <title>dereference</title>
+                    
+                        <p>Follow a pointer to its referenced memory location and read the data there.</p>
+                    
+                </gi>
+                <gi>
+                    <title>derived class</title>
+                    
+                        <p>A derived class is a class created or derived from another existing class.</p>
+                    
+                </gi>
+                <gi>
+                    <title><c>double</c></title>
+                    
+                        <p>Keyword for double-precision floating point data type.</p>
+                    
+                </gi>
+                <gi>
+                    <title>encapsulation</title>
+                    
+                        <p>Hiding the contents of a class except when absolutely necessary</p>
+                    
+                </gi>
+                <gi>
+                    <title><c>float</c></title>
+                    
+                        <p>Keyword for floating point data type.</p>
+                    
+                </gi>
+                <gi>
+                    <title>friend</title>
+                    
+                        <p>An operator or function that can access the private data members of a class of which it is designated as a friend.</p>
+                    
+                </gi>
+                <gi>
+                    <title>friend function</title>
+                    
+                        <p>A function defined outside that class' scope but has access to private and protected members of the class</p>
+                    
+                </gi>
+                <gi>
+                    <title>function</title>
+                    
+                        <p>A section of code that performs a procedure and is usually named.</p>
+                    
+                </gi>
+                <gi>
+                    <title>function overloading</title>
+                    
+                        <p>Function overloading is the ability to create multiple functions of the same name with different implementations.</p>
+                    
+                </gi>
+                <gi>
+                    <title>HAS-A Relationship</title>
+                    
+                        <p>A relationship where one object <q>belongs to</q> another object, and behaves according to rules of ownership.</p>
+                    
+                </gi>
+                <gi>
+                    <title>hash table</title>
+                    
+                        <p>A collection consisting of key-value pairs with an associated hash function that maps the key to the associated value.</p>
+                    
+                </gi>
+                <gi>
+                    <title>immutable</title>
+                    
+                        <p>Unable to be modified.</p>
+                    
+                </gi>
+                <gi>
+                    <title>information hiding</title>
+                    
+                        <p>Hiding information so that it is invisible from the outside of an object.</p>
+                    
+                </gi>
+                <gi>
+                    <title>inheritance</title>
+                    
+                        <p>Sharing/gaining the same behavior as another class</p>
+                    
+                </gi>
+                <gi>
+                    <title>inheritance hierarchy</title>
+                    
+                        <p>A singly rooted tree structure.</p>
+                    
+                </gi>
+                <gi>
+                    <title>instance</title>
+                    
+                        <p>An occurrence of an object</p>
+                    
+                </gi>
+                <gi>
+                    <title><c>int</c></title>
+                    
+                        <p>Keyword for integer data type.</p>
+                    
+                </gi>
+                <gi>
+                    <title><c>int main()</c></title>
+                    
+                        <p>The main function used to call all other functions.</p>
+                    
+                </gi>
+                <gi>
+                    <title>interface</title>
+                    
+                        <p>A shared boundary in which two or more components of a computer system exchange information.</p>
+                    
+                </gi>
+                <gi>
+                    <title>machine code</title>
+                    
+                        <p>Instructions and data understandable by a computer's CPU.</p>
+                    
+                </gi>
+                <gi>
+                    <title>mutability</title>
+                    
+                        <p>Able to be modified.</p>
+                    
+                </gi>
+                <gi>
+                    <title><c>NOT</c></title>
+                    
+                        <p>An inverter, used to negate input.</p>
+                    
+                </gi>
+                <gi>
+                    <title>object</title>
+                    
+                        <p>A variable, data structure, function, or a method, that can be referenced by an identifier.</p>
+                    
+                </gi>
+                <gi>
+                    <title>object attribute</title>
+                    
+                        <p>A property of an object that describes what it <q>looks like</q></p>
+                    
+                </gi>
+                <gi>
+                    <title>object-oriented programming language</title>
+                    
+                        <p>Programming language that uses objects to represent data and methods such as C++ and Java</p>
+                    
+                </gi>
+                <gi>
+                    <title>operator overloading</title>
+                    
+                        <p>Same as function overloading.</p>
+                    
+                </gi>
+                <gi>
+                    <title><c>OR</c></title>
+                    
+                        <p>A basic gate. If either input is true, the output is also. If inputs are false, so is the output.</p>
+                    
+                </gi>
+                <gi>
+                    <title>overloading</title>
+                    
+                        <p>Specifying more than one definition for the same function name or the same operator within the same scope.</p>
+                    
+                </gi>
+                <gi>
+                    <title>parameter</title>
+                    
+                        <p>A variable in a function or method definition that accepts data passed from an argument.</p>
+                    
+                </gi>
+                <gi>
+                    <title>pass by reference</title>
+                    
+                        <p>To pass an object to a function by referencing its location in memory.</p>
+                    
+                </gi>
+                <gi>
+                    <title>pass by value</title>
+                    
+                        <p>To pass an object to a function by copying its value.</p>
+                    
+                </gi>
+                <gi>
+                    <title>programming</title>
+                    
+                        <p>The use of logic to create specified computing operations.</p>
+                    
+                </gi>
+                <gi>
+                    <title>pointer</title>
+                    
+                        <p>A variable that stores and manipulates memory addresses.</p>
+                    
+                </gi>
+                <gi>
+                    <title>polymorphism</title>
+                    
+                        <p>The ability to process objects or methods differently depending on their data type, class, number of arguments, etc.</p>
+                    
+                </gi>
+                <gi>
+                    <title>reference</title>
+                    
+                        <p>A value that indicates a place in a computer's memory.</p>
+                    
+                </gi>
+                <gi>
+                    <title>set</title>
+                    
+                        <p>An unordered data structure consisting of unique, immutable data values.</p>
+                    
+                </gi>
+                <gi>
+                    <title>string</title>
+                    
+                        <p>A sequential data structure consisting of zero or more characters.</p>
+                    
+                </gi>
+                <gi>
+                    <title>subclasses</title>
+                    
+                        <p>A division of an existing class.</p>
+                    
+                </gi>
+                <gi>
+                    <title>superclass</title>
+                    
+                        <p>A class that has been extended by another existing class.</p>
+                    
+                </gi>
+                <gi>
+                    <title>truth table</title>
+                    
+                        <p>A mathematical table used to visually represent boolean logic and functions.</p>
+                    
+                </gi>
+                <gi>
+                    <title>unordered set</title>
+                    
+                        <p>A container that is not sorted or ordered in any secific way.</p>
+                    
+                </gi>
+                <gi>
+                    <title>vector</title>
+                    
+                        <p>Sequence container storing data of a single type that is stored in a dynamically allocated array which can change in size.</p>
+                    
+                </gi>
+                <gi>
+                    <title><c>void</c></title>
+                    
+                        <p>Keyword indicating a function has no return value.</p>
+                    
+                </gi>
+                <gi>
+                    <title>word</title>
+                    
+                        <p>Unit of data used by a particular processor design.</p>
+                    
+                </gi>
+            
+        </glossary>
+    </section>
+    

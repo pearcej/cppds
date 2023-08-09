@@ -1,0 +1,120 @@
+<section xml:id="algorithm-analysis_glossary">
+        <title>Glossary</title>
+        <glossary sorted="False">
+            
+                <gi>
+                    <title>algorithm</title>
+                    
+                        <p>a generic, step-by-step list of instructions for solving a problem</p>
+                    
+                </gi>
+                <gi>
+                    <title>average case</title>
+                    
+                        <p>refers to when an algorithm performs between its worst and best case given a certain data set or circumstance</p>
+                    
+                </gi>
+                <gi>
+                    <title>best case</title>
+                    
+                        <p>refers to when an algorithm performs especially good given a certain data set or circumstance</p>
+                    
+                </gi>
+                <gi>
+                    <title>Big-O notation</title>
+                    
+                        <p>another term for order of magnitude; written as <math>O(f(n))</math></p>
+                    
+                </gi>
+                <gi>
+                    <title>brute force</title>
+                    
+                        <p>technique that tries to exhaust all possibilities of a problem</p>
+                    
+                </gi>
+                <gi>
+                    <title><c classes="code">contains</c></title>
+                    
+                        <p>A hash operation used to check if a table contains a specific element.</p>
+                    
+                </gi>
+                <gi>
+                    <title>contiguous</title>
+                    
+                        <p>adjacent or next to</p>
+                    
+                </gi>
+                <gi>
+                    <title>dynamic size</title>
+                    
+                        <p>able to change size automatically</p>
+                    
+                </gi>
+                <gi>
+                    <title>exponential</title>
+                    
+                        <p>function represented as a number being raised to a power that increases like <math>f(n)= 2^{n}</math></p>
+                    
+                </gi>
+                <gi>
+                    <title><c classes="code">get_item</c></title>
+                    
+                        <p>A hash operation used to retrieve the information associated with a hash key.</p>
+                    
+                </gi>
+                <gi>
+                    <title>hash table</title>
+                    
+                        <p>a collection consisting of key-value pairs with an associated hash function that maps the key to the associated value.</p>
+                    
+                </gi>
+                <gi>
+                    <title>linear</title>
+                    
+                        <p>function that grows in a one to one relationship with its input like <math>f(n) = n</math></p>
+                    
+                </gi>
+                <gi>
+                    <title>logarithmic</title>
+                    
+                        <p>functions that are the inverse of exponential functions usually presented as <math>f(n) = logn</math></p>
+                    
+                </gi>
+                <gi>
+                    <title>order of magnitude</title>
+                    
+                        <p>function describing the part <math>T(n)</math> that increases the fastest as the value of n increases  (a function describing an algorithm's steps as the size of the problem increases).</p>
+                    
+                </gi>
+                <gi>
+                    <title>quadratic</title>
+                    
+                        <p>function describing a relationship who's highest order is a number squared</p>
+                        <blockquote>
+                            <p>simplified: <math>f(n) = x^{2}</math></p>
+                            <p>complex: <math>ax^{2} + bx + c</math></p>
+                        </blockquote>
+                    
+                </gi>
+                <gi>
+                    <title><c classes="code">set_item</c></title>
+                    
+                        <p>A hash operation used to add an item to your table.</p>
+                    
+                </gi>
+                <gi>
+                    <title>vector</title>
+                    
+                        <p>sequence container storing data of a single type that is stored in a dynamically allocated array which can change in size.</p>
+                    
+                </gi>
+                <gi>
+                    <title>worst case</title>
+                    
+                        <p>refers to when an algorithm performs especially poorly given a certain data set or circumstance</p>
+                    
+                </gi>
+            
+        </glossary>
+    </section>
+    

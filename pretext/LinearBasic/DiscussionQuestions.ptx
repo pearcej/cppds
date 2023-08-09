@@ -1,0 +1,64 @@
+<section xml:id="linear-basic_discussion-questions">
+        <title>Discussion Questions</title>
+        <p><ol label="1">
+            <li>
+                <p>Convert the following values to binary using <q>divide by 2.</q> Show the
+                    stack of remainders.</p>
+                <p><ul>
+                    <li>
+                        <p>17</p>
+                    </li>
+                    <li>
+                        <p>45</p>
+                    </li>
+                    <li>
+                        <p>96</p>
+                    </li>
+                </ul></p>
+            </li>
+            <li>
+                <p>Convert the following infix expressions to prefix (use full
+                    parentheses):</p>
+                <p><ul>
+                    <li>
+                        <p>(A+B)*(C+D)*(E+F)</p>
+                    </li>
+                    <li>
+                        <p>A+((B+C)*(D+E))</p>
+                    </li>
+                    <li>
+                        <p>A*B*C*D+E+F</p>
+                    </li>
+                </ul></p>
+            </li>
+            <li>
+                <p>Convert the above infix expressions to postfix (use full
+                    parentheses).</p>
+            </li>
+            <li>
+                <p>Convert the above infix expressions to postfix using the direct
+                    conversion algorithm. Show the stack as the conversion takes place.</p>
+            </li>
+            <li>
+                <p>Evaluate the following postfix expressions. Show the stack as each
+                    operand and operator is processed.</p>
+                <p><ul>
+                    <li>
+                        <p>2 3 * 4 +</p>
+                    </li>
+                    <li>
+                        <p>1 2 + 3 + 4 + 5 +</p>
+                    </li>
+                    <li>
+                        <p>1 2 3 4 5 * + * +</p>
+                    </li>
+                </ul></p>
+            </li>
+            <li>
+                <p>The alternative implementation of the <c>Queue</c> ADT is to use a vector
+                    such that the rear of the queue is at the end of the vector. What would
+                    this mean for Big-O performance?</p>
+            </li>
+        </ol></p>
+    </section>
+

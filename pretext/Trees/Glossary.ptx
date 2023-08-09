@@ -1,0 +1,190 @@
+<section xml:id="trees_glossary">
+        <title>Glossary</title>
+        <glossary sorted="False">
+            
+                <gi>
+                    <title>AVL tree</title>
+                    
+                        <p>a binary search tree that automatically makes sure the tree remains
+                            balanced at all times</p>
+                    
+                </gi>
+                <gi>
+                    <title>balance factor</title>
+                    
+                        <p>the difference between the height of the left and right subtrees of
+                            a node</p>
+                    
+                </gi>
+                <gi>
+                    <title>binary heap</title>
+                    
+                        <p>a complete binary tree that follows heap ordering rules</p>
+                    
+                </gi>
+                <gi>
+                    <title>binary search tree</title>
+                    
+                        <p>a binary tree in which each node has no more than 2 children; node values
+                            in the left sub-tree are less than the parent while node values in the
+                            right sub-tree are</p>
+                    
+                </gi>
+                <gi>
+                    <title>binary tree</title>
+                    
+                        <p>a tree with a maximum of two children for each node</p>
+                    
+                </gi>
+                <gi>
+                    <title>bst propery</title>
+                    
+                        <p>property of a binary search key in which the keys that are less than
+                            the parent are found in the left subtree and keys that are greater
+                            than the parent are found in the right subtree</p>
+                    
+                </gi>
+                <gi>
+                    <title>children</title>
+                    
+                        <p>the nodes that one node leads to</p>
+                    
+                </gi>
+                <gi>
+                    <title>complete binary tree</title>
+                    
+                        <p>a tree in which each level has all of its nodes, with the exception of
+                            the bottom level</p>
+                    
+                </gi>
+                <gi>
+                    <title>edge</title>
+                    
+                        <p>connects two nodes in a tree; has only one incoming edge</p>
+                    
+                </gi>
+                <gi>
+                    <title>heap order property</title>
+                    
+                        <p>property of the heap based on min heap or max heap (i.e. in a min heap,
+                            every node x with a parent p, the key in p is smaller than or equal to
+                            the key in x)</p>
+                    
+                </gi>
+                <gi>
+                    <title>height</title>
+                    
+                        <p>the maximum level of any node in the tree</p>
+                    
+                </gi>
+                <gi>
+                    <title>inorder</title>
+                    
+                        <p>recursive tree traversal in which the left subtree is visited, then the
+                            root node, followed by the right subtree</p>
+                    
+                </gi>
+                <gi>
+                    <title>leaf node</title>
+                    
+                        <p>a node that has no children</p>
+                    
+                </gi>
+                <gi>
+                    <title>level</title>
+                    
+                        <p>the number of edges on the path from the root to the current node</p>
+                    
+                </gi>
+                <gi>
+                    <title>max heap</title>
+                    
+                        <p>a binary heap in which the largest key is always at the front</p>
+                    
+                </gi>
+                <gi>
+                    <title>min heap</title>
+                    
+                        <p>a binary heap in which the smallest key is always at the front</p>
+                    
+                </gi>
+                <gi>
+                    <title>node</title>
+                    
+                        <p>part of the tree that holds information</p>
+                    
+                </gi>
+                <gi>
+                    <title>parent</title>
+                    
+                        <p>a node that leads to other nodes</p>
+                    
+                </gi>
+                <gi>
+                    <title>path</title>
+                    
+                        <p>an ordered list of nodes connected by edges</p>
+                    
+                </gi>
+                <gi>
+                    <title>postorder</title>
+                    
+                        <p>recursive tree traversal in which the left subtree is visited, then the
+                            right, followed by the root node</p>
+                    
+                </gi>
+                <gi>
+                    <title>preorder</title>
+                    
+                        <p>recursive tree traversal in which the root node is visited, then the
+                            left, followed by the right subtree</p>
+                    
+                </gi>
+                <gi>
+                    <title>priority queue</title>
+                    
+                        <p>a queue whose elements have a priority that determines their order</p>
+                    
+                </gi>
+                <gi>
+                    <title>root</title>
+                    
+                        <p>the starting point of the tree; has no incoming edges</p>
+                    
+                </gi>
+                <gi>
+                    <title>rotation</title>
+                    
+                        <p>rotating the parent and children nodes in a subtree to reorganize
+                            their hierarchy</p>
+                    
+                </gi>
+                <gi>
+                    <title>sibling</title>
+                    
+                        <p>children of the same parent node</p>
+                    
+                </gi>
+                <gi>
+                    <title>subtree</title>
+                    
+                        <p>a section of a tree</p>
+                    
+                </gi>
+                <gi>
+                    <title>successor</title>
+                    
+                        <p>a node that can replace another node while preserving the binary search
+                            tree relationships; the next-largest key in the tree</p>
+                    
+                </gi>
+                <gi>
+                    <title>tree</title>
+                    
+                        <p>a hierarchal data structure with a root, branches, and leaves.</p>
+                    
+                </gi>
+            
+        </glossary>
+    </section>
+    

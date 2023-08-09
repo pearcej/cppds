@@ -1,0 +1,219 @@
+<section xml:id="sort_the-selection-sort">
+        <title>The Selection Sort</title>
+        <p>The <term>selection sort</term> improves on the bubble sort by making only one
+            exchange for every pass through the first part of the vector.
+            We will call this a step.
+            In order to do this, a
+            selection sort looks for the largest value as it makes a partial pass and, after
+            completing the partial pass, places it in the proper location, ending the step.
+            As with a bubble
+            sort, after the first step, the largest item is in the correct place.
+            After the second step, the next largest is in place. This process
+            continues and requires <math>n-1</math> steps to sort <em>n</em> items, since the
+            final item must be in place after the <math>(n-1)</math> step.</p>
+        <p>On each step,
+            the largest remaining item is selected and then placed in its proper
+            location. The first pass places 93, the second pass places 77, the third
+            places 55, and so on. The function is shown in <xref ref="lst-selectionsortcode-cpp"/> .</p>
+        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'TheSelectionSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="lst_selectionsortcode_cpp" interactive="activecode" language="cpp">
+        <input>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+//function that sorts through values in vector through selection sort
+vector&lt;int&gt; selectionSort(vector&lt;int&gt; avector) {
+    for (int fillslot = (avector.size() - 1); fillslot &gt;= 0; fillslot--) {
+        int positionOfMax = 0;
+        for (int location = 1; location &lt; fillslot + 1; location++) {
+            if (avector[location] &gt; avector[positionOfMax]) {
+                positionOfMax = location;
+            }
+        }
+
+        int temp = avector[fillslot];
+        avector[fillslot] = avector[positionOfMax];
+        avector[positionOfMax] = temp;
+    }
+    return avector;
+}
+
+int main() {
+    // Vector initialized using a static array
+    static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
+    vector&lt;int&gt; avector (arr, arr + sizeof(arr) / sizeof(arr[0]) );
+
+    // Call to the selectionSort function
+    vector&lt;int&gt; updatedAvector = selectionSort(avector);
+
+    // print the vector
+    for (unsigned int i = 0; i &lt; updatedAvector.size(); i++) {
+        cout &lt;&lt; updatedAvector[i] &lt;&lt; " ";
+    }
+    cout &lt;&lt; endl;
+
+    return 0;
+}
+        </input>
+    </program>
+            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheSelectionSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="lst_selectionsortcode" interactive="activecode" language="python">
+        <input>
+#function sorts through values in list using selection sort
+def selectionSort(alist):
+   for fillslot in range(len(alist)-1,0,-1):
+       positionOfMax=0
+       for location in range(1,fillslot+1):
+           if alist[location]&gt;alist[positionOfMax]:
+               positionOfMax = location
+
+       temp = alist[fillslot]
+       alist[fillslot] = alist[positionOfMax]
+       alist[positionOfMax] = temp
+
+def main():
+    alist = [54,26,93,17,77,31,44,55,20]
+    selectionSort(alist)
+    print(alist)
+main()
+        </input>
+    </program>
+            </TabNode></exercise>
+        <raw format="html" xml:space="preserve">&lt;script src="../_static/sortmodels.js"&gt;&lt;/script&gt;
+&lt;script src="../_static/sortviewers.js"&gt;&lt;/script&gt;
+
+&lt;div id="selection_anim" class=""&gt;
+&lt;canvas id="selection_anim_canvas" width="400" height="400" style="border:4px solid blue"&gt;&lt;/canvas&gt;
+&lt;br /&gt;
+&lt;button onclick="selection_anim_anim = selection_anim_init('selection_anim')"&gt;Initialize&lt;/button&gt;
+&lt;button onclick="selection_anim_anim.run('selection_anim_anim')"&gt;Run&lt;/button&gt;
+&lt;button onclick="selection_anim_anim.stop()"&gt;Stop&lt;/button&gt; &lt;/br&gt;
+&lt;button onclick="selection_anim_anim.begin()"&gt;Beginning&lt;/button&gt;
+&lt;button onclick="selection_anim_anim.forward()"&gt;Step Forward&lt;/button&gt;
+&lt;button onclick="selection_anim_anim.backward()"&gt;Step Backward&lt;/button&gt;
+&lt;button onclick="selection_anim_anim.end()"&gt;End&lt;/button&gt;
+
+&lt;script&gt;
+selection_anim_init = function(divid)
+{
+   var a = new Animator(new SelectionSortModel(), new BarViewer(), divid)
+   a.init()
+   return a
+}
+&lt;/script&gt;
+
+&lt;/div&gt;
+</raw>
+        <!---->
+        <!---->
+        <!--.. codelens:: selectionsortcodetrace-->
+        <!--:caption: Tracing the Selection Sort-->
+        <!---->
+        <!--def selectionSort(alist):-->
+        <!--for fillslot in range(len(alist)-1,0,-1):-->
+        <!--positionOfMax=0-->
+        <!--for location in range(1,fillslot+1):-->
+        <!--if alist[location]>alist[positionOfMax]:-->
+        <!--positionOfMax = location-->
+        <!---->
+        <!--temp = alist[fillslot]-->
+        <!--alist[fillslot] = alist[positionOfMax]-->
+        <!--alist[positionOfMax] = temp-->
+        <!---->
+        <!--alist = [54,26,93,17,77,31,44,55,20]-->
+        <!--selectionSort(alist)-->
+        <!--print(alist)-->
+        <p>This visualization allows you to step through the algorithm. Yellow bars
+            represent the current element, red represents the element being looked at,
+            and blue represents the last element to look at during a step.</p>
+        <p>The following visualization shows selection sort in action. Each pass compares the bars
+            in sequential order. The smallest bar is selected on each pass and is set as the minimum,
+            represented in orange. Every remaining bar is then compared to the minimum. If the bar is
+            larger, it is represented in blue, if it is smaller, it becomes the new orange bar.
+            After each pass, a counter will increment which bar in our container will start with.
+            This increment is representedby a thin black line falling before the bar to be started at.</p>
+        <raw format="html" xml:space="preserve">&lt;div id="vis_selection_sort" class="video_popup runestone " &gt;
+&lt;video controls preload="none"  poster="../_static/vis_selection_sort_thumb.png"&gt;
+    &lt;source src="../_static/vis_selection_sort.webm" type="video/webm"&gt;&lt;/source&gt;
+    No supported video types
+&lt;/video&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  window.addEventListener('load', (event) =&gt; {
+    jQuery(function($) {
+        var rb = new RunestoneBase();
+        $('#vis_selection_sort_thumb').click(function(e) {
+            $('#vis_selection_sort').show();
+            $('#vis_selection_sort_thumb').hide();
+            rb.logBookEvent({'event':'video','act':'play','div_id': 'vis_selection_sort'});
+            // Log the run event
+        });
+        $('#vis_selection_sort video').one("click", function(){
+            this.play();
+        });
+        $('#vis_selection_sort video').one("play", function(){
+            rb.logBookEvent({'event':'video','act':'play','div_id': 'vis_selection_sort'});
+        });
+    });
+  });
+&lt;/script&gt;
+</raw>
+        <p>You may see that the selection sort makes the same number of comparisons
+            as the bubble sort and is therefore also <math>O(n^{2})</math>. However,
+            due to the reduction in the number of exchanges, the selection sort
+            typically executes faster in benchmark studies.</p>
+        <note>
+            <title>Self Check</title>
+
+    <exercise label="question_sort_2">
+        <statement>
+
+            <p>Q-5: Suppose you have the following vector of numbers to sort:
+                [11, 7, 12, 14, 19, 1, 6, 18, 8, 20] which vector represents the partially sorted (ascending) vector after three steps of selection sort?</p>
+
+        </statement>
+<choices>
+
+            <choice>
+                <statement>
+                    <p>[7, 11, 12, 1, 6, 14, 8, 18, 19, 20]</p>
+                </statement>
+                <feedback>
+                    <p>Selection sort is similar to bubble sort (which you appear to have done) but uses fewer swaps</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>[7, 11, 12, 14, 19, 1, 6, 18, 8, 20]</p>
+                </statement>
+                <feedback>
+                    <p>This looks like an insertion sort.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>[11, 7, 12, 14, 1, 6, 8, 18, 19, 20]</p>
+                </statement>
+                <feedback>
+                    <p>This one looks similar to the correct answer, however, it is not how selection sort works. With this answer, instead of swapping values through each sweep, the values have been shifted to the left to make room for the correct numbers.</p>
+                </feedback>
+            </choice>
+
+            <choice correct="yes">
+                <statement>
+                    <p>[11, 7, 12, 14, 8, 1, 6, 18, 19, 20]</p>
+                </statement>
+                <feedback>
+                    <p>Selection sort improves upon bubble sort by making fewer swaps.</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+        </note>
+    </section>
+

@@ -1,0 +1,416 @@
+<section xml:id="algorithm-analysis_what-is-algorithm-analysis">
+        <title>What Is Algorithm Analysis?</title>
+        <p>It is very common for beginning computer science students to
+            compare their programs with one another. You may also have noticed that
+            it is common for computer programs to look very similar, especially the
+            simple ones. An interesting question often arises. When two programs
+            solve the same problem but look different, is one program better than
+            the other?</p>
+        <p>In order to answer this question, we need to remember that there is an
+            important difference between a program and the underlying algorithm that
+            the program is representing. As we stated in Chapter 1, an <term>algorithm</term> is
+            a generic, step-by-step list of instructions for solving a problem. It
+            is a method for solving any instance of the problem such that given a
+            particular input, the algorithm produces the desired result. A program,
+            on the other hand, is an algorithm that has been encoded into some
+            programming language. There may be many programs for the same algorithm,
+            depending on the programmer and the programming language being used.</p>
+        <p>To explore this difference further, consider the function shown in
+            <xref ref="lst-sum0"/>. This function solves a familiar problem, computing the
+            sum of the first <em>n</em> integers. The algorithm uses the idea of an
+            accumulator variable that is initialized to 0. The solution then
+            iterates through the <em>n</em> integers, adding each to the accumulator.</p>
+        
+        <p xml:id="algorithm-analysis_lst-sum0" names="lst_sum0"><term>Listing 1</term></p>
+        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="ec1_cpp" interactive="activecode" language="cpp">
+        <input>
+#include &lt;iostream&gt;
+using namespace std;
+
+ //adds the sum of (n + n-1 + n-2 ...)
+int sumOfN(int n){
+    int theSum = 0;
+    for (int i = 0; i &lt; n+1; i++){
+        theSum = theSum + i;
+    }
+    return theSum;
+}
+
+int main(){
+
+    // n is 10 (10 + 9 + 8 ...)
+    cout &lt;&lt; sumOfN(10);
+    return 0;
+}
+        </input>
+    </program>
+            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="ec1_py" interactive="activecode" language="python">
+        <input>
+# adds the sum of (n + n-1 + n-2 ...)
+def sumOfN(n):
+    theSum = 0
+    for i in range(1,n+1):
+        theSum = theSum + i
+
+    return theSum
+
+def main():
+    print(sumOfN(10)) # n is 10 (10 + 9 + 8 ...)
+main()
+        </input>
+    </program>
+            </TabNode></exercise>
+        <p>Now look at the function in <xref ref="lst-sum2"/>.
+            At first glance it may look
+            strange, but upon further inspection you can see that this function is
+            essentially doing the same thing as the previous one. The reason this is
+            not obvious is poor coding. We did not use good identifier names to
+            assist with readability, and we used an extra assignment statement
+            during the accumulation step that was not really necessary.</p>
+        
+        <p xml:id="algorithm-analysis_lst-sum2" names="lst_sum2"><term>Listing 2</term></p>
+        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="ec2_cpp" interactive="activecode" language="cpp">
+        <input>
+#include &lt;iostream&gt;
+using namespace std;
+
+//Performs same function as listing 1, but is less descriptive
+//This is not good practice
+
+int foo(int tom){
+    int fred = 0;
+    for (int bill = 0; bill &lt; tom+1; bill++){
+        int barney = bill;
+        fred = fred + barney;
+    }
+    return fred;
+}
+
+int main(){
+    cout &lt;&lt; foo(10);
+    return 0;
+}
+        </input>
+    </program>
+            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="ec2_py" interactive="activecode" language="python">
+        <input>
+#Performs same function as listing 1, but is less descriptive
+#This is not good practice
+
+def foo(tom):
+    fred = 0
+    for bill in range(1,tom+1):
+        barney = bill
+        fred = fred + barney
+
+    return fred
+
+def main():
+    print(foo(10))
+main()
+        </input>
+    </program>
+            </TabNode></exercise>
+        <p>The question we raised earlier asked whether one function is better than
+            another. The answer depends on your criteria. The function <c>sumOfN</c> is
+            certainly better than the function <c>foo</c> if you are concerned with
+            readability. In fact, you have probably seen many examples of this in
+            your introductory programming course since one of the goals there is to
+            help you write programs that are easy to read and easy to understand. In
+            this course, however, we are also interested in characterizing the
+            algorithm itself. (We certainly hope that you will continue to strive to
+            write readable, understandable code.)</p>
+        <p>Algorithm analysis is concerned with comparing algorithms based upon the
+            amount of computing resources that each algorithm uses. We want to be
+            able to consider two algorithms and say that one is better than the
+            other because it is more efficient in its use of those resources or
+            perhaps because it simply uses fewer. From this perspective, the two
+            functions above seem very similar. They both use essentially the same
+            algorithm to solve the summation problem.</p>
+        <p>At this point, it is important to think more about what we really mean
+            by computing resources. There are two different ways to look at this.
+            One way is to consider the amount of space or memory an algorithm
+            requires to solve the problem. The amount of space required by a problem
+            solution is typically dictated by the problem instance itself. Every so
+            often, however, there are algorithms that have very specific space
+            requirements, and in those cases we will be very careful to explain the
+            variations.</p>
+        <p>As an alternative to space requirements, we can analyze and compare
+            algorithms based on the amount of time they require to execute. This
+            measure is sometimes referred to as the <q>execution time</q> or <q>running
+            time</q> of the algorithm. One way we can measure the execution time for
+            the function <c>sumOfN</c> is to do a benchmark analysis. This means that
+            we will track the actual time required for the program to compute its
+            result. In C++, we can benchmark a function by noting the starting
+            time and ending time with respect to the system we are using. In the
+            <c>ctime</c> library there is a function called <c>clock</c> that will return the
+            current system clock time in seconds since some arbitrary starting
+            point. By calling this function twice, at the beginning and at the end,
+            and then computing the difference, we can get an exact number of seconds
+            (fractions in most cases) for execution.</p>
+        
+        <p xml:id="algorithm-analysis_lst-sum11" names="lst_sum11"><term>Listing 3</term></p>
+        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="ec2cpp" interactive="activecode" language="cpp">
+        <input>
+ #include &lt;iostream&gt;
+ #include &lt;ctime&gt;
+ using namespace std;
+
+ //Performs same function as listing one, and also list the time it takes to perform
+ //the function
+
+ int sumofN2(int n) {
+     clock_t begin = clock();
+     int theSum = 0;
+     for(int i = 0; i &lt; n+1; i++){
+         theSum = theSum + i;
+     }
+     clock_t end = clock();
+     double elapsed_secs = double(end - begin) /CLOCKS_PER_SEC;
+     cout &lt;&lt; fixed &lt;&lt; endl;
+     cout &lt;&lt; "Sum is " &lt;&lt; theSum &lt;&lt; " required "&lt;&lt;elapsed_secs &lt;&lt; " seconds" &lt;&lt; endl;
+     return theSum;
+}
+
+int main(){
+    for (int i = 0; i &lt; 6; i++){
+         sumofN2(10000);
+    }
+    return 0;
+}
+        </input>
+    </program>
+            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="ec2py" interactive="activecode" language="python">
+        <input>
+import time
+
+""" Performs same function as listing one, and also list the time it takes to perform
+the function """
+
+def sumOfN2(n):
+    start = time.time()
+
+    theSum = 0
+    for i in range(1,n+1):
+        theSum = theSum + i
+
+    end = time.time()
+    elapsed = end-start
+    print("Sum is", theSum, "required", elapsed, "seconds")
+
+    return elapsed
+
+def main():
+    for i in range(5):
+        sumOfN2(10000)
+main()
+        </input>
+    </program>
+            </TabNode></exercise>
+        <p><xref ref="lst-sum11"/> shows the original <c>sumOfN</c> function with the timing
+            calls embedded before and after the summation. The function returns the amount of time (in seconds)
+            required for the calculation.</p>
+        <p>Consider the following code block:</p>
+        <pre>int n = 1000;
+int theSum = 0;
+for (int i=0; i&lt;n+1; i++){
+  theSum = theSum + 1; //how many times?
+}</pre>
+
+        <exercise>
+            <statement>
+    <p>Q-7: How many times is the <title_reference>theSum = theSum + 1</title_reference> line executed? <var/>  </p></statement><setup><var><condition number="[1001, 1001]"><feedback><p>Right! Good job!</p></feedback></condition><condition number="[1000, 1000]"><feedback><p>No. Look carefully at the loop condition i&lt;n+1.</p></feedback></condition><condition string="^\s*default\s*$"><feedback><p>Incorrect. Please try again.</p></feedback></condition></var></setup></exercise>        <subsection xml:id="algorithm-analysis_some-needed-math-notation">
+            <title>Some Needed Math Notation</title>
+            <p>This is the sigma symbol: <math>\sum_{}</math>.
+                It tells us that we are summing up something
+                much like a mathematical loop typically with a counter.</p>
+            <p>If we have
+                <math>\sum_{i=1}^{5}</math>
+                the bottom index <title_reference>i=1</title_reference> tells us that the index <title_reference>i</title_reference> begins at 1
+                and that <title_reference>i</title_reference> will terminate at <title_reference>5</title_reference>.</p>
+            <p>What ever comes immediately afterwards is what
+                we are summing. So,
+                <math>\sum_{i=1}^{5} i</math>
+                tells us to add the integers <math>1+2+3+4+5</math>
+                because just like in a <title_reference>for</title_reference> loop, we plug a value for each <title_reference>i</title_reference> value.
+                Similarly, <math>\sum_{i=2}^{4} i^2</math> means <math>2^2+3^2+4^2</math>.</p>
+
+    <exercise label="somemath1">
+        <statement>
+
+            <p>Q-8: Compute the result of <math>\sum_{i=1}^{3} i^3</math></p>
+
+        </statement>
+<choices>
+
+            <choice>
+                <statement>
+                    <p>6</p>
+                </statement>
+                <feedback>
+                    <p>No. Use i = 1, i = 2, and i = 3, plugging into i^3.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>14</p>
+                </statement>
+                <feedback>
+                    <p>No. Use i = 1, i = 2, and i = 3, plugging into i^3.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>25</p>
+                </statement>
+                <feedback>
+                    <p>No. Use i = 1, i = 2, and i = 3, plugging into i^3.</p>
+                </feedback>
+            </choice>
+
+            <choice correct="yes">
+                <statement>
+                    <p>36</p>
+                </statement>
+                <feedback>
+                    <p>Right! It is 1^3 + 2^3 + 3^3 = 1 + 8 + 27.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>None of the above.</p>
+                </statement>
+                <feedback>
+                    <p>One of the above is correct!</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+        </subsection>
+        <subsection xml:id="algorithm-analysis_applying-the-math-notation">
+            <title>Applying the Math Notation</title>
+            <p>There is often more than one way to solve a problem.
+                Let's consider the blue area in the
+                following <math>8 \times 9</math>.rectangle.</p>
+            
+            <figure align="" xml:id="fig-sumof-n-integers"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 1: Sum of <title_reference>n = 8</title_reference> integers</caption><image source="AlgorithmAnalysis/Figures/sumof-n-integers.png" width="50%"/></figure>
+            <p>To find the blue area, we can count the number of blue squares
+                <math>1+2+3+4+5+6+7+8</math>, which we just learned
+                can be written as <math>\sum_{i=1}^{8} i.</math>
+                However, we also know how to find the area of a rectangle,
+                by multiplying height by width, and the blue squares represent
+                half of the rectangle.
+                So, the area with blue squares
+                is also just <math>\sum_{i=1}^{8} i = \frac {(8)(8+1)}{2}</math>.</p>
+            <p>Hence, when we have a variable <title_reference>n</title_reference>, we have learned that we can just use the
+                closed equation <math>\sum_{i=1}^{n} i = \frac {(n)(n+1)}{2}</math> to
+                compute the sum of the first <c>n</c> integers without iterating.</p>
+            <p>Consider the following function:</p>
+            <pre>int sumOfN3(int n){
+  int sum_n = (n*(n+1))/2; // how many times?
+  return sum_n;
+}</pre>
+
+        <exercise>
+            <statement>
+    <p>Q-9: If <title_reference>SumOfN3</title_reference> is called once with a parameter of <title_reference>n=10</title_reference>, how many times is the <title_reference>int sum_n = (n*(n+1))/2;</title_reference> line executed? <var/>  </p></statement><setup><var><condition number="[1, 1]"><feedback><p>Right! Good job!</p></feedback></condition><condition number="[10, 10]"><feedback><p>No, consider that the function is called only once, and n is the parameter.</p></feedback></condition><condition string="^\s*default\s*$"><feedback><p>Incorrect. Please try again.</p></feedback></condition></var></setup></exercise>            <p>We see this in <xref ref="algorithm-analysis_active3cpp"/>,
+                which shows <c>sumOfN3</c>
+                taking advantage of the formula we just developed.</p>
+            
+            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+    <program xml:id="algorithm-analysis_active3cpp" interactive="activecode" language="cpp">
+        <input>
+//Performs same function as listing one, and also list the time it takes to perfrom
+//the function, and it performs better with larger inputs or (n)
+
+#include &lt;iostream&gt;
+using namespace std;
+#include &lt;ctime&gt;
+
+int sumOfN3(int n){
+    int sum_n = (n*(n+1))/2;
+    return sum_n;
+}
+
+int main(){
+    cout &lt;&lt; sumOfN3(10);
+    return 0;
+}
+        </input>
+    </program>
+                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+
+    <program xml:id="active3_py" interactive="activecode" language="python">
+        <input>
+""" Performs same function as listing one, and also list the time it takes to perform
+the function, and it performs better with larger inputs or (n) """
+
+def sumOfN3(n):
+    return (n*(n+1))//2
+
+def main():
+    print(sumOfN3(10))
+main()
+        </input>
+    </program>
+                </TabNode></exercise>
+            <p>If we do the same benchmark measurement for <c>sumOfN3</c> for differnet values of <c>n</c>, we get the following results:</p>
+            <p>When the value of <c>n</c> is 10:</p>
+            <pre>Sum is 55 required 0.000000 seconds
+Sum is 55 required 0.000000 seconds
+Sum is 55 required 0.000000 seconds
+Sum is 55 required 0.000001 seconds
+Sum is 55 required 0.000000 seconds</pre>
+            <p>When the value of <c>n</c> is 1000:</p>
+            <pre>Sum is 500500 required 0.000000 seconds
+Sum is 500500 required 0.000000 seconds
+Sum is 500500 required 0.000001 seconds
+Sum is 500500 required 0.000000 seconds
+Sum is 500500 required 0.000001 seconds</pre>
+            <p>When the value of <c>n</c> is 10,000:</p>
+            <pre>Sum is 50005000 required 0.000000 seconds
+Sum is 50005000 required 0.000000 seconds
+Sum is 50005000 required 0.000001 seconds
+Sum is 50005000 required 0.000001 seconds
+Sum is 50005000 required 0.000000 seconds</pre>
+            <p>There are two important things to notice about this output. First, the
+                times recorded above are shorter than any of the previous examples.
+                Second, they are very consistent no matter what the value of <c>n</c>. It
+                appears that <c>sumOfN3</c> is hardly impacted by the number of integers
+                being added.</p>
+            <p>But what does this benchmark really tell us? Intuitively, we can see
+                that the iterative solutions seem to be doing more work since some
+                program steps are being repeated. This is likely the reason it is taking
+                longer. Also, the time required for the iterative solution seems to
+                increase as we increase the value of <c>n</c>. However, there is a problem.
+                If we run the same function on a different computer or used a different
+                programming language, we would likely get different results. It could
+                take even longer to perform <c>sumOfN3</c> if the computer were older.</p>
+            <p>We need a better way to characterize these algorithms with respect to
+                execution time. The benchmark technique computes the actual time to
+                execute. It does not really provide us with a useful measurement,
+                because it is dependent on a particular machine, program, time of day,
+                compiler, and programming language. Instead, we would like to have a
+                characterization that is independent of the program or computer being
+                used. This measure would then be useful for judging the algorithm alone
+                and could be used to compare algorithms across implementations.</p>
+        </subsection>
+    </section>
+

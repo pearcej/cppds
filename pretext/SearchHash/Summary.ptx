@@ -1,0 +1,17 @@
+<section xml:id="search-hash_summary">
+        <title>Summary</title>
+        <p><ul>
+            <li>
+                <p>A sequential search is <math>O(n)</math> for ordered and unordered
+                    lists.</p>
+            </li>
+            <li>
+                <p>A binary search of an ordered list is <math>O(\log n)</math> in the
+                    worst case.</p>
+            </li>
+            <li>
+                <p>Hash tables can provide constant time searching.</p>
+            </li>
+        </ul></p>
+    </section>
+

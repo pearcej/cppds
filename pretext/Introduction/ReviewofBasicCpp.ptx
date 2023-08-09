@@ -1,0 +1,32 @@
+<section xml:id="introduction_reviewing-basic-c">
+        <title>Reviewing Basic C++</title>
+        <p>In this section, we will review the programming language C++ and also
+            provide some more detailed examples of the ideas from the previous
+            section. If you are new to C++ or find that you need more information
+            about any of the topics presented, we recommend that you consult a resource such as
+            the <url href="http://www.cplusplus.com/reference/" visual="http://www.cplusplus.com/reference/">C++ Reference</url>
+            or a <url href="http://www.cplusplus.com/doc/tutorial/" visual="http://www.cplusplus.com/doc/tutorial/">C++ Tutorial</url>.
+            Our goal
+            here is to reacquaint you with the C++ language and also reinforce some of
+            the concepts that will be central to later chapters.</p>
+        <p>C++ is an object-oriented programming language.
+            It has a powerful set of built-in data types and control
+            constructs. Since C++ is a compiled language, all the code written in this language,
+            when run, are translated to <term>machine code</term> by a program called the <term>compiler</term>.</p>
+        <p>The following is an example of C++ code that writes to the console:</p>
+
+    <program xml:id="cpp" interactive="activecode" language="cpp">
+        <input>
+//Outputs strings to command line.
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    cout &lt;&lt; "Welcome to Problem Solving with" &lt;&lt; endl;
+    cout &lt;&lt; "Algorithms and Data Structures!" &lt;&lt; endl;
+    return  0;
+}
+        </input>
+    </program>
+    </section>
+
