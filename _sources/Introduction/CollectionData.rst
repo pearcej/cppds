@@ -758,26 +758,28 @@ describes them, and the session shows them in action.
 
 .. table:: **Table 7: Important Hash Table Operators Provided in C++**
 
-   ===================== ========================= ================================================================
+   ===================== ========================= ==================================================================================================================
             **Operator**                   **Use**                                                  **Explanation**
-   ===================== ========================= ================================================================
-                ``[ ]``               ``mymap[k]``  Returns the value associated with ``k``, otherwise throws error
-               ``count``      ``mymap.count(key)``     Returns ``true`` if key is in ``mymap``, ``false`` otherwise
-               ``erase``      ``mymap.erase(key)``                                 Removes the entry from ``mymap``
-               ``begin``         ``mymap.begin()``                    An iterator to the first element in ``mymap``
-                 ``end``        ``mymap.end(key)``        An iterator pointing to past-the-end element of ``mymap``
-   ===================== ========================= ================================================================
+   ===================== ========================= ==================================================================================================================
+                 ``[ ]``              ``mymap[k]``  Returns the value associated with ``k``; if there is no entry for ``k``, one will be created with a default value
+                  ``at``         ``mymap.at(key)``                                                    Returns the value associated with ``k``, otherwise throws error
+               ``count``      ``mymap.count(key)``                                                       Returns ``true`` if key is in ``mymap``, ``false`` otherwise
+               ``erase``      ``mymap.erase(key)``                                                                                   Removes the entry from ``mymap``
+               ``begin``         ``mymap.begin()``                                                                      An iterator to the first element in ``mymap``
+                 ``end``        ``mymap.end(key)``                                                           n iterator pointing to past-the-end element of ``mymap``
+   ===================== ========================= ==================================================================================================================
 
 
 Matching
 ^^^^^^^^
 .. dragndrop:: matching_HT
    :feedback: Feedback shows incorrect matches.
-   :match_1: [ ]|||Returns the value associated with the key, otherwise throws error.
-   :match_2: erase|||Deletes the entry from the hash table.
-   :match_3: count|||Returns true if key is in the hash table, and false otherwise.
-   :match_4: begin|||An iterator to the first element in the hash table.
-   :match_5: end|||An iterator pointing to past-the-end element of the hash table.
+   :match_1: [ ]|||Returns the value associated with the key, creating a default entry if necessary.
+   :match_2: at|||Returns the value associated with the key, otherwise throws error.
+   :match_3: erase|||Deletes the entry from the hash table.
+   :match_4: count|||Returns true if key is in the hash table, and false otherwise.
+   :match_5: begin|||An iterator to the first element in the hash table.
+   :match_6: end|||An iterator pointing to past-the-end element of the hash table.
 
     Match the Hash Table operations with their corresponding explination.
 
