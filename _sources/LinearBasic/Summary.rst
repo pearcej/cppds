@@ -34,4 +34,5 @@ Summary
 -  Deques are data structures that allow hybrid behavior like that of
    stacks and queues.
 
--  The fundamental operations for a deque are ``push_front``, ``push_back``, ``pop_front``, ``pop_back``, and ``empty``.
+-  The fundamental operations for a deque are ``push_front``, ``push_back``, 
+   ``pop_front``, ``pop_back``, and ``empty``.
