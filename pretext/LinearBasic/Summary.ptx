@@ -5,27 +5,22 @@
                 <p>Linear data structures maintain their data in an ordered fashion.</p>
             </li>
             <li>
-                <p>Stacks are simple data structures that maintain a LIFO, last-in
-                    first-out, ordering.</p>
+                <p>Stacks are simple data structures that maintain a LIFO, last-in first-out, ordering.</p>
             </li>
             <li>
-                <p>The fundamental operations for a stack are <c>push</c>, <c>pop</c>, and
-                    <c>isEmpty</c>.</p>
+                <p>The fundamental operations for a stack are <c>push</c>, <c>pop</c>, and <c>empty</c>.</p>
             </li>
             <li>
-                <p>Queues are simple data structures that maintain a FIFO, first-in
-                    first-out, ordering.</p>
+                <p>Queues are simple data structures that maintain a FIFO, first-in first-out, ordering.</p>
             </li>
             <li>
-                <p>The fundamental operations for a queue are <c>enqueue</c>, <c>dequeue</c>,
-                    and <c>isEmpty</c>.</p>
+                <p>The fundamental operations for a queue are <c>push</c>, <c>pop</c>, and <c>empty</c>.</p>
             </li>
             <li>
                 <p>Prefix, infix, and postfix are all ways to write expressions.</p>
             </li>
             <li>
-                <p>Stacks are very useful for designing algorithms to evaluate and
-                    translate expressions.</p>
+                <p>Stacks are very useful for designing algorithms to evaluate and translate expressions.</p>
             </li>
             <li>
                 <p>Stacks can provide a reversal characteristic.</p>
@@ -38,12 +33,10 @@
                     situation and allow us to answer <q>what if</q> types of questions.</p>
             </li>
             <li>
-                <p>Deques are data structures that allow hybrid behavior like that of
-                    stacks and queues.</p>
+                <p>Deques are data structures that allow hybrid behavior like that of stacks and queues.</p>
             </li>
             <li>
-                <p>The fundamental operations for a deque are <c>addFront</c>, <c>addRear</c>,
-                    <c>removeFront</c>, <c>removeRear</c>, and <c>isEmpty</c>.</p>
+                <p>The fundamental operations for a deque are <c>push_front</c>, <c>push_back</c>, <c>pop_front</c>, <c>pop_back</c>, and <c>empty</c>.</p>
             </li>
         </ul></p>
     </section>
