@@ -38,11 +38,6 @@
         
         <table xml:id="linear-basic_id1"><tabular>
             <title><term>Table 1: Sample Stack Operations</term></title>
-            
-                
-                
-                
-                
                     <row header="yes">
                         <cell>
                             <term>Stack Operation</term>
@@ -54,7 +49,6 @@
                             <term>Return Value</term>
                         </cell>
                     </row>
-                
                 
                     <row>
                         <cell>
