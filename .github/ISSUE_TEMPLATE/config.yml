@@ -1,8 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: GitHub Community Support
-    url: https://github.com/orgs/community/discussions
-    about: Please ask and answer questions here.
-  - name: GitHub Security Bug Bounty
-    url: https://bounty.github.com/
-    about: Please report security vulnerabilities here.
+  - name: Issues in Problem Solving with Algorithms and Data Structures using C++
+    url:  https://github.com/pearcej/cppds/issues
+    about: Please post bug reports and recommendations for improvement here.
