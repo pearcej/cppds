@@ -1,6 +1,8 @@
 <section xml:id="trees_priority-queues-with-binary-heaps">
         <title>Priority Queues with Binary Heaps</title>
-        <p>In earlier sections you learned about the first-in first-out data
+        <p>
+            <idx>priority queue</idx>
+            In earlier sections you learned about the first-in first-out data
             structure called a queue. One important variation of a queue is called a
             <term>priority queue</term>. A priority queue acts like a queue in that you
             dequeue an item by removing it from the front. However, in a priority
@@ -10,13 +12,18 @@
             on a priority queue, the new item may move all the way to the front. We
             will see that the priority queue is a useful data structure for some of
             the graph algorithms we will study in the next chapter.</p>
-        <p>You can probably think of a couple of easy ways to implement a priority
+        <p>
+            <idx>binary heap</idx>
+            You can probably think of a couple of easy ways to implement a priority
             queue using sorting functions and vectors. However, inserting into a vector
             is <math>O(n)</math> and sorting a vector is <math>O(n \log{n})</math>. We can
             do better. The classic way to implement a priority queue is using a data
             structure called a <term>binary heap</term>. A binary heap will allow us both
             enqueue and dequeue items in <math>O(\log{n})</math>.</p>
-        <p>The binary heap is interesting to study because when we diagram the heap
+        <p>
+            <idx>min heap</idx>
+            <idx>max heap</idx>
+            The binary heap is interesting to study because when we diagram the heap
             it looks a lot like a tree, but when we implement it we use only a
             single vector as an internal representation. The binary heap has two
             common variations: the <term>min heap</term>, in which the smallest key is always
