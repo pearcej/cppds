@@ -1,7 +1,6 @@
 <section xml:id="sort_the-bubble-sort">
         <title>The Bubble Sort</title>
-        <idx>bubble sort</idx>
-        <p>The <term>bubble sort</term> makes multiple passes through an array. It compares
+        <p><idx>bubble sort</idx>The <term>bubble sort</term> makes multiple passes through an array. It compares
             adjacent items and exchanges those that are out of order. Each pass
             through the array places the next largest value in its proper place. In
             essence, each item <q>bubbles</q> up to the location where it belongs.</p>
@@ -183,7 +182,6 @@ bubble_anim_init = function(divid)
         
         <table xml:id="sort_id3"><tabular>
             <title><term>Table 1: Comparisons for Each Pass of Bubble Sort</term></title>
-            <idx>comparison of bubble sort</idx>
             
                 
                 
@@ -346,7 +344,6 @@ print(alist)
         <!--print(alist)-->
         <note>
             <title>Self Check</title>
-            <idx>self check</idx>
 
     <exercise label="question_sort_1">
         <statement>
