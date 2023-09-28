@@ -135,11 +135,11 @@ main()
             Second, on line 11 our function calls itself! This is the
             reason that we call the <c>vectsum</c> algorithm recursive. A recursive
             function is a function that calls itself.</p>
-        <p><xref ref="fig-recsumin"/> shows the series of <term>recursive calls</term> that are
+        <p><xref ref="fig-recsumin"/> shows the series of <term><idx>ecursive calls</term> that are
             needed to sum the vector <math>[1, 3, 5, 7, 9]</math>. You should think of
             this series of calls as a series of simplifications. Each time we make a
             recursive call we are solving a smaller problem, until we reach the
-            point where the problem cannot get any smaller.</p>
+            point where the problem cannot get any smaller.</idx></p>
         
         <figure align="center" xml:id="fig-recsumin"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 1: Series of Recursive Calls Adding a List of Numbers</caption><image source="Recursion/Figures/sumlistIn.png" width="50%" alt="image"/></figure>
         <p>When we reach the point where the problem is as simple as it can get, we
