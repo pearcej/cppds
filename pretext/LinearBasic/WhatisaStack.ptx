@@ -1,6 +1,8 @@
 <section xml:id="linear-basic_what-is-a-stack">
         <title>What is a Stack?</title>
-        <p>A <term>stack</term> (sometimes called a <q>push-down stack</q>) is an ordered
+        <p>
+            <idx>stack</idx>
+            A <term>stack</term> (sometimes called a <q>push-down stack</q>) is an ordered
             collection of items where the addition of new items and the removal of
             existing items always takes place at the same end. This end is commonly
             referred to as the <q>top.</q> The end opposite the top is known as the
