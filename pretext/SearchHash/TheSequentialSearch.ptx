@@ -1,13 +1,14 @@
 <section xml:id="search-hash_the-sequential-search">
-        <title>The Sequential Search</title>
-        <idx>sequential search</idx> 
-        <p>When data items are stored in a container type such as a Python list or a C++
+        <title>The Sequential Search</title> 
+        <p>
+            When data items are stored in a container type such as a Python list or a C++
             array/vector, we say that they have a linear or sequential relationship. Each data
             item is stored in a position relative to the others. In Python lists, these
             relative positions are the index values of the individual items. In C++ arrays,
             these are simply adjacent memory locations each equally sized to fit the data
             type of the container. Since these index values are ordered, it is possible for
-            us to visit them in sequence. This process gives rise to our first searching
+            us to visit them in sequence. <idx>sequential search</idx>
+            This process gives rise to our first searching
             technique, the <term>sequential search</term>.</p>
         <p><xref ref="fig-seqsearch"/> shows how this search works. Starting at the first
             item in the list, we simply move from item to item, following the
