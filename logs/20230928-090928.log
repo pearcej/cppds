@@ -1,0 +1,7 @@
+INFO    : PreTeXt project found in `/home/grayi/cppds`.
+WARNING : Project's CLI version could not be detected from `requirements.txt`.
+WARNING : Try `pretext init --refresh` to produce a compatible file.
+CRITICAL: expected '>', line 41, column 9
+INFO    : ------------------------
+INFO    : While running pretext, the following errors occurred:
+

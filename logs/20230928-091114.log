@@ -1,0 +1,20 @@
+INFO    : PreTeXt project found in `/home/grayi/cppds`.
+WARNING : Project's CLI version could not be detected from `requirements.txt`.
+WARNING : Try `pretext init --refresh` to produce a compatible file.
+WARNING : You already have a project.ptx file; a new default one for comparison has been created as /home/grayi/cppds/project-20230928-091114.ptx.
+INFO    : Generated `/home/grayi/cppds/project-20230928-091114.ptx`
+
+WARNING : You already have a publication.ptx file; a new default one for comparison has been created as /home/grayi/cppds/publication/publication-20230928-091114.ptx.
+INFO    : Generated `/home/grayi/cppds/publication/publication-20230928-091114.ptx`
+
+WARNING : You already have a .gitignore file; a new default one for comparison has been created as /home/grayi/cppds/.gitignore-20230928-091114.
+INFO    : Generated `/home/grayi/cppds/.gitignore-20230928-091114`
+
+INFO    : Generated `/home/grayi/cppds/.devcontainer.json`
+
+WARNING : You already have a requirements.txt file at /home/grayi/cppds/requirements.txt`.
+WARNING : The one suggested by PreTeXt will be created as /home/grayi/cppds/requirements-20230928-091114.txt for comparison.
+INFO    : Generated requirements file at /home/grayi/cppds/requirements-20230928-091114.txt.
+
+INFO    : Success! Open project.ptx to edit your project manifest.
+INFO    : Edit your <target/>s to point to the location of your PreTeXt source files.
