@@ -5,7 +5,7 @@
         <blockquote>
             <p><ol label="1">
                 <li>
-                    <p>A recursive algorithm must have a <term>base case</term>.</p>
+                    <p>A recursive algorithm must have a <term><idx>base case</idx></term>.</p>
                 </li>
                 <li>
                     <p>A recursive algorithm must change its state and move toward the base
