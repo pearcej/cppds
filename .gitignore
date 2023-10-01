@@ -1,6 +1,3 @@
-# <!-- Managed automatically by PreTeXt authoring tools -->
-# (delete the above line to manage this file manually)
-
 # Boilerplate list of files in a PreTeXt project for git to ignore
 # ensure this file is tracked
 !.gitignore
@@ -19,6 +16,8 @@ node_modules
 
 # don't track error logs
 .error_schema.log
+cli.log
+**/cli.log
 logs
 
 # don't track OS related files (windows/macos/linux)
@@ -94,6 +93,38 @@ GitHub.sublime-settings
 .dropbox
 .dropbox.attr
 .dropbox.cache
+
+# Additionals based upon Pretextbook .gitignore
+user/*
+
+script/mjsre/node_modules/
+script/mjsre/package-lock.json
+pretext/__pycache__/**
+
+# any file ending in ~ (backups, usually)
+*~
+
+build_info
+**/_build
+**/rsbuild
+**/build
+build/*
+published
+
+# Codespaces set-up
+.devcontainer.json
+
+# ignore temp files
+temp-*
+
+# Ignore the following (from runestone .gitignore):
+
+*.pyc
+__pycache__/
+
+sphinx-enki-info.txt
+sphinx_settings.json
+pavement.py
 
 # Don't track codechat config (will be generated automatically)
 codechat_config.yaml
