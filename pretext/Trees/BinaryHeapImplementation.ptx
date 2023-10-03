@@ -2,7 +2,7 @@
         <title>Binary Heap Implementation</title>
         <subsection xml:id="trees_the-structure-property">
             <title>The Structure Property</title>
-            <p>In order to make our heap work efficiently, we will take advantage of
+            <p><idx>complete binary tree</idx>In order to make our heap work efficiently, we will take advantage of
                 the logarithmic nature of the binary tree to represent our heap. In order to guarantee logarithmic
                 performance, we must keep our tree balanced. A balanced binary tree has
                 roughly the same number of nodes in the left and right subtrees of the
@@ -31,7 +31,7 @@
         </subsection>
         <subsection xml:id="trees_the-heap-order-property">
             <title>The Heap Order Property</title>
-            <p>The method that we will use to store items in a heap relies on
+            <p><idx>heap order property</idx>The method that we will use to store items in a heap relies on
                 maintaining the heap order property. The <term>heap order property</term> is as
                 follows: In a heap, for every node <math>x</math> with parent <math>p</math>,
                 the key in <math>p</math> is smaller than or equal to the key in
