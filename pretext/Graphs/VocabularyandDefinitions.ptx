@@ -7,7 +7,7 @@
             <li>
                 <title>Vertex</title>
                 
-                    <p>A vertex (also called a <q>node</q>) is a fundamental part of a graph. It
+                    <p><idx>vertex</idx>A vertex (also called a <q>node</q>) is a fundamental part of a graph. It
                         can have a name, which we will call the <q>key.</q> A vertex may also
                         have additional information. We will call this additional
                         information the <q>payload.</q></p>
@@ -28,7 +28,7 @@
             <li>
                 <title>Weight</title>
                 
-                    <p>Edges may be weighted to show that there is a cost to go from one
+                    <p><idx>weight</idx>Edges may be weighted to show that there is a cost to go from one
                         vertex to another. For example in a graph of roads that connect one
                         city to another, the weight on the edge might represent the distance
                         between the two cities.</p>
@@ -74,7 +74,7 @@
             <li>
                 <title>Cycle</title>
                 
-                    <p>A cycle in a directed graph is a path that starts and ends at the
+                    <p><idx>cycle</idx>A cycle in a directed graph is a path that starts and ends at the
                         same vertex. For example, in <xref ref="fig-dgsimple"/> the path
                         <math>(V5,V2,V3,V5)</math> is a cycle. A graph with no cycles is called
                         an <term>acyclic graph</term>. A directed graph with no cycles is called a
