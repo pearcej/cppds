@@ -6,19 +6,19 @@
             stored in the collection with respect to one another. For example, by
             knowing that a list was ordered, we could search in logarithmic time
             using a binary search. In this section we will attempt to go one step
-            further by building a data structure that  <idx> hashing </idx> can be searched in
-            <math>O(1)</math> by using <term>hashing</term>.</p> 
+            further by building a data structure that can be searched in
+            <math>O(1)</math> by using <term>hashing</term>.<idx>hashing</idx></p> 
         <p>In order to do this, we will need to know even more about where the
             items might be when we go to look for them in the collection. If every
             item is where it should be, then the search can use a single comparison
             to discover the presence of an item. We will see, however, that this is
             typically not the case.</p>
         
-        <p>A <term>hash table</term> is a collection of items <idx> hashtable </idx>  which are stored in such a way
+        <p>A <term>hash table</term> is a collection of items which are stored in such a way
             as to make it easy to find them later. Each position of the hash table,
             often called a <term>slot</term>, can hold an item and is named by an integer
-            value starting at 0. For example, we will have a slot named 0, a slot
-            named 1, a slot named 2, and so on. Initially, the hash table contains
+            value starting at 0.<idx>hash table</idx> For example, we will have a slot named 0, a slot
+            named 1, a slot named 2, and so on.<idx>slot</idx>Initially, the hash table contains
             no items so every slot is empty. We can implement a hash table by using
             a list with each value intialized to an empty string.
             <xref ref="fig-hashtable1"/> shows a hash table of size <math>m=11</math>.
@@ -29,8 +29,8 @@
         </blockquote>
         
         <p>The mapping between an item and the slot where that item belongs in the
-            hash table is called the <term>hash function</term>. The hash function will take
-            any item in the collection  <idx> hash function </idx>  and return an integer in the range of slot
+            hash table is called the <term>hash function</term>.<idx>hash function</idx> The hash function will take
+            any item in the collection and return an integer in the range of slot
             names, between 0 and <em>m</em>-1. Assume that we have the set of integer items
             54, 26, 93, 17, 77, and 31. Our first hash function, sometimes referred
             to as the <q>remainder method,</q> simply takes an item and divides it by the
@@ -110,9 +110,9 @@
         <p>Once the hash values have been computed, we can insert each item into
             the hash table at the designated position as shown in
             <xref ref="fig-hashtable2"/>. Note that 6 of the 11 slots are now occupied. This
-            is referred to as the <term>load factor</term>, and <idx> load factor </idx> is commonly denoted by
+            is referred to as the <term>load factor</term>, and is commonly denoted by
             <math>\lambda = \frac {numberofitems}{tablesize}</math>. For this example,
-            <math>\lambda = \frac {6}{11}</math>.</p>
+            <math>\lambda = \frac {6}{11}</math>.<idx>load factor</idx></p>
         
         <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 5: Hash Table with Six Items</caption><image source="SearchHash/Figures/hashtable2.png" width="50%"/></figure>
         <p>Now when we want to search for an item, we simply use the hash function
@@ -127,16 +127,16 @@
             if the item 44 had been the next item in our collection, it would have a
             hash value of 0 (<math>44 \% 11 == 0</math>). Since 77 also had a hash
             value of 0, we would have a problem. According to the hash function, two
-            or more items would need to be in the same slot.<idx> collision </idx> This is referred to as
-            a <term>collision</term> (it may also be called a <q>clash</q>). Clearly, collisions
+            or more items would need to be in the same slot.This is referred to as
+            a <term>collision</term> (it may also be called a <q>clash</q>). <idx>collision</idx> Clearly, collisions
             create a problem for the hashing technique. We will discuss them in
             detail later.</p>
         <subsection xml:id="search-hash_hash-functions">
             <title>Hash Functions</title>
             
             <p>Given a collection of items, a hash function that maps each item into a
-                unique slot is referred to as a <term>perfect hash function</term>. If we know
-                the items <idx> perfect hash function </idx>  and the collection will never change, then it is possible to
+                unique slot is referred to as a <term>perfect hash function</term>.<idx>perfect hash function</idx>If we know
+                the items and the collection will never change, then it is possible to
                 construct a perfect hash function (refer to the exercises for more about
                 perfect hash functions). Unfortunately, given an arbitrary collection of
                 items, there is no systematic way to construct a perfect hash function.
@@ -156,8 +156,8 @@
                 remainder method. We will consider a few of them here.</p>
             
             <p>The <term>folding method</term> for constructing hash functions begins by
-                dividing the item into equal-size pieces <idx> folding method </idx>  (the last piece may not be of
-                equal size). These pieces are then added together to give the resulting
+                dividing the item into equal-size pieces (the last piece may not be of
+                equal size).<idx>folding method</idx>These pieces are then added together to give the resulting
                 hash value. For example, if our item was the phone number 436-555-4601,
                 we would take the digits and divide them into groups of 2
                 (43,65,55,46,01). After the addition, <math>43+65+55+46+01</math>, we get
@@ -168,8 +168,8 @@
                 piece before the addition. For the above example, we get
                 <math>43+56+55+64+01 = 219</math> which gives <math>219\ \%\ 11 = 10</math>.</p>
             
-            <p>Another numerical technique for constructing a hash function is called <idx> mid-square method </idx> 
-                the <term>mid-square method</term>. We first square the item, and then extract
+            <p>Another numerical technique for constructing a hash function is called 
+                the <term>mid-square method</term>.<idx>mid-square method</idx> We first square the item, and then extract
                 some portion of the resulting digits. For example, if the item were 44,
                 we would first compute <math>44 ^{2} = 1,936</math>. By extracting the
                 middle two digits, 93, and performing the remainder step, we get 5
@@ -337,8 +337,8 @@ int main() {
             <title>Collision Resolution</title>
             <p>We now return to the problem of collisions. When two items hash to the
                 same slot, we must have a systematic method for placing the second item
-                in the hash table. This process is called <term>collision resolution</term>. As
-                we stated earlier <idx> collision resolution </idx>, if the hash function is perfect, collisions will
+                in the hash table. This process is called <term>collision resolution</term>. <idx>collision resolution</idx>As
+                we stated earlier, if the hash function is perfect, collisions will
                 never occur. However, since this is often not possible, collision
                 resolution becomes a very important part of hashing.</p>
             
@@ -350,9 +350,9 @@ int main() {
                 encounter the first slot that is empty. Note that we may need to go back
                 to the first slot (circularly) to cover the entire hash table. This
                 collision resolution process is referred to as <term>open addressing</term> in
-                that it tries to find the next open slot or address in the hash table <idx> open addressing </idx>.
+                that it tries to find the next open slot or address in the hash table.<idx>open addressing</idx>
                 By systematically visiting each slot one at a time, we are performing an
-                open addressing technique called <term>linear probing</term>. <idx> linear probing </idx>  </p>
+                open addressing technique called <term>linear probing</term>.<idx>linear probing</idx></p>
             <p><xref ref="fig-linearprobing"/> shows an extended set of integer items under the
                 simple remainder method hash function (54,26,93,17,77,31,44,55,20).
                 <xref ref="search-hash_search-hash_tbl-hashvalues1"/> above shows the hash values for the original items.
@@ -376,7 +376,7 @@ int main() {
                 sequential search, starting at position 10, looking until either we find
                 the item 20 or we find an empty slot.</p>
             <p>A disadvantage to linear probing is the tendency for <term>clustering</term>;
-                items become clustered in the table <idx> clustering </idx>. This means that if many collisions
+                items become clustered in the table.<idx>clustering</idx> This means that if many collisions
                 occur at the same hash value, a number of surrounding slots will be
                 filled by the linear probing resolution. This will have an impact on
                 other items that are being inserted, as we saw when we tried to add the
@@ -395,8 +395,8 @@ int main() {
                 that is empty.</p>
             
             <figure align="center" xml:id="id9"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 10: Collision Resolution Using <q>Plus 3</q></caption><image source="SearchHash/Figures/linearprobing2.png" width="50%"/></figure>
-            <p> <idx> rehashing </idx>The general name for this process of looking for another slot after a
-                collision is <term>rehashing</term>. With simple linear probing, the rehash
+            <p> The general name for this process of looking for another slot after a
+                collision is <term>rehashing</term>. <idx>rehashing</idx> With simple linear probing, the rehash
                 function is <math>newhashvalue = rehash(oldhashvalue)</math> where
                 <math>rehash(pos) = (pos + 1) \% sizeoftable</math>. The <q>plus 3</q> rehash
                 can be defined as <math>rehash(pos) = (pos+3) \% sizeoftable</math>. In
@@ -407,20 +407,19 @@ int main() {
                 table size be a prime number. This is the reason we have been using 11
                 in our examples.</p>
                 <p>A variation of the linear probing idea is called <term>quadratic probing</term>.
-                Instead of using a constant <q>skip</q> value,  <idx> qudratic probing </idx> we use a rehash function that
+                <idx>quadratic probing</idx> Instead of using a constant <q>skip</q> value, we use a rehash function that
                 increments the hash value by 1, 3, 5, 7, 9, and so on. This means that
                 if the first hash value is <em>h</em>, the successive values are <math>h+1</math>,
                 <math>h+4</math>, <math>h+9</math>, <math>h+16</math>, and so on. In other words,
                 quadratic probing uses a skip consisting of successive perfect squares.
                 <xref ref="fig-quadratic"/> shows our example values after they are placed using
-                this technique.</p>
-            <idx> Chaining </idx> 
+                this technique.</p> 
             <figure align="center" xml:id="id10"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 11: Collision Resolution with Quadratic Probing</caption><image source="SearchHash/Figures/quadratic.png" width="50%"/></figure>
             <p>An alternative method for handling the collision problem is to allow
                 each slot to hold a reference to a collection (or chain) of items.
                 <term>Chaining</term> allows many items to exist at the same location in the hash
                 table. When collisions happen, the item is still placed in the proper
-                slot of the hash table. As more and more items hash to the same
+                slot of the hash table.<idx>Chaining</idx> As more and more items hash to the same
                 location, the difficulty of searching for the item in the collection
                 increases. <xref ref="fig-chaining"/> shows the items as they are added to a hash
                 table that uses chaining to resolve collisions.</p>
@@ -532,10 +531,9 @@ int main() {
         </subsection>
         <subsection xml:id="search-hash_implementing-the-map-abstract-data-type">
             <title>Implementing the <c>Map</c> Abstract Data Type</title>
-            <idx> map </idx>
             <p>One of the most useful C++ data structures is the <term>map</term>. Recall that
                 a map is an associative data type where you can store key&#8211;data
-                pairs. The key is used to look up the associated data value.</p>
+                pairs. <idx>map</idx> The key is used to look up the associated data value.</p>
             <p>The map abstract data type is defined as follows. The structure is an
                 unordered collection of associations between a key and a data value. The
                 keys in a map are all unique so that there is a one-to-one relationship
