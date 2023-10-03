@@ -9,7 +9,7 @@
             Our goal
             here is to reacquaint you with the C++ language and also reinforce some of
             the concepts that will be central to later chapters.</p>
-        <p>C++ is an object-oriented programming language.
+        <p><idx>compiler</idx><idx>machine mode</idx>C++ is an object-oriented programming language.
             It has a powerful set of built-in data types and control
             constructs. Since C++ is a compiled language, all the code written in this language,
             when run, are translated to <term>machine code</term> by a program called the <term>compiler</term>.</p>
