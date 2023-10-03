@@ -1,6 +1,6 @@
 <section xml:id="sort_the-selection-sort">
         <title>The Selection Sort</title>
-        <p>The <term>selection sort</term> improves on the bubble sort by making only one
+        <p><idx>selection sort</idx> The <term>selection sort</term> improves on the bubble sort by making only one
             exchange for every pass through the first part of the vector.
             We will call this a step.
             In order to do this, a
