@@ -1,16 +1,20 @@
 <section xml:id="introduction_what-is-computer-science">
         <title>What Is Computer Science?</title>
+        <idx>computer science</idx>
         <p>Computer science can be considered difficult to define. This is probably due to
             the unfortunate use of the word <q>computer</q> in the name. As you are
             perhaps aware, computer science is not simply the study of computers.
             Although computers play an important supporting role as a tool in the
             discipline, they are just that&#8211;tools.</p>
-        <p>Computer science is the study of problems, problem-solving, and the
+        <p>
+            <idx>algorithm</idx>
+            Computer science is the study of problems, problem-solving, and the
             solutions that come out of the problem-solving process. Given a problem,
             a computer scientist's goal is to develop an <term>algorithm</term>, a
             step-by-step list of instructions for solving any instance of the
             problem that might arise. Algorithms are finite processes that if
-            followed will solve the problem. Algorithms are solutions.</p>
+            followed will solve the problem. Algorithms are solutions.
+        </p>
         <p>Computer science can be thought of as the study of algorithms.
             Some problems do not have solutions at all.
             Other problems do have solutions, but these solutions cannot be
@@ -22,7 +26,8 @@
             then, by including these types of problems and stating that computer
             science is the study of solutions to problems as well as the study of
             problems without fast solutions and including the study of problems without any solutions at all.</p>
-        <p>Hence, it is very common to include the word <term>computable</term> when
+        <p> <idx>computable</idx>
+            Hence, it is very common to include the word <term>computable</term> when
             describing problems and solutions. We say that a problem is computable
             if an algorithm exists for solving it. An alternative definition for
             computer science, then, is to say that computer science is the study of
@@ -31,7 +36,8 @@
             relative speed of those algorithms. Here, you will note
             that the word <q>computer</q> did not come up at all. Solutions are and should be
             considered independent from the machine.</p>
-        <p>Computer science, as it pertains to the problem-solving process itself,
+        <p><idx>abstraction</idx>
+            Computer science, as it pertains to the problem-solving process itself,
             is also the study of <term>abstraction</term>. Abstraction allows us to view the
             problem and solution in such a way as to separate the so-called logical
             and physical perspectives. The basic idea is familiar to us in a common
@@ -94,7 +100,8 @@ print(math.sqrt(16))
         </input>
     </program>
             </TabNode></exercise>
-        <p>This is an example of <term>procedural abstraction</term>. We do not necessarily
+        <p> <idx>procedural abstraction</idx>
+            This is an example of <term>procedural abstraction</term>. We do not necessarily
             know how the square root is being calculated, but we know what the
             function is called and how to use it. If we perform the import
             correctly, we can assume that the library is correct and any function
