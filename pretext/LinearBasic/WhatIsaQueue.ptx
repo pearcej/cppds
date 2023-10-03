@@ -8,7 +8,7 @@
             element enters the queue it starts at the rear and makes its way toward
             the front, waiting until that time when it is the next element to be
             removed.</p>
-        <p>The most recently added item in the queue must wait at the end of the
+        <p><idx>FIFO</idx>The most recently added item in the queue must wait at the end of the
             collection. The item that has been in the collection the longest is at
             the front. This ordering principle is sometimes called <term>FIFO</term>,
             <term>first-in first-out</term>. It is also known as <q>first-come first-served.</q></p>
