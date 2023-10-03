@@ -1,6 +1,6 @@
 <section xml:id="trees_balanced-binary-search-trees">
         <title>Balanced Binary Search Trees</title>
-        <p><idx>AVL tree</idx> the previous section we looked at building a binary search tree. As
+        <p><idx>AVL tree</idx> The previous section we looked at building a binary search tree. As
             we learned, the performance of the binary search tree can degrade to
             <math>O(n)</math> for operations like <c>get</c> and <c>put</c> when the tree
             becomes unbalanced. In this section we will look at a special kind of
