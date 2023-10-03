@@ -5,7 +5,9 @@
             The more general depth first search is actually easier. Its goal is to
             search as deeply as possible, connecting as many nodes in the graph as
             possible and branching where necessary.</p>
-        <p>It is even possible that a depth first search will create more than one
+        <p>
+            <idx> depth first forest </idx>
+            It is even possible that a depth first search will create more than one
             tree. When the depth first search algorithm creates a group of trees we
             call this a <term>depth first forest</term>. As with the breadth first search our
             depth first search makes use of predecessor links to construct the tree.
@@ -261,7 +263,9 @@ main()
         <figure align="center" xml:id="id11"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 24: Constructing the Depth First Search Tree-20</caption><image source="Graphs/Figures/gendfsk.png" width="50%"/></figure>
         
         <figure align="center" xml:id="id12"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 25: Constructing the Depth First Search Tree-21</caption><image source="Graphs/Figures/gendfsl.png" width="50%"/></figure>
-        <p>The starting and finishing times for each node display a property called
+        <p>
+            <idx>parenthesis property</idx>
+            The starting and finishing times for each node display a property called
             the <term>parenthesis property</term>. This property means that all the children
             of a particular node in the depth first tree have a later discovery time
             and an earlier finish time than their parent. <xref ref="fig-dfstree"/> shows
