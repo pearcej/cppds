@@ -1,6 +1,7 @@
 <section xml:id="linear-basic_the-stack-abstract-data-type">
         <title>The Stack Abstract Data Type</title>
-        <p>The stack abstract data type is defined by the following structure and
+        <idx>stack abstract data type</idx>
+        <p> The <term>stack abstract data type</term> is defined by the following structure and
             operations. A stack is structured, as described above, as an ordered
             collection of items where items are added to and removed from the end
             called the <q>top.</q> Stacks are ordered LIFO. The stack operations are
