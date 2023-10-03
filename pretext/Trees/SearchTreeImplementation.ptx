@@ -1,6 +1,6 @@
 <section xml:id="trees_search-tree-implementation">
         <title>Search Tree Implementation</title>
-        <p>A binary search tree relies on the property that
+        <p><idx>bst property</idx>A binary search tree relies on the property that
             keys that are less than the parent are found in the left subtree, and
             keys that are greater than the parent are found in the right subtree. We
             will call this the <term>bst property</term>. As we implement the Map interface
@@ -467,7 +467,7 @@ TreeNode  *_get(int key, TreeNode *currentNode){
 }</pre>
         
         <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: Deleting Node 25, a Node That Has a Single Child</caption><image source="Trees/Figures/bstdel2.png" width="50%"/></figure>
-        <p>The third case is the most difficult case to handle (see <xref ref="lst-bst7"/>). If a node has two
+        <p><idx>successor</idx>The third case is the most difficult case to handle (see <xref ref="lst-bst7"/>). If a node has two
             children, then it is unlikely that we can simply promote one of them to
             take the node's place. We can, however, search the tree for a node that
             can be used to replace the one scheduled for deletion. What we need is a
