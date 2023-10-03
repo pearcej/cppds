@@ -1,4 +1,5 @@
 <section xml:id="linear-basic_the-queue-abstract-data-type">
+<idx>queue abstract data type </idx>
         <title>The Queue Abstract Data Type</title>
         <p>The <term>queue</term> abstract data type is defined by the following structure and
             operations. A queue is structured, as described above, as an ordered
