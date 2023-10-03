@@ -18,7 +18,9 @@
             us decide the precise order in which we should do each of the steps
             required to make our pancakes we turn to a graph algorithm called the
             <term>topological sort</term>.</p>
-        <p>A topological sort takes a directed acyclic graph and produces a linear
+        <p> 
+            <idx> topological sort </idx>
+            A topological sort takes a directed acyclic graph and produces a linear
             ordering of all its vertices such that if the graph <math>G</math> contains
             an edge <math>(v,w)</math> then the vertex <math>v</math> comes before the
             vertex <math>w</math> in the ordering. Directed acyclic graphs are used in
