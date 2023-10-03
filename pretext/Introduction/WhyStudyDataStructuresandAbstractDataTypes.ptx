@@ -7,7 +7,10 @@
             problem-solving process. These models allow us to describe the data that
             our algorithms will manipulate in a much more consistent way with
             respect to the problem itself.</p>
-        <p>Earlier, we referred to procedural abstraction as a process that hides
+        <p><idx>data abstraction</idx>
+            <idx>abstract data type (ADT)</idx>
+            <idx>encapsulation</idx>
+            Earlier, we referred to procedural abstraction as a process that hides
             the details of a particular function to allow the user or client to view
             it at a very high level. We now turn our attention to a similar idea,
             that of <term>data abstraction</term>. An <term>abstract data type</term>, sometimes
@@ -27,7 +30,9 @@
             the implementation.</p>
         
         <figure align="center" xml:id="fig-adt"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 2: Abstract Data Type</caption><image source="Introduction/Figures/adt.png" width="50%"/></figure>
-        <p>The implementation of an abstract data type, often referred to as a
+        <p> <idx>data structure</idx>
+            <idx>implementation-independent</idx>
+            The implementation of an abstract data type, often referred to as a
             <term>data structure</term>, will require that we provide a physical view of the
             data using some collection of programming constructs and primitive data
             types. As we discussed earlier, the separation of these two perspectives
