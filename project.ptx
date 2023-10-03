@@ -1,70 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    This file provides the overall configuration for your PreTeXt
-    project. To edit the content of your document, open `source/main.ptx`
-    (default location).
+    This file, the project manifest, provides the overall configuration for
+    your PreTeXt project. To edit the content of your document, open
+    `source/main.ptx`. See
+    https://pretextbook.org/doc/guide/html/processing-CLI.html#cli-project-manifest.
 -->
-<project>
+<project ptx-version="2" source="pretext">
   <targets>
-    <target name="web">
-      <format>html</format>
-      <source>pretext/main.ptx</source>
-      <publication>pretext/publication-rs-for-all.xml</publication>
-      <output-dir>output/html</output-dir>
-    </target>
-    <target name="runestone">
-      <format>html</format>
-      <source>pretext/main.ptx</source>
-      <publication>pretext/publication-rs-academy.xml</publication>
-      <output-dir>published/cpp4py2</output-dir>
-    </target>
-    <target name="epub">
-      <format>epub</format>
-      <source>pretext/main.ptx</source>
-      <publication>pretext/publication-pub.xml</publication>
-      <output-dir>published/epub</output-dir>
-    </target>
-    <target name="latex">
-      <format>latex</format>
-      <source>pretext/main.ptx</source>
-      <publication>pretext/publication-rs-for-all.xml</publication>
-      <output-dir>output/latex</output-dir>
-    </target>
-    <target name="pdf" pdf-method="xelatex">
-      <format>pdf</format>
-      <source>source/main.ptx</source>
-      <publication>pretext/publication-rs-for-all.xml</publication>
-      <output-dir>output/pdf</output-dir>
-    </target>
-    <target name="print-latex">
-      <format>latex</format>
-      <source>source/main.ptx</source>
-      <publication>publication/publication.ptx</publication>
-      <output-dir>output/print-latex</output-dir>
-    </target>
-    <target name="subset">
-      <format>html</format>
-      <source>source/main.ptx</source>
-      <publication>publication/publication.ptx</publication>
-      <output-dir>output/subset</output-dir>
-      <stringparam key="debug.skip-knowls" value="yes"/>
-      <!-- edit this to change the section/chapter/etc. to include
-           in your subset build -->
-      <xmlid-root>ch_first</xmlid-root>
-    </target>
+    <target name="web" format="html"/>
+    <target name="runestone" format="html"/>
+    <target name="epub" format="epub"/>
+    <target name="latex" format="latex"/>
+    <target name="pdf" format="pdf"/>
+    <target name="print" format="pdf"/>
+    <target name="print-latex" format="latex"/>
+    <target name="subset" format="html"/>
   </targets>
-  <executables>
-      <latex>latex</latex>
-      <pdflatex>pdflatex</pdflatex>
-      <xelatex>xelatex</xelatex>
-      <pdfsvg>pdf2svg</pdfsvg>
-      <asy>asy</asy>
-      <sage>sage</sage>
-      <pdfpng>convert</pdfpng>
-      <pdfeps>pdftops</pdfeps>
-      <pdfcrop>pdf-crop-margins</pdfcrop>
-      <pageres>pageres</pageres>
-      <node>node</node>
-      <liblouis>file2brl</liblouis>
-    </executables>
 </project>

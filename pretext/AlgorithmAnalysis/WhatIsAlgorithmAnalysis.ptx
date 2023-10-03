@@ -11,7 +11,9 @@
             the program is representing. As we stated in Chapter 1, an <term>algorithm</term> is
             a generic, step-by-step list of instructions for solving a problem. It
             is a method for solving any instance of the problem such that given a
-            particular input, the algorithm produces the desired result. A program,
+            particular input, the algorithm produces the desired result. A 
+            <idx>program</idx>
+            <term>program</term>,
             on the other hand, is an algorithm that has been encoded into some
             programming language. There may be many programs for the same algorithm,
             depending on the programmer and the programming language being used.</p>
