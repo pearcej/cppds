@@ -1,6 +1,6 @@
 <section xml:id="algorithm-analysis_analysis-of-hash-tables">
         <title>Analysis of Hash Tables</title>
-        <p>The second major C++ data structure to analyze is the <term>hash table</term> or hash map. As you
+        <p>The second major C++ data structure to analyze is the <idx>hash table</idx><term>hash table</term> or hash map. As you
             may recall, hash tables differ from vectors in that you access
             items in a hash table by a key rather than a position. A hash table (hash map)
             is a data structure that maps keys to their associated values using a hash function.

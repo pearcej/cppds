@@ -210,7 +210,7 @@ main()
         </subsection>
         <subsection xml:id="algorithm-analysis_solution-3-brute-force">
             <title>Solution 3: Brute Force</title>
-            <p>A <term>brute force</term> technique for solving a problem typically tries to
+            <p>A <idx>brute force</idx><term>brute force</term> technique for solving a problem typically tries to
                 exhaust all possibilities. For the anagram detection problem, we can
                 simply generate an array of all possible strings using the characters from
                 <c>s1</c> and then see if <c>s2</c> occurs. However, there is a difficulty
