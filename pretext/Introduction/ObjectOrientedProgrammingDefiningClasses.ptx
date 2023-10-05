@@ -1,7 +1,7 @@
 <section xml:id="introduction_object-oriented-programming-in-c-defining-classes">
         <title>Object-Oriented Programming in C++: Defining Classes</title>
         <p><idx>object-oriented programming</idx>We stated earlier that C++ is an <term>object-oriented programming
-                language</term>. Object-oriented programming is a programming technique based on
+            language</term>. Object-oriented programming is a programming technique based on
             real world things such as turtles, airplanes, customers, etc.
             Each object has its own characteristics or attributes as well as its own set of behaviors.</p>
         <p><idx>object</idx><idx>instance</idx>So far, we have used a number of built-in classes to show
@@ -160,7 +160,7 @@ myfraction = Fraction(3, 5)
                 the <q>parts of a whole</q> metaphor, then we will not include it in the class. If that metaphor
                 is important, then we will include it. For our purposes, we want to think of
                 fractions as numbers, so we will not use the <q>parts of a whole</q> visual metaphor.</p>
-            <p><idx>access keywords</idx>The object-oriented principle of <term>encapsulation</term> is the notion that we should
+            <p><idx>access keywords</idx><idx>encapsulation</idx>The object-oriented principle of <term>encapsulation</term> is the notion that we should
                 hide the contents of a class, except what is
                 absolutely necessary to expose.
                 Hence, we will restrict the access to our class as much
