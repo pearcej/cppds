@@ -1,6 +1,6 @@
 <section xml:id="sort_the-shell-sort">
         <title>The Shell Sort</title>
-        <p>The <term>shell sort</term>, sometimes called the <q>diminishing increment sort,</q>
+        <p><idx>shell sort</idx>The <term>shell sort</term>, sometimes called the <q>diminishing increment sort,</q>
             improves on the insertion sort by breaking the original vector into a
             number of smaller subvectors, each of which is sorted using an insertion
             sort. The unique way that these subvectors are chosen is the key to the

@@ -1,5 +1,13 @@
 <section xml:id="linear-linked_implementing-an-ordered-linked-list">
         <title>Implementing an Ordered Linked List</title>
+        <definition xml:id="def-ordered-linked-list">
+        <idx>ordered linked list</idx>
+            <statement>
+             <p>
+              An <term>ordered linked list</term> is a linear data structure consisting of a collection of nodes, each containing two main components: a data element, often referred to as the "value" or "key", and a "reference" or "link" to the next node in the sequence. These nodes are organized in a specific order based on the values of their data elements, typically in ascending or descending order.
+             </p>
+            </statement>
+        </definition>
         <p>In order to implement the <term>ordered linked list</term>, we must remember that the
             relative positions of the items are based on some underlying
             characteristic. The ordered linked list of integers given above (17, 26, 31,
@@ -353,4 +361,3 @@ int main() {
     </exercise>
         </subsection>
     </section>
-
