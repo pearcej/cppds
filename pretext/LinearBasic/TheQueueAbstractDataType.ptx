@@ -1,6 +1,6 @@
 <section xml:id="linear-basic_the-queue-abstract-data-type">
         <title>The Queue Abstract Data Type</title>
-        <p><idx>queue abstract data type</idx><idx>queue adt</idx>
+        <p><idx>queue abstract data type</idx><idx>queue ADT</idx>
         The <term>queue abstract data type</term> or <term>queue ADT</term> is defined by the following structure and
             operations. A queue is structured, as described above, as an ordered
             collection of items which are added at one end, called the <q>rear,</q> and
