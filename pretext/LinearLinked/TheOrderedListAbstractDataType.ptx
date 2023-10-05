@@ -95,7 +95,7 @@
         </subsection>
         <subsection xml:id="linear-linked_lists">
             <title>Lists</title>
-            <p><idx>list</idx>The STL also has a <term>list</term> container which is different from the forward list container in that while a forward list holds a link to the next element in the sequence, a list holds a link to the previous element and the next element. Lists are implemented as doubly-linked-lists. This allows the list to have efficient iteration in both directions. However because of the additional storage space required to store the link to the previous element and the time it takes to insert and remove an element, a forward list is more efficient than a list.</p>
+            <p><idx>list container</idx>The STL also has a <term>list container</term> which is different from the forward list container in that while a forward list holds a link to the next element in the sequence, a list holds a link to the previous element and the next element. Lists are implemented as doubly-linked-lists. This allows the list to have efficient iteration in both directions. However because of the additional storage space required to store the link to the previous element and the time it takes to insert and remove an element, a forward list is more efficient than a list.</p>
             <p>Click here for more information about STL <url href="http://www.cplusplus.com/reference/list/list/" visual="http://www.cplusplus.com/reference/list/list/">lists</url>.</p>
         </subsection>
     </section>
