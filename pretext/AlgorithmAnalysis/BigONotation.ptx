@@ -30,9 +30,9 @@
             important as determining the most dominant part of the <math>T(n)</math>
             function. In other words, as the problem gets larger, some portion of
             the <math>T(n)</math> function tends to overpower the rest. This dominant
-            term is what, in the end, is used for comparison. The <term>order of
+            term is what, in the end, is used for comparison.<idx>order of magnitude</idx> The <term>order of
                 magnitude</term> function describes the part of <math>T(n)</math> that increases
-            the fastest as the value of <em>n</em> increases. Order of magnitude is often
+            the fastest as the value of <em>n</em> increases.<idx>big-O notation</idx> Order of magnitude is often
             called <term>Big-O notation</term> (for <q>order</q>) and written as
             <math>O(f(n))</math>. It provides a useful approximation to the actual
             number of steps in the computation. The function <math>f(n)</math> provides
@@ -115,8 +115,8 @@
         <p>Although we do not see this in the summation example, sometimes the
             performance of an algorithm depends on the exact values of the data
             rather than simply the size of the problem. For these kinds of
-            algorithms we need to characterize their performance in terms of <term>best
-                case</term>, <term>worst case</term>, or <term>average case</term> performance. The worst-case
+            algorithms we need to characterize their performance in terms of <idx>best case</idx><term>best 
+            case</term>, <idx>worst case</idx><term>worst case</term>, or <idx>average case</idx><term>average case</term> performance. The worst-case
             performance refers to a particular data set where the algorithm performs
             extremely poorly. At the same time, a different data set for the exact
             same algorithm might have outstanding performance. However, in most
