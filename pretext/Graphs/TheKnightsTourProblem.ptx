@@ -1,6 +1,6 @@
 <section xml:id="graphs_the-knights-tour-problem">
         <title>The Knight's Tour Problem</title>
-        <p>Another classic problem that we can use to illustrate a second common
+        <p><idx>knight's tour</idx> Another classic problem that we can use to illustrate a second common
             graph algorithm is called the <q>knight's tour.</q> The knight's
             tour puzzle is played on a chess board with a single chess piece, the
             knight. The object of the puzzle is to find a sequence of moves that

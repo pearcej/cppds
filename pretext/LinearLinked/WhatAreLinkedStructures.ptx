@@ -1,6 +1,6 @@
 <section xml:id="linear-linked_what-are-linked-structures">
         <title>What Are Linked Structures?</title>
-        <p>A <term>linked data structure</term> is a data structure which consists of a
+        <p> <idx>linked data structure</idx> A <term>linked data structure</term> is a data structure which consists of a
             set of data structures called nodes which are linked together and organized
             by links created via references or pointers.</p>
         <p>Linked data structures include linear linked structures like linked lists

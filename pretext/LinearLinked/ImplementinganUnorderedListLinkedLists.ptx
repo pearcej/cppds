@@ -1,6 +1,7 @@
 <section xml:id="linear-linked_implementing-an-unordered-linked-list">
         <title>Implementing an Unordered Linked List</title>
-        <p>A <term>linked list</term> is a linear collection of data elements whose order
+        
+        <p><idx>linked list</idx> A <term>linked list</term> is a linear collection of data elements whose order
             is not determined by the placement in memory. Instead, each element is stored
             in a node which points to the next node.
             In the next sections we implement this linked list data structure.
@@ -17,9 +18,10 @@
         <figure align="center" xml:id="fig-idea"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 1: Items Not Constrained in Their Physical Placement</caption><image source="LinearLinked/Figures/idea.png" width="50%"/></figure>
         
         <figure align="center" xml:id="fig-idea2"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 2: Relative Positions Maintained by Explicit Links.</caption><image source="LinearLinked/Figures/idea2.png" width="50%"/></figure>
+        
         <p>It is important to note that the location of the first item of the list
             must be explicitly specified. Once we know where the first item is, the
-            first item can tell us where the second is, and so on. The external
+            first item can tell us where the second is, and so on. <idx>head</idx> The external
             reference is often referred to as the <term>head</term> of the list. Similarly,
             the last item needs to know that there is no next item.</p>
     </section>
