@@ -160,7 +160,7 @@ myfraction = Fraction(3, 5)
                 the <q>parts of a whole</q> metaphor, then we will not include it in the class. If that metaphor
                 is important, then we will include it. For our purposes, we want to think of
                 fractions as numbers, so we will not use the <q>parts of a whole</q> visual metaphor.</p>
-            <p><idx>encapsulation</idx><idx>access keywords</idx>The object-oriented principle of <term>encapsulation</term> is the notion that we should
+            <p><idx>access keywords</idx>The object-oriented principle of <term>encapsulation</term> is the notion that we should
                 hide the contents of a class, except what is
                 absolutely necessary to expose.
                 Hence, we will restrict the access to our class as much
