@@ -419,7 +419,7 @@ int main() {
                 each slot to hold a reference to a collection (or chain) of items.
                 <term>Chaining</term> allows many items to exist at the same location in the hash
                 table. When collisions happen, the item is still placed in the proper
-                slot of the hash table.<idx>Chaining</idx> As more and more items hash to the same
+                slot of the hash table.<idx>chaining</idx> As more and more items hash to the same
                 location, the difficulty of searching for the item in the collection
                 increases. <xref ref="fig-chaining"/> shows the items as they are added to a hash
                 table that uses chaining to resolve collisions.</p>
