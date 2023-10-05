@@ -32,7 +32,7 @@
             the <math>T(n)</math> function tends to overpower the rest. This dominant
             term is what, in the end, is used for comparison.<idx>order of magnitude</idx> The <term>order of
                 magnitude</term> function describes the part of <math>T(n)</math> that increases
-            the fastest as the value of <em>n</em> increases.<idx>Big-O notation</idx> Order of magnitude is often
+            the fastest as the value of <em>n</em> increases.<idx>big-O notation</idx> Order of magnitude is often
             called <term>Big-O notation</term> (for <q>order</q>) and written as
             <math>O(f(n))</math>. It provides a useful approximation to the actual
             number of steps in the computation. The function <math>f(n)</math> provides
