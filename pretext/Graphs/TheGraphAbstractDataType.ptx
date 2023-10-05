@@ -33,7 +33,7 @@
             we can implement the graph ADT in Python. We will see that there are
             trade-offs in using different representations to implement the ADT
             described above. There are two well-known implementations of a graph,
-            the <term>adjacency matrix</term> and the <term>adjacency list</term>. We will explain
+            the <idx>adjacency matrix</idx><term>adjacency matrix</term> and the <idx>adjacency list</idx><term>adjacency list</term>. We will explain
             both of these options, and then implement one as a Python class.</p>
 
 <exercise label="gadt">
