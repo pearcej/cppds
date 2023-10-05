@@ -135,7 +135,7 @@ main()
             Second, on line 11 our function calls itself! This is the
             reason that we call the <c>vectsum</c> algorithm recursive. A recursive
             function is a function that calls itself.</p>
-        <p><xref ref="fig-recsumin"/> shows the series of <term> <idx>recursive calls</idx> </term> that are
+        <p><xref ref="fig-recsumin"/> shows the series of <idx>recursive calls</idx><term> recursive calls </term> that are
             needed to sum the vector <math>[1, 3, 5, 7, 9]</math>. You should think of
             this series of calls as a series of simplifications. Each time we make a
             recursive call we are solving a smaller problem, until we reach the
