@@ -3,7 +3,8 @@
         <p>It is possible to take greater advantage of the ordered vector if we are
             clever with our comparisons. In the sequential search, when we compare
             against the first item, there are at most <math>n-1</math> more items to
-            look through if the first item is not what we are looking for. Instead
+            look through if the first item is not what we are looking for. <idx>binary search</idx>
+            Instead
             of searching the vector in sequence, a <term>binary search</term> will start by
             examining the middle item. If that item is the one we are searching for,
             we are done. If it is not the correct item, we can use the ordered

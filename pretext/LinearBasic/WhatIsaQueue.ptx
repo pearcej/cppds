@@ -1,12 +1,14 @@
 <section xml:id="linear-basic_what-is-a-queue">
         <title>What Is a Queue?</title>
-        <p>A <term>queue</term> is an ordered collection of items where the addition of new
+        <p>
+        <idx>queue</idx>
+        A <term>queue</term> is an ordered collection of items where the addition of new
             items happens at one end, called the <q>rear,</q> and the removal of existing
             items occurs at the other end, commonly called the <q>front.</q> As an
             element enters the queue it starts at the rear and makes its way toward
             the front, waiting until that time when it is the next element to be
             removed.</p>
-        <p>The most recently added item in the queue must wait at the end of the
+        <p><idx>FIFO</idx>The most recently added item in the queue must wait at the end of the
             collection. The item that has been in the collection the longest is at
             the front. This ordering principle is sometimes called <term>FIFO</term>,
             <term>first-in first-out</term>. It is also known as <q>first-come first-served.</q></p>

@@ -1,5 +1,6 @@
 <section xml:id="search-hash_the-sequential-search">
         <title>The Sequential Search</title>
+        <idx>sequential search</idx> 
         <p>When data items are stored in a container type such as a Python list or a C++
             array/vector, we say that they have a linear or sequential relationship. Each data
             item is stored in a position relative to the others. In Python lists, these
