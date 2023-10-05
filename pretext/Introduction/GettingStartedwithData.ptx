@@ -1,6 +1,8 @@
 <section xml:id="introduction_getting-started-with-data">
         <title>Getting Started with Data</title>
-        <p>C++ considers data to be the focal point of the problem-solving process.
+        <p> <idx>class</idx>
+            <idx>object</idx>
+            C++ considers data to be the focal point of the problem-solving process.
             We stated above that C++ supports the object-oriented programming
             paradigm. In C++, as well as in any other
             object-oriented programming language, we define a <term>class</term> to be a
