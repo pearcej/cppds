@@ -6,7 +6,7 @@
             search as deeply as possible, connecting as many nodes in the graph as
             possible and branching where necessary.</p>
         <p>
-            <idx> depth first forest </idx>
+            <idx>depth first forest</idx>
             It is even possible that a depth first search will create more than one
             tree. When the depth first search algorithm creates a group of trees we
             call this a <term>depth first forest</term>. As with the breadth first search our
