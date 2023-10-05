@@ -467,14 +467,14 @@ TreeNode  *_get(int key, TreeNode *currentNode){
 }</pre>
         
         <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: Deleting Node 25, a Node That Has a Single Child</caption><image source="Trees/Figures/bstdel2.png" width="50%"/></figure>
-        <p><idx>successor</idx>The third case is the most difficult case to handle (see <xref ref="lst-bst7"/>). If a node has two
+        <p><idx>successor node</idx>The third case is the most difficult case to handle (see <xref ref="lst-bst7"/>). If a node has two
             children, then it is unlikely that we can simply promote one of them to
             take the node's place. We can, however, search the tree for a node that
             can be used to replace the one scheduled for deletion. What we need is a
             node that will preserve the binary search tree relationships for both of
             the existing left and right subtrees. The node that will do this is the
             node that has the next-largest key in the tree. We call this node the
-            <term>successor</term>, and we will look at a way to find the successor shortly.
+            <term>successor node</term>, and we will look at a way to find the successor shortly.
             The successor is guaranteed to have no more than one child, so we know
             how to remove it using the two cases for deletion that we have already
             implemented. Once the successor has been removed, we simply put it in
