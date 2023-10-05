@@ -1,5 +1,16 @@
 <section xml:id="linear-basic_infix-prefix-and-postfix-expressions">
         <title>Infix, Prefix and Postfix Expressions</title>
+
+    <definition xml:id="def-Infix-expression">
+    <idx>Infix Expression</idx>
+      <statement>
+       <p>
+        An <term>infix</term> expression is a standard mathematical notation in which operators are written between the operands they act on. It is the most commonly used expression format in most programming languages, including C++. In this format, the operator is placed between the two operands. For example, the addition of two numbers a and b is represented as a + b.
+
+        Example: (a + b) * c
+       </p>
+      </statement>
+    </definition>
         <p>When you write an arithmetic expression such as B * C, the form of the
             expression provides you with information so that you can interpret it
             correctly. In this case we know that the variable B is being multiplied
@@ -231,6 +242,18 @@
         </tabular></table>
         <subsection xml:id="linear-basic_conversion-of-infix-expressions-to-prefix-and-postfix">
             <title>Conversion of Infix Expressions to Prefix and Postfix</title>
+            <definition xml:id="def-Prefix-expression">
+            <idx>Prefix Expression</idx>
+            <statement>
+            <p>
+                A prefix expression, also known as Polish notation, is a mathematical notation in which every operator follows all of its operands. The primary advantage of prefix notation is that it completely eliminates the need for parentheses to indicate orders of operations. The order in which operations are to be performed is evident from the position of the operators and operands.
+
+                Example: For the infix expression (a + b) * c, the corresponding prefix notation is * + a b c.
+
+
+            </p>
+            </statement>
+            </definition>
             <p>So far, we have used ad hoc methods to convert between infix expressions
                 and the equivalent prefix and postfix expression notations. As you might
                 expect, there are algorithmic ways to perform the conversion that allow
@@ -281,6 +304,19 @@
 </block></blocks></exercise>        </subsection>
         <subsection xml:id="linear-basic_general-infix-to-postfix-conversion">
             <title>General Infix-to-Postfix Conversion</title>
+
+            <definition xml:id="def-postfix-expression">
+            <idx>Postfix Expression</idx>
+            <statement>
+            <p>
+            A postfix expression, commonly known as Reverse Polish notation (RPN), is a mathematical notation in which every operator follows its operands. Postfix notation has the advantage of being able to represent a mathematical expression without the need for parentheses, which simplifies the algorithm to process the expression. The order of operations is determined by the position of the operator in relation to its operands.
+
+            Example: For the infix expression (a + b) * c, the corresponding postfix notation is a b + c *.
+
+
+            </p>
+            </statement>
+            </definition>
             <p>We need to develop an algorithm to convert any infix expression to a
                 postfix expression. To do this we will look closer at the conversion
                 process.</p>
