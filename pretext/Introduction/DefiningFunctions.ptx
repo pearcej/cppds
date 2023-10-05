@@ -181,8 +181,8 @@ int main() {
     </exercise>
         <subsection xml:id="introduction_parameter-passing-by-value-versus-by-reference">
             <title>Parameter Passing: by Value versus by Reference</title>
-            <p><idx>pass by value</idx>In all of the functions we have written thus far, we have used a function calling
-                mechanism called <term>pass by value</term>.
+            <p><idx>pass-by-value</idx>In all of the functions we have written thus far, we have used a function calling
+                mechanism called <term>pass-by-value</term>.
                 Calling a function by value involves copying the contents of the arguments
                 into the memory locations of the corresponding formal parameters.
                 If the function changes
@@ -218,9 +218,9 @@ void callingFunction() { /*return type int which indicates
             <p>In other words, any changes to the variables are local to the function, which is exactly what we want.</p>
             <transition/>
             <p>However, there is a problem.</p>
-            <p><idx>pass by reference</idx>We have seen examples of C++ functions that return no value or a single value.
+            <p><idx>pass-by-reference</idx>We have seen examples of C++ functions that return no value or a single value.
                 How about when we want the function to return <term>more</term> than one value?
-                We need another function calling mechanism called <term>pass by reference</term>.
+                We need another function calling mechanism called <term>pass-by-reference</term>.
                 When using this mechanism, the actual location in memory referenced by the arguments are
                 sent rather than the values in that location.
                 To let the compiler know that you intend to use pass by reference,
