@@ -1,6 +1,6 @@
 <section xml:id="recursion_what-is-recursion">
         <title>What Is Recursion?</title>
-        <p>term>Recursion</term> is a method of solving problems that involves breaking a
+        <p><idx>Recursion</idx>term>Recursion</term> is a method of solving problems that involves breaking a
             problem down into smaller and smaller subproblems until you get to a
             small enough problem that it can be solved trivially. Recursion
             involves a function calling itself. While it may not seem like much on
