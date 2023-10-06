@@ -1,6 +1,6 @@
 <section xml:id="graphs_implementing-breadth-first-search">
         <title>Implementing Breadth First Search</title>
-        <p><idx>Breadth first search</idx>
+        <p><idx>breadth first search</idx>
            <idx>BFS</idx>
             With the graph constructed we can now turn our attention to the
             algorithm we will use to find the shortest solution to the word ladder
