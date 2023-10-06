@@ -1,7 +1,7 @@
 <section xml:id="recursion_dynamic-programming">
         <title>Dynamic Programming</title>
         <p>
-            <idx>Dynamic programming</idx>
+            <idx>dynamic programming</idx>
             <term>Dynamic programming</term> is a technique of breaking the main problem into
             smaller subproblems and then using those subproblems to construct the answer
             to the main problem.
