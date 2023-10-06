@@ -1,6 +1,6 @@
 <section xml:id="introduction_what-is-programming">
         <title>What Is Programming?</title>
-        <p><term>Programming</term> is the process of taking an algorithm and encoding it
+        <p><idx>programming</idx><term>Programming</term> is the process of taking an algorithm and encoding it
             into a notation, a programming language, so that it can be executed by a
             computer. Although many programming languages and many different types
             of computers exist, the important first step is the need to have the
@@ -21,9 +21,9 @@
             decision-making, and iteration for repetitive control. As long as the
             language provides these basic statements, it can be used for algorithm
             representation.</p>
-        <p>All data items in the computer are represented as strings of binary
+        <p><idx>data type</idx>All data items in the computer are represented as strings of binary
             digits. In order to give these strings meaning, we need to have <term>data
-                types</term>. Data types provide an interpretation for this binary data so
+            types</term>. Data types provide an interpretation for this binary data so
             that we can think about the data in terms that make sense with respect
             to the problem being solved. These low-level, built-in data types
             (sometimes called the primitive data types) provide the building blocks

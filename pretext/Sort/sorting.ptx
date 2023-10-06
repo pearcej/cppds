@@ -1,6 +1,6 @@
 <section xml:id="sort_sorting">
         <title>Sorting</title>
-        <p><term>Sorting</term> is the process of placing elements from a collection in some
+        <p><idx>sorting</idx><term>Sorting</term> is the process of placing elements from a collection in some
             kind of order. For example, a list of words could be sorted
             alphabetically or by length. A list of cities could be sorted by
             population, by area, or by zip code. We have already seen a number of

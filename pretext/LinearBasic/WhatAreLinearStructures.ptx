@@ -1,6 +1,6 @@
 <section xml:id="linear-basic_what-are-linear-structures">
         <title>What Are Linear Structures?</title>
-        <p>We will begin our study of data structures by
+        <p><idx>linear data structures</idx>We will begin our study of data structures by
             considering four simple but very powerful concepts. Vectors, stacks, queues,
             deques are examples of data collections whose items are
             ordered depending on how they are added or removed. Once an item is
