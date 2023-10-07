@@ -20,7 +20,7 @@
             value starting at 0.<idx>hash table</idx> For example, we will have a slot named 0, a slot
             named 1, a slot named 2, and so on.<idx>slot</idx>Initially, the hash table contains
             no items so every slot is empty. We can implement a hash table by using
-            a list with each value intialized to an empty string.
+            a list with each value initialized to an empty string.
             <xref ref="fig-hashtable1"/> shows a hash table of size <math>m=11</math>.
             In other words, there are <em>m</em> slots in the table, named 0 through 10.</p>
         
@@ -28,7 +28,7 @@
             <figure align="center" xml:id="id1"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: Hash Table with 11 Empty Slots</caption><image source="SearchHash/Figures/hashtable.png" width="50%"/></figure>
         </blockquote>
         
-        <p>The mapping between an item and the slot where that item belongs in the
+        <p>In a hash table, the mapping between an item and the slot where that item belongs in the
             hash table is called the <term>hash function</term>.<idx>hash function</idx> The hash function will take
             any item in the collection and return an integer in the range of slot
             names, between 0 and <em>m</em>-1. Assume that we have the set of integer items
@@ -533,7 +533,9 @@ int main() {
             <title>Implementing the <c>Map</c> Abstract Data Type</title>
             <p>One of the most useful C++ data structures is the <term>map</term>. Recall that
                 a map is an associative data type where you can store key&#8211;data
-                pairs. <idx>map</idx> The key is used to look up the associated data value.</p>
+                pairs. <idx>map</idx> In a map data structure, the key plays a crucial role as it is used
+                to look up and retrieve the associated data value. By providing a key, 
+                you can quickly access the specific data element stored within the map.</p>
             <p>The map abstract data type is defined as follows. The structure is an
                 unordered collection of associations between a key and a data value. The
                 keys in a map are all unique so that there is a one-to-one relationship
