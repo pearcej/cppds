@@ -111,8 +111,13 @@ print(math.sqrt(16))
             sometimes referred to as a <q>black box</q> view of a process. We simply
             describe the interface: the name of the function, what is needed (the
             parameters), and what will be returned. The details are hidden inside
-            (see <xref ref="fig-procabstraction"/>).</p>
+            (see <xref ref="test123"/>).</p>
         
-        <figure align="center" xml:id="fig-procabstraction"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 1: Procedural Abstraction</caption><image source="Introduction/Figures/blackbox.png" width="50%"/></figure>
+            <figure xml:id="test123">
+                <caption>test for assets folder</caption>
+                    <image source='adt.png'>
+                    <description>It shows how procedural abstraction works.</description>
+                    </image>
+            </figure>
     </section>
 
