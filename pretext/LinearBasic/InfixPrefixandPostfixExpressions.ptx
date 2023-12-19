@@ -5,7 +5,7 @@
     <idx>infix expression</idx>
       <statement>
        <p>
-        An <term>infix</term> expression is a standard mathematical notation in which operators are written between the operands they act on. It is the most commonly used expression format in most programming languages, including C++. In this format, the operator is placed between the two operands. For example, the addition of two numbers a and b is represented as a + b.
+        An <term>infix expression</term> is a standard mathematical notation in which operators are written between the operands they act on. It is the most commonly used expression format in most programming languages, including C++. In this format, the operator is placed between the two operands. For example, the addition of two numbers a and b is represented as a + b.
 
         Example: (a + b) * c
        </p>
