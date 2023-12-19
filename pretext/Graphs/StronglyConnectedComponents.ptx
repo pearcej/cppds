@@ -24,7 +24,9 @@
             arts colleges. You might conclude from this that there is some
             underlying structure to the web that clusters together web sites that
             are similar on some level.</p>
-        <p>One graph algorithm that can help find clusters of highly interconnected
+        <p>
+            <idx>strongly connected component </idx>
+            One graph algorithm that can help find clusters of highly interconnected
             vertices in a graph is called the strongly connected components
             algorithm (<term>SCC</term>). We formally define a <term>strongly connected
                 component</term>, <math>C</math>, of a graph <math>G</math>, as the largest subset
