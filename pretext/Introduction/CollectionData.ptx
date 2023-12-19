@@ -455,7 +455,7 @@ main()
 </matches></exercise>               
 
 <exercise label="matching_vectors2">
-    <statement><p> Match the Vector operations with their corresponding explination.</p></statement>
+    <statement><p>Match the Vector operations with their corresponding explination.</p></statement>
     <feedback><p>Feedback shows incorrect matches.</p></feedback>
 <matches>
 <match order="1"><premise>insert</premise><response>Injects an item into the vector.</response></match>
