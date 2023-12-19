@@ -6,7 +6,7 @@
         <dl>
             <li>
                 <title>Vertex</title>
-                
+                <idx><h>Graph Components</h><h>vertex</h></idx>
                     <p>A vertex (also called a <q>node</q>) is a fundamental part of a graph. It
                         can have a name, which we will call the <q>key.</q> A vertex may also
                         have additional information. We will call this additional
@@ -15,7 +15,9 @@
             </li>
             <li>
                 <title>Edge</title>
-                
+                <idx><h>Graph Components</h><h>edge</h></idx>
+                <idx><h>Graph Components</h><h>directed graph</h></idx>
+                <idx><h>Graph Components</h><h>digraph</h></idx>
                     <p>An edge (also called an <q>arc</q>) is another fundamental part of a
                         graph. An edge connects two vertices to show that there is a
                         relationship between them. Edges may be one-way or two-way. If the
@@ -27,7 +29,7 @@
             </li>
             <li>
                 <title>Weight</title>
-                
+                <idx><h>Graph Components</h><h>weight</h></idx>
                     <p>Edges may be weighted to show that there is a cost to go from one
                         vertex to another. For example in a graph of roads that connect one
                         city to another, the weight on the edge might represent the distance
@@ -58,7 +60,7 @@
         <dl>
             <li>
                 <title>Path</title>
-                
+                <idx><h>Graph Components</h><h>path</h></idx>
                     <p>A path in a graph is a sequence of vertices that are connected by
                         edges. Formally we would define a path as
                         <math>w_1, w_2, ..., w_n</math> such that
@@ -73,7 +75,10 @@
             </li>
             <li>
                 <title>Cycle</title>
-                
+                <idx><h>Graph Components</h><h>cycle</h></idx>
+                <idx><h>Graph Components</h><h>acyclic graph</h></idx>
+                <idx><h>Graph Components</h><h>directed acyclic graph</h></idx>
+                <idx><h>Graph Components</h><h>DAG</h></idx>
                     <p>A cycle in a directed graph is a path that starts and ends at the
                         same vertex. For example, in <xref ref="fig-dgsimple"/> the path
                         <math>(V5,V2,V3,V5)</math> is a cycle. A graph with no cycles is called

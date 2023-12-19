@@ -1,6 +1,6 @@
 <section xml:id="graphs_breadth-first-search-analysis">
         <title>Breadth First Search Analysis</title>
-        <p>Before we continue with other graph algorithms let us analyze the run
+        <p><idx>Breadth first search algorithm</idx> Before we continue with other graph algorithms let us analyze the run
             time performance of the breadth first search algorithm. The first thing
             to observe is that the while loop is executed,
             at most, one time for each vertex in the graph <math>|V|</math>. You can

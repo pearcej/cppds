@@ -1,6 +1,6 @@
 <section xml:id="sort_the-merge-sort">
         <title>The Merge Sort</title>
-        <p>We now turn our attention to using a divide and conquer strategy as a
+        <p><idx>merge sort</idx>We now turn our attention to using a divide and conquer strategy as a
             way to improve the performance of sorting algorithms. The first
             algorithm we will study is the <term>merge sort</term>. Merge sort is a recursive
             algorithm that continually splits a vector in half. If the vector is empty
