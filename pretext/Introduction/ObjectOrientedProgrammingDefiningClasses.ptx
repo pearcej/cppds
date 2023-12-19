@@ -1,16 +1,16 @@
 <section xml:id="introduction_object-oriented-programming-in-c-defining-classes">
         <title>Object-Oriented Programming in C++: Defining Classes</title>
-        <p>We stated earlier that C++ is an <term>object-oriented programming
-                language</term>. Object-oriented programming is a programming technique based on
+        <p><idx>object-oriented programming</idx>We stated earlier that C++ is an <term>object-oriented programming
+            language</term>. Object-oriented programming is a programming technique based on
             real world things such as turtles, airplanes, customers, etc.
             Each object has its own characteristics or attributes as well as its own set of behaviors.</p>
-        <p>So far, we have used a number of built-in classes to show
+        <p><idx>object</idx><idx>instance</idx>So far, we have used a number of built-in classes to show
             examples of data and control structures. One of the most powerful
             features in an object-oriented programming language is the ability to
             allow a programmer (problem solver) to create new classes that model
             data that is needed to solve the problem.
             Each <term>object</term> created with the class data type is called an <term>instance</term> of  the class.</p>
-        <p>Remember that we use abstract data types to provide the logical
+        <p><idx>object attributes</idx><idx>class methods</idx><idx>class</idx>Remember that we use abstract data types to provide the logical
             description or blueprint for what a data object looks like (its state given by <term>object attributes</term>)
             and what it can do (its behaviors given by <term>class methods</term>).
             Defining a class creates the blueprint which defines the behaviors and attributes
@@ -79,7 +79,7 @@ class Fraction:
 </input></program>
                     <p>Creating a class in Python</p>
                 </TabNode></exercise>
-            <p>provides the framework for us to define the methods. The first method
+            <p><idx>constructor</idx>provides the framework for us to define the methods. The first method
                 that all classes should provide is the <term>constructor</term>.
                 The constructor
                 defines the way in which data objects are created.
@@ -152,7 +152,7 @@ myfraction = Fraction(3, 5)
             <blockquote>
                 <image source="Introduction/Figures/fractions_partsofwhole.png" width="50%"/>
             </blockquote>
-            <p>Since we are using classes to create abstract data types, we should probably discuss the meaning of
+            <p><idx>abstraction</idx>Since we are using classes to create abstract data types, we should probably discuss the meaning of
                 the word <q>abstract</q> in this context.
                 <term>Abstraction</term> in object-oriented programming requires you to focus only on the desired properties
                 and behaviors of the objects
@@ -160,7 +160,7 @@ myfraction = Fraction(3, 5)
                 the <q>parts of a whole</q> metaphor, then we will not include it in the class. If that metaphor
                 is important, then we will include it. For our purposes, we want to think of
                 fractions as numbers, so we will not use the <q>parts of a whole</q> visual metaphor.</p>
-            <p>The object-oriented principle of <term>encapsulation</term> is the notion that we should
+            <p><idx>access keywords</idx><idx>encapsulation</idx>The object-oriented principle of <term>encapsulation</term> is the notion that we should
                 hide the contents of a class, except what is
                 absolutely necessary to expose.
                 Hence, we will restrict the access to our class as much
@@ -179,7 +179,7 @@ myfraction = Fraction(3, 5)
 <matches><match order="1"><premise>Encapsulation</premise><response>A situation where bank software programmers want to protect users' personal information.</response></match><match order="2"><premise>Abstraction</premise><response>A situation where software programmers want to develop similar objects without having to redefine the most similar properties.</response></match></matches></exercise>        </subsection>
         <subsection xml:id="introduction_polymorphism">
             <title>Polymorphism</title>
-            <p><term>Polymorphism</term> means the ability to appear in many forms. In object-oriented programming,
+            <p><idx>polymorphism</idx><term>Polymorphism</term> means the ability to appear in many forms. In object-oriented programming,
                 <term>polymorphism</term> refers to the ability to process objects or methods differently depending
                 on their data type, class, number of arguments, etc.
                 For example, we can overload a constructor with different numbers and types of arguments
@@ -277,16 +277,16 @@ def show(self):
                 One of these, <c>&lt;&lt;</c>, is the operator to
                 send data to the output stream.
                 It would be nicer to provide a <q>better</q> implementation for this method
-                via <term>operator overloading</term>.</p>
-            <p>Like function overloading, operator overloading allows us to make operators
+                via operator overloading.</p>
+            <p><idx>operator overloading</idx>Like function overloading, <term>operator overloading</term> allows us to make operators
                 work for user defined classes
                 by defining a special meaning for that operator when applied to objects
                 of the class as operands.</p>
-            <p>In C++ this new operator needs to be implemented as a <term>friend</term> of the class in order to
+            <p><idx>friend</idx>In C++ this new operator needs to be implemented as a <term>friend</term> of the class in order to
                 define the operator's behavior on objects of the class from a non-class method <c>&lt;&lt;</c>.
                 Operator overloading is yet another example
                 of polymorphism in object-oriented programming.</p>
-            <p>A <term>friend function</term> of a class is a function defined outside that class' scope
+            <p><idx>friend function</idx>A <term>friend function</term> of a class is a function defined outside that class' scope
                 but with the right to access
                 all private and protected members of the class.
                 In C++, we overload an operator by declaring it a <term>friend</term>
