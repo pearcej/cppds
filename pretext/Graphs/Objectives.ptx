@@ -29,7 +29,7 @@
             computer can find the shortest, quickest, or easiest path from one place
             to another.</p>
         <p>As a student of computer science you may wonder about the courses you
-            must take in order to get a major. A graph is good way to represent the
+            must take in order to get a major. A graph is a good way to represent the
             prerequisites and other interdependencies among courses.
             <xref ref="graphs_fig1"/> shows another graph. This one represents the courses
             and the order in which they must be taken to complete a major in

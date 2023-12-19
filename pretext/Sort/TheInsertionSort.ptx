@@ -1,6 +1,6 @@
 <section xml:id="sort_the-insertion-sort">
         <title>The Insertion Sort</title>
-        <p>The <term>insertion sort</term>, although still <math>O(n^{2})</math>, works in a
+        <p><idx>insertion sort</idx>The <term>insertion sort</term>, although still <math>O(n^{2})</math>, works in a
             slightly different way. It always maintains a sorted subvector in the
             lower positions of the vector. Each new item is then <q>inserted</q> back into
             the previous subvector such that the sorted subvector is one item larger.

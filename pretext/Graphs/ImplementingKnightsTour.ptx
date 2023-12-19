@@ -1,6 +1,6 @@
 <section xml:id="graphs_implementing-knights-tour">
         <title>Implementing Knight's Tour</title>
-        <p>The search algorithm we will use to solve the knight's tour problem is
+        <p><idx>depth first search</idx><idx>DFS</idx>The search algorithm we will use to solve the knight's tour problem is
             called <term>depth first search</term> (<term>DFS</term>).  Whereas the
             breadth first search algorithm discussed in the previous section builds
             a search tree one level at a time, a depth first search creates a search

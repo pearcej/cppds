@@ -5,7 +5,7 @@
             represent a vertex in the graph. The value that is stored in the cell at
             the intersection of row <math>v</math> and column <math>w</math> indicates if
             there is an edge from vertex <math>v</math> to vertex <math>w</math>. When two
-            vertices are connected by an edge, we say that they are <term>adjacent</term>.
+            vertices are connected by an edge, we say that they are <idx>adjacent</idx><term>adjacent</term>.
             <xref ref="fig-adjmat"/> illustrates the adjacency matrix for the graph in
             <xref ref="graphs_vocabularyand-definitions"/>. A value in a cell represents the weight of the
             edge from vertex <math>v</math> to vertex <math>w</math>.</p>
