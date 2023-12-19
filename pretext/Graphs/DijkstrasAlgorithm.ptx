@@ -1,6 +1,8 @@
 <section xml:id="graphs_dijkstras-algorithm">
         <title>Dijkstra's Algorithm</title>
-        <p>The algorithm we are going to use to determine the shortest path is
+
+        <p><idx>dijkstra's algorithm</idx>
+            The algorithm we are going to use to determine the shortest path is
             called <q>Dijkstra's algorithm.</q> Dijkstra's algorithm is an iterative
             algorithm that provides us with the shortest path from one particular
             starting node to all other nodes in the graph. Again this is similar to

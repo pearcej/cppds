@@ -28,7 +28,8 @@
             for listeners 1, 2, and 3. When you consider that the broadcast host
             must send hundreds of messages each second for a radio broadcast, that
             is a lot of extra traffic.</p>
-        <p>A brute force solution is for the broadcast host to send a single copy
+        <p><idx>uncontrolled flooding</idx>
+            A brute force solution is for the broadcast host to send a single copy
             of the broadcast message and let the routers sort things out. In this
             case, the easiest solution is a strategy called <term>uncontrolled
                 flooding</term>. The flooding strategy works as follows. Each message starts
@@ -40,7 +41,8 @@
             of the message to all its neighbors until the <c>ttl</c> value reaches 0.
             It is easy to convince yourself that uncontrolled flooding generates
             many more unnecessary messages than our first strategy.</p>
-        <p>The solution to this problem lies in the construction of a minimum
+        <p><idx>minimum weight spanning tree</idx>
+            The solution to this problem lies in the construction of a minimum
             weight <term>spanning tree</term>. Formally we define the minimum spanning tree
             <math>T</math> for a graph <math>G = (V,E)</math> as follows. <math>T</math> is
             an acyclic subset of <math>E</math> that connects all the vertices in
