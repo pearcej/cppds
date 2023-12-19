@@ -1,6 +1,6 @@
 <section xml:id="linear-basic_palindrome-checker">
         <title>Palindrome-Checker</title>
-        <p>An interesting problem that can be easily solved using the deque data
+        <p><idx>palindrome</idx>An interesting problem that can be easily solved using the deque data
             structure is the classic palindrome problem. A <term>palindrome</term> is a
             string that reads the same forward and backward, for example, <em>radar</em>,
             <em>toot</em>, and <em>madam</em>. We would like to construct an algorithm to input a
