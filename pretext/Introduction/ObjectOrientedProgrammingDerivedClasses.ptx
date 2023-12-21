@@ -17,8 +17,13 @@
             sequential collection). This implies that strings inherit important
             characteristics from sequences, namely the ordering of the underlying
             data and operations such as concatenation, repetition, and indexing.</p>
-        
-        <figure align="center" xml:id="fig-inherit1"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 8: An Inheritance Hierarchy for C++ Collections</caption><image source="Introduction/Figures/inheritance1.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-inherit1">
+                <caption>An Inheritance Hierarchy for C++ Collections</caption>
+                    <image source="Introduction/inheritance1.png" width="70%">
+                    <description>Hierarchy chart showing the classification of C++ containers. The top of the hierarchy is labeled 'C++ Containers', branching into 'Sequence Containers' on the left and 'Associative Containers' on the right. Under 'Sequence Containers', there are three sub-categories: 'Arrays', 'Vectors', and 'Strings'. 'Associative Containers' has a single sub-category labeled 'Unordered Maps'. The layout suggests an inheritance structure where sequence and associative containers are types of C++ containers.</description>
+                    </image>
+                </figure>
+
         <p>Vectors, arrays, and strings are all types of sequential collections. They
             all inherit common data organization and operations. However, each of
             them is distinct as well. The children all gain from their parents
@@ -101,8 +106,13 @@ return 0;
                 gates is typically represented. Each gate also has a <term>truth table</term> of
                 values showing the input-to-output mapping that is performed by the
                 gate.</p>
-            
-            <figure align="center" xml:id="fig-truthtable"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 9: Three Types of Logic Gates</caption><image source="Introduction/Figures/truthtable.png" width="50%"/></figure>
+
+            <figure align="center" xml:id="fig-truthtable">
+                <caption>Three Types of Logic Gates</caption>
+                    <image source="Introduction/truthtable.png" width="50%">
+                    <description>Image depicting three types of logic gates and their corresponding truth tables. On the left is the 'AND' gate symbol with a two-input truth table below it, showing outputs of '0' for all inputs except '1' and '1'. The center shows the 'OR' gate symbol with a truth table, displaying '1' when at least one input is '1'. On the right, the 'NOT' gate symbol is presented with a single-input truth table, showing an output inverse to the input.</description>
+                    </image>
+                </figure>
             <p>By combining these gates in various patterns and then applying a set of
                 input values, we can build circuits that have logical functions.
                 <xref ref="fig-circuit1"/> shows a circuit consisting of two <term>AND</term> gates,
