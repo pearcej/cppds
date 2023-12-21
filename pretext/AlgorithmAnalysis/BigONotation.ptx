@@ -339,7 +339,7 @@ main()</pre>
         <note>
             <title>Self Check</title>
             <p>Write two C++ functions to find the minimum number in an array.  The first function should compare each number to every other number on the array. <math>O(n^2)</math>.  The second function should be linear <math>O(n)</math>.</p>
-
+        </note>
     <exercise label="BIGO1">
         <statement>
 
@@ -348,8 +348,7 @@ main()</pre>
                 how long would it take with 4 million inputs?</p>
 
         </statement>
-<choices>
-
+        <choices randomize ="yes">
             <choice>
                 <statement>
                     <p>3.444</p>
@@ -406,8 +405,7 @@ main()</pre>
                 how long would it take with 10 million inputs?</p>
 
         </statement>
-<choices>
-
+        <choices randomize ="yes">
             <choice>
                 <statement>
                     <p>3.444</p>
@@ -464,8 +462,7 @@ main()</pre>
                 how long would it take with 2000 inputs?</p>
 
         </statement>
-<choices>
-
+        <choices randomize ="yes">
             <choice>
                 <statement>
                     <p>2000</p>
@@ -522,8 +519,7 @@ main()</pre>
                 how long would it take with 10,000 inputs?</p>
 
         </statement>
-<choices>
-
+        <choices randomize ="yes">
             <choice correct="yes">
                 <statement>
                     <p>2000</p>
@@ -571,6 +567,5 @@ main()</pre>
 </choices>
 
     </exercise>
-        </note>
     </section>
 
