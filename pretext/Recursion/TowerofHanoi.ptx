@@ -23,7 +23,14 @@
             this puzzle before, you should try it now. You do not need fancy disks
             and poles&#8211;a pile of books or pieces of paper will work.</p>
         
-        <figure align="center" xml:id="fig-hanoicpp"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 1: An Example Arrangement of Disks for the Tower of Hanoi</caption><image source="Recursion/Figures/hanoi.png" width="50%" alt="image"/></figure>
+        <figure align="center" xml:id="fig-hanoicpp">
+            <caption>An Example Arrangement of Disks for the Tower of Hanoi</caption>
+                <image source="Recursion/hanoi.png" width="80%">
+                <description>Image depicting the initial setup of the Tower of Hanoi puzzle. It shows three vertical poles labeled 'fromPole', 'withPole', and 'toPole' on a horizontal base. The 'fromPole' has three disks stacked on it, with the largest at the bottom and the smallest at the top, while the other two poles are empty. This is a classic configuration for the start of the puzzle, which involves moving the disks to another pole under certain rules. </description>
+                </image>
+            </figure>
+
+
         <p>How do we go about solving this problem recursively? How would you go
             about solving this problem at all? What is our base case? Let's think
             about this problem from the bottom up. Suppose you have a tower of five
