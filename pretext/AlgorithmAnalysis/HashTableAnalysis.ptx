@@ -1,114 +1,114 @@
 <section xml:id="algorithm-analysis_analysis-of-hash-tables">
-        <title>Analysis of Hash Tables</title>
-        <p>The second major C++ data structure to analyze is the <idx>hash table</idx><term>hash table</term> or hash map. As you
-            may recall, hash tables differ from vectors in that you access
-            items in a hash table by a key rather than a position. A hash table (hash map)
-            is a data structure that maps keys to their associated values using a hash function.
-            The underlying structure is a mostly empty array, but unlike the array or vector data
-            structures, the hash table values are not stored contiguously.
-            The hash function computes an index into the array of <q>buckets</q> from which the correct
-            associated value can be located. Ideally, the hash table values are distributed uniformly
-            in the underlying array and, again ideally, the hash function will assign
-            each key to a unique bucket. However, most hash tables are designed to handle
-            hash collisions when the hash function generates the same bucket index for more than one key.
-            More about this when we discuss implementations in more depth.</p>
-        <p>Later in this
-            book you will see that there are many ways to implement a hash table.
-            The thing that is most important to note  now is that the get
-            item and set item operations on a hash table are <math>O(1)</math>. Another
-            important hash table operation is the <term>contains</term> operation. Unlike a vector, checking to
-            see whether a value is in the hash table or not is also <math>O(1)</math>.</p>
-        <p>The efficiency of all hash table operations is summarized in
-            <xref ref="algorithm-analysis_tbl-hashbigo-cpp"/>. One important side note on hash table performance
-            is that the efficiencies we provide in the table below are for average
-            performance. In some rare cases the <term>contains</term>, <term>get item</term>, and <term>set item</term>
-            operations can degenerate into <math>O(n)</math> performance but we will
-            get into that in a later chapter when we talk about the different ways
-            that a hash table could be implemented.</p>
+    <title>Analysis of Hash Tables</title>
+    <p>The second major C++ data structure to analyze is the <idx>hash table</idx><term>hash table</term> or hash map. As you
+        may recall, hash tables differ from vectors in that you access
+        items in a hash table by a key rather than a position. A hash table (hash map)
+        is a data structure that maps keys to their associated values using a hash function.
+        The underlying structure is a mostly empty array, but unlike the array or vector data
+        structures, the hash table values are not stored contiguously.
+        The hash function computes an index into the array of <q>buckets</q> from which the correct
+        associated value can be located. Ideally, the hash table values are distributed uniformly
+        in the underlying array and, again ideally, the hash function will assign
+        each key to a unique bucket. However, most hash tables are designed to handle
+        hash collisions when the hash function generates the same bucket index for more than one key.
+        More about this when we discuss implementations in more depth.</p>
+    <p>Later in this
+        book you will see that there are many ways to implement a hash table.
+        The thing that is most important to note  now is that the get
+        item and set item operations on a hash table are <math>O(1)</math>. Another
+        important hash table operation is the <term>contains</term> operation. Unlike a vector, checking to
+        see whether a value is in the hash table or not is also <math>O(1)</math>.</p>
+    <p>The efficiency of all hash table operations is summarized in
+        <xref ref="algorithm-analysis_tbl-hashbigo-cpp"/>. One important side note on hash table performance
+        is that the efficiencies we provide in the table below are for average
+        performance. In some rare cases the <term>contains</term>, <term>get item</term>, and <term>set item</term>
+        operations can degenerate into <math>O(n)</math> performance but we will
+        get into that in a later chapter when we talk about the different ways
+        that a hash table could be implemented.</p>
+    
+    <table xml:id="algorithm-analysis_id1"><tabular>
+        <title><term>Table 4: Big-O Efficiency of C++ hash table Operations</term></title>
         
-        <table xml:id="algorithm-analysis_id1"><tabular>
-            <title><term>Table 4: Big-O Efficiency of C++ hash table Operations</term></title>
             
-                
-                
-                
-                    <row header="yes">
-                        <cell>
-                            operation
-                        </cell>
-                        <cell>
-                            Big-O Efficiency
-                        </cell>
-                    </row>
-                
-                
-                    <row>
-                        <cell>
-                            find
-                        </cell>
-                        <cell>
-                            O(1)
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            insert
-                        </cell>
-                        <cell>
-                            O(1)
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            erase
-                        </cell>
-                        <cell>
-                            O(1)
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            contains
-                        </cell>
-                        <cell>
-                            O(1)
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            iteration
-                        </cell>
-                        <cell>
-                            O(n)
-                        </cell>
-                    </row>
-                
             
-        </tabular></table>
-        <p>Note that it is not typical to iterate through a hash table because it is
-            a data structure designed for look-up, not for iteration. The big
-            advantage of the hash table is the constant speed of the contains
-            operation.</p>
-        <p>For our last performance experiment we will compare the performance of
-            the contains operation between vectors and hash tables. In the process we
-            will confirm that the contains operator for vectors is <math>O(n)</math> and
-            the contains operator for hash tables is <math>O(1)</math>. The experiment
-            we will use to compare the two is simple. We'll make a vector with a range
-            of numbers in it. Then we will pick numbers at random and check to see
-            if the numbers are in the vector. If our performance tables are correct
-            the bigger the vector the longer it should take to determine if any one
-            number is contained in the vector.</p>
-        <p>We will repeat the same experiment for a hash table that contains
-            numbers as the keys. In this experiment we should see that determining
-            whether or not a number is in the hash table is not only much faster,
-            but the time it takes to check should remain constant even as the
-            hash table grows larger.</p>
-        <p><inline classes="xref std std-ref">Listing 6</inline> implements this comparison. Notice that we are
-            performing exactly the same operation, <c>number in container</c>. The
-            difference is that on line 7 <c>x</c> is vector, and on line 9 <c>x</c> is a
-            hash table.</p>
-        <p><term>Listing 6</term></p>
-        <program language="cpp"><input>
+            
+                <row header="yes">
+                    <cell>
+                        operation
+                    </cell>
+                    <cell>
+                        Big-O Efficiency
+                    </cell>
+                </row>
+            
+            
+                <row>
+                    <cell>
+                        find
+                    </cell>
+                    <cell>
+                        O(1)
+                    </cell>
+                </row>
+                <row>
+                    <cell>
+                        insert
+                    </cell>
+                    <cell>
+                        O(1)
+                    </cell>
+                </row>
+                <row>
+                    <cell>
+                        erase
+                    </cell>
+                    <cell>
+                        O(1)
+                    </cell>
+                </row>
+                <row>
+                    <cell>
+                        contains
+                    </cell>
+                    <cell>
+                        O(1)
+                    </cell>
+                </row>
+                <row>
+                    <cell>
+                        iteration
+                    </cell>
+                    <cell>
+                        O(n)
+                    </cell>
+                </row>
+            
+        
+    </tabular></table>
+    <p>Note that it is not typical to iterate through a hash table because it is
+        a data structure designed for look-up, not for iteration. The big
+        advantage of the hash table is the constant speed of the contains
+        operation.</p>
+    <p>For our last performance experiment we will compare the performance of
+        the contains operation between vectors and hash tables. In the process we
+        will confirm that the contains operator for vectors is <math>O(n)</math> and
+        the contains operator for hash tables is <math>O(1)</math>. The experiment
+        we will use to compare the two is simple. We'll make a vector with a range
+        of numbers in it. Then we will pick numbers at random and check to see
+        if the numbers are in the vector. If our performance tables are correct
+        the bigger the vector the longer it should take to determine if any one
+        number is contained in the vector.</p>
+    <p>We will repeat the same experiment for a hash table that contains
+        numbers as the keys. In this experiment we should see that determining
+        whether or not a number is in the hash table is not only much faster,
+        but the time it takes to check should remain constant even as the
+        hash table grows larger.</p>
+    <p><inline classes="xref std std-ref">Listing 6</inline> implements this comparison. Notice that we are
+        performing exactly the same operation, <c>number in container</c>. The
+        difference is that on line 7 <c>x</c> is vector, and on line 9 <c>x</c> is a
+        hash table.</p>
+    <p><term>Listing 6</term></p>
+    <program language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;ctime&gt;
 #include &lt;vector&gt;
@@ -117,234 +117,241 @@ using namespace std;
 
 int main() {
 
-    for(int a = 10000; a &lt; 1000001; a = a + 20000) {
-        // vector Part
-        clock_t begin = clock();
-        vector&lt;int&gt; avector;
-        for( int i = 0; i &lt; a; i++){
-            avector.push_back(i);
-        }
-        clock_t end = clock();
-        double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
-
-        // Hash Table Part
-        clock_t  begin_ht = clock();
-        unordered_map&lt;int, int&gt; y;
-        for( int j = 0; j &lt; a; j++ ){
-            y[j] = NULL;
-        }
-        clock_t end_ht = clock();
-        double elapsed_secs_ht = double(end_ht - begin_ht) / CLOCKS_PER_SEC;
-
-        // Printing final output
-        cout &lt;&lt; a &lt;&lt; "\t" &lt;&lt; elapsed_secs &lt;&lt; "\t" &lt;&lt; elapsed_secs_ht &lt;&lt; endl;
+for(int a = 10000; a &lt; 1000001; a = a + 20000) {
+    // vector Part
+    clock_t begin = clock();
+    vector&lt;int&gt; avector;
+    for( int i = 0; i &lt; a; i++){
+        avector.push_back(i);
     }
+    clock_t end = clock();
+    double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
 
-    return 0;
+    // Hash Table Part
+    clock_t  begin_ht = clock();
+    unordered_map&lt;int, int&gt; y;
+    for( int j = 0; j &lt; a; j++ ){
+        y[j] = NULL;
+    }
+    clock_t end_ht = clock();
+    double elapsed_secs_ht = double(end_ht - begin_ht) / CLOCKS_PER_SEC;
+
+    // Printing final output
+    cout &lt;&lt; a &lt;&lt; "\t" &lt;&lt; elapsed_secs &lt;&lt; "\t" &lt;&lt; elapsed_secs_ht &lt;&lt; endl;
+}
+
+return 0;
 }
 </input></program>
-        <program language="python"><input>
+    <program language="python"><input>
 import timeit
 import random
 
 for i in range(10000,1000001,20000):
-    t = timeit.Timer("random.randrange(%d) in x"%i,
-                     "from __main__ import random,x")
-    x = list(range(i))
-    lst_time = t.timeit(number=1000)
-    x = {j:None for j in range(i)}
-    d_time = t.timeit(number=1000)
-    print("%d,%10.3f,%10.3f" % (i, lst_time, d_time))
+t = timeit.Timer("random.randrange(%d) in x"%i,
+                 "from __main__ import random,x")
+x = list(range(i))
+lst_time = t.timeit(number=1000)
+x = {j:None for j in range(i)}
+d_time = t.timeit(number=1000)
+print("%d,%10.3f,%10.3f" % (i, lst_time, d_time))
 </input></program>
-        <p><xref ref="fig-vectvshash-cpp"/> summarizes the results of running
-            <inline classes="xref std std-ref">Listing 6</inline>. You can see that the hash table is consistently
-            faster. For the smallest vector size of 10,000 elements a hash table is
-            89.4 times faster than a vector. For the largest vector size of 990,000
-            elements the hash table is 11,603 times faster! You can also see that
-            the time it takes for the contains operator on the vector grows linearly
-            with the size of the vector. This verifies the assertion that the contains
-            operator on a vector is <math>O(n)</math>. It can also be seen that the time
-            for the contains operator on a hash table is constant even as the
-            hash table size grows. In fact for a hash table size of 10,000 the
-            contains operation took 0.004 milliseconds and for the hash table size
-            of 990,000 it also took 0.004 milliseconds.</p>
-        
-        <figure align="" xml:id="fig-vectvshash-cpp"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 3: Comparing the <literal>in</literal> Operator for C++ vectors and Hash Tables</caption><image source="AlgorithmAnalysis/Figures/vectvshash.png" width="50%"/></figure>
-        <p>Since C++ is an evolving language, there are always changes going on
-            behind the scenes. The latest information on the performance of C++
-            data structures can be found on the C++ website.</p>
-        <note>
-            <title>Self Check</title>
+    <p><xref ref="fig-vectvshash-cpp"/> summarizes the results of running
+        <inline classes="xref std std-ref">Listing 6</inline>. You can see that the hash table is consistently
+        faster. For the smallest vector size of 10,000 elements a hash table is
+        89.4 times faster than a vector. For the largest vector size of 990,000
+        elements the hash table is 11,603 times faster! You can also see that
+        the time it takes for the contains operator on the vector grows linearly
+        with the size of the vector. This verifies the assertion that the contains
+        operator on a vector is <math>O(n)</math>. It can also be seen that the time
+        for the contains operator on a hash table is constant even as the
+        hash table size grows. In fact for a hash table size of 10,000 the
+        contains operation took 0.004 milliseconds and for the hash table size
+        of 990,000 it also took 0.004 milliseconds.</p>
 
-    <exercise label="mccppmapperfcpp3">
-        <statement>
+    <figure align="center" xml:id="fig-vectvshash-cpp">
+        <caption>Comparing the <literal>in</literal> Operator for C++ vectors and Hash Tables</caption>
+            <image source="AlgorithmAnalysis/vectvshash.png" width="50%">
+                <description>Figure 3 summarizes the results of running Listing 6. You can see that the hash table is consistently faster. For the smallest vector size of 10,000 elements a hash table is 89.4 times faster than a vector. For the largest vector size of 990,000 elements the hash table is 11,603 times faster! You can also see that the time it takes for the contains operator on the vector grows linearly with the size of the vector. This verifies the assertion that the contains operator on a vector is . It can also be seen that the time for the contains operator on a hash table is constant even as the hash table size grows. In fact for a hash table size of 10,000 the contains operation took 0.004 milliseconds and for the hash table size of 990,000 it also took 0.004 milliseconds.</description>
+            </image>
+    </figure>
 
-            <p>Q-1: Which of the vector operations shown below is not O(1)?</p>
+    <p>Since C++ is an evolving language, there are always changes going on
+        behind the scenes. The latest information on the performance of C++
+        data structures can be found on the C++ website.</p>
+    <note>
+        <title>Self Check</title>
 
-        </statement>
+<exercise label="mccppmapperfcpp3">
+    <statement>
+
+        <p>Q-1: Which of the vector operations shown below is not O(1)?</p>
+
+    </statement>
 <choices>
 
-            <choice correct="yes">
-                <statement>
-                    <p>Popping the first index from a vector.</p>
-                </statement>
-                <feedback>
-                    <p>When you remove the first element of a vector, all the other elements of the vector must be shifted forward.</p>
-                </feedback>
-            </choice>
+        <choice correct="yes">
+            <statement>
+                <p>Popping the first index from a vector.</p>
+            </statement>
+            <feedback>
+                <p>When you remove the first element of a vector, all the other elements of the vector must be shifted forward.</p>
+            </feedback>
+        </choice>
 
-            <choice>
-                <statement>
-                    <p>Popping an element from the end of a vector.</p>
-                </statement>
-                <feedback>
-                    <p>Removing an element from the end of the vector is a constant operation.</p>
-                </feedback>
-            </choice>
+        <choice>
+            <statement>
+                <p>Popping an element from the end of a vector.</p>
+            </statement>
+            <feedback>
+                <p>Removing an element from the end of the vector is a constant operation.</p>
+            </feedback>
+        </choice>
 
-            <choice>
-                <statement>
-                    <p>Adding a new element to a vector.</p>
-                </statement>
-                <feedback>
-                    <p>Adding to the end of a vector is a constant operation</p>
-                </feedback>
-            </choice>
+        <choice>
+            <statement>
+                <p>Adding a new element to a vector.</p>
+            </statement>
+            <feedback>
+                <p>Adding to the end of a vector is a constant operation</p>
+            </feedback>
+        </choice>
 
-            <choice>
-                <statement>
-                    <p>vector[10]</p>
-                </statement>
-                <feedback>
-                    <p>Indexing a vector is a constant operation</p>
-                </feedback>
-            </choice>
+        <choice>
+            <statement>
+                <p>vector[10]</p>
+            </statement>
+            <feedback>
+                <p>Indexing a vector is a constant operation</p>
+            </feedback>
+        </choice>
 
-            <choice>
-                <statement>
-                    <p>all of the above are O(1)</p>
-                </statement>
-                <feedback>
-                    <p>There is one operation that requires all other vector elements to be moved.</p>
-                </feedback>
-            </choice>
+        <choice>
+            <statement>
+                <p>all of the above are O(1)</p>
+            </statement>
+            <feedback>
+                <p>There is one operation that requires all other vector elements to be moved.</p>
+            </feedback>
+        </choice>
 </choices>
 
-    </exercise>
+</exercise>
 
-    <exercise label="mccppmapperfcpp4">
-        <statement>
+<exercise label="mccppmapperfcpp4">
+    <statement>
 
-            <p>Q-2: Which of the hash table operations shown below is O(1)?</p>
+        <p>Q-2: Which of the hash table operations shown below is O(1)?</p>
 
-        </statement>
+    </statement>
 <choices>
 
-            <choice>
-                <statement>
-                    <p>mymap.count('x')</p>
-                </statement>
-                <feedback>
-                    <p>count is a constant operation for a hash table because you do not have to iterate but there is a better answer.</p>
-                </feedback>
-            </choice>
+        <choice>
+            <statement>
+                <p>mymap.count('x')</p>
+            </statement>
+            <feedback>
+                <p>count is a constant operation for a hash table because you do not have to iterate but there is a better answer.</p>
+            </feedback>
+        </choice>
 
-            <choice>
-                <statement>
-                    <p>mymap.erase('x')</p>
-                </statement>
-                <feedback>
-                    <p>removing an element from a hash table is a constant operation but there is a better answer.</p>
-                </feedback>
-            </choice>
+        <choice>
+            <statement>
+                <p>mymap.erase('x')</p>
+            </statement>
+            <feedback>
+                <p>removing an element from a hash table is a constant operation but there is a better answer.</p>
+            </feedback>
+        </choice>
 
-            <choice>
-                <statement>
-                    <p>mymap['x'] = 10;</p>
-                </statement>
-                <feedback>
-                    <p>Assignment to a hash table key is constant but there is a better answer.</p>
-                </feedback>
-            </choice>
+        <choice>
+            <statement>
+                <p>mymap['x'] = 10;</p>
+            </statement>
+            <feedback>
+                <p>Assignment to a hash table key is constant but there is a better answer.</p>
+            </feedback>
+        </choice>
 
-            <choice>
-                <statement>
-                    <p>mymap['x'] = mymap['x'] + 1;</p>
-                </statement>
-                <feedback>
-                    <p>Re-assignment to a hash table key is constant but there is a better answer.</p>
-                </feedback>
-            </choice>
+        <choice>
+            <statement>
+                <p>mymap['x'] = mymap['x'] + 1;</p>
+            </statement>
+            <feedback>
+                <p>Re-assignment to a hash table key is constant but there is a better answer.</p>
+            </feedback>
+        </choice>
 
-            <choice correct="yes">
-                <statement>
-                    <p>all of the above are O(1)</p>
-                </statement>
-                <feedback>
-                    <p>The only hash table operations that are not O(1) are those that require iteration.</p>
-                </feedback>
-            </choice>
+        <choice correct="yes">
+            <statement>
+                <p>all of the above are O(1)</p>
+            </statement>
+            <feedback>
+                <p>The only hash table operations that are not O(1) are those that require iteration.</p>
+            </feedback>
+        </choice>
 </choices>
 
-    </exercise>
+</exercise>
 
-    <exercise label="manswer_shtBO">
-        <statement>
+<exercise label="manswer_shtBO">
+    <statement>
 
-            <p>Q-3: What is an operator for hash tables with an efficiency other than O(1)?</p>
+        <p>Q-3: What is an operator for hash tables with an efficiency other than O(1)?</p>
 
-        </statement>
+    </statement>
 <choices>
 
-            <choice>
-                <statement>
-                    <p>erase</p>
-                </statement>
-                <feedback>
-                    <p>The efficiency of erase in hash tables is constant.</p>
-                </feedback>
-            </choice>
+        <choice>
+            <statement>
+                <p>erase</p>
+            </statement>
+            <feedback>
+                <p>The efficiency of erase in hash tables is constant.</p>
+            </feedback>
+        </choice>
 
-            <choice>
-                <statement>
-                    <p>insert</p>
-                </statement>
-                <feedback>
-                    <p>The efficiency of insert in hash tables is constant.</p>
-                </feedback>
-            </choice>
+        <choice>
+            <statement>
+                <p>insert</p>
+            </statement>
+            <feedback>
+                <p>The efficiency of insert in hash tables is constant.</p>
+            </feedback>
+        </choice>
 
-            <choice correct="yes">
-                <statement>
-                    <p>iteration</p>
-                </statement>
-                <feedback>
-                    <p>Correct!</p>
-                </feedback>
-            </choice>
+        <choice correct="yes">
+            <statement>
+                <p>iteration</p>
+            </statement>
+            <feedback>
+                <p>Correct!</p>
+            </feedback>
+        </choice>
 
-            <choice>
-                <statement>
-                    <p>contains</p>
-                </statement>
-                <feedback>
-                    <p>The efficiency of contains in hash tables is constant.</p>
-                </feedback>
-            </choice>
+        <choice>
+            <statement>
+                <p>contains</p>
+            </statement>
+            <feedback>
+                <p>The efficiency of contains in hash tables is constant.</p>
+            </feedback>
+        </choice>
 
-            <choice>
-                <statement>
-                    <p>find</p>
-                </statement>
-                <feedback>
-                    <p>The efficiency of find in hash tables is constant.</p>
-                </feedback>
-            </choice>
+        <choice>
+            <statement>
+                <p>find</p>
+            </statement>
+            <feedback>
+                <p>The efficiency of find in hash tables is constant.</p>
+            </feedback>
+        </choice>
 </choices>
 
-    </exercise>
-        </note>
-        <!--Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
+</exercise>
+    </note>
+    <!--Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
 This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.-->
-    </section>
-    
+</section>
+
+

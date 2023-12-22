@@ -411,24 +411,35 @@ int main() {
                 See if you can match each method description with their names!</p>
 
 <exercise label="cturtle_dnd_1">
-    <statement><p>:match_1: turn to the left.|||turtle.left
-:match_2: turn to the left.|||turtle.right
-:match_3: pick pen up.|||turtle.penup
-:match_4: put pen down.|||turtle.pendown
-:match_5: what color to fill drawing with.|||turtle.fillcolor
-:match_6: start filling the shape.|||turtle.beginfill
-:match_7: stops filling the shape.|||turtle.endfill
-:match_8: change the pen color.|||turtle.pencolor
-:match_9: change the pen size.|||turtle.width
-:match_10: change the speed|||turtle.speed
-:match_11: move backward.|||turtle.back
-:match_12: move forward.|||turtle.forward
-:match_13: move to a specific coordinate.|||turtle.goto
-:match_14: write some text to the canvas.|||turtle.write
+   <statement><p>Match the turtle method descriptions to the methods they belong to.</p></statement>
+<feedback><p>Feedback shows incorrect matches.</p></feedback>
+<matches>
+<match order="1"><premise>turn to the left.</premise><response>turtle.left</response></match>
+<match order="2"><premise>turn to the right.</premise><response> turtle.right</response></match>
+<match order="3"><premise>pick pen up.</premise><response>turtle.penup</response></match>
+<match order="4"><premise>put pen down.</premise><response> turtle.pendown</response></match>
+<match order="5"><premise>what color to fill drawing with.</premise><response>turtle.fillcolor</response></match>
+<match order="6"><premise>start filling the shape.</premise><response>turtle.beginfill</response></match>
+<match order="7"><premise>write some text to the canvas.</premise><response> turtle.write</response></match>
+</matches>
+</exercise>
 
-Match the turtle method descriptions to the methods they belong to.</p></statement>
-    
-<matches/></exercise>        </subsection>
+<exercise label="cturtle_dnd_2">
+<statement><p> Match the turtle method descriptions to the methods they belong to.</p></statement>
+<feedback><p>Feedback shows incorrect matches.</p></feedback>
+<matches>
+<match order="1"><premise>stops filling the shape.</premise><response>turtle.endfill</response></match>
+<match order="2"><premise>change the pen color.</premise><response>turtle.pencolor</response></match>
+<match order="3"><premise>change the pen size.</premise><response> turtle.width</response></match>
+<match order="4"><premise>change the speed</premise><response> turtle.speed</response></match>
+<match order="5"><premise>move backward.</premise><response> turtle.back</response></match>
+<match order="6"><premise>move forward.</premise><response> turtle.forward</response></match>
+<match order="7"><premise>move to a specific coordinate.</premise><response> turtle.goto</response></match>
+
+</matches>
+</exercise>
+</subsection>
+
         <subsection xml:id="introduction_geometry-shapes-and-stamps">
             <title>Geometry, Shapes, and Stamps</title>
             <p>Every basic shape in CTurtle is a set of coordinates. Within the CTurtle library we have the
@@ -573,7 +584,16 @@ turtle.shape("square");
                 
             </tabular></table>
             <p>Using the default <c classes="code">indented_triangle</c> shape as an example, Figure 1 shows the nature of the counter-clockwise order.</p>
-            <figure align="center" xml:id="id1"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 1: Indented Triangle Definition</caption><image source="_static/cc_polygon.png" width="50%" alt="All points must be oriented, in order and in a leftwards direction, relative to the center of the entire shape."/></figure>
+            <figure align="center" xml:id="ccpolygon">
+                <caption>Indented Triangle Definition</caption>
+                    <image source="../_static/cc_polygon.png" width="50%">
+                    <description>Graphic illustrating an indented triangle with coordinate points. At the top vertex, the point is labeled '0, 0'. The bottom left vertex is labeled '-5, 10', and the bottom right vertex is labeled '5, 10'. An arrow curves above the triangle, indicating rotation or flipping. Each vertex is marked with a green circle. The image defines the shape and position of an indented triangle in a coordinate system</description>
+                    </image>
+                </figure>
+
+
+
+
             <p>The example code below illustrates how to create your own shape. We use the <c classes="code">Polygon</c> class to represent our shape.
                 For this example, we take the <c classes="code">triangle</c> default shape and make every Y coordinate negative to make it appear upside-down.</p>
             <program language="cpp"><input>
