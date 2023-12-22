@@ -143,14 +143,20 @@ myfraction = Fraction(3, 5)
                 <math>\frac {3}{5}</math> (three-fifths). <xref ref="fig-fraction1cpp"/> shows this
                 object as it is now implemented.</p>
             
-            <figure align="center" xml:id="fig-fraction1cpp"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 5: An instance of the <literal>Fraction</literal> Class</caption><image source="Introduction/Figures/fraction1cpp.png" width="50%"/></figure>
+            <figure align="center" xml:id="fig-fraction1cpp">
+                <caption>An instance of the <literal>Fraction</literal> Class</caption>
+                    <image source="Introduction/fraction1cpp.png" width="50%">
+                    <description>Diagram showing an instance of the Fraction class. The instance is named 'myfraction' and is depicted as a set of concentric circles. The innermost circle is labeled 'State' and contains two segments: 'num' with the number 3 above 'den' with the number 5, representing the numerator and denominator of a fraction. The middle circle is labeled 'Methods', indicating the functionality associated with the fraction instance.</description>
+                    </image>
+                </figure>
+
         </subsection>
         <subsection xml:id="introduction_abstraction-and-encapsulation">
             <title>Abstraction and Encapsulation</title>
             <p>Another way to think about fractions is as <q>parts of a whole</q> as shown in the
                 following figure:</p>
             <blockquote>
-                <image source="Introduction/Figures/fractions_partsofwhole.png" width="50%"/>
+                <image source="Introduction/fractions_partsofwhole.png" width="50%"/>
             </blockquote>
             <p><idx>abstraction</idx>Since we are using classes to create abstract data types, we should probably discuss the meaning of
                 the word <q>abstract</q> in this context.
@@ -670,8 +676,13 @@ int main(){
 }
         </input>
     </program>
-            
-            <figure align="center" xml:id="fig-fraction2cpp"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 6: An Instance of the <literal>Fraction</literal> Class with Two Methods</caption><image source="Introduction/Figures/fraction2cpp.png" width="50%"/></figure>
+            <figure align="center" xml:id="fig-fraction2cpp">
+                <caption>An Instance of the <literal>Fraction</literal> Class with Two Methods</caption>
+                    <image source="Introduction/fraction2cpp.png" width="50%">
+                    <description>Visual representation of a Fraction class instance called 'myfraction'. It features concentric circles with the innermost labeled 'State' showcasing 'num' with a value of 3 above 'den' with a value of 5, indicating the fraction's numerator and denominator. The outer circle is labeled 'Methods', suggesting the object's functionality. Two symbols, '&lt;&lt;' and '+', are shown outside the Methods circle, implying additional methods. </description>
+                    </image>
+                </figure>
+
             <p>Our <c>Fraction</c> object now has two very useful methods and looks
                 like <xref ref="fig-fraction2cpp"/>. An additional group of methods that we need to
                 include in our example <c>Fraction</c> class will allow two fractions to
