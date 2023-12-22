@@ -144,7 +144,13 @@ main()
             Clearly we are wasting a lot of time and effort recalculating old
             results.</p>
         
-        <figure align="center" xml:id="fig-c1ctcpp"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 3: Call Tree for Listing 7</caption><image source="Recursion/Figures/callTree.png" width="100%%" alt="image"/></figure>
+        <figure align="center" xml:id="fig-c1ctcpp">
+            <caption>Call Tree for Listing 7</caption>
+                <image source="Recursion/callTree.png" width="80%">
+                <description>Diagram of a call tree for a recursive process, as seen in Listing 7. The tree starts at the top with the root node labeled '26', branching down to nodes labeled '25' and '1'. Each node further branches out, with the left branch subtracting '1' and the right branch subtracting '5'. The pattern continues until reaching the leaf nodes, which are either '1' or a number that can no longer be reduced by five. Arrows indicate the direction of the call flow, starting from '26' and moving down through the levels of the tree. </description>
+                </image>
+            </figure>
+
         <p>The key to cutting down on the amount of work we do is to remember some
             of the past results so we can avoid recomputing results we already know.
             A simple solution is to store the results for the minimum number of
@@ -282,9 +288,20 @@ main()
         <p>Either option 1 or 3 will give us a total of two coins which is the
             minimum number of coins for 11 cents.</p>
         
-        <figure align="center" xml:id="fig-dpcoinscpp"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: Minimum Number of Coins Needed to Make Change</caption><image source="Recursion/Figures/changeTable.png" width="50%" alt="image"/></figure>
+        <figure align="center" xml:id="fig-dpcoinscpp">
+            <caption>Minimum Number of Coins Needed to Make</caption>
+                <image source="Recursion/changeTable.png" width="80%">
+                <description>Image of a table representing the minimum number of coins needed to make change. The columns are labeled with the 'Change to Make' values from 1 to 11. The rows correspond to 'Steps of the Algorithm', with each cell filled with the minimum number of coins needed at that step for the corresponding amount of change. Initial rows are partially filled with increasing sequences of numbers, indicating the progression of the algorithm. The bottom rows are blurred and continue with an ellipsis, suggesting the continuation of the process beyond what is shown.  </description>
+                </image>
+            </figure>
         
-        <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 5: Three Options to Consider for the Minimum Number of Coins for Eleven Cents</caption><image source="Recursion/Figures/elevenCents.png" width="50%" alt="image"/></figure>
+        <figure align="center" xml:id="fig-id3">
+            <caption>Three Options to Consider for the Minimum Number of Coins for Eleven Cents</caption>
+                <image source="Recursion/elevenCents.png" width="80%">
+                <description>Image of a curved numerical table representing three options to calculate the minimum number of coins for eleven cents. The table is labeled with numbers from 1 to 5 corresponding to the counts of coins used. Below the table, there are three curved arrows pointing to the number '11' from '11-1', '11-5', and '11-10', indicating the subtraction of 1, 5, and 10 cents from 11 cents to determine the next step in the calculation. The last cell under '11' is labeled with '??' to indicate the unknown minimum number of coins needed.  </description>
+                </image>
+            </figure>
+
         <p><xref ref="lst-dpchangecpp"/> is a dynamic programming algorithm to solve our
             change-making problem. <c>dpMakeChange</c> takes three parameters: a list
             of valid coin values, the amount of change we want to make, and a list

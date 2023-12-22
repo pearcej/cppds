@@ -51,7 +51,14 @@
             the numbers we want to remember are in the remainder boxes along the
             right side of the diagram.</p>
         
-        <figure align="center" xml:id="fig-tostr"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 3: Converting an Integer to a String in Base 10</caption><image source="Recursion/Figures/toStr.png" width="50%" alt="image"/></figure>
+        <figure align="center" xml:id="fig-tostr">
+            <caption>Converting an Integer to a String in Base 10</caption>
+                <image source="Recursion/toStr.png" width="50%">
+                <description>Flowchart demonstrating the conversion of an integer to a string in base 10 using recursion. The process starts with 'toStr(769)', which divides '769' by '10' and adds the remainder 'g'. The result feeds into 'toStr(76)', which again divides by '10' to add the remainder '6'. The final call is 'toStr(7)', which is less than '10' and therefore converts directly to '7'. The remainders at each step are used to build the string representation of the integer.</description>
+                </image>
+            </figure>
+
+
         <p><xref ref="lst-rectostrcpp"/> shows the C++ and Python code that implements the algorithm
             outlined above for any base between 2 and 16.</p>
         <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'pythondsConvertinganIntegertoaStringinAnyBase', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
@@ -106,8 +113,14 @@ main()
             problem size&#8211;using division.</p>
         <p>Let's trace the algorithm again; this time we will convert the number 10
             to its base 2 string representation (<c>"1010"</c>).</p>
-        
-        <figure align="center" xml:id="fig-tostr2"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: Converting the Number 10 to its Base 2 String Representation</caption><image source="Recursion/Figures/toStrBase2.png" width="50%" alt="image"/></figure>
+    
+        <figure align="center" xml:id="fig-tostr2">
+            <caption>Converting the Number 10 to its Base 2 String Representation</caption>
+                <image source="Recursion/toStrBase2.png" width="50%">
+                <description>Flowchart depicting the recursive process of converting the number 10 to its binary (base 2) string representation. The topmost operation 'toStr(10)' shows the division '10 / 2' with a remainder '0'. This leads to 'toStr(5)', with division '5 / 2' and remainder '1', followed by 'toStr(2)' with division '2 / 2' and remainder '0', and finally 'toStr(1)' indicating '1 &lt; 2' and yielding a remainder '1'. The remainders collected at each step form the binary representation of the number 10.</description>
+                </image>
+            </figure>
+
         <p><xref ref="fig-tostr2"/> shows that we get the results we are looking for,
             but it looks like the digits are in the wrong order. The algorithm works
             correctly because we make the recursive call first on line

@@ -79,7 +79,13 @@ main()
             that now we can simply pop the characters off the stack and concatenate
             them into the final result, <c>"1010"</c>.</p>
         
-        <figure align="center" xml:id="fig-recstack"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 5: Strings Placed on the Stack During Conversion</caption><image source="Recursion/Figures/recstack.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-recstack">
+            <caption>Strings Placed on the Stack During Conversion</caption>
+                <image source="Recursion/recstack.png" width="50%">
+                <description>Image of a stack with character strings representing the result of a conversion process. The stack shows four blocks, each containing a single character. From top to bottom, the blocks are labeled '1', '0', '1', and '0', aligned vertically above a horizontal line that represents the base of the stack. This illustrates the sequence of characters placed on the stack during a number conversion, presumably from a recursive process.</description>
+                </image>
+            </figure>
+
         <p>The previous example gives us some insight into how C++ implements a
             recursive function call. When a function is called in Python, a <term>stack
                 frame</term> is allocated to handle the local variables of the function. When
@@ -87,7 +93,14 @@ main()
             the calling function to access. <xref ref="fig-callstack"/> illustrates the
             call stack after the return statement on line 4.</p>
         
-        <figure align="center" xml:id="fig-callstack"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 6: Call Stack Generated from <literal>toStr(10,2)</literal></caption><image source="Recursion/Figures/newcallstack.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-callstack">
+            <caption>Call Stack Generated from <literal>toStr(10,2)</literal></caption>
+                <image source="Recursion/newcallstack.png" width="50%">
+                <description>Diagram illustrating a call stack generated from the function toStr(10,2), which converts the number 10 into a base 2 string. The bottom of the stack shows 'toStr(10/2, 2) + convertString[10%2]', then above it 'toStr(5,2) n = 5 base = 2' with 'toStr(5/2,2) + convertString[5%2]', followed by 'toStr(2,2) n = 2 base = 2' and at the top 'toStr(2/2,2) + convertString[2%2]'. A single character '1' floats above the stack, indicating the start of the conversion process.</description>
+                </image>
+            </figure>
+
+
         <p>Notice that the call to <c>toStr(2//2,2)</c> leaves a return value of
             <c>"1"</c> on the stack. This return value is then used in place of the
             function call (<c>toStr(1,2)</c>) in the expression <c>"1" + convertString[2%2]</c>, which will leave the string <c>"10"</c> on the top of
