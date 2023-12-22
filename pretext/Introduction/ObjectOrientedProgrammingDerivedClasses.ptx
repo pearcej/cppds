@@ -122,8 +122,17 @@ return 0;
                 four input lines (two inputs for each <term>AND</term> gate), the values are processed and a
                 result appears at the output of the <term>NOT</term> gate. <xref ref="fig-circuit1"/> also
                 shows an example with values.</p>
-            
-            <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 10: Circuit</caption><image source="Introduction/Figures/circuit1.png" width="50%"/></figure>
+
+            <figure align="center" xml:id="fig-circuit1">
+                <caption>Circuit</caption>
+                    <image source="Introduction/circuit1.png" width="50%">
+                    <description>Diagram of a logic circuit with labeled gates and sample inputs/outputs. The top part shows two 'AND' gates labeled 'g1' and 'g2' feeding into an 'OR' gate labeled 'g3', which in turn feeds into a 'NOT' gate labeled 'g4'. Below, the same circuit is shown with binary inputs and the resulting outputs: 'AND' gates receiving '0, 1' and '1, 1' inputs with '0' and '1' outputs respectively; the 'OR' gate then combines the two to output '1', which is inverted to '0' by the 'NOT' gate.</description>
+                    </image>
+                </figure>
+
+
+
+
             <p>In order to implement a circuit, we will first build a representation
                 for logic gates. Logic gates are easily organized into a class
                 inheritance hierarchy as shown in <xref ref="fig-gates"/>. At the top of the
@@ -132,12 +141,19 @@ return 0;
                 output line. The next level of subclasses breaks the logic gates into
                 two families, those that have one input line and those that have two.
                 Below that, the specific logic functions of each appear.</p>
-            <figure align="center" ><image source="Introduction/Figures/logicquestion.png" width="50%"/></figure>
+            <figure align="center" ><image source="Introduction/logicquestion.png" width="50%"/></figure>
 
         <exercise>
             <statement>
     <p>Q-2:  What will the logic gate yield (1 / 0)? <var/>  </p></statement><setup><var><condition number="[0, 0]"><feedback><p>Correct!</p></feedback></condition><condition number="[1, 1]"><feedback><p>Take a closer look at the logic gates.</p></feedback></condition></var></setup></exercise>            
-            <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 11: An Inheritance Hierarchy for Logic Gates</caption><image source="Introduction/Figures/gates.png" width="50%"/></figure>
+    
+    <figure align="center" xml:id="fig-gates">
+        <caption>An Inheritance Hierarchy for Logic Gates</caption>
+            <image source="Introduction/gates.png" width="50%">
+            <description>Flowchart representing an inheritance hierarchy for logic gates. The topmost block is labeled 'Logic Gate', which branches down into two categories: 'Binary Gate' and 'Unary Gate'. Under 'Binary Gate', two further blocks represent 'AND' and 'OR' gates, each accompanied by their respective symbols. To the right, under 'Unary Gate', there's a block for the 'NOT' gate with its symbol. The structure implies that 'AND' and 'OR' gates inherit from 'Binary Gate', which along with 'Unary Gate' inherits from 'Logic Gate'. </description>
+            </image>
+        </figure>        
+
             <p>We can now start to implement the classes by starting with the most
                 general, <c>LogicGate</c>. As noted earlier, each gate has a label for
                 identification and a single output line. In addition, we need methods to
@@ -447,8 +463,14 @@ Enter Pin input for gate G3-&gt;0
                     Relationship</term>. Recall earlier that we used the phrase <q>IS-A
                 Relationship</q> to say that a child class is related to a parent class,
                 for example <c>UnaryGate</c> IS-A <c>LogicGate</c>.</p>
-            
-            <figure align="center" xml:id="id5"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 12: A Connector Connects the Output of One Gate to the Input of Another</caption><image source="Introduction/Figures/connector.png" width="50%"/></figure>
+                <figure align="center" xml:id="fig-connector">
+                        <caption>A Connector Connects the Output of One Gate to the Input of Another</caption>
+                        <image source="Introduction/connector.png" width="50%">
+                        <description>Diagram showing two logic gate symbols, 'AND' and 'OR', connected by a line labeled 'connector'. The 'AND' gate is on the left with an arrow pointing from its output to the 'connector'. Another arrow extends from the 'connector' to the input of the 'OR' gate on the right. This illustrates how the output of one gate serves as the input to another.</description>
+                        </image>
+                        </figure>
+
+
             <p>Now, with the <c>Connector</c> class, we say that a <c>Connector</c> HAS-A
                 <c>LogicGate</c> meaning that connectors will have instances of the
                 <c>LogicGate</c> class within them but are not part of the hierarchy. When
@@ -463,8 +485,16 @@ Enter Pin input for gate G3-&gt;0
                 <inline classes="xref std std-ref">Listing 13</inline>). We need to add this method to our gate classes so
                 that each <c>togate</c> can choose the proper input line for the
                 connection.</p>
-            
-            <figure align="center" xml:id="id6"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 13: Circit of NOT(AND(ganda,gnadb)OR AND(gandc,gandd))</caption><image source="Introduction/Figures/desired_circuit.png" width="50%"/></figure>
+      
+            <figure align="center" xml:id="fig-desired-circuit">
+                <caption>Circit of NOT(AND(ganda,gnadb)OR AND(gandc,gandd))</caption>
+                    <image source="Introduction/desired_circuit.png" width="80%">
+                    <description>Circuit diagram illustrating a logical expression with labeled components. Two 'AND' gates, labeled 'gand1' and 'gand2', are connected to an 'OR' gate labeled 'gor3' via lines labeled 'connector'. The output of 'gor3' is then fed into a 'NOT' gate labeled 'gnot4'. The connections suggest the logical operation NOT(AND(a,b)) OR AND(c,d). </description>
+                    </image>
+                </figure>
+
+
+
 
     <exercise label="mc_IS-A_HAS-A">
         <statement>
@@ -721,9 +751,8 @@ int main() {
             <note>
                 <title>Self  Check Challenge</title>
                 <p>One of the fundamental building blocks of a computer is something called a flip flop.  It's not something that computer science professors wear on their feet, but rather a kind of circuit that is stable and stores the last piece of data that was put on it.  A simple flip-flop can be made from two <term>NOR</term> gates (a combination <term>OR</term> and <term>NOT</term>) that are tied together as in the following diagram. Create a new gate class, called NorGate. NorGates work like OrGates that have a Not attached to the output. See if you can use your new class to implement this.</p>
-                <image source="Introduction/Figures/flipflop.png" width="50%"/>
+                <image source="Introduction/flipflop.png" width="50%"/>
                 <p>Note if the initial inputs to Reset and Set are both 0 then the output of the flip-flop is 0.  But if the Set input is toggled to 1 then the output becomes 1.  The great thing is that when the set input goes to 0 the output stays 1, until the reset input is toggled to 1 which resets the output of the circuit back to zero.</p>
             </note>
         </subsection>
     </section>
-
