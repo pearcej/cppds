@@ -14,8 +14,13 @@
             College's Computer Science home page. Of course, this graph could be
             huge, so we have limited it to web sites that are no more than 10 links
             away from the CS home page.</p>
-        
-        <figure align="center" xml:id="fig-cshome"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 30: The Graph Produced by Links from the Luther Computer Science Home Page</caption><image source="Graphs/Figures/cshome.png" width="50%"/></figure>
+
+        <figure align="center" xml:id="fig-cshome">
+            <caption> The Graph Produced by Links from the Luther Computer Science Home Page</caption>
+                <image source="Graphs/cshome.png" width="95%">
+                <description>This image depicts a complex network graph that visualizes the web of links from the Luther Computer Science Home Page. The graph is a cluster of interconnected nodes, each representing a different page or external link. Central nodes like "Luther College History Department" have multiple connections radiating out to related nodes such as "Loyola College in Maryland" and "Iowa State University." Peripheral nodes link to a variety of topics, including "Recreational Sports - Luther College," "Luther College Administration," and "Cornell College - Chemistry." The links create a dense web, illustrating the interconnected nature of the website's structure. The graph is used to demonstrate the relationships and pathways between various academic departments, programs, and external educational institutions.</description>
+                </image>
+            </figure>
         <p>If you study the graph in <xref ref="fig-cshome"/> you might make some
             interesting observations. First you might notice that many of the other
             web sites on the graph are other Luther College web sites. Second, you
@@ -36,13 +41,22 @@
             graph with three strongly connected components. The strongly connected
             components are identified by the different shaded areas.</p>
         
-        <figure align="center" xml:id="fig-scc1"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 31: A Directed Graph with Three Strongly Connected Components</caption><image source="Graphs/Figures/scc1.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-scc1">
+            <caption> A Directed Graph with Three Strongly Connected Components</caption>
+                <image source="Graphs/scc1.png" width="95%">
+                <description>The image shows a directed graph composed of three strongly connected components, each highlighted in a separate shaded area. The graph contains nine nodes labeled A through I. Nodes A, B, and C form the first component, with arrows indicating directed edges from A to B, B to A, and B to C. The second component consists of nodes D, E, and G, with directed edges connecting D to E, E to D, and D to G. The third component includes nodes F, H, and I, with edges from F to H, H to I, and I to F. Each component is a self-contained subgraph where every node is reachable from every other node within the same component, illustrating the concept of strong connectivity in graph theory.</description>
+                </image>
+            </figure>
         <p>Once the strongly connected components have been identified we can show
             a simplified view of the graph by combining all the vertices in one
             strongly connected component into a single larger vertex. The simplified
             version of the graph in <xref ref="fig-scc1"/> is shown in <xref ref="fig-scc2"/>.</p>
-        
-        <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 32: The Reduced Graph</caption><image source="Graphs/Figures/scc2.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-scc2">
+            <caption> The Reduced Graph</caption>
+                <image source="Graphs/scc2.png" width="95%">
+                <description>The image depicts a simplified or reduced graph consisting of three nodes, which are labeled with the combined letters of the nodes from the strongly connected components they represent. The first node contains the letters "ABDEG," indicating it is a merged node of the first component. The second node is labeled "C," and the third node contains "FHI," representing the second and third components, respectively. There are directed edges from the "ABDEG" node to "C" and from "C" to "FHI," showing the flow between these combined nodes. This reduced graph emphasizes the hierarchical structure and the dependencies between the strongly connected components of the original directed graph.</description>
+                </image>
+            </figure>
         <p>Once again we will see that we can create a very powerful and efficient
             algorithm by making use of a depth first search. Before we tackle the
             main SCC algorithm we must look at one other definition. The
@@ -51,10 +65,19 @@
             is, if there is a directed edge from node A to node B in the original
             graph then <math>G^T</math> will contain and edge from node B to node A.
             <xref ref="fig-tpa"/> and <xref ref="fig-tpb"/> show a simple graph and its transposition.</p>
+        <figure align="center" xml:id="fig-transpose1">
+            <caption> A Graph <m>G</m></caption>
+                <image source="Graphs/transpose1.png" width="80%">
+                <description>The image illustrates a directed graph G with four nodes labeled A, B, C, and D. There is a directed edge from A to B, indicating a one-way relationship, and two other directed edges, one from B to D and another from C to D, suggesting that both B and C can independently reach D.</description>
+                </image>
+            </figure>
         
-        <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 33: A Graph <math>G</math></caption><image source="Graphs/Figures/transpose1.png" width="50%"/></figure>
-        
-        <figure align="center" xml:id="id5"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 34: Its Transpose <math>G^T</math></caption><image source="Graphs/Figures/transpose2.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-transpose2">
+            <caption> Its Transpose <mrow>G^T</mrow></caption>
+                <image source="Graphs/transpose2.png" width="80%">
+                <description>The image shows the transpose of the graph  G^ T from Figure 33, where the direction of all the edges in the original graph  G has been reversed. In this transposed graph, there is a directed edge from B to A, and two other directed edges, one from D to B and another from D to C, indicating that D can reach both B and C. This represents the inverse relationships compared to the original graph G.</description>
+                </image>
+            </figure>
         <p>Look at the figures again. Notice that the graph in
             <xref ref="fig-tpa"/> has two strongly connected components. Now look at
             <xref ref="fig-tpb"/>. Notice that it has the same two strongly connected
@@ -84,15 +107,29 @@
             finishing times computed for the original graph by the DFS algorithm.
             <xref ref="fig-sccalgb"/> shows the starting and finishing times computed by
             running DFS on the transposed graph.</p>
-        
-        <figure align="center" xml:id="id6"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 35: Finishing times for the original graph <math>G</math></caption><image source="Graphs/Figures/scc1a.png" width="50%"/></figure>
-        
-        <figure align="center" xml:id="id7"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 36: Finishing times for <math>G^T</math></caption><image source="Graphs/Figures/scc1b.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-scc1a">
+            <caption> Finishing times for the original graph <m>G</m></caption>
+                <image source="Graphs/scc1a.png" width="80%">
+                <description>The image displays a directed graph G consisting of nine nodes labeled A through I. Each node is annotated with a pair of numbers, representing the finishing times in the format 'start/finish'. The edges indicate the direction of connection between nodes. Solid arrows represent direct connections, while dashed arrows signify connections that are part of the graph but are not the primary path in the context shown. This graph is likely used to demonstrate an algorithmic concept such as Depth-First Search (DFS), where the numbers indicate the order in which nodes are fully processed.</description>
+                </image>
+            </figure>
+
+        <figure align="center" xml:id="fig-scc1b">
+            <caption>Finishing times for <md><mrow>G^T</mrow></md></caption>
+                <image source="Graphs/scc1b.png" width="80%">
+                <description>This image depicts a directed graph, labeled G^T, which is the transpose of a previous graph G. It consists of nine nodes labeled A through I. Each node is marked with two numbers, indicating the finishing times, in a format that suggests the order in which they were processed, with the first number likely representing the start time and the second the finish time. The graph is interconnected with solid and dashed arrows indicating the direction of the edges, where the dashed arrows might represent the reverse of the original connections inG. This graph is typically used to demonstrate concepts such as the calculation of finishing times in a Depth-First Search (DFS) on the transposed graph for algorithms like Kosaraju's or other strong component identification algorithms.</description>
+                </image>
+            </figure>
         <p>Finally, <xref ref="fig-sccforest"/> shows the forest of three trees produced
             in step 3 of the strongly connected component algorithm. You will notice
             that we do not provide you with the Python code for the SCC algorithm,
             we leave writing this program as an exercise.</p>
-        
-        <figure align="center" xml:id="id8"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 37: Strongly Connected Components</caption><image source="Graphs/Figures/sccforest.png" width="50%"/></figure>
+
+        <figure align="center" xml:id="fig-sccforest">
+            <caption>Strongly Connected Components</caption>
+                <image source="Graphs/sccforest.png" width="80%">
+                <description> The diagram shows a directed graph illustrating the concept of strongly connected components within a network of nodes. Each node is labeled with a letter from A to I and a pair of numbers, which could represent the sequence in which a depth-first search algorithm processed them. The graph is organized with directed edges forming paths between the nodes, suggesting the presence of subgraphs where each node is reachable from every other node within the same subgraph. This kind of representation is commonly used in computer science to illustrate algorithms that identify strongly connected components within a graph, which are maximal sets of vertices with a path to every other vertex in the set.</description>
+                </image>
+            </figure>
     </section>
 
