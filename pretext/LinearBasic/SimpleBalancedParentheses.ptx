@@ -42,7 +42,13 @@
             from the inside out. This is a clue that stacks can be used to solve the
             problem.</p>
         
-        <figure align="center" xml:id="fig-parmatch"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: Matching Parentheses</caption><image source="LinearBasic/Figures/simpleparcheck.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-parmatch">
+            <caption>Matching Parentheses</caption>
+                <image source="LinearBasic/simpleparcheck.png" width="50%">
+                    <description>Figure 4 shows us that as you process symbols from left to right, the most recent opening parenthesis must match the next closing symbol.</description>
+                </image>
+        </figure>
+
         <p>Once you agree that a stack is the appropriate data structure for
             keeping the parentheses, the statement of the algorithm is
             straightforward. Starting with an empty stack, process the parenthesis
