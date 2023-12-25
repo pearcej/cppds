@@ -5,7 +5,7 @@
                 <p>Draw the graph corresponding to the following adjacency matrix.</p>
             </li>
         </ol></p>
-        <figure align="center" ><image source="Graphs/Figures/adjMatEX.png" width="50%"/></figure>
+        <figure align="center" ><image source="Graphs/adjMatEX.png" width="80%"/></figure>
         <p><ol label="1">
             <li>
                 <p>Draw the graph corresponding to the following list of edges.</p>
