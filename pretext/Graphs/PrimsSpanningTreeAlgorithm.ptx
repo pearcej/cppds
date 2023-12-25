@@ -9,7 +9,12 @@
             are getting all the data they need to reconstruct the song they are
             listening to. <xref ref="fig-bcast1"/> illustrates the broadcast problem.</p>
         
-        <figure align="center" xml:id="fig-bcast1"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 9: The Broadcast Problem</caption><image source="Graphs/Figures/bcast1.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-bcast1">
+            <caption>The Broadcast Problem</caption>
+                <image source="Graphs/bcast1.png" width="80%">
+                <description>The image illustrates a network graph representing the Broadcast Problem. It features seven nodes labeled A through G, with node A designated as the broadcast host. Directed edges connect the nodes, indicating the flow of the broadcast signal, with weights on the edges representing the cost or time of transmission. Four of the nodes are marked as listeners, depicted with computer icons. These listeners are at the terminus of the broadcast paths, showing the direction and flow of information from the host to the listeners through the network.</description>
+                </image>
+            </figure>
         <p>There are some brute force solutions to this problem, so let's look at
             them first to help understand the broadcast problem better. This will
             also help you appreciate the solution that we will propose when we are
@@ -57,8 +62,13 @@
             the message to E, which forwards it to F, which forwards it to G. No
             router sees more than one copy of any message, and all the listeners
             that are interested see a copy of the message.</p>
-        
-        <figure align="center" xml:id="fig-mst1"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 10: Minimum Spanning Tree for the Broadcast Graph</caption><image source="Graphs/Figures/mst1.png" width="50%"/></figure>
+
+        <figure align="center" xml:id="fig-mst1">
+            <caption>Minimum Spanning Tree for the Broadcast Graph</caption>
+                <image source="Graphs/mst1.png" width="80%">
+                <description>This image depicts a network graph titled "Minimum Spanning Tree for the Broadcast Graph". It consists of seven circular nodes labeled A through G, connected by lines which represent the edges of the tree. Each edge is marked with a number indicating the weight or cost associated with that connection. The structure is tree-like, with no cycles, starting from node A and branching out to all other nodes through the path of minimum total weight. Nodes B, C, E, F, and G are connected with the least number of edges to ensure coverage of the entire network, illustrating the concept of a minimum spanning tree in graph theory.</description>
+                </image>
+            </figure>
         <p>The algorithm we will use to solve this problem is called Prim's
             algorithm. Prim's algorithm belongs to a family of algorithms called the
             <q>greedy algorithms</q> because at each step we will choose the cheapest
@@ -116,23 +126,55 @@ def prim(G,start):
             to be grafted into the spanning tree but in a different location. The
             rest of the algorithm proceeds as you would expect, adding each new node
             to the tree.</p>
+
+        <figure align="center" xml:id="fig-prima">
+            <caption>Tracing Prim's Algorithm</caption>
+                <image source="Graphs/prima.png" width="80%">
+                <description>This image illustrates the process of Prim's algorithm applied to a graph. The graph has seven circular nodes labeled A through G, connected by lines with numbers indicating the weight of the edges. The algorithm starts at node A and progressively selects the edge with the lowest weight that connects a node inside the tree to a node outside the tree. As a result, the nodes are incrementally connected in a way that keeps the total weight of the tree at a minimum. The letters B, C, D, E, F, and G at the bottom signify the order in which the nodes are added to the growing tree.</description>
+                </image>
+            </figure>
+        <figure align="center" xml:id="fig-primb">
+            <caption>Tracing Prim's Algorithm</caption>
+                <image source="Graphs/primb.png" width="80%">
+                <description>The image continues to detail Prim's algorithm, showing a partially completed minimum spanning tree. Nodes A, B, C, E, and F are connected with the shortest edges, marked with their respective weights and dashed lines indicating the edges considered at the current step. The remaining nodes D and G are yet to be connected. The bottom notation "PQ = C, D, E, F, G" lists the nodes in the priority queue awaiting to be connected.</description>
+                </image>
+            </figure>
         
-        <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 11: Tracing Prim's Algorithm</caption><image source="Graphs/Figures/prima.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-primc">
+            <caption>Tracing Prim's Algorithm</caption>
+                <image source="Graphs/primc.png" width="80%">
+                <description>The final image in the sequence demonstrates a further step in Prim's algorithm. The minimum spanning tree now includes all nodes except for G, which is about to be connected. The edges between the nodes are highlighted, and the weights are updated to reflect the shortest paths from the tree to the remaining unconnected nodes. The bottom notation "PQ = D, E, F, G" updates the priority queue.</description>
+                </image>
+            </figure>
+        <figure align="center" xml:id="fig-primd">
+            <caption>Tracing Prim's Algorithm</caption>
+                <image source="Graphs/primd.png" width="80%">
+                <description>This image shows a further stage in Prim's algorithm on a graph with seven nodes labeled A through G. The tree is almost complete, with solid lines connecting nodes A to F, and node G about to be connected. Each connection is annotated with the weight of the edge. The priority queue at the bottom, "PQ = E, F, G," lists the nodes considered for the next connection step.</description>
+                </image>
+            </figure>
+        <figure align="center" xml:id="fig-prime">
+            <caption>Tracing Prim's Algorithm</caption>
+                <image source="Graphs/prime.png" width="80%">
+                <description>The image depicts the penultimate step in Prim's algorithm, where node G is the only one not yet included in the minimum spanning tree. The graph shows nodes A to F connected with the lowest weight edges, and the priority queue "PQ = F, G" indicates the next nodes to be considered for connection.</description>
+                </image>
+            </figure>
         
-        <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 12: Tracing Prim's Algorithm</caption><image source="Graphs/Figures/primb.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-primf">
+            <caption>Tracing Prim's Algorithm</caption>
+                <image source="Graphs/primf.png" width="80%">
+                <description>IThe final image represents the completion of Prim's algorithm, where all nodes A through G are connected, forming the minimum spanning tree. Each edge's weight is displayed, reflecting the algorithm's choice of the shortest paths to connect all nodes without forming any cycles. The priority queue at the bottom, "PQ = G," shows the last node that was connected to complete the tree.</description>
+                </image>
+            </figure>
         
-        <figure align="center" xml:id="id5"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 13: Tracing Prim's Algorithm</caption><image source="Graphs/Figures/primc.png" width="50%"/></figure>
-        
-        <figure align="center" xml:id="id6"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 14: Tracing Prim's Algorithm</caption><image source="Graphs/Figures/primd.png" width="50%"/></figure>
-        
-        <figure align="center" xml:id="id7"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 15: Tracing Prim's Algorithm</caption><image source="Graphs/Figures/prime.png" width="50%"/></figure>
-        
-        <figure align="center" xml:id="id8"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 16: Tracing Prim's Algorithm</caption><image source="Graphs/Figures/primf.png" width="50%"/></figure>
-        
-        <figure align="center" xml:id="id9"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 17: Tracing Prim's Algorithm</caption><image source="Graphs/Figures/primg.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-primg">
+            <caption>Tracing Prim's Algorithm</caption>
+                <image source="Graphs/primg.png" width="80%">
+                <description>This image shows the final step of Prim's algorithm where the minimum spanning tree is completed. All the nodes labeled from A to G are connected with the shortest paths indicated by the edge weights. The distances from the starting node are labeled next to each node with the letter 'd' followed by the distance value. The priority queue (PQ) is empty, indicating that all nodes have been visited and the algorithm is complete.</description>
+                </image>
+            </figure>
         <note>
             <title>Self Check</title>
-            <figure align="" ><image source="Graphs/Figures/primsalg.png" width="50%"/></figure>
+            <figure align="center" ><image source="Graphs/primsalg.png" width="80%"/></figure>
 
     <exercise label="primswhims">
         <statement>
