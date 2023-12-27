@@ -481,7 +481,7 @@ int main() {
                 the analysis for hashing at the end of this section.</p>
             <note>
                 <title>Self Check</title>
-
+            </note>
     <exercise label="HASH_1">
         <statement>
 
@@ -575,7 +575,7 @@ int main() {
 </choices>
 
     </exercise>
-            </note>
+            
         </subsection>
         <subsection xml:id="search-hash_implementing-the-map-abstract-data-type">
             <title>Implementing the <c>Map</c> Abstract Data Type</title>

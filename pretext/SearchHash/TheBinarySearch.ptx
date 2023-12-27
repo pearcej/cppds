@@ -301,7 +301,7 @@ main()
                 performing a sequential search from the start may be the best choice.</p>
             <note>
                 <title>Self Check</title>
-
+            </note>
     <exercise label="BSRCH_1">
         <statement>
 
@@ -395,7 +395,7 @@ main()
 </choices>
 
     </exercise>
-            </note>
+            
         </subsection>
     </section>
 

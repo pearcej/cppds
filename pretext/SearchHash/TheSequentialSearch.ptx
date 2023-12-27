@@ -279,7 +279,7 @@ int main() {
             </tabular></table>
             <note>
                 <title>Self Check</title>
-
+            </note>
     <exercise label="question_SRCH_1">
         <statement>
 
@@ -373,7 +373,7 @@ int main() {
 </choices>
 
     </exercise>
-            </note>
+            
         </subsection>
     </section>
 
