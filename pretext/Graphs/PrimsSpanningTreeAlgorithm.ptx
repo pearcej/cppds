@@ -174,8 +174,12 @@ def prim(G,start):
             </figure>
         <note>
             <title>Self Check</title>
-            <figure align="center" ><image source="Graphs/primsalg.png" width="80%"/></figure>
-
+            <figure align="center" xml:id="fig-primsalg">
+                <caption>Tracing Prim's Algorithm</caption>
+                    <image source="Graphs/primsalg.png" width="80%">
+                    <description>Undirected graph with five nodes labeled A to E. Edges connect the nodes with the following weights: A-B with 1, A-D with 4, B-C with 2, C-D with 3, D-E with 6, and C-E with 5, forming a pentagon shape with a cross-connection between B and D.</description>
+                    </image>
+                </figure>
     <exercise label="primswhims">
         <statement>
 
