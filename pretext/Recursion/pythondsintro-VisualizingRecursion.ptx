@@ -241,6 +241,7 @@ main()
             interesting options to make your tree look more realistic.</p>
         <note>
             <title>Self Check</title>
+        </note>
             <p>Modify the recursive tree program using one or all of the following
                 ideas:</p>
             <p><ul>
@@ -271,6 +272,6 @@ main()
 
         </input>
     </program>
-        </note>
+        
     </section>
 

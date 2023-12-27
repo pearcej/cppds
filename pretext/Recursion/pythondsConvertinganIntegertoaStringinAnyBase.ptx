@@ -132,7 +132,7 @@ main()
             discussion of stacks back in the previous chapter.</p>
         <note>
             <title>Self Check</title>
-
+        </note>
     <exercise label="RecursiveQ1">
         <statement>
 
@@ -262,6 +262,6 @@ int main(){
         </input>
     </program>
             </blockquote>
-        </note>
+        
     </section>
 
