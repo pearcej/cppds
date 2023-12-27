@@ -346,7 +346,7 @@ main()
                 problem.</p>
             <note>
                 <title>Self Check</title>
-
+            </note>
     <exercise label="analysis_1">
         <statement>
 
@@ -524,7 +524,7 @@ int main(){
 
         <exercise>
             <statement>
-    <p>Q-10: If an algorithm performing at <math>O(n^{2})</math> has the integer 8 as input, what is the worst case scenario for the algorithm? <var/>  </p></statement><setup><var><condition number="[64, 64]"><feedback><p>Correct!</p></feedback></condition><condition number="[16, 16]"><feedback><p>That would be 2n, which would be simplified as n.</p></feedback></condition><condition number="[8, 8]"><feedback><p>That would be n.</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>Wrong, Try again!</p></feedback></condition></var></setup></exercise>            </note>
+    <p>Q-10: If an algorithm performing at <math>O(n^{2})</math> has the integer 8 as input, what is the worst case scenario for the algorithm? <var/>  </p></statement><setup><var><condition number="[64, 64]"><feedback><p>Correct!</p></feedback></condition><condition number="[16, 16]"><feedback><p>That would be 2n, which would be simplified as n.</p></feedback></condition><condition number="[8, 8]"><feedback><p>That would be n.</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>Wrong, Try again!</p></feedback></condition></var></setup></exercise>            
         </subsection>
     </section>
 
