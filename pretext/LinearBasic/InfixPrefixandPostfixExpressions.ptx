@@ -723,7 +723,7 @@ main()
                 this as an exercise at the end of the chapter.</p>
             <note>
                 <title>Self Check</title>
-
+            </note>
         <exercise>
             <statement>
     <p>Q-6: Without using the activecode infixToPostfix function, convert the following expression to postfix  <c>10 + 3 * 5 / (16 - 4)</c> . <var/>  </p></statement><setup><var><p><BlankNode/></p><condition string="^\s*10\s+3\s+5\s*\*\s*16\s+4\s*-\s*/\s*\+\s*$"><feedback><p>Correct.</p></feedback></condition><condition string="^\s*10.*3.*5.*16.*4\s+[\s+/+*-]*\s*$"><feedback><p>The numbers appear to be in the correct order check your operators</p></feedback></condition></var></setup></exercise>
@@ -732,7 +732,7 @@ main()
     <p>Q-7: What is the result of evaluating the following: <c>17 10 + 3 * 9 / =</c> <var/>  </p></statement><setup><var><p><BlankNode/></p><condition number="[9, 9]"><feedback><p>Correct.</p></feedback></condition></var></setup></exercise>
         <exercise>
             <statement>
-    <p>Q-8: Modify the infixToPostfix function above so that it can convert the following expression. Once you have the answer from the code put it in the blank below:  <c>5 * 3 /(4 - 2)</c>. <var/>  </p></statement><setup><var><p><BlankNode/></p><condition string="^\s*5\s+3\s*\*\s*4\s+2\s*\-\s*\/\s*$"><feedback><p>Correct.</p></feedback></condition><condition string="^\s*5.*3.*5.*4.*2\s+[-/*]*\s*$"><feedback><p>The numbers appear to be in the correct order check your operators</p></feedback></condition></var></setup></exercise>            </note>
+    <p>Q-8: Modify the infixToPostfix function above so that it can convert the following expression. Once you have the answer from the code put it in the blank below:  <c>5 * 3 /(4 - 2)</c>. <var/>  </p></statement><setup><var><p><BlankNode/></p><condition string="^\s*5\s+3\s*\*\s*4\s+2\s*\-\s*\/\s*$"><feedback><p>Correct.</p></feedback></condition><condition string="^\s*5.*3.*5.*4.*2\s+[-/*]*\s*$"><feedback><p>The numbers appear to be in the correct order check your operators</p></feedback></condition></var></setup></exercise>            
         </subsection>
     </section>
 

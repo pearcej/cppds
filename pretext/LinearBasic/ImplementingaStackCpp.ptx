@@ -98,7 +98,7 @@ main()
             </TabNode></exercise>
         <note>
             <title>Self Check</title>
-
+        </note>
     <exercise label="stack_1">
         <statement>
 
@@ -210,6 +210,6 @@ while (!m.empty()){
 </choices>
 
     </exercise>
-        </note>
+        
     </section>
 

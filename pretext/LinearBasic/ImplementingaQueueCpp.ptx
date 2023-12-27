@@ -89,7 +89,7 @@ main()
             </TabNode></exercise>
         <note>
             <title>Self Check</title>
-
+        </note>
     <exercise label="queue_1">
         <statement>
 
@@ -142,6 +142,6 @@ q.pop();</pre>
 </choices>
 
     </exercise>
-        </note>
+        
     </section>
 
