@@ -12,7 +12,9 @@
         <figure align="center" xml:id="fig-quhotpotato">
             <caption>A Six Person Game of Hot Potato</caption>
                 <image source="LinearBasic/hotpotato.png" width="50%">
-                    <description>Figure 3.13.1 shows a six persons game of hot potato.</description>
+                    <description>
+                        The image depicts a diagram of a popular game called "Hot Potato" played by six people. It visually represents the game's mechanics using a queue data structure to simulate the passing and elimination process.
+                    </description>
                 </image>
         </figure>
         
@@ -46,7 +48,9 @@
         <figure align="center" xml:id="fig-qupotatoqueue">
             <caption>A Queue Implementation of Hot Potato</caption>
                 <image source="LinearBasic/namequeue.png" width="50%">
-                    <description>Figure 3.13.2 shows us how to Queue implement a game of hot potato.</description>
+                    <description>
+                        Diagram of a six-person game of Hot Potato using a squeue data structure. The diagram shows two states of the squeue: before and after passing the potato. In the first state, the front of the squeue is Bill, followed by Brad, Kent, Jane, Susan, and David at the rear. In the second state, after passing the potato, the front is David, followed by Susan, Jane, Kent, Brad, and Bill at the rear. Arrows indicate the actions of enqueueing (going to the rear) and dequeueing (passing the potato).                    
+                    </description>
                 </image>
         </figure>
         

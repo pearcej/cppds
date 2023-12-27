@@ -34,7 +34,9 @@
         <figure align="center" xml:id="fig-decbin">
             <caption>Decimal-to-Binary Conversion</caption>
                 <image source="LinearBasic/dectobin.png" width="50%">
-                    <description>Figure 5 shows us the reversal property that signals that a stack is likely to be the appropriate data structure for solving the problem.</description>
+                    <description> 
+                        The image shows a diagram illustrating the process of converting a fraction to a decimal. It features a visual representation that resembles a ladder with numbers arranged in a stepwise fashion. The diagram guides the viewer through a series of calculations involving repeated division and remainder operations.
+                    </description>
                 </image>
         </figure>
 

@@ -273,10 +273,12 @@
                 and the matching left parenthesis were removed, the complete postfix
                 expression would result (see <xref ref="fig-moveright"/>).</p>
 
-            <figure align="center" xml:id="id4">
+            <figure align="center" xml:id="fig-moveright">
                 <caption>Moving Operators to the Right for Postfix Notation</caption>
                     <image source="LinearBasic/moveright.png" width="50%">
-                        <description>Figure 6 shows us the process of moving operators to the right for postfix notation.</description>
+                        <description>
+                            The image depicts a step in parsing the equation (A+ (B C)). It features a circle with arrows pointing up and down, representing the order of operations. The upward arrow highlights the most recent operation to be performed, which is the addition of A and the result of (B C).
+                        </description>
                     </image>
             </figure>
 
@@ -285,10 +287,12 @@
                 (see <xref ref="fig-moveleft"/>). The position of the parenthesis pair is
                 actually a clue to the final position of the enclosed operator.</p>
             
-            <figure align="center" xml:id="id5">
+            <figure align="center" xml:id="fig-moveleft">
                 <caption>Moving Operators to the Left for Prefix Notation</caption>
                     <image source="LinearBasic/moveleft.png" width="50%">
-                        <description>Figure 7 shows us the process of moving operators to the left for prefix notation.</description>
+                        <description>
+                            The image shows three arrows, each pointing in a different direction. The arrows are arranged in a triangular pattern on a white background.
+                        </description>
                     </image>
             </figure>
 
@@ -301,10 +305,12 @@
                 <xref ref="fig-complexmove"/> shows the conversion to postfix and prefix
                 notations.</p>
             
-            <figure align="center" xml:id="id6">
+            <figure align="center" xml:id="fig-complexmove">
                 <caption>Converting a Complex Expression to Prefix and Postfix Notations</caption>
                     <image source="LinearBasic/complexmove.png" width="50%">
-                        <description>Figure 8 shows us the process of converting a complex expression like (A + B) * C - (D - E) * (F + G) to prefix and postfix notation.</description>
+                        <description>
+                            The image depicts a black and white diagram of a chemical reaction. It includes various symbols and notations that represent the reactants, products, and the process of the reaction. 
+                        </description>
                     </image>
             </figure>
 
@@ -419,10 +425,12 @@
                 of the infix expression the stack is popped twice, removing both
                 operators and placing + as the last operator in the postfix expression.</p>
                         
-            <figure align="center" xml:id="id7">
+            <figure align="center" xml:id="fig-intopost">
                 <caption>Converting A * B + C * D to Postfix Notation</caption>
                     <image source="LinearBasic/intopost.png" width="50%">
-                        <description>Figure 9 shows us the process of converting A * B + C * D to Postfix Notation.</description>
+                        <description>
+                            The image visually demonstrates the steps involved in converting the infix expression A * B + C * D to its equivalent postfix notation. It outlines a multi-step process that involves using a stack to manage operators and operands.
+                        </description>
                     </image>
             </figure>
             
@@ -599,10 +607,12 @@ main()
                 <xref ref="fig-evalpost1"/> shows the stack contents as this entire example
                 expression is being processed.</p>
                         
-            <figure align="center" xml:id="id8">
+            <figure align="center" xml:id="fig-evalpost1">
                 <caption>Stack Contents During Evaluation</caption>
                     <image source="LinearBasic/evalpostfix1.png" width="50%">
-                        <description>Figure 10 shows the stack contents as this entire example expression is being processed.</description>
+                        <description>
+                            The image depicts a diagram illustrating the left-to-right evaluation of a postfix expression. It visually demonstrates the step-by-step process of how values are pushed onto a stack, popped off, and combined using arithmetic operations.
+                        </description>
                     </image>
             </figure>
             
@@ -617,10 +627,12 @@ main()
                 <math>15/5</math> is not the same as <math>5/15</math>, we must be sure that
                 the order of the operands is not switched.</p>
             
-            <figure align="center" xml:id="id9">
+            <figure align="center" xml:id="fig-evalpost2">
                 <caption>A More Complex Example of Evaluation</caption>
                     <image source="LinearBasic/evalpostfix2.png" width="50%">
-                        <description>Figure 11 shows a slightly more complex example, 7 8 + 3 2 + /. There are two things to note in this example. First, the stack size grows, shrinks, and then grows again as the subexpressions are evaluated. Second, the division operation needs to be handled carefully. </description>
+                        <description>
+                            This image depicts a more complex example of evaluation, likely involving numerical calculations or decision-making steps. The numbers arranged in a grid-like pattern and the arrows pointing towards them suggest a structured evaluation process where values are being compared, assessed, or manipulated in a specific sequence.
+                        </description>
                     </image>
             </figure>
 

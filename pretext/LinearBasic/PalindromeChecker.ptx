@@ -15,8 +15,10 @@
                 
         <figure align="center" xml:id="fig-palindrome">
             <caption>A Deque</caption>
-                <image source="LinearBasic/basicdeque.png" width="50%">
-                    <description>Figure 3.18.1 shows a deque implementation of the Palindrome problem.</description>
+                <image source="LinearBasic/palindromesetup.png" width="50%">
+                    <description>
+                        A diagram showing a deque representation of Python data objects. The deque contains the items 'dog', '4', 'cat', and 'True', arranged in a horizontal row. Arrows point to both ends of the deque, labeled 'add to rear', 'rear', 'front', and 'add to front'. Below the deque are labels for 'remove from rear' and 'remove from front'.                    
+                    </description>
                 </image>
         </figure>
         

@@ -26,14 +26,18 @@
         <figure align="center" xml:id="fig-bookstack">
             <caption>A Stack of Books</caption>
                 <image source="LinearBasic/bookstack2.png" width="50%">
-                    <description>Figure 1 shows a stack of book on a desk.</description>
+                    <description>
+                        The image shows a stack of books stacked on top of each other on a table. The books have different colors and thicknesses, and their titles are visible: Python, Calculus, Physics, Music, and History.
+                    </description>
                 </image>
         </figure>
 
         <figure align="center" xml:id="fig-objectstack">
             <caption>A Stack of Primitive Python Objects</caption>
                 <image source="LinearBasic/primitive.png" width="50%">
-                    <description>Figure 2 shows a stack of primitive python objects.</description>
+                    <description>
+                        The image shows a diagram of a stack, with the top element labeled "true" and the bottom element labeled "dog". The stack is visually represented as a vertical column of boxes, with arrows indicating the direction of addition and removal of elements.
+                    </description>
                 </image>
         </figure>
 
@@ -49,10 +53,12 @@
             created and then again as items are removed. Note the order of the
             objects.</p>
 
-        <figure align="center" xml:id="id3">
+        <figure align="center" xml:id="fig-reversalstacks">
             <caption>The Reversal Property of Stacks</caption>
                 <image source="LinearBasic/simplereversal.png" width="50%">
-                    <description> Figure 3 shows the stack object as it was created and then again as items are removed.</description>
+                    <description>
+                        The image depicts a diagram of a stack, visually demonstrating the original order of elements and the reversed order after they are popped out. It highlights the last-in, first-out (LIFO) principle of stacks, where elements are removed in the opposite order they were added.
+                    </description>
                 </image>
         </figure>
 

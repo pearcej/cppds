@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SB What Is Computer Science?</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Problem Solving with Algorithms and Data Structures using C++">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.css" integrity="sha512-nXlJLUeqPMp1Q3+Bd8Qds8tXeRVQscMscwysJm821C++9w6WtsFbJjPenZ8cQVMXyqSAismveQJc0C1splFDCA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+<!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.2.9';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script type="text/javascript" src="https://runestone.academy/cdn/runestone/7.2.9/prefix-runtime.2438a8bdd6d43b5c.bundle.js"></script><script type="text/javascript" src="https://runestone.academy/cdn/runestone/7.2.9/prefix-347.8328b60515045466.bundle.js"></script><script type="text/javascript" src="https://runestone.academy/cdn/runestone/7.2.9/prefix-runestone.aeac7cf9ad5c07ef.bundle.js"></script><link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/7.2.9/prefix-347.f9add1ca35d5ad93.css">
+<link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/7.2.9/prefix-runestone.f64dcc3632d7a0c3.css">
+</head>
+<body id="cppds2" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="cppds.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++:</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="cppds-12-1.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="introduction_getting-started.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="cppds-3.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="introduction_what-is-programming.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="cppds-3.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_objectives.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_getting-started.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Getting Started</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="introduction_what-is-computer-science.html" class="internal"><span class="codenumber">1.3</span> <span class="title">What Is Computer Science?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_what-is-programming.html" class="internal"><span class="codenumber">1.4</span> <span class="title">What Is Programming?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_why-study-data-structures-and-abstract-data-types.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Why Study Data Structures and Abstract Data Types?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_why-study-algorithms.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Why Study Algorithms?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_reviewing-basic-c.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Reviewing Basic C++</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_getting-started-with-data.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Getting Started with Data</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introduction_collections.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Collections</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_collections.html#introduction_arrays" class="internal"><span class="codenumber">1.9.1</span> <span class="title">Arrays</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="introduction_collections.html#introduction_vectors" class="internal"><span class="codenumber">1.9.2</span> <span class="title">Vectors</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_collections.html#introduction_matching" class="internal"><span class="codenumber">1.9.2.1</span> <span class="title">Matching</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="introduction_collections.html#introduction_strings" class="internal"><span class="codenumber">1.9.3</span> <span class="title">Strings</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_collections.html#introduction_id1" class="internal"><span class="codenumber">1.9.3.1</span> <span class="title">Matching</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="introduction_collections.html#introduction_hash-tables" class="internal"><span class="codenumber">1.9.4</span> <span class="title">Hash Tables</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_collections.html#introduction_id2" class="internal"><span class="codenumber">1.9.4.1</span> <span class="title">Matching</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="introduction_collections.html#introduction_unordered-sets" class="internal"><span class="codenumber">1.9.5</span> <span class="title">Unordered Sets</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_collections.html#introduction_id3" class="internal"><span class="codenumber">1.9.5.1</span> <span class="title">Matching</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introduction_defining-c-functions.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Defining C++ Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_defining-c-functions.html#introduction_parameter-passing-by-value-versus-by-reference" class="internal"><span class="codenumber">1.10.1</span> <span class="title">Parameter Passing: by Value versus by Reference</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_defining-c-functions.html#introduction_arrays-as-parameters-in-functions" class="internal"><span class="codenumber">1.10.2</span> <span class="title">Arrays as Parameters in Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_defining-c-functions.html#introduction_function-overloading" class="internal"><span class="codenumber">1.10.3</span> <span class="title">Function Overloading</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introduction_object-oriented-programming-in-c-defining-classes.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Object-Oriented Programming in C++: Defining Classes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_a-fraction-class" class="internal"><span class="codenumber">1.11.1</span> <span class="title">A <code class="code-inline tex2jax_ignore">Fraction</code> Class</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_abstraction-and-encapsulation" class="internal"><span class="codenumber">1.11.2</span> <span class="title">Abstraction and Encapsulation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_polymorphism" class="internal"><span class="codenumber">1.11.3</span> <span class="title">Polymorphism</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_self-check" class="internal"><span class="codenumber">1.11.4</span> <span class="title">Self Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introduction_inheritance-in-c.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Inheritance in C++</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_inheritance-in-c.html#introduction_logic-gates-and-circuits" class="internal"><span class="codenumber">1.12.1</span> <span class="title">Logic Gates and Circuits</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_inheritance-in-c.html#introduction_building-circuits" class="internal"><span class="codenumber">1.12.2</span> <span class="title">Building Circuits</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introduction_optional-graphics-in-c.html" class="internal"><span class="codenumber">1.13</span> <span class="title"><dfn class="terminology">Optional</dfn>: Graphics in C++</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_optional-graphics-in-c.html#introduction_introduction-to-turtles" class="internal"><span class="codenumber">1.13.1</span> <span class="title">Introduction to Turtles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_optional-graphics-in-c.html#introduction_turtle-turtlescreen" class="internal"><span class="codenumber">1.13.2</span> <span class="title">Turtle &amp; TurtleScreen</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_optional-graphics-in-c.html#introduction_geometry-shapes-and-stamps" class="internal"><span class="codenumber">1.13.3</span> <span class="title">Geometry, Shapes, and Stamps</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_optional-graphics-in-c.html#introduction_advanced-features" class="internal"><span class="codenumber">1.13.4</span> <span class="title">Advanced Features</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_summary.html" class="internal"><span class="codenumber">1.14</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_discussion-questions.html" class="internal"><span class="codenumber">1.15</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_programming-exercises.html" class="internal"><span class="codenumber">1.16</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introduction_glossary.html" class="internal"><span class="codenumber">1.17</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="introduction_glossary.html#introduction_glossary-2" class="internal"><span class="codenumber">1.17</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds-4.html" class="internal"><span class="codenumber">2</span> <span class="title">Analysis</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithm-analysis_objectives.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="algorithm-analysis_what-is-algorithm-analysis.html" class="internal"><span class="codenumber">2.2</span> <span class="title">What Is Algorithm Analysis?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="algorithm-analysis_what-is-algorithm-analysis.html#algorithm-analysis_some-needed-math-notation" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Some Needed Math Notation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="algorithm-analysis_what-is-algorithm-analysis.html#algorithm-analysis_applying-the-math-notation" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Applying the Math Notation</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithm-analysis_big-o-notation.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Big-O Notation</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="algorithm-analysis_an-anagram-detection-example.html" class="internal"><span class="codenumber">2.4</span> <span class="title">An Anagram Detection Example</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="algorithm-analysis_an-anagram-detection-example.html#algorithm-analysis_solution-1-checking-off" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Solution 1: Checking Off</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="algorithm-analysis_an-anagram-detection-example.html#algorithm-analysis_solution-2-sort-and-compare" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Solution 2: Sort and Compare</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="algorithm-analysis_an-anagram-detection-example.html#algorithm-analysis_solution-3-brute-force" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Solution 3: Brute Force</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="algorithm-analysis_an-anagram-detection-example.html#algorithm-analysis_solution-4-count-and-compare" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Solution 4: Count and Compare</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithm-analysis_performance-of-c-data-collections.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Performance of C++ Data Collections</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithm-analysis_analysis-of-array-and-vector-operators.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Analysis of Array and Vector Operators</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithm-analysis_analysis-of-string-operators.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Analysis of String Operators</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithm-analysis_analysis-of-hash-tables.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Analysis of Hash Tables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithm-analysis_discussion-questions.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithm-analysis_programming-exercises.html" class="internal"><span class="codenumber">2.10</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="algorithm-analysis_glossary.html" class="internal"><span class="codenumber">2.11</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="algorithm-analysis_glossary.html#algorithm-analysis_glossary-2" class="internal"><span class="codenumber">2.11</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds-5.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Structures</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_objectives.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_what-are-linear-structures.html" class="internal"><span class="codenumber">3.2</span> <span class="title">What Are Linear Structures?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_what-is-a-stack.html" class="internal"><span class="codenumber">3.3</span> <span class="title">What is a Stack?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_the-stack-abstract-data-type.html" class="internal"><span class="codenumber">3.4</span> <span class="title">The Stack Abstract Data Type</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_using-a-stack-in-c.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Using a Stack in C++</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_simple-balanced-parentheses.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Simple Balanced Parentheses</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_balanced-symbols-a-general-case.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Balanced Symbols - A General Case</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_converting-decimal-numbers-to-binary-numbers.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Converting Decimal Numbers to Binary Numbers</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_infix-prefix-and-postfix-expressions.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Infix, Prefix and Postfix Expressions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-basic_infix-prefix-and-postfix-expressions.html#linear-basic_conversion-of-infix-expressions-to-prefix-and-postfix" class="internal"><span class="codenumber">3.9.1</span> <span class="title">Conversion of Infix Expressions to Prefix and Postfix</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-basic_infix-prefix-and-postfix-expressions.html#linear-basic_general-infix-to-postfix-conversion" class="internal"><span class="codenumber">3.9.2</span> <span class="title">General Infix-to-Postfix Conversion</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-basic_infix-prefix-and-postfix-expressions.html#linear-basic_postfix-evaluation" class="internal"><span class="codenumber">3.9.3</span> <span class="title">Postfix Evaluation</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_what-is-a-queue.html" class="internal"><span class="codenumber">3.10</span> <span class="title">What Is a Queue?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_the-queue-abstract-data-type.html" class="internal"><span class="codenumber">3.11</span> <span class="title">The Queue Abstract Data Type</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_using-a-queue-in-c.html" class="internal"><span class="codenumber">3.12</span> <span class="title">Using a Queue in C++</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_simulation-hot-potato.html" class="internal"><span class="codenumber">3.13</span> <span class="title">Simulation: Hot Potato</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_simulation-printing-tasks.html" class="internal"><span class="codenumber">3.14</span> <span class="title">Simulation: Printing Tasks</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-basic_simulation-printing-tasks.html#linear-basic_main-simulation-steps" class="internal"><span class="codenumber">3.14.1</span> <span class="title">Main Simulation Steps</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-basic_simulation-printing-tasks.html#linear-basic_c-implementation" class="internal"><span class="codenumber">3.14.2</span> <span class="title">C++ Implementation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-basic_simulation-printing-tasks.html#linear-basic_discussion" class="internal"><span class="codenumber">3.14.3</span> <span class="title">Discussion</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_what-is-a-deque.html" class="internal"><span class="codenumber">3.15</span> <span class="title">What Is a Deque?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_the-deque-abstract-data-type.html" class="internal"><span class="codenumber">3.16</span> <span class="title">The Deque Abstract Data Type</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_using-a-deque-in-c.html" class="internal"><span class="codenumber">3.17</span> <span class="title">Using a Deque in C++</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_palindrome-checker.html" class="internal"><span class="codenumber">3.18</span> <span class="title">Palindrome-Checker</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_summary.html" class="internal"><span class="codenumber">3.19</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_discussion-questions.html" class="internal"><span class="codenumber">3.20</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_programming-exercises.html" class="internal"><span class="codenumber">3.21</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_glossary.html" class="internal"><span class="codenumber">3.22</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="linear-basic_glossary.html#linear-basic_glossary-2" class="internal"><span class="codenumber">3.22</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds-6.html" class="internal"><span class="codenumber">4</span> <span class="title">Linear Linked Structures</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_objectives.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_what-are-linked-structures.html" class="internal"><span class="codenumber">4.2</span> <span class="title">What Are Linked Structures?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_implementing-an-unordered-linked-list.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Implementing an Unordered Linked List</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-linked_implementing-an-ordered-linked-list.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Implementing an Ordered Linked List</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-linked_implementing-an-ordered-linked-list.html#linear-linked_analysis-of-linked-lists" class="internal"><span class="codenumber">4.4.1</span> <span class="title">Analysis of Linked Lists</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-linked_the-ordered-list-abstract-data-type.html" class="internal"><span class="codenumber">4.5</span> <span class="title">The Ordered List Abstract Data Type</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-linked_the-ordered-list-abstract-data-type.html#linear-linked_forward-lists" class="internal"><span class="codenumber">4.5.1</span> <span class="title">Forward lists</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-linked_the-ordered-list-abstract-data-type.html#linear-linked_lists" class="internal"><span class="codenumber">4.5.2</span> <span class="title">Lists</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_summary.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_discussion-questions.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_programming-exercises.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-linked_glossary.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="linear-linked_glossary.html#linear-linked_glossary-2" class="internal"><span class="codenumber">4.9</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds-7.html" class="internal"><span class="codenumber">5</span> <span class="title">Recursion</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_objectives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_what-is-recursion.html" class="internal"><span class="codenumber">5.2</span> <span class="title">What Is Recursion?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_calculating-the-sum-of-a-vector-of-numbers.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Calculating the Sum of a Vector of Numbers</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_the-three-laws-of-recursion.html" class="internal"><span class="codenumber">5.4</span> <span class="title">The Three Laws of Recursion</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_converting-an-integer-to-a-string-in-any-base.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Converting an Integer to a String in Any Base</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_stack-frames-implementing-recursion.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Stack Frames: Implementing Recursion</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_introduction-visualizing-recursion.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Introduction: Visualizing Recursion</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_sierpinski-triangle.html" class="internal"><span class="codenumber">5.8</span> <span class="title">Sierpinski Triangle</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_complex-recursive-problems.html" class="internal"><span class="codenumber">5.9</span> <span class="title">Complex Recursive Problems</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_tower-of-hanoi.html" class="internal"><span class="codenumber">5.10</span> <span class="title">Tower of Hanoi</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_exploring-a-maze.html" class="internal"><span class="codenumber">5.11</span> <span class="title">Exploring a Maze</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_dynamic-programming.html" class="internal"><span class="codenumber">5.12</span> <span class="title">Dynamic Programming</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_discussion-questions.html" class="internal"><span class="codenumber">5.13</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_programming-exercises.html" class="internal"><span class="codenumber">5.14</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="recursion_glossary.html" class="internal"><span class="codenumber">5.15</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="recursion_glossary.html#recursion_glossary-2" class="internal"><span class="codenumber">5.15</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds-8.html" class="internal"><span class="codenumber">6</span> <span class="title">Searching and Hashing</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="search-hash_objectives.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="search-hash_searching.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Searching</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="search-hash_the-sequential-search.html" class="internal"><span class="codenumber">6.3</span> <span class="title">The Sequential Search</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="search-hash_the-sequential-search.html#search-hash_analysis-of-sequential-search" class="internal"><span class="codenumber">6.3.1</span> <span class="title">Analysis of Sequential Search</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="search-hash_the-binary-search.html" class="internal"><span class="codenumber">6.4</span> <span class="title">The Binary Search</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="search-hash_the-binary-search.html#search-hash_analysis-of-binary-search" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Analysis of Binary Search</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="search-hash_hashing.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Hashing</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="search-hash_hashing.html#search-hash_hash-functions" class="internal"><span class="codenumber">6.5.1</span> <span class="title">Hash Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="search-hash_hashing.html#search-hash_collision-resolution" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Collision Resolution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="search-hash_hashing.html#search-hash_implementing-the-map-abstract-data-type" class="internal"><span class="codenumber">6.5.3</span> <span class="title">Implementing the <code class="code-inline tex2jax_ignore">Map</code> Abstract Data Type</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="search-hash_hashing.html#search-hash_analysis-of-hashing" class="internal"><span class="codenumber">6.5.4</span> <span class="title">Analysis of Hashing</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="search-hash_summary.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="search-hash_discussion-questions.html" class="internal"><span class="codenumber">6.7</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="search-hash_programming-exercises.html" class="internal"><span class="codenumber">6.8</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="search-hash_glossary.html" class="internal"><span class="codenumber">6.9</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="search-hash_glossary.html#search-hash_glossary-2" class="internal"><span class="codenumber">6.9</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds-9.html" class="internal"><span class="codenumber">7</span> <span class="title">Sorting</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_objectives.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_sorting.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Sorting</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_the-bubble-sort.html" class="internal"><span class="codenumber">7.3</span> <span class="title">The Bubble Sort</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_the-selection-sort.html" class="internal"><span class="codenumber">7.4</span> <span class="title">The Selection Sort</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_the-insertion-sort.html" class="internal"><span class="codenumber">7.5</span> <span class="title">The Insertion Sort</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_the-shell-sort.html" class="internal"><span class="codenumber">7.6</span> <span class="title">The Shell Sort</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_the-merge-sort.html" class="internal"><span class="codenumber">7.7</span> <span class="title">The Merge Sort</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_the-quick-sort.html" class="internal"><span class="codenumber">7.8</span> <span class="title">The Quick Sort</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_summary.html" class="internal"><span class="codenumber">7.9</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_discussion-questions.html" class="internal"><span class="codenumber">7.10</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_programming-exercises.html" class="internal"><span class="codenumber">7.11</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sort_glossary.html" class="internal"><span class="codenumber">7.12</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="sort_glossary.html#sort_glossary-2" class="internal"><span class="codenumber">7.12</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds-10.html" class="internal"><span class="codenumber">8</span> <span class="title">Trees and Tree Algorithms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_objectives.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_examples-of-trees.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Examples of Trees</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_vocabulary-and-definitions.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Vocabulary and Definitions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_nodes-and-references.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Nodes and References</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_parse-tree.html" class="internal"><span class="codenumber">8.5</span> <span class="title">Parse Tree</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_tree-traversals.html" class="internal"><span class="codenumber">8.6</span> <span class="title">Tree Traversals</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_priority-queues-with-binary-heaps.html" class="internal"><span class="codenumber">8.7</span> <span class="title">Priority Queues with Binary Heaps</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_priority-queues-with-binary-heaps-example.html" class="internal"><span class="codenumber">8.8</span> <span class="title">Priority Queues with Binary Heaps Example</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_binary-heap-operations.html" class="internal"><span class="codenumber">8.9</span> <span class="title">Binary Heap Operations</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_binary-heap-implementation.html" class="internal"><span class="codenumber">8.10</span> <span class="title">Binary Heap Implementation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="trees_binary-heap-implementation.html#trees_the-structure-property" class="internal"><span class="codenumber">8.10.1</span> <span class="title">The Structure Property</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="trees_binary-heap-implementation.html#trees_the-heap-order-property" class="internal"><span class="codenumber">8.10.2</span> <span class="title">The Heap Order Property</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="trees_binary-heap-implementation.html#trees_heap-operations" class="internal"><span class="codenumber">8.10.3</span> <span class="title">Heap Operations</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_binary-search-trees.html" class="internal"><span class="codenumber">8.11</span> <span class="title">Binary Search Trees</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_search-tree-operations.html" class="internal"><span class="codenumber">8.12</span> <span class="title">Search Tree Operations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_search-tree-implementation.html" class="internal"><span class="codenumber">8.13</span> <span class="title">Search Tree Implementation</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_search-tree-analysis.html" class="internal"><span class="codenumber">8.14</span> <span class="title">Search Tree Analysis</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_balanced-binary-search-trees.html" class="internal"><span class="codenumber">8.15</span> <span class="title">Balanced Binary Search Trees</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_avl-tree-performance.html" class="internal"><span class="codenumber">8.16</span> <span class="title">AVL Tree Performance</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_avl-tree-implementation.html" class="internal"><span class="codenumber">8.17</span> <span class="title">AVL Tree Implementation</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_summary-of-map-adt-implementations.html" class="internal"><span class="codenumber">8.18</span> <span class="title">Summary of Map ADT Implementations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_summary.html" class="internal"><span class="codenumber">8.19</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_discussion-questions.html" class="internal"><span class="codenumber">8.20</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_programming-exercises.html" class="internal"><span class="codenumber">8.21</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_glossary.html" class="internal"><span class="codenumber">8.22</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="trees_glossary.html#trees_glossary-2" class="internal"><span class="codenumber">8.22</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds-11.html" class="internal"><span class="codenumber">9</span> <span class="title">Graphs and Graph Algorithms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_objectives.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_vocabulary-and-definitions.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Vocabulary and Definitions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_the-graph-abstract-data-type.html" class="internal"><span class="codenumber">9.3</span> <span class="title">The Graph Abstract Data Type</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_an-adjacency-matrix.html" class="internal"><span class="codenumber">9.4</span> <span class="title">An Adjacency Matrix</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_an-adjacency-list.html" class="internal"><span class="codenumber">9.5</span> <span class="title">An Adjacency List</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_implementation.html" class="internal"><span class="codenumber">9.6</span> <span class="title">Implementation</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_the-word-ladder-problem.html" class="internal"><span class="codenumber">9.7</span> <span class="title">The Word Ladder Problem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_building-the-word-ladder-graph.html" class="internal"><span class="codenumber">9.8</span> <span class="title">Building the Word Ladder Graph</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_implementing-breadth-first-search.html" class="internal"><span class="codenumber">9.9</span> <span class="title">Implementing Breadth First Search</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_breadth-first-search-analysis.html" class="internal"><span class="codenumber">9.10</span> <span class="title">Breadth First Search Analysis</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_the-knights-tour-problem.html" class="internal"><span class="codenumber">9.11</span> <span class="title">The Knight’s Tour Problem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_building-the-knights-tour-graph.html" class="internal"><span class="codenumber">9.12</span> <span class="title">Building the Knight’s Tour Graph</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_implementing-knights-tour.html" class="internal"><span class="codenumber">9.13</span> <span class="title">Implementing Knight’s Tour</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_knights-tour-analysis.html" class="internal"><span class="codenumber">9.14</span> <span class="title">Knight’s Tour Analysis</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_general-depth-first-search.html" class="internal"><span class="codenumber">9.15</span> <span class="title">General Depth First Search</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_depth-first-search-analysis.html" class="internal"><span class="codenumber">9.16</span> <span class="title">Depth First Search Analysis</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_topological-sorting.html" class="internal"><span class="codenumber">9.17</span> <span class="title">Topological Sorting</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_strongly-connected-components.html" class="internal"><span class="codenumber">9.18</span> <span class="title">Strongly Connected Components</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_shortest-path-problems.html" class="internal"><span class="codenumber">9.19</span> <span class="title">Shortest Path Problems</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_dijkstras-algorithm.html" class="internal"><span class="codenumber">9.20</span> <span class="title">Dijkstra’s Algorithm</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_analysis-of-dijkstras-algorithm.html" class="internal"><span class="codenumber">9.21</span> <span class="title">Analysis of Dijkstra’s Algorithm</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_prims-spanning-tree-algorithm.html" class="internal"><span class="codenumber">9.22</span> <span class="title">Prim’s Spanning Tree Algorithm</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_summary.html" class="internal"><span class="codenumber">9.23</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_discussion-questions.html" class="internal"><span class="codenumber">9.24</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_programming-exercises.html" class="internal"><span class="codenumber">9.25</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="graphs_glossary.html" class="internal"><span class="codenumber">9.26</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="graphs_glossary.html#graphs_glossary-2" class="internal"><span class="codenumber">9.26</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="cppds-12.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-index"><div class="toc-title-box"><a href="cppds-12-1.html" class="internal"><span class="title">Index</span></a></div></li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="introduction_what-is-computer-science"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.3</span><span class="space"> </span><span class="title">What Is Computer Science?</span>
+</h2>
+<div class="para" id="introduction_what-is-computer-science-3">Computer science can be considered difficult to define. This is probably due to the unfortunate use of the word “computer” in the name. As you are perhaps aware, computer science is not simply the study of computers. Although computers play an important supporting role as a tool in the discipline, they are just that–tools.</div>
+<div class="para" id="introduction_what-is-computer-science-4"> Computer science is the study of problems, problem-solving, and the solutions that come out of the problem-solving process. Given a problem, a computer scientist’s goal is to develop an <dfn class="terminology">algorithm</dfn>, a step-by-step list of instructions for solving any instance of the problem that might arise. Algorithms are finite processes that if followed will solve the problem. Algorithms are solutions.</div>
+<div class="para" id="introduction_what-is-computer-science-5">Computer science can be thought of as the study of algorithms. Some problems do not have solutions at all. Other problems do have solutions, but these solutions cannot be executed in a reasonable amount of time. Although proving these statements is beyond the scope of this text, the fact that some problems cannot be solved and/or cannot be solved in the amount of time available is important for those who study computer science. We can fully define computer science, then, by including these types of problems and stating that computer science is the study of solutions to problems as well as the study of problems without fast solutions and including the study of problems without any solutions at all.</div>
+<div class="para" id="introduction_what-is-computer-science-6"> Hence, it is very common to include the word <dfn class="terminology">computable</dfn> when describing problems and solutions. We say that a problem is computable if an algorithm exists for solving it. An alternative definition for computer science, then, is to say that computer science is the study of problems that are and that are not computable, the study of the existence and the nonexistence of algorithms as well as the analysis of the relative speed of those algorithms. Here, you will note that the word “computer” did not come up at all. Solutions are and should be considered independent from the machine.</div>
+<div class="para" id="introduction_what-is-computer-science-7"> Computer science, as it pertains to the problem-solving process itself, is also the study of <dfn class="terminology">abstraction</dfn>. Abstraction allows us to view the problem and solution in such a way as to separate the so-called logical and physical perspectives. The basic idea is familiar to us in a common example.</div>
+<div class="para" id="introduction_what-is-computer-science-8">Consider the automobile that you may have driven to school or work today. As a driver, a user of the car, you have certain interactions that take place in order to utilize the car for its intended purpose. You get in, insert the key, start the car, shift, brake, accelerate, and steer in order to drive. From an abstraction point of view, we can say that you are seeing the logical perspective of the automobile. You are using the functions provided by the car designers for the purpose of transporting you from one location to another. These functions are sometimes also referred to as the <dfn class="terminology">interface</dfn>.</div>
+<div class="para" id="introduction_what-is-computer-science-9">On the other hand, the mechanic who must repair your automobile takes a very different point of view. She not only knows how to drive but must know all of the details necessary to carry out all the functions that we take for granted. She needs to understand how the engine works, how the transmission shifts gears, how temperature is controlled, and so on. This is known as the physical perspective, the details that take place “under the hood.”</div>
+<div class="para" id="introduction_what-is-computer-science-10">The same thing happens when we use computers. Most people use computers to write documents, send and receive email, surf the web, play music, store images, and play games without any knowledge of the details that take place to allow those types of applications to work. They view computers from a logical or user perspective. Computer scientists, programmers, technology support staff, and system administrators take a very different view of the computer. They must know the details of how operating systems work, how network protocols are configured, and how to code various scripts that control function. They must be able to control the low-level details that a user simply assumes.</div>
+<div class="para" id="introduction_what-is-computer-science-11">The common point for both of these examples is that the user of the abstraction, sometimes also called the client, does not need to know the details as long as the user is aware of the way the interface works. This interface is the way we as users communicate with the underlying complexities of the implementation. As another example of abstraction, consider the C++ <code class="code-inline tex2jax_ignore">cmath</code> module. Once we import the module, we can perform computations such as</div>
+<details id="introduction_what-is-computer-science-12" class="exercise exercise-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.3.1</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like"><pre class="program"><code class="language-cpp">//Outputs the square root of a given number.
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+
+int main() {
+    cout &lt;&lt; sqrt(16);
+}
+</code></pre>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="Python"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="Python_editor" data-question_label="" data-codelens="true">#Outputs the square root of a given number.
+import math
+
+print(math.sqrt(16))
+</textarea></div></div></div></article></details><div class="para" id="introduction_what-is-computer-science-13"> This is an example of <dfn class="terminology">procedural abstraction</dfn>. We do not necessarily know how the square root is being calculated, but we know what the function is called and how to use it. If we perform the import correctly, we can assume that the library is correct and any function using it will provide us with the correct results. We know that someone implemented a solution to the square root problem and we only need to know how to use it. This is sometimes referred to as a “black box” view of a process. We simply describe the interface: the name of the function, what is needed (the parameters), and what will be returned. The details are hidden inside (see <a href="" class="xref" data-knowl="./knowl/xref/fig-procabstraction.html" title="Figure 1.3.2">Figure 1.3.2</a>).</div>
+<figure class="figure figure-like" id="fig-procabstraction"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Introduction/blackbox.png" class="contained" alt="Diagram illustrating the concept of procedural abstraction with a central box labeled ’sqrt()’ representing a function. An arrow labeled ’n’ points to the box, indicating the input, and another arrow points away from the box, labeled ’square root of n’, indicating the output."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.2<span class="period">.</span></span><span class="space"> </span>Procedural Abstraction</figcaption></figure></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="introduction_getting-started.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="introduction_what-is-programming.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

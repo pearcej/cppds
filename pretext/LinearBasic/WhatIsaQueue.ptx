@@ -24,7 +24,9 @@
         <figure align="center" xml:id="fig-qubasicqueue1">
             <caption>A queue of strings</caption>
                 <image source="LinearBasic/basicqueue1.png" width="50%">
-                    <description>Figure 3.10.1 shows a simple queue of Python data objects.</description>
+                    <description>
+                        The image depicts a queue, a data structure that operates on the "first-in, first-out" (FIFO) principle. In this visual representation, elements are added to the rear of the queue and removed from the front. The image specifically shows a queue containing the strings "true", "dog", "8.4", and "4", arranged in the order they would be processed.
+                    </description>
                 </image>
         </figure>
         

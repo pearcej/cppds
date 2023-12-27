@@ -29,7 +29,9 @@
         <figure align="center" xml:id="fig-qulabsim">
             <caption>A Computer Science Laboratory Printing Queue</caption>
                 <image source="LinearBasic/simulationsetup.png" width="50%">
-                    <description>Figure 3.14.1 shows us a queue simulation of a Computer Science laboratory.</description>
+                    <description>
+                        A diagram of a printing task in a print queue. The diagram shows a row of computers connected to a printer by a cable. A queue of print tasks is shown above the printer, with the task at the front of the queue currently being printed. The text above the queue reads "Lab Computers" and the text below the queue reads "printing tasks in print queue                    
+                    </description>
                 </image>
         </figure>
         

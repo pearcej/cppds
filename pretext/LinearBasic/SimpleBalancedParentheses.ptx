@@ -45,7 +45,9 @@
         <figure align="center" xml:id="fig-parmatch">
             <caption>Matching Parentheses</caption>
                 <image source="LinearBasic/simpleparcheck.png" width="50%">
-                    <description>Figure 4 shows us that as you process symbols from left to right, the most recent opening parenthesis must match the next closing symbol.</description>
+                    <description>
+                        The image demonstrates the concept of matching parentheses in a string. It highlights that the most recent opening parenthesis is matched with the first closing parenthesis. Additionally, it shows that the first opening parenthesis may need to wait until the very last closing parenthesis to find its match.
+                    </description>
                 </image>
         </figure>
 
