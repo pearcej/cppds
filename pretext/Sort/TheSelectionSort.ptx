@@ -166,7 +166,7 @@ selection_anim_init = function(divid)
             typically executes faster in benchmark studies.</p>
         <note>
             <title>Self Check</title>
-
+        </note>
     <exercise label="question_sort_2">
         <statement>
 
@@ -214,6 +214,5 @@ selection_anim_init = function(divid)
 </choices>
 
     </exercise>
-        </note>
     </section>
 

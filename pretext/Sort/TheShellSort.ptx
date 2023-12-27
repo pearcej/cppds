@@ -240,7 +240,7 @@ main()-->
             at <math>O(n^{\frac {3}{2}})</math>.</p>
         <note>
             <title>Self Check</title>
-
+        </note>
     <exercise label="question_sort_4">
         <statement>
 
@@ -288,6 +288,5 @@ main()-->
 </choices>
 
     </exercise>
-        </note>
     </section>
 

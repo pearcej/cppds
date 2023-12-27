@@ -282,7 +282,7 @@ merge_anim_init = function(divid)
             sets. In the case with using lists in python, the space complexity is <math>O(log n)</math>.</p>
         <note>
             <title>Self Check</title>
-
+        </note>
     <exercise label="question_sort_5">
         <statement>
 
@@ -376,6 +376,5 @@ merge_anim_init = function(divid)
 </choices>
 
     </exercise>
-        </note>
     </section>
 

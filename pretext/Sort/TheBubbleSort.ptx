@@ -344,7 +344,7 @@ print(alist)
         <!--print(alist)-->
         <note>
             <title>Self Check</title>
-
+        </note>
     <exercise label="question_sort_1">
         <statement>
 
@@ -392,6 +392,6 @@ print(alist)
 </choices>
 
     </exercise>
-        </note>
+        
     </section>
 

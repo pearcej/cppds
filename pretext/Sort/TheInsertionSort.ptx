@@ -186,19 +186,12 @@ main()-->
 </raw>
         <note>
             <title>Self Check</title>
-
+        </note>
     <exercise label="question_sort_3">
         <statement>
 
-            <dl>
-                <li>
-                    <title>Q-5:  Suppose you have the following list of numbers to sort:</title>
+        <p>Q-5:  Suppose you have the following list of numbers to sort:[15, 5, 4, 18, 12, 19, 14, 10, 8, 20] which list represents the partially sorted list after three complete passes of insertion sort?</p>
                     
-                        <p>[15, 5, 4, 18, 12, 19, 14, 10, 8, 20] which list represents the partially sorted list after three complete passes of insertion sort?</p>
-                    
-                </li>
-            </dl>
-
         </statement>
 <choices>
 
@@ -240,6 +233,5 @@ main()-->
 </choices>
 
     </exercise>
-        </note>
     </section>
 
