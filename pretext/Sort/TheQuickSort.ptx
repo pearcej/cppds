@@ -307,13 +307,12 @@ quick_anim_init = function(divid)
             <q>middle</q> value. This will be particularly useful when the original list
             is somewhat sorted to begin with. We leave the implementation of this
             pivot value selection as an exercise.</p>
-            <note>
-                <title>Self Check</title>
-            </note>
+<reading-questions xml:id="rq-quick-sort">
+
     <exercise label="question_sort_7">
         <statement>
 
-        <p>Q-5: Given the following list of numbers [14, 17, 13, 15, 19, 10, 3, 16, 9, 12] which answer shows the contents of the list after the second partitioning according to the quicksort algorithm?</p>
+        <p>Given the following list of numbers [14, 17, 13, 15, 19, 10, 3, 16, 9, 12] which answer shows the contents of the list after the second partitioning according to the quicksort algorithm?</p>
 
         </statement>
 <choices>
@@ -360,7 +359,7 @@ quick_anim_init = function(divid)
     <exercise label="question_sort_8">
         <statement>
 
-        <p>Q-6: Given the following list of numbers [1, 20, 11, 5, 2, 9, 16, 14, 13, 19] what would be the first pivot value using the median of 3 method?</p>
+        <p>Given the following list of numbers [1, 20, 11, 5, 2, 9, 16, 14, 13, 19] what would be the first pivot value using the median of 3 method?</p>
 
         </statement>
 <choices>
@@ -403,5 +402,6 @@ quick_anim_init = function(divid)
 </choices>
 
     </exercise>
+</reading-questions>
     </section>
     

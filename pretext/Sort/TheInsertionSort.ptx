@@ -184,13 +184,11 @@ main()-->
   });
 &lt;/script&gt;
 </raw>
-        <note>
-            <title>Self Check</title>
-        </note>
+<reading-questions xml:id="rq-insertion-sort">
     <exercise label="question_sort_3">
         <statement>
 
-        <p>Q-5:  Suppose you have the following list of numbers to sort:[15, 5, 4, 18, 12, 19, 14, 10, 8, 20] which list represents the partially sorted list after three complete passes of insertion sort?</p>
+        <p>Suppose you have the following list of numbers to sort:[15, 5, 4, 18, 12, 19, 14, 10, 8, 20] which list represents the partially sorted list after three complete passes of insertion sort?</p>
                     
         </statement>
 <choices>
@@ -233,5 +231,6 @@ main()-->
 </choices>
 
     </exercise>
+</reading-questions>
     </section>
 
