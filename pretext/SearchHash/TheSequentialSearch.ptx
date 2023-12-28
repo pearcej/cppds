@@ -168,9 +168,7 @@ int main() {
                 immediately. <xref ref="lst-seqsearchpython2"/> shows this variation of the
                 sequential search function.</p>
 
-        <exercise>
-            <statement>
-    <p>Q-3: For the following unordered sequential list: {0, 1, 2, 13, 8, 19, 17, 32, 42}, searching for <BlankNode/> would produce the best case scenario, and searching for <BlankNode/> would produce the worst case scenario. <var/>  <var/>  </p></statement><setup><var><condition number="[0, 0]"><feedback><p>Correct! 0 is at the beginning of the list wich would provide the best case of O(1)</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>No! try again, only one value place in this list will produce the best case.</p></feedback></condition></var><var><condition number="[42, 42]"><feedback><p>Correct! 42 is at the end of the list wich would provide the worst case of O(n)</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>No! try again, only one value in this list will produce the worst case.</p></feedback></condition></var></setup></exercise>            
+          
             <figure align="center" xml:id="fig-seqsearch2">
                 <caption>Sequential Search of an Ordered List of Integers</caption>
                     <image source="SearchHash/seqsearch2.png" width="80%">
@@ -277,13 +275,16 @@ int main() {
                     
                 
             </tabular></table>
-            <note>
-                <title>Self Check</title>
-            </note>
+
+<reading-questions xml:id="rq-squential-search">
+
+            <exercise>
+                <statement>
+        <p>For the following unordered sequential list: {0, 1, 2, 13, 8, 19, 17, 32, 42}, searching for <BlankNode/> <var/> would produce the best case scenario, and searching for <BlankNode/> <var/> would produce the worst case scenario.    </p></statement><setup><var><condition number="[0]"><feedback><p>Correct! 0 is at the beginning of the list wich would provide the best case of O(1)</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>No! try again, only one value place in this list will produce the best case.</p></feedback></condition></var><var><condition number="[42]"><feedback><p>Correct! 42 is at the end of the list wich would provide the worst case of O(n)</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>No! try again, only one value in this list will produce the worst case.</p></feedback></condition></var></setup></exercise>   
     <exercise label="question_SRCH_1">
         <statement>
 
-                <p>Q-6: Suppose you are doing a sequential search of the list [15, 18, 2, 19, 18, 0, 8, 14, 19, 14].  How many comparisons would you need to do in order to find the key 18?</p>
+                <p>Suppose you are doing a sequential search of the list [15, 18, 2, 19, 18, 0, 8, 14, 19, 14].  How many comparisons would you need to do in order to find the key 18?</p>
 
         </statement>
 <choices>
@@ -330,7 +331,7 @@ int main() {
     <exercise label="question_SRCH_2">
         <statement>
 
-                <p>Q-7: Suppose you are doing a sequential search using a program that is enhanced to handle ordered lists more efficiently. When passing the list [3, 5, 6, 8, 11, 12, 14, 15, 17, 18] as a parameter, how many comparisons would you need to do in order to find the key 13?</p>
+                <p>Suppose you are doing a sequential search using a program that is enhanced to handle ordered lists more efficiently. When passing the list [3, 5, 6, 8, 11, 12, 14, 15, 17, 18] as a parameter, how many comparisons would you need to do in order to find the key 13?</p>
 
         </statement>
 <choices>
@@ -373,6 +374,7 @@ int main() {
 </choices>
 
     </exercise>
+</reading-questions>
             
         </subsection>
     </section>

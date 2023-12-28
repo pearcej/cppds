@@ -479,102 +479,7 @@ int main() {
                 advantage is that on the average there are likely to be many fewer items
                 in each slot, so the search is perhaps more efficient. We will look at
                 the analysis for hashing at the end of this section.</p>
-            <note>
-                <title>Self Check</title>
-            </note>
-    <exercise label="HASH_1">
-        <statement>
-
-                <p>Q-2: In a hash table of size 13 which index positions would the following two keys map to?  27,  130</p>
-
-        </statement>
-<choices>
-
-            <choice>
-                <statement>
-                    <p>1, 10</p>
-                </statement>
-                <feedback>
-                    <p>Be careful to use modulo not integer division</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>13, 0</p>
-                </statement>
-                <feedback>
-                    <p>Don't divide by two, use the modulo operator.</p>
-                </feedback>
-            </choice>
-
-            <choice correct="yes">
-                <statement>
-                    <p>1, 0</p>
-                </statement>
-                <feedback>
-                    <p>27 % 13 == 1 and 130 % 13 == 0</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>2, 3</p>
-                </statement>
-                <feedback>
-                    <p>Use the modulo operator</p>
-                </feedback>
-            </choice>
-</choices>
-
-    </exercise>
-
-    <exercise label="HASH_2">
-        <statement>
-
-                <p>Q-3: Suppose you are given the following set of keys to insert into a hash table that holds exactly 11 values:  113 , 117 , 97 , 100 , 114 , 108 , 121 , 105 , 99 Which of the following best demonstrates the contents of the hash table after all the keys have been inserted using linear probing?</p>
-
-        </statement>
-<choices>
-
-            <choice>
-                <statement>
-                    <p>100, __, __, 113, 114, 105, 121, 117, 97, 108, 99</p>
-                </statement>
-                <feedback>
-                    <p>It looks like you may have been doing modulo 2 arithmentic.  You need to use the hash table size as the modulo value.</p>
-                </feedback>
-            </choice>
-
-            <choice correct="yes">
-                <statement>
-                    <p>121, 100, 99, 113, 114, __, 105, 117, __, 97, 108</p>
-                </statement>
-                <feedback>
-                    <p>Using modulo 11 arithmetic and linear probing gives these values</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>100, 113, 117, 97, 14, 108, 121, 105, 99, __, __</p>
-                </statement>
-                <feedback>
-                    <p>It looks like you are using modulo 10 arithmetic, use the table size.</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>117, 114, 108, 121, 105, 99, __, __, 97, 100, 113</p>
-                </statement>
-                <feedback>
-                    <p>Be careful to use modulo not integer division.</p>
-                </feedback>
-            </choice>
-</choices>
-
-    </exercise>
+            
             
         </subsection>
         <subsection xml:id="search-hash_implementing-the-map-abstract-data-type">
@@ -1109,6 +1014,102 @@ print(H[99])
                 If we are using chaining, the average number of comparisons is
                 <math>1 + \frac {\lambda}{2}</math> for the successful case, and simply
                 <math>\lambda</math> comparisons if the search is unsuccessful.</p>
+                <reading-questions xml:id="rq-hashing-search">
+                    <exercise label="HASH_1">
+                        <statement>
+                    
+                                <p>In a hash table of size 13 which index positions would the following two keys map to?  27,  130</p>
+                    
+                        </statement>
+                    <choices>
+                    
+                            <choice>
+                                <statement>
+                                    <p>1, 10</p>
+                                </statement>
+                                <feedback>
+                                    <p>Be careful to use modulo not integer division</p>
+                                </feedback>
+                            </choice>
+                    
+                            <choice>
+                                <statement>
+                                    <p>13, 0</p>
+                                </statement>
+                                <feedback>
+                                    <p>Don't divide by two, use the modulo operator.</p>
+                                </feedback>
+                            </choice>
+                    
+                            <choice correct="yes">
+                                <statement>
+                                    <p>1, 0</p>
+                                </statement>
+                                <feedback>
+                                    <p>27 % 13 == 1 and 130 % 13 == 0</p>
+                                </feedback>
+                            </choice>
+                    
+                            <choice>
+                                <statement>
+                                    <p>2, 3</p>
+                                </statement>
+                                <feedback>
+                                    <p>Use the modulo operator</p>
+                                </feedback>
+                            </choice>
+                    </choices>
+                    
+                    </exercise>
+                    
+                    <exercise label="HASH_2">
+                        <statement>
+                    
+                                <p>Suppose you are given the following set of keys to insert into a hash table that holds exactly 11 values:  113 , 117 , 97 , 100 , 114 , 108 , 121 , 105 , 99 Which of the following best demonstrates the contents of the hash table after all the keys have been inserted using linear probing?</p>
+                    
+                        </statement>
+                    <choices>
+                    
+                            <choice>
+                                <statement>
+                                    <p>100, __, __, 113, 114, 105, 121, 117, 97, 108, 99</p>
+                                </statement>
+                                <feedback>
+                                    <p>It looks like you may have been doing modulo 2 arithmentic.  You need to use the hash table size as the modulo value.</p>
+                                </feedback>
+                            </choice>
+                    
+                            <choice correct="yes">
+                                <statement>
+                                    <p>121, 100, 99, 113, 114, __, 105, 117, __, 97, 108</p>
+                                </statement>
+                                <feedback>
+                                    <p>Using modulo 11 arithmetic and linear probing gives these values</p>
+                                </feedback>
+                            </choice>
+                    
+                            <choice>
+                                <statement>
+                                    <p>100, 113, 117, 97, 14, 108, 121, 105, 99, __, __</p>
+                                </statement>
+                                <feedback>
+                                    <p>It looks like you are using modulo 10 arithmetic, use the table size.</p>
+                                </feedback>
+                            </choice>
+                    
+                            <choice>
+                                <statement>
+                                    <p>117, 114, 108, 121, 105, 99, __, __, 97, 100, 113</p>
+                                </statement>
+                                <feedback>
+                                    <p>Be careful to use modulo not integer division.</p>
+                                </feedback>
+                            </choice>
+                    </choices>
+                    
+                    </exercise>
+                    </reading-questions>
         </subsection>
+ 
     </section>
     
