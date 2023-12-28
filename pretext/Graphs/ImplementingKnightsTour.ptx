@@ -81,27 +81,72 @@ def knightTour(n,path,u,limit):
             list, <c>path</c> has the values <c>[A,B,D,E,F,C]</c>, which is the the order
             we need to traverse the graph to visit each node exactly once.</p>
         
-        <figure align="center" xml:id="fig-kta"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 3: Start with node A</caption><image source="Graphs/Figures/ktdfsa.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-kta">
+            <caption>Start with node A</caption>
+                <image source="Graphs/ktdfsa.png" width="80%">
+                <description>Graph with node 'fool' as the central node connected to four adjacent nodes labeled 'pool', 'foil', 'foul', and 'cool', each marked with the number '1'. Below the graph is a visual representation of a queue with the nodes 'pool', 'foil', 'foul', and 'cool' lined up in order.</description>
+                </image>
+            </figure>
         
-        <figure align="center" xml:id="fig-ktb"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: Explore B</caption><image source="Graphs/Figures/ktdfsb.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-ktb">
+            <caption>Explore B</caption>
+                <image source="Graphs/ktdfsb.png" width="80%">
+                <description>Graph with nodes A, B, C, D, E, and F, with node B highlighted, indicating exploration from node B to nodes A and E.</description>
+                </image>
+            </figure>
+
+        <figure align="center" xml:id="fig-ktc">
+            <caption>Node C is a dead end</caption>
+                <image source="Graphs/ktdfsc.png" width="80%">
+                <description>Graph highlighting node C, showing no further connections, indicating that C is a dead end in the search process.</description>
+                </image>
+            </figure>
         
-        <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 5: Node C is a dead end</caption><image source="Graphs/Figures/ktdfsc.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-ktd">
+            <caption>Backtrack to B</caption>
+                <image source="Graphs/ktdfsd.png" width="80%">
+                <description>Graph with a backtrack path from node C to node B, illustrating the step of returning to node B to continue the search.</description>
+                </image>
+            </figure>
         
-        <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 6: Backtrack to B</caption><image source="Graphs/Figures/ktdfsd.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-kte">
+            <caption>Explore D</caption>
+                <image source="Graphs/ktdfse.png" width="80%">
+                <description>Graph with node D highlighted, indicating the exploration is continuing from node D to nodes A and E.</description>
+                </image>
+            </figure>
         
-        <figure align="center" xml:id="id5"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 7: Explore D</caption><image source="Graphs/Figures/ktdfse.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-ktf">
+            <caption>Explore E</caption>
+                <image source="Graphs/ktdfsf.png" width="80%">
+                <description>Graph focusing on node E, with exploration proceeding from node E to nodes B and D.</description>
+                </image>
+            </figure>
         
-        <figure align="center" xml:id="id6"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 8: Explore E</caption><image source="Graphs/Figures/ktdfsf.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-ktg">
+            <caption>Explore F</caption>
+                <image source="Graphs/ktdfsg.png" width="80%">
+                <description>Graph with node F highlighted, representing the search exploring potential paths from node F to node C.</description>
+                </image>
+            </figure>
         
-        <figure align="center" xml:id="id7"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 9: Explore F</caption><image source="Graphs/Figures/ktdfsg.png" width="50%"/></figure>
-        
-        <figure align="center" xml:id="id8"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 10: Finish</caption><image source="Graphs/Figures/ktdfsh.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-kth">
+            <caption>Finish</caption>
+                <image source="Graphs/ktdfsh.png" width="80%">
+                <description>Final graph with all nodes no longer highlighted, representing the completion of the depth-first search process.</description>
+                </image>
+            </figure>
         <p><xref ref="fig-tour"/> shows you what a complete tour around an
             eight-by-eight board looks like. There are many possible tours; some are
             symmetric. With some modification you can make circular tours that start
             and end at the same square.</p>
         
-        <figure align="center" xml:id="id9"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 11: A Complete Tour of the Board</caption><image source="Graphs/Figures/completeTour.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-completeTour">
+            <caption>A Complete Tour of the Board</caption>
+                <image source="Graphs/completeTour.png" width="80%">
+                <description>Image depicting a graph overlaid on an 8x8 chessboard grid representing a complete Knight's Tour. The nodes, numbered from 0 to 63, correspond to the squares of the chessboard. Lines crisscross the grid, mapping the knight's moves in a sequential path that visits each square exactly once. The complex web of lines indicates the knight's route, creating a Hamiltonian circuit where the start and end points are connected. Captioned 'Figure 11: A Complete Tour of the Board'.</description>
+                </image>
+            </figure>
         <note>
             <title>Self Check</title>
 
