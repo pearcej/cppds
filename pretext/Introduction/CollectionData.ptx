@@ -1020,7 +1020,7 @@ int main(){
     <exercise label="mc_fixed">
         <statement>
 
-                <p>Q-29: Which C++ structure is the best choice for a group of ordered data of a fixed length?</p>
+                <p>Which C++ structure is the best choice for a group of ordered data of a fixed length?</p>
 
         </statement>
 <choices>

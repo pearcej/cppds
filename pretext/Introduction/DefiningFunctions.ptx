@@ -373,7 +373,7 @@ int main() {
     <exercise label="foverloading">
         <statement>
 
-            <p>Q-8: What are benefits of function overloading?</p>
+            <p>What are benefits of function overloading?</p>
 
         </statement>
 <choices>
