@@ -95,7 +95,7 @@ main()
     <exercise label="queue_1">
         <statement>
 
-            <p>Q-3: Suppose you have the following series of queue operations.</p>
+            <p>Suppose you have the following series of queue operations.</p>
             <pre>queue&lt;int&gt; q;
 q.push(10);
 q.push(20);
