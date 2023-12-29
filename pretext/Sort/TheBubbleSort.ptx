@@ -6,17 +6,17 @@
             essence, each item <q>bubbles</q> up to the location where it belongs.</p>
         <p><xref ref="fig-bubblepass"/> shows the first pass of a bubble sort. The shaded
             items are being compared to see if they are out of order. If there are
-            <em>n</em> items in the array, then there are <math>n-1</math> pairs of items that
+            <em>n</em> items in the array, then there are <m>n-1</m> pairs of items that
             need to be compared on the first pass. It is important to note that once
             the largest value in the array is part of a pair, it will continually be
             moved along until the pass is complete.</p>
         
         <figure align="center" xml:id="fig-bubblepass"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 1: <literal>bubbleSort</literal>: The First Pass</caption><image source="Sort/Figures/bubblepass.png" width="50%"/></figure>
         <p>At the start of the second pass, the largest value is now in place.
-            There are <math>n-1</math> items left to sort, meaning that there will be
-            <math>n-2</math> pairs. Since each pass places the next largest value in
-            place, the total number of passes necessary will be <math>n-1</math>. After
-            completing the <math>n-1</math> passes, the smallest item must be in the
+            There are <m>n-1</m> items left to sort, meaning that there will be
+            <m>n-2</m> pairs. Since each pass places the next largest value in
+            place, the total number of passes necessary will be <m>n-1</m>. After
+            completing the <m>n-1</m> passes, the smallest item must be in the
             correct position with no further processing required. <xref ref="lst-bubble-cpp"/>
             shows the complete <c>bubbleSort</c> function. It takes the array as a
             parameter, and modifies it by swapping items as necessary.</p>
@@ -27,8 +27,8 @@ alist[i] = alist[j];
 alist[j] = temp;</pre>
         <p>will exchange the <title_reference>ith</title_reference> and <title_reference>jth</title_reference> items in the array. Without the
             temporary storage, one of the values would be overwritten.</p>
-        <p>Lines 5-7 in <xref ref="lst-bubble-cpp"/> perform the exchange of the <math>i</math> and
-            <math>(i+1)th</math> items using the three&#8211;step procedure described
+        <p>Lines 5-7 in <xref ref="lst-bubble-cpp"/> perform the exchange of the <m>i</m> and
+            <m>(i+1)th</m> items using the three&#8211;step procedure described
             earlier. Note that we could also have used the simultaneous assignment
             to swap the items.</p>
         
@@ -167,15 +167,15 @@ bubble_anim_init = function(divid)
         <p>This visualization allows you to step through the algorithm. Red bars represent
             the elements being looked at.</p>
         <p>To analyze the bubble sort, we should note that regardless of how the
-            items are arranged in the initial array, <math>n-1</math> passes will be
+            items are arranged in the initial array, <m>n-1</m> passes will be
             made to sort an array of size <em>n</em>. <xref ref="sort_tbl-bubbleanalysis"/> shows the number
             of comparisons for each pass. The total number of comparisons is the sum
-            of the first <math>n-1</math> integers. Recall that the sum of the first
-            <em>n</em> integers is <math>\frac{1}{2}n^{2} + \frac{1}{2}n</math>. The sum of
-            the first <math>n-1</math> integers is
-            <math>\frac{1}{2}n^{2} + \frac{1}{2}n - n</math>, which is
-            <math>\frac{1}{2}n^{2} - \frac{1}{2}n</math>. This is still
-            <math>O(n^{2})</math> comparisons. In the best case, if the array is already
+            of the first <m>n-1</m> integers. Recall that the sum of the first
+            <em>n</em> integers is <m>\frac{1}{2}n^{2} + \frac{1}{2}n</m>. The sum of
+            the first <m>n-1</m> integers is
+            <m>\frac{1}{2}n^{2} + \frac{1}{2}n - n</m>, which is
+            <m>\frac{1}{2}n^{2} - \frac{1}{2}n</m>. This is still
+            <m>O(n^{2})</m> comparisons. In the best case, if the array is already
             ordered, no exchanges will be made. However, in the worst case, every
             comparison will cause an exchange. On average, we exchange half of the
             time.</p>
@@ -201,7 +201,7 @@ bubble_anim_init = function(divid)
                             1
                         </cell>
                         <cell>
-                            <math>n-1</math>
+                            <m>n-1</m>
                         </cell>
                     </row>
                     <row>
@@ -209,7 +209,7 @@ bubble_anim_init = function(divid)
                             2
                         </cell>
                         <cell>
-                            <math>n-2</math>
+                            <m>n-2</m>
                         </cell>
                     </row>
                     <row>
@@ -217,7 +217,7 @@ bubble_anim_init = function(divid)
                             3
                         </cell>
                         <cell>
-                            <math>n-3</math>
+                            <m>n-3</m>
                         </cell>
                     </row>
                     <row>
@@ -230,10 +230,10 @@ bubble_anim_init = function(divid)
                     </row>
                     <row>
                         <cell>
-                            <math>n-1</math>
+                            <m>n-1</m>
                         </cell>
                         <cell>
-                            <math>1</math>
+                            <m>1</m>
                         </cell>
                     </row>
                 

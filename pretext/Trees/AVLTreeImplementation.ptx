@@ -196,34 +196,34 @@ void rotateLeft(TreeNode *rotRoot){
         
         <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 5: A Left Rotation</caption><image source="Trees/Figures/bfderive.png" width="50%"/></figure>
         <p><xref ref="fig-bfderive"/> shows a left rotation. B and D are the pivotal
-            nodes and A, C, E are their subtrees. Let <math>h_x</math> denote the
-            height of a particular subtree rooted at node <math>x</math>. By definition
+            nodes and A, C, E are their subtrees. Let <m>h_x</m> denote the
+            height of a particular subtree rooted at node <m>x</m>. By definition
             we know the following:</p>
-        <math_block docname="Trees/AVLTreeImplementation" label="True" nowrap="False" number="True" xml:space="preserve">newBal(B) = h_A - h_C \\
-oldBal(B) = h_A - h_D</math_block>
-        <p>But we know that the old height of D can also be given by <math>1 +
-                max(h_C,h_E)</math>, that is, the height of D is one more than the maximum
-            height of its two children. Remember that <math>h_c</math> and
-            <math>h_E</math> hav not changed. So, let us substitute that in to the
+        <m docname="Trees/AVLTreeImplementation" label="True" nowrap="False" number="True" xml:space="preserve">newBal(B) = h_A - h_C \\
+oldBal(B) = h_A - h_D</m>
+        <p>But we know that the old height of D can also be given by <m>1 +
+                max(h_C,h_E)</m>, that is, the height of D is one more than the maximum
+            height of its two children. Remember that <m>h_c</m> and
+            <m>h_E</m> hav not changed. So, let us substitute that in to the
             second equation, which gives us</p>
-        <p><math>oldBal(B) = h_A - (1 + max(h_C,h_E))</math></p>
+        <p><m>oldBal(B) = h_A - (1 + max(h_C,h_E))</m></p>
         <p>and then subtract the two equations. The following steps
             do the subtraction and use some algebra to simplify the equation for
-            <math>newBal(B)</math>.</p>
-        <math_block docname="Trees/AVLTreeImplementation" label="True" nowrap="False" number="True" xml:space="preserve">newBal(B) - oldBal(B) = h_A - h_C - (h_A - (1 + max(h_C,h_E))) \\
+            <m>newBal(B)</m>.</p>
+        <m docname="Trees/AVLTreeImplementation" label="True" nowrap="False" number="True" xml:space="preserve">newBal(B) - oldBal(B) = h_A - h_C - (h_A - (1 + max(h_C,h_E))) \\
 newBal(B) - oldBal(B) = h_A - h_C - h_A + (1 + max(h_C,h_E)) \\
 newBal(B) - oldBal(B) = h_A  - h_A + 1 + max(h_C,h_E) - h_C  \\
-newBal(B) - oldBal(B) =  1 + max(h_C,h_E) - h_C</math_block>
-        <p>Next we will move <math>oldBal(B)</math> to the right hand side of the
+newBal(B) - oldBal(B) =  1 + max(h_C,h_E) - h_C</m>
+        <p>Next we will move <m>oldBal(B)</m> to the right hand side of the
             equation and make use of the fact that
-            <math>max(a,b)-c = max(a-c, b-c)</math>.</p>
-        <math_block docname="Trees/AVLTreeImplementation" label="True" nowrap="False" number="True" xml:space="preserve">newBal(B) = oldBal(B) + 1 + max(h_C - h_C ,h_E - h_C) \\</math_block>
-        <p>But, <math>h_E - h_C</math> is the same as <math>-oldBal(D)</math>. So we can
-            use another identity that says <math>max(-a,-b) = -min(a,b)</math>. So we
-            can finish our derivation of <math>newBal(B)</math> with the following
+            <m>max(a,b)-c = max(a-c, b-c)</m>.</p>
+        <m docname="Trees/AVLTreeImplementation" label="True" nowrap="False" number="True" xml:space="preserve">newBal(B) = oldBal(B) + 1 + max(h_C - h_C ,h_E - h_C) \\</m>
+        <p>But, <m>h_E - h_C</m> is the same as <m>-oldBal(D)</m>. So we can
+            use another identity that says <m>max(-a,-b) = -min(a,b)</m>. So we
+            can finish our derivation of <m>newBal(B)</m> with the following
             steps:</p>
-        <math_block docname="Trees/AVLTreeImplementation" label="True" nowrap="False" number="True" xml:space="preserve">newBal(B) = oldBal(B) + 1 + max(0 , -oldBal(D)) \\
-newBal(B) = oldBal(B) + 1 - min(0 , oldBal(D)) \\</math_block>
+        <m docname="Trees/AVLTreeImplementation" label="True" nowrap="False" number="True" xml:space="preserve">newBal(B) = oldBal(B) + 1 + max(0 , -oldBal(D)) \\
+newBal(B) = oldBal(B) + 1 - min(0 , oldBal(D)) \\</m>
         <p>Now we have all of the parts in terms that we readily know. If we
             remember that B is <c>rotRoot</c> and D is <c>newRoot</c> then we can see this
             corresponds exactly to the statement on line&#160;16, or:</p>
@@ -302,15 +302,15 @@ void rebalance(TreeNode *node){
             trees that are a little more complex than the tree in
             <xref ref="fig-rotatelr"/>.</p>
         <p>By keeping the tree in balance at all times, we can ensure that the
-            <c>get</c> method will run in order <math>O(log_2(n))</math> time. But the
+            <c>get</c> method will run in order <m>O(log_2(n))</m> time. But the
             question is at what cost to our <c>put</c> method? Let us break this down
             into the operations performed by <c>put</c>. Since a new node is inserted
             as a leaf, updating the balance factors of all the parents will require
-            a maximum of <math>log_2(n)</math> operations, one for each level of the
+            a maximum of <m>log_2(n)</m> operations, one for each level of the
             tree. If a subtree is found to be out of balance a maximum of two
             rotations are required to bring the tree back into balance. But, each of
-            the rotations works in <math>O(1)</math> time, so even our <c>put</c>
-            operation remains <math>O(log_2(n))</math>.</p>
+            the rotations works in <m>O(1)</m> time, so even our <c>put</c>
+            operation remains <m>O(log_2(n))</m>.</p>
         <p>At this point we have implemented a functional AVL-Tree, unless you need
             the ability to delete a node. We leave the deletion of the node and
             subsequent updating and rebalancing as an exercise for you.</p>

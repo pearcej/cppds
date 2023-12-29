@@ -2,11 +2,11 @@
         <title>Summary</title>
         <p><ul>
             <li>
-                <p>A sequential search is <math>O(n)</math> for ordered and unordered
+                <p>A sequential search is <m>O(n)</m> for ordered and unordered
                     lists.</p>
             </li>
             <li>
-                <p>A binary search of an ordered list is <math>O(\log n)</math> in the
+                <p>A binary search of an ordered list is <m>O(\log n)</m> in the
                     worst case.</p>
             </li>
             <li>

@@ -3,12 +3,12 @@
         <p>One of the easiest ways to implement a graph is to use a two-dimensional
             matrix. In this matrix implementation, each of the rows and columns
             represent a vertex in the graph. The value that is stored in the cell at
-            the intersection of row <math>v</math> and column <math>w</math> indicates if
-            there is an edge from vertex <math>v</math> to vertex <math>w</math>. When two
+            the intersection of row <m>v</m> and column <m>w</m> indicates if
+            there is an edge from vertex <m>v</m> to vertex <m>w</m>. When two
             vertices are connected by an edge, we say that they are <idx>adjacent</idx><term>adjacent</term>.
             <xref ref="fig-adjmat"/> illustrates the adjacency matrix for the graph in
             <xref ref="graphs_vocabularyand-definitions"/>. A value in a cell represents the weight of the
-            edge from vertex <math>v</math> to vertex <math>w</math>.</p>
+            edge from vertex <m>v</m> to vertex <m>w</m>.</p>
         <figure align="center" xml:id="fig-adjmat">
             <caption>An Adjacency Matrix Representation for a Graph</caption>
                 <image source="Graphs/adjMat.png" width="80%">
@@ -26,7 +26,7 @@
             number of edges is large. But what do we mean by large? How many edges
             would be needed to fill the matrix? Since there is one row and one
             column for every vertex in the graph, the number of edges required to
-            fill the matrix is <math>|V|^2</math>. A matrix is full when every vertex
+            fill the matrix is <m>|V|^2</m>. A matrix is full when every vertex
             is connected to every other vertex. There are few real problems that
             approach this sort of connectivity. The problems we will look at in this
             chapter all involve graphs that are sparsely connected.</p>

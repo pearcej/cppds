@@ -13,8 +13,8 @@
             would crumble into dust and the world would vanish.</p>
         <p>Although the legend is interesting, you need not worry about the world
             ending any time soon. The number of moves required to correctly move a
-            tower of 64 disks is <math>2^{64}-1 = 18,446,744,073,709,551,615</math>. At
-            a rate of one move per second, that is <math>584,942,417,355</math> years! Clearly
+            tower of 64 disks is <m>2^{64}-1 = 18,446,744,073,709,551,615</m>. At
+            a rate of one move per second, that is <m>584,942,417,355</m> years! Clearly
             there is more to this puzzle than meets the eye.</p>
         <p><xref ref="fig-hanoicpp"/> shows an example of a configuration of disks in the
             middle of a move from the first peg to the third. Notice that, as the

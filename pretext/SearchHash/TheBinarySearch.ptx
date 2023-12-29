@@ -2,7 +2,7 @@
         <title>The Binary Search</title>
         <p>It is possible to take greater advantage of the ordered vector if we are
             clever with our comparisons. In the sequential search, when we compare
-            against the first item, there are at most <math>n-1</math> more items to
+            against the first item, there are at most <m>n-1</m> more items to
             look through if the first item is not what we are looking for. <idx>binary search</idx>
             Instead
             of searching the vector in sequence, a <term>binary search</term> will start by
@@ -134,9 +134,9 @@ int main() {
                 comparison eliminates about half of the remaining items from
                 consideration. What is the maximum number of comparisons this algorithm
                 will require to check the entire list? If we start with <em>n</em> items, about
-                <math>\frac{n}{2}</math> items will be left after the first comparison.
-                After the second comparison, there will be about <math>\frac{n}{4}</math>.
-                Then <math>\frac{n}{8}</math>, <math>\frac{n}{16}</math>, and so on. How many
+                <m>\frac{n}{2}</m> items will be left after the first comparison.
+                After the second comparison, there will be about <m>\frac{n}{4}</m>.
+                Then <m>\frac{n}{8}</m>, <m>\frac{n}{16}</m>, and so on. How many
                 times can we split the list? <xref ref="search-hash_tbl-binaryanalysis"/> helps us to see the
                 answer.</p>
             
@@ -161,7 +161,7 @@ int main() {
                                 1
                             </cell>
                             <cell>
-                                <math>\frac {n}{2}</math>
+                                <m>\frac {n}{2}</m>
                             </cell>
                         </row>
                         <row>
@@ -169,7 +169,7 @@ int main() {
                                 2
                             </cell>
                             <cell>
-                                <math>\frac {n}{4}</math>
+                                <m>\frac {n}{4}</m>
                             </cell>
                         </row>
                         <row>
@@ -177,7 +177,7 @@ int main() {
                                 3
                             </cell>
                             <cell>
-                                <math>\frac {n}{8}</math>
+                                <m>\frac {n}{8}</m>
                             </cell>
                         </row>
                         <row>
@@ -192,7 +192,7 @@ int main() {
                                 i
                             </cell>
                             <cell>
-                                <math>\frac {n}{2^i}</math>
+                                <m>\frac {n}{2^i}</m>
                             </cell>
                         </row>
                     
@@ -201,10 +201,10 @@ int main() {
             <p>When we split the list enough times, we end up with a list that has just
                 one item. Either that is the item we are looking for or it is not.
                 Either way, we are done. The number of comparisons necessary to get to
-                this point is <em>i</em> where <math>\frac {n}{2^i} =1</math>. Solving for <em>i</em>
-                gives us <math>i=\log n</math>. The maximum number of comparisons is
+                this point is <em>i</em> where <m>\frac {n}{2^i} =1</m>. Solving for <em>i</em>
+                gives us <m>i=\log n</m>. The maximum number of comparisons is
                 logarithmic with respect to the number of items in the list. Therefore,
-                the binary search is <math>O(\log n)</math>.</p>
+                the binary search is <m>O(\log n)</m>.</p>
             <p>One additional analysis issue needs to be addressed. In the recursive
                 solution shown above, the recursive call,</p>
             <p><c>binarySearch(alist[:midpoint],item)</c></p>

@@ -34,14 +34,14 @@
             <idx><h>Tree Components</h><h>path</h></idx>
                 <p>A <term>path</term> is an ordered list of nodes that are connected by edges. For
                     example,
-                    Mammal <math>\rightarrow</math> Carnivora <math>\rightarrow</math> Felidae <math>\rightarrow</math> Felis <math>\rightarrow</math> Domestica
+                    Mammal <m>\rightarrow</m> Carnivora <m>\rightarrow</m> Felidae <m>\rightarrow</m> Felis <m>\rightarrow</m> Domestica
                     is a path.</p>
             
         </li>
         <li>
             <title>Children</title>
             <idx><h>Tree Components</h><h>children</h></idx>
-                <p>The set of nodes <math>c</math> that have incoming edges from the same
+                <p>The set of nodes <m>c</m> that have incoming edges from the same
                     node to are said to be the children of that node. In
                     <xref ref="trees_examplesof-trees"/>, nodes log/, spool/, and yp/ are the children of node
                     var/.</p>
@@ -80,8 +80,8 @@
         <li>
             <title>Level</title>
             <idx><h>Tree Components</h><h>level</h></idx>
-                <p>The <term>level</term> of a node <math>n</math> is the number of edges on the path
-                    from the root node to <math>n</math>. For example, the level of the
+                <p>The <term>level</term> of a node <m>n</m> is the number of edges on the path
+                    from the root node to <m>n</m>. For example, the level of the
                     Felis node in <xref ref="trees_examplesof-trees"/> is five. By definition, the level
                     of the root node is zero.</p>
             
@@ -105,9 +105,9 @@
             <p>One node of the tree is designated as the root node.</p>
         </li>
         <li>
-            <p>Every node <math>n</math>, except the root node, is connected by an edge
-                from exactly one other node <math>p</math>, where <math>p</math> is the
-                parent of <math>n</math>.</p>
+            <p>Every node <m>n</m>, except the root node, is connected by an edge
+                from exactly one other node <m>p</m>, where <m>p</m> is the
+                parent of <m>n</m>.</p>
         </li>
         <li>
             <p>A unique path traverses from the root to each node.</p>

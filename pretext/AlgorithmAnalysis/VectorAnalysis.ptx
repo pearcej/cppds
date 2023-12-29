@@ -26,11 +26,11 @@
             that already exists.
             Both of these operations take the same amount of time no matter how
             large the array or vector is. When an operation like this is independent of
-            the size of the array or vector they are <math>O(1)</math>.</p>
+            the size of the array or vector they are <m>O(1)</m>.</p>
         <p>Although not possible with basic arrays, a common programming technique is growing a vector.
             As we have seen, one
             way to create a longer vector is to use the <c>push_back()</c> method.
-            The <c>push_back()</c> method is typically <math>O(1)</math>, provided
+            The <c>push_back()</c> method is typically <m>O(1)</m>, provided
             there is adequate capacity in the underlying array.</p>
         <p>First we'll use <c>push_back()</c> method.
             <xref ref="lst-mkvectcpp"/> shows the code for
@@ -154,14 +154,14 @@ int main(){
             look at <xref ref="algorithm-analysis_algorithm-analysis_tbl-vectbigocpp"/> to see the Big-O efficiency of all the
             basic vector operations. When <c>pop_back()</c> is called, the element
             at the end of the vector is removed and it typically takes
-            <math>O(1)</math> but when <c>erase()</c> is called on the first element in the vector
-            or anywhere in the middle it is <math>O(n)</math>. The reason for this lies
+            <m>O(1)</m> but when <c>erase()</c> is called on the first element in the vector
+            or anywhere in the middle it is <m>O(n)</m>. The reason for this lies
             in how C++ chooses to implement vectors. When an item is taken from the
             front of the vector, in C++ implementation, all the other elements in
             the vector are shifted one position closer to the beginning. This may seem
             silly to you now, but if you look at <xref ref="algorithm-analysis_algorithm-analysis_tbl-vectbigocpp"/> you will see
             that this implementation also allows the index operation to be
-            <math>O(1)</math>. This is a tradeoff that the C++ implementers thought
+            <m>O(1)</m>. This is a tradeoff that the C++ implementers thought
             was a good one.</p>
         
         <table xml:id="algorithm-analysis_id1"><tabular>
@@ -271,13 +271,13 @@ int main(){
                 
             
         </tabular></table>
-        <p>The <title_reference>push_back()</title_reference> operation is <math>O(1)</math> unless there is inadequate capacity,
+        <p>The <title_reference>push_back()</title_reference> operation is <m>O(1)</m> unless there is inadequate capacity,
             in which case the entire
             vector is moved to a larger contiguous underlying array, which
-            is <math>O(n)</math>.</p>
+            is <m>O(n)</m>.</p>
         <p>Note that the vector class provides a find command which can determine
-            whether a given item is in the vector. It is <math>O(log n)</math> if
-            the vector is sorted and is <math>O(n)</math> otherwise. We will explain
+            whether a given item is in the vector. It is <m>O(log n)</m> if
+            the vector is sorted and is <m>O(n)</m> otherwise. We will explain
             why this is in Chapter 3.</p>
         <p>As a way of demonstrating the difference in performance between push_back
             and insert, let's do
