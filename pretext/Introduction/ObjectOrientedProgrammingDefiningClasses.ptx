@@ -179,10 +179,7 @@ myfraction = Fraction(3, 5)
                 want our user to be able to call every constructor directly, we always place the
                 constructor under <c>public</c>. A third access keyword, <c>protected</c> will be discussed later.</p>
 
-<exercise label="aande">
-    <statement><p>Match the corresponding key word to the appropriate scenario.</p></statement>
-    <feedback><p>Review the definitions of the key words.</p></feedback>
-<matches><match order="1"><premise>Encapsulation</premise><response>A situation where bank software programmers want to protect users' personal information.</response></match><match order="2"><premise>Abstraction</premise><response>A situation where software programmers want to develop similar objects without having to redefine the most similar properties.</response></match></matches></exercise>        </subsection>
+        </subsection>
         <subsection xml:id="introduction_polymorphism">
             <title>Polymorphism</title>
             <p><idx>polymorphism</idx><term>Polymorphism</term> means the ability to appear in many forms. In object-oriented programming,
@@ -837,24 +834,7 @@ print(x == y)
                 </TabNode></exercise>
         </subsection>
         <subsection xml:id="introduction_self-check">
-            <title>Self Check</title>
-
-<exercise label="class_syntax">
-    <statement><p>Click on the line where there is a syntax error when defining the following class</p></statement>
-<feedback><p>C++ class definitions end with a certain symbol</p></feedback>
-<areas>
-<cline><area>class Fraction {</area>:</cline>
-<cline>  <area>public:</area>:</cline>
-<cline>      <area>Fraction(int top, int bottom) {</area>:</cline>
-<cline>          <area>/** Fraction contructor method */</area>:</cline>
-<cline>          <area>num = top;     // setting num's value</area>:</cline>
-<cline>          <area>den = bottom;  // setting den's value</area>:</cline>
-<cline>      <area>}</area>:</cline>
-<cline>  <area>private:</area>:</cline>
-<cline>      <area>int num; // num atribute</area>:</cline>
-<cline>      <area>int den; // den attribute</area>:</cline>
-<cline><area correct="yes">}</area>:</cline>
-</areas></exercise>            <!--OOP class example:-->
+            <!--OOP class example:-->
             <p><term>Question example</term></p>
             <program language="cpp"><input>
 #include&lt;iostream&gt;
@@ -878,62 +858,7 @@ class Airplane: public Vehicle
         int wings;
 };
 </input></program>
-
-    <exercise label="OOPclassquestion">
-        <statement>
-
-            <p>Q-12: Which OOP principle is the above code an example of?</p>
-
-        </statement>
-<choices>
-
-            <choice correct="yes">
-                <statement>
-                    <p>Inheritance</p>
-                </statement>
-                <feedback>
-                    <p>Correct! Airplane inherits many things from Vehicle</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>Encapsulation</p>
-                </statement>
-                <feedback>
-                    <p>Encapsulation is the principle of hiding the contents of a class except when absolutely necessary. Wings is not hidden from Vehicle, it simply does not exist in the Vehicle class.</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>Polymorphism</p>
-                </statement>
-                <feedback>
-                    <p>Polymorphism is the ability to process objects or methods differently depending on their data type, class, number of arguments, etc. A subclass using parts of a pre-existing class is not an example of polymorphism because they are used in the same way.</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>Abstraction</p>
-                </statement>
-                <feedback>
-                    <p>Abstraction is the principle of focusing on desired behaviors and properties while disregarding what is irrelevant/unimportant. Take another look at what the two classes have in common.</p>
-                </feedback>
-            </choice>
-</choices>
-
-    </exercise>
-
-<exercise label="elements_of_OOP">
-    <statement><p>Drag the word on the left to its corresponding definition</p></statement>
-    <feedback><p>Review the elements of object oriented programming</p></feedback>
-<matches><match order="1"><premise>Encapsulation</premise><response>hiding the contents of a class except when absolutely necessary</response></match><match order="2"><premise>Abstraction</premise><response>focusing on desired behaviors and properties while disregarding what is irrelevant/unimportant</response></match><match order="3"><premise>Polymorphism</premise><response>processing objects or methods differently depending on their data type, class, number of arguments, etc.</response></match></matches></exercise>
-<exercise label="elements_of_classses">
-    <statement><p>Drag the word on the left to its corresponding definition</p></statement>
-    <feedback><p>Review classes and their properties</p></feedback>
-<matches><match order="4"><premise>instance</premise><response>an object of a class</response></match><match order="5"><premise>constructor</premise><response>an special function to initialize</response></match><match order="6"><premise>access keywords</premise><response> private and public</response></match><match order="7"><premise>class</premise><response>a template for creating objects</response></match></matches></exercise>            <p>To make sure you understand how operators are implemented in C++ classes, and how to properly write methods, write some methods to implement
+            <p>To make sure you understand how operators are implemented in C++ classes, and how to properly write methods, write some methods to implement
                 <c classes="code">*</c>, <c classes="code">/</c>, and <c classes="code">-</c>.  Also implement comparison operators <c classes="code">&gt;</c> and <c classes="code">&lt;</c>.</p>
 
     <program xml:id="self_check_4cpp" interactive="activecode" language="cpp">
@@ -1008,6 +933,88 @@ int main(){
     </program>
             <p>Our the next section will introduce another important aspect of
                 object-oriented programming, namely <term>inheritance</term>.</p>
+<reading-questions xml:id="rq-oop">
+    <title>Reading Questions</title>
+    <exercise label="aande">
+        <statement><p>Match the corresponding key word to the appropriate scenario.</p></statement>
+        <feedback><p>Review the definitions of the key words.</p></feedback>
+    <matches><match order="1"><premise>Encapsulation</premise><response>A situation where bank software programmers want to protect users' personal information.</response></match><match order="2"><premise>Abstraction</premise><response>A situation where software programmers want to develop similar objects without having to redefine the most similar properties.</response></match></matches></exercise>
+    <exercise label="class_syntax">
+        <statement><p>Click on the line where there is a syntax error when defining the following class</p></statement>
+    <feedback><p>C++ class definitions end with a certain symbol</p></feedback>
+    <areas>
+    <cline><area>class Fraction {</area>:</cline>
+    <cline>  <area>public:</area>:</cline>
+    <cline>      <area>Fraction(int top, int bottom) {</area>:</cline>
+    <cline>          <area>/** Fraction contructor method */</area>:</cline>
+    <cline>          <area>num = top;     // setting num's value</area>:</cline>
+    <cline>          <area>den = bottom;  // setting den's value</area>:</cline>
+    <cline>      <area>}</area>:</cline>
+    <cline>  <area>private:</area>:</cline>
+    <cline>      <area>int num; // num atribute</area>:</cline>
+    <cline>      <area>int den; // den attribute</area>:</cline>
+    <cline><area correct="yes">}</area>:</cline>
+    </areas></exercise>
+    <exercise label="OOPclassquestion">
+        <statement>
+
+            <p>Which OOP principle is the above code an example of?</p>
+
+        </statement>
+<choices>
+
+            <choice correct="yes">
+                <statement>
+                    <p>Inheritance</p>
+                </statement>
+                <feedback>
+                    <p>Correct! Airplane inherits many things from Vehicle</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>Encapsulation</p>
+                </statement>
+                <feedback>
+                    <p>Encapsulation is the principle of hiding the contents of a class except when absolutely necessary. Wings is not hidden from Vehicle, it simply does not exist in the Vehicle class.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>Polymorphism</p>
+                </statement>
+                <feedback>
+                    <p>Polymorphism is the ability to process objects or methods differently depending on their data type, class, number of arguments, etc. A subclass using parts of a pre-existing class is not an example of polymorphism because they are used in the same way.</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>Abstraction</p>
+                </statement>
+                <feedback>
+                    <p>Abstraction is the principle of focusing on desired behaviors and properties while disregarding what is irrelevant/unimportant. Take another look at what the two classes have in common.</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+
+    
+
+    <exercise label="elements_of_OOP">
+        <statement><p>Drag the word on the left to its corresponding definition</p></statement>
+        <feedback><p>Review the elements of object oriented programming</p></feedback>
+    <matches><match order="1"><premise>Encapsulation</premise><response>hiding the contents of a class except when absolutely necessary</response></match><match order="2"><premise>Abstraction</premise><response>focusing on desired behaviors and properties while disregarding what is irrelevant/unimportant</response></match><match order="3"><premise>Polymorphism</premise><response>processing objects or methods differently depending on their data type, class, number of arguments, etc.</response></match></matches></exercise>
+    <exercise label="elements_of_classses">
+        <statement><p>Drag the word on the left to its corresponding definition</p></statement>
+        <feedback><p>Review classes and their properties</p></feedback>
+    <matches><match order="4"><premise>instance</premise><response>an object of a class</response></match><match order="5"><premise>constructor</premise><response>an special function to initialize</response></match><match order="6"><premise>access keywords</premise><response> private and public</response></match><match order="7"><premise>class</premise><response>a template for creating objects</response></match></matches></exercise>  
+</reading-questions>
+
+
         </subsection>
     </section>
 
