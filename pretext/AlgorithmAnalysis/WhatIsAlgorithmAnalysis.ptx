@@ -24,7 +24,7 @@
         iterates through the <em>n</em> integers, adding each to the accumulator.</p>
     
     <p xml:id="algorithm-analysis_lst-sum0" names="lst_sum0"><term>Listing 1</term></p>
-    <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+    <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
 <program xml:id="ec1_cpp" interactive="activecode" language="cpp">
     <input>
@@ -65,7 +65,7 @@ print(sumOfN(10)) # n is 10 (10 + 9 + 8 ...)
 main()
     </input>
 </program>
-        </TabNode></exercise>
+        </TabNode>
     <p>Now look at the function in <xref ref="lst-sum2"/>.
         At first glance it may look
         strange, but upon further inspection you can see that this function is
@@ -75,7 +75,7 @@ main()
         during the accumulation step that was not really necessary.</p>
     
     <p xml:id="algorithm-analysis_lst-sum2" names="lst_sum2"><term>Listing 2</term></p>
-    <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+    <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
 <program xml:id="ec2_cpp" interactive="activecode" language="cpp">
     <input>
@@ -120,7 +120,7 @@ print(foo(10))
 main()
     </input>
 </program>
-        </TabNode></exercise>
+        </TabNode>
     <p>The question we raised earlier asked whether one function is better than
         another. The answer depends on your criteria. The function <c>sumOfN</c> is
         certainly better than the function <c>foo</c> if you are concerned with
@@ -160,7 +160,7 @@ main()
         (fractions in most cases) for execution.</p>
     
     <p xml:id="algorithm-analysis_lst-sum11" names="lst_sum11"><term>Listing 3</term></p>
-    <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+    <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
 <program xml:id="ec2cpp" interactive="activecode" language="cpp">
     <input>
@@ -220,7 +220,7 @@ for i in range(5):
 main()
     </input>
 </program>
-        </TabNode></exercise>
+        </TabNode>
     <p><xref ref="lst-sum11"/> shows the original <c>sumOfN</c> function with the timing
         calls embedded before and after the summation. The function returns the amount of time (in seconds)
         required for the calculation.</p>
@@ -341,7 +341,7 @@ return sum_n;
             which shows <c>sumOfN3</c>
             taking advantage of the formula we just developed.</p>
         
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
 <program xml:id="algorithm-analysis_active3cpp" interactive="activecode" language="cpp">
     <input>
@@ -378,7 +378,7 @@ print(sumOfN3(10))
 main()
     </input>
 </program>
-            </TabNode></exercise>
+            </TabNode>
         <p>If we do the same benchmark measurement for <c>sumOfN3</c> for differnet values of <c>n</c>, we get the following results:</p>
         <p>When the value of <c>n</c> is 10:</p>
         <pre>Sum is 55 required 0.000000 seconds

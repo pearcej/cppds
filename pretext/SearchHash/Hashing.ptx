@@ -872,7 +872,7 @@ cout&lt;&lt;h&lt;&lt;endl;
 31: cow
 54: cat</pre>
             <p>The complete hash table example can be found in ActiveCode 1.</p>
-            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'Hashing', 'chapter': 'SearchHash', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'Hashing', 'chapter': 'SearchHash', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="complete_hash_cpp" interactive="activecode" language="cpp">
         <input>
@@ -1081,7 +1081,7 @@ print(H[20])
 print(H[99])
         </input>
     </program>
-                </TabNode></exercise>
+                </TabNode>
         </subsection>
         <subsection xml:id="search-hash_analysis-of-hashing">
             <title>Analysis of Hashing</title>

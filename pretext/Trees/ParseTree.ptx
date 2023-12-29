@@ -151,7 +151,7 @@
             to create a parse tree. The code for our parse tree builder is presented
             in <xref ref="lst-buildparse"/>.</p>
         
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'ParseTree', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'ParseTree', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="parsebuildcpp" interactive="activecode" language="cpp">
         <input>
@@ -336,7 +336,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <p>The four rules for building a parse tree are coded as the first four
             clauses of the <c>if</c> statement on lines 12, 17,
             23, and 26 of <xref ref="lst-buildparse"/>. In each case you

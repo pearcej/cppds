@@ -42,7 +42,7 @@
             digits are popped from the stack one at a time and appended to the
             right-hand end of the string. The binary string is then returned.</p>
         
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'ConvertingDecimalNumberstoBinaryNumbers', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'ConvertingDecimalNumberstoBinaryNumbers', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="binconvert_1ac_cpp" interactive="activecode" language="cpp">
         <input>
@@ -113,7 +113,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <p>The algorithm for binary conversion can easily be extended to perform
             the conversion for any base. In computer science it is common to use a
             number of different base encodings for integers.
@@ -141,7 +141,7 @@ main()
             create a set of digits that can be used to represent those remainders
             beyond 9.</p>
         
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'ConvertingDecimalNumberstoBinaryNumbers', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'ConvertingDecimalNumberstoBinaryNumbers', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="baseconvertcpp" interactive="activecode" language="cpp">
         <input>
@@ -219,7 +219,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <p>A solution to this problem is to extend the digit set to include some
             additional characters to represent digits.
             For example, hexadecimal uses the ten decimal
