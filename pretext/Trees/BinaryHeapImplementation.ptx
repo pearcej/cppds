@@ -456,9 +456,14 @@ main()
                 time, you will construct a sorting algorithm that uses a heap and sorts
                 a vector in <math>O(n\log{n}))</math> as an exercise at the end of this
                 chapter.</p>
-
+<reading-questions xml:id="rq-binary-heap-implementation">
+    <title>Reading Question</title>
+    
+    
+    
         <exercise>
             <statement>
-    <p>Q-3: What is the vector used in the binary tree in the first image of <xref ref="fig-percdown"/>? Exclude any whitespace. <var/>  </p></statement><setup><var><condition string="^\s*0,9,14,11,17,18,19,21,33,27\s*$"><feedback><p>Is the correct answer!</p></feedback></condition><condition string="^\s*.*9,14,11,17,18,19,21,33,27\s*$"><feedback><p>Remember what has to be at the beginning of the vector to accurately traverse through the binary tree. Look back at chp. 8.9.2.</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>Refer to section 8.10.1 and 8.10.2</p></feedback></condition></var></setup></exercise>        </subsection>
+    <p>What is the vector used in the binary tree in the first image of <xref ref="fig-percdown"/>? Exclude any whitespace. <var/>  </p></statement><setup><var><condition string="^\s*0,9,14,11,17,18,19,21,33,27\s*$"><feedback><p>Is the correct answer!</p></feedback></condition><condition string="^\s*.*9,14,11,17,18,19,21,33,27\s*$"><feedback><p>Remember what has to be at the beginning of the vector to accurately traverse through the binary tree. Look back at chp. 8.9.2.</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>Refer to section 8.10.1 and 8.10.2</p></feedback></condition></var></setup></exercise> </reading-questions>
+</subsection>
     </section>
 
