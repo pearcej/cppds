@@ -232,17 +232,20 @@ main()
             resulting digit can be appended to the answer. For example, if the
             remainder 13 is removed from the stack, the digit D is appended to the
             resulting string.</p>
-        <note>
-            <title>Self Check</title>
-        </note>
+       
+        <reading-questions xml:id="rq-converting-decimal-num-binary-num">
+            <title>
+                Reading Questions
+            </title>
         <exercise>
             <statement>
-    <p>Q-5: What is value of 25 expressed as an octal (base 8) number? <var/>  </p></statement><setup><var><p><BlankNode/></p><condition number="[31, 31]"><feedback><p>Correct because 25 = 3x8 + 1.</p></feedback></condition></var></setup></exercise>
+    <p>What is value of 25 expressed as an octal (base 8) number? <var/>  </p></statement><setup><var><p><BlankNode/></p><condition number="[31, 31]"><feedback><p>Correct because 25 = 3x8 + 1.</p></feedback></condition></var></setup></exercise>
         <exercise>
             <statement>
-    <p>Q-6: What is value of 256 expressed as a hexadecimal (base 16) number? <var/>  </p></statement><setup><var><p><BlankNode/></p><condition number="[100, 100]"><feedback><p>Correct because 256 = 1x16^2.</p></feedback></condition></var></setup></exercise>
+    <p>What is value of 256 expressed as a hexadecimal (base 16) number? <var/>  </p></statement><setup><var><p><BlankNode/></p><condition number="[100, 100]"><feedback><p>Correct because 256 = 1x16^2.</p></feedback></condition></var></setup></exercise>
         <exercise>
             <statement>
-    <p>Q-7: What is value of 26 expressed in base 26? <var/>  </p></statement><setup><var><p><BlankNode/></p><condition number="[10, 10]"><feedback><p>Correct because 26 = 1x26^1.</p></feedback></condition></var></setup></exercise>        
+    <p>What is value of 26 expressed in base 26? <var/>  </p></statement><setup><var><p><BlankNode/></p><condition number="[10, 10]"><feedback><p>Correct because 26 = 1x26^1.</p></feedback></condition></var></setup></exercise>  
+</reading-questions>      
     </section>
 
