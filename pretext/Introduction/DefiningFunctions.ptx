@@ -109,76 +109,7 @@ int main() {
 }
         </input>
     </program>
-        <note>
-            <title>Self Check</title>
-            <p>Take a look at the code below:</p>
-            <pre>#include &lt;iostream&gt;
-using namespace std;
-
-void dogWalk(int steps){
-
-    for (int step = 0; step &lt; steps; step++){
-        cout &lt;&lt; "dog walked "&lt;&lt; step &lt;&lt; " steps!"&lt;&lt; endl;
-
-    }
-
-}
-
-int main() {
-
-    dogWalk(11);
-
-    return 0;
-
-}</pre>
-        </note>
-
-    <exercise label="dog_walker">
-        <statement>
-
-        <p>Q-4: What is the correct return type of the function above <term>int main()</term>?</p>
-
-        </statement>
-<choices>
-
-            <choice correct="yes">
-                <statement>
-                    <p>void</p>
-                </statement>
-                <feedback>
-                    <p>Correct, nothing is returned!</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>int</p>
-                </statement>
-                <feedback>
-                    <p>Not quite, check the value preceding the name of the function!</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>dog</p>
-                </statement>
-                <feedback>
-                    <p>Not quite, dog is not even a data type!</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>dogWalk</p>
-                </statement>
-                <feedback>
-                    <p>Not quite, that is the name of the function itself!</p>
-                </feedback>
-            </choice>
-</choices>
-
-    </exercise>
+            
         <subsection xml:id="introduction_parameter-passing-by-value-versus-by-reference">
             <title>Parameter Passing: by Value versus by Reference</title>
             <p><idx>pass-by-value</idx>In all of the functions we have written thus far, we have used a function calling
@@ -366,6 +297,79 @@ main()
     </program>
                 </TabNode></exercise>
 
+    
+            
+            <reading-questions xml:id="rq-defining-function">
+                <title>
+                    Reading Questions
+                </title>
+                <p>Take a look at the code below:</p>
+            <pre>#include &lt;iostream&gt;
+using namespace std;
+
+void dogWalk(int steps){
+
+    for (int step = 0; step &lt; steps; step++){
+        cout &lt;&lt; "dog walked "&lt;&lt; step &lt;&lt; " steps!"&lt;&lt; endl;
+
+    }
+
+}
+
+int main() {
+
+    dogWalk(11);
+
+    return 0;
+
+}</pre>
+    <exercise label="dog_walker">
+        <statement>
+
+        <p>What is the correct return type of the function above <term>int main()</term>?</p>
+
+        </statement>
+<choices>
+
+            <choice correct="yes">
+                <statement>
+                    <p>void</p>
+                </statement>
+                <feedback>
+                    <p>Correct, nothing is returned!</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>int</p>
+                </statement>
+                <feedback>
+                    <p>Not quite, check the value preceding the name of the function!</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>dog</p>
+                </statement>
+                <feedback>
+                    <p>Not quite, dog is not even a data type!</p>
+                </feedback>
+            </choice>
+
+            <choice>
+                <statement>
+                    <p>dogWalk</p>
+                </statement>
+                <feedback>
+                    <p>Not quite, that is the name of the function itself!</p>
+                </feedback>
+            </choice>
+</choices>
+
+    </exercise>
+
     <exercise label="foverloading">
         <statement>
 
@@ -412,35 +416,38 @@ main()
 </choices>
 
     </exercise>
-            <note>
-                <title>Self Check</title>
-                <p>Here's a self check that really covers everything so far.  You may have
-                    heard of the infinite monkey theorem?  The theorem states that a monkey
-                    hitting keys at random on a typewriter keyboard for an infinite amount of
-                    time will almost surely type a given text, such as the complete works of
-                    William Shakespeare.  Well, suppose we replace a monkey with a C++ function.
-                    How long do you think it would take for a C++ function to generate just one
-                    sentence of Shakespeare?  The sentence we'll shoot for is:  <q>methinks it is
-                    like a weasel</q></p>
-                <p>You're not going to want to run this one in the browser, so fire up your favorite
-                    C++ IDE.  The way we'll simulate this is to write a function that generates a string
-                    that is 28 characters long by choosing random letters from the 26 letters in the
-                    alphabet plus the space.  We'll write another function that will score each
-                    generated string by comparing the randomly generated string to the goal.
-                    Hint: You will need to import the &lt;random&gt; library for this.</p>
-                <p>A third function will repeatedly call generate and score, then if 100% of
-                    the letters are correct we are done.  If the letters are not correct then
-                    we will generate a whole new string. To make it easier to follow your program's
-                    progress this third function should print out the best string generated so far
-                    and its score every 1000 tries.</p>
-            </note>
-            <note>
-                <title>Self Check Challenge</title>
-                <p>See if you can improve upon the program in the self check by keeping letters
-                    that are correct and only modifying one character in the best string so far.
-                    This is a type of algorithm in the class of &#8216;hill climbing' algorithms, that
-                    is we only keep the result if it is better than the previous one.</p>
-            </note>
+
+    <note>
+        <title>Self Check</title>
+        <p>Here's a self check that really covers everything so far.  You may have
+            heard of the infinite monkey theorem?  The theorem states that a monkey
+            hitting keys at random on a typewriter keyboard for an infinite amount of
+            time will almost surely type a given text, such as the complete works of
+            William Shakespeare.  Well, suppose we replace a monkey with a C++ function.
+            How long do you think it would take for a C++ function to generate just one
+            sentence of Shakespeare?  The sentence we'll shoot for is:  <q>methinks it is
+            like a weasel</q></p>
+        <p>You're not going to want to run this one in the browser, so fire up your favorite
+            C++ IDE.  The way we'll simulate this is to write a function that generates a string
+            that is 28 characters long by choosing random letters from the 26 letters in the
+            alphabet plus the space.  We'll write another function that will score each
+            generated string by comparing the randomly generated string to the goal.
+            Hint: You will need to import the &lt;random&gt; library for this.</p>
+        <p>A third function will repeatedly call generate and score, then if 100% of
+            the letters are correct we are done.  If the letters are not correct then
+            we will generate a whole new string. To make it easier to follow your program's
+            progress this third function should print out the best string generated so far
+            and its score every 1000 tries.</p>
+    </note>
+    <note>
+        <title>Self Check Challenge</title>
+        <p>See if you can improve upon the program in the self check by keeping letters
+            that are correct and only modifying one character in the best string so far.
+            This is a type of algorithm in the class of &#8216;hill climbing' algorithms, that
+            is we only keep the result if it is better than the previous one.</p>
+    </note>       
+                
+            </reading-questions>
         </subsection>
     </section>
 
