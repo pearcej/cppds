@@ -299,11 +299,13 @@ main()
         </input>
     </program>
             </TabNode></exercise>
+<reading-questions xml:id="rq-nodes-and-references">
+    <title>Reading Question</title>
 
     <exercise label="treeLike">
         <statement>
 
-        <p>Q-3: Which data structure resembles the above implementation of a tree?</p>
+        <p>Which data structure resembles the above implementation of a tree?</p>
 
         </statement>
 <choices>
@@ -346,5 +348,6 @@ main()
 </choices>
 
     </exercise>
+</reading-questions>
     </section>
 
