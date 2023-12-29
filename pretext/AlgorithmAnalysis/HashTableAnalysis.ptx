@@ -179,13 +179,19 @@ print("%d,%10.3f,%10.3f" % (i, lst_time, d_time))
     <p>Since C++ is an evolving language, there are always changes going on
         behind the scenes. The latest information on the performance of C++
         data structures can be found on the C++ website.</p>
-    <note>
-        <title>Self Check</title>
-    </note>
+
+        <reading-questions xml:id="rq-hashtable-analysis">
+            <title>
+                Reading Questions
+            </title>
+            
+            
+            
+        
 <exercise label="mccppmapperfcpp3">
     <statement>
 
-        <p>Q-1: Which of the vector operations shown below is not O(1)?</p>
+        <p>Which of the vector operations shown below is not O(1)?</p>
 
     </statement>
 <choices>
@@ -241,7 +247,7 @@ print("%d,%10.3f,%10.3f" % (i, lst_time, d_time))
 <exercise label="mccppmapperfcpp4">
     <statement>
 
-        <p>Q-2: Which of the hash table operations shown below is O(1)?</p>
+        <p>Which of the hash table operations shown below is O(1)?</p>
 
     </statement>
 <choices>
@@ -297,7 +303,7 @@ print("%d,%10.3f,%10.3f" % (i, lst_time, d_time))
 <exercise label="manswer_shtBO">
     <statement>
 
-        <p>Q-3: What is an operator for hash tables with an efficiency other than O(1)?</p>
+        <p>What is an operator for hash tables with an efficiency other than O(1)?</p>
 
     </statement>
 <choices>
@@ -349,6 +355,7 @@ print("%d,%10.3f,%10.3f" % (i, lst_time, d_time))
 </choices>
 
 </exercise>
+</reading-questions>
     
     <!--Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
 This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.-->

@@ -57,61 +57,7 @@
         would say then that the function <math>T(n)</math> has an order of
         magnitude <math>f(n)=n^{2}</math>, or simply that it is <math>O(n^{2})</math>.</p>
 
-<exercise label="bigo3">
-    <statement>
 
-    <p>Q-1: If the exact number of steps is <math>T(n)=2n+3n^{2}-1</math> what is the Big O?</p>
-
-    </statement>
-<choices>
-
-        <choice>
-            <statement>
-                <p>O(2n)</p>
-            </statement>
-            <feedback>
-                <p>No, 3n<sup>2</sup> dominates 2n. Try again.</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>O(n)</p>
-            </statement>
-            <feedback>
-                <p>No, n<sup>2</sup> dominates n. Try again.</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>O(3n<sup>2</sup>)</p>
-            </statement>
-            <feedback>
-                <p>No, the 3 should be omitted because n<sup>2</sup> dominates.</p>
-            </feedback>
-        </choice>
-
-        <choice correct="yes">
-            <statement>
-                <p>O(n<sup>2</sup>)</p>
-            </statement>
-            <feedback>
-                <p>Right!</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>More than one of the above</p>
-            </statement>
-            <feedback>
-                <p>No, only one of them is correct. Try again.</p>
-            </feedback>
-        </choice>
-</choices>
-
-</exercise>
     <p>Although we do not see this in the summation example, sometimes the
         performance of an algorithm depends on the exact values of the data
         rather than simply the size of the problem. For these kinds of
@@ -218,18 +164,7 @@
             </image>
     </figure>
 
-<exercise label="parsonsBigO" indent="show" language="python"><statement>
-    <p>Without looking at the graph above, from top to bottom order the following from most to least efficient.</p>
-</statement>
-<blocks><block order="1">
-<cline>constant</cline>
-<cline>logarithmic</cline>
-<cline>linear</cline>
-<cline>log linear</cline>
-<cline>quadratic</cline>
-<cline>cubic</cline>
-<cline>exponential</cline>
-</block></blocks></exercise>        <p>As a final example, suppose that we have the fragment of C++ code
+        <p>As a final example, suppose that we have the fragment of C++ code
         shown in <xref ref="lst-dummycode"/>. Although this program does not really do
         anything, it is instructive to see how we can take actual code and
         analyze performance.</p>
@@ -300,288 +235,363 @@ main()</pre>
         to see that <math>T(n)</math> then follows the quadratic function as
         <math>n</math> continues to grow.</p>
 
-<exercise label="crossoverefficiency">
-    <statement>
+<reading-questions xml:id="rq-big-o-notation">
+    <title>
+Reading Questions
+    </title>
+    <exercise>
 
-    <p>Q-3: Which of the following statements is true about the two algorithms?
-        Algorithm 1: 100n + 1
-        Algorithm 2: n^2 + n + 1</p>
+            <p>Write two C++ functions to find the minimum number in an array.  The first function should compare each number to every other number on the array. <math>O(n^2)</math>.  The second function should be linear <math>O(n)</math>.</p>
+        
+    </exercise>
+    <exercise label="bigo3">
+        <statement>
+    
+        <p>If the exact number of steps is <math>T(n)=2n+3n^{2}-1</math> what is the Big O?</p>
+    
+        </statement>
+    <choices>
+    
+            <choice>
+                <statement>
+                    <p>O(2n)</p>
+                </statement>
+                <feedback>
+                    <p>No, 3n<sup>2</sup> dominates 2n. Try again.</p>
+                </feedback>
+            </choice>
+    
+            <choice>
+                <statement>
+                    <p>O(n)</p>
+                </statement>
+                <feedback>
+                    <p>No, n<sup>2</sup> dominates n. Try again.</p>
+                </feedback>
+            </choice>
+    
+            <choice>
+                <statement>
+                    <p>O(3n<sup>2</sup>)</p>
+                </statement>
+                <feedback>
+                    <p>No, the 3 should be omitted because n<sup>2</sup> dominates.</p>
+                </feedback>
+            </choice>
+    
+            <choice correct="yes">
+                <statement>
+                    <p>O(n<sup>2</sup>)</p>
+                </statement>
+                <feedback>
+                    <p>Right!</p>
+                </feedback>
+            </choice>
+    
+            <choice>
+                <statement>
+                    <p>More than one of the above</p>
+                </statement>
+                <feedback>
+                    <p>No, only one of them is correct. Try again.</p>
+                </feedback>
+            </choice>
+    </choices>
+    
+    </exercise>
 
+    <exercise label="parsonsBigO" indent="show" language="python"><statement>
+        <p>Without looking at the graph above, from top to bottom order the following from most to least efficient.</p>
     </statement>
-<choices>
+    <blocks><block order="1">
+    <cline>constant</cline>
+    <cline>logarithmic</cline>
+    <cline>linear</cline>
+    <cline>log linear</cline>
+    <cline>quadratic</cline>
+    <cline>cubic</cline>
+    <cline>exponential</cline>
+    </block></blocks></exercise>
 
-        <choice>
-            <statement>
-                <p>Algorithm 1 will require a greater number of steps to complete than Algorithm 2</p>
-            </statement>
-            <feedback>
-                <p>This could be true depending on the input, but consider the broader picture</p>
-            </feedback>
-        </choice>
+    <exercise label="crossoverefficiency">
+        <statement>
+    
+        <p>Which of the following statements is true about the two algorithms?
+            Algorithm 1: 100n + 1
+            Algorithm 2: n^2 + n + 1</p>
+    
+        </statement>
+    <choices>
+    
+            <choice>
+                <statement>
+                    <p>Algorithm 1 will require a greater number of steps to complete than Algorithm 2</p>
+                </statement>
+                <feedback>
+                    <p>This could be true depending on the input, but consider the broader picture</p>
+                </feedback>
+            </choice>
+    
+            <choice>
+                <statement>
+                    <p>Algorithm 2 will require a greater number of steps to complete than Algorithm 1</p>
+                </statement>
+                <feedback>
+                    <p>This could be true depending on the input, but consider the broader picture</p>
+                </feedback>
+            </choice>
+    
+            <choice correct="yes">
+                <statement>
+                    <p>Algorithm 1 will require a greater number of steps to complete than Algorithm 2 until they reach the crossover point</p>
+                </statement>
+                <feedback>
+                    <p>Correct!</p>
+                </feedback>
+            </choice>
+    
+            <choice>
+                <statement>
+                    <p>Algorithm 1 and 2 will always require the same number of steps to complete</p>
+                </statement>
+                <feedback>
+                    <p>No, the efficiency of both will depend on the input</p>
+                </feedback>
+            </choice>
+    </choices>
+    
+    </exercise>
+    
 
-        <choice>
-            <statement>
-                <p>Algorithm 2 will require a greater number of steps to complete than Algorithm 1</p>
-            </statement>
-            <feedback>
-                <p>This could be true depending on the input, but consider the broader picture</p>
-            </feedback>
-        </choice>
+    <exercise label="BIGO1">
+        <statement>
+    
+            <p>The Big O of a particular algorithm is <math>O(log_{2}n)</math>.
+                Given that it takes 2 seconds to complete the algorithm with 3 million inputs;
+                how long would it take with 4 million inputs?</p>
+    
+        </statement>
+    <choices>
+    
+            <choice>
+                <statement>
+                    <p>3.444</p>
+                </statement>
+                <feedback>
+                    <p>Incorrect. Try again.</p>
+                </feedback>
+            </choice>
+    
+            <choice correct="yes">
+                <statement>
+                    <p>2.53</p>
+                </statement>
+                <feedback>
+                    <p>Correct!</p>
+                </feedback>
+            </choice>
+    
+            <choice>
+                <statement>
+                    <p>2</p>
+                </statement>
+                <feedback>
+                    <p>Incorrect. Try again.</p>
+                </feedback>
+            </choice>
+    
+            <choice>
+                <statement>
+                    <p>4</p>
+                </statement>
+                <feedback>
+                    <p>Incorrect. Try again.</p>
+                </feedback>
+            </choice>
+    
+            <choice>
+                <statement>
+                    <p>More than one of the above</p>
+                </statement>
+                <feedback>
+                    <p>No, only one of them is correct. Try again.</p>
+                </feedback>
+            </choice>
+    </choices>
+    
+    </exercise>
+    <exercise label="BIGO2">
+        <statement>
+    
+            <p>The Big O of a particular algorithm is <math>O(log_{2}n)</math>.
+                Given that it takes 2 seconds to complete the algorithm with 3 million inputs;
+                how long would it take with 10 million inputs?</p>
+    
+        </statement>
+    <choices>
+    
+            <choice>
+                <statement>
+                    <p>3.444</p>
+                </statement>
+                <feedback>
+                    <p>Incorrect. Try again.</p>
+                </feedback>
+            </choice>
+    
+            <choice>
+                <statement>
+                    <p>2.53</p>
+                </statement>
+                <feedback>
+                    <p>Incorrect. Try again.</p>
+                </feedback>
+            </choice>
+    
+            <choice>
+                <statement>
+                    <p>2</p>
+                </statement>
+                <feedback>
+                    <p>Incorrect. Try again.</p>
+                </feedback>
+            </choice>
+    
+            <choice correct="yes">
+                <statement>
+                    <p>4.2</p>
+                </statement>
+                <feedback>
+                    <p>Right!</p>
+                </feedback>
+            </choice>
+    
+            <choice>
+                <statement>
+                    <p>More than one of the above</p>
+                </statement>
+                <feedback>
+                    <p>No, only one of them is correct. Try again.</p>
+                </feedback>
+            </choice>
+    </choices>
+    
+    </exercise>
+    <exercise label="BIGO3">
+        <statement>
+    
+            <p>The Big O of a particular algorithm is <math>O(n^{3})</math>.
+                Given that it takes 2 seconds to complete the algorithm with 1000 inputs;
+                how long would it take with 2000 inputs?</p>
+    
+        </statement>
+    <choices>
+    
+            <choice>
+                <statement>
+                    <p>2000</p>
+                </statement>
+                <feedback>
+                    <p>Incorrect. Try again. Think about what happens to the time as more operations occur.</p>
+                </feedback>
+            </choice>
+    
+            <choice>
+                <statement>
+                    <p>3000</p>
+                </statement>
+                <feedback>
+                    <p>Incorrect. Try again. Think about what happens to the time as more operations occur.</p>
+                </feedback>
+            </choice>
+    
+            <choice correct="yes">
+                <statement>
+                    <p>16</p>
+                </statement>
+                <feedback>
+                    <p>Correct!</p>
+                </feedback>
+            </choice>
+    
+            <choice>
+                <statement>
+                    <p>1500</p>
+                </statement>
+                <feedback>
+                    <p>Incorrect. Try again. Think about what happens to the time as more operations occur.</p>
+                </feedback>
+            </choice>
+    
+            <choice>
+                <statement>
+                    <p>More than one of the above</p>
+                </statement>
+                <feedback>
+                    <p>No, only one of them is correct. Try again.</p>
+                </feedback>
+            </choice>
+    </choices>
+    
+    </exercise>
 
-        <choice correct="yes">
-            <statement>
-                <p>Algorithm 1 will require a greater number of steps to complete than Algorithm 2 until they reach the crossover point</p>
-            </statement>
-            <feedback>
-                <p>Correct!</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>Algorithm 1 and 2 will always require the same number of steps to complete</p>
-            </statement>
-            <feedback>
-                <p>No, the efficiency of both will depend on the input</p>
-            </feedback>
-        </choice>
-</choices>
-
-</exercise>
-    <note>
-        <title>Self Check</title>
-        <p>Write two C++ functions to find the minimum number in an array.  The first function should compare each number to every other number on the array. <math>O(n^2)</math>.  The second function should be linear <math>O(n)</math>.</p>
-    </note>
-<exercise label="BIGO1">
-    <statement>
-
-        <p>Q-4: The Big O of a particular algorithm is <math>O(log_{2}n)</math>.
-            Given that it takes 2 seconds to complete the algorithm with 3 million inputs;
-            how long would it take with 4 million inputs?</p>
-
-    </statement>
-<choices>
-
-        <choice>
-            <statement>
-                <p>3.444</p>
-            </statement>
-            <feedback>
-                <p>Incorrect. Try again.</p>
-            </feedback>
-        </choice>
-
-        <choice correct="yes">
-            <statement>
-                <p>2.53</p>
-            </statement>
-            <feedback>
-                <p>Correct!</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>2</p>
-            </statement>
-            <feedback>
-                <p>Incorrect. Try again.</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>4</p>
-            </statement>
-            <feedback>
-                <p>Incorrect. Try again.</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>More than one of the above</p>
-            </statement>
-            <feedback>
-                <p>No, only one of them is correct. Try again.</p>
-            </feedback>
-        </choice>
-</choices>
-
-</exercise>
-
-<exercise label="BIGO2">
-    <statement>
-
-        <p>Q-5: The Big O of a particular algorithm is <math>O(log_{2}n)</math>.
-            Given that it takes 2 seconds to complete the algorithm with 3 million inputs;
-            how long would it take with 10 million inputs?</p>
-
-    </statement>
-<choices>
-
-        <choice>
-            <statement>
-                <p>3.444</p>
-            </statement>
-            <feedback>
-                <p>Incorrect. Try again.</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>2.53</p>
-            </statement>
-            <feedback>
-                <p>Incorrect. Try again.</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>2</p>
-            </statement>
-            <feedback>
-                <p>Incorrect. Try again.</p>
-            </feedback>
-        </choice>
-
-        <choice correct="yes">
-            <statement>
-                <p>4.2</p>
-            </statement>
-            <feedback>
-                <p>Right!</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>More than one of the above</p>
-            </statement>
-            <feedback>
-                <p>No, only one of them is correct. Try again.</p>
-            </feedback>
-        </choice>
-</choices>
-
-</exercise>
-
-<exercise label="BIGO3">
-    <statement>
-
-        <p>Q-6: The Big O of a particular algorithm is <math>O(n^{3})</math>.
-            Given that it takes 2 seconds to complete the algorithm with 1000 inputs;
-            how long would it take with 2000 inputs?</p>
-
-    </statement>
-<choices>
-
-        <choice>
-            <statement>
-                <p>2000</p>
-            </statement>
-            <feedback>
-                <p>Incorrect. Try again. Think about what happens to the time as more operations occur.</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>3000</p>
-            </statement>
-            <feedback>
-                <p>Incorrect. Try again. Think about what happens to the time as more operations occur.</p>
-            </feedback>
-        </choice>
-
-        <choice correct="yes">
-            <statement>
-                <p>16</p>
-            </statement>
-            <feedback>
-                <p>Correct!</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>1500</p>
-            </statement>
-            <feedback>
-                <p>Incorrect. Try again. Think about what happens to the time as more operations occur.</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>More than one of the above</p>
-            </statement>
-            <feedback>
-                <p>No, only one of them is correct. Try again.</p>
-            </feedback>
-        </choice>
-</choices>
-
-</exercise>
-
-<exercise label="BIGO4">
-    <statement>
-
-        <p>Q-7: The Big O of a particular algorithm is <math>O(n^{3})</math>.
-            Given that it takes 2 seconds to complete the algorithm with 1000 inputs;
-            how long would it take with 10,000 inputs?</p>
-
-    </statement>
-<choices>
-
-        <choice correct="yes">
-            <statement>
-                <p>2000</p>
-            </statement>
-            <feedback>
-                <p>Right!</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>3000</p>
-            </statement>
-            <feedback>
-                <p>Incorrect. Try again. Think about what happens to the time as more operations occur.</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>16</p>
-            </statement>
-            <feedback>
-                <p>Incorrect. Try again. Think about what happens to the time as more operations occur.</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>1500</p>
-            </statement>
-            <feedback>
-                <p>Incorrect. Try again. Think about what happens to the time as more operations occur.</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>More than one of the above</p>
-            </statement>
-            <feedback>
-                <p>No, only one of them is correct. Try again.</p>
-            </feedback>
-        </choice>
-</choices>
-
-</exercise>
+    <exercise label="BIGO4">
+        <statement>
+    
+            <p>The Big O of a particular algorithm is <math>O(n^{3})</math>.
+                Given that it takes 2 seconds to complete the algorithm with 1000 inputs;
+                how long would it take with 10,000 inputs?</p>
+    
+        </statement>
+    <choices>
+    
+            <choice correct="yes">
+                <statement>
+                    <p>2000</p>
+                </statement>
+                <feedback>
+                    <p>Right!</p>
+                </feedback>
+            </choice>
+    
+            <choice>
+                <statement>
+                    <p>3000</p>
+                </statement>
+                <feedback>
+                    <p>Incorrect. Try again. Think about what happens to the time as more operations occur.</p>
+                </feedback>
+            </choice>
+    
+            <choice>
+                <statement>
+                    <p>16</p>
+                </statement>
+                <feedback>
+                    <p>Incorrect. Try again. Think about what happens to the time as more operations occur.</p>
+                </feedback>
+            </choice>
+    
+            <choice>
+                <statement>
+                    <p>1500</p>
+                </statement>
+                <feedback>
+                    <p>Incorrect. Try again. Think about what happens to the time as more operations occur.</p>
+                </feedback>
+            </choice>
+    
+            <choice>
+                <statement>
+                    <p>More than one of the above</p>
+                </statement>
+                <feedback>
+                    <p>No, only one of them is correct. Try again.</p>
+                </feedback>
+            </choice>
+    </choices>
+    
+    </exercise>
+</reading-questions>
 </section>
 

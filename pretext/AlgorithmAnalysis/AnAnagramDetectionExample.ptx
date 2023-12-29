@@ -344,187 +344,188 @@ main()
                 scientist, when given a choice of algorithms, it will be up to you to
                 determine the best use of computing resources given a particular
                 problem.</p>
-            <note>
-                <title>Self Check</title>
-            </note>
-    <exercise label="analysis_1">
-        <statement>
 
-                <p>Q-7: Given the following code fragment, what is its Big-O running time?</p>
-                <program language="cpp"><input>
-int main(){
-    int test = 0;
-    for (int i = 0; i &lt; n; i++){
-        for (int j = 0; j &lt; n; j++){
-            test = test + i * j;
+    <reading-questions xml:id="rq-alnagram-detection">
+        <title>
+            Reading Questions
+        </title>
+        <exercise label="analysis_1">
+            <statement>
+    
+                    <p>Given the following code fragment, what is its Big-O running time?</p>
+                    <program language="cpp"><input>
+    int main(){
+        int test = 0;
+        for (int i = 0; i &lt; n; i++){
+            for (int j = 0; j &lt; n; j++){
+                test = test + i * j;
+            }
         }
+        return 0;
     }
-    return 0;
-}
-</input></program>
-
-        </statement>
-<choices>
-
-            <choice>
-                <statement>
-                    <p>O(n)</p>
-                </statement>
-                <feedback>
-                    <p>No. In an example like this you want to count the nested loops, especially the loops that are dependent on the same variable, in this case, n.</p>
-                </feedback>
-            </choice>
-
-            <choice correct="yes">
-                <statement>
-                    <p>O(n<sup>2</sup>)</p>
-                </statement>
-                <feedback>
-                    <p>Right! A nested loop like this is O(n<sup>2</sup>).</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>O(log n)</p>
-                </statement>
-                <feedback>
-                    <p>No. log n typically is indicated when the problem is iteratively made smaller</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>O(n<sup>3</sup>)</p>
-                </statement>
-                <feedback>
-                    <p>No. In an example like this you want to count the nested loops. especially the loops that are dependent on the same variable, in this case, n.</p>
-                </feedback>
-            </choice>
-</choices>
-
-    </exercise>
-
-    <exercise label="analysis_2">
-        <statement>
-
-                <p>Q-8: Given the following code fragment what is its Big-O running time?</p>
-                <program language="cpp"><input>
-int main(){
-    int test = 0;
-    for (int i = 0; i &lt; n; i++){
-        test = test + 1;
+    </input></program>
+    
+            </statement>
+    <choices>
+    
+                <choice>
+                    <statement>
+                        <p>O(n)</p>
+                    </statement>
+                    <feedback>
+                        <p>No. In an example like this you want to count the nested loops, especially the loops that are dependent on the same variable, in this case, n.</p>
+                    </feedback>
+                </choice>
+    
+                <choice correct="yes">
+                    <statement>
+                        <p>O(n<sup>2</sup>)</p>
+                    </statement>
+                    <feedback>
+                        <p>Right! A nested loop like this is O(n<sup>2</sup>).</p>
+                    </feedback>
+                </choice>
+    
+                <choice>
+                    <statement>
+                        <p>O(log n)</p>
+                    </statement>
+                    <feedback>
+                        <p>No. log n typically is indicated when the problem is iteratively made smaller</p>
+                    </feedback>
+                </choice>
+    
+                <choice>
+                    <statement>
+                        <p>O(n<sup>3</sup>)</p>
+                    </statement>
+                    <feedback>
+                        <p>No. In an example like this you want to count the nested loops. especially the loops that are dependent on the same variable, in this case, n.</p>
+                    </feedback>
+                </choice>
+    </choices>
+    
+        </exercise>
+        <exercise label="analysis_2">
+            <statement>
+    
+                    <p>Given the following code fragment what is its Big-O running time?</p>
+                    <program language="cpp"><input>
+    int main(){
+        int test = 0;
+        for (int i = 0; i &lt; n; i++){
+            test = test + 1;
+        }
+        for (int j = 0; j &lt; n; j++){
+            test = test - 1;
+        }
+        return 0;
     }
-    for (int j = 0; j &lt; n; j++){
-        test = test - 1;
+    </input></program>
+    
+            </statement>
+    <choices>
+    
+                <choice correct="yes">
+                    <statement>
+                        <p>O(n)</p>
+                    </statement>
+                    <feedback>
+                        <p>Right! Even though there are two loops they are not nested.  You might think of this as O(2n) but we can ignore the constant 2.</p>
+                    </feedback>
+                </choice>
+    
+                <choice>
+                    <statement>
+                        <p>O(n<sup>2</sup>)</p>
+                    </statement>
+                    <feedback>
+                        <p>No. Be careful, in counting loops you want to look carefully at whether or not the loops are nested.</p>
+                    </feedback>
+                </choice>
+    
+                <choice>
+                    <statement>
+                        <p>O(log n)</p>
+                    </statement>
+                    <feedback>
+                        <p>No. log n typically is indicated when the problem is iteratively made smaller.</p>
+                    </feedback>
+                </choice>
+    
+                <choice>
+                    <statement>
+                        <p>O(n<sup>3</sup>)</p>
+                    </statement>
+                    <feedback>
+                        <p>No. Be careful, in counting loops you want to look carefully at whether or not the loops are nested.</p>
+                    </feedback>
+                </choice>
+    </choices>
+    
+        </exercise>
+        <exercise label="analysis_3">
+            <statement>
+    
+                    <p> Given the following code fragment what is its Big-O running time?</p>
+                    <program language="cpp"><input>
+    int main(){
+        int i = n;
+        int count = 0;
+        while (i &gt; 0){
+            count = count + 1;
+            i = i // 2;
+        }
+        return 0;
     }
-    return 0;
-}
-</input></program>
-
-        </statement>
-<choices>
-
-            <choice correct="yes">
-                <statement>
-                    <p>O(n)</p>
-                </statement>
-                <feedback>
-                    <p>Right! Even though there are two loops they are not nested.  You might think of this as O(2n) but we can ignore the constant 2.</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>O(n<sup>2</sup>)</p>
-                </statement>
-                <feedback>
-                    <p>No. Be careful, in counting loops you want to look carefully at whether or not the loops are nested.</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>O(log n)</p>
-                </statement>
-                <feedback>
-                    <p>No. log n typically is indicated when the problem is iteratively made smaller.</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>O(n<sup>3</sup>)</p>
-                </statement>
-                <feedback>
-                    <p>No. Be careful, in counting loops you want to look carefully at whether or not the loops are nested.</p>
-                </feedback>
-            </choice>
-</choices>
-
-    </exercise>
-
-    <exercise label="analysis_3">
-        <statement>
-
-                <p>Q-9: Given the following code fragment what is its Big-O running time?</p>
-                <program language="cpp"><input>
-int main(){
-    int i = n;
-    int count = 0;
-    while (i &gt; 0){
-        count = count + 1;
-        i = i // 2;
-    }
-    return 0;
-}
-</input></program>
-
-        </statement>
-<choices>
-
-            <choice>
-                <statement>
-                    <p>O(n)</p>
-                </statement>
-                <feedback>
-                    <p>No. Look carefully at the loop variable i.  Notice that the value of i is cut in half each time through the loop.  This is a big hint that the performance is better than O(n)</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>O(n<sup>2</sup>)</p>
-                </statement>
-                <feedback>
-                    <p>No. Check again, is this a nested loop?</p>
-                </feedback>
-            </choice>
-
-            <choice correct="yes">
-                <statement>
-                    <p>O(log n)</p>
-                </statement>
-                <feedback>
-                    <p>Right! The value of i is cut in half each time through the loop so it will only take log n iterations.</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>O(n<sup>3</sup>)</p>
-                </statement>
-                <feedback>
-                    <p>No. Check again, is this a nested loop?</p>
-                </feedback>
-            </choice>
-</choices>
-
-    </exercise>
-
+    </input></program>
+    
+            </statement>
+    <choices>
+    
+                <choice>
+                    <statement>
+                        <p>O(n)</p>
+                    </statement>
+                    <feedback>
+                        <p>No. Look carefully at the loop variable i.  Notice that the value of i is cut in half each time through the loop.  This is a big hint that the performance is better than O(n)</p>
+                    </feedback>
+                </choice>
+    
+                <choice>
+                    <statement>
+                        <p>O(n<sup>2</sup>)</p>
+                    </statement>
+                    <feedback>
+                        <p>No. Check again, is this a nested loop?</p>
+                    </feedback>
+                </choice>
+    
+                <choice correct="yes">
+                    <statement>
+                        <p>O(log n)</p>
+                    </statement>
+                    <feedback>
+                        <p>Right! The value of i is cut in half each time through the loop so it will only take log n iterations.</p>
+                    </feedback>
+                </choice>
+    
+                <choice>
+                    <statement>
+                        <p>O(n<sup>3</sup>)</p>
+                    </statement>
+                    <feedback>
+                        <p>No. Check again, is this a nested loop?</p>
+                    </feedback>
+                </choice>
+    </choices>
+    
+        </exercise>
+        
         <exercise>
             <statement>
-    <p>Q-10: If an algorithm performing at <math>O(n^{2})</math> has the integer 8 as input, what is the worst case scenario for the algorithm? <var/>  </p></statement><setup><var><condition number="[64, 64]"><feedback><p>Correct!</p></feedback></condition><condition number="[16, 16]"><feedback><p>That would be 2n, which would be simplified as n.</p></feedback></condition><condition number="[8, 8]"><feedback><p>That would be n.</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>Wrong, Try again!</p></feedback></condition></var></setup></exercise>            
+    <p>If an algorithm performing at <math>O(n^{2})</math> has the integer 8 as input, what is the worst case scenario for the algorithm? <var/>  </p></statement><setup><var><condition number="[64]"><feedback><p>Correct!</p></feedback></condition><condition number="[16]"><feedback><p>That would be 2n, which would be simplified as n.</p></feedback></condition><condition number="[8]"><feedback><p>That would be n.</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>Wrong, Try again!</p></feedback></condition></var></setup></exercise>
+    </reading-questions>            
         </subsection>
     </section>
 
