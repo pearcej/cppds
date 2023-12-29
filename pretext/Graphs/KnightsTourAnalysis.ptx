@@ -24,9 +24,19 @@
             possible positions to examine corresponds to the number of nodes in the
             search tree.</p>
         
-        <figure align="center" xml:id="fig-8array"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 12: A Search Tree for the Knight's Tour</caption><image source="Graphs/Figures/8arrayTree.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-8array">
+            <caption>A Search Tree for the Knight's Tour</caption>
+                <image source="Graphs/8arrayTree.png" width="80%">
+                <description>Image of a search tree representing the possible sequences of moves for a Knight's Tour on a chessboard. The tree structure fans out from a single root node at the top, branching out to successive levels that represent each move of the knight. Each node represents a position on the chessboard, with the links between them representing legal moves of the knight. The breadth of the tree at each level indicates the growing complexity of the tour as more moves are made. The tree is a visual representation of the decision process in computing the tour, with the expansive spread of nodes illustrating the many possible paths the knight can take.</description>
+                </image>
+            </figure>
         
-        <figure align="center" xml:id="fig-nummoves"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 13: Number of Possible Moves for Each Square</caption><image source="Graphs/Figures/moveCount.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-nummoves">
+            <caption>Number of Possible Moves for Each Square</caption>
+                <image source="Graphs/moveCount.png" width="80%">
+                <description>Diagram showing an 8x8 chessboard grid, each square labeled with a number indicating the total possible moves a knight can make from that position. The numbers range from '2' on the corners, up to '8' in the central squares, with varying numbers like '3', '4', and '6' on other squares based on their position. The layout demonstrates the accessibility of each square for a knight, with central squares being the most accessible. This visualization aids in understanding the knight's range of movement on a standard chessboard.</description>
+                </image>
+            </figure>
         <p>We have already seen that the number of nodes in a binary tree of height
             N is <math>2^{N+1}-1</math>. For a tree with nodes that may have up to
             eight children instead of two the number of nodes is much larger.

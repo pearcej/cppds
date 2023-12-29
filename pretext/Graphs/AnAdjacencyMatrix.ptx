@@ -9,8 +9,12 @@
             <xref ref="fig-adjmat"/> illustrates the adjacency matrix for the graph in
             <xref ref="graphs_vocabularyand-definitions"/>. A value in a cell represents the weight of the
             edge from vertex <math>v</math> to vertex <math>w</math>.</p>
-        
-        <figure align="center" xml:id="fig-adjmat"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 3: An Adjacency Matrix Representation for a Graph</caption><image source="Graphs/Figures/adjMat.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-adjmat">
+            <caption>An Adjacency Matrix Representation for a Graph</caption>
+                <image source="Graphs/adjMat.png" width="80%">
+                <description>Image showing an adjacency matrix representation for a graph. The matrix is a square grid labeled from V0 to V5 along both the top row and the left column, representing vertices of the graph. The cells within the matrix are mostly empty, indicating no edge between those vertex pairs, with a few cells filled with numbers indicating the weight of the edge between the vertices. Specifically, V0 has an edge to V1 with a weight of 5. V1 has an edge to V5 with a weight of 4. V2 has an edge to V3 with a weight of 9. V3 has edges to V4 and V5 with weights of 7 and 3, respectively. V4 has an edge to V0 with a weight of 1. V5 has edges to V2 and V4 with weights of 1 and 8, respectively.</description>
+                </image>
+            </figure>
         <p>The advantage of the adjacency matrix is that it is simple, and for
             small graphs it is easy to see which nodes are connected to other nodes.
             However, notice that most of the cells in the matrix are empty. Because
