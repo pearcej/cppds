@@ -25,7 +25,7 @@
             halves. It is important to note that the vector may not have an even
             number of items. That does not matter, as the lengths will differ by at
             most one.</p>
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'TheMergeSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheMergeSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_mergeSort_cpp" interactive="activecode" language="cpp">
         <input>
@@ -142,7 +142,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <p>Once the <c>mergeSort</c> function is invoked on the left half and the
             right half (lines 8&#8211;9), it is assumed they are sorted. The rest of the
             function (lines&#160;11&#8211;31) is responsible for merging the two smaller sorted

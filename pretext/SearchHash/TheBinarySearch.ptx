@@ -215,7 +215,7 @@ int main() {
                 perform in strict logarithmic time. Luckily this can be remedied by
                 passing the list along with the starting and ending indices. The indices
                 can be calculated as we did in <xref ref="lst-binarysearchpy"/>. This is especially relevant in C++, where we are initializing a new vector for each split of our list. To truly optimize this algorithm, we could use an array and manually keep track of start and end indices of our array. Below is an example of such an implementation.</p>
-            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBinarySearch', 'chapter': 'SearchHash', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBinarySearch', 'chapter': 'SearchHash', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="binary_search_cpp_array" interactive="activecode" language="cpp">
         <input>
@@ -290,7 +290,7 @@ def main():
 main()
         </input>
     </program>
-                </TabNode></exercise>
+                </TabNode>
             <p>Even though a binary search is generally better than a sequential
                 search, it is important to note that for small values of <em>n</em>, the
                 additional cost of sorting is probably not worth it. In fact, we should

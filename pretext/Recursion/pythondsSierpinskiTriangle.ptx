@@ -29,7 +29,7 @@
             reach a degree of 0, we stop making recursive calls. The code that
             generated the Sierpinski Triangle in <xref ref="fig-sierpinski"/> is shown in
             <xref ref="lst-st"/>.</p>
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'pythondsSierpinskiTriangle', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'pythondsSierpinskiTriangle', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="first_csierpinksi_tri" interactive="activecode" language="cpp">
         <input>
@@ -130,7 +130,7 @@ myWin.exitonclick()
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <p>The program in <xref ref="lst-st"/> follows the ideas outlined above. The
             first thing <c>sierpinski</c> does is draw the outer triangle. Next, there
             are three recursive calls, one for each of the new corner triangles we

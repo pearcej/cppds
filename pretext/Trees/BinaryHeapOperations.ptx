@@ -31,7 +31,7 @@
             heap methods.  Notice that no matter the order that we add items to the heap, the smallest
             is removed each time.  We will now turn our attention to creating an implementation for this idea.</p>
         
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'BinaryHeapOperations', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'BinaryHeapOperations', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="heap1cpp" interactive="activecode" language="cpp">
         <input>
@@ -238,6 +238,6 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
     </section>
 
