@@ -314,11 +314,13 @@ void rebalance(TreeNode *node){
         <p>At this point we have implemented a functional AVL-Tree, unless you need
             the ability to delete a node. We leave the deletion of the node and
             subsequent updating and rebalancing as an exercise for you.</p>
+<reading-questions xml:id="rqs-avl-tree-impl">
+    <title>Reading Question</title>
 
     <exercise label="AVLbalancetree">
         <statement>
 
-        <p>Q-1: How does adding a new leaf in an AVL Tree affect the parent's balance factor?</p>
+        <p>How does adding a new leaf in an AVL Tree affect the parent's balance factor?</p>
 
         </statement>
 <choices>
@@ -370,5 +372,6 @@ void rebalance(TreeNode *node){
 </choices>
 
     </exercise>
+</reading-questions>
     </section>
 
