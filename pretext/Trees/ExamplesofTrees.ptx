@@ -89,11 +89,11 @@
             <c>&lt;html&gt;</c> and the last is <c>&lt;/html&gt;</c> All the rest of the tags in the
             page are inside the pair. If you check, you will see that this nesting
             property is true at all levels of the tree.</p>
-
+<reading-questions xml:id="rq-example-tree">
+    <title>Reading Question</title>
     <exercise label="treeProperties">
         <statement>
-
-        <p>Q-1: Which of the following are properties of a tree?</p>
+        <p>Which of the following are properties of a tree?</p>
 
         </statement>
 <choices>
@@ -136,5 +136,6 @@
 </choices>
 
     </exercise>
+</reading-questions>
     </section>
 
