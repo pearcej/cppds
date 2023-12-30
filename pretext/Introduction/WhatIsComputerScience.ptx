@@ -75,7 +75,7 @@
             complexities of the implementation. As another example of abstraction,
             consider the C++ <c>cmath</c> module. Once we import the module, we can
             perform computations such as</p>
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsComputerScience', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsComputerScience', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="cPlusPlus" interactive="activecode" language="cpp">
         <input>
@@ -99,7 +99,7 @@ import math
 print(math.sqrt(16))
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <p> <idx>procedural abstraction</idx>
             This is an example of <term>procedural abstraction</term>. We do not necessarily
             know how the square root is being calculated, but we know what the

@@ -38,7 +38,7 @@
             a shift operation requires approximately a third of the processing work
             of an exchange since only one assignment is performed. In benchmark
             studies, insertion sort will show very good performance.</p>
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'TheInsertionSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheInsertionSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_insertion_cpp" interactive="activecode" language="cpp">
         <input>
@@ -105,7 +105,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <raw format="html" xml:space="preserve">&lt;script src="../_static/sortmodels.js"&gt;&lt;/script&gt;
 &lt;script src="../_static/sortviewers.js"&gt;&lt;/script&gt;
 

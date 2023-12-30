@@ -30,7 +30,7 @@
                 at Berea College during the summer of 2019 and can be found on GitHub here: <url href="https://github.com/walkerje/C-Turtle/" visual="https://github.com/walkerje/C-Turtle/">https://github.com/walkerje/C-Turtle/</url></p>
             <p>Below is a comparison of two versions, C++ and Python, which should do
                 the same thing. Try running both and comparing how the code looks between the two versions.</p>
-            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'Graphics', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'Graphics', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="cturtle_1" interactive="activecode" language="cpp">
         <input>
@@ -71,7 +71,7 @@ turt.end_fill()
 turt.bye()
         </input>
     </program>
-                </TabNode></exercise>
+                </TabNode>
 
     
         </subsection>

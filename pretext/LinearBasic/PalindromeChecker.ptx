@@ -22,7 +22,7 @@
             complete function for palindrome-checking appears in
             <xref ref="linear-basic_palinedrome-cpp"/>.</p>
         
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'PalindromeChecker', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'PalindromeChecker', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="palinedrome_cpp" interactive="activecode" language="cpp">
         <input>
@@ -97,14 +97,14 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <p>Below we can see an upgraded code for checking palindromes, which
             is able to handle strings with capital letters, spaces, and special
             characters.</p>
         <p><xref ref="advanced-linear-basic_palinedrome-cpp"/>.</p>
         
         <blockquote>
-            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'PalindromeChecker', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'PalindromeChecker', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="advanced_palinedrome_cpp" interactive="activecode" language="cpp">
         <input>
@@ -185,7 +185,7 @@ int main() {
 }
         </input>
     </program>
-                </TabNode></exercise>
+                </TabNode>
         </blockquote>
 
 <exercise label="orderingPrinciples">

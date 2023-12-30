@@ -15,7 +15,7 @@
             the largest remaining item is selected and then placed in its proper
             location. The first pass places 93, the second pass places 77, the third
             places 55, and so on. The function is shown in <xref ref="lst-selectionsortcode-cpp"/> .</p>
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'TheSelectionSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheSelectionSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_selectionsortcode_cpp" interactive="activecode" language="cpp">
         <input>
@@ -80,7 +80,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <raw format="html" xml:space="preserve">&lt;script src="../_static/sortmodels.js"&gt;&lt;/script&gt;
 &lt;script src="../_static/sortviewers.js"&gt;&lt;/script&gt;
 

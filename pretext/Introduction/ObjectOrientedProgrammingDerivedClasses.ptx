@@ -164,7 +164,7 @@ return 0;
                 class is shown in <xref ref="lst-logicgateclass"/>.</p>
             
             <p xml:id="introduction_lst-logicgateclass" names="lst_logicgateclass"><term>Listing 8</term></p>
-            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
                     <program language="cpp"><input>
 class LogicGate {
 public:
@@ -198,7 +198,7 @@ class LogicGate:
                 self.output = self.performGateLogic()
                 return self.output
 </input></program>
-                </TabNode></exercise>
+                </TabNode>
             <p>A protected member variable or function is similar to a
                 private member but it has the additional benefit that they
                 can be accessed by derived classes. The access keyword
@@ -225,7 +225,7 @@ class LogicGate:
                 we will use that terminology in our implementation.</p>
             
             <p xml:id="introduction_lst-binarygateclass" names="lst_binarygateclass"><term>Listing 9</term></p>
-            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
                     <program language="cpp"><input>
 class BinaryGate : public LogicGate {
 public:
@@ -276,10 +276,10 @@ class BinaryGate(LogicGate):
         def getPinB(self):
                 return int(input("Enter Pin B input for gate "+ self.getLabel()+"-&gt;"))
 </input></program>
-                </TabNode></exercise>
+                </TabNode>
             
             <p xml:id="introduction_lst-unarygateclass" names="lst_unarygateclass"><term>Listing 10</term></p>
-            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
                     <program language="cpp"><input>
 class UnaryGate : public LogicGate {
 public:
@@ -311,7 +311,7 @@ class UnaryGate(LogicGate):
         def getPin(self):
                 return int(input("Enter Pin input for gate "+ self.getLabel()+"-&gt;"))
 </input></program>
-                </TabNode></exercise>
+                </TabNode>
             <p><xref ref="lst-logicgateclass"/> and <xref ref="lst-logicgateclass"/> implement these two
                 classes. The constructors in both of these classes start with an
                 explicit call to the constructor of the parent class using the parent's name
@@ -337,7 +337,7 @@ class UnaryGate(LogicGate):
                 inherits two input lines, one output line, and a label.</p>
             
             <p xml:id="introduction_lst-andgateclass" names="lst_andgateclass"><term>Listing 11</term></p>
-            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
                     <program language="cpp"><input>
 class AndGate : public BinaryGate {
 public:
@@ -371,7 +371,7 @@ class AndGate(BinaryGate):
                 else:
                         return 0
 </input></program>
-                </TabNode></exercise>
+                </TabNode>
             <p>The only thing <c>AndGate</c> needs to add is the specific behavior that
                 performs the Boolean operation that was described earlier. This is the
                 place where we can provide the <c>performGateLogic</c> method. For an <term>AND</term>
@@ -413,7 +413,7 @@ class AndGate(BinaryGate):
             <p>We can use a single gate by first constructing an instance of one of the
                 gate classes and then asking the gate for its output (which will in turn
                 need inputs to be provided). For example:</p>
-            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
                     <program language="cpp"><input>
 &gt;&gt;&gt; OrGate gand2("gand2")
 &gt;&gt;&gt; gand2.getOutput()
@@ -445,7 +445,7 @@ Enter Pin B input for gate G2-&gt;0
 Enter Pin input for gate G3-&gt;0
 1
 </input></program>
-                </TabNode></exercise>
+                </TabNode>
         </subsection>
         <subsection xml:id="introduction_building-circuits">
             <title>Building Circuits</title>

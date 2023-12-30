@@ -41,7 +41,7 @@
         <p>The program is shown in <xref ref="lst-josephussim"/>. A call to the
             <c>hotPotato</c> function using 7 as the counting constant returns <c>Susan</c>.</p>
         
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'SimulationHotPotato', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'SimulationHotPotato', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="hot_potato_cpp" interactive="activecode" language="cpp">
         <input>
@@ -108,7 +108,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <p>Note that in this example the value of the counting constant is greater
             than the number of names in the array. This is not a problem since the
             queue acts like a circle and counting continues back at the beginning

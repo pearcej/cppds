@@ -51,7 +51,7 @@
             partitioned and recursively sorted. The <c>partition</c> function
             implements the process described earlier. The following program sorts the
             list that was used in the example above.</p>
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'TheQuickSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheQuickSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_quick_cpp" interactive="activecode" language="cpp">
         <input>
@@ -174,7 +174,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <raw format="html" xml:space="preserve">&lt;script src="../_static/sortmodels.js"&gt;&lt;/script&gt;
 &lt;script src="../_static/sortviewers.js"&gt;&lt;/script&gt;
 
