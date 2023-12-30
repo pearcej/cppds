@@ -14,7 +14,7 @@
             grows (as <c>push</c> operations occur), new items will be added on the end
             of the array. <c>pop</c> operations will manipulate that same end.</p>
         
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'ImplementingaStackCpp', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'ImplementingaStackCpp', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="stack_1ac_cpp" interactive="activecode" language="cpp">
         <input>
@@ -95,7 +95,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
 
 <reading-questions xml:id="rq-stack-implementation">
                 <title>Reading Questions</title>

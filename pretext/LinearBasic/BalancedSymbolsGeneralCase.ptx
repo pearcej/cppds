@@ -40,7 +40,7 @@
             must be checked to see that it matches the current closing symbol. If a
             mismatch occurs, the Boolean variable <c>balanced</c> is set to <c>false</c>.</p>
         
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'BalancedSymbolsGeneralCase', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'BalancedSymbolsGeneralCase', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="parcheck2_cpp" interactive="activecode" language="cpp">
         <input>
@@ -149,7 +149,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <p>These two examples show that stacks are very important data structures
             for the processing of language constructs in computer science. Almost
             any notation you can think of has some type of nested symbols that must

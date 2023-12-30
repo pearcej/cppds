@@ -14,7 +14,7 @@
             of the queue and <c>pop</c> operations will
             manipulate the opposite side, the <term>front</term> end.</p>
         
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'ImplementingaQueueCpp', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'ImplementingaQueueCpp', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="queue1accpp" interactive="activecode" language="cpp">
         <input>
@@ -86,7 +86,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <reading-questions xml:id="rqs-implementing-queue">
             <title>
    Reading Question
