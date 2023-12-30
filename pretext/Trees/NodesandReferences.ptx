@@ -298,7 +298,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
 <reading-questions xml:id="rq-nodes-and-references">
     <title>Reading Question</title>
     <exercise label="treeLike">

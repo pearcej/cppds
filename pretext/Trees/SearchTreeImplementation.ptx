@@ -1120,7 +1120,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
 
             <reading-questions xml:id="rq-search-tree">
                 <title>Reading Questions</title>
