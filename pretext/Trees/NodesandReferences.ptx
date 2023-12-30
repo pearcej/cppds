@@ -161,7 +161,7 @@ def getRootVal(self):
             definition for a tree, this allows us to treat any child of a binary
             tree as a binary tree itself.</p>
         
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'NodesandReferences', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'NodesandReferences', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="bintree_cpp" interactive="activecode" language="cpp">
         <input>
@@ -301,7 +301,6 @@ main()
             </TabNode></exercise>
 <reading-questions xml:id="rq-nodes-and-references">
     <title>Reading Question</title>
-
     <exercise label="treeLike">
         <statement>
 

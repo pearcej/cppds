@@ -38,7 +38,7 @@
         <p>The following invocation of the <c>shellSort</c> function shows the
             partially sorted vectors after each increment, with the final sort being
             an insertion sort with an increment of one.</p>
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'TheShellSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheShellSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_shell_cpp" interactive="activecode" language="cpp">
         <input>
@@ -134,7 +134,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <raw format="html" xml:space="preserve">&lt;script src="../_static/sortmodels.js"&gt;&lt;/script&gt;
 &lt;script src="../_static/sortviewers.js"&gt;&lt;/script&gt;
 

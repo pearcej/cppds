@@ -534,7 +534,7 @@ void spliceOut(){
                     yield elem</pre>
         <p>At this point you may want to download the entire file containing the
             full version of the <c>BinarySearchTree</c> and <c>TreeNode</c> classes.</p>
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'SearchTreeImplementation', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'SearchTreeImplementation', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="completebstcodecpp" interactive="activecode" language="cpp">
         <input>
@@ -1211,6 +1211,5 @@ main()
                 </exercise>
                 
             </reading-questions>
-            
     </section>
 

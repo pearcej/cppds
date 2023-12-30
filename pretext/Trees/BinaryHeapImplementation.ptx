@@ -230,7 +230,7 @@ int minChild(int i){
 i = 1  [0, 9, 2, 6, 5, 3]
 i = 0  [0, 2, 3, 6, 5, 9]</pre>
             <p>The complete binary heap implementation can be seen in ActiveCode 1.</p>
-            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'BinaryHeapImplementation', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'BinaryHeapImplementation', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="completeheapcpp" interactive="activecode" language="cpp">
         <input>
@@ -445,7 +445,7 @@ def main():
 main()
         </input>
     </program>
-                </TabNode></exercise>
+                </TabNode>
             <p>The assertion that we can build the heap in <math>O(n)</math> may seem a
                 bit mysterious at first, and a proof is beyond the scope of this book.
                 However, the key to understanding that you can build the heap in

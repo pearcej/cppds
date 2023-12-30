@@ -28,7 +28,7 @@
             turtle to go forward by <c>len</c> units and then turn right 90 degrees.
             The recursive step is when we call drawSpiral again with a reduced
             length.</p>
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'pythondsintro-VisualizingRecursion', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'pythondsintro-VisualizingRecursion', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_cturt1" interactive="activecode" language="cpp">
         <input>
@@ -77,7 +77,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <p>That is really about all the turtle graphics you need to know in order
             to make some pretty impressive drawings. For our next program we are
             going to draw a fractal tree. Fractals come from a branch of
@@ -132,7 +132,7 @@ def tree(branchLen,t):
             the recursive calls and think about how this tree will unfold. Will it
             be drawn symmetrically with the right and left halves of the tree taking
             shape simultaneously? Will it be drawn right side first then left side?</p>
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'pythondsintro-VisualizingRecursion', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'pythondsintro-VisualizingRecursion', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_complete_ctree" interactive="activecode" language="cpp">
         <input>
@@ -208,7 +208,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <p>Notice how each branch point on the tree corresponds to a recursive
             call, and notice how the tree is drawn to the right all the way down to
             its shortest twig. You can see this in <xref ref="fig-tree1"/>. Now, notice

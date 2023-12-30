@@ -70,7 +70,7 @@
             where we satisfy the base case condition immediately.</p>
         
         <p><term>Listing 7</term></p>
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'DynamicProgramming', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'DynamicProgramming', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_change11cpp" interactive="activecode" language="cpp">
         <input>
@@ -125,7 +125,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <p>The trouble with the algorithm in <xref ref="lst-change1cpp"/> is that it is
             extremely inefficient. In fact, it takes 67,716,925 recursive calls to
             find the optimal solution to the 4 coins, 63 cents problem! To
@@ -161,7 +161,7 @@ main()
             and is a very useful method for speeding up frequent yet hardware-demanding function calls.
             <xref ref="lst-change2cpp"/> shows a modified
             algorithm to incorporate our table lookup scheme.</p>
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'DynamicProgramming', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'DynamicProgramming', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_change2cpp" interactive="activecode" language="cpp">
         <input>
@@ -233,7 +233,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <p>Notice that in line&#160;15 we have added a test to see if our table
             contains the minimum number of coins for a certain amount of change. If
             it does not, we compute the minimum recursively and store the computed
@@ -310,7 +310,7 @@ main()
             from 0 to the value of <c>change</c>.</p>
         
         <p xml:id="recursion_lst-dpchangecpp" names="lst_dpchangecpp"><term>Listing 8</term></p>
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'DynamicProgramming', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'DynamicProgramming', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_change13cpp" interactive="activecode" language="cpp">
         <input>
@@ -366,7 +366,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <p>Note that <c>dpMakeChange</c> is not a recursive function, even though we
             started with a recursive solution to this problem. It is important to
             realize that just because you can write a recursive solution to a
@@ -401,7 +401,7 @@ main()
             Then we take <math>63 - 21 = 42</math> and look at the 42nd element of the
             list. Once again we find a 21 stored there. Finally, element 21 of the
             array also contains 21, giving us the three 21 cent pieces.</p>
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'DynamicProgramming', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'DynamicProgramming', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_dpremembercpp" interactive="activecode" language="cpp">
         <input>
@@ -529,6 +529,6 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
     </section>
     

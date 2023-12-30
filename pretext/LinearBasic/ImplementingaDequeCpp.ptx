@@ -6,7 +6,7 @@
             of the deque. Our code (<xref ref="lst-dequecode"/>) will assume that
             the front of the deque is at position 0 in the array.</p>
         
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'ImplementingaDequeCpp', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'ImplementingaDequeCpp', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="dequecode_cpp" interactive="activecode" language="cpp">
         <input>
@@ -136,7 +136,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <p>You can see many similarities to C++ code already used for
             stacks and queues. You are also likely to observe that in this
             implementation adding and removing items from the back is O(1) whereas

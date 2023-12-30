@@ -36,7 +36,7 @@
             vertices in an instance of a graph is a natural thing to do.</p>
         
         <p xml:id="lst-dfsgeneral" names="lst_dfsgeneral"><term>Listing 5</term></p>
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'GeneralDepthFirstSearch', 'chapter': 'Graphs', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'GeneralDepthFirstSearch', 'chapter': 'Graphs', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="cppdfs0" interactive="activecode" language="cpp">
         <input>
@@ -186,7 +186,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <p>Although our implementation of <c>bfs</c> was only interested in
             considering nodes for which there was a path leading back to the start,
             it is possible to create a breadth first forest that represents the

@@ -64,7 +64,7 @@ double ddouble = 1.2;     // can't use index to access value</pre>
                 C++ is designed for speed, and using a C++ array will
                 help you better understand the trade-offs inherent in this.</p>
             <p>Here are examples of iteration.</p>
-            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="listarray_cpp" interactive="activecode" language="cpp">
         <input>
@@ -94,7 +94,7 @@ def main():
 main()
         </input>
     </program>
-                </TabNode></exercise>
+                </TabNode>
             <p>C++ is designed for speed.
                 C++ will not only let you iterate beyond either
                 end of an array, but it will let you change the values
@@ -103,7 +103,7 @@ main()
             <p>The phrase, <q>be careful what you wish for</q> is a great one
                 to remember when programming in C++. Because C++ will
                 generally try to do everything you ask for.</p>
-            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="array_error_cpp" interactive="activecode" language="cpp">
         <input>
@@ -136,14 +136,14 @@ def main():
 main()
         </input>
     </program>
-                </TabNode></exercise>
+                </TabNode>
             <p>The speed of C++ comes at the cost of minimal to no error checking.
                 Sometimes this can have perplexing results such as in the next example.</p>
             <p>You should use an array when you have a need for speed
                 or you need to work with hardware constraints.
                 Otherwise, you may want to consider using another collection data type,
                 the <em>vector</em>.</p>
-            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="array_werror_cpp" interactive="activecode" language="cpp">
         <input>
@@ -193,7 +193,7 @@ def main():
 main()
         </input>
     </program>
-                </TabNode></exercise>
+                </TabNode>
 
     <exercise label="mc_werror">
         <statement>
@@ -466,7 +466,7 @@ main()
 
 </matches></exercise> 
 
- <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+ <TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="introvector_cpp" interactive="activecode" language="cpp">
         <input>
@@ -503,7 +503,7 @@ def main():
 main()
         </input>
     </program>
-                    </TabNode></exercise>
+                    </TabNode>
                 <p>In the above example, the use of <c>reserve</c> was optional. However, it is a good
                     idea to use it before growing a vector in this way because it will save time.
                     Because vectors are stored in underlying arrays which require contiguous memory,
@@ -535,7 +535,7 @@ int main(){
     </program>
                 <p>Remembering that C++ is designed for speed, not protection,
                     we will likely not be surprised by the following:</p>
-                <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+                <TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="vector_errors_cpp" interactive="activecode" language="cpp">
         <input>
@@ -577,7 +577,7 @@ def main():
 main()
         </input>
     </program>
-                    </TabNode></exercise>
+                    </TabNode>
 
     <exercise label="mc_array_vector">
         <statement>
@@ -886,7 +886,7 @@ char cstring[] = {"Hello World!"};    // C-string or char array uses double quot
 <exercise label="matching_strings">
     <statement><p> Match the String operations with their corresponding explination.</p></statement>
     <feedback><p>Feedback shows incorrect matches.</p></feedback>
-<matches><match order="1"><premise>[ ]</premise><response>Accesses value of an element.</response></match><match order="10"><premise>find</premise><response> Returns the index of the first occurrence of item.</response></match><match order="2"><premise>=</premise><response> Assigns value to an element.</response></match><match order="3"><premise>push_back</premise><response>Adjoins a character to the end of the string.</response></match><match order="4"><premise>pop_back</premise><response>Removes the last character from the end of the string.</response></match><match order="5"><premise>insert</premise><response>Injects a string at a specific index.</response></match><match order="6"><premise>erase</premise><response>Deletes an element from one index to another.</response></match><match order="7"><premise>size</premise><response>Returns the capacity of the string.</response></match><match order="8"><premise>+</premise><response>connects strings.</response></match><match order="9"><premise>append</premise><response>Adjoins a string to the end of the string.</response></match></matches></exercise>                <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+<matches><match order="1"><premise>[ ]</premise><response>Accesses value of an element.</response></match><match order="10"><premise>find</premise><response> Returns the index of the first occurrence of item.</response></match><match order="2"><premise>=</premise><response> Assigns value to an element.</response></match><match order="3"><premise>push_back</premise><response>Adjoins a character to the end of the string.</response></match><match order="4"><premise>pop_back</premise><response>Removes the last character from the end of the string.</response></match><match order="5"><premise>insert</premise><response>Injects a string at a specific index.</response></match><match order="6"><premise>erase</premise><response>Deletes an element from one index to another.</response></match><match order="7"><premise>size</premise><response>Returns the capacity of the string.</response></match><match order="8"><premise>+</premise><response>connects strings.</response></match><match order="9"><premise>append</premise><response>Adjoins a string to the end of the string.</response></match></matches></exercise>                <TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="introstring_cpp" interactive="activecode" language="cpp">
         <input>
@@ -930,7 +930,7 @@ def main():
 main()
         </input>
     </program>
-                    </TabNode></exercise>
+                    </TabNode>
                 <p>Check your understanding by completing the following question.</p>
 
 <exercise label="string_types">
@@ -959,7 +959,7 @@ main()
                 key-value pairs can also be added later as we see in the following example.
                 In C++, the keyword <c>first</c> is used for the key, and <c>second</c> is used for the
                 associated value.</p>
-            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="hashtable1_cpp" interactive="activecode" language="cpp">
         <input>
@@ -1002,7 +1002,7 @@ def main():
 main()
         </input>
     </program>
-                </TabNode></exercise>
+                </TabNode>
             <p>It is important to note that hash tables are organized by the location given
                 by the hash function rather than being in any
                 particular order with respect to the keys. This makes look-up extremely fast.
@@ -1012,7 +1012,7 @@ main()
                 Iterators of an <c>unordered_map</c> are
                 implemented using pointers to point to elements of the value type as we see in
                 the following example.</p>
-            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="hashtable2_cpp" interactive="activecode" language="cpp">
         <input>
@@ -1049,7 +1049,7 @@ def main():
 main()
         </input>
     </program>
-                </TabNode></exercise>
+                </TabNode>
             <p>Hash Tables have both methods and operators. <xref ref="introduction_tab-hashopers"/>
                 describes them, and the session shows them in action.</p>
             
