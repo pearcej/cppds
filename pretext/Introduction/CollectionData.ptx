@@ -619,7 +619,7 @@ char cstring[] = {"Hello World!"};    // C-string or char array uses double quot
             <subsubsection xml:id="introduction_id1">
                 <title>Matching</title>
 
-<exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+<TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="introstring_cpp" interactive="activecode" language="cpp">
         <input>
