@@ -147,7 +147,7 @@ ostream &amp;operator&lt;&lt;(ostream &amp;stream, Graph &amp;grph) {
             vertices together. Finally, a nested loop verifies that each edge in the
             graph is properly stored. You should check the output of the edge list
             at the end of this session against <xref ref="graphs_vocabularyand-definitions"/>.</p>
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'Implementation', 'chapter': 'Graphs', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'Implementation', 'chapter': 'Graphs', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="graph_implementation_cpp" interactive="activecode" language="cpp">
         <input>
@@ -406,6 +406,6 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
     </section>
 

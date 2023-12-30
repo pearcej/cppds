@@ -35,7 +35,7 @@ alist[j] = temp;</pre>
         <figure align="center" xml:id="fig-pythonswap"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 2: Exchanging Two Values in Python</caption><image source="Sort/Figures/swap.png" width="50%"/></figure>
         <p>The following activecode example shows the complete <c>bubbleSort</c> function working on the array
             shown above.</p>
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_bubble_cpp" interactive="activecode" language="cpp">
         <input>
@@ -93,7 +93,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <raw format="html" xml:space="preserve">&lt;script src="../_static/sortmodels.js"&gt;&lt;/script&gt;
 &lt;script src="../_static/sortviewers.js"&gt;&lt;/script&gt;
 
@@ -251,7 +251,7 @@ bubble_anim_init = function(divid)
             advantage in that it will recognize the sorted array and stop.
             <xref ref="lst-shortbubbles-cpp"/> shows this modification, which is often referred
             to as the <term>short bubble</term>.</p>
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_shortbubbles_cpp" interactive="activecode" language="cpp">
         <input>
@@ -320,7 +320,7 @@ shortBubbleSort(alist)
 print(alist)
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <!--Finally, here is ``shortBubbleSort`` in CodeLens (CodeLens 2)..-->
         <!---->
         <!--.. codelens:: shortbubbletrace-->

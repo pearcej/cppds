@@ -56,7 +56,7 @@
             been processed, the stack should be empty. The C++ and Python code to implement
             this algorithm is shown in <xref ref="lst-parcheck1"/>.</p>
         
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'SimpleBalancedParentheses', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'SimpleBalancedParentheses', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="parcheck1_cpp" interactive="activecode" language="cpp">
         <input>
@@ -146,7 +146,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <p>This function, <c>parChecker</c>, assumes that a <c>Stack</c> class is
             available and returns a Boolean result as to whether the string of
             parentheses is balanced. Note that the Boolean variable <c>balanced</c> is
