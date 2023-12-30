@@ -317,7 +317,7 @@ int main( ) {
                 Hence, C++  allows function overloading when either the data types of the parameters differ
                 or the number of parameters differ.</p>
             <p>Overloading is a nice feature of the C++ language.</p>
-            <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'DefiningFunctions', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'DefiningFunctions', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="foverload_cpp" interactive="activecode" language="cpp">
         <input>
@@ -364,7 +364,7 @@ def main():
 main()
         </input>
     </program>
-                </TabNode></exercise>
+                </TabNode>
 
     <exercise label="foverloading">
         <statement>

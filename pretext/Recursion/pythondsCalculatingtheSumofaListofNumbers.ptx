@@ -7,7 +7,7 @@
             is shown in <xref ref="lst-itsumcpp"/>. The function uses an accumulator variable
             (<c>theSum</c>) to compute a running total of all the numbers in the vector
             by starting with <math>0</math> and adding each number in the vector.</p>
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'pythondsCalculatingtheSumofaListofNumbers', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'pythondsCalculatingtheSumofaListofNumbers', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_itsumcpp" interactive="activecode" language="cpp">
         <input>
@@ -52,7 +52,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <p>Pretend for a minute that you do not have <c>while</c> loops or <c>for</c>
             loops. How would you compute the sum of a vector of numbers? If you were a
             mathematician you might start by recalling that addition is a function
@@ -81,7 +81,7 @@ total = \  25</math_block>
             the array and <math>rest(numVect)</math> returns an array of everything but
             the first element. This is easily expressed in C++ as shown in
             <xref ref="lst-recsumcpp"/>.</p>
-        <exercise ><TabNode tabname="C++" tabnode_options="{'subchapter': 'pythondsCalculatingtheSumofaListofNumbers', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'pythondsCalculatingtheSumofaListofNumbers', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_recsumcpp" interactive="activecode" language="cpp">
         <input>
@@ -128,7 +128,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode></exercise>
+            </TabNode>
         <p>There are a few key ideas while using vector to look at. First, on line 6 we are checking to see if the vector is one element long. This
             check is crucial and is our escape clause from the function. The sum of
             a vector of length 1 is trivial; it is just the number in the vector.
