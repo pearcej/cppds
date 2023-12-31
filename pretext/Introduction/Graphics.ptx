@@ -73,52 +73,7 @@ turt.bye()
     </program>
                 </TabNode>
 
-    <exercise label="cturtle_question_1">
-        <statement>
-
-            <p>Q-3: How might students benefit from having a visual representation such as C-Turtle? Check all that apply.</p>
-
-        </statement>
-<choices>
-
-            <choice correct="yes">
-                <statement>
-                    <p>Students receive instant feedback and gratification for their work.</p>
-                </statement>
-                <feedback>
-                    <p>Correct!</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>Students will pay less attention to how their code works, and more attention to its end result.</p>
-                </statement>
-                <feedback>
-                    <p>Incorrect, because equal thought must be put into the usage of Turtles as well as the outcome.</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>Students get more acquainted with RGB values common in web development.</p>
-                </statement>
-                <feedback>
-                    <p>Incorrect, because RGB values are not the focus or reason behind using Turtles.</p>
-                </feedback>
-            </choice>
-
-            <choice correct="yes">
-                <statement>
-                    <p>Students will be more comfortable working with concepts they are used to, such as Turtles.</p>
-                </statement>
-                <feedback>
-                    <p>Correct!</p>
-                </feedback>
-            </choice>
-</choices>
-
-    </exercise>
+    
         </subsection>
         <subsection xml:id="introduction_turtle-turtlescreen">
             <title>Turtle &amp; TurtleScreen</title>
@@ -378,66 +333,7 @@ int main() {
             <p>The order of operations given to a turtle is important, as some actions must be completed
                 one after another. A good example of this is the <c classes="code">begin_fill</c> and <c classes="code">end_fill</c>
                 pattern, which must be called in that specified order to actually fill a shape.</p>
-<exercise label="cturtle_question_3" indent="show" language="python"><statement>
-            <p>Construct a program that fills a green triangle using begin_fill and end_fill
-                using the example code above as a guide.</p>
-</statement>
-<blocks><block order="7">
-<cline>#include &lt;CTurtle.hpp&gt;</cline>
-<cline>namespace ct = cturtle;</cline>
-</block><block order="10">
-<cline>int main(){</cline>
-</block><block order="1">
-<cline>    ct::TurtleScreen scr;</cline>
-<cline>    ct::Turtle turtle(scr);</cline>
-</block><block order="3">
-<cline>    turtle.fillcolor({"green"});</cline>
-</block><block order="5">
-<cline>    turtle.begin_fill();</cline>
-</block><block order="4">
-<cline>    for(int i = 0; i &lt; 3; i++){</cline>
-<cline>        turtle.forward(50);</cline>
-<cline>        turtle.right(60);</cline>
-<cline>    }</cline>
-</block><block order="6">
-<cline>    turtle.end_fill();</cline>
-</block><block order="2">
-<cline>    scr.bye();</cline>
-</block><block order="9">
-<cline>    return 0;</cline>
-</block><block order="8">
-<cline>}</cline>
-</block></blocks></exercise>            <p>There are 14 commonly used methods for Turtles. Many of them have names that indicate what they do.
-                See if you can match each method description with their names!</p>
-
-<exercise label="cturtle_dnd_1">
-   <statement><p>Match the turtle method descriptions to the methods they belong to.</p></statement>
-<feedback><p>Feedback shows incorrect matches.</p></feedback>
-<matches>
-<match order="1"><premise>turn to the left.</premise><response>turtle.left</response></match>
-<match order="2"><premise>turn to the right.</premise><response> turtle.right</response></match>
-<match order="3"><premise>pick pen up.</premise><response>turtle.penup</response></match>
-<match order="4"><premise>put pen down.</premise><response> turtle.pendown</response></match>
-<match order="5"><premise>what color to fill drawing with.</premise><response>turtle.fillcolor</response></match>
-<match order="6"><premise>start filling the shape.</premise><response>turtle.beginfill</response></match>
-<match order="7"><premise>write some text to the canvas.</premise><response> turtle.write</response></match>
-</matches>
-</exercise>
-
-<exercise label="cturtle_dnd_2">
-<statement><p> Match the turtle method descriptions to the methods they belong to.</p></statement>
-<feedback><p>Feedback shows incorrect matches.</p></feedback>
-<matches>
-<match order="1"><premise>stops filling the shape.</premise><response>turtle.endfill</response></match>
-<match order="2"><premise>change the pen color.</premise><response>turtle.pencolor</response></match>
-<match order="3"><premise>change the pen size.</premise><response> turtle.width</response></match>
-<match order="4"><premise>change the speed</premise><response> turtle.speed</response></match>
-<match order="5"><premise>move backward.</premise><response> turtle.back</response></match>
-<match order="6"><premise>move forward.</premise><response> turtle.forward</response></match>
-<match order="7"><premise>move to a specific coordinate.</premise><response> turtle.goto</response></match>
-
-</matches>
-</exercise>
+            
 </subsection>
 
         <subsection xml:id="introduction_geometry-shapes-and-stamps">
@@ -785,104 +681,221 @@ int main(){
 }
 </input></program>
 
-    <exercise label="cturtle_advanced_mchoice_1">
-        <statement>
-
-            <p>Q-9: How many frames of animation does the above code create?</p>
-
-        </statement>
-<choices>
-
-            <choice>
-                <statement>
-                    <p>3</p>
-                </statement>
-                <feedback>
-                    <p>Incorrect! Consider how many actions the turtle takes in the for loop.</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>6</p>
-                </statement>
-                <feedback>
-                    <p>Incorrect! Consider the tracer setting for the screen.</p>
-                </feedback>
-            </choice>
-
-            <choice correct="yes">
-                <statement>
-                    <p>1</p>
-                </statement>
-                <feedback>
-                    <p>Correct!</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>12</p>
-                </statement>
-                <feedback>
-                    <p>Incorrect! Consider how many actions the turtle takes in the for loop.</p>
-                </feedback>
-            </choice>
-</choices>
-
-    </exercise>
+    
             <p>Similarly to tracer settings, every action a turtle takes is also added to the <em>undo queue</em>. This allows it to keep track
                 of actions it is performing over a period of time. The queue is only allowed to grow to a certain size, starting at 100 actions total.
                 This is modifiable through the <c classes="code">setundobuffer</c> method that belongs to turtles. Every action is added, even if
                 the action doesn't change anything visually. This feature is comparable to the <q>undo</q> tool available in most text editors.
                 Turtles can <q>undo</q> their progress with the <c classes="code">undo</c> method.</p>
 
-    <exercise label="cturtle_advanced_mchoice_2">
-        <statement>
+    
 
-            <p>Q-10: How many actions will be in the turtle's undo queue for the code above?</p>
 
-        </statement>
+
+    <reading-questions xml:id="rq-graphics">
+        <title>Reading Questions</title>
+        <exercise label="cturtle_question_1">
+            <statement>
+    
+                <p>How might students benefit from having a visual representation such as C-Turtle? Check all that apply.</p>
+    
+            </statement>
+    <choices>
+    
+                <choice correct="yes">
+                    <statement>
+                        <p>Students receive instant feedback and gratification for their work.</p>
+                    </statement>
+                    <feedback>
+                        <p>Correct!</p>
+                    </feedback>
+                </choice>
+    
+                <choice>
+                    <statement>
+                        <p>Students will pay less attention to how their code works, and more attention to its end result.</p>
+                    </statement>
+                    <feedback>
+                        <p>Incorrect, because equal thought must be put into the usage of Turtles as well as the outcome.</p>
+                    </feedback>
+                </choice>
+    
+                <choice>
+                    <statement>
+                        <p>Students get more acquainted with RGB values common in web development.</p>
+                    </statement>
+                    <feedback>
+                        <p>Incorrect, because RGB values are not the focus or reason behind using Turtles.</p>
+                    </feedback>
+                </choice>
+    
+                <choice correct="yes">
+                    <statement>
+                        <p>Students will be more comfortable working with concepts they are used to, such as Turtles.</p>
+                    </statement>
+                    <feedback>
+                        <p>Correct!</p>
+                    </feedback>
+                </choice>
+    </choices>
+    
+        </exercise>
+        <exercise label="cturtle_question_3" indent="show" language="python"><statement>
+            <p>Construct a program that fills a green triangle using begin_fill and end_fill
+                using the example code above as a guide.</p>
+</statement>
+<blocks><block order="7">
+<cline>#include &lt;CTurtle.hpp&gt;</cline>
+<cline>namespace ct = cturtle;</cline>
+</block><block order="10">
+<cline>int main(){</cline>
+</block><block order="1">
+<cline>    ct::TurtleScreen scr;</cline>
+<cline>    ct::Turtle turtle(scr);</cline>
+</block><block order="3">
+<cline>    turtle.fillcolor({"green"});</cline>
+</block><block order="5">
+<cline>    turtle.begin_fill();</cline>
+</block><block order="4">
+<cline>    for(int i = 0; i &lt; 3; i++){</cline>
+<cline>        turtle.forward(50);</cline>
+<cline>        turtle.right(60);</cline>
+<cline>    }</cline>
+</block><block order="6">
+<cline>    turtle.end_fill();</cline>
+</block><block order="2">
+<cline>    scr.bye();</cline>
+</block><block order="9">
+<cline>    return 0;</cline>
+</block><block order="8">
+<cline>}</cline>
+</block></blocks></exercise>
+<p>There are 14 commonly used methods for Turtles. Many of them have names that indicate what they do.
+    See if you can match each method description with their names!</p>
+
+<exercise label="cturtle_dnd_1">
+<statement><p>Match the turtle method descriptions to the methods they belong to.</p></statement>
+<feedback><p>Feedback shows incorrect matches.</p></feedback>
+<matches>
+<match order="1"><premise>turn to the left.</premise><response>turtle.left</response></match>
+<match order="2"><premise>turn to the right.</premise><response> turtle.right</response></match>
+<match order="3"><premise>pick pen up.</premise><response>turtle.penup</response></match>
+<match order="4"><premise>put pen down.</premise><response> turtle.pendown</response></match>
+<match order="5"><premise>what color to fill drawing with.</premise><response>turtle.fillcolor</response></match>
+<match order="6"><premise>start filling the shape.</premise><response>turtle.beginfill</response></match>
+<match order="7"><premise>write some text to the canvas.</premise><response> turtle.write</response></match>
+</matches>
+</exercise>
+
+<exercise label="cturtle_dnd_2">
+<statement><p> Match the turtle method descriptions to the methods they belong to.</p></statement>
+<feedback><p>Feedback shows incorrect matches.</p></feedback>
+<matches>
+<match order="1"><premise>stops filling the shape.</premise><response>turtle.endfill</response></match>
+<match order="2"><premise>change the pen color.</premise><response>turtle.pencolor</response></match>
+<match order="3"><premise>change the pen size.</premise><response> turtle.width</response></match>
+<match order="4"><premise>change the speed</premise><response> turtle.speed</response></match>
+<match order="5"><premise>move backward.</premise><response> turtle.back</response></match>
+<match order="6"><premise>move forward.</premise><response> turtle.forward</response></match>
+<match order="7"><premise>move to a specific coordinate.</premise><response> turtle.goto</response></match>
+
+</matches>
+</exercise>
+<exercise label="cturtle_advanced_mchoice_1">
+    <statement>
+
+        <p>How many frames of animation does the above code create?</p>
+
+    </statement>
 <choices>
 
-            <choice>
-                <statement>
-                    <p>3</p>
-                </statement>
-                <feedback>
-                    <p>Incorrect! Consider how many actions the turtle takes in the for loop.</p>
-                </feedback>
-            </choice>
+        <choice>
+            <statement>
+                <p>3</p>
+            </statement>
+            <feedback>
+                <p>Incorrect! Consider how many actions the turtle takes in the for loop.</p>
+            </feedback>
+        </choice>
 
-            <choice correct="yes">
-                <statement>
-                    <p>6</p>
-                </statement>
-                <feedback>
-                    <p>Correct!</p>
-                </feedback>
-            </choice>
+        <choice>
+            <statement>
+                <p>6</p>
+            </statement>
+            <feedback>
+                <p>Incorrect! Consider the tracer setting for the screen.</p>
+            </feedback>
+        </choice>
 
-            <choice>
-                <statement>
-                    <p>1</p>
-                </statement>
-                <feedback>
-                    <p>Incorrect! Consider how many actions the turtle takes in the for loop.</p>
-                </feedback>
-            </choice>
+        <choice correct="yes">
+            <statement>
+                <p>1</p>
+            </statement>
+            <feedback>
+                <p>Correct!</p>
+            </feedback>
+        </choice>
 
-            <choice>
-                <statement>
-                    <p>12</p>
-                </statement>
-                <feedback>
-                    <p>Incorrect! Consider how many actions the turtle takes in the for loop.</p>
-                </feedback>
-            </choice>
+        <choice>
+            <statement>
+                <p>12</p>
+            </statement>
+            <feedback>
+                <p>Incorrect! Consider how many actions the turtle takes in the for loop.</p>
+            </feedback>
+        </choice>
 </choices>
 
-    </exercise>
+</exercise>
+<exercise label="cturtle_advanced_mchoice_2">
+    <statement>
+
+        <p>How many actions will be in the turtle's undo queue for the code above?</p>
+
+    </statement>
+<choices>
+
+        <choice>
+            <statement>
+                <p>3</p>
+            </statement>
+            <feedback>
+                <p>Incorrect! Consider how many actions the turtle takes in the for loop.</p>
+            </feedback>
+        </choice>
+
+        <choice correct="yes">
+            <statement>
+                <p>6</p>
+            </statement>
+            <feedback>
+                <p>Correct!</p>
+            </feedback>
+        </choice>
+
+        <choice>
+            <statement>
+                <p>1</p>
+            </statement>
+            <feedback>
+                <p>Incorrect! Consider how many actions the turtle takes in the for loop.</p>
+            </feedback>
+        </choice>
+
+        <choice>
+            <statement>
+                <p>12</p>
+            </statement>
+            <feedback>
+                <p>Incorrect! Consider how many actions the turtle takes in the for loop.</p>
+            </feedback>
+        </choice>
+</choices>
+
+</exercise>
+        
+        
+    </reading-questions>
         </subsection>
     </section>
 

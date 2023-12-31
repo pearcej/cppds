@@ -143,9 +143,7 @@ return 0;
                 Below that, the specific logic functions of each appear.</p>
             <figure align="center" ><image source="Introduction/logicquestion.png" width="50%"/></figure>
 
-        <exercise>
-            <statement>
-    <p>Q-2:  What will the logic gate yield (1 / 0)? <var/>  </p></statement><setup><var><condition number="[0, 0]"><feedback><p>Correct!</p></feedback></condition><condition number="[1, 1]"><feedback><p>Take a closer look at the logic gates.</p></feedback></condition></var></setup></exercise>            
+         
     
     <figure align="center" xml:id="fig-gates">
         <caption>An Inheritance Hierarchy for Logic Gates</caption>
@@ -496,61 +494,7 @@ Enter Pin input for gate G3-&gt;0
 
 
 
-    <exercise label="mc_IS-A_HAS-A">
-        <statement>
-
-            <p>Q-3: What is the difference between HAS-A and IS-A relationships? Select all that apply.</p>
-
-        </statement>
-<choices>
-
-            <choice correct="yes">
-                <statement>
-                    <p>An IS-A class object is an instance of an inherited class.</p>
-                </statement>
-                <feedback>
-                    <p>Correct!</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>A HAS-A class object has all of the methods of another class.</p>
-                </statement>
-                <feedback>
-                    <p>No. HAS-A relationships do not mean that one class is copying another class.</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>An IS-A class object contains instances of another class.</p>
-                </statement>
-                <feedback>
-                    <p>No. IS-A relationships do not mean that an object contains different class instances.</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>A HAS-A class object is an instance of an inherited class.</p>
-                </statement>
-                <feedback>
-                    <p>No, HAS-A reltionships do not use inheritance.</p>
-                </feedback>
-            </choice>
-
-            <choice correct="yes">
-                <statement>
-                    <p>A HAS-A class object contains instances of another class.</p>
-                </statement>
-                <feedback>
-                    <p>Correct!</p>
-                </feedback>
-            </choice>
-</choices>
-
-    </exercise>
+    
 
     <program xml:id="desiredcircuit" interactive="activecode" language="cpp">
         <input>
@@ -747,12 +691,75 @@ int main() {
     return 0;
 }
         </input>
+
     </program>
+    <reading-questions xml:id="rq-oop-derived-classes">
+        <title>Reading Questions</title>
+        <exercise>
+                <statement>
+        <p>What will the logic gate yield (1 / 0)? <var/>  </p></statement><setup><var><condition number="[0]"><feedback><p>Correct!</p></feedback></condition><condition number="[1]"><feedback><p>Take a closer look at the logic gates.</p></feedback></condition></var></setup></exercise>   
+        <exercise label="mc_IS-A_HAS-A">
+                <statement>
+        
+                    <p>What is the difference between HAS-A and IS-A relationships? Select all that apply.</p>
+        
+                </statement>
+        <choices>
+        
+                    <choice correct="yes">
+                        <statement>
+                            <p>An IS-A class object is an instance of an inherited class.</p>
+                        </statement>
+                        <feedback>
+                            <p>Correct!</p>
+                        </feedback>
+                    </choice>
+        
+                    <choice>
+                        <statement>
+                            <p>A HAS-A class object has all of the methods of another class.</p>
+                        </statement>
+                        <feedback>
+                            <p>No. HAS-A relationships do not mean that one class is copying another class.</p>
+                        </feedback>
+                    </choice>
+        
+                    <choice>
+                        <statement>
+                            <p>An IS-A class object contains instances of another class.</p>
+                        </statement>
+                        <feedback>
+                            <p>No. IS-A relationships do not mean that an object contains different class instances.</p>
+                        </feedback>
+                    </choice>
+        
+                    <choice>
+                        <statement>
+                            <p>A HAS-A class object is an instance of an inherited class.</p>
+                        </statement>
+                        <feedback>
+                            <p>No, HAS-A reltionships do not use inheritance.</p>
+                        </feedback>
+                    </choice>
+        
+                    <choice correct="yes">
+                        <statement>
+                            <p>A HAS-A class object contains instances of another class.</p>
+                        </statement>
+                        <feedback>
+                            <p>Correct!</p>
+                        </feedback>
+                    </choice>
+        </choices>
+        
+            </exercise>
             <note>
                 <title>Self  Check Challenge</title>
                 <p>One of the fundamental building blocks of a computer is something called a flip flop.  It's not something that computer science professors wear on their feet, but rather a kind of circuit that is stable and stores the last piece of data that was put on it.  A simple flip-flop can be made from two <term>NOR</term> gates (a combination <term>OR</term> and <term>NOT</term>) that are tied together as in the following diagram. Create a new gate class, called NorGate. NorGates work like OrGates that have a Not attached to the output. See if you can use your new class to implement this.</p>
                 <image source="Introduction/flipflop.png" width="50%"/>
                 <p>Note if the initial inputs to Reset and Set are both 0 then the output of the flip-flop is 0.  But if the Set input is toggled to 1 then the output becomes 1.  The great thing is that when the set input goes to 0 the output stays 1, until the reset input is toggled to 1 which resets the output of the circuit back to zero.</p>
             </note>
+
+        </reading-questions>
         </subsection>
     </section>
