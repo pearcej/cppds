@@ -81,13 +81,11 @@ int main(){
         <p>In the remainder of this chapter we will look at more examples of
             recursion. In each case we will focus on designing a solution to a
             problem by using the three laws of recursion.</p>
-        <note>
-            <title>Self Check</title>
-
+<reading-questions xml:id="rq-three-laws-recursion">
     <exercise label="question_recsimp_1">
         <statement>
 
-            <p>Q-2: Why is a base case needed in a recursive function?</p>
+            <p>Why is a base case needed in a recursive function?</p>
 
         </statement>
 <choices>
@@ -134,7 +132,7 @@ int main(){
     <exercise label="question_recsimp_2">
         <statement>
 
-            <p>Q-3: How many recursive calls are made when computing the sum of the vector {2,4,6,8,10}?</p>
+            <p>How many recursive calls are made when computing the sum of the vector {2,4,6,8,10}?</p>
 
         </statement>
 <choices>
@@ -181,7 +179,7 @@ int main(){
     <exercise label="question_recsimp_3">
         <statement>
 
-            <p>Q-4: Suppose you are going to write a recursive function to calculate the factorial of a number.  fact(n) returns n * n-1 * n-2 * &#8230; Where the factorial of zero is defined to be 1.  What would be the most appropriate base case?</p>
+            <p>Suppose you are going to write a recursive function to calculate the factorial of a number.  fact(n) returns n * n-1 * n-2 * &#8230; Where the factorial of zero is defined to be 1.  What would be the most appropriate base case?</p>
 
         </statement>
 <choices>
@@ -224,6 +222,6 @@ int main(){
 </choices>
 
     </exercise>
-        </note>
+</reading-questions>   
     </section>
 

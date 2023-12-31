@@ -130,13 +130,12 @@ main()
             the concatenation operation until after the recursive call has returned,
             we get the result in the proper order. This should remind you of our
             discussion of stacks back in the previous chapter.</p>
-        <note>
-            <title>Self Check</title>
+ <reading-questions xml:id="rq-converting-integer-to-string">
 
     <exercise label="RecursiveQ1">
         <statement>
 
-            <p>Q-3: Is the process of stepping through a recursive function similar to the construct of a stack or a queue?</p>
+            <p>Is the process of stepping through a recursive function similar to the construct of a stack or a queue?</p>
 
         </statement>
 <choices>
@@ -262,6 +261,6 @@ int main(){
         </input>
     </program>
             </blockquote>
-        </note>
+        </reading-questions>   
     </section>
 
