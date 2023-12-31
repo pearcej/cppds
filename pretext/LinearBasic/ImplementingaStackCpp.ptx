@@ -96,13 +96,13 @@ main()
         </input>
     </program>
             </TabNode>
-        <note>
-            <title>Self Check</title>
 
+<reading-questions xml:id="rq-stack-implementation">
+                <title>Reading Questions</title>
     <exercise label="stack_1">
         <statement>
 
-            <p>Q-3: Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?</p>
+            <p>Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?</p>
             <program language="cpp"><input>
 stack&lt;int&gt; m;
 m.push(5);
@@ -157,7 +157,7 @@ cout &lt;&lt; m.top();
     <exercise label="stack_2">
         <statement>
 
-            <p>Q-4: Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?</p>
+            <p>Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?</p>
             <program language="cpp"><input>
 stack&lt;int&gt; m;
 m.push(37);
@@ -210,6 +210,6 @@ while (!m.empty()){
 </choices>
 
     </exercise>
-        </note>
+</reading-questions>  
     </section>
 

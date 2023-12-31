@@ -39,20 +39,23 @@
             objects.</p>
         
         <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 3: The Reversal Property of Stacks</caption><image source="LinearBasic/Figures/simplereversal.png" width="50%"/></figure>
-<exercise label="stack_prob" indent="show" language="python"><statement>
-        <p>Say we create a stack by pushing numbers 1 to 4 from lowest to highest. What would the stack look like afterwards?</p>
-</statement>
-<blocks><block order="1">
-<cline>4</cline>
-<cline>3</cline>
-<cline>2</cline>
-<cline>1</cline>
-</block></blocks></exercise>        <p>Considering this reversal property, you can perhaps think of examples of
+    <p>Considering this reversal property, you can perhaps think of examples of
             stacks that occur as you use your computer. For example, every web
             browser has a Back button. As you navigate from web page to web page,
             those pages are placed on a stack (actually it is the URLs that are
             going on the stack). The current page that you are viewing is on the top
             and the first page you looked at is at the base. If you click on the
             Back button, you begin to move in reverse order through the pages.</p>
+            <reading-questions xml:id="rq-what-is-stack">
+                <title>Reading Question</title>
+                <exercise label="stack_prob" indent="show" language="python"><statement>
+                        <p>Say we create a stack by pushing numbers 1 to 4 from lowest to highest. What would the stack look like afterwards?</p>
+                </statement>
+                <blocks><block order="1">
+                <cline>4</cline>
+                <cline>3</cline>
+                <cline>2</cline>
+                <cline>1</cline>
+                </block></blocks></exercise>   </reading-questions> 
     </section>
 

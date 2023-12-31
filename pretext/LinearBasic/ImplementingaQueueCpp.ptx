@@ -87,13 +87,14 @@ main()
         </input>
     </program>
             </TabNode>
-        <note>
-            <title>Self Check</title>
-
+        <reading-questions xml:id="rqs-implementing-queue">
+            <title>
+   Reading Question
+            </title>
     <exercise label="queue_1">
         <statement>
 
-            <p>Q-3: Suppose you have the following series of queue operations.</p>
+            <p>Suppose you have the following series of queue operations.</p>
             <pre>queue&lt;int&gt; q;
 q.push(10);
 q.push(20);
@@ -142,6 +143,6 @@ q.pop();</pre>
 </choices>
 
     </exercise>
-        </note>
+</reading-questions>   
     </section>
 

@@ -169,11 +169,14 @@
                 
             
         </tabular></table>
+<reading-questions xml:id="rq-what-is-stack">
+    <title>Reading Question</title>
+
 
     <exercise label="stack_datatypes">
         <statement>
 
-        <p>Q-1: Which group of data would not make a valid Stack?</p>
+        <p>Which group of data would not make a valid Stack?</p>
 
         </statement>
 <choices>
@@ -216,5 +219,6 @@
 </choices>
 
     </exercise>
+</reading-questions>
     </section>
 

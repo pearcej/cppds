@@ -150,47 +150,56 @@ main()
         </input>
     </program>
             </TabNode>
-
-<exercise label="stackclick">
-    <statement><p>Using the program below, click on the line of code that adds an open parenthesis to the stack.</p></statement>
-<feedback><p>Remember that the function to do this would be the push function.</p></feedback>
-<areas>
-<cline><area>bool parChecker(string symbolString){</area>:</cline>
-<cline>      <area>stack&lt;string&gt; s;</area>:</cline>
-<cline>      <area>bool balanced = true;</area>:</cline>
-<cline>      <area>int index = 0;</area>:</cline>
-<cline>      <area>int symbolLength = symbolString.length();</area>:</cline>
-<cline/>
-<cline>      while(index &lt; symbolLength &amp;&amp; balanced){</cline>
-<cline>          <area>string symbol;</area>:</cline>
-<cline>          <area>symbol = symbolString[index];</area>:</cline>
-<cline>          <area>string opens = "({[";</area>:</cline>
-<cline>          <area>if (inString(symbol, opens)){</area>:</cline>
-<cline>              <area correct="yes">s.push(symbol);</area>:</cline>
-<cline>          } else {</cline>
-<cline>              if (s.empty()){</cline>
-<cline>                  <area>balanced = false;</area>:</cline>
-<cline>              } else {</cline>
-<cline>                  <area>string top = s.top();</area>:</cline>
-<cline>                  <area>s.pop();</area>:</cline>
-<cline>                  <area>if (!matches(top, symbol)){</area>:</cline>
-<cline>                      <area>balanced = false;</area>:</cline>
-<cline>                  }</cline>
-<cline>              }</cline>
-<cline>          }</cline>
-<cline>          <area>index = index + 1;</area>:</cline>
-<cline>      }</cline>
-<cline>      <area>if(balanced &amp;&amp; s.empty()){</area>:</cline>
-<cline>          <area>return true;</area>:</cline>
-<cline>      } else {</cline>
-<cline>          <area>return false;</area>:</cline>
-<cline>      }</cline>
-<cline>}</cline>
-</areas></exercise>        <p>These two examples show that stacks are very important data structures
+        <p>These two examples show that stacks are very important data structures
             for the processing of language constructs in computer science. Almost
             any notation you can think of has some type of nested symbols that must
             be matched in a balanced order. A number of other important
             uses for stacks exist in computer science. We will continue to explore them
             in the next sections.</p>
+<reading-questions xml:id="rq-balanced-sybols">
+    <title>
+        <p>
+            Reading Question
+        </p>
+    </title>
+    
+    
+                <exercise label="stackclick">
+                    <statement><p>Using the program below, click on the line of code that adds an open parenthesis to the stack.</p></statement>
+                <feedback><p>Remember that the function to do this would be the push function.</p></feedback>
+                <areas>
+                <cline><area>bool parChecker(string symbolString){</area>:</cline>
+                <cline>      <area>stack&lt;string&gt; s;</area>:</cline>
+                <cline>      <area>bool balanced = true;</area>:</cline>
+                <cline>      <area>int index = 0;</area>:</cline>
+                <cline>      <area>int symbolLength = symbolString.length();</area>:</cline>
+                <cline/>
+                <cline>      while(index &lt; symbolLength &amp;&amp; balanced){</cline>
+                <cline>          <area>string symbol;</area>:</cline>
+                <cline>          <area>symbol = symbolString[index];</area>:</cline>
+                <cline>          <area>string opens = "({[";</area>:</cline>
+                <cline>          <area>if (inString(symbol, opens)){</area>:</cline>
+                <cline>              <area correct="yes">s.push(symbol);</area>:</cline>
+                <cline>          } else {</cline>
+                <cline>              if (s.empty()){</cline>
+                <cline>                  <area>balanced = false;</area>:</cline>
+                <cline>              } else {</cline>
+                <cline>                  <area>string top = s.top();</area>:</cline>
+                <cline>                  <area>s.pop();</area>:</cline>
+                <cline>                  <area>if (!matches(top, symbol)){</area>:</cline>
+                <cline>                      <area>balanced = false;</area>:</cline>
+                <cline>                  }</cline>
+                <cline>              }</cline>
+                <cline>          }</cline>
+                <cline>          <area>index = index + 1;</area>:</cline>
+                <cline>      }</cline>
+                <cline>      <area>if(balanced &amp;&amp; s.empty()){</area>:</cline>
+                <cline>          <area>return true;</area>:</cline>
+                <cline>      } else {</cline>
+                <cline>          <area>return false;</area>:</cline>
+                <cline>      }</cline>
+                <cline>}</cline>
+                </areas></exercise>
+            </reading-questions>
     </section>
 

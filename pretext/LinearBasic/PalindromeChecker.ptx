@@ -187,7 +187,12 @@ int main() {
     </program>
                 </TabNode>
         </blockquote>
-
+<reading-questions xml:id="rqs-">
+    <title>
+        Reading Questions
+    </title>
+    
+    
 <exercise label="orderingPrinciples">
     <statement><p>Drag each data structure to its corresponding ordering principle</p></statement>
     <feedback><p>This is feedback.</p></feedback>
@@ -203,10 +208,11 @@ int main() {
 <cline><area>d.push_back("Catfish");</area>:</cline>
 <cline><area>d.push_back("Giraffe");</area>:</cline>
 </areas></exercise>
+
     <exercise label="structureefficiency">
         <statement>
 
-        <p>Q-6: If you add five items to your code in this order <q>potato</q>, <q>rutabaga</q>, <q>avocado</q>, <q>squash</q>, <q>eggplant</q> which structure would take the least steps to retrieve <q>rutabaga</q>?</p>
+        <p>If you add five items to your code in this order <q>potato</q>, <q>rutabaga</q>, <q>avocado</q>, <q>squash</q>, <q>eggplant</q> which structure would take the least steps to retrieve <q>rutabaga</q>?</p>
 
         </statement>
 <choices>
@@ -258,5 +264,7 @@ int main() {
 </choices>
 
     </exercise>
+</reading-questions>
+
     </section>
 
