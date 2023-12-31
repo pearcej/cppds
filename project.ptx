@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     This file provides the overall configuration for your PreTeXt
-    project. To edit the content of your document, open `source/cpp4python.ptx`
+    project. To edit the content of your document, open `source/cppds2.ptx`
     (default location).
 -->
 <project>
@@ -16,7 +16,7 @@
       <format>html</format>
       <source>pretext/cppds2.ptx</source>
       <publication>pretext/publication-rs-academy.xml</publication>
-      <output-dir>published/cpp4py-v2</output-dir>
+      <output-dir>published/cppds2</output-dir>
     </target>
     <target name="epub">
       <format>epub</format>
