@@ -164,13 +164,11 @@ selection_anim_init = function(divid)
             as the bubble sort and is therefore also <math>O(n^{2})</math>. However,
             due to the reduction in the number of exchanges, the selection sort
             typically executes faster in benchmark studies.</p>
-        <note>
-            <title>Self Check</title>
-
+            <reading-questions xml:id="rq-selection-sort">
     <exercise label="question_sort_2">
         <statement>
 
-            <p>Q-5: Suppose you have the following vector of numbers to sort:
+            <p>Suppose you have the following vector of numbers to sort:
                 [11, 7, 12, 14, 19, 1, 6, 18, 8, 20] which vector represents the partially sorted (ascending) vector after three steps of selection sort?</p>
 
         </statement>
@@ -214,6 +212,6 @@ selection_anim_init = function(divid)
 </choices>
 
     </exercise>
-        </note>
+</reading-questions>
     </section>
 
