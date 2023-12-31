@@ -44,8 +44,9 @@
             But remember that the worst-case scenario to find the successor is also
             just the height of the tree which means that you would simply double the
             work. Since doubling is a constant factor it does not change worst case</p>
-
-        <exercise>
+<reading-questions xml:id="rq-search-tree">
+    <title>Reading Question</title>
+<exercise>
             <statement>
-    <p>Q-1: The worst-case performance of the del function is O(<BlankNode/>)? <var/>  </p></statement><setup><var><condition string="^\s*n\s*$"><feedback><p>Is the correct answer!</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>Read carefully the restrictions of the the functions</p></feedback></condition></var></setup></exercise>    </section>
+    <p>The worst-case performance of the del function is O(<BlankNode/><var/>)?   </p></statement><setup><var><condition string="^\s*n\s*$"><feedback><p>Is the correct answer!</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>Read carefully the restrictions of the the functions</p></feedback></condition></var></setup></exercise>  </reading-questions>  </section>
 

@@ -368,6 +368,10 @@ def printexp(tree):
             parentheses around each number. While not incorrect, the parentheses are
             clearly not needed. In the exercises at the end of this chapter you are
             asked to modify the <c>printexp</c> function to remove this set of parentheses.</p>
+<reading-questions xml:id="rq-tree-traversal">
+    <title>Reading Questions</title>
+    
+    
 
 <exercise label="treeTraversalTypes">
     <statement><p>Drag the tree traversal to its corresponding pattern.</p></statement>
@@ -376,7 +380,7 @@ def printexp(tree):
     <exercise label="question1_1">
         <statement>
 
-        <p>Q-2: If you print out the data at each node, what would be the result of using
+        <p>If you print out the data at each node, what would be the result of using
             the preorder traversal method on <xref ref="fig-booktree"/>?</p>
 
         </statement>
@@ -414,5 +418,6 @@ Section 2.1, Section 2.2.1, Section 2.2.2, Section 2.2, Chapter 2, Book</p>
 </choices>
 
     </exercise>
+</reading-questions>
     </section>
 

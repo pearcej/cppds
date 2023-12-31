@@ -41,52 +41,7 @@
             <c>BinarySearchTree</c> class constructor along with a few other
             miscellaneous functions is shown in <xref ref="lst-bst1"/>.</p>
 
-    <exercise label="question1_2">
-        <statement>
-
-        <p>Q-1: How many children can a node have in a binary search tree?</p>
-
-        </statement>
-<choices>
-
-            <choice>
-                <statement>
-                    <p>At least 4</p>
-                </statement>
-                <feedback>
-                    <p>Incorrect. Refer back to the definition of a binary search tree.</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>At most 3</p>
-                </statement>
-                <feedback>
-                    <p>Incorrect.</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>At least 1</p>
-                </statement>
-                <feedback>
-                    <p>Incorrect, it has a limit.</p>
-                </feedback>
-            </choice>
-
-            <choice correct="yes">
-                <statement>
-                    <p>At most 2</p>
-                </statement>
-                <feedback>
-                    <p>Correct!</p>
-                </feedback>
-            </choice>
-</choices>
-
-    </exercise>
+    
         
         <p xml:id="trees_lst-bst1" names="lst_bst1"><term>Listing 1</term></p>
         <pre>class BinarySearchTree{
@@ -262,44 +217,7 @@ void _put(int key, string val, TreeNode *currentNode){
         <note>
             <title>Self Check</title>
 
-    <exercise label="bst_1">
-        <statement>
-
-            <p>Q-2: Which of the trees shows a correct binary search tree given that the keys were
-                inserted in the following order 5, 30, 2, 40, 25, 4.</p>
-
-        </statement>
-<choices>
-
-            <choice>
-                <statement>
-                    <p><image source="../_static/bintree_a.png" width="50%"><description><p/></description></image></p>
-                </statement>
-                <feedback>
-                    <p>Remember, starting at the root keys less than the root must be in the left subtree, while keys greater than the root go in the right subtree.</p>
-                </feedback>
-            </choice>
-
-            <choice correct="yes">
-                <statement>
-                    <p><image source="../_static/bintree_b.png" width="50%"><description><p/></description></image></p>
-                </statement>
-                <feedback>
-                    <p>good job.</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p><image source="../_static/bintree_c.png" width="50%"><description><p/></description></image></p>
-                </statement>
-                <feedback>
-                    <p>This looks like a binary tree that satisfies the full tree property needed for a heap.</p>
-                </feedback>
-            </choice>
-</choices>
-
-    </exercise>
+    
         </note>
         <p>Once the tree is constructed, the next task is to implement the
             retrieval of a value for a given key. The <c>get</c> method is even easier
@@ -1203,5 +1121,95 @@ main()
         </input>
     </program>
             </TabNode>
+
+            <reading-questions xml:id="rq-search-tree">
+                <title>Reading Questions</title>
+                
+                <exercise label="question1_2">
+                    <statement>
+            
+                    <p>How many children can a node have in a binary search tree?</p>
+            
+                    </statement>
+            <choices>
+            
+                        <choice>
+                            <statement>
+                                <p>At least 4</p>
+                            </statement>
+                            <feedback>
+                                <p>Incorrect. Refer back to the definition of a binary search tree.</p>
+                            </feedback>
+                        </choice>
+            
+                        <choice>
+                            <statement>
+                                <p>At most 3</p>
+                            </statement>
+                            <feedback>
+                                <p>Incorrect.</p>
+                            </feedback>
+                        </choice>
+            
+                        <choice>
+                            <statement>
+                                <p>At least 1</p>
+                            </statement>
+                            <feedback>
+                                <p>Incorrect, it has a limit.</p>
+                            </feedback>
+                        </choice>
+            
+                        <choice correct="yes">
+                            <statement>
+                                <p>At most 2</p>
+                            </statement>
+                            <feedback>
+                                <p>Correct!</p>
+                            </feedback>
+                        </choice>
+            </choices>
+            
+                </exercise>
+                <exercise label="bst_1">
+                    <statement>
+            
+                        <p>Which of the trees shows a correct binary search tree given that the keys were
+                            inserted in the following order 5, 30, 2, 40, 25, 4.</p>
+            
+                    </statement>
+            <choices>
+            
+                        <choice>
+                            <statement>
+                                <p><image source="../_static/bintree_a.png" width="50%"><description><p/></description></image></p>
+                            </statement>
+                            <feedback>
+                                <p>Remember, starting at the root keys less than the root must be in the left subtree, while keys greater than the root go in the right subtree.</p>
+                            </feedback>
+                        </choice>
+            
+                        <choice correct="yes">
+                            <statement>
+                                <p><image source="../_static/bintree_b.png" width="50%"><description><p/></description></image></p>
+                            </statement>
+                            <feedback>
+                                <p>good job.</p>
+                            </feedback>
+                        </choice>
+            
+                        <choice>
+                            <statement>
+                                <p><image source="../_static/bintree_c.png" width="50%"><description><p/></description></image></p>
+                            </statement>
+                            <feedback>
+                                <p>This looks like a binary tree that satisfies the full tree property needed for a heap.</p>
+                            </feedback>
+                        </choice>
+            </choices>
+            
+                </exercise>
+                
+            </reading-questions>
     </section>
 
