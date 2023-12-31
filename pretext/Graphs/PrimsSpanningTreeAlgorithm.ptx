@@ -172,18 +172,22 @@ def prim(G,start):
                 <description>This image shows the final step of Prim's algorithm where the minimum spanning tree is completed. All the nodes labeled from A to G are connected with the shortest paths indicated by the edge weights. The distances from the starting node are labeled next to each node with the letter 'd' followed by the distance value. The priority queue (PQ) is empty, indicating that all nodes have been visited and the algorithm is complete.</description>
                 </image>
             </figure>
-        <note>
-            <title>Self Check</title>
+       
+
+            <reading-questions xml:id="rq-prims-span-tree-algo">
+                <title>
+                    Reading Question
+                </title>
+                
+    <exercise label="primswhims">
+        <statement>
             <figure align="center" xml:id="fig-primsalg">
                 <caption>Tracing Prim's Algorithm</caption>
-                    <image source="Graphs/primsalg.png" width="80%">
+                    <image source="Graphs/primsalg.png" width="50%">
                     <description>Undirected graph with five nodes labeled A to E. Edges connect the nodes with the following weights: A-B with 1, A-D with 4, B-C with 2, C-D with 3, D-E with 6, and C-E with 5, forming a pentagon shape with a cross-connection between B and D.</description>
                     </image>
                 </figure>
-    <exercise label="primswhims">
-        <statement>
-
-            <p>Q-1: Beginning at node E, how will Prim's algorithm span across the graph?</p>
+            <p>Beginning at node E, how will Prim's algorithm span across the graph?</p>
 
         </statement>
 <choices>
@@ -226,6 +230,6 @@ def prim(G,start):
 </choices>
 
     </exercise>
-        </note>
-    </section>
+</reading-questions>
+</section>
 

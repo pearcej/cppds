@@ -138,13 +138,16 @@ def dijkstra(aGraph,start):
             variations of the algorithm allow each router to discover the graph as
             they go. One such algorithm that you may want to read about is called
             the <q>distance vector</q> routing algorithm.</p>
-        <note>
-            <title>Self Check</title>
-
+        <reading-questions xml:id="rq-dijkstras-algo">
+            <title>Reading Question</title>
+            
+            
+            
+        
     <exercise label="dijkstraq1">
         <statement>
 
-            <p>Q-1: What purpose does the Priority Queue in the Dijkstra's algorithm serve?</p>
+            <p>What purpose does the Priority Queue in the Dijkstra's algorithm serve?</p>
 
         </statement>
 <choices>
@@ -187,6 +190,6 @@ def dijkstra(aGraph,start):
 </choices>
 
     </exercise>
-        </note>
-    </section>
+</reading-questions>  
+  </section>
 

@@ -147,13 +147,15 @@ def knightTour(n,path,u,limit):
                 <description>Image depicting a graph overlaid on an 8x8 chessboard grid representing a complete Knight's Tour. The nodes, numbered from 0 to 63, correspond to the squares of the chessboard. Lines crisscross the grid, mapping the knight's moves in a sequential path that visits each square exactly once. The complex web of lines indicates the knight's route, creating a Hamiltonian circuit where the start and end points are connected. Captioned 'Figure 11: A Complete Tour of the Board'.</description>
                 </image>
             </figure>
-        <note>
-            <title>Self Check</title>
+      <reading-questions xml:id="rq-knights-tour-imp">
+        <title>Reading Questions</title>
+        
+        
 
     <exercise label="KnightsTour">
         <statement>
 
-            <p>Q-1: True/False: The Knight's Tour Graph contains as many vertices as there are tiles on a chessboard.</p>
+            <p>True/False: The Knight's Tour Graph contains as many vertices as there are tiles on a chessboard.</p>
 
         </statement>
 <choices>
@@ -200,6 +202,7 @@ def knightTour(n,path,u,limit):
 <cline><area>else:</area>:</cline>
 <cline>    <area>done = True</area>:</cline>
 <cline><area>return done</area>:</cline>
-</areas></exercise>        </note>
+</areas></exercise>        </reading-questions>  
+      
     </section>
 

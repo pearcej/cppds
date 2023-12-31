@@ -150,13 +150,16 @@ def orderByAvail(n):
     resList.sort(key=lambda x: x[0])
     return [y[1] for y in resList]
 </input></program>
-        <note>
-            <title>Self Check</title>
+        <reading-questions xml:id="rq-knights-tour-impl">
+           <title>Reading Question</title>
+           
+            
+       
 
     <exercise label="knightO">
         <statement>
 
-            <p>Q-2: What is the big O of the Knight's Tour function?</p>
+            <p>What is the big O of the Knight's Tour function?</p>
 
         </statement>
 <choices>
@@ -199,6 +202,6 @@ def orderByAvail(n):
 </choices>
 
     </exercise>
-        </note>
+</reading-questions>
     </section>
 
