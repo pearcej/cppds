@@ -299,13 +299,11 @@ main()
                 search many times, the cost of the sort is not so significant. However,
                 for large lists, sorting even once can be so expensive that simply
                 performing a sequential search from the start may be the best choice.</p>
-            <note>
-                <title>Self Check</title>
-
+<reading-questions xml:id="rq-binary-search">
     <exercise label="BSRCH_1">
         <statement>
 
-                <p>Q-7: Suppose you have the following sorted list [3, 5, 6, 8, 11, 12, 14, 15, 17, 18] and are using the recursive binary search algorithm.  Which group of numbers correctly shows the sequence of comparisons used to find the key 8.</p>
+                <p>Suppose you have the following sorted list [3, 5, 6, 8, 11, 12, 14, 15, 17, 18] and are using the recursive binary search algorithm.  Which group of numbers correctly shows the sequence of comparisons used to find the key 8.</p>
 
         </statement>
 <choices>
@@ -352,7 +350,7 @@ main()
     <exercise label="BSRCH_2">
         <statement>
 
-                <p>Q-8: Suppose you have the following sorted list [3, 5, 6, 8, 11, 12, 14, 15, 17, 18] and are using the recursive binary search algorithm.  Which group of numbers correctly shows the sequence of comparisons used to search for the key 16?</p>
+                <p>Suppose you have the following sorted list [3, 5, 6, 8, 11, 12, 14, 15, 17, 18] and are using the recursive binary search algorithm.  Which group of numbers correctly shows the sequence of comparisons used to search for the key 16?</p>
 
         </statement>
 <choices>
@@ -395,7 +393,7 @@ main()
 </choices>
 
     </exercise>
-            </note>
+</reading-questions>            
         </subsection>
     </section>
 
