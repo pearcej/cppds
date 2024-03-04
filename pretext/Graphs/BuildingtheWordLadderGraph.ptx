@@ -25,8 +25,8 @@
             letter, we can create an edge between them in the graph. For a small set
             of words that approach would work fine; however let's suppose we have a
             list of 5,110 words. Roughly speaking, comparing one word to every other
-            word on the list is an <math>O(n^2)</math> algorithm. For 5,110 words,
-            <math>n^2</math> is more than 26&#160;million comparisons.</p>
+            word on the list is an <m>O(n^2)</m> algorithm. For 5,110 words,
+            <m>n^2</m> is more than 26&#160;million comparisons.</p>
         <p>We can do much better by using the following approach. Suppose that we
             have a huge number of buckets, each of them with a four-letter word on
             the outside, except that one of the letters in the label has been

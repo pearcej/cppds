@@ -3,18 +3,18 @@
         <p><ol label="1">
             <li>
                 <p>Devise an experiment to verify that the vector index operator is
-                    <math>O(1)</math></p>
+                    <m>O(1)</m></p>
             </li>
             <li>
                 <p>Devise an experiment to verify that find and insert are
-                    <math>O(1)</math> for hash tables.</p>
+                    <m>O(1)</m> for hash tables.</p>
             </li>
             <li>
                 <p>Devise an experiment that compares the performance of the <c>erase()</c>
                     operator on vectors and hash tables.</p>
             </li>
             <li>
-                <p>Given an array of numbers in random order, write an algorithm that works in <math>O(n\log(n))</math>
+                <p>Given an array of numbers in random order, write an algorithm that works in <m>O(n\log(n))</m>
                     to find the kth smallest number in the array.</p>
             </li>
             <li>
