@@ -7,7 +7,14 @@
             <xref ref="fig-insertionsort"/> shows the insertion sorting process. The shaded
             items represent the ordered subvectors as the algorithm makes each pass.</p>
         
-        <figure align="center" xml:id="fig-insertionsort"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: <literal>insertionSort</literal></caption><image source="Sort/Figures/insertionsort.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-insertionsort">
+            <caption>insertionSort</caption>
+                <image source="Sort/insertionsort.png" width="50%">
+                <description>A step-by-step visual representation of the insertion sort algorithm. The image shows a series of rows with numbers in boxes, illustrating the process of sorting the numbers in ascending order. Each row represents a step in the algorithm, with the text on the right indicating the action taken, such as 'inserted 26' or 'inserted 93'. The sequence begins with the numbers 54, 26, 93, and so on, and gradually transforms into a sorted sequence from left to right as the algorithm progresses. The caption 'Figure 7.5.1. insertionSort' is placed below the image.</description>
+                </image>
+            </figure>
+
+
         <p>We begin by assuming that a vector with one item (position <math>0</math>) is
             already sorted. On each pass, one for each item 1 through <math>n-1</math>,
             the current item is checked against those in the already sorted subvector.
@@ -22,7 +29,13 @@
             shifting process stops and 31 is placed in the open position. Now we
             have a sorted subvector of six items.</p>
         
-        <figure align="center" xml:id="fig-insertionpass"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 5: <literal>insertionSort</literal>: Fifth Pass of the Sort</caption><image source="Sort/Figures/insertionpass.png" width="50%"/></figure>
+
+        <figure align="center" xml:id="fig-insertionpass">
+            <caption><literal>insertionSort</literal>: Fifth Pass of the Sort</caption>
+                <image source="Sort/insertionpass.png" width="50%">
+                <description>An educational illustration depicting the fifth pass of the insertion sort algorithm. The diagram shows a series of rows with numerical values in boxes, each row representing a step in the sorting process. Arrows indicate the shifting of numbers to make space for the correctly positioned value. Descriptive text accompanies each step explaining the movement required, such as '93>31 so shift it to the right' and 'Need to insert 31 back into the sorted list'. The final row shows the number 31 being inserted into its correct position in the sequence.</description>
+                </image>
+            </figure>
         <p>The implementation of <c>insertionSort</c> (<xref ref="lst-insertion"/>) shows that
             there are again <math>n-1</math> passes to sort <em>n</em> items. The iteration
             starts at position 1 and moves through position <math>n-1</math>, as these
