@@ -11,7 +11,13 @@
             the largest value in the array is part of a pair, it will continually be
             moved along until the pass is complete.</p>
         
-        <figure align="center" xml:id="fig-bubblepass"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 1: <literal>bubbleSort</literal>: The First Pass</caption><image source="Sort/Figures/bubblepass.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-bubblepass">
+            <caption><c>BubbleSort</c> The First Pass</caption>
+                <image source="Sort/bubblepass.png" width="50%">
+                <description>Illustration of bubble sort algorithm during the first pass. A series of arrays showing the step-by-step process of sorting numbers in ascending order. Starting with the array [54, 26, 93, 17, 77, 31, 44, 55, 20], subsequent arrays demonstrate swapping of elements, marked as 'Exchange', or retention of position, marked as 'No Exchange', to progressively move the highest number, 93, to the correct position at the end of the array after the first pass. The final array in the sequence is [26, 54, 17, 77, 31, 44, 55, 20, 93], with the note '93 in place after first pass' indicating the completion of this sorting stage.</description>
+                </image>
+            </figure>
+
         <p>At the start of the second pass, the largest value is now in place.
             There are <math>n-1</math> items left to sort, meaning that there will be
             <math>n-2</math> pairs. Since each pass places the next largest value in
@@ -32,7 +38,15 @@ alist[j] = temp;</pre>
             earlier. Note that we could also have used the simultaneous assignment
             to swap the items.</p>
         
-        <figure align="center" xml:id="fig-pythonswap"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 2: Exchanging Two Values in Python</caption><image source="Sort/Figures/swap.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-pythonswap">
+            <caption>Exchanging Two Values in Python</caption>
+                <image source="Sort/swap.png" width="50%">
+                <description>A diagram explaining the process of exchanging two values in a programming language with an extra storage location, compared to Python where exchange can be done with two simultaneous assignments. The upper part of the image shows two array elements labeled 'i' and 'j' with values 93 and 44, and a 'temp' variable used for the 3-step swap process. The lower part shows the simplified Python method where the values 93 and 44 are swapped in place without needing a temporary storage variable.</description>
+                </image>
+            </figure>
+
+
+
         <p>The following activecode example shows the complete <c>bubbleSort</c> function working on the array
             shown above.</p>
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
