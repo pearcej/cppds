@@ -11,7 +11,14 @@
             out by defining these three traversals more carefully, then look at some
             examples where these patterns are useful.</p>
         
-        <figure align="center" xml:id="fig-trav-tree"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 5: Example tree to be traversed.</caption><image source="Trees/Figures/trav_tree.png" width="50%" alt="image"/></figure>
+
+        <figure align="center" xml:id="fig-trav-tree">
+            <caption>Example tree to be traversed.</caption>
+                <image source="Trees/trav_tree.png" width="50%">
+                <description>Illustration of a binary tree. The top node is labeled '1', and it splits into two child nodes labeled '3' on the left and '8' on the right. The '3' node further splits into two child nodes labeled '7' on the left and '5' on the right. The '8' node also splits into two children, with '2' on the left and '9' on the right. The nodes are connected by lines indicating the tree structure. </description>
+                </image>
+            </figure>
+
         <dl>
             <li>
                 <title>preorder</title>
@@ -23,7 +30,14 @@
             </li>
         </dl>
         
-        <figure align="center" xml:id="fig-pre-order-tree"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 6: Traversal pattern for preorder.</caption><image source="Trees/Figures/pre_order.gif" width="50%" alt="image"/></figure>
+        <figure align="center" xml:id="fig-pre-order-tree">
+            <caption>Traversal pattern for preorder.</caption>
+                <image source="Trees/pre_order.gif" width="50%">
+                <description>Diagram of a binary tree to illustrate the preorder traversal pattern. The tree consists of a root node labeled '1', with a left child labeled '3', which in turn has two children labeled '7' and '5'. The root node also has a right child labeled '8', which has two children labeled '2' and '9'. The nodes '1', '3', '7', '5', '8', and '9' are circled, indicating the order of the preorder traversal. Arrows point from the root node '1' to the left child '3', then to '7', back up through '3' to '5', then to the right child '8', and finally to '9', following the preorder traversal pattern. The image is labeled 'Figure 6: Traversal pattern for preorder'. </description>
+                </image>
+            </figure>
+
+
         <dl>
             <li>
                 <title>inorder</title>
@@ -35,7 +49,14 @@
             </li>
         </dl>
         
-        <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 7: Traversal pattern for inorder.</caption><image source="Trees/Figures/in_order.gif" width="50%" alt="image"/></figure>
+
+        <figure align="center" xml:id="fig-in-order-tree">
+            <caption>Traversal pattern for inorder.</caption>
+                <image source="Trees/in_order.gif" width="50%">
+                <description>Diagram of a binary tree to illustrate the inorder traversal pattern. The tree has a root node at the top labeled '1', which branches out to a left child labeled '3' and a right child labeled '8'. The '3' node has further children labeled '7' and '5', and the '8' node has children labeled '2' and '9'. The nodes are not circled, but the traversal pattern is indicated by a black arrow starting from the '3' node, moving to its left child '7', then up to '3', across to '5', up to '1', then to '8', down to '2', and finally to '9' on the far right. This pattern represents the inorder traversal where you visit the left subtree, the node itself, and then the right subtree. </description>
+                </image>
+            </figure>
+
         <dl>
             <li>
                 <title>postorder</title>
@@ -47,7 +68,15 @@
             </li>
         </dl>
         
-        <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 8: Traversal pattern for postorder.</caption><image source="Trees/Figures/post_order.gif" width="50%" alt="image"/></figure>
+
+        <figure align="center" xml:id="fig-post-order-tree">
+            <caption>Traversal pattern for postorder.</caption>
+                <image source="Trees/post_order.gif" width="50%">
+                <description>Diagram of a binary tree to illustrate the postorder traversal pattern. The tree structure includes a root node labeled '1' at the top, with a left child labeled '3' and a right child labeled '8'. Node '3' has two children labeled '7' and '5', while node '8' has children labeled '2' and '9'. The traversal pattern is shown with black arrows starting at the leftmost child '7', moving up to '3', across to '5', back to '3', then to the root '1', over to the right child '8', down to '2', and finally to '9'. In postorder traversal, the nodes are visited from the bottom-up, starting with the left subtree, then the right subtree, and ending with the root node. </description>
+                </image>
+            </figure>
+
+
         <p>Let's look at some examples that illustrate each of these three kinds of
             traversals. First let's look at the preorder traversal. As an example of
             a tree to traverse, we will represent this book as a tree. The book is
@@ -57,8 +86,15 @@
             limited version of a book with only two chapters. Note that the
             traversal algorithm works for trees with any number of children, but we
             will stick with binary trees for now.</p>
-        
-        <figure align="center" xml:id="id5"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 9: Representing a Book as a Tree</caption><image source="Trees/Figures/booktree.png" width="50%" alt="image"/></figure>
+ 
+        <figure align="center" xml:id="fig-booktree">
+            <caption>Representing a Book as a Tree</caption>
+                <image source="Trees/booktree.png" width="50%">
+                <description>Diagram of a hierarchical tree representing the structure of a book. The root node at the top is labeled 'Book', which branches out to two child nodes labeled 'Chapter1' and 'Chapter2'. Each chapter node further divides into sections: 'Chapter1' into 'Section 1.1' and 'Section 1.2', while 'Chapter2' splits into 'Section 2.1' and 'Section 2.2'. Each section node also branches into subsections, with 'Section 1.1' leading to 'Section 1.2.1' and 'Section 1.2.2', and 'Section 2.2' leading to 'Section 2.2.1' and 'Section 2.2.2'. The nodes are connected by lines that represent the tree structure, demonstrating the organizational hierarchy of the book's contents. </description>
+                </image>
+            </figure>
+
+
         <p>Suppose that you wanted to read this book from front to back. The
             preorder traversal gives you exactly that ordering. Starting at the root
             of the tree (the Book node) we will follow the preorder traversal
