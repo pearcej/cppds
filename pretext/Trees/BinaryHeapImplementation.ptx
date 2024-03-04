@@ -14,7 +14,7 @@
             
             <figure align="center" xml:id="fig-comptree">
                 <caption>A Complete Binary Tree</caption>
-                    <image source="Trees/compTree" width="80%">
+                    <image source="Trees/compTree.png" width="80%">
                     <description>Diagram of a complete binary tree. The top node, or the root, is labeled '5'. This root node has two child nodes: '9' to the left and '11' to the right. Each of these child nodes further branches out into two more nodes. The left child '9' has nodes '14' and '18' as children. '14' has a single left child labeled '33', while '18' has two children labeled '17' and '27'. On the right side, the child '11' has two children labeled '19' and '21'. The tree is balanced and each level is fully filled except for the last level, which is filled from the left. The image is labeled 'Figure 1: A Complete Binary Tree'.</description>
                     </image>
                 </figure>
@@ -87,7 +87,7 @@
                 series of swaps needed to percolate the newly added item up to its
                 proper position in the tree.</p>
             
-            <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 2: Percolate the New Node up to Its Proper Position</caption><image source="Trees/Figures/percUp.png" width="50%" alt="image"/></figure>
+            <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Percolate the New Node up to Its Proper Position</caption><image source="Trees/percUp.png" width="50%" alt="image"/></figure>
             
             <p>Notice that when we percolate an item up, we are restoring the heap
                 property between the newly added item and the parent. We are also
@@ -137,7 +137,7 @@
                 the series of swaps needed to move the new root node to its proper
                 position in the heap.</p>
             
-            <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 3: Percolating the Root Node down the Tree</caption><image source="Trees/Figures/percDown.png" width="50%" alt="image"/></figure>
+            <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Percolating the Root Node down the Tree</caption><image source="Trees/percDown.png" width="50%" alt="image"/></figure>
             <p>In order to maintain the heap order property, all we need to do is swap
                 the root with its smallest child less than the root. After the initial
                 swap, we may repeat the swapping process with a node and its children
@@ -221,7 +221,7 @@ int minChild(int i){
     }
 }</pre>
             
-            <figure align="center" xml:id="id5"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: Building a Heap from the vector [9, 6, 5, 2, 3]</caption><image source="Trees/Figures/buildheap.png" width="50%" alt="image"/></figure>
+            <figure align="center" xml:id="id5"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Building a Heap from the vector [9, 6, 5, 2, 3]</caption><image source="Trees/buildheap.png" width="50%" alt="image"/></figure>
             <p><xref ref="fig-buildheap"/> shows the swaps that the <c>buildHeap</c> method
                 makes as it moves the nodes in an initial tree of [9, 6, 5, 2, 3] into
                 their proper positions. Although we start out in the middle of the tree
