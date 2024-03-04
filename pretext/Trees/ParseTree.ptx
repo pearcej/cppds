@@ -5,12 +5,23 @@
             some real problems. In this section we will look at parse trees. Parse
             trees can be used to represent real-world constructions like sentences or mathematical expressions.</p>
         
-        <figure align="center" xml:id="fig-nlparse"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 1: A Parse Tree for a Simple Sentence</caption><image source="Trees/Figures/nlParse.png" width="50%" alt="image"/></figure>
+        <figure align="center" xml:id="fig-nlparse">
+            <caption>A Parse Tree for a Simple Sentence</caption>
+                <image source="Trees/nlParse.png" width="50%">
+                <description>Diagram of a parse tree for linguistic analysis. The root of the tree is labeled 'Sentence' which splits into two branches: 'Noun Phrase' and 'Verb Phrase'. The 'Noun Phrase' branch further breaks down into 'Proper Noun', which leads to the word 'Homer'. The 'Verb Phrase' branch divides into 'Verb', leading to the word 'Hit', and another 'Noun Phrase', which further breaks down into 'Proper Noun', leading to the word 'Bart'. The structure illustrates the grammatical relationships in a simple sentence. </description>
+                </image>
+            </figure>
         <p><xref ref="fig-nlparse"/> shows the hierarchical structure of a simple
             sentence. Representing a sentence as a tree structure allows us to work
             with the individual parts of the sentence by using subtrees.</p>
         
-        <figure align="center" xml:id="fig-meparse"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 2: Parse Tree for <math>((7+3)*(5-2))</math></caption><image source="Trees/Figures/meParse.png" width="50%" alt="image"/></figure>
+        <figure align="center" xml:id="fig-meparse">
+            <caption>Parse Tree for <m>((7+3)*(5-2))</m></caption>
+                <image source="Trees/meParse.png" width="50%">
+                <description>Diagram of a parse tree for an arithmetic expression. The root node is an asterisk '*', indicating multiplication. It has two child nodes: on the left, a plus sign '+' connects the numbers 7 and 3, and on the right, a minus sign '-' connects the numbers 5 and 2. This tree represents the mathematical expression ((7 + 3) * (5 - 2)). The image is labeled 'Figure 2: Parse Tree for ((7 + 3) * (5 - 2)). </description>
+                </image>
+            </figure>
+
         <p>We can also represent a mathematical expression such as
             <math>((7 + 3) * (5 - 2))</math> as a parse tree, as shown in
             <xref ref="fig-meparse"/>. We have already looked at fully parenthesized
@@ -28,7 +39,15 @@
             in the children. Applying this replacement procedure gives us the
             simplified tree shown in <xref ref="fig-mesimple"/>.</p>
         
-        <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 3: A Simplified Parse Tree for <math>((7+3)*(5-2))</math></caption><image source="Trees/Figures/meSimple.png" width="50%" alt="image"/></figure>
+
+        <figure align="center" xml:id="fig-mesimple">
+            <caption>A Simplified Parse Tree for <m>((7+3)*(5-2))</m></caption>
+                <image source="Trees/meSimple.png" width="50%">
+                <description>Diagram of a simplified parse tree for an arithmetic expression after evaluation. The root node is an asterisk '*', indicating multiplication. It has two child nodes, which are the results of the arithmetic operations: the number 10 on the left, which is the sum of 7 and 3, and the number 3 on the right, which is the result of subtracting 2 from 5. This tree represents the evaluated mathematical expression ((7 + 3) * (5 - 2)). The image is labeled 'Figure 3: A Simplified Parse Tree for ((7 + 3) * (5 - 2)). </description>
+                </image>
+            </figure>
+
+
         <p>In the rest of this section we are going to examine parse trees in more
             detail. In particular we will look at</p>
         <p><ul>
@@ -82,15 +101,22 @@
             parse tree that consists of an empty root node. <xref ref="fig-bldexpstep"/>
             illustrates the structure and contents of the parse tree, as each new
             token is processed.</p>
-        
-        <figure align="center" xml:id="fig-bldexpstep"><image source="Trees/Figures/buildExp1.png" width="50%" alt="image"/></figure>
-        <figure align="center" ><image source="Trees/Figures/buildExp2.png" width="50%" alt="image"/></figure>
-        <figure align="center" ><image source="Trees/Figures/buildExp3.png" width="50%" alt="image"/></figure>
-        <figure align="center" ><image source="Trees/Figures/buildExp4.png" width="50%" alt="image"/></figure>
-        <figure align="center" ><image source="Trees/Figures/buildExp5.png" width="50%" alt="image"/></figure>
-        <figure align="center" ><image source="Trees/Figures/buildExp6.png" width="50%" alt="image"/></figure>
-        <figure align="center" ><image source="Trees/Figures/buildExp7.png" width="50%" alt="image"/></figure>
-        <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: Tracing Parse Tree Construction</caption><image source="Trees/Figures/buildExp8.png" width="50%" alt="image"/></figure>
+    
+        <figure align="center" xml:id="fig-buildExp">
+            <caption>Tracing Parse Tree Construction</caption>
+                <image source="Trees/buildExp1.png" width="15%"/>
+                <image source="Trees/buildExp2.png" width="25%"/>
+                <image source="Trees/buildExp3.png" width="25%"/>
+                <image source="Trees/buildExp4.png" width="25%"/>
+                <image source="Trees/buildExp5.png" width="25%"/>
+                <image source="Trees/buildExp6.png" width="25%"/>
+                <image source="Trees/buildExp7.png" width="50%"/>
+                <image source="Trees/buildExp8.png" width="50%">
+                <description>A vertical sequence of diagrams illustrating the construction of a binary search tree with numerical values. At the top, there is a single node. As the sequence progresses downwards, nodes are added one by one in binary search tree order, with some nodes shaded to indicate the most recently added node. Each node contains a number, and they are linked by lines representing the tree structure. The numbers in the nodes are not visible, so their specific values are not identifiable in this description. </description>
+                </image>
+            </figure>
+
+
         <p>Using <xref ref="fig-bldexpstep"/>, let's walk through the example step by
             step:</p>
         <p><ol label="a">
