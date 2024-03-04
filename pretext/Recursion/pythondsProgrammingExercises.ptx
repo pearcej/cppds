@@ -83,9 +83,9 @@
             <li>
                 <p>Pascal's triangle is a number triangle with numbers arranged in
                     staggered rows such that</p>
-                <math_block docname="Recursion/pythondsProgrammingExercises" label="True" nowrap="False" number="True" xml:space="preserve">a_{nr} = {n! \over{r! (n-r)!}}
+                <m docname="Recursion/pythondsProgrammingExercises" label="True" nowrap="False" number="True" xml:space="preserve">a_{nr} = {n! \over{r! (n-r)!}}
 
-</math_block>
+</m>
                 <p>This equation is the equation for a binomial coefficient. You can
                     build Pascal's triangle by adding the two numbers that are diagonally
                     above a number in the triangle. An example of Pascal's triangle is
@@ -102,7 +102,7 @@
             <li>
                 <p>Suppose you are a computer scientist/art thief who has broken into a
                     major art gallery. All you have with you to haul out your stolen art
-                    is your knapsack which only holds <math>W</math> pounds of art, but for
+                    is your knapsack which only holds <m>W</m> pounds of art, but for
                     every piece of art you know its value and its weight. Write a dynamic
                     programming function to help you maximize your profit. Here is a
                     sample problem for you to use to get started: Suppose your knapsack

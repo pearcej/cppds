@@ -1,15 +1,15 @@
 <section xml:id="graphs_analysis-of-dijkstras-algorithm">
         <title>Analysis of Dijkstra's Algorithm</title>
         <p>Finally, let us look at the running time of Dijkstra's algorithm. We
-            first note that building the priority queue takes <math>O(V)</math> time
+            first note that building the priority queue takes <m>O(V)</m> time
             since we initially add every vertex in the graph to the priority queue.
             Once the queue is constructed the <c>while</c> loop
             is executed once for every vertex since vertices are all added at the
             beginning and only removed after that. Within that loop each call to
-            <c>delMin</c>, takes <math>O(\log V)</math> time. Taken together that part of
-            the loop and the calls to delMin take <math>O(V \log(V))</math>. The
+            <c>delMin</c>, takes <m>O(\log V)</m> time. Taken together that part of
+            the loop and the calls to delMin take <m>O(V \log(V))</m>. The
             <c>for</c> loop is executed once for each edge in the
             graph, and within the <c>for</c> loop the call to <c>decreaseKey</c> takes
-            time <math>O(E\log(V)).</math> So the combined running time is <math>O((V+E) \log(V)).</math></p>
+            time <m>O(E\log(V)).</m> So the combined running time is <m>O((V+E) \log(V)).</m></p>
     </section>
 

@@ -14,7 +14,7 @@
             Just like vectors, new elements can be inserted into or deleted from any part of a string,
             and automatic reallocation for other existing items in the string is applied.</p>
         <p>Indexing and assigning a new character to an index position
-            that already exists both take <math>O(1)</math>, the same amount of time no matter how
+            that already exists both take <m>O(1)</m>, the same amount of time no matter how
             large the string is.</p>
         <p>Now that we have seen how performance can be measured concretely you can
             look at <xref ref="algorithm-analysis_tbl-strbigocpp"/> to see the Big-O efficiency of all the
@@ -125,9 +125,9 @@
                 
             
         </tabular></table>
-        <p>Just like vectors, the <title_reference>push_back()</title_reference> operation is <math>O(1)</math> unless there is inadequate capacity,
+        <p>Just like vectors, the <title_reference>push_back()</title_reference> operation is <m>O(1)</m> unless there is inadequate capacity,
             in which case the entire
             string is moved to a larger contiguous underlying array, which
-            is <math>O(n)</math>.</p>
+            is <m>O(n)</m>.</p>
     </section>
 

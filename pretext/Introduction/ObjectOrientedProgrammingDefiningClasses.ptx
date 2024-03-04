@@ -47,7 +47,7 @@
                 numeric data types for our use. There are times, however, that it would be
                 most appropriate to be able to create data objects that both  look and act like
                 fractions.</p>
-            <p>A fraction such as <math>\frac {3}{5}</math> consists of two parts. The top
+            <p>A fraction such as <m>\frac {3}{5}</m> consists of two parts. The top
                 value, known as the numerator, can be any integer. The bottom value,
                 called the denominator, can be any integer greater than 0 (negative
                 fractions have a negative numerator). Although it is possible to create
@@ -140,7 +140,7 @@ myfraction = Fraction(3, 5)
                     <p>Invoking constructor in Python</p>
                 </TabNode>
             <p>creates an object called <c>myfraction</c> representing the fraction
-                <math>\frac {3}{5}</math> (three-fifths). <xref ref="fig-fraction1cpp"/> shows this
+                <m>\frac {3}{5}</m> (three-fifths). <xref ref="fig-fraction1cpp"/> shows this
                 object as it is now implemented.</p>
             
             <figure align="center" xml:id="fig-fraction1cpp">
@@ -392,7 +392,7 @@ f1.__add__(f2)
             <p>As you know, two fractions must have the same denominator to be added. The easiest
                 way to make sure they have the same denominator is to simply use the
                 product of the two denominators as a common denominator so that
-                <math>\frac {a}{b} + \frac {c}{d} = \frac {ad}{bd} + \frac {cb}{bd} = \frac{ad+cb}{bd}</math>
+                <m>\frac {a}{b} + \frac {c}{d} = \frac {ad}{bd} + \frac {cb}{bd} = \frac{ad+cb}{bd}</m>
                 The implementation is shown in <xref ref="lst-addmethod"/>. The addition
                 function returns a new <c>Fraction</c> object with the numerator and
                 denominator of the sum. We can use this method by writing a standard
@@ -543,10 +543,10 @@ int main(){
                 example of encapsulation; your user does not need to know
                 which you choose to use!</p>
             <p>There is one more thing we can improve in our addition function.
-                Note that <math>6/8</math> is the correct result
-                (<math>\frac {1}{4} + \frac {1}{2}</math>) but that it is not in the
+                Note that <m>6/8</m> is the correct result
+                (<m>\frac {1}{4} + \frac {1}{2}</m>) but that it is not in the
                 <q>lowest terms</q> representation. The best representation would be
-                <math>3/4</math>. In order to be sure that our results are always in the
+                <m>3/4</m>. In order to be sure that our results are always in the
                 lowest terms, we need a helper function that knows how to reduce
                 fractions. This function will need to look for the greatest common
                 divisor, or GCD. We can then divide the numerator and the denominator by
@@ -554,10 +554,10 @@ int main(){
             <p>The best-known algorithm for finding a greatest common divisor is
                 Euclid's Algorithm, which will be discussed in detail in Chapter 8.
                 Euclid's Algorithm states that the greatest common divisor of two
-                integers <math>m</math> and <math>n</math> is <math>n</math> if <math>n</math>
-                divides <math>m</math> evenly. However, if <math>n</math> does not divide
-                <math>m</math> evenly, then the answer is the greatest common divisor of
-                <math>n</math> and the remainder of <math>m</math> divided by <math>n</math>. We
+                integers <m>m</m> and <m>n</m> is <m>n</m> if <m>n</m>
+                divides <m>m</m> evenly. However, if <m>n</m> does not divide
+                <m>m</m> evenly, then the answer is the greatest common divisor of
+                <m>n</m> and the remainder of <m>m</m> divided by <m>n</m>. We
                 will simply provide an iterative implementation here (see
                 <inline classes="xref std std-ref">ActiveCode 1</inline>). Note that this implementation of the GCD algorithm only
                 works when the denominator is positive. This is acceptable for our
@@ -609,8 +609,8 @@ print(gcd(20,10))
             <p>Now we can use this function to help reduce any fraction. To put a
                 fraction in lowest terms, we will divide the numerator and the
                 denominator by their greatest common divisor. So, for the fraction
-                <math>6/8</math>, the greatest common divisor is 2. Dividing the top and
-                the bottom by 2 creates a new fraction, <math>3/4</math> (see
+                <m>6/8</m>, the greatest common divisor is 2. Dividing the top and
+                the bottom by 2 creates a new fraction, <m>3/4</m> (see
                 <xref ref="lst-newaddmethod"/>).</p>
             
             <p xml:id="introduction_lst-newaddmethod" names="lst_newaddmethod"><term>Listing 6</term></p>
@@ -686,8 +686,8 @@ int main(){
                 compare themselves to one another using <c>==</c>.</p>
             <p>We want the <c>==</c> operator to compare Fraction objects and to return
                 <c>true</c> if they are equivalent in value, <c>false</c> otherwise.
-                This is a design choice because we want <math>\frac {1}{2}</math> to be considered
-                equal to <math>\frac {2}{4}</math> as well as <math>\frac {3}{6}</math>, etc.
+                This is a design choice because we want <m>\frac {1}{2}</m> to be considered
+                equal to <m>\frac {2}{4}</m> as well as <m>\frac {3}{6}</m>, etc.
                 Hence, in the <c>Fraction</c> class, we can implement the <c>==</c> method by
                 cross-multiplying (see <xref ref="lst-cmpmethod"/>) rather than
                 by just comparing numerators and denominators.</p>

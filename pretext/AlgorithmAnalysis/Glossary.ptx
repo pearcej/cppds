@@ -23,7 +23,7 @@
                 <gi>
                     <title>Big-O notation</title>
                     
-                        <p>another term for order of magnitude; written as <math>O(f(n))</math></p>
+                        <p>another term for order of magnitude; written as <m>O(f(n))</m></p>
                     
                 </gi>
                 <gi>
@@ -53,7 +53,7 @@
                 <gi>
                     <title>exponential</title>
                     
-                        <p>function represented as a number being raised to a power that increases like <math>f(n)= 2^{n}</math></p>
+                        <p>function represented as a number being raised to a power that increases like <m>f(n)= 2^{n}</m></p>
                     
                 </gi>
                 <gi>
@@ -71,19 +71,19 @@
                 <gi>
                     <title>linear</title>
                     
-                        <p>function that grows in a one to one relationship with its input like <math>f(n) = n</math></p>
+                        <p>function that grows in a one to one relationship with its input like <m>f(n) = n</m></p>
                     
                 </gi>
                 <gi>
                     <title>logarithmic</title>
                     
-                        <p>functions that are the inverse of exponential functions usually presented as <math>f(n) = logn</math></p>
+                        <p>functions that are the inverse of exponential functions usually presented as <m>f(n) = logn</m></p>
                     
                 </gi>
                 <gi>
                     <title>order of magnitude</title>
                     
-                        <p>function describing the part <math>T(n)</math> that increases the fastest as the value of n increases  (a function describing an algorithm's steps as the size of the problem increases).</p>
+                        <p>function describing the part <m>T(n)</m> that increases the fastest as the value of n increases  (a function describing an algorithm's steps as the size of the problem increases).</p>
                     
                 </gi>
                 <gi>
@@ -91,8 +91,8 @@
                     
                         <p>function describing a relationship who's highest order is a number squared</p>
                         <blockquote>
-                            <p>simplified: <math>f(n) = x^{2}</math></p>
-                            <p>complex: <math>ax^{2} + bx + c</math></p>
+                            <p>simplified: <m>f(n) = x^{2}</m></p>
+                            <p>complex: <m>ax^{2} + bx + c</m></p>
                         </blockquote>
                     
                 </gi>
