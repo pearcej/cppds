@@ -33,7 +33,7 @@
             such a tree is shown in <xref ref="fig-skewedtree-analysis"/>. In this case the
             performance of the <c>put</c> method is <m>O(n)</m>.</p>
         
-        <figure align="center" xml:id="fig-skewedtree-analysis"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 6: A skewed binary search tree would give poor performance</caption><image source="Trees/Figures/skewedTree.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-skewedtree-analysis"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">A skewed binary search tree would give poor performance</caption><image source="Trees/skewedTree.png" width="50%"/></figure>
         <p>Now that you understand that the performance of
             the <c>put</c> method is limited by the height of the tree, you can
             probably guess that other methods, <c>get, in,</c> and <c>del</c>, are limited
