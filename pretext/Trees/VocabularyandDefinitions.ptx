@@ -119,8 +119,13 @@
     </ul></p>
     <p><xref ref="fig-nodeedgetree"/> illustrates a tree that fits definition one.
         The arrowheads on the edges indicate the direction of the connection.</p>
-    
-    <figure align="center" xml:id="fig-nodeedgetree"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 3: A Tree Consisting of a Set of Nodes and Edges</caption><image source="Trees/Figures/treedef1.png" width="50%" alt="image"/></figure>
+
+    <figure align="center" xml:id="fig-nodeedgetree">
+        <caption>A Tree Consisting of a Set of Nodes and Edges</caption>
+            <image source="Trees/treedef1.png" width="50%">
+            <description>The image shows a basic conceptual diagram of a tree data structure, consisting of a set of nodes connected by edges. The top of the tree features a 'rootnode', which branches into 'child1' and 'child2'. Below 'child1', there is 'node1' with three children labeled 'child1', 'child2', and 'child3', while 'child2' branches into 'node2' with a single 'child1'. Further down, 'node1' branches into 'node3', 'node4', and 'node5', and 'node2' branches into 'node6'. The nodes are represented by rectangles, and the connecting lines represent the edges of the tree. </description>
+            </image>
+        </figure>
     <p><em>Definition Two:</em> A tree is either empty or consists of a root and zero
         or more subtrees, each of which is also a tree. The root of each subtree
         is connected to the root of the parent tree by an edge.
@@ -130,7 +135,14 @@
         triangles representing a subtree must have a root. It may have many more
         nodes than that, but we do not know unless we look deeper into the tree.</p>
     
-    <figure align="center" xml:id="fig-recursivetree"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: A recursive Definition of a tree</caption><image source="Trees/Figures/TreeDefRecursive.png" width="50%" alt="image"/></figure>
+   
+    <figure align="center" xml:id="fig-recursivetree">
+        <caption>A recursive Definition of a tree</caption>
+            <image source="Trees/TreeDefRecursive.png" width="50%">
+            <description>The image presents a simplified diagram of a tree data structure with a single 'root' node at the top, branching out into three 'subtrees' labeled 'subtree-1', 'subtree-2', and 'subtree-3'. This visual model illustrates the concept of recursion in data structures, where each subtree can be seen as a smaller instance of the larger structure. </description>
+            </image>
+        </figure>
+
 <reading-questions xml:id="rq-vocabulary-tree">
     <title>
         Reading Question
