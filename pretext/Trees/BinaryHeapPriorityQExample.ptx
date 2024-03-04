@@ -4,12 +4,24 @@
         <p>Before we begin with the implementation of Binary Heaps, let us review a real life example of one of the things: Priority Queues.
             Let us consider a priority queue of homework. If we were trying to decide which homework project to complete, it would make sense to organize
             the order of doing any specific project based on the deadline of that homework. Let us say you were assigned homeworks in the following order
-            and you are told the deadlines for those homeworks: 3, 10, 5, 8, 7, 2 days respectively. You can observe the insertion of these homeworks into our priority queue in <xref ref="trees_pq-insertion"/>.</p>
+            and you are told the deadlines for those homeworks: 3, 10, 5, 8, 7, 2 days respectively. You can observe the insertion of these homeworks into our priority queue in <xref ref="fig-trees_pq-insertion"/>.</p>
         
-        <figure align="center" xml:id="trees_pq-insertion"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 1: Homework insertion process into priority queue</caption><image source="Trees/Figures/Homework_PQ.png" width="50%" alt="image"/></figure>
-        <p>Now that we have the priority queue of which homeworks we need to do in the order. Let us start by doing the homework with 2 day deadline. We would remove it from the root and put the left most leaf in its place and than rearange the heap back to the proper state, as shown in <xref ref="trees_pq-del"/>.</p>
+
+        <figure align="center" xml:id="fig-trees_pq-insertion">
+            <caption>Homework insertion process into priority queue</caption>
+                <image source="Trees/Homework_PQ.png" width="80%">
+                <description>A sequence of diagrams depicting the insertion process into a priority queue represented by a binary tree. Starting with a single node labeled '3', the first diagram shows 'Insert 10', leading to a new node '10' added as a child. The next step 'Insert 5' adds a new node '5', followed by 'Insert 8' which adds node '8'. Another step shows 'Insert 7' with a node '7' being added, and the sequence progresses with each insertion maintaining the binary tree structure. The diagrams show the dynamic reordering of nodes to maintain the priority queue property, with the final structure at the bottom left displaying a balanced binary tree with node '2' at the top, leading to nodes '3' and '7', which branch out to further nodes '10', '8', '5', and '2'. Arrows indicate the insertion order and the adjustments within the tree. </description>
+                </image>
+            </figure>
+        <p>Now that we have the priority queue of which homeworks we need to do in the order. Let us start by doing the homework with 2 day deadline. We would remove it from the root and put the left most leaf in its place and than rearange the heap back to the proper state, as shown in <xref ref="fig-trees_pq-del"/>.</p>
         
-        <figure align="center" xml:id="trees_pq-del"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 2: After finishing the earliest homework, the root is removed and rearranges the priority queue</caption><image source="Trees/Figures/PQ_Del.png" width="50%" alt="image"/></figure>
+
+        <figure align="center" xml:id="fig-trees_pq-del">
+            <caption>After finishing the earliest homework, the root is removed and rearranges the priority queue</caption>
+                <image source="Trees/PQ_Del.png" width="80%">
+                <description>Two diagrams showing the process of removing the root from a binary heap that represents a priority queue. The first diagram on the left shows a binary tree with the root node '3', which has two children: '7' on the left with its own children '10' and '8', and '5' on the right. An arrow points from this tree to the second diagram on the right, indicating the removal of the root node. The second diagram shows the tree after the root has been removed and the heap has been restructured: the node '5' has been moved to the root position, with '7' as its left child and '3' as its right child, maintaining the heap property. The nodes '10' and '8' remain as children of '7'. The tree restructuring is shown with curved arrows indicating the new parent-child relationships.</description>
+                </image>
+            </figure>
         <p>As we continue to complete the homework with the closest deadline we will continue to remove the homeworks in the demostrated fashion until we are done.</p>
     </section>
 
