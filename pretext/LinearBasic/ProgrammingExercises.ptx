@@ -29,10 +29,10 @@
             </li>
             <li>
                 <p>It is possible to implement a queue such that both enqueue and
-                    dequeue have <math>O(1)</math> performance <em>on average</em>. In this case it
+                    dequeue have <m>O(1)</m> performance <em>on average</em>. In this case it
                     means that most of the time enqueue and dequeue will be
-                    <math>O(1)</math> except in one particular circumstance where dequeue
-                    will be <math>O(n)</math>.</p>
+                    <m>O(1)</m> except in one particular circumstance where dequeue
+                    will be <m>O(n)</m>.</p>
             </li>
             <li>
                 <p>Consider a real life situation. Formulate a question and then design

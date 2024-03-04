@@ -11,10 +11,10 @@
     <p>A good basic unit of computation for comparing the summation algorithms
         shown earlier might be to count the number of assignment statements
         performed to compute the sum. In the function <c>sumOfN</c>, the number of
-        assignment statements is 1 (<math>theSum = 0</math>)
+        assignment statements is 1 (<m>theSum = 0</m>)
         plus the value of <em>n</em> (the number of times we perform
-        <math>theSum=theSum+i</math>). We can denote this by a function, call it T,
-        where <math>T(n)=1 + n</math>. The parameter <em>n</em> is often referred to as
+        <m>theSum=theSum+i</m>). We can denote this by a function, call it T,
+        where <m>T(n)=1 + n</m>. The parameter <em>n</em> is often referred to as
         the <q>size of the problem,</q> and we can read this as <q>T(n) is the time
         it takes to solve a problem of size n, namely 1+n steps.</q></p>
     <p>In the summation functions given above, it makes sense to use the number
@@ -27,35 +27,35 @@
         problem.</p>
     <p>Computer scientists prefer to take this analysis technique one step
         further. It turns out that the exact number of operations is not as
-        important as determining the most dominant part of the <math>T(n)</math>
+        important as determining the most dominant part of the <m>T(n)</m>
         function. In other words, as the problem gets larger, some portion of
-        the <math>T(n)</math> function tends to overpower the rest. This dominant
+        the <m>T(n)</m> function tends to overpower the rest. This dominant
         term is what, in the end, is used for comparison.<idx>order of magnitude</idx> The <term>order of
-            magnitude</term> function describes the part of <math>T(n)</math> that increases
+            magnitude</term> function describes the part of <m>T(n)</m> that increases
         the fastest as the value of <em>n</em> increases.<idx>big-O notation</idx> Order of magnitude is often
         called <term>Big-O notation</term> (for <q>order</q>) and written as
-        <math>O(f(n))</math>. It provides a useful approximation to the actual
-        number of steps in the computation. The function <math>f(n)</math> provides
+        <m>O(f(n))</m>. It provides a useful approximation to the actual
+        number of steps in the computation. The function <m>f(n)</m> provides
         a simple representation of the dominant part of the original
-        <math>T(n)</math>.</p>
-    <p>In the above example, <math>T(n)=1+n</math>. As <em>n</em> gets large, the
+        <m>T(n)</m>.</p>
+    <p>In the above example, <m>T(n)=1+n</m>. As <em>n</em> gets large, the
         constant 1 will become less and less significant to the final result. If
-        we are looking for an approximation for <math>T(n)</math>, then we can drop
-        the 1 and simply say that the running time is <math>O(n)</math>. It is
+        we are looking for an approximation for <m>T(n)</m>, then we can drop
+        the 1 and simply say that the running time is <m>O(n)</m>. It is
         important to note that the 1 is certainly significant for
-        <math>T(n)</math>. However, as <em>n</em> gets large, our approximation will be
+        <m>T(n)</m>. However, as <em>n</em> gets large, our approximation will be
         just as accurate without it.</p>
     <p>As another example, suppose that for some algorithm, the exact number of
-        steps is <math>T(n)=5n^{2}+27n+1005</math>. When <em>n</em> is small, say 1 or 2,
+        steps is <m>T(n)=5n^{2}+27n+1005</m>. When <em>n</em> is small, say 1 or 2,
         the constant 1005 seems to be the dominant part of the function.
-        However, as <em>n</em> gets larger, the <math>n^{2}</math> term becomes the most
+        However, as <em>n</em> gets larger, the <m>n^{2}</m> term becomes the most
         important. In fact, when <em>n</em> is really large, the other two terms become
         insignificant in the role that they play in determining the final
-        result. Again, to approximate <math>T(n)</math> as <em>n</em> gets large, we can
-        ignore the other terms and focus on <math>5n^{2}</math>. In addition, the
-        coefficient <math>5</math> becomes insignificant as <em>n</em> gets large. We
-        would say then that the function <math>T(n)</math> has an order of
-        magnitude <math>f(n)=n^{2}</math>, or simply that it is <math>O(n^{2})</math>.</p>
+        result. Again, to approximate <m>T(n)</m> as <em>n</em> gets large, we can
+        ignore the other terms and focus on <m>5n^{2}</m>. In addition, the
+        coefficient <m>5</m> becomes insignificant as <em>n</em> gets large. We
+        would say then that the function <m>T(n)</m> has an order of
+        magnitude <m>f(n)=n^{2}</m>, or simply that it is <m>O(n^{2})</m>.</p>
 
 
     <p>Although we do not see this in the summation example, sometimes the
@@ -72,7 +72,7 @@
     <p>A number of very common order of magnitude functions will come up over
         and over as you study algorithms. These are shown in <xref ref="algorithm-analysis_algorithm-analysis_tbl-fntablecpp"/>. In
         order to decide which of these functions is the dominant part of any
-        <math>T(n)</math> function, we must see how they compare with one another
+        <m>T(n)</m> function, we must see how they compare with one another
         as <em>n</em> gets large.</p>
     
     <table xml:id="algorithm-analysis_id1"><tabular>
@@ -93,7 +93,7 @@
             
                 <row>
                     <cell>
-                        <math>1</math>
+                        <m>1</m>
                     </cell>
                     <cell>
                         Constant
@@ -101,7 +101,7 @@
                 </row>
                 <row>
                     <cell>
-                        <math>\log n</math>
+                        <m>\log n</m>
                     </cell>
                     <cell>
                         Logarithmic
@@ -109,7 +109,7 @@
                 </row>
                 <row>
                     <cell>
-                        <math>n</math>
+                        <m>n</m>
                     </cell>
                     <cell>
                         Linear
@@ -117,7 +117,7 @@
                 </row>
                 <row>
                     <cell>
-                        <math>n\log n</math>
+                        <m>n\log n</m>
                     </cell>
                     <cell>
                         Log Linear
@@ -125,7 +125,7 @@
                 </row>
                 <row>
                     <cell>
-                        <math>n^{2}</math>
+                        <m>n^{2}</m>
                     </cell>
                     <cell>
                         Quadratic
@@ -133,7 +133,7 @@
                 </row>
                 <row>
                     <cell>
-                        <math>n^{3}</math>
+                        <m>n^{3}</m>
                     </cell>
                     <cell>
                         Cubic
@@ -141,7 +141,7 @@
                 </row>
                 <row>
                     <cell>
-                        <math>2^{n}</math>
+                        <m>2^{n}</m>
                     </cell>
                     <cell>
                         Exponential
@@ -210,30 +210,30 @@ d = 33
 main()</pre>
     <p>The number of assignment operations is the sum of four terms. The first
         term is the constant 3, representing the three assignment statements at
-        the start of the fragment. The second term is <math>3n^{2}</math>, since
-        there are three statements that are performed <math>n^{2}</math> times due
-        to the nested iteration. The third term is <math>2n</math>, two statements
+        the start of the fragment. The second term is <m>3n^{2}</m>, since
+        there are three statements that are performed <m>n^{2}</m> times due
+        to the nested iteration. The third term is <m>2n</m>, two statements
         iterated <em>n</em> times. Finally, the fourth term is the constant 1,
         representing the final assignment statement. This gives us
-        <math>T(n)=3+3n^{2}+2n+1=3n^{2}+2n+4</math>. By looking at the exponents,
-        we can easily see that the <math>n^{2}</math> term will be dominant and
-        therefore this fragment of code is <math>O(n^{2})</math>. Note that all of
+        <m>T(n)=3+3n^{2}+2n+1=3n^{2}+2n+4</m>. By looking at the exponents,
+        we can easily see that the <m>n^{2}</m> term will be dominant and
+        therefore this fragment of code is <m>O(n^{2})</m>. Note that all of
         the other terms as well as the coefficient on the dominant term can be
         ignored as <em>n</em> grows larger.</p>
     
     <figure align="center" xml:id="id3">
-        <caption>Comparing <math>T(n)</math> with Big-O Functions</caption>
+        <caption>Comparing <m>T(n)</m> with Big-O Functions</caption>
             <image source="AlgorithmAnalysis/newplot2.png" width="50%">
                 <description>This figure shows a few of the common Big-O functions as they compare with the T(n) function discussed above. Note that T(n) is initially larger than the cubic function. However, as n grows, the cubic function quickly overtakes T(n). It is easy to see that T(n) then follows the quadratic function as n continues to grow.</description>
             </image>
     </figure>
 
     <p><xref ref="fig-graphfigure2cpp"/> shows a few of the common Big-O functions as they
-        compare with the <math>T(n)</math> function discussed above. Note that
-        <math>T(n)</math> is initially larger than the cubic function. However, as
-        n grows, the cubic function quickly overtakes <math>T(n)</math>. It is easy
-        to see that <math>T(n)</math> then follows the quadratic function as
-        <math>n</math> continues to grow.</p>
+        compare with the <m>T(n)</m> function discussed above. Note that
+        <m>T(n)</m> is initially larger than the cubic function. However, as
+        n grows, the cubic function quickly overtakes <m>T(n)</m>. It is easy
+        to see that <m>T(n)</m> then follows the quadratic function as
+        <m>n</m> continues to grow.</p>
 
 <reading-questions xml:id="rq-big-o-notation">
     <title>
@@ -241,13 +241,13 @@ Reading Questions
     </title>
     <exercise>
 
-            <p>Write two C++ functions to find the minimum number in an array.  The first function should compare each number to every other number on the array. <math>O(n^2)</math>.  The second function should be linear <math>O(n)</math>.</p>
+            <p>Write two C++ functions to find the minimum number in an array.  The first function should compare each number to every other number on the array. <m>O(n^2)</m>.  The second function should be linear <m>O(n)</m>.</p>
         
     </exercise>
     <exercise label="bigo3">
         <statement>
     
-        <p>If the exact number of steps is <math>T(n)=2n+3n^{2}-1</math> what is the Big O?</p>
+        <p>If the exact number of steps is <m>T(n)=2n+3n^{2}-1</m> what is the Big O?</p>
     
         </statement>
     <choices>
@@ -366,7 +366,7 @@ Reading Questions
     <exercise label="BIGO1">
         <statement>
     
-            <p>The Big O of a particular algorithm is <math>O(log_{2}n)</math>.
+            <p>The Big O of a particular algorithm is <m>O(log_{2}n)</m>.
                 Given that it takes 2 seconds to complete the algorithm with 3 million inputs;
                 how long would it take with 4 million inputs?</p>
     
@@ -423,7 +423,7 @@ Reading Questions
     <exercise label="BIGO2">
         <statement>
     
-            <p>The Big O of a particular algorithm is <math>O(log_{2}n)</math>.
+            <p>The Big O of a particular algorithm is <m>O(log_{2}n)</m>.
                 Given that it takes 2 seconds to complete the algorithm with 3 million inputs;
                 how long would it take with 10 million inputs?</p>
     
@@ -480,7 +480,7 @@ Reading Questions
     <exercise label="BIGO3">
         <statement>
     
-            <p>The Big O of a particular algorithm is <math>O(n^{3})</math>.
+            <p>The Big O of a particular algorithm is <m>O(n^{3})</m>.
                 Given that it takes 2 seconds to complete the algorithm with 1000 inputs;
                 how long would it take with 2000 inputs?</p>
     
@@ -538,7 +538,7 @@ Reading Questions
     <exercise label="BIGO4">
         <statement>
     
-            <p>The Big O of a particular algorithm is <math>O(n^{3})</math>.
+            <p>The Big O of a particular algorithm is <m>O(n^{3})</m>.
                 Given that it takes 2 seconds to complete the algorithm with 1000 inputs;
                 how long would it take with 10,000 inputs?</p>
     

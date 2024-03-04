@@ -233,19 +233,19 @@ theSum = theSum + 1; //how many times?
 
            <subsection xml:id="algorithm-analysis_some-needed-math-notation">
         <title>Some Needed Math Notation</title>
-        <p>This is the sigma symbol: <math>\sum_{}</math>.
+        <p>This is the sigma symbol: <m>\sum_{}</m>.
             It tells us that we are summing up something
             much like a mathematical loop typically with a counter.</p>
         <p>If we have
-            <math>\sum_{i=1}^{5}</math>
+            <m>\sum_{i=1}^{5}</m>
             the bottom index <title_reference>i=1</title_reference> tells us that the index <title_reference>i</title_reference> begins at 1
             and that <title_reference>i</title_reference> will terminate at <title_reference>5</title_reference>.</p>
         <p>What ever comes immediately afterwards is what
             we are summing. So,
-            <math>\sum_{i=1}^{5} i</math>
-            tells us to add the integers <math>1+2+3+4+5</math>
+            <m>\sum_{i=1}^{5} i</m>
+            tells us to add the integers <m>1+2+3+4+5</m>
             because just like in a <title_reference>for</title_reference> loop, we plug a value for each <title_reference>i</title_reference> value.
-            Similarly, <math>\sum_{i=2}^{4} i^2</math> means <math>2^2+3^2+4^2</math>.</p>
+            Similarly, <m>\sum_{i=2}^{4} i^2</m> means <m>2^2+3^2+4^2</m>.</p>
 
 
     </subsection>
@@ -253,7 +253,7 @@ theSum = theSum + 1; //how many times?
         <title>Applying the Math Notation</title>
         <p>There is often more than one way to solve a problem.
             Let's consider the blue area in the
-            following <math>8 \times 9</math>.rectangle.</p>
+            following <m>8 \times 9</m>.rectangle.</p>
 
         <figure align="center" xml:id="fig-sumof-n-integers">
             <caption>Sum of <title_reference>n = 8</title_reference> integers</caption>
@@ -263,15 +263,15 @@ theSum = theSum + 1; //how many times?
         </figure>
 
         <p>To find the blue area, we can count the number of blue squares
-            <math>1+2+3+4+5+6+7+8</math>, which we just learned
-            can be written as <math>\sum_{i=1}^{8} i.</math>
+            <m>1+2+3+4+5+6+7+8</m>, which we just learned
+            can be written as <m>\sum_{i=1}^{8} i.</m>
             However, we also know how to find the area of a rectangle,
             by multiplying height by width, and the blue squares represent
             half of the rectangle.
             So, the area with blue squares
-            is also just <math>\sum_{i=1}^{8} i = \frac {(8)(8+1)}{2}</math>.</p>
+            is also just <m>\sum_{i=1}^{8} i = \frac {(8)(8+1)}{2}</m>.</p>
         <p>Hence, when we have a variable <title_reference>n</title_reference>, we have learned that we can just use the
-            closed equation <math>\sum_{i=1}^{n} i = \frac {(n)(n+1)}{2}</math> to
+            closed equation <m>\sum_{i=1}^{n} i = \frac {(n)(n+1)}{2}</m> to
             compute the sum of the first <c>n</c> integers without iterating.</p>
         <p>Consider the following function:</p>
         <pre>int sumOfN3(int n){
@@ -373,7 +373,7 @@ Sum is 50005000 required 0.000000 seconds</pre>
             <exercise label="somemath1">
                 <statement>
             
-                    <p>Compute the result of <math>\sum_{i=1}^{3} i^3</math></p>
+                    <p>Compute the result of <m>\sum_{i=1}^{3} i^3</m></p>
             
                 </statement>
             <choices>

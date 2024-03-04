@@ -38,7 +38,7 @@
             </li>
             <li>
                 <p>Using the <c>buildHeap</c> method, write a sorting function that can
-                    sort a array in <math>O(n\log{n})</math> time.</p>
+                    sort a array in <m>O(n\log{n})</m> time.</p>
             </li>
             <li>
                 <p>Write a function that takes a parse tree for a mathematical

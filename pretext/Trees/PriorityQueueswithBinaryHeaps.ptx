@@ -16,10 +16,10 @@
             <idx>binary heap</idx>
             You can probably think of a couple of easy ways to implement a priority
             queue using sorting functions and vectors. However, inserting into a vector
-            is <math>O(n)</math> and sorting a vector is <math>O(n \log{n})</math>. We can
+            is <m>O(n)</m> and sorting a vector is <m>O(n \log{n})</m>. We can
             do better. The classic way to implement a priority queue is using a data
             structure called a <term>binary heap</term>. A binary heap will allow us both
-            enqueue and dequeue items in <math>O(\log{n})</math>.</p>
+            enqueue and dequeue items in <m>O(\log{n})</m>.</p>
         <p>
             <idx>min heap</idx>
             <idx>max heap</idx>
