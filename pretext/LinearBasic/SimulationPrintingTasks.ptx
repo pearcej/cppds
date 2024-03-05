@@ -26,7 +26,15 @@
             to be printed. This is equal to the average amount of time a task waits
             in the queue.</p>
         
-        <figure align="center" xml:id="fig-qulabsim"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: Computer Science Laboratory Printing Queue</caption><image source="LinearBasic/Figures/simulationsetup.png" width="50%"/></figure>
+            <figure align="center" xml:id="fig-qulabsim">
+                <caption>A Computer Science Laboratory Printing Queue</caption>
+                    <image source="LinearBasic/simulationsetup.png" width="80%">
+                        <description>
+                            A diagram of a printing task in a print queue. The diagram shows a row of computers connected to a printer by a cable. A queue of print tasks is shown above the printer, with the task at the front of the queue currently being printed. The text above the queue reads "Lab Computers" and the text below the queue reads "printing tasks in print queue                    
+                        </description>
+                    </image>
+            </figure>
+
         <p>To model this situation we need to use some probabilities. For example,
             students may print a paper from 1 to 20 pages in length. If each length
             from 1 to 20 is equally likely, the actual length for a print task can
