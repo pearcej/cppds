@@ -89,7 +89,7 @@ class Fraction:
                 <c>Fraction</c> object, we will need to initialize two pieces of data, the
                 numerator and the denominator. In C++, the constructor method is
                 always named with the same name as the class it creates
-                and is shown in <xref ref="lst-constructor"/>.</p>
+                and is shown in <xref ref="introduction_lst-constructor">Listing 2</xref>.</p>
             
             <p xml:id="introduction_lst-constructor" names="lst_constructor"><term>Listing 2</term></p>
             <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
@@ -393,7 +393,7 @@ f1.__add__(f2)
                 way to make sure they have the same denominator is to simply use the
                 product of the two denominators as a common denominator so that
                 <m>\frac {a}{b} + \frac {c}{d} = \frac {ad}{bd} + \frac {cb}{bd} = \frac{ad+cb}{bd}</m>
-                The implementation is shown in <xref ref="lst-addmethod"/>. The addition
+                The implementation is shown in <xref ref="introduction_lst-addmethod">Listing 5</xref>. The addition
                 function returns a new <c>Fraction</c> object with the numerator and
                 denominator of the sum. We can use this method by writing a standard
                 arithmetic expression involving fractions, assigning the result of the
@@ -611,7 +611,7 @@ print(gcd(20,10))
                 denominator by their greatest common divisor. So, for the fraction
                 <m>6/8</m>, the greatest common divisor is 2. Dividing the top and
                 the bottom by 2 creates a new fraction, <m>3/4</m> (see
-                <xref ref="lst-newaddmethod"/>).</p>
+                <xref ref="introduction_lst-newaddmethod"> Listing 6</xref>).</p>
             
             <p xml:id="introduction_lst-newaddmethod" names="lst_newaddmethod"><term>Listing 6</term></p>
 
@@ -689,7 +689,7 @@ int main(){
                 This is a design choice because we want <m>\frac {1}{2}</m> to be considered
                 equal to <m>\frac {2}{4}</m> as well as <m>\frac {3}{6}</m>, etc.
                 Hence, in the <c>Fraction</c> class, we can implement the <c>==</c> method by
-                cross-multiplying (see <xref ref="lst-cmpmethod"/>) rather than
+                cross-multiplying (see <xref ref="introduction_lst-cmpmethod">Listing 7</xref>) rather than
                 by just comparing numerators and denominators.</p>
             <p>Of course there are other relational operators that can be overridden. For example, the
                 <c>&lt;=</c> operator could be overridden to provide the less than or equal functionality.</p>
