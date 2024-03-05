@@ -18,12 +18,12 @@
         programming language. There may be many programs for the same algorithm,
         depending on the programmer and the programming language being used.</p>
     <p>To explore this difference further, consider the function shown in
-        <xref ref="lst-sum0"/>. This function solves a familiar problem, computing the
+        <xref ref="lst-sum0"> Listing 1</xref>. This function solves a familiar problem, computing the
         sum of the first <em>n</em> integers. The algorithm uses the idea of an
         accumulator variable that is initialized to 0. The solution then
         iterates through the <em>n</em> integers, adding each to the accumulator.</p>
     
-    <p xml:id="algorithm-analysis_lst-sum0" names="lst_sum0"><term>Listing 1</term></p>
+    <p xml:id="lst-sum0" names="lst_sum0"><term>Listing 1</term>
     <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
 <program xml:id="ec1_cpp" interactive="activecode" language="cpp">
@@ -66,7 +66,8 @@ main()
     </input>
 </program>
         </TabNode>
-    <p>Now look at the function in <xref ref="lst-sum2"/>.
+    </p>
+    <p>Now look at the function in <xref ref="lst-sum2">Listing 2 </xref>.
         At first glance it may look
         strange, but upon further inspection you can see that this function is
         essentially doing the same thing as the previous one. The reason this is
@@ -74,7 +75,7 @@ main()
         assist with readability, and we used an extra assignment statement
         during the accumulation step that was not really necessary.</p>
     
-    <p xml:id="algorithm-analysis_lst-sum2" names="lst_sum2"><term>Listing 2</term></p>
+    <p xml:id="lst-sum2" names="lst_sum2"><term>Listing 2</term>
     <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
 <program xml:id="ec2_cpp" interactive="activecode" language="cpp">
@@ -120,7 +121,9 @@ print(foo(10))
 main()
     </input>
 </program>
+
         </TabNode>
+    </p>
     <p>The question we raised earlier asked whether one function is better than
         another. The answer depends on your criteria. The function <c>sumOfN</c> is
         certainly better than the function <c>foo</c> if you are concerned with
@@ -159,7 +162,7 @@ main()
         and then computing the difference, we can get an exact number of seconds
         (fractions in most cases) for execution.</p>
     
-    <p xml:id="algorithm-analysis_lst-sum11" names="lst_sum11"><term>Listing 3</term></p>
+    <p xml:id="lst-sum11" names="lst_sum11"><term>Listing 3</term>
     <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
 <program xml:id="ec2cpp" interactive="activecode" language="cpp">
@@ -221,7 +224,8 @@ main()
     </input>
 </program>
         </TabNode>
-    <p><xref ref="lst-sum11"/> shows the original <c>sumOfN</c> function with the timing
+    </p>
+    <p><xref ref="lst-sum11">Listing 3</xref> shows the original <c>sumOfN</c> function with the timing
         calls embedded before and after the summation. The function returns the amount of time (in seconds)
         required for the calculation.</p>
     <p>Consider the following code block:</p>

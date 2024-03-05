@@ -483,7 +483,7 @@ char cstring[] = {"Hello World!"};    // C-string or char array uses double quot
 
     
             
-            <table xml:id="introduction_id5"><tabular>
+            <table xml:id="introduction_tab-stringmethods"><tabular>
                 <title><term>Table 4: String Methods Provided in C++</term></title>
                 
                     
@@ -783,7 +783,7 @@ main()
             <p>Hash Tables have both methods and operators. <xref ref="introduction_tab-hashopers"/>
                 describes them, and the session shows them in action.</p>
             
-            <table xml:id="introduction_id6"><tabular>
+            <table xml:id="introduction_tab-hashopers"><tabular>
                 <title><term>Table 7: Important Hash Table Operators Provided in C++</term></title>
                 
                     
@@ -884,7 +884,7 @@ main()
                 have worked with sets in a mathematics setting. <xref ref="introduction_tab-setmethods"/>
                 provides a summary. Examples of their use follow.</p>
             
-            <table xml:id="introduction_id7"><tabular>
+            <table xml:id="introduction_tab-setmethods"><tabular>
                 <title><term>Table 6: Methods Provided by Sets in C++</term></title>
                 
                     
