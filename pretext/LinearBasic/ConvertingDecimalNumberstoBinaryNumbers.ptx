@@ -31,7 +31,15 @@
             reversal property that signals that a stack is likely to be the
             appropriate data structure for solving the problem.</p>
         
-        <figure align="center" xml:id="fig-decbin"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 5: Decimal-to-Binary Conversion</caption><image source="LinearBasic/Figures/dectobin.png" width="50%"/></figure>
+            <figure align="center" xml:id="fig-decbin">
+                <caption>Decimal-to-Binary Conversion</caption>
+                    <image source="LinearBasic/dectobin.png" width="70%">
+                        <description> 
+                            The image shows a diagram illustrating the process of converting a fraction to a decimal. It features a visual representation that resembles a ladder with numbers arranged in a stepwise fashion. The diagram guides the viewer through a series of calculations involving repeated division and remainder operations.
+                        </description>
+                    </image>
+            </figure>
+
         <p>The code in <xref ref="lst-binconverter"/>
             implements the Divide by 2
             algorithm. The function <c>divideBy2</c> takes an argument that is a
