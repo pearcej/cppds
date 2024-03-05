@@ -161,7 +161,7 @@ return 0;
                 appropriate logic based on the current input. In order to produce
                 output, the gate needs to know specifically what that logic is. This
                 means calling a method to perform the logic computation. The complete
-                class is shown in <xref ref="lst-logicgateclass"/>.</p>
+                class is shown in <xref ref="introduction_lst-logicgateclass">Listing 8</xref>.</p>
             
             <p xml:id="introduction_lst-logicgateclass" names="lst_logicgateclass"><term>Listing 8</term></p>
             <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
@@ -312,7 +312,7 @@ class UnaryGate(LogicGate):
                 return int(input("Enter Pin input for gate "+ self.getLabel()+"-&gt;"))
 </input></program>
                 </TabNode>
-            <p><xref ref="lst-logicgateclass"/> and <xref ref="lst-logicgateclass"/> implement these two
+            <p><xref ref="introduction_lst-binarygateclass">Listing 9</xref> and <xref ref="introduction_lst-unarygateclass">Listing 10</xref> implement these two
                 classes. The constructors in both of these classes start with an
                 explicit call to the constructor of the parent class using the parent's name
                 method. When creating an instance of the <c>BinaryGate</c> class, we
@@ -377,7 +377,7 @@ class AndGate(BinaryGate):
                 place where we can provide the <c>performGateLogic</c> method. For an <term>AND</term>
                 gate, this method first must get the two input values and then only
                 return 1 if both input values are 1. The complete class is shown in
-                <xref ref="lst-andgateclass"/>.</p>
+                <xref ref="introduction_lst-andgateclass">Listing 11</xref>.</p>
             <p>We can show the <c>AndGate</c> class in action by creating an instance and
                 asking it to compute its output. The following session shows an
                 <c>AndGate</c> object, <c>gand1</c>, that has an internal label <c>"gand1"</c>. When we
