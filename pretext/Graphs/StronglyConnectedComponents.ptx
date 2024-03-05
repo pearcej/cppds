@@ -34,10 +34,10 @@
             One graph algorithm that can help find clusters of highly interconnected
             vertices in a graph is called the strongly connected components
             algorithm (<term>SCC</term>). We formally define a <term>strongly connected
-                component</term>, <math>C</math>, of a graph <math>G</math>, as the largest subset
-            of vertices <math>C \subset V</math> such that for every pair of vertices
-            <math>v, w \in C</math> we have a path from <math>v</math> to <math>w</math> and
-            a path from <math>w</math> to <math>v</math>. <xref ref="fig-scc1"/> shows a simple
+                component</term>, <m>C</m>, of a graph <m>G</m>, as the largest subset
+            of vertices <m>C \subset V</m> such that for every pair of vertices
+            <m>v, w \in C</m> we have a path from <m>v</m> to <m>w</m> and
+            a path from <m>w</m> to <m>v</m>. <xref ref="fig-scc1"/> shows a simple
             graph with three strongly connected components. The strongly connected
             components are identified by the different shaded areas.</p>
         
@@ -60,10 +60,10 @@
         <p>Once again we will see that we can create a very powerful and efficient
             algorithm by making use of a depth first search. Before we tackle the
             main SCC algorithm we must look at one other definition. The
-            transposition of a graph <math>G</math> is defined as the graph
-            <math>G^T</math> where all the edges in the graph have been reversed. That
+            transposition of a graph <m>G</m> is defined as the graph
+            <m>G^T</m> where all the edges in the graph have been reversed. That
             is, if there is a directed edge from node A to node B in the original
-            graph then <math>G^T</math> will contain and edge from node B to node A.
+            graph then <m>G^T</m> will contain and edge from node B to node A.
             <xref ref="fig-tpa"/> and <xref ref="fig-tpb"/> show a simple graph and its transposition.</p>
         <figure align="center" xml:id="fig-transpose1">
             <caption> A Graph <m>G</m></caption>
@@ -86,14 +86,14 @@
             components for a graph.</p>
         <p><ol label="1">
             <li>
-                <p>Call <c>dfs</c> for the graph <math>G</math> to compute the finish times
+                <p>Call <c>dfs</c> for the graph <m>G</m> to compute the finish times
                     for each vertex.</p>
             </li>
             <li>
-                <p>Compute <math>G^T</math>.</p>
+                <p>Compute <m>G^T</m>.</p>
             </li>
             <li>
-                <p>Call <c>dfs</c> for the graph <math>G^T</math> but in the main loop of DFS
+                <p>Call <c>dfs</c> for the graph <m>G^T</m> but in the main loop of DFS
                     explore each vertex in decreasing order of finish time.</p>
             </li>
             <li>

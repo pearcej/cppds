@@ -13,9 +13,20 @@
             vector as it is being split by <c>mergeSort</c>. <xref ref="fig-mergesortb"/> shows
             the simple vectors, now sorted, as they are merged back together.</p>
         
-        <figure align="center" xml:id="fig-mergesorta"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 10: Splitting the vector in a Merge Sort</caption><image source="Sort/Figures/mergesortA.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-mergesorta">
+            <caption>Splitting the vector in a Merge Sort</caption>
+                <image source="Sort/mergesortA.png" width="80%">
+                <description>An illustrative flowchart of the Merge Sort algorithm showing the process of splitting a vector into smaller parts. The chart starts with a single row of numbers at the top: 54, 26, 93, 17, 77, 31, 44, 55, 20, and branches downwards into increasingly smaller groups. Each branch represents a division of the list into two parts, progressively breaking down the numbers into individual elements. The flowchart visually demonstrates how Merge Sort recursively divides a list until each part contains a single element, preparing for the merge phase. </description>
+                </image>
+            </figure>
         
-        <figure align="center" xml:id="fig-mergesortb"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 11: vectors as They Are Merged Together</caption><image source="Sort/Figures/mergesortB.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-mergesortb">
+            <caption>Vectors as They Are Merged Together</caption>
+                <image source="Sort/mergesortB.png" width="80%">
+                <description>A diagram depicting the merging phase of the Merge Sort algorithm. The flowchart shows the combination of divided vectors into a sorted sequence. It starts with smaller groups of numbers at the top, each sorted individually: 26 and 54, 17 and 93, and so on. These groups are then merged into larger sorted sequences through a series of downward-pointing arrows, indicating the order of merging. The process continues until all numbers are combined into a single sorted list at the bottom: 17, 20, 26, 31, 44, 54, 55, 77, 93. </description>
+                </image>
+            </figure>
+
         <p>The <c>mergeSort</c> function shown in <xref ref="lst-mergesort-cpp"/> begins by asking the
             base case question. If the length of the vector is less than or equal to
             one, then we already have a sorted vector and no more processing is
@@ -262,16 +273,16 @@ merge_anim_init = function(divid)
         <p>In order to analyze the <c>mergeSort</c> function, we need to consider the
             two distinct processes that make up its implementation. First, the vector
             is split into halves. We already computed (in a binary search) that we
-            can divide a vector in half <math>\log n</math> times where <em>n</em> is the
+            can divide a vector in half <m>\log n</m> times where <em>n</em> is the
             length of the vector. The second process is the merge. Each item in the
             vector will eventually be processed and placed on the sorted vector. So the
             merge operation which results in a vector of size <em>n</em> requires <em>n</em>
-            operations. The result of this analysis is that <math>\log n</math> splits,
-            each of which costs <math>n</math> for a total of <math>n\log n</math>
-            operations. A merge sort is an <math>O(n\log n)</math> algorithm.</p>
-        <p>Recall that the slicing operator is <math>O(k)</math> where k is the size
+            operations. The result of this analysis is that <m>\log n</m> splits,
+            each of which costs <m>n</m> for a total of <m>n\log n</m>
+            operations. A merge sort is an <m>O(n\log n)</m> algorithm.</p>
+        <p>Recall that the slicing operator is <m>O(k)</m> where k is the size
             of the slice. In order to guarantee that <c>mergeSort</c> will be
-            <math>O(n\log n)</math> we will need to remove the slice operator. Again,
+            <m>O(n\log n)</m> we will need to remove the slice operator. Again,
             this is possible if we simply pass the starting and ending indices along
             with the vector when we make the recursive call. We leave this as an
             exercise.</p>
@@ -279,7 +290,7 @@ merge_anim_init = function(divid)
             space to hold the two halves as they are extracted with the slicing
             operations. This additional space can be a critical factor if the vector
             is large and can make this sort problematic when working on large data
-            sets. In the case with using lists in python, the space complexity is <math>O(log n)</math>.</p>
+            sets. In the case with using lists in python, the space complexity is <m>O(log n)</m>.</p>
 <reading-questions xml:id="rq-merge-sort">
 
     <exercise label="question_sort_5">

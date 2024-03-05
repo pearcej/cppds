@@ -11,12 +11,12 @@
             subtree are less than the key in the root. All of the keys in the right
             subtree are greater than the root.</p>
         
-        <figure align="center" xml:id="fig-simplebst"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 1: A Simple Binary Search Tree</caption><image source="Trees/Figures/simpleBST.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-simplebst"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">A Simple Binary Search Tree</caption><image source="Trees/simpleBST.png" width="50%"/></figure>
         <p>Now that you know what a binary search tree is, we will look at how a
             binary search tree is constructed. The search tree in
             <xref ref="fig-simplebst"/> represents the nodes that exist after we have
             inserted the following keys in the order shown:
-            <math>70,31,93,94,14,23,73</math>. Since 70 was the first key inserted into
+            <m>70,31,93,94,14,23,73</m>. Since 70 was the first key inserted into
             the tree, it is the root. Next, 31 is less than 70, so it becomes the
             left child of 70. Next, 93 is greater than 70, so it becomes the right
             child of 70. Now we have two levels of the tree filled, so the next key
@@ -213,7 +213,7 @@ void _put(int key, string val, TreeNode *currentNode){
             into a binary search tree. The lightly shaded nodes indicate the nodes
             that were visited during the insertion process.</p>
         
-        <figure align="center" xml:id="fig-bstput"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 2: Inserting a Node with Key = 19</caption><image source="Trees/Figures/bstput.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-bstput"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Inserting a Node with Key = 19</caption><image source="Trees/bstput.png" width="50%"/></figure>
         <note>
             <title>Self Check</title>
 
@@ -318,7 +318,7 @@ TreeNode  *_get(int key, TreeNode *currentNode){
     }
 }</pre>
         
-        <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 3: Deleting Node 16, a Node without Children</caption><image source="Trees/Figures/bstdel1.png" width="50%"/></figure>
+        <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Deleting Node 16, a Node without Children</caption><image source="Trees/bstdel1.png" width="50%"/></figure>
         <p>The second case is only slightly more complicated (see <xref ref="lst-bst7"/>). If a node has only a
             single child, then we can simply promote the child to take the place of
             its parent. The code for this case is shown in the next listing. As
@@ -384,7 +384,7 @@ TreeNode  *_get(int key, TreeNode *currentNode){
     }
 }</pre>
         
-        <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: Deleting Node 25, a Node That Has a Single Child</caption><image source="Trees/Figures/bstdel2.png" width="50%"/></figure>
+        <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Deleting Node 25, a Node That Has a Single Child</caption><image source="Trees/bstdel2.png" width="50%"/></figure>
         <p><idx>successor node</idx>The third case is the most difficult case to handle (see <xref ref="lst-bst7"/>). If a node has two
             children, then it is unlikely that we can simply promote one of them to
             take the node's place. We can, however, search the tree for a node that
@@ -398,7 +398,7 @@ TreeNode  *_get(int key, TreeNode *currentNode){
             implemented. Once the successor has been removed, we simply put it in
             the tree in place of the node to be deleted.</p>
         
-        <figure align="center" xml:id="id5"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 5: Deleting Node 5, a Node with Two Children</caption><image source="Trees/Figures/bstdel3.png" width="50%"/></figure>
+        <figure align="center" xml:id="id5"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Deleting Node 5, a Node with Two Children</caption><image source="Trees/bstdel3.png" width="50%"/></figure>
         <p>The code to handle the third case is shown in the next listing.
             Notice that we make use of the helper methods <c>findSuccessor</c> and
             <c>findMin</c> to find the successor. To remove the successor, we make use
@@ -1182,7 +1182,7 @@ main()
             
                         <choice>
                             <statement>
-                                <p><image source="../_static/bintree_a.png" width="50%"><description><p/></description></image></p>
+                                <p><image source="Trees/bintree_a.png" width="50%"><description><p/></description></image></p>
                             </statement>
                             <feedback>
                                 <p>Remember, starting at the root keys less than the root must be in the left subtree, while keys greater than the root go in the right subtree.</p>
@@ -1191,7 +1191,7 @@ main()
             
                         <choice correct="yes">
                             <statement>
-                                <p><image source="../_static/bintree_b.png" width="50%"><description><p/></description></image></p>
+                                <p><image source="Trees/bintree_b.png" width="50%"><description><p/></description></image></p>
                             </statement>
                             <feedback>
                                 <p>good job.</p>
@@ -1200,7 +1200,7 @@ main()
             
                         <choice>
                             <statement>
-                                <p><image source="../_static/bintree_c.png" width="50%"><description><p/></description></image></p>
+                                <p><image source="Trees/bintree_c.png" width="50%"><description><p/></description></image></p>
                             </statement>
                             <feedback>
                                 <p>This looks like a binary tree that satisfies the full tree property needed for a heap.</p>

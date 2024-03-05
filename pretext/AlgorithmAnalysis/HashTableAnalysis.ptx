@@ -15,14 +15,14 @@
     <p>Later in this
         book you will see that there are many ways to implement a hash table.
         The thing that is most important to note  now is that the get
-        item and set item operations on a hash table are <math>O(1)</math>. Another
+        item and set item operations on a hash table are <m>O(1)</m>. Another
         important hash table operation is the <term>contains</term> operation. Unlike a vector, checking to
-        see whether a value is in the hash table or not is also <math>O(1)</math>.</p>
+        see whether a value is in the hash table or not is also <m>O(1)</m>.</p>
     <p>The efficiency of all hash table operations is summarized in
         <xref ref="algorithm-analysis_tbl-hashbigo-cpp"/>. One important side note on hash table performance
         is that the efficiencies we provide in the table below are for average
         performance. In some rare cases the <term>contains</term>, <term>get item</term>, and <term>set item</term>
-        operations can degenerate into <math>O(n)</math> performance but we will
+        operations can degenerate into <m>O(n)</m> performance but we will
         get into that in a later chapter when we talk about the different ways
         that a hash table could be implemented.</p>
     
@@ -91,8 +91,8 @@
         operation.</p>
     <p>For our last performance experiment we will compare the performance of
         the contains operation between vectors and hash tables. In the process we
-        will confirm that the contains operator for vectors is <math>O(n)</math> and
-        the contains operator for hash tables is <math>O(1)</math>. The experiment
+        will confirm that the contains operator for vectors is <m>O(n)</m> and
+        the contains operator for hash tables is <m>O(1)</m>. The experiment
         we will use to compare the two is simple. We'll make a vector with a range
         of numbers in it. Then we will pick numbers at random and check to see
         if the numbers are in the vector. If our performance tables are correct
@@ -163,7 +163,7 @@ print("%d,%10.3f,%10.3f" % (i, lst_time, d_time))
         elements the hash table is 11,603 times faster! You can also see that
         the time it takes for the contains operator on the vector grows linearly
         with the size of the vector. This verifies the assertion that the contains
-        operator on a vector is <math>O(n)</math>. It can also be seen that the time
+        operator on a vector is <m>O(n)</m>. It can also be seen that the time
         for the contains operator on a hash table is constant even as the
         hash table size grows. In fact for a hash table size of 10,000 the
         contains operation took 0.004 milliseconds and for the hash table size

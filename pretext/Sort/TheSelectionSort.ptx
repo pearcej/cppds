@@ -9,8 +9,8 @@
             As with a bubble
             sort, after the first step, the largest item is in the correct place.
             After the second step, the next largest is in place. This process
-            continues and requires <math>n-1</math> steps to sort <em>n</em> items, since the
-            final item must be in place after the <math>(n-1)</math> step.</p>
+            continues and requires <m>n-1</m> steps to sort <em>n</em> items, since the
+            final item must be in place after the <m>(n-1)</m> step.</p>
         <p>On each step,
             the largest remaining item is selected and then placed in its proper
             location. The first pass places 93, the second pass places 77, the third
@@ -161,7 +161,7 @@ selection_anim_init = function(divid)
 &lt;/script&gt;
 </raw>
         <p>You may see that the selection sort makes the same number of comparisons
-            as the bubble sort and is therefore also <math>O(n^{2})</math>. However,
+            as the bubble sort and is therefore also <m>O(n^{2})</m>. However,
             due to the reduction in the number of exchanges, the selection sort
             typically executes faster in benchmark studies.</p>
             <reading-questions xml:id="rq-selection-sort">
