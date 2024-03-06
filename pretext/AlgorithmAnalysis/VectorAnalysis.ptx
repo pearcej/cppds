@@ -33,7 +33,7 @@
             The <c>push_back()</c> method is typically <m>O(1)</m>, provided
             there is adequate capacity in the underlying array.</p>
         <p>First we'll use <c>push_back()</c> method.
-            <xref ref="lst-mkvectcpp"/> shows the code for
+            <xref ref="algorithm-analysis_lst-mkvectcpp">Listing 3</xref> shows the code for
             making our vector.</p>
         
         <p xml:id="algorithm-analysis_lst-mkvectcpp" names="lst_mkvectcpp"><term>Listing 3</term></p>
@@ -164,7 +164,7 @@ int main(){
             <m>O(1)</m>. This is a tradeoff that the C++ implementers thought
             was a good one.</p>
         
-        <table xml:id="algorithm-analysis_id1"><tabular>
+        <table xml:id="algorithm-analysis_algorithm-analysis_tbl-vectbigocpp"><tabular>
             <title><term>Table 2: Big-O Efficiency of C++ Vector Operators</term></title>
             
                 
@@ -289,9 +289,9 @@ int main(){
             see is that the time required to pop from the end of the vector will stay
             constant even as the vector grows in size, while the time to pop from the
             beginning of the vector will continue to increase as the vector grows.</p>
-        <p><xref ref="lst-popmeascpp"/> shows one attempt to measure the difference
+        <p><xref ref="algorithm-analysis_lst-popmeascpp">Listing 4</xref> shows one attempt to measure the difference
             between the <c>pop_back()</c> and <c>erase()</c>.</p>
-        <p>There are a couple of things to notice about <xref ref="lst-popmeascpp"/>.
+        <p>There are a couple of things to notice about <xref ref="algorithm-analysis_lst-popmeascpp">Listing 4</xref>.
             This approach allows us to time just the single <c>pop_back()</c> statement
             and get the most accurate measure of the time for that single operation.
             Because the timer repeats 10,000 times it is also important to point out
