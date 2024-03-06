@@ -75,7 +75,7 @@
         <m>T(n)</m> function, we must see how they compare with one another
         as <em>n</em> gets large.</p>
     
-    <table xml:id="algorithm-analysis_id1"><tabular>
+    <table xml:id="algorithm-analysis_algorithm-analysis_tbl-fntablecpp"><tabular>
         <title><term>Table 1: Common Big-O Functions</term></title>
         
             
@@ -165,7 +165,7 @@
     </figure>
 
         <p>As a final example, suppose that we have the fragment of C++ code
-        shown in <xref ref="lst-dummycode"/>. Although this program does not really do
+        shown in <xref ref="algorithm-analysis_lst-dummycode">Listing 2</xref>. Although this program does not really do
         anything, it is instructive to see how we can take actual code and
         analyze performance.</p>
     
@@ -221,7 +221,7 @@ main()</pre>
         the other terms as well as the coefficient on the dominant term can be
         ignored as <em>n</em> grows larger.</p>
     
-    <figure align="center" xml:id="id3">
+    <figure align="center" xml:id="fig-graphfigure2cpp">
         <caption>Comparing <m>T(n)</m> with Big-O Functions</caption>
             <image source="AlgorithmAnalysis/newplot2.png" width="50%">
                 <description>This figure shows a few of the common Big-O functions as they compare with the T(n) function discussed above. Note that T(n) is initially larger than the cubic function. However, as n grows, the cubic function quickly overtakes T(n). It is easy to see that T(n) then follows the quadratic function as n continues to grow.</description>
