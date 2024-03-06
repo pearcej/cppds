@@ -21,8 +21,9 @@
                 for checking off.
                 Each character
                 from the first string can be checked against the characters in the local second string
-                and if found, checked off by replacement. <xref ref="lst-anagramsolution"/> shows this function.</p>
+                and if found, checked off by replacement. <xref ref="lst-anagramsolution">ActiveCode1</xref> shows this function.</p>
             
+                <p xml:id="lst-anagramsolution" names="lst-anagramsolution"><term>ActiveCode1</term></p>
             <TabNode tabname="C++" tabnode_options="{'subchapter': 'AnAnagramDetectionExample', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="active0cpp" interactive="activecode" language="cpp">
@@ -131,8 +132,10 @@ main()
                 even though <c>s1</c> and <c>s2</c> are different, they are anagrams only if
                 they consist of exactly the same characters. So, if we begin by sorting
                 each string alphabetically, from a to z, we will end up with the same
-                string if the original two strings are anagrams. <xref ref="lst-ana2"/> shows
+                string if the original two strings are anagrams. <xref ref="lst-ana2">ActiveCode 2</xref> shows
                 this solution.</p>
+
+                <p xml:id="lst-ana2" names="lst-ana2"><term>ActiveCode 2</term></p>
             
             <TabNode tabname="C++" tabnode_options="{'subchapter': 'AnAnagramDetectionExample', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
@@ -238,8 +241,8 @@ main()
                 of 26 counters, one for each possible character. Each time we see a
                 particular character, we will increment the counter at that position. In
                 the end, if the two arrays of counters are identical, the strings must be
-                anagrams. <xref ref="lst-ana4"/> shows this solution.</p>
-            
+                anagrams. <xref ref="lst-ana4">ActiveCode 3</xref> shows this solution.</p>
+                <p xml:id="lst-ana4" names="lst-ana4"><term>ActiveCode 3</term></p>
             <TabNode tabname="C++" tabnode_options="{'subchapter': 'AnAnagramDetectionExample', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="active7cpp" interactive="activecode" language="cpp">
