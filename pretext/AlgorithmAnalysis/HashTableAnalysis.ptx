@@ -26,7 +26,7 @@
         get into that in a later chapter when we talk about the different ways
         that a hash table could be implemented.</p>
     
-    <table xml:id="algorithm-analysis_id1"><tabular>
+    <table xml:id="algorithm-analysis_tbl-hashbigo-cpp"><tabular>
         <title><term>Table 4: Big-O Efficiency of C++ hash table Operations</term></title>
         
             
