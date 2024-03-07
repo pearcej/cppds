@@ -4,9 +4,9 @@
             to <c>toStr</c> with the string from <c>convertString</c>, we modified our
             algorithm to push the strings onto a stack instead of making the recursive
             call. The code for this modified algorithm is shown in
-            <xref ref="lst-recstackcpp"/>.</p>
+            <xref ref="lst-recstackcpp">ActiveCode 1</xref>.</p>
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'StackFramesImplementingRecursion', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
+            <p xml:id="lst-recstackcpp" names="lst-recstackcpp"><term>ActiveCode 1</term></p>
     <program xml:id="lst_recstackcpp" interactive="activecode" language="cpp">
         <input>
 //Example of the toStr function using a stack instead of recursion.
@@ -105,7 +105,7 @@ main()
             <c>"1"</c> on the stack. This return value is then used in place of the
             function call (<c>toStr(1,2)</c>) in the expression <c>"1" + convertString[2%2]</c>, which will leave the string <c>"10"</c> on the top of
             the stack. In this way, the C++ call stack takes the place of the
-            stack we used explicitly in <xref ref="lst-recstackcpp"/>. In our list summing
+            stack we used explicitly in <xref ref="lst-recstackcpp">ActiveCode 1</xref>. In our list summing
             example, you can think of the return value on the stack taking the place
             of an accumulator variable.</p>
         <p>The stack frames also provide a scope for the variables used by the
