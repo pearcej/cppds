@@ -28,7 +28,10 @@
             recursive call, we subtract 1 from the degree until we reach 0. When we
             reach a degree of 0, we stop making recursive calls. The code that
             generated the Sierpinski Triangle in <xref ref="fig-sierpinski"/> is shown in
-            <xref ref="lst-st"/>.</p>
+            <xref ref="lst-st">ActiveCode 1</xref>.</p>
+
+            <p xml:id="lst-st" names="lst-st"><term>ActiveCode 1</term></p>
+
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'pythondsSierpinskiTriangle', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="first_csierpinksi_tri" interactive="activecode" language="cpp">
@@ -131,7 +134,7 @@ main()
         </input>
     </program>
             </TabNode>
-        <p>The program in <xref ref="lst-st"/> follows the ideas outlined above. The
+        <p>The program in <xref ref="lst-st">ActiveCode 1</xref> follows the ideas outlined above. The
             first thing <c>sierpinski</c> does is draw the outer triangle. Next, there
             are three recursive calls, one for each of the new corner triangles we
             get when we connect the midpoints. Once again we make use of the
@@ -165,7 +168,7 @@ main()
 
         <p>The <c>sierpinski</c> function relies heavily on the <c>middle</c> function.
             <c>middle</c> takes as arguments two endpoints and returns the point
-            halfway between them. In addition, <xref ref="lst-st"/> has a function that
+            halfway between them. In addition, <xref ref="lst-st">ActiveCode 1</xref> has a function that
             draws a filled triangle using the <c>begin_fill</c> and <c>end_fill</c> turtle
             methods.</p>
         <p>The above sierpinski triangle visualization utilizes C-Turtle, a C++ equivalent of
