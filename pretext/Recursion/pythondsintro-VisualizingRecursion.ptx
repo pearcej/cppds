@@ -19,7 +19,7 @@
             dipped in.</p>
         <p>Here is a simple example to illustrate some turtle graphics basics. We
             will use the turtle module to draw a spiral recursively.
-            <xref ref="lst-turt1"/> shows how it is done. After importing the <c>turtle</c>
+            <xref ref="lst-turt1">ActiveCode 1</xref> shows how it is done. After importing the <c>turtle</c>
             module we create a turtle. When the turtle is created it also creates a
             window for itself to draw in. Next we define the drawSpiral function.
             The base case for this simple function is when the length of the line we
@@ -28,6 +28,8 @@
             turtle to go forward by <c>len</c> units and then turn right 90 degrees.
             The recursive step is when we call drawSpiral again with a reduced
             length.</p>
+
+            <p xml:id="lst-turt1" names="lst-turt1"><term>ActiveCode 1</term></p>
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'pythondsintro-VisualizingRecursion', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_cturt1" interactive="activecode" language="cpp">
@@ -99,7 +101,7 @@ main()
             going off to the left. If you think of this definition recursively it
             means that we will apply the recursive definition of a tree to both of
             the smaller left and right trees.</p>
-        <p>Let's translate this idea to some C++ code. <xref ref="lst-fractree"/>
+        <p>Let's translate this idea to some C++ code. <xref ref="recursion_lst-fractree">Listing 1</xref>
             shows how we can use Python with our turtle to generate a fractal tree. Let's look at
             the code a bit more closely. You will see that on lines 5 and 7 we are
             making a recursive call. On line 5 we make the recursive call right
@@ -127,11 +129,13 @@ def tree(branchLen,t):
         t.right(20)
         t.backward(branchLen)
 </input></program>
-        <p>The complete program for this tree example is shown in <xref ref="lst-complete-tree"/>.  Before you run
+        <p>The complete program for this tree example is shown in <xref ref="lst-complete-tree">ActiveCode 2</xref>.  Before you run
             the code think about how you expect to see the tree take shape. Look at
             the recursive calls and think about how this tree will unfold. Will it
             be drawn symmetrically with the right and left halves of the tree taking
             shape simultaneously? Will it be drawn right side first then left side?</p>
+        
+            <p xml:id="lst-complete-tree" names="lst-complete-tree"><term>ActiveCode 2</term></p>
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'pythondsintro-VisualizingRecursion', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_complete_ctree" interactive="activecode" language="cpp">

@@ -59,8 +59,11 @@
             </figure>
 
 
-        <p><xref ref="lst-rectostrcpp"/> shows the C++ and Python code that implements the algorithm
+        <p><xref ref="lst-rectostrcpp">ActiveCode 1</xref> shows the C++ and Python code that implements the algorithm
             outlined above for any base between 2 and 16.</p>
+        
+            <p xml:id="lst-rectostrcpp" names="lst-rectostrcpp"><term>ActiveCode 1</term></p>
+
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'pythondsConvertinganIntegertoaStringinAnyBase', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_rectostrcpp" interactive="activecode" language="cpp">

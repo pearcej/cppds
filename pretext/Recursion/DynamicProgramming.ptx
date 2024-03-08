@@ -56,7 +56,7 @@
  \end{cases}
  \label{eqn_changecpp}</m>
         <p>The algorithm for doing what we have just described is shown in
-            <xref ref="lst-change1cpp"/>. In line&#160;7 we are checking our base case;
+            <xref ref="lst-change1cpp">Listing 7</xref>. In line&#160;7 we are checking our base case;
             that is, we are trying to make change in the exact amount of one of our
             coins. If we do not have a coin equal to the amount of change, we make
             recursive calls for each different coin value less than the amount of
@@ -69,7 +69,7 @@
             Just adding 1 is the same as if we had made a recursive call asking
             where we satisfy the base case condition immediately.</p>
         
-        <p><term>Listing 7</term></p>
+        <p xml:id="lst-change1cpp" names="lst-change1cpp"><term>Listing 7</term></p>
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'DynamicProgramming', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_change11cpp" interactive="activecode" language="cpp">
@@ -126,7 +126,7 @@ main()
         </input>
     </program>
             </TabNode>
-        <p>The trouble with the algorithm in <xref ref="lst-change1cpp"/> is that it is
+        <p>The trouble with the algorithm in <xref ref="lst-change1cpp">Listing 7</xref> is that it is
             extremely inefficient. In fact, it takes 67,716,925 recursive calls to
             find the optimal solution to the 4 coins, 63 cents problem! To
             understand the fatal flaw in our approach look at <xref ref="fig-c1ctcpp"/>,
@@ -159,8 +159,10 @@ main()
             If there is already a result in the table, we use the value from the
             table rather than recomputing. This technique is called <term>memoization</term>
             and is a very useful method for speeding up frequent yet hardware-demanding function calls.
-            <xref ref="lst-change2cpp"/> shows a modified
+            <xref ref="lst-change2cpp">ActiveCode 1</xref> shows a modified
             algorithm to incorporate our table lookup scheme.</p>
+            <p xml:id="lst-change2cpp" names="lst-change2cpp"><term>ActiveCode 1</term></p>
+
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'DynamicProgramming', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_change2cpp" interactive="activecode" language="cpp">
@@ -240,7 +242,7 @@ main()
             minimum in the table. Using this modified algorithm reduces the number
             of recursive calls we need to make for the four coin, 63 cent problem to
             221 calls!</p>
-        <p>Although the algorithm in <xref ref="lst-change2cpp"/> is correct, it looks and
+        <p>Although the algorithm in <xref ref="lst-change2cpp">ActiveCode 1</xref> is correct, it looks and
             feels like a bit of a hack.  Also, if we look at the <c>knownResults</c> lists
             we can see that there are some holes in the table. In fact the term for
             what we have done is not dynamic programming but rather we have improved
@@ -295,14 +297,14 @@ main()
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-id3">
+        <figure align="center" xml:id="fig-elevencpp">
             <caption>Three Options to Consider for the Minimum Number of Coins for Eleven Cents</caption>
                 <image source="Recursion/elevenCents.png" width="80%">
                 <description>Image of a curved numerical table representing three options to calculate the minimum number of coins for eleven cents. The table is labeled with numbers from 1 to 5 corresponding to the counts of coins used. Below the table, there are three curved arrows pointing to the number '11' from '11-1', '11-5', and '11-10', indicating the subtraction of 1, 5, and 10 cents from 11 cents to determine the next step in the calculation. The last cell under '11' is labeled with '??' to indicate the unknown minimum number of coins needed.  </description>
                 </image>
             </figure>
 
-        <p><xref ref="lst-dpchangecpp"/> is a dynamic programming algorithm to solve our
+        <p><xref ref="lst-dpchangecpp">Listing 8</xref> is a dynamic programming algorithm to solve our
             change-making problem. <c>dpMakeChange</c> takes three parameters: a list
             of valid coin values, the amount of change we want to make, and a list
             of the minimum number of coins needed to make each value. When the
@@ -385,7 +387,7 @@ main()
             entry in the table that tells us the last coin we added to make that
             amount. We can keep tracing back through the table until we get to the
             beginning.</p>
-        <p><xref ref="lst-dpremembercpp"/> shows the <c>dpMakeChange</c> algorithm
+        <p><xref ref="lst-dpremembercpp">ActiveCode 2</xref> shows the <c>dpMakeChange</c> algorithm
             modified to keep track of the coins used, along with a function
             <c>printCoins</c> that walks backward through the table to print out the
             value of each coin used.
@@ -401,6 +403,7 @@ main()
             Then we take <m>63 - 21 = 42</m> and look at the 42nd element of the
             list. Once again we find a 21 stored there. Finally, element 21 of the
             array also contains 21, giving us the three 21 cent pieces.</p>
+            <p xml:id="lst-dpremembercpp" names="lst-dpremembercpp"><term>ActiveCode 2</term></p>
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'DynamicProgramming', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_dpremembercpp" interactive="activecode" language="cpp">
