@@ -8,6 +8,8 @@ Linear Linked Structures
     Objectives.rst
     WhatAreLinkedStructures.rst
     ImplementinganUnorderedListLinkedLists.rst
+    NodeClass.rst
+    UnorderedLinkedListClass.rst
     ImplementinganOrderedList.rst
     TheOrderedListAbstractDataType.rst
     Summary.rst
