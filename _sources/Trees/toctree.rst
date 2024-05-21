@@ -27,3 +27,4 @@ Trees and Tree Algorithms
     DiscussionQuestions.rst
     ProgrammingExercises.rst
     Glossary.rst
+    Matching.rst

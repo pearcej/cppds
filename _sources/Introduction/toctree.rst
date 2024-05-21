@@ -12,6 +12,7 @@ Introduction
     WhyStudyAlgorithms.rst
     ReviewofBasicCpp.rst
     GettingStartedwithData.rst
+    BuiltInAtomicDataTypes.rst
     CollectionData.rst
     DefiningFunctions.rst
     ObjectOrientedProgrammingDefiningClasses.rst
@@ -21,3 +22,4 @@ Introduction
     DiscussionQuestions.rst
     ProgrammingExercises.rst
     Glossary.rst
+    Matching.rst

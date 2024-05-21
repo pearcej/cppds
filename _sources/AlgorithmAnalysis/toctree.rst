@@ -13,6 +13,9 @@ Analysis
     VectorAnalysis.rst
     StringAnalysis.rst
     HashTableAnalysis.rst
+    Summary.rst
+    SelfCheck.rst
     DiscussionQuestions.rst
     ProgrammingExercises.rst
-    Glossary.rst
+    Glossary.rst 
+    Matching.rst

@@ -17,6 +17,8 @@ Recursion
     TowerofHanoi.rst
     ExploringaMaze.rst
     DynamicProgramming.rst
+    Summary.rst
+    SelfCheck.rst
     DiscussionQuestions.rst
     pythondsProgrammingExercises.rst
     Glossary.rst

@@ -12,5 +12,6 @@ Searching and Hashing
     Hashing.rst
     Summary.rst
     DiscussionQuestions.rst
+    Matching.rst
     ProgrammingExercises.rst
     Glossary.rst

@@ -17,3 +17,4 @@ Sorting
     DiscussionQuestions.rst
     ProgrammingExercises.rst
     Glossary.rst
+    Matching.rst

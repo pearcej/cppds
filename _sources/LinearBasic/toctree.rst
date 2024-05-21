@@ -27,3 +27,4 @@ Linear Structures
     DiscussionQuestions.rst
     ProgrammingExercises.rst
     Glossary.rst
+    Matching.rst
