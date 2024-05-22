@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<section xml:id="trees_trees_matching">
+  <title>Matching</title>
+  <exercise label="matching_trees">
+    <statement>
+      <p>Drag the word on the left to its corresponding definition (Note not all words in the glossary are here)</p>
+    </statement>
+    <feedback>
+      <p>Look at your glossary</p>
+    </feedback>
+    <matches>
+      <match order="1">
+        <premise>tree</premise>
+        <response>Hierarchal data structure with a root, branches, and leaves.</response>
+      </match>
+      <match order="10">
+        <premise>rotation</premise>
+        <response>Pivoting the parent and children nodes in a subtree to reorganize their hierarchy</response>
+      </match>
+      <match order="11">
+        <premise>preorder</premise>
+        <response>Recursive tree traversal in which the root node is visited, then the left, followed by the right subtree</response>
+      </match>
+      <match order="12">
+        <premise>postorder</premise>
+        <response>Recursive tree traversal in which the left subtree is visited, then the right, followed by the root node</response>
+      </match>
+      <match order="13">
+        <premise>inorder</premise>
+        <response>Recursive tree traversal in which the left subtree is visited, then the root node, followed by the right subtree</response>
+      </match>
+      <match order="14">
+        <premise>successor</premise>
+        <response>Replaces another node while preserving the binary search tree relationships; the next-largest key in the tree</response>
+      </match>
+      <match order="15">
+        <premise>subtree</premise>
+        <response>Section of a tree</response>
+      </match>
+      <match order="16">
+        <premise>complete binary tree</premise>
+        <response>Tree in which each level has all of its nodes, with the exception of the bottom level</response>
+      </match>
+      <match order="17">
+        <premise>level</premise>
+        <response>Number of edges on the path from the root to the current node</response>
+      </match>
+      <match order="18">
+        <premise>height</premise>
+        <response>Maximum level of any node in the tree</response>
+      </match>
+      <match order="2">
+        <premise>AVL tree</premise>
+        <response>Binary search tree that automatically makes sure the tree remains balanced at all times</response>
+      </match>
+      <match order="3">
+        <premise>binary search tree</premise>
+        <response>Binary tree in which each node has no more than 2 children.</response>
+      </match>
+      <match order="4">
+        <premise>bst propery</premise>
+        <response>Node values in the left sub-tree are less than the parent while node values in the right sub-tree are are greater than the parent</response>
+      </match>
+      <match order="5">
+        <premise>Leaf node</premise>
+        <response>Node that has no children</response>
+      </match>
+      <match order="6">
+        <premise>root</premise>
+        <response>Starting point of the tree</response>
+      </match>
+      <match order="7">
+        <premise>path</premise>
+        <response>Ordered list of nodes connected by edges</response>
+      </match>
+      <match order="8">
+        <premise>parent</premise>
+        <response>Node that leads to other nodes</response>
+      </match>
+      <match order="9">
+        <premise>max heap</premise>
+        <response>Largest key is always at the front</response>
+      </match>
+    </matches>
+  </exercise>
+</section>
