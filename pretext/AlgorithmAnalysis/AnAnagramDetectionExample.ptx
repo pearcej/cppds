@@ -117,13 +117,17 @@ main()
                 characters in <c>s1</c> will cause an iteration through up to <em>n</em>
                 characters in the array from <c>s2</c>. Each of the <em>n</em> positions in the
                 array will be visited once to match a character from <c>s1</c>. The number
-                of visits then becomes the sum of the integers from 1 to <em>n</em>. We stated
-                earlier that this can be written as</p>
-            <m docname="AlgorithmAnalysis/AnAnagramDetectionExample" label="True" nowrap="False" number="True" xml:space="preserve">\sum_{i=1}^{n} i &amp;= \frac {n(n+1)}{2} \\
-                 &amp;= \frac {1}{2}n^{2} + \frac {1}{2}n</m>
-            <p>As <m>n</m> gets large, the <m>n^{2}</m> term will dominate the
-                <m>n</m> term and the <m>\frac {1}{2}</m> can be ignored.
-                Therefore, this solution is <m>O(n^{2})</m>.</p>
+                of visits then becomes the sum of the integers from 1 to <em>n</em>.</p> <p>We stated earlier that this can be written as</p>
+<me xml:id="eq1" number="yes">
+    
+    \sum_{i=1}^{n} i = \frac {n(n+1)}{2} = \frac {1}{2}n^{2} + \frac {1}{2}n
+    
+</me>
+<p>As <m>n</m> gets large, the <m>n^{2}</m> term will dominate the <m>n</m> term and the <m>\frac {1}{2}</m> can be ignored. Therefore, this solution is <m>O(n^{2})</m>.</p>
+
+
+
+
         </subsection>
         <subsection xml:id="algorithm-analysis_solution-2-sort-and-compare">
             <title>Solution 2: Sort and Compare</title>
