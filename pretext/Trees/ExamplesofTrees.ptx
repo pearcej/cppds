@@ -76,7 +76,7 @@
             from /etc/httpd to /usr/etc/httpd, but would not affect the contents or
             any children of the httpd directory.</p>
         <p>A final example of a tree is a web page. The following is an example of
-            a simple web page written using HTML. <xref ref="fig-html"/> shows the tree
+            a simple web page written using HTML. <xref ref="fig-htmltree"/> shows the tree
             that corresponds to each of the HTML tags used to create the page.</p>
         <pre>&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
     &lt;head&gt;

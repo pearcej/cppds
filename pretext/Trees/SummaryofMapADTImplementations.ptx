@@ -5,7 +5,7 @@
             Search on a list, a hash table, a binary search tree, and a balanced
             binary search tree. To conclude this section, let's summarize the
             performance of each data structure for the key operations defined by the
-            map ADT (see <xref ref="trees_tab-compare"/>).</p>
+            map ADT (see <xref ref="trees_id1"/>).</p>
         
         <table xml:id="trees_id1"><tabular>
             <title><term>Table 1: Comparing the Performance of Different Map Implementations</term></title>

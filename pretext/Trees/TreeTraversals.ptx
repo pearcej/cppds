@@ -109,12 +109,12 @@
             return to Chapter 1. Then we return to the Book node and follow the same
             procedure for Chapter 2.</p>
         <p>The code for writing tree traversals is surprisingly elegant, largely
-            because the traversals are written recursively. <xref ref="lst-preorder1"/>
+            because the traversals are written recursively. <xref ref="trees_lst-preorder1"/>
             shows the C++ code for a preorder traversal of a binary tree.</p>
         <p>You may wonder, what is the best way to write an algorithm like preorder
             traversal? Should it be a function that simply uses a tree as a data
             structure, or should it be a method of the tree data structure itself?
-            <xref ref="lst-preorder1"/> shows a version of the preorder traversal
+            <xref ref="trees_lst-preorder1"/> shows a version of the preorder traversal
             written as an external function that takes a binary tree as a parameter.
             The external function is particularly elegant because our base case is
             simply to check if the tree exists. If the tree parameter is <c>None</c>,
@@ -139,7 +139,7 @@ def preorder(tree):
         preorder(tree.getRightChild())</pre>
         <p>We can also implement <c>preorder</c> as a method of the <c>BinaryTree</c>
             class. The code for implementing <c>preorder</c> as an internal method is
-            shown in <xref ref="lst-preorder2"/>. Notice what happens when we move the
+            shown in <xref ref="trees_lst-preorder2"/>. Notice what happens when we move the
             code from external to internal. In general, we just replace <c>tree</c>
             with <c>self</c>. However, we also need to modify the base case. The
             internal method must check for the existence of the left and the right
@@ -175,7 +175,7 @@ def preorder(self):
             tree. Therefore we will write the rest of the traversals as external
             functions.</p>
         <p>The algorithm for the <c>postorder</c> traversal, shown in
-            <xref ref="lst-postorder1"/>, is nearly identical to <c>preorder</c> except that
+            <xref ref="trees_lst-preorder1"/>, is nearly identical to <c>preorder</c> except that
             we move the call to print to the end of the function.</p>
         
         <p xml:id="trees_lst-postorder1" names="lst_postorder1"><term>Listing 4</term></p>
@@ -201,7 +201,7 @@ def postorder(tree):
             subtree, and combining them in the root through the function call to an
             operator. Assume that our binary tree is going to store only expression
             tree data. Let's rewrite the evaluation function, but model it even more
-            closely on the <c>postorder</c> code in <xref ref="lst-postorder1"/> (see <xref ref="lst-postordereval"/>).</p>
+            closely on the <c>postorder</c> code in <xref ref="trees_lst-preorder1"/> (see <xref ref="trees_lst-postordereval"/>).</p>
         
         <p xml:id="trees_lst-postordereval" names="lst_postordereval"><term>Listing 5</term></p>
         <program language="cpp"><input>
@@ -333,14 +333,14 @@ string postordereval(BinaryTree *tree){
             return opers[tree.getRootVal()](res1,res2)
         else:
             return tree.getRootVal()</pre>
-        <p>Notice that the form in <xref ref="lst-postorder1"/> is the same as the form
-            in <xref ref="lst-postordereval"/>, except that instead of printing the key at
+        <p>Notice that the form in <xref ref="trees_lst-preorder1"/> is the same as the form
+            in <xref ref="trees_lst-postordereval"/>, except that instead of printing the key at
             the end of the function, we return it. This allows us to save the values
             returned from the recursive calls in lines 6 and 7. We
             then use these saved values along with the operator on line 9.</p>
         <p>The final traversal we will look at in this section is the inorder
             traversal. In the inorder traversal we visit the left subtree, followed
-            by the root, and finally the right subtree. <xref ref="lst-inorder1"/> shows
+            by the root, and finally the right subtree. <xref ref="trees_lst-inorder1"/> shows
             our code for the inorder traversal. Notice that in all three of the
             traversal functions we are simply changing the position of the <c>print</c>
             statement with respect to the two recursive function calls.</p>
@@ -373,7 +373,7 @@ def inorder(tree):
             basic template are as follows: print a left parenthesis <em>before</em> the
             recursive call to the left subtree, and print a right parenthesis
             <em>after</em> the recursive call to the right subtree. The modified code is
-            shown in <xref ref="lst-printexp"/>.</p>
+            shown in <xref ref="trees_lst-printexp"/>.</p>
         
         <p xml:id="trees_lst-printexp" names="lst_printexp"><term>Listing 7</term></p>
         <program language="python"><input>

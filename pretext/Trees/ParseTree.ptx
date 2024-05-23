@@ -98,7 +98,7 @@
             <m>(3 + (4 * 5))</m>. We will parse this expression into the
             following vector of character tokens <c>['(', '3', '+',</c>
             <c>'(', '4', '*', '5' ,')',')']</c>. Initially we will start out with a
-            parse tree that consists of an empty root node. <xref ref="fig-bldexpstep"/>
+            parse tree that consists of an empty root node. <xref ref="fig-buildExp"/>
             illustrates the structure and contents of the parse tree, as each new
             token is processed.</p>
     
@@ -117,7 +117,7 @@
             </figure>
 
 
-        <p>Using <xref ref="fig-bldexpstep"/>, let's walk through the example step by
+        <p>Using <xref ref="fig-buildExp"/>, let's walk through the example step by
             step:</p>
         <p><ol label="a">
             <li>
@@ -175,7 +175,7 @@
         <p>Using the rules described above, along with the <c>Stack</c> and
             <c>BinaryTree</c> operations, we are now ready to write a C++ function
             to create a parse tree. The code for our parse tree builder is presented
-            in <xref ref="lst-buildparse"/>.</p>
+            in <xref ref="parsebuildcpp"/>.</p>
         
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'ParseTree', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
@@ -365,7 +365,7 @@ main()
             </TabNode>
         <p>The four rules for building a parse tree are coded as the first four
             clauses of the <c>if</c> statement on lines 12, 17,
-            23, and 26 of <xref ref="lst-buildparse"/>. In each case you
+            23, and 26 of <xref ref="parsebuildcpp"/>. In each case you
             can see that the code implements the rule, as described above, with a
             few calls to the <c>BinaryTree</c> or <c>Stack</c> methods. The only error
             checking we do in this function is in the <c>else</c> clause where a
@@ -396,7 +396,7 @@ main()
             10 and 3. Applying the multiplication operator gives us a final result
             of 30.</p>
         <p>The code for a recursive <c>evaluate</c> function is shown in
-            <xref ref="lst-eval"/>. First, we obtain references to the left and the
+            <xref ref="trees_lst-eval"/>. First, we obtain references to the left and the
             right children of the current node. If both the left and right children
             evaluate to <c>None</c>, then we know that the current node is really a
             leaf node. This check is on line 7. If the current node is not
@@ -487,7 +487,7 @@ def evaluate(parseTree):
         return parseTree.getRootVal()
 </input></program>
         <p>Finally, we will trace the <c>evaluate</c> function on the parse tree we
-            created in <xref ref="fig-bldexpstep"/>. When we first call <c>evaluate</c>, we
+            created in <xref ref="fig-buildExp"/>. When we first call <c>evaluate</c>, we
             pass the root of the entire tree as the parameter <c>parseTree</c>. Then we
             obtain references to the left and right children to make sure they
             exist. The recursive call takes place on line 9. We begin
