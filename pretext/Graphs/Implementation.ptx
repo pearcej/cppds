@@ -1,7 +1,7 @@
 <section xml:id="graphs_implementation">
         <title>Implementation</title>
         <p>Using a map, or dictionaries in Python, it is easy to implement the adjacency list. In our implementation of the Graph abstract data type we will
-            create two classes (see <xref ref="lst-vertex"/> and <xref ref="lst-graph"/>), <c>Graph</c>, which holds the master list of vertices,
+            create two classes (see <xref ref="graphs_lst-vertex" text="section Implementation"/> 1 and <xref ref="graphs_lst-graph" text="section Implementation"/> 2), <c>Graph</c>, which holds the master list of vertices,
             and <c>Vertex</c>, which will represent each vertex in the graph.</p>
         <p>Each <c>Vertex</c> uses a map to keep track of the vertices to which
             it is connected, and the weight of each edge. This map is called
@@ -140,13 +140,13 @@ ostream &amp;operator&lt;&lt;(ostream &amp;stream, Graph &amp;grph) {
     return stream;
 }</pre>
         <p>Using the <c>Graph</c> and <c>Vertex</c> classes just defined, the following
-            Python session creates the graph in <xref ref="graphs_vocabularyand-definitions"/>. First we
+            Python session creates the graph in <xref ref="fig-dgsimple" text="section Vocabulary and Definitions"/>. First we
             create six vertices numbered 0 through 5. Then we display the vertex
             dictionary. Notice that for each key 0 through 5 we have created an
             instance of a <c>Vertex</c>. Next, we add the edges that connect the
             vertices together. Finally, a nested loop verifies that each edge in the
             graph is properly stored. You should check the output of the edge list
-            at the end of this session against <xref ref="graphs_vocabularyand-definitions"/>.</p>
+            at the end of this session against <xref ref="fig-dgsimple" text="section Vocabulary and Definitions"/>.</p>
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'Implementation', 'chapter': 'Graphs', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="graph_implementation_cpp" interactive="activecode" language="cpp">
