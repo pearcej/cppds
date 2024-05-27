@@ -21,11 +21,11 @@
             named 1, a slot named 2, and so on.<idx>slot</idx>Initially, the hash table contains
             no items so every slot is empty. We can implement a hash table by using
             a list with each value initialized to an empty string.
-            <xref ref="fig-hashtable1"/> shows a hash table of size <m>m=11</m>.
+            <xref ref="search_hash-fig-hashtable1"/> shows a hash table of size <m>m=11</m>.
             In other words, there are <em>m</em> slots in the table, named 0 through 10.</p>
         
         <blockquote>
-            <figure align="center" xml:id="fig-hashtable">
+            <figure align="center" xml:id="search_hash-fig-hashtable1">
                 <caption>Hash Table with 11 Empty Slots</caption>
                     <image source="SearchHash/hashtable.png" width="80%">
                     <description>Image depicting a hash table data structure with eleven empty slots. The slots are numbered from 0 to 10 and each contains the word 'None', indicating that they are unoccupied. The table is presented in a horizontal format, with clear delineation between each slot.</description>
