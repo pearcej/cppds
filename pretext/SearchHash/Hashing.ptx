@@ -295,7 +295,7 @@ cout&lt;&lt;i&lt;&lt;endl;
 &gt;&gt;104</pre>
             <p>We can then take these three ordinal values, add them up, and use the
                 remainder method to get a hash value (see <xref ref="fig-stringhash"/>).
-                <xref ref="lst-hashfunction1"/> shows a function called <c>hash</c> that takes a
+                <xref ref="search-hash_lst-hashfunction1"/> shows a function called <c>hash</c> that takes a
                 string and a table size and returns the hash value in the range from 0
                 to <c>tablesize</c>-1.</p>
             
@@ -306,7 +306,8 @@ cout&lt;&lt;i&lt;&lt;endl;
                     </image>
                 </figure>
             
-            <p xml:id="search-hash_lst-hashfunction1" names="lst_hashfunction1"><term>Listing 1</term></p>
+<listing xml:id="search-hash_lst-hashfunction1">
+<caption><c>hash</c> function</caption>
 
     <program xml:id="simplehash" interactive="activecode" language="cpp">
         <input>
@@ -335,6 +336,7 @@ int main() {
 }
         </input>
     </program>
+</listing>
             <p>It is interesting to note that when using this hash function, anagrams
                 will always be given the same hash value. To remedy this, we could use
                 the position of the character as a weight. <xref ref="fig-stringhash2"/> shows
