@@ -23,50 +23,77 @@
                 </image>
             </figure>
 
-        <p>Both the Python and C++ implementations for this algorithm are shown in
-            <xref ref="lst-seqsearchpython"/> and <xref ref="lst-seqsearchcpp"/> respectively. The function needs the list and the item we
-            are looking for and returns a boolean value as to whether it is present.
-            The boolean variable <c>found</c> is initialized to <c>False</c> and is
-            assigned the value <c>True</c> if we discover the item in the list (Or vector, in the case of C++).</p>
-        
-        
+            <p>Both the Python and C++ implementations for this algorithm are shown in
+                <xref ref="seqsearchonepy" text="ActiveCode Python"/> and <xref ref="seqsearchonecpp" text="ActiveCode C++"/> respectively. The function needs the list and the item we
+                are looking for and returns a boolean value as to whether it is present.
+                The boolean variable <c>found</c> is initialized to <c>False</c> and is
+                assigned the value <c>True</c> if we discover the item in the list (or vector, in the case of C++).</p>
 
-    <program xml:id="search1_cpp" interactive="activecode" language="cpp">
-        <input>
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
-using namespace std;
+            <listing xml:id="seqsearchonepy">
+                <program interactive="activecode" language="python">
+                    <input>
+                    # Python implementation of sequential search
+                    def sequential_search(lst, item):
+                        found = False
+                        for i in range(len(lst)):
+                            if lst[i] == item:
+                                found = True
+                                break
+                        return found
+                    
+                    if __name__ == "__main__":
+                        lst = [1, 2, 3, 4, 5]
+                        item = 3
+                        if sequential_search(lst, item):
+                            print("Item found!")
+                        else:
+                            print("Item not found.")
+                    </input>
+                </program>
+            </listing>
 
-// Checks to see if item is in a vector
-// retruns true or false (1 or 0)
-//using sequential Search
-bool sequentialSearch(vector&lt;int&gt; avector, int item) {
-    unsigned int pos = 0;
-    bool found = false;
 
-    while (pos &lt; avector.size() &amp;&amp; !found) {
-        if (avector[pos] == item) {
-            found = true;
-        } else {
-            pos++;
-        }
-    }
 
-    return found;
-}
+            <listing xml:id="seqsearchonecpp" >
 
-int main() {
-    // Vector initialized using an array
-    int arr[] = {1, 2, 32, 8, 17, 19, 42, 13, 0};
-    vector&lt;int&gt; testvector(arr,arr+(sizeof(arr)/sizeof(arr[0])));
-
-    cout &lt;&lt; sequentialSearch(testvector, 3) &lt;&lt; endl;
-    cout &lt;&lt; sequentialSearch(testvector, 13) &lt;&lt; endl;
-
-    return 0;
-}
-        </input>
-    </program>
+                <program xml:id="lst-seqsearchcpp" interactive="activecode" language="cpp">
+                    <input>
+            #include &lt;iostream&gt;
+            #include &lt;vector&gt;
+            using namespace std;
+            
+            // Checks to see if item is in a vector
+            // returns true or false (1 or 0)
+            // using sequential Search
+            bool sequentialSearch(vector&lt;int&gt; avector, int item) {
+                unsigned int pos = 0;
+                bool found = false;
+            
+                while (pos &lt; avector.size() &amp;&amp; !found) {
+                    if (avector[pos] == item) {
+                        found = true;
+                    } else {
+                        pos++;
+                    }
+                }
+            
+                return found;
+            }
+            
+            int main() {
+                // Vector initialized using an array
+                int arr[] = {1, 2, 32, 8, 17, 19, 42, 13, 0};
+                vector&lt;int&gt; testvector(arr, arr + (sizeof(arr) / sizeof(arr[0])));
+            
+                cout &lt;&lt; sequentialSearch(testvector, 3) &lt;&lt; endl;
+                cout &lt;&lt; sequentialSearch(testvector, 13) &lt;&lt; endl;
+            
+                return 0;
+            }
+                </input>
+            </program>
+        </listing>
+            
         <subsection xml:id="search-hash_analysis-of-sequential-search">
             <title>Analysis of Sequential Search</title>
             <p>To analyze searching algorithms, we need to decide on a basic unit of
