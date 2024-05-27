@@ -36,7 +36,7 @@
                 <description>An educational illustration depicting the fifth pass of the insertion sort algorithm. The diagram shows a series of rows with numerical values in boxes, each row representing a step in the sorting process. Arrows indicate the shifting of numbers to make space for the correctly positioned value. Descriptive text accompanies each step explaining the movement required, such as '93>31 so shift it to the right' and 'Need to insert 31 back into the sorted list'. The final row shows the number 31 being inserted into its correct position in the sequence.</description>
                 </image>
             </figure>
-        <p>The implementation of <c>insertionSort</c> (<xref ref="lst-insertion"/>) shows that
+        <p>The implementation of <c>insertionSort</c> (<xref ref="lst-insertion_cpp"/> and <xref ref="lst-insertion_py"/>) shows that
             there are again <m>n-1</m> passes to sort <em>n</em> items. The iteration
             starts at position 1 and moves through position <m>n-1</m>, as these
             are the items that need to be inserted back into the sorted subvectors.
@@ -51,7 +51,9 @@
             a shift operation requires approximately a third of the processing work
             of an exchange since only one assignment is performed. In benchmark
             studies, insertion sort will show very good performance.</p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheInsertionSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
+<example xml:id="lst-insertion_cpp">              
+ <title>Insertion Sort Algorithm in C++</title> 
 
     <program xml:id="lst_insertion_cpp" interactive="activecode" language="cpp">
         <input>
@@ -93,8 +95,10 @@ int main() {
 }
         </input>
     </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheInsertionSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
+</example>
+<example xml:id="lst-insertion_py">              
+    <title>Insertion Sort Algorithm in Python</title> 
+   
     <program xml:id="lst_insertion" interactive="activecode" language="python">
         <input>
 def insertionSort(alist): #function that insertsorts through the list
@@ -118,7 +122,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode>
+</example>
         <raw format="html" xml:space="preserve">&lt;script src="../_static/sortmodels.js"&gt;&lt;/script&gt;
 &lt;script src="../_static/sortviewers.js"&gt;&lt;/script&gt;
 

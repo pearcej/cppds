@@ -14,8 +14,9 @@
         <p>On each step,
             the largest remaining item is selected and then placed in its proper
             location. The first pass places 93, the second pass places 77, the third
-            places 55, and so on. The function is shown in <xref ref="lst-selectionsortcode-cpp"/> .</p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheSelectionSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            places 55, and so on. The function is shown in <xref ref="lst-selectionsortcode_cpp"/> and  <xref ref="lst-selectionsortcode_py"/>.</p>
+     <example xml:id="lst-selectionsortcode_cpp">
+        <title>Selection Sort Algorithm in C++</title>  
 
     <program xml:id="lst_selectionsortcode_cpp" interactive="activecode" language="cpp">
         <input>
@@ -57,8 +58,10 @@ int main() {
 }
         </input>
     </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheSelectionSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+</example>
 
+    <example xml:id="lst-selectionsortcode_py">
+        <title>Selection Sort Algorithm in Python</title>  
     <program xml:id="lst_selectionsortcode" interactive="activecode" language="python">
         <input>
 #function sorts through values in list using selection sort
@@ -80,7 +83,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode>
+</example>
         <raw format="html" xml:space="preserve">&lt;script src="../_static/sortmodels.js"&gt;&lt;/script&gt;
 &lt;script src="../_static/sortviewers.js"&gt;&lt;/script&gt;
 

@@ -22,9 +22,9 @@
             There are <m>n-1</m> items left to sort, meaning that there will be
             <m>n-2</m> pairs. Since each pass places the next largest value in
             place, the total number of passes necessary will be <m>n-1</m>. After
-            completing the <m>n-1</m> passes, the smallest item must be in the
-            correct position with no further processing required. <xref ref="lst-bubble-cpp"/>
-            shows the complete <c>bubbleSort</c> function. It takes the array as a
+            completing the <m>n-1</m> passes, . <xref ref="search-hash_lst-bubblesort_cpp"/>  and <xref ref = "search-hash_lst-bubblesort_py"/>
+            show the complete <c>bubbleSort</c> function. Ithe smallest item must be in the
+            correct position with no further processing requiredt takes the array as a
             parameter, and modifies it by swapping items as necessary.</p>
         <p>Typically, swapping two elements in an array requires a temporary storage location (an
             additional memory location). A code fragment such as</p>
@@ -33,7 +33,7 @@ alist[i] = alist[j];
 alist[j] = temp;</pre>
         <p>will exchange the <title_reference>ith</title_reference> and <title_reference>jth</title_reference> items in the array. Without the
             temporary storage, one of the values would be overwritten.</p>
-        <p>Lines 5-7 in <xref ref="lst-bubble-cpp"/> perform the exchange of the <m>i</m> and
+        <p>Lines 5-7 in <xref ref="search-hash_lst-bubblesort_cpp"/>  and <xref ref = "search-hash_lst-bubblesort_py"/> perform the exchange of the <m>i</m> and
             <m>(i+1)th</m> items using the three&#8211;step procedure described
             earlier. Note that we could also have used the simultaneous assignment
             to swap the items.</p>
@@ -49,44 +49,48 @@ alist[j] = temp;</pre>
 
         <p>The following activecode example shows the complete <c>bubbleSort</c> function working on the array
             shown above.</p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+    
+ <example xml:id="search-hash_lst-bubblesort_cpp">
+    <title>Bubble Sort Algorithm in C++</title>  
 
     <program xml:id="lst_bubble_cpp" interactive="activecode" language="cpp">
         <input>
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
-using namespace std;
+                    #include &lt;iostream&gt;
+                    #include &lt;vector&gt;
+                    using namespace std;
 
-//function goes through list sorting adjacent values as it bubbles
-//the largest value to the top.
-vector&lt;int&gt; bubbleSort(vector&lt;int&gt; avector) { //the vector for bubble sort
-  for (int passnum = avector.size()-1; passnum &gt; 0; passnum -= 1) {
-      for (int i = 0; i &lt; passnum; i++) {
-          if (avector[i] &gt; avector[i+1]) {
-              int temp = avector[i];
-              avector[i] = avector[i+1];
-              avector[i+1] = temp;
-          }
-      }
-  }
-  return avector;
-}
+                    //function goes through list sorting adjacent values as it bubbles
+                    //the largest value to the top.
+                    vector&lt;int&gt; bubbleSort(vector&lt;int&gt; avector) { //the vector for bubble sort
+                    for (int passnum = avector.size()-1; passnum &gt; 0; passnum -= 1) {
+                        for (int i = 0; i &lt; passnum; i++) {
+                            if (avector[i] &gt; avector[i+1]) {
+                                int temp = avector[i];
+                                avector[i] = avector[i+1];
+                                avector[i+1] = temp;
+                            }
+                        }
+                    }
+                    return avector;
+                    }
 
-int main() {
-    // Vector initialized using a static array
-    static const int arr[] = {54,26,93,17,77,31,44,55,20};
-    vector&lt;int&gt; avector (arr, arr + sizeof(arr) / sizeof(arr[0]) );
+                    int main() {
+                        // Vector initialized using a static array
+                        static const int arr[] = {54,26,93,17,77,31,44,55,20};
+                        vector&lt;int&gt; avector (arr, arr + sizeof(arr) / sizeof(arr[0]) );
 
-    vector&lt;int&gt; bvector = bubbleSort(avector);
-    for (unsigned int i = 0; i &lt; bvector.size(); i++) {
-        cout&lt;&lt;bvector[i]&lt;&lt; " ";
-    }
-    return 0;
-}
+                        vector&lt;int&gt; bvector = bubbleSort(avector);
+                        for (unsigned int i = 0; i &lt; bvector.size(); i++) {
+                            cout&lt;&lt;bvector[i]&lt;&lt; " ";
+                        }
+                        return 0;
+                    }
         </input>
     </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+</example>
 
+<example xml:id="search-hash_lst-bubblesort_py">
+    <title>Bubble Sort Algorithm in Python</title>  
     <program xml:id="lst_bubble_py" interactive="activecode" language="python">
         <input>
 """function goes through list sorting adjacent values as it bubbles
@@ -107,7 +111,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode>
+</example>
         <raw format="html" xml:space="preserve">&lt;script src="../_static/sortmodels.js"&gt;&lt;/script&gt;
 &lt;script src="../_static/sortviewers.js"&gt;&lt;/script&gt;
 
@@ -182,7 +186,7 @@ bubble_anim_init = function(divid)
             the elements being looked at.</p>
         <p>To analyze the bubble sort, we should note that regardless of how the
             items are arranged in the initial array, <m>n-1</m> passes will be
-            made to sort an array of size <em>n</em>. <xref ref="sort_tbl-bubbleanalysis"/> shows the number
+            made to sort an array of size <em>n</em>. <xref ref="sort_id3"/> shows the number
             of comparisons for each pass. The total number of comparisons is the sum
             of the first <m>n-1</m> integers. Recall that the sum of the first
             <em>n</em> integers is <m>\frac{1}{2}n^{2} + \frac{1}{2}n</m>. The sum of
@@ -263,10 +267,12 @@ bubble_anim_init = function(divid)
             early if it finds that the array has become sorted. This means that for
             arrays that require just a few passes, a bubble sort may have an
             advantage in that it will recognize the sorted array and stop.
-            <xref ref="lst-shortbubbles-cpp"/> shows this modification, which is often referred
+            <xref ref="lst-shortbubbles_cpp"/> and <xref ref="lst-shortbubbles_py"/> shows this modification, which is often referred
             to as the <term>short bubble</term>.</p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
+  <example xml:id="lst-shortbubbles_cpp">
+   <title>Short Bubble Algorithm in C++</title>  
+    
     <program xml:id="lst_shortbubbles_cpp" interactive="activecode" language="cpp">
         <input>
 #include &lt;iostream&gt;
@@ -309,9 +315,11 @@ int main() {
     return 0;
 }
         </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
+    </program> 
+    </example>
+          
+    <example xml:id="lst-shortbubbles_py">
+        <title>Short Bubble Algorithm in Python</title>  
     <program xml:id="lst_shortbubble_py" interactive="activecode" language="python">
         <input>
 def shortBubbleSort(alist):
@@ -334,7 +342,8 @@ shortBubbleSort(alist)
 print(alist)
         </input>
     </program>
-            </TabNode>
+</example>
+            
         <!--Finally, here is ``shortBubbleSort`` in CodeLens (CodeLens 2)..-->
         <!---->
         <!--.. codelens:: shortbubbletrace-->

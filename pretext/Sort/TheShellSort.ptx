@@ -54,8 +54,8 @@
             </figure>
 
         <p>We said earlier that the way in which the increments are chosen is the
-            unique feature of the shell sort. The function shown in <xref ref="lst-shell-cpp"/>
-            uses a different set of increments. In this case, we begin with
+            unique feature of the shell sort. The function shown in <xref ref="lst-shell_cpp"/> and <xref ref="lst-shell_py"/>
+            use a different set of increments. In this case, we begin with
             <m>\frac {n}{2}</m> subvectors. On the next pass,
             <m>\frac {n}{4}</m> subvectors are sorted. Eventually, a single vector is
             sorted with the basic insertion sort. <xref ref="fig-incrementsd"/> shows the
@@ -63,8 +63,8 @@
         <p>The following invocation of the <c>shellSort</c> function shows the
             partially sorted vectors after each increment, with the final sort being
             an insertion sort with an increment of one.</p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheShellSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
+ <example xml:id="lst-shell_cpp">              
+    <title>Shell Sort Algorithm in C++</title> 
     <program xml:id="lst_shell_cpp" interactive="activecode" language="cpp">
         <input>
 #include &lt;iostream&gt;
@@ -124,8 +124,10 @@ int main() {
 }
         </input>
     </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheShellSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+</example>
 
+<example xml:id="lst-shell_py">              
+    <title>Shell Sort Algorithm in Python</title> 
     <program xml:id="lst_shell_py" interactive="activecode" language="python">
         <input>
 def shellSort(alist):
@@ -159,7 +161,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode>
+</example>
         <raw format="html" xml:space="preserve">&lt;script src="../_static/sortmodels.js"&gt;&lt;/script&gt;
 &lt;script src="../_static/sortviewers.js"&gt;&lt;/script&gt;
 

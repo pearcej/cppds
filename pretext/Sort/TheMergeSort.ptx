@@ -27,7 +27,7 @@
                 </image>
             </figure>
 
-        <p>The <c>mergeSort</c> function shown in <xref ref="lst-mergesort-cpp"/> begins by asking the
+        <p>The <c>mergeSort</c> function shown in <xref ref="lst-mergesort_cpp"/> and <xref ref="lst-mergesort_py"/> begins by asking the
             base case question. If the length of the vector is less than or equal to
             one, then we already have a sorted vector and no more processing is
             necessary. If, on the other hand, the length is greater than one, then we utilize
@@ -36,8 +36,8 @@
             halves. It is important to note that the vector may not have an even
             number of items. That does not matter, as the lengths will differ by at
             most one.</p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheMergeSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
+    <example xml:id="lst-mergesort_cpp" >              
+        <title>Merge Sort Algorithm in C++</title> 
     <program xml:id="lst_mergeSort_cpp" interactive="activecode" language="cpp">
         <input>
 #include &lt;iostream&gt;
@@ -109,8 +109,9 @@ int main() {
 }
         </input>
     </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheMergeSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
+</example>
+<example xml:id="lst-mergesort_py" >              
+    <title>Merge Sort Algorithm in Python</title> 
     <program xml:id="lst_mergeSort" interactive="activecode" language="python">
         <input>
 def mergeSort(alist):
@@ -153,7 +154,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode>
+</example>
         <p>Once the <c>mergeSort</c> function is invoked on the left half and the
             right half (lines 8&#8211;9), it is assumed they are sorted. The rest of the
             function (lines&#160;11&#8211;31) is responsible for merging the two smaller sorted
