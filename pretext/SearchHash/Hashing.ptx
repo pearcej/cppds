@@ -378,7 +378,7 @@ int main() {
                 that it tries to find the next open slot or address in the hash table.<idx>open addressing</idx>
                 By systematically visiting each slot one at a time, we are performing an
                 open addressing technique called <term>linear probing</term>.<idx>linear probing</idx></p>
-            <p><xref ref="fig-linearprobing"/> shows an extended set of integer items under the
+            <p><xref ref="fig-linearprobing1"/> shows an extended set of integer items under the
                 simple remainder method hash function (54,26,93,17,77,31,44,55,20).
                 <xref ref="search-hash_search-hash_tbl-hashvalues1"/> above shows the hash values for the original items.
                 <xref ref="fig-hashtable2"/> shows the original contents. When we attempt to
