@@ -189,7 +189,7 @@
                 remainder method and the mid-square method. You should verify that you
                 understand how these values were computed.</p>
             
-            <table xml:id="search-hash_id4"><tabular>
+            <table xml:id="search-hash_tbl-hashvalues2"><tabular>
                 <title><term>Table 5: Comparison of Remainder and Mid-Square Methods</term></title>
                 
                     
