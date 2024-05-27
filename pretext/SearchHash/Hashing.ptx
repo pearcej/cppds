@@ -671,7 +671,7 @@ void put(int key, string val){
     }
 }</pre>
 </listing>
-            <p>Likewise, the <c>get</c> function (see <xref ref="lst-hashtablecodesearch"/>)
+            <p>Likewise, the <c>get</c> function (see <xref ref="search-hash_lst-hashtablecodesearch"/>)
                 begins by computing the initial hash value. If the value is not in the
                 initial slot, <c>rehash</c> is used to locate the next possible position.
                 Notice that line 15 guarantees that the search will terminate by
@@ -684,7 +684,7 @@ void put(int key, string val){
                 once a <c>HashTable</c> has been created, the familiar index operator will
                 be available. We leave the remaining methods as exercises.</p>
             
-            <p xml:id="search-hash_lst-hashtablecodesearch" names="lst_hashtablecodesearch"><term>Listing 4</term></p>
+            <listing xml:id="search-hash_lst-hashtablecodesearch">
             <pre>def get(self,key):
     startslot = self.hashfunction(key,len(self.slots))
 
@@ -728,6 +728,7 @@ def __setitem__(self,key,data):
     }
     return val;
 }</pre>
+</listing>
             <p>The following session shows the <c>HashTable</c> class in action. First we
                 will create a hash table and store some items with integer keys and
                 string data values.</p>
