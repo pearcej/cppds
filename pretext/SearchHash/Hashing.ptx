@@ -577,7 +577,7 @@ int main() {
                 binary search but it would be even better to use a hash table as
                 described above since looking up an item in a hash table can approach
                 <m>O(1)</m> performance.</p>
-            <p>In <xref ref="lst-hashtablecodeconstructor"/> we use two lists to create a
+            <p>In <xref ref="search-hash_lst-hashtablecodeconstructor"/> we use two lists to create a
                 <c>HashTable</c> class that implements the Map abstract data type. One
                 list, called <c>slots</c>, will hold the key items and a parallel list,
                 called <c>data</c>, will hold the data values. When we look up a key, the
@@ -588,13 +588,15 @@ int main() {
                 the size be a prime number so that the collision resolution algorithm
                 can be as efficient as possible.</p>
             
-            <p xml:id="search-hash_lst-hashtablecodeconstructor" names="lst_hashtablecodeconstructor"><term>Listing 2</term></p>
+            <listing xml:id="search-hash_lst-hashtablecodeconstructor">
             <pre>class HashTable{
     public:
     static const int size=11;
     int slots[size];
-    string data[size];</pre>
-            <p>In <xref ref="lst-hashtablecodestore"/>, <c>hashfunction</c> implements the
+    string data[size];
+    </pre>
+    </listing>
+            <p>In <xref ref="search-hash_lst-hashtablecodestore"/>, <c>hashfunction</c> implements the
                 simple remainder method. The collision resolution technique is linear probing
                 with a <q>plus 1</q> rehash function. The <c>put</c> function assumes that there will
                 eventually be an empty slot unless the key is already present in the <c>self.slots</c>.
@@ -603,7 +605,7 @@ int main() {
                 contains the key, the old data value is replaced with the new data value.
                 Dealing with the situation where there are no empty slots left is an exercise.</p>
             
-            <p xml:id="search-hash_lst-hashtablecodestore" names="lst_hashtablecodestore"><term>Listing 3</term></p>
+            <listing xml:id="search-hash_lst-hashtablecodestore">
             <pre>def put(self,key,data):
     hashvalue = self.hashfunction(key,len(self.slots))
 
@@ -668,6 +670,7 @@ void put(int key, string val){
         }
     }
 }</pre>
+</listing>
             <p>Likewise, the <c>get</c> function (see <xref ref="lst-hashtablecodesearch"/>)
                 begins by computing the initial hash value. If the value is not in the
                 initial slot, <c>rehash</c> is used to locate the next possible position.
