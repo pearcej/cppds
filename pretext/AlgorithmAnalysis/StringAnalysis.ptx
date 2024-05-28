@@ -17,11 +17,11 @@
             that already exists both take <m>O(1)</m>, the same amount of time no matter how
             large the string is.</p>
         <p>Now that we have seen how performance can be measured concretely you can
-            look at <xref ref="algorithm-analysis_tbl-strbigocpp"/> to see the Big-O efficiency of all the
+            look at <xref ref="algorithm_analysis_tb_id1"/> to see the Big-O efficiency of all the
             basic string operations and you will see a striking resemblance to vectors because
             the implementations are so similar.</p>
         
-        <table xml:id="algorithm-analysis_id1"><tabular>
+        <table xml:id="algorithm_analysis_tb_id1"><tabular>
             <title><term>Table 3: Big-O Efficiency of C++ String Operations</term></title>
             
                 
