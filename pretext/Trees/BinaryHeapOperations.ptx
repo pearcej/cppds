@@ -27,11 +27,12 @@
                 <p><c>buildHeap(vector)</c> builds a new heap from a vector of keys.</p>
             </li>
         </ul></p>
-        <p><xref ref="heap1cpp"/> demonstrates the use of some of the binary
+        <p><xref ref="heap1_cpp"/> and <xref ref="heap1_py"/> demonstrates the use of some of the binary
             heap methods.  Notice that no matter the order that we add items to the heap, the smallest
             is removed each time.  We will now turn our attention to creating an implementation for this idea.</p>
         
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'BinaryHeapOperations', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <example xml:id= "heap1_cpp">
+        <title>C++ Implementation </title>
 
     <program xml:id="heap1cpp" interactive="activecode" language="cpp">
         <input>
@@ -150,8 +151,10 @@ int main(){
 }
         </input>
     </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'BinaryHeapOperations', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+</example>
 
+<example xml:id= "heap1_py">
+<title>Python Implementation</title>
     <program xml:id="heap1py" interactive="activecode" language="python">
         <input>
 #you can use the command below to import the binheap library:
@@ -238,6 +241,6 @@ def main():
 main()
         </input>
     </program>
-            </TabNode>
+</example>
     </section>
 

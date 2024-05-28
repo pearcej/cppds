@@ -533,9 +533,9 @@ void spliceOut(){
                 for elem in self.rightChild:
                     yield elem</pre>
         <p>At this point you may want to download the entire file containing the
-            full version of the <c>BinarySearchTree</c> and <c>TreeNode</c> classes.</p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'SearchTreeImplementation', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
+            full version of the <c>BinarySearchTree</c> and <c>TreeNode</c> classes. See <xref ref="completebstcode_cpp"/> and <xref ref="completebstcode_py"/>.</p>
+        <example xml:id="completebstcode_cpp">
+        <title> C++ Implementation</title>
     <program xml:id="completebstcodecpp" interactive="activecode" language="cpp">
         <input>
 #include &lt;iostream&gt;
@@ -872,8 +872,10 @@ int main(){
 }
         </input>
     </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'SearchTreeImplementation', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+</example>
 
+<example xml:id="completebstcode_py">
+<title>Python Implementation</title>
     <program xml:id="completebstcodepy" interactive="activecode" language="python">
         <input>
 #The TreeNode class represents a node, or vertex, in a tree heirarchy.
@@ -1120,7 +1122,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode>
+</example>
 
             <reading-questions xml:id="rq-search-tree">
                 <title>Reading Questions</title>

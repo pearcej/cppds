@@ -159,16 +159,16 @@ def getRootVal(self):
 </input></program>
         <p>Now that we have all the pieces to create and manipulate a binary tree,
             let's use them to check on the structure a bit more. Let's make a simple
-            tree with node a as the root, and add nodes b and c as children. <xref ref="bintree_cpp" text= " The following activecode"/> creates the tree and looks at the some of the
+            tree with node a as the root, and add nodes b and c as children. <xref ref="bintree_cpp"/> and <xref ref="bintree_py"/> creates the tree and looks at the some of the
             values stored in <c>key</c>, <c>left</c>, and <c>right</c>. Notice that both the
             left and right children of the root are themselves distinct instances of
             the <c>BinaryTree</c> class. As we said in our original recursive
             definition for a tree, this allows us to treat any child of a binary
             tree as a binary tree itself.</p>
         
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'NodesandReferences', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="bintree_cpp" interactive="activecode" language="cpp">
+<example xml:id="bintree_cpp">
+<title> C++ Implementation </title>
+    <program xml:id="bintree-cpp" interactive="activecode" language="cpp">
         <input>
 #include &lt;iostream&gt;
 #include &lt;cstdlib&gt;
@@ -246,9 +246,13 @@ int main() {
 }
         </input>
     </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'NodesandReferences', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+</example>
 
-    <program xml:id="bintree_py" interactive="activecode" language="python">
+    
+    <example xml:id="bintree_py">
+    <title> Python Implementation </title>
+
+    <program xml:id="bintree-py" interactive="activecode" language="python">
         <input>
 """ creates a binary tree, allows you to insert nodes
  and access those nodes. """
@@ -303,7 +307,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode>
+</example>
 <reading-questions xml:id="rq-nodes-and-references">
     <title>Reading Question</title>
     <exercise label="treeLike">

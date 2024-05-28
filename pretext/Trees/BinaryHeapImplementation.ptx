@@ -242,9 +242,10 @@ int minChild(int i){
             <pre>i = 2  [0, 9, 5, 6, 2, 3]
 i = 1  [0, 9, 2, 6, 5, 3]
 i = 0  [0, 2, 3, 6, 5, 9]</pre>
-            <p>The complete binary heap implementation can be seen in ActiveCode 1.</p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'BinaryHeapImplementation', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
+            <p>The complete binary heap implementation can be seen in<xref ref= "completeheap_cpp"/> and <xref ref= "completeheap_py"/> .</p>
+<example xml:id= "completeheap_cpp">
+<title> C++ Implementation </title>
+            
     <program xml:id="completeheapcpp" interactive="activecode" language="cpp">
         <input>
 #include &lt;iostream&gt;
@@ -373,8 +374,9 @@ int main(){
 }
         </input>
     </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'BinaryHeapImplementation', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
+</example>
+<example xml:id= "completeheap_py">
+<title> Python Implementation </title>
     <program xml:id="completeheappy" interactive="activecode" language="python">
         <input>
 # uses a vector to creat a Binar Heap
@@ -458,7 +460,7 @@ def main():
 main()
         </input>
     </program>
-                </TabNode>
+</example>
             <p>The assertion that we can build the heap in <m>O(n)</m> may seem a
                 bit mysterious at first, and a proof is beyond the scope of this book.
                 However, the key to understanding that you can build the heap in

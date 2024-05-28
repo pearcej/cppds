@@ -175,10 +175,10 @@
         <p>Using the rules described above, along with the <c>Stack</c> and
             <c>BinaryTree</c> operations, we are now ready to write a C++ function
             to create a parse tree. The code for our parse tree builder is presented
-            in <xref ref="parsebuildcpp"/>.</p>
+            in <xref ref="parsebuild_cpp"/> and <xref ref="parsebuild_py"/>.</p>
         
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'ParseTree', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
+        <example xml:id= "parsebuild_cpp">
+        <title>C++ Implementation</title>
     <program xml:id="parsebuildcpp" interactive="activecode" language="cpp">
         <input>
 #include &lt;iostream&gt;
@@ -316,9 +316,10 @@ int main() {
 }
         </input>
     </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ParseTree', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="parsebuildpy" interactive="activecode" language="python">
+</example>
+<example xml:id= "parsebuild_py">
+<title> Python Implementation</title>
+ <program xml:id="parsebuildpy" interactive="activecode" language="python">
         <input>
 from pythonds.basic.stack import Stack
 from pythonds.trees.binaryTree import BinaryTree
@@ -362,7 +363,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode>
+</example>
         <p>The four rules for building a parse tree are coded as the first four
             clauses of the <c>if</c> statement on lines 12, 17,
             23, and 26 of <xref ref="parsebuildcpp"/>. In each case you
@@ -486,6 +487,7 @@ def evaluate(parseTree):
     else:
         return parseTree.getRootVal()
 </input></program>
+
         <p>Finally, we will trace the <c>evaluate</c> function on the parse tree we
             created in <xref ref="fig-buildExp"/>. When we first call <c>evaluate</c>, we
             pass the root of the entire tree as the parameter <c>parseTree</c>. Then we
