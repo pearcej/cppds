@@ -50,9 +50,9 @@
             words. Once we have the map built we can create the graph. We
             start our graph by creating a vertex for each word in the graph. Then we
             create edges between all the vertices we find for words found under the
-            same key in the map. <xref ref="graphs_wordbucket-cpp"/> shows the C++
+            same key in the map. <xref ref="graphs_wordbucket_cpp"/> shows the C++
             code required to build the graph.</p>
-
+<listing xml:id="graphs_wordbucket_cpp">
     <program xml:id="wordbucket_cpp" interactive="activecode" language="cpp">
         <input>
 #include &lt;fstream&gt;
@@ -239,6 +239,7 @@ int main() {
 }
         </input>
     </program>
+</listing>
         <p>Since this is our first real-world graph problem, you might be wondering
             how sparse is the graph? The list of four-letter words we have for this
             problem is 5,110 words long. If we were to use an adjacency matrix, the
