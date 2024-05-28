@@ -70,7 +70,7 @@
         (average case). It is important for a computer scientist to understand
         these distinctions so they are not misled by one particular case.</p>
     <p>A number of very common order of magnitude functions will come up over
-        and over as you study algorithms. These are shown in <xref ref="algorithm-analysis_algorithm-analysis_tbl-fntablecpp"/>. In
+        and over as you study algorithms. These are shown in <xref ref="algorithm-analysis_id1"/>. In
         order to decide which of these functions is the dominant part of any
         <m>T(n)</m> function, we must see how they compare with one another
         as <em>n</em> gets large.</p>
@@ -151,7 +151,7 @@
         
     </tabular></table>
     <p><xref ref="fig-graphfigurecpp"/> shows graphs of the common
-        functions from <xref ref="algorithm-analysis_algorithm-analysis_tbl-fntablecpp"/>. Notice that when <em>n</em> is small, the
+        functions from <xref ref="algorithm-analysis_id1"/>. Notice that when <em>n</em> is small, the
         functions are not very well defined with respect to one another. It is
         hard to tell which is dominant. However, as <em>n</em> grows, there is a
         definite relationship and it is easy to see how they compare with one
@@ -165,10 +165,11 @@
     </figure>
 
         <p>As a final example, suppose that we have the fragment of C++ code
-        shown in <xref ref="lst-dummycode"/>. Although this program does not really do
+        shown in <xref ref="algo_analysis_dummycode_1"/>. Although this program does not really do
         anything, it is instructive to see how we can take actual code and
         analyze performance.</p>
     
+<listing xml:id="algo_analysis_dummycode_1">
     <p xml:id="algorithm-analysis_lst-dummycode" names="lst_dummycode"><term>Listing 2</term></p>
     <p><term>C++ Implementation</term></p>
     <pre>#include &lt;iostream&gt;
@@ -208,6 +209,7 @@ for k in range(n):
     v = b*b
 d = 33
 main()</pre>
+</listing>
     <p>The number of assignment operations is the sum of four terms. The first
         term is the constant 3, representing the three assignment statements at
         the start of the fragment. The second term is <m>3n^{2}</m>, since
@@ -221,14 +223,14 @@ main()</pre>
         the other terms as well as the coefficient on the dominant term can be
         ignored as <em>n</em> grows larger.</p>
     
-    <figure align="center" xml:id="id3">
+    <figure align="center" xml:id="fig_graphfigure2cpp">
         <caption>Comparing <m>T(n)</m> with Big-O Functions</caption>
             <image source="AlgorithmAnalysis/newplot2.png" width="50%">
                 <description>This figure shows a few of the common Big-O functions as they compare with the T(n) function discussed above. Note that T(n) is initially larger than the cubic function. However, as n grows, the cubic function quickly overtakes T(n). It is easy to see that T(n) then follows the quadratic function as n continues to grow.</description>
             </image>
     </figure>
 
-    <p><xref ref="fig-graphfigure2cpp"/> shows a few of the common Big-O functions as they
+    <p><xref ref="fig_graphfigure2cpp"/> shows a few of the common Big-O functions as they
         compare with the <m>T(n)</m> function discussed above. Note that
         <m>T(n)</m> is initially larger than the cubic function. However, as
         n grows, the cubic function quickly overtakes <m>T(n)</m>. It is easy
