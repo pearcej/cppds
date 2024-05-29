@@ -25,7 +25,7 @@
         <p>To implement the <c>OrderedList</c> class, we will use the same technique
             as seen previously with unordered linked lists. Once again, an empty linked list will
             be denoted by a <c>head</c> reference to <c>NULL</c> (see
-            <xref ref="lst-orderlist"/>).</p>
+            <xref ref="linear-linked_lst-orderlist"/>).</p>
         
         <p xml:id="linear-linked_lst-orderlist" names="lst_orderlist"><term>Listing 8</term></p>
         <pre>class OrderedList {
@@ -64,7 +64,7 @@
                 </image>
             </figure>
 
-        <p><xref ref="lst-ordersearch"/> shows the complete <c>search</c> method. It is
+        <p><xref ref="linear-linked_lst-ordersearch"/> shows the complete <c>search</c> method. It is
             easy to incorporate the new condition discussed above by adding another
             boolean variable, <c>stop</c>, and initializing it to <c>False</c> (line 4).
             While <c>stop</c> is <c>False</c> (in other words, while the search is still ongoing) we can continue to look
@@ -117,7 +117,7 @@
 
         <p>As we saw with unordered linked lists, it is necessary to have an additional
             reference, again called <c>previous</c>, since <c>current</c> will not provide
-            access to the node that must be modified. <xref ref="lst-orderadd"/> shows
+            access to the node that must be modified. <xref ref="linear-linked_lst-orderadd"/> shows
             the complete <c>add</c> method. Lines 2&#8211;3 set up the two external
             references and lines 9&#8211;10 again allow <c>previous</c> to follow one node
             behind <c>current</c> every time through the iteration. The condition (line
@@ -126,7 +126,7 @@
             case, when the iteration fails, we have found the location for the new
             node.</p>
         <p>The remainder of the method completes the two-step process shown in
-            <xref ref="fig-orderinsert"/>. Once a new node has been created for the item,
+            <xref ref="linear-linked_lst-orderadd"/>. Once a new node has been created for the item,
             the only remaining question is whether the new node will be added at the
             beginning of the linked list or some place in the middle. Again,
             <c>previous == NULL</c> (line 13) can be used to provide the answer.</p>
@@ -159,12 +159,13 @@
     }
 }</pre>
         <p>The <c>OrderedList</c> class with methods discussed thus far can be found
-            in ActiveCode 1.
+            in <xref ref = "orderedlistclass_cpp"/>.
             We leave the remaining methods as exercises. You should carefully
             consider whether the unordered implementations will work given that the
             linked list is now ordered.</p>
-
-    <program xml:id="orderedlistclass_cpp" interactive="activecode" language="cpp">
+<example xml:id= "orderedlistclass_cpp">
+    <title> C++ Implementation</title>
+    <program xml:id="orderedlistclass-cpp" interactive="activecode" language="cpp">
         <input>
 // similar to unordered lists except it orders the data
 
@@ -311,6 +312,8 @@ int main() {
 }
         </input>
     </program>
+
+</example>
         <subsection xml:id="linear-linked_analysis-of-linked-lists">
             <title>Analysis of Linked Lists</title>
             <p>To analyze the complexity of the linked list operations, we need to
