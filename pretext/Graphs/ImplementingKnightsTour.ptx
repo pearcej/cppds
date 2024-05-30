@@ -136,7 +136,7 @@ def knightTour(n,path,u,limit):
                 <description>Final graph with all nodes no longer highlighted, representing the completion of the depth-first search process.</description>
                 </image>
             </figure>
-        <p><xref ref="fig-tour"/> shows you what a complete tour around an
+        <p><xref ref="fig-completeTour"/> shows you what a complete tour around an
             eight-by-eight board looks like. There are many possible tours; some are
             symmetric. With some modification you can make circular tours that start
             and end at the same square.</p>
