@@ -9,14 +9,14 @@
             type such as a stack is the creation of a new class. The stack
             operations are implemented as methods. However, the STL already has a well
             written implementation of the Stack class.</p>
-        <p>The following stack implementation (<xref ref="lst-stackcode1"/>) assumes that
+        <p>The following stack implementation (<xref ref="stack_1ac_cpp"/> and <xref ref="stack_1ac_py"/>) assumes that
             the end of the array will hold the top element of the stack. As the stack
             grows (as <c>push</c> operations occur), new items will be added on the end
             of the array. <c>pop</c> operations will manipulate that same end.</p>
         
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'ImplementingaStackCpp', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="stack_1ac_cpp" interactive="activecode" language="cpp">
+<example xml:id="stack_1ac_cpp">
+    <title>C++ Implementation</title>
+    <program xml:id="stack-1ac-cpp" interactive="activecode" language="cpp">
         <input>
 //Tests the push, empty, size, pop, and top methods of the stack library.
 
@@ -52,9 +52,11 @@ int main() {
 }
         </input>
     </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ImplementingaStackCpp', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+</example>
 
-    <program xml:id="stack_1ac_py" interactive="activecode" language="python">
+<example xml:id="stack_1ac_py">
+    <title>Python Implementation</title>
+    <program xml:id="stack-1ac-py" interactive="activecode" language="python">
         <input>
 #Tests the push, empty, size, pop, and top methods of the stack library.
 
@@ -95,7 +97,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode>
+</example>         
 
 <reading-questions xml:id="rq-stack-implementation">
                 <title>Reading Questions</title>

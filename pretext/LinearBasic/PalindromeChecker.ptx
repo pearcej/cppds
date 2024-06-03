@@ -20,11 +20,12 @@
             deque of size 1 depending on whether the length of the original string
             was even or odd. In either case, the string must be a palindrome. The
             complete function for palindrome-checking appears in
-            <xref ref="linear-basic_palinedrome-cpp"/>.</p>
+            <xref ref="palinedrome_cpp"/> and <xref ref="palinedrome_py"/>.</p>
         
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'PalindromeChecker', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+<example xml:id="palinedrome_cpp">
+   <title>C++ Implementation</title>
 
-    <program xml:id="palinedrome_cpp" interactive="activecode" language="cpp">
+    <program xml:id="palinedrome-cpp" interactive="activecode" language="cpp">
         <input>
 //program that detects palindromes.
 
@@ -64,9 +65,14 @@ int main() {
 }
         </input>
     </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'PalindromeChecker', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
 
-    <program xml:id="palchecker" interactive="activecode" language="python">
+</example>
+
+
+<example xml:id="palinedrome_py">
+    <title>Python Implementation</title>
+
+    <program xml:id="palinedrome-py" interactive="activecode" language="python">
         <input>
 #Program that detects palindromes.
 
@@ -97,16 +103,15 @@ def main():
 main()
         </input>
     </program>
-            </TabNode>
+</example>
+            
         <p>Below we can see an upgraded code for checking palindromes, which
             is able to handle strings with capital letters, spaces, and special
-            characters.</p>
-        <p><xref ref="advanced-linear-basic_palinedrome-cpp"/>.</p>
-        
-        <blockquote>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'PalindromeChecker', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            characters.</p>  <p><xref ref="advanced_palinedrome_cpp"/>.</p>
+    
+    <example xml:id ="advanced_palinedrome_cpp" >
 
-    <program xml:id="advanced_palinedrome_cpp" interactive="activecode" language="cpp">
+    <program xml:id="advanced_palinedrome-cpp" interactive="activecode" language="cpp">
         <input>
 //program that detects palindromes.
 
@@ -185,8 +190,8 @@ int main() {
 }
         </input>
     </program>
-                </TabNode>
-        </blockquote>
+</example>
+              
 <reading-questions xml:id="rqs-">
     <title>
         Reading Questions

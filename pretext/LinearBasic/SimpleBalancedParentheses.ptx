@@ -41,8 +41,13 @@
             opening symbols in the reverse order of their appearance; they match
             from the inside out. This is a clue that stacks can be used to solve the
             problem.</p>
-        
-        <figure align="center" xml:id="fig-parmatch"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: Matching Parentheses</caption><image source="LinearBasic/Figures/simpleparcheck.png" width="50%"/></figure>
+                
+        <figure align="center" xml:id="fig-parmatch">
+            <caption>Matching Parentheses</caption>
+                <image 
+                source="LinearBasic/simpleparcheck.png" width="70%" height="70%">
+                </image>
+        </figure>
         <p>Once you agree that a stack is the appropriate data structure for
             keeping the parentheses, the statement of the algorithm is
             straightforward. Starting with an empty stack, process the parenthesis
@@ -54,11 +59,11 @@
             no opening symbol on the stack to match a closing symbol, the string is
             not balanced properly. At the end of the string, when all symbols have
             been processed, the stack should be empty. The C++ and Python code to implement
-            this algorithm is shown in <xref ref="lst-parcheck1"/>.</p>
+            this algorithm is shown in <xref ref="parcheck1_cpp"/> and <xref ref="parcheck1_py"/> .</p>
         
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'SimpleBalancedParentheses', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="parcheck1_cpp" interactive="activecode" language="cpp">
+<example xml:id = "parcheck1_cpp">
+    <title>C++ Implementation</title>
+    <program xml:id="parcheck1-cpp" interactive="activecode" language="cpp">
         <input>
 //simple program that checks for missing parantheses
 #include &lt;iostream&gt;
@@ -104,9 +109,11 @@ int main() {
 }
         </input>
     </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'SimpleBalancedParentheses', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+</example>
 
-    <program xml:id="parcheck1_py" interactive="activecode" language="python">
+<example xml:id = "parcheck1_py">
+    <title>Python Implementation</title>
+    <program xml:id="parcheck1-py" interactive="activecode" language="python">
         <input>
 #Program that detects if a set of parentheses is complete.
 
@@ -146,7 +153,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode>
+</example>
         <p>This function, <c>parChecker</c>, assumes that a <c>Stack</c> class is
             available and returns a Boolean result as to whether the string of
             parentheses is balanced. Note that the Boolean variable <c>balanced</c> is

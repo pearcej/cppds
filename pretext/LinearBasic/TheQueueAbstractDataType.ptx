@@ -35,12 +35,12 @@
             </li>
         </ul></p>
         <p>As an example, if we assume that <c>q</c> is a queue that has been created
-            and is currently empty, then <xref ref="linear-basic_tbl-queueoperations"/> shows the
+            and is currently empty, then <xref ref="linear-basic_id01"/> shows the
             results of a sequence of queue operations. The queue contents are shown
             such that the front is on the right. 4 was the first item pushed so it
             is the first item returned by dequeue.</p>
         
-        <table xml:id="linear-basic_id1"><tabular>
+        <table xml:id="linear-basic_id01"><tabular>
             <title><term>Table 1: Example Queue Operations</term></title>
             
                 

@@ -9,12 +9,14 @@
             operations are implemented as methods.
             Fortunately, the STL already has a well
             written implementation of the queue class.</p>
-        <p>In following queue implementation (<xref ref="lst-queuecode1"/>)
+        <p>In following queue implementation (<xref ref="queue1ac_cpp"/> and <xref ref="queue1ac_py"/>)
             as <c>push</c> operations occur, new items are always added on the <term>rear</term> end
             of the queue and <c>pop</c> operations will
             manipulate the opposite side, the <term>front</term> end.</p>
-        
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'ImplementingaQueueCpp', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+ 
+ 
+<example xml:id= "queue1ac_cpp"> 
+    <title>C++ Implementation</title>
 
     <program xml:id="queue1accpp" interactive="activecode" language="cpp">
         <input>
@@ -44,8 +46,10 @@ int main() {
 }
         </input>
     </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ImplementingaQueueCpp', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+    </example>
 
+<example xml:id="queue1ac_py">
+    <title>Python Implementation</title>
     <program xml:id="queue1acpy" interactive="activecode" language="python">
         <input>
 class Queue:
@@ -86,7 +90,8 @@ def main():
 main()
         </input>
     </program>
-            </TabNode>
+</example>
+          
         <reading-questions xml:id="rqs-implementing-queue">
             <title>
    Reading Question

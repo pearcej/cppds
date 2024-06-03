@@ -30,9 +30,15 @@
             in the sequence. As shown in <xref ref="fig-decbin"/>, we again see the
             reversal property that signals that a stack is likely to be the
             appropriate data structure for solving the problem.</p>
+                
+        <figure align="center" xml:id="fig-decbin">
+            <caption>Decimal-to-Binary Conversion</caption>
+                <image 
+                source="LinearBasic/dectobin.png" width="70%" height="70%">
+                </image>
+        </figure>
         
-        <figure align="center" xml:id="fig-decbin"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 5: Decimal-to-Binary Conversion</caption><image source="LinearBasic/Figures/dectobin.png" width="50%"/></figure>
-        <p>The code in <xref ref="lst-binconverter"/>
+        <p>The code in <xref ref="binconvert_1ac_cpp"/> and <xref ref="binconvert_py"/>
             implements the Divide by 2
             algorithm. The function <c>divideBy2</c> takes an argument that is a
             decimal number and repeatedly divides it by 2. Line 11 uses the built-in
@@ -42,9 +48,9 @@
             digits are popped from the stack one at a time and appended to the
             right-hand end of the string. The binary string is then returned.</p>
         
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'ConvertingDecimalNumberstoBinaryNumbers', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="binconvert_1ac_cpp" interactive="activecode" language="cpp">
+<example xml:id= "binconvert_1ac_cpp">
+    <title>C++ Implementation</title>
+    <program xml:id="binconvert-1ac-cpp" interactive="activecode" language="cpp">
         <input>
 //converts a given decimal number into binary.
 
@@ -83,9 +89,11 @@ int main() {
 }
         </input>
     </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ConvertingDecimalNumberstoBinaryNumbers', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+</example>
 
-    <program xml:id="binconvert_py" interactive="activecode" language="python">
+<example xml:id="binconvert_py">
+    <title>Python Implemention</title>
+    <program xml:id="binconvert-py" interactive="activecode" language="python">
         <input>
 #converts a given decimal number into binary.
 
@@ -113,7 +121,7 @@ def main():
 main()
         </input>
     </program>
-            </TabNode>
+</example>
         <p>The algorithm for binary conversion can easily be extended to perform
             the conversion for any base. In computer science it is common to use a
             number of different base encodings for integers.
@@ -128,7 +136,7 @@ main()
         <p>The function <c>divideBy2</c> can be modified to accept not only a decimal
             value but also a base for the intended conversion. The <q>Divide by 2</q>
             idea is simply replaced with a more general <q>Divide by base.</q> A new
-            function called <c>baseConverter</c>, shown in <xref ref="lst-baseconverter"/>,
+            function called <c>baseConverter</c>, shown in <xref ref="baseconvert_cpp"/> and <xref ref="baseconvert_py"/>,
             takes a decimal number and any base between 2 and 16 as parameters. The
             remainders are still pushed onto the stack until the value being
             converted becomes 0. The same left-to-right string construction
@@ -141,8 +149,8 @@ main()
             create a set of digits that can be used to represent those remainders
             beyond 9.</p>
         
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'ConvertingDecimalNumberstoBinaryNumbers', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
+<example xml:id= "baseconvert_cpp">
+    <title>C++ Implementation</title>
     <program xml:id="baseconvertcpp" interactive="activecode" language="cpp">
         <input>
 //converts a decimal number into desired base 1-16.
@@ -185,8 +193,10 @@ int main() {
 }
         </input>
     </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ConvertingDecimalNumberstoBinaryNumbers', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+</example>
 
+<example xml:id="baseconvert_py">
+<title>Python Implementation</title>
     <program xml:id="baseconvert" interactive="activecode" language="python">
         <input>
 #converts a decimal number into desired base 1-16.
@@ -219,13 +229,13 @@ def main():
 main()
         </input>
     </program>
-            </TabNode>
+</example>
         <p>A solution to this problem is to extend the digit set to include some
             additional characters to represent digits.
             For example, hexadecimal uses the ten decimal
             digits along with the first six alphabet characters for the 16 digits.
             To implement this, a digit string is created (line 8 in
-            <xref ref="lst-baseconverter"/>) that stores the digits in their corresponding
+            <xref ref="baseconvert_cpp"/> and <xref ref="baseconvert_py"/>) that stores the digits in their corresponding
             positions. The digit 0 is at string position 0, 1 is at position 1, A is at position 10,
             B is at position 11, and so on. When a remainder is removed from the
             stack, it can be used to index into the digit string and the correct

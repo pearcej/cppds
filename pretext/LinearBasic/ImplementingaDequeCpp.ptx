@@ -3,12 +3,13 @@
         <p>As we have done in previous sections, we will use the Standard Template Library (STL)
             of C++ to use a Deque. Again, the Deque library from STL
             will provide a very nice set of methods upon which to build the details
-            of the deque. Our code (<xref ref="lst-dequecode"/>) will assume that
+            of the deque. Our code (<xref ref="dequecode_cpp"/> and <xref ref="dequecode_py"/>) will assume that
             the front of the deque is at position 0 in the array.</p>
         
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'ImplementingaDequeCpp', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+<example xml:id= "dequecode_cpp">
+   <title>C++ Implementation</title>
 
-    <program xml:id="dequecode_cpp" interactive="activecode" language="cpp">
+    <program xml:id="dequecode-cpp" interactive="activecode" language="cpp">
         <input>
 //Example code of a deque.
 
@@ -60,9 +61,12 @@ int main() {
 }
         </input>
     </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ImplementingaDequeCpp', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+</example>
 
-    <program xml:id="dequecode_py" interactive="activecode" language="python">
+<example xml:id="dequecode_py">
+    <title>Python Implementation</title>
+
+    <program xml:id="dequecode-py" interactive="activecode" language="python">
         <input>
 #Example code of a deque.
 
@@ -136,7 +140,8 @@ def main():
 main()
         </input>
     </program>
-            </TabNode>
+</example>
+
         <p>You can see many similarities to C++ code already used for
             stacks and queues. You are also likely to observe that in this
             implementation adding and removing items from the back is O(1) whereas
