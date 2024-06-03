@@ -70,6 +70,7 @@
             where we satisfy the base case condition immediately.</p>
         
         <p><term>Listing 7</term></p>
+        <listing xml:id="lst-change1cpp">
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'DynamicProgramming', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_change11cpp" interactive="activecode" language="cpp">
@@ -126,6 +127,7 @@ main()
         </input>
     </program>
             </TabNode>
+        </listing>
         <p>The trouble with the algorithm in <xref ref="lst-change1cpp"/> is that it is
             extremely inefficient. In fact, it takes 67,716,925 recursive calls to
             find the optimal solution to the 4 coins, 63 cents problem! To
@@ -161,6 +163,7 @@ main()
             and is a very useful method for speeding up frequent yet hardware-demanding function calls.
             <xref ref="lst-change2cpp"/> shows a modified
             algorithm to incorporate our table lookup scheme.</p>
+        <listing xml:id="lst-change2cpp">
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'DynamicProgramming', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_change2cpp" interactive="activecode" language="cpp">
@@ -234,6 +237,7 @@ main()
         </input>
     </program>
             </TabNode>
+        </listing>
         <p>Notice that in line&#160;15 we have added a test to see if our table
             contains the minimum number of coins for a certain amount of change. If
             it does not, we compute the minimum recursively and store the computed
@@ -269,7 +273,7 @@ main()
             plus one more penny to make five, equals five coins. Or we can look at
             zero cents plus one more nickel to make five cents equals 1 coin. Since
             the minimum of one and five is one we store 1 in the table. Fast forward
-            again to the end of the table and consider 11 cents. <xref ref="fig-elevencpp"/>
+            again to the end of the table and consider 11 cents. <xref ref="fig-id3"/>
             shows the three options that we have to consider:</p>
         <p><ol label="1">
             <li>
@@ -301,15 +305,15 @@ main()
                 <description>Image of a curved numerical table representing three options to calculate the minimum number of coins for eleven cents. The table is labeled with numbers from 1 to 5 corresponding to the counts of coins used. Below the table, there are three curved arrows pointing to the number '11' from '11-1', '11-5', and '11-10', indicating the subtraction of 1, 5, and 10 cents from 11 cents to determine the next step in the calculation. The last cell under '11' is labeled with '??' to indicate the unknown minimum number of coins needed.  </description>
                 </image>
             </figure>
-
-        <p><xref ref="lst-dpchangecpp"/> is a dynamic programming algorithm to solve our
+            <term>Listing 8</term>
+        <p><xref ref="recursion_lst-dpchangecpp"/> is a dynamic programming algorithm to solve our
             change-making problem. <c>dpMakeChange</c> takes three parameters: a list
             of valid coin values, the amount of change we want to make, and a list
             of the minimum number of coins needed to make each value. When the
             function is done <c>minCoins</c> will contain the solution for all values
             from 0 to the value of <c>change</c>.</p>
         
-        <p xml:id="recursion_lst-dpchangecpp" names="lst_dpchangecpp"><term>Listing 8</term></p>
+        <listing xml:id="recursion_lst-dpchangecpp" names="lst_dpchangecpp"><term>Listing 8</term>
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'DynamicProgramming', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_change13cpp" interactive="activecode" language="cpp">
@@ -367,6 +371,7 @@ main()
         </input>
     </program>
             </TabNode>
+        </listing>
         <p>Note that <c>dpMakeChange</c> is not a recursive function, even though we
             started with a recursive solution to this problem. It is important to
             realize that just because you can write a recursive solution to a
@@ -385,7 +390,7 @@ main()
             entry in the table that tells us the last coin we added to make that
             amount. We can keep tracing back through the table until we get to the
             beginning.</p>
-        <p><xref ref="lst-dpremembercpp"/> shows the <c>dpMakeChange</c> algorithm
+        <p><xref ref="recursion_lst-dpchangecpp"/> shows the <c>dpMakeChange</c> algorithm
             modified to keep track of the coins used, along with a function
             <c>printCoins</c> that walks backward through the table to print out the
             value of each coin used.

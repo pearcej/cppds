@@ -61,6 +61,7 @@
 
         <p><xref ref="lst-rectostrcpp"/> shows the C++ and Python code that implements the algorithm
             outlined above for any base between 2 and 16.</p>
+    <listing xml:id="lst-rectostrcpp">
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'pythondsConvertinganIntegertoaStringinAnyBase', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_rectostrcpp" interactive="activecode" language="cpp">
@@ -105,6 +106,7 @@ main()
         </input>
     </program>
             </TabNode>
+</listing>            
         <p>Notice that in line 7 we check for the base case where <c>n</c>
             is less than the base we are converting to. When we detect the base
             case, we stop recursing and simply return the string from the

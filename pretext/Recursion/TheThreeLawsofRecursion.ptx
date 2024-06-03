@@ -28,7 +28,7 @@
             algorithm our primary data structure is a vector, so we must focus our
             state-changing efforts on the vector. Since the base case is a list of
             length 1, a natural progression toward the base case is to shorten the
-            vector. This is exactly what happens on line 5 of <xref ref="recursion_pythonds-calculatingthe-sumofa-listof-numbers"/> when we call <c>vectsum</c> with a shorter list.</p>
+            vector. This is exactly what happens on line 5 of <xref ref="lst-recsumcpp"/> when we call <c>vectsum</c> with a shorter list.</p>
         <p>The final law is that the algorithm must call itself. This is the very
             definition of recursion. Recursion is a confusing concept to many
             beginning programmers. As a novice programmer, you have learned that
@@ -51,7 +51,7 @@
             but you probably won't be around to see it. This goes to show that the efficiency
             of recursive functions are largely dependent on how they're implemented.</p>
 
-    <program xml:id="ackermann" interactive="activecode" language="cpp">
+            <program xml:id="ackermann" interactive="activecode" language="cpp">
         <input>
 //ackermann function example
 #include &lt;iostream&gt;
@@ -78,6 +78,7 @@ int main(){
 }
         </input>
     </program>
+
         <p>In the remainder of this chapter we will look at more examples of
             recursion. In each case we will focus on designing a solution to a
             problem by using the three laws of recursion.</p>

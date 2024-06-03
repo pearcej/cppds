@@ -28,6 +28,7 @@
             turtle to go forward by <c>len</c> units and then turn right 90 degrees.
             The recursive step is when we call drawSpiral again with a reduced
             length.</p>
+    <listing xml:id="lst-turt1">
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'pythondsintro-VisualizingRecursion', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="lst_cturt1" interactive="activecode" language="cpp">
@@ -78,6 +79,7 @@ main()
         </input>
     </program>
             </TabNode>
+</listing>
         <p>That is really about all the turtle graphics you need to know in order
             to make some pretty impressive drawings. For our next program we are
             going to draw a fractal tree. Fractals come from a branch of
@@ -99,7 +101,7 @@ main()
             going off to the left. If you think of this definition recursively it
             means that we will apply the recursive definition of a tree to both of
             the smaller left and right trees.</p>
-        <p>Let's translate this idea to some C++ code. <xref ref="lst-fractree"/>
+        <p>Let's translate this idea to some C++ code. <xref ref="recursion_lst_fractree"/>
             shows how we can use Python with our turtle to generate a fractal tree. Let's look at
             the code a bit more closely. You will see that on lines 5 and 7 we are
             making a recursive call. On line 5 we make the recursive call right
@@ -114,8 +116,8 @@ main()
             trees get smaller and smaller. You should also recognize the initial
             <c>if</c> statement on line 2 as a check for the base case of <c>branchLen</c>
             getting too small. The C++ equivalent to this function is shown below and exists in <q>Turtle.cpp</q>.</p>
-        
-        <p xml:id="recursion_lst-fractree" names="lst_fractree"><term>Listing 1</term></p>
+        <term>Listing 1</term>
+        <listing xml:id="recursion_lst_fractree" names="lst_fractree"><term>Listing 1</term>
         <program language="python"><input>
 def tree(branchLen,t):
     if branchLen &gt; 5:
@@ -127,14 +129,16 @@ def tree(branchLen,t):
         t.right(20)
         t.backward(branchLen)
 </input></program>
-        <p>The complete program for this tree example is shown in <xref ref="lst-complete-tree"/>.  Before you run
+</listing>
+        <p>The complete program for this tree example is shown in <xref ref="lst_complete_tree"/>.  Before you run
             the code think about how you expect to see the tree take shape. Look at
             the recursive calls and think about how this tree will unfold. Will it
             be drawn symmetrically with the right and left halves of the tree taking
             shape simultaneously? Will it be drawn right side first then left side?</p>
+    <listing xml:id="lst_complete_tree">
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'pythondsintro-VisualizingRecursion', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-    <program xml:id="lst_complete_ctree" interactive="activecode" language="cpp">
+    <program xml:id="lst-complete-ctree" interactive="activecode" language="cpp">
         <input>
 #include &lt;CTurtle.hpp&gt;
 
@@ -176,7 +180,7 @@ int main() {
     </program>
             </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'pythondsintro-VisualizingRecursion', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
 
-    <program xml:id="lst_complete_tree" interactive="activecode" language="python">
+    <program xml:id="lst-complete-tree" interactive="activecode" language="python">
         <input>
 #Creates a tree by using recursion.
 
@@ -209,6 +213,7 @@ main()
         </input>
     </program>
             </TabNode>
+        </listing>
         <p>Notice how each branch point on the tree corresponds to a recursive
             call, and notice how the tree is drawn to the right all the way down to
             its shortest twig. You can see this in <xref ref="fig-tree1"/>. Now, notice

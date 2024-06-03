@@ -5,8 +5,9 @@
             algorithm to push the strings onto a stack instead of making the recursive
             call. The code for this modified algorithm is shown in
             <xref ref="lst-recstackcpp"/>.</p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'StackFramesImplementingRecursion', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
+    <listing xml:id="lst-recstackcpp">    
+        <TabNode tabname="C++" tabnode_options="{'subchapter': 'StackFramesImplementingRecursion', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
     <program xml:id="lst_recstackcpp" interactive="activecode" language="cpp">
         <input>
 //Example of the toStr function using a stack instead of recursion.
@@ -73,6 +74,7 @@ main()
         </input>
     </program>
             </TabNode>
+</listing>
         <p>Each time we make a call to <c>toStr</c>, we push a character on the stack.
             Returning to the previous example we can see that after the fourth call
             to <c>toStr</c> the stack would look like <xref ref="fig-recstack"/>. Notice

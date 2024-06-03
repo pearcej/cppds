@@ -133,6 +133,7 @@
             function the search logically starts again with each recursive call.</p>
         
         <p><term>Listing 3</term></p>
+        <listing xml:id="lst-mazesearch">
         <program language="python"><input>
 def searchFrom(maze, startRow, startColumn):
     #  Check for base cases (Steps 1, 2, and 3):
@@ -169,6 +170,7 @@ def searchFrom(maze, startRow, startColumn):
 
     return found
 </input></program>
+</listing>
         <p>As you look through the algorithm you will see that the first thing the
             code does (steps 1 and 2) is determine if the space <em>should be visited</em>.
             This is done by checking if the spot is an obstacle (<c classes="code">MAZE_OBSTACLE</c>),
@@ -187,7 +189,7 @@ def searchFrom(maze, startRow, startColumn):
             finally East. If all four recursive calls return false then we have
             found a dead end. You should download or type in the whole program and
             experiment with it by changing the order of these calls.</p>
-        <p>The code for the <c>Maze</c> class is shown in <xref ref="lst-maze"/>, <xref ref="lst-maze1"/>, and <inline classes="xref std std-ref">Listing 6</inline>.
+        <p>The code for the <c>Maze</c> class is shown in <xref ref="recursion_lst_maze"/>, <xref ref="recursion_lst_maze1"/>, and <inline classes="xref std std-ref">Listing 6</inline>.
             The <c>__init__</c> method takes the name of a file as its
             only parameter. This file is a text file that represents a maze by using
             <q>+</q> characters for walls, spaces for open squares, and the letter <q>S</q> to
@@ -195,7 +197,7 @@ def searchFrom(maze, startRow, startColumn):
             maze data file. The internal representation of the maze is a list of
             lists. Each row of the <c>mazeList</c> instance variable is also a list.
             This secondary list contains one character per square using the
-            characters described above. For the data file in <xref ref="fig-exmaze"/> the
+            characters described above. For the data file in <xref ref="recursion_fig-exmaze"/> the
             internal representation looks like the following:</p>
         <program language="python"><input>
 [['+','+','+','+',...,'+','+','+','+','+','+','+'],
@@ -220,8 +222,8 @@ def searchFrom(maze, startRow, startColumn):
             to test for an exit condition. An exit condition occurs whenever we
             have navigated to the edge of the maze, either row zero or column zero,
             or the far right column or the bottom row.</p>
-        
-        <p xml:id="recursion_lst-maze" names="lst_maze"><term>Listing 4</term></p>
+        <term>Listing 4</term>
+        <listing xml:id="recursion_lst_maze" names="lst_maze"><term>Listing 4</term>
         <program language="python"><input>
 MAZE_OBSTACLE = '+'
 MAZE_START = 'S'
@@ -287,10 +289,11 @@ class Maze:
     def __getitem__(self, index):
         return self.mazeList[index]
 </input></program>
-        
+</listing>
         <p xml:id="recursion_lst-maze1" names="lst_maze1">The complete program is shown in ActiveCode 1.  This program uses the data file <c>maze1.txt</c> shown above.
             Feel free to also attempt to use <c>maze2.txt</c> from up above.
             Note that it is a much more simple example file in that the exit is very close to the starting position.</p>
+            <listing xml:id="recursion_lst_maze1" >
         <DataFileNode line="306" runestone_options="{'subchapter': 'ExploringaMaze', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'divid': 'maze2.txt', 'qnumber': 'Q-3', 'cols': 31, 'rows': 20, 'filecontent': '++++++++++++++++++++++\n+   +   ++ ++        +\n+     ++++++++++      \u200f\u200f\u200e \u200e\u200e\u200f\u200f\u200e\n+ +    ++  ++++ +++ ++\n+ +   + + ++    +++  +\n+          ++  ++  + +\n+++++ + +      ++  + +\n+++++ +++  + +  ++   +\n+          + + S+ +  +\n+++++ +  + + +       +\n++++++++++++++++++++++\n', 'hidden': '', 'edit': 'false', 'question_label': '5.11.2'}" source="/srv/web2py/applications/runestone/books/cppds/_sources/Recursion/ExploringaMaze.rst">
         </DataFileNode>
 
@@ -407,6 +410,7 @@ def main():
 main()
         </input>
     </program>
+</listing>
         <note>
             <title>Self Check</title>
             <p>Now that you're familiar with this simple maze exploring algorithm, use what you've learned about file handling, classes, and IO to implement this in C++!
