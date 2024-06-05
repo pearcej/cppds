@@ -479,11 +479,11 @@ char cstring[] = {"Hello World!"};    // C-string or char array uses double quot
                 Since C++ strings are so much nicer, I would not recommend using C-strings unless you have a reason.</p>
             <p>Because strings are sequences, all of the typical sequence operations work as you would expect.
                 In addition, the string library offers a huge number of
-                methods, some of the most useful of which are shown in <xref ref="introduction_tab-stringmethods"/>.</p>
+                methods, some of the most useful of which are shown in <xref ref="introduction_tab_stringmethods"/>.</p>
 
     
             
-            <table xml:id="introduction_id5"><tabular>
+            <table xml:id="introduction_tab_stringmethods"><tabular>
                 <title><term>Table 4: String Methods Provided in C++</term></title>
                 
                     
@@ -780,15 +780,12 @@ main()
         </input>
     </program>
                 </TabNode>
-            <p>Hash Tables have both methods and operators. <xref ref="introduction_tab-hashopers"/>
+            <p>Hash Tables have both methods and operators. <xref ref="introduction_tab_hashopers"/>
                 describes them, and the session shows them in action.</p>
             
-            <table xml:id="introduction_id6"><tabular>
+            <table xml:id="introduction_tab_hashopers"><tabular>
                 <title><term>Table 7: Important Hash Table Operators Provided in C++</term></title>
                 
-                    
-                    
-                    
                     
                         <row header="yes">
                             <cell>
@@ -881,10 +878,10 @@ main()
                 a variable as shown below.</p>
             <pre>set&lt;int&gt; mySet = {3, 6, 4, 78, 10}</pre>
             <p>Unordered sets support a number of methods that should be familiar to those who
-                have worked with sets in a mathematics setting. <xref ref="introduction_tab-setmethods"/>
+                have worked with sets in a mathematics setting. <xref ref="introduction_tab_setmethods"/>
                 provides a summary. Examples of their use follow.</p>
             
-            <table xml:id="introduction_id7"><tabular>
+            <table xml:id="introduction_tab_setmethods"><tabular>
                 <title><term>Table 6: Methods Provided by Sets in C++</term></title>
                 
                     
