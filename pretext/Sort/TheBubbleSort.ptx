@@ -112,60 +112,65 @@ main()
         </input>
     </program>
 </example>
-        <raw format="html" xml:space="preserve">&lt;script src="../_static/sortmodels.js"&gt;&lt;/script&gt;
-&lt;script src="../_static/sortviewers.js"&gt;&lt;/script&gt;
+<interactive>
+    <script src="pretext/_static/sortmodels.js"></script>
+    <script src="pretext/_static/sortviewers.js"></script>
+    <div id="bubble_anim" class="">
+      <canvas id="bubble_anim_canvas" width="400" height="400" style="border:4px solid blue"></canvas>
+      <br />
+      <button onclick="bubble_anim_anim = bubble_anim_init('bubble_anim')">Initialize</button>
+      <button onclick="bubble_anim_anim.run('bubble_anim_anim')">Run</button>
+      <button onclick="bubble_anim_anim.stop()">Stop</button> <br />
+      <button onclick="bubble_anim_anim.begin()">Beginning</button>
+      <button onclick="bubble_anim_anim.forward()">Step Forward</button>
+      <button onclick="bubble_anim_anim.backward()">Step Backward</button>
+      <button onclick="bubble_anim_anim.end()">End</button>
+      <script>
+        function bubble_anim_init(divid) {
+          var a = new Animator(new BubbleSortModel(), new BarViewer(), divid);
+          a.init();
+          return a;
+        }
+      </script>
+    </div>
+</interactive>
 
-&lt;div id="bubble_anim" class=""&gt;
-&lt;canvas id="bubble_anim_canvas" width="400" height="400" style="border:4px solid blue"&gt;&lt;/canvas&gt;
-&lt;br /&gt;
-&lt;button onclick="bubble_anim_anim = bubble_anim_init('bubble_anim')"&gt;Initialize&lt;/button&gt;
-&lt;button onclick="bubble_anim_anim.run('bubble_anim_anim')"&gt;Run&lt;/button&gt;
-&lt;button onclick="bubble_anim_anim.stop()"&gt;Stop&lt;/button&gt; &lt;/br&gt;
-&lt;button onclick="bubble_anim_anim.begin()"&gt;Beginning&lt;/button&gt;
-&lt;button onclick="bubble_anim_anim.forward()"&gt;Step Forward&lt;/button&gt;
-&lt;button onclick="bubble_anim_anim.backward()"&gt;Step Backward&lt;/button&gt;
-&lt;button onclick="bubble_anim_anim.end()"&gt;End&lt;/button&gt;
+<p>The following animation shows <c>bubbleSort</c> in action. The sort compares two
+    items at a time. Once it finds two out of place blocks it will find the correct place
+    for the smaller block and then resets for another pass through.</p>
 
-&lt;script&gt;
-bubble_anim_init = function(divid)
-{
-   var a = new Animator(new BubbleSortModel(), new BarViewer(), divid)
-   a.init()
-   return a
-}
-&lt;/script&gt;
+<interactive>
+    <div id="bubble_sort" class="video_popup runestone">
+        <video controls="" preload="none" poster="pretext/_static/vis_bubble_sort_thumb.png">
+          <source src="pretext/_static/vis_bubble_sort.webm" type="video/webm"></source>
+          No supported video type
+        </video>
+      </div>
+    <script>
+        window.addEventListener('load', (event) => {
+            jQuery(function($) {
+                var rb = new RunestoneBase();
+                $('#bubble_sort_thumb').click(function(e) {
+                    $('#bubble_sort').show();
+                    $('#bubble_sort_thumb').hide();
+                    rb.logBookEvent({'event':'video','act':'play','div_id': 'bubble_sort'});
+                });
+                $('#bubble_sort video').one("click", function(){
+                    this.play();
+                });
+                $('#bubble_sort video').one("play", function(){
+                    rb.logBookEvent({'event':'video','act':'play','div_id': 'bubble_sort'});
+                });
+            });
+        });
+    </script>
+</interactive>
 
-&lt;/div&gt;
-</raw>
-        <p>The following animation shows <c>bubbleSort</c> in action. The sort compares two
-            items at a time. Once it finds two out of place blocks it will find the correct place
-            for the smaller block and then resets for another pass through.</p>
-        <raw format="html" xml:space="preserve">&lt;div id="bubble_sort" class="video_popup runestone " &gt;
-&lt;video controls preload="none"  poster="../_static/vis_bubble_sort_thumb.png"&gt;
-    &lt;source src="../_static/vis_bubble_sort.webm" type="video/webm"&gt;&lt;/source&gt;
-    No supported video types
-&lt;/video&gt;
-&lt;/div&gt;
-&lt;script&gt;
-  window.addEventListener('load', (event) =&gt; {
-    jQuery(function($) {
-        var rb = new RunestoneBase();
-        $('#bubble_sort_thumb').click(function(e) {
-            $('#bubble_sort').show();
-            $('#bubble_sort_thumb').hide();
-            rb.logBookEvent({'event':'video','act':'play','div_id': 'bubble_sort'});
-            // Log the run event
-        });
-        $('#bubble_sort video').one("click", function(){
-            this.play();
-        });
-        $('#bubble_sort video').one("play", function(){
-            rb.logBookEvent({'event':'video','act':'play','div_id': 'bubble_sort'});
-        });
-    });
-  });
-&lt;/script&gt;
-</raw>
+  
+  
+
+
+
         <!--For more detail, CodeLens 1 allows you to step through the algorithm.-->
         <!---->
         <!--.. codelens:: bubbletrace-->
@@ -370,7 +375,7 @@ print(alist)
         <statement>
 
             <p>Suppose you have the following array of numbers to sort:
-                [19, 1, 9, 7, 3, 10, 13, 15, 8, 12] which array represents the partially sorted list after three complete passes of bubble sort?</p>
+                [19, 1, 9, 7, 3, 10, 13, 15, 8, 12]. Which array represents the partially sorted list after three complete passes of bubble sort?</p>
 
         </statement>
 <choices>
