@@ -314,4 +314,4 @@ to as the **short bubble**.
        :feedback_d: You have been doing an insertion sort, not a bubble sort.
 
        Suppose you have the following array of numbers to sort:
-       [19, 1, 9, 7, 3, 10, 13, 15, 8, 12]. which array represents the partially sorted list after three complete passes of bubble sort?
+       [19, 1, 9, 7, 3, 10, 13, 15, 8, 12]. Which array represents the partially sorted list after three complete passes of bubble sort?
