@@ -349,12 +349,9 @@ main()
 
     <exercise label="BSRCH_2">
         <statement>
-
-                <p>Suppose you have the following sorted list [3, 5, 6, 8, 11, 12, 14, 15, 17, 18] and are using the recursive binary search algorithm.  Which group of numbers correctly shows the sequence of comparisons used to search for the key 16?</p>
-
+            <p>Suppose you have the following sorted list [3, 5, 6, 8, 11, 12, 14, 15, 17, 18] and are using the recursive binary search algorithm.  Which group of numbers correctly shows the sequence of comparisons used to search for the key 16?</p>
         </statement>
-<choices>
-
+        <choices>
             <choice>
                 <statement>
                     <p>11, 17, 14, 15</p>
@@ -363,7 +360,6 @@ main()
                     <p>Looks like you might be guilty of an off-by-one error.  Remember the first position is index 0.</p>
                 </feedback>
             </choice>
-
             <choice>
                 <statement>
                     <p>18, 17, 14, 15</p>
@@ -372,17 +368,15 @@ main()
                     <p>Remember binary search starts in the middle and halves the list.</p>
                 </feedback>
             </choice>
-
             <choice>
                 <statement>
                     <p>14, 12, 17, 15</p>
                 </statement>
                 <feedback>
-                    <p>Looks like you might be off by one, be careful that you are calculating the midpont using integer arithmetic.</p>
+                    <p>Looks like you might be off by one, be careful that you are calculating the midpoint using integer arithmetic.</p>
                 </feedback>
             </choice>
-
-            <choice correct="yes">
+            <choice>
                 <statement>
                     <p>12, 17, 14, 15</p>
                 </statement>
@@ -390,9 +384,17 @@ main()
                     <p>Binary search starts at the midpoint and halves the list each time. It is done when the list is empty.</p>
                 </feedback>
             </choice>
-</choices>
-
+            <choice correct="yes">
+                <statement>
+                    <p>None of the above</p>
+                </statement>
+                <feedback>
+                    <p>Correct! The actual sequence of comparisons for searching the key 16 is 11, 15, 17.</p>
+                </feedback>
+            </choice>
+        </choices>
     </exercise>
+    
 </reading-questions>            
         </subsection>
     </section>
