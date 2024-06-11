@@ -1,21 +1,6 @@
 <section xml:id="linear-linked_discussion-questions">
         <title>Discussion Questions</title>
-        <p><ol marker="1">
-            <li>
-                <p>Convert the following values to binary using <q>divide by 2.</q> Show the
-                    stack of remainders.</p>
-                <p><ul>
-                    <li>
-                        <p>17</p>
-                    </li>
-                    <li>
-                        <p>45</p>
-                    </li>
-                    <li>
-                        <p>96</p>
-                    </li>
-                </ul></p>
-            </li>
+        <p><ol label="1">
             <li>
                 <p>The alternative implementation of the <c>Queue</c> ADT is to use a list
                     such that the rear of the queue is at the end of the list. What would
