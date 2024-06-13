@@ -144,7 +144,7 @@
     }</pre>
         <p>Now that we have the <c>BinarySearchTree</c> shell and the <c>TreeNode</c> it
             is time to write the <c>put</c> method that will allow us to build our
-            binary search tree. The <c>put</c> method is a method of the
+            binary search tree. The <c>put</c> method belongs to the 
             <c>BinarySearchTree</c> class. This method will check to see if the tree
             already has a root. If there is not a root then <c>put</c> will create a
             new <c>TreeNode</c> and install it as the root of the tree. If a root node
