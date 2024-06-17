@@ -164,7 +164,7 @@
                     
                         <p>Hiding the contents of a class except when absolutely necessary</p>
                     
-                </gi>
+                </gi> 
                 <gi>
                     <title><c>float</c></title>
                     
@@ -172,18 +172,12 @@
                     
                 </gi>
                 <gi>
-                    <title>friend</title>
-                    
-                        <p>An operator or function that can access the private data members of a class of which it is designated as a friend.</p>
-                    
-                </gi>
-                <gi>
                     <title>friend function</title>
                     
-                        <p>A function defined outside that class' scope but has access to private and protected members of the class</p>
+                        <p>A function defined outside that class' scope but has access to private and protected members of the class.</p>
                     
                 </gi>
-                <gi>
+                <gi> 
                     <title>function</title>
                     
                         <p>A section of code that performs a procedure and is usually named.</p>
@@ -222,7 +216,7 @@
                 <gi>
                     <title>inheritance</title>
                     
-                        <p>Sharing/gaining the same behavior as another class</p>
+                        <p>Sharing/gaining the same behavior as another class.</p>
                     
                 </gi>
                 <gi>
@@ -234,7 +228,7 @@
                 <gi>
                     <title>instance</title>
                     
-                        <p>An occurrence of an object</p>
+                        <p>An occurrence of an object.</p>
                     
                 </gi>
                 <gi>
