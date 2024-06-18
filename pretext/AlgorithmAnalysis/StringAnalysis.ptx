@@ -129,5 +129,8 @@
             in which case the entire
             string is moved to a larger contiguous underlying array, which
             is <m>O(n)</m>.</p>
+            <p>
+                   
+            </p>
     </section>
 
