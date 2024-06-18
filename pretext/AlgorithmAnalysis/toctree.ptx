@@ -12,4 +12,7 @@
         <xi:include href='./DiscussionQuestions.ptx' />
         <xi:include href='./ProgrammingExercises.ptx' />
         <xi:include href='./Glossary.ptx' />
+        <p>
+                   
+        </p>
     </chapter>

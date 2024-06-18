@@ -430,5 +430,8 @@ Sum is 50005000 required 0.000000 seconds</pre>
         <p>If <title_reference>SumOfN3</title_reference> is called once with a parameter of <title_reference>n=10</title_reference>, how many times is the <title_reference>int sum_n = (n*(n+1))/2;</title_reference> line executed? <var/>  </p></statement><setup><var><condition number="[1]"><feedback><p>Right! Good job!</p></feedback></condition><condition number="[10]"><feedback><p>No, consider that the function is called only once, and n is the parameter.</p></feedback></condition><condition string="^\s*default\s*$"><feedback><p>Incorrect. Please try again.</p></feedback></condition></var></setup></exercise>   
             </reading-questions>
     </subsection>
+    <p>
+                   
+    </p>
 </section>
 
