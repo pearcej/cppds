@@ -246,6 +246,9 @@ main()
         <exercise>
             <statement>
     <p>What is value of 26 expressed in base 26? <var/>  </p></statement><setup><var><p><BlankNode/></p><condition number="[10, 10]"><feedback><p>Correct because 26 = 1x26^1.</p></feedback></condition></var></setup></exercise>  
-</reading-questions>      
+</reading-questions>   
+<p>
+            
+</p>   
     </section>
 
