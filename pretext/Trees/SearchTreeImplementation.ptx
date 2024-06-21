@@ -181,9 +181,9 @@
             this bug as an exercise for you.</p>
         
         <p xml:id="trees_lst-bst3" names="lst_bst3"><term>Listing 3</term></p>
-        <pre>void put(int key, string val){
+        <pre>void insert(int key, string val){
     if (this-&gt;root){
-        this-&gt;_put(key, val, this-&gt;root);
+        this-&gt;_insert(key, val, this-&gt;root);
     }
     else{
         this-&gt;root = new TreeNode(key, val);
@@ -191,10 +191,10 @@
     this-&gt;size = this-&gt;size + 1;
 }
 
-void _put(int key, string val, TreeNode *currentNode){
+void _insert(int key, string val, TreeNode *currentNode){
     if (key &lt; currentNode-&gt;key){
         if (currentNode-&gt;hasLeftChild()){
-            this-&gt;_put(key, val, currentNode-&gt;leftChild);
+            this-&gt;_insert(key, val, currentNode-&gt;leftChild);
         }
         else{
             currentNode-&gt;leftChild = new TreeNode(key, val, currentNode);
@@ -202,7 +202,7 @@ void _put(int key, string val, TreeNode *currentNode){
     }
     else{
         if (currentNode-&gt;hasRightChild()){
-            this-&gt;_put(key, val, currentNode-&gt;rightChild);
+            this-&gt;_insert(key, val, currentNode-&gt;rightChild);
         }
         else{
             currentNode-&gt;rightChild = new TreeNode(key, val, currentNode);
