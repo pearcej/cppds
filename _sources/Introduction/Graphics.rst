@@ -241,7 +241,6 @@ See if you can match each method description with their names!
 
 .. dragndrop:: cturtle_dnd_1
     :optional:
-
     :match_1: turn to the left.|||turtle.left
     :match_2: turn to the left.|||turtle.right
     :match_3: pick pen up.|||turtle.penup
