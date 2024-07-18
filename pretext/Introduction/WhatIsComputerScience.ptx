@@ -67,14 +67,14 @@
             very different view of the computer. They must know the details of how
             operating systems work, how network protocols are configured, and how to
             code various scripts that control function. They must be able to control
-            the low-level details that a user simply assumes.</p>
+            the low-level details that a user simply assumes. </p>
         <p>The common point for both of these examples is that the user of the
             abstraction, sometimes also called the client, does not need to know the
             details as long as the user is aware of the way the interface works.
             This interface is the way we as users communicate with the underlying
             complexities of the implementation. As another example of abstraction,
             consider the C++ <c>cmath</c> module. Once we import the module, we can
-            perform computations such as</p>
+            perform computations such as the following example: </p>
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsComputerScience', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="cPlusPlus" interactive="activecode" language="cpp">
