@@ -1027,7 +1027,7 @@ int main(){
 
             <choice correct="yes">
                 <statement>
-                    <p>array</p>
+                    <p>Array</p>
                 </statement>
                 <feedback>
                     <p>Correct!</p>
@@ -1036,7 +1036,7 @@ int main(){
 
             <choice>
                 <statement>
-                    <p>hash table</p>
+                    <p>Hash table</p>
                 </statement>
                 <feedback>
                     <p>No. hash tables are not ordered.</p>
@@ -1045,7 +1045,7 @@ int main(){
 
             <choice>
                 <statement>
-                    <p>string</p>
+                    <p>String</p>
                 </statement>
                 <feedback>
                     <p>A string would only work for character data. Try again.</p>
@@ -1054,7 +1054,7 @@ int main(){
 
             <choice>
                 <statement>
-                    <p>vector</p>
+                    <p>Vector</p>
                 </statement>
                 <feedback>
                     <p>There is a better choice given that the group is fixed length</p>
@@ -1063,7 +1063,7 @@ int main(){
 
             <choice>
                 <statement>
-                    <p>more than one of the above</p>
+                    <p>More than one of the above</p>
                 </statement>
                 <feedback>
                     <p>Only of the above is best.</p>
@@ -1123,7 +1123,7 @@ int main(){
 
         <choice>
             <statement>
-                <p>none of the above</p>
+                <p>None of the above.</p>
             </statement>
             <feedback>
                 <p>One of the above is indeed correct.</p>
@@ -1198,7 +1198,7 @@ int main(){
 <match order="2"><premise>erase</premise><response>Deletes an element from the choosen index.</response></match>
 <match order="3"><premise>size</premise><response>Returns the actual capacity used by elements.</response></match>
 <match order="4"><premise>capacity</premise><response>Returns the ammount of allocated storage space.</response></match>
-<match order="5"><premise>reserve</premise><response> Request a change in space to amount</response></match>
+<match order="5"><premise>reserve</premise><response> Request a change in space to amount.</response></match>
 
 </matches></exercise> 
 <exercise label="mc_array_vector">
@@ -1238,7 +1238,7 @@ int main(){
 
         <choice correct="yes">
             <statement>
-                <p>more than one of the above</p>
+                <p>More than one of the above.</p>
             </statement>
             <feedback>
                 <p>Right! Good job!</p>
@@ -1247,7 +1247,7 @@ int main(){
 
         <choice>
             <statement>
-                <p>none of the above</p>
+                <p>None of the above.</p>
             </statement>
             <feedback>
                 <p>One of the above is indeed correct.</p>
@@ -1293,7 +1293,7 @@ int main(){
 
         <choice>
             <statement>
-                <p>none of the above</p>
+                <p>None of the above.</p>
             </statement>
             <feedback>
                 <p>One of the above is indeed correct.</p>
@@ -1312,19 +1312,19 @@ int main(){
 
         <choice correct="yes">
             <statement>
-                <p>An array of characters that ends with a terminating null character. i.e. \0</p>
+                <p>An array of characters that ends with a terminating null character. For instance, "\0"./p>
             </statement>
             <feedback>
-                <p>Correct! a c-string is different from a string</p>
+                <p>Correct! a c-string is different from a string.</p>
             </feedback>
         </choice>
 
         <choice>
             <statement>
-                <p>A sequential data structure consisting of zero or more characters</p>
+                <p>A sequential data structure consisting of zero or more characters.</p>
             </statement>
             <feedback>
-                <p>Close, but that is the definition of a string, not a c-string</p>
+                <p>Close, but that is the definition of a string, not a c-string.</p>
             </feedback>
         </choice>
 
@@ -1333,16 +1333,16 @@ int main(){
                 <p>A data structure consisting of an ordered collection of data elements of identical type in which each element can be identified by an array index.</p>
             </statement>
             <feedback>
-                <p>Sorry, thats not a string or a c-string</p>
+                <p>Sorry, thats not a string or a c-string.</p>
             </feedback>
         </choice>
 
         <choice>
             <statement>
-                <p>sequence container storing data of a single type that is stored in a dynamically allocated array which can change in size.</p>
+                <p>Sequence container storing data of a single type that is stored in a dynamically allocated array which can change in size.</p>
             </statement>
             <feedback>
-                <p>No, that's a vector</p>
+                <p>No, that's a vector.</p>
             </feedback>
         </choice>
 </choices>
