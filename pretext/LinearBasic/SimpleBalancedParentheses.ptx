@@ -60,7 +60,7 @@
 
     <program xml:id="parcheck1_cpp" interactive="activecode" language="cpp">
         <input>
-//simple program that checks for missing parantheses
+//simple program that checks for missing parentheses
 #include &lt;iostream&gt;
 #include &lt;stack&gt;
 #include &lt;string&gt;
@@ -110,7 +110,7 @@ int main() {
         <input>
 #Program that detects if a set of parentheses is complete.
 
-#simple program that checks for missing parantheses
+#simple program that checks for missing parentheses
 from pythonds.basic.stack import Stack
 
 #returns whether the parentheses in the input are balanced
