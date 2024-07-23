@@ -411,7 +411,7 @@ stream is changed by the stream operator.
 
             int main() {
                 Fraction myfraction(3, 5);
-                cout << myfraction;
+                cout << myfraction << " is my fraction" << endl;
 
                 return 0;
             }
