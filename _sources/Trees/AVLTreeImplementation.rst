@@ -95,8 +95,7 @@ the calls to ``updateBalance`` on lines 8 and 17.
 
 
 
-The new ``updateBalance`` method is where most of the work is done. This
-implements the recursive procedure we just described. The
+The new ``updateBalance`` method is where most of the work is done. The
 ``updateBalance`` method first checks to see if the current node is out
 of balance enough to require rebalancing (line 16). If that
 is the case then the rebalancing is done and no further updating to
