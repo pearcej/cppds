@@ -18,7 +18,7 @@
             </li>
             <li>
                 <p>Implement the remaining relational operators (<c>&gt;</c>,
-                    <c>&gt;=</c>, <c>&lt;</c>, <c>&lt;=</c>, and <c>!=</c>)</p>
+                    <c>&gt;=</c>, <c>&lt;</c>, <c>&lt;=</c>, and <c>!=</c>).</p>
             </li>
             <li>
                 <p>Modify the constructor for the fraction class so that it checks to
