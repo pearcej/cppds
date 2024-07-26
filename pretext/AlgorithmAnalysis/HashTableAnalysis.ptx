@@ -198,7 +198,7 @@ print("%d,%10.3f,%10.3f" % (i, lst_time, d_time))
 
         <choice correct="yes">
             <statement>
-                <p>Popping the first index from a vector.</p>
+                <p>Popping the first index from a vector</p>
             </statement>
             <feedback>
                 <p>When you remove the first element of a vector, all the other elements of the vector must be shifted forward.</p>
@@ -207,7 +207,7 @@ print("%d,%10.3f,%10.3f" % (i, lst_time, d_time))
 
         <choice>
             <statement>
-                <p>Popping an element from the end of a vector.</p>
+                <p>Popping an element from the end of a vector</p>
             </statement>
             <feedback>
                 <p>Removing an element from the end of the vector is a constant operation.</p>
@@ -216,7 +216,7 @@ print("%d,%10.3f,%10.3f" % (i, lst_time, d_time))
 
         <choice>
             <statement>
-                <p>Adding a new element to a vector.</p>
+                <p>Adding a new element to a vector</p>
             </statement>
             <feedback>
                 <p>Adding to the end of a vector is a constant operation</p>
