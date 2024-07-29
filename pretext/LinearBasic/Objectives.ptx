@@ -5,7 +5,7 @@
                 <p>To understand the abstract data types: stack, queue, and deque.</p>
             </li>
             <li>
-                <p>To be able to use the ADTs (stack, queue, and deque) using Standard Template Library of C++</p>
+                <p>To be able to use the ADTs (stack, queue, and deque) using Standard Template Library of C++.</p>
             </li>
             <li>
                 <p>To understand the performance of the implementations of basic linear
