@@ -194,14 +194,14 @@ following figure:
 
     .. image:: Figures/fractions_partsofwhole.png
 
-Since we are using classes to create abstract data types, we should probably discuss the meaning of
-the word "abstract" in this context.
-**Abstraction** in object-oriented programming requires you to focus only on the desired properties
-and behaviors of the objects
-and discard what is unimportant or irrelevant. Hence, if we do not need to think about
-the "parts of a whole" metaphor, then we will not include it in the class. If that metaphor
-is important, then we will include it. For our purposes, we want to think of
-fractions as numbers, so we will not use the "parts of a whole" visual metaphor.
+Because we are using classes to create abstract data types, we should probably
+define the term "abstract" in this context. In object-oriented programming,
+abstraction requires you to focus solely on the desired properties and behaviors of
+the objects, discarding everything else that is unimportant or irrelevant. As a result,
+if we don't need to consider the "parts of a whole" metaphor, we won't cover it in
+class. If the metaphor is important, we will include it. For our purposes, we want to
+think of fractions as numbers, so we will avoid using the "parts of a whole" visual
+metaphor.
 
 The object-oriented principle of **encapsulation** is the notion that we should
 hide the contents of a class, except what is
