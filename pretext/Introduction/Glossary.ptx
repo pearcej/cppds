@@ -15,6 +15,24 @@
                     
                 </gi>
                 <gi>
+                    <title>Child Class</title>
+                    
+                        <p>inherit characteristic data and/or behaviors from a parent class</p>
+                    
+                </gi>
+                <gi>
+                    <title>Parent Class</title>
+                    
+                        <p>A class that has been extended by another existing class</p>
+                    
+                </gi>
+                <gi>
+                    <title>Virtual function</title>
+                    
+                        <p>Member function which is declared within a base class and is overwritten by a derived class</p>
+                    
+                </gi>
+                <gi>
                     <title>access keywords</title>
                     
                         <p>Keywords such as &#8216;'public'', private'', and &#8216;'protected'' that indicates what class properties/behaviors a user can change</p>
