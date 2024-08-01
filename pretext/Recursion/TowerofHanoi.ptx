@@ -24,7 +24,7 @@
             and poles&#8211;a pile of books or pieces of paper will work.</p>
         
         <figure align="center" xml:id="fig-hanoicpp">
-            <caption>An Example Arrangement of Disks for the Tower of Hanoi</caption>
+            <caption>An Example Arrangement of Disks for the Tower of Hanoi.</caption>
                 <image source="Recursion/hanoi.png" width="80%">
                 <description>Image depicting the initial setup of the Tower of Hanoi puzzle. It shows three vertical poles labeled 'fromPole', 'withPole', and 'toPole' on a horizontal base. The 'fromPole' has three disks stacked on it, with the largest at the bottom and the smallest at the top, while the other two poles are empty. This is a classic configuration for the start of the puzzle, which involves moving the disks to another pole under certain rules. </description>
                 </image>
@@ -165,6 +165,6 @@ main()
 
                 <exercise>
                     <statement>
-            <p>If you change the tower height in Line 17 from 3 to 6, how many moves must you make to complete the Hanoi tower? (hint, try implementing a counter to return the correct number) <var/>  </p></statement><setup><var><condition number="[63, 63]"><feedback><p>Correct, you can make a global counter at line 3, and then cout the increasing total under line 11.</p></feedback></condition><condition number="[62, 62]"><feedback><p>Technically you are correct but, you are off by one.</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>Please try again you need to add a statement at line 3, and under line 11.</p></feedback></condition></var></setup></exercise>    </reading-questions>   
+            <p>If you change the tower height in Line 17 from 3 to 6, how many moves must you make to complete the Hanoi tower? (Hint, try implementing a counter to return the correct number.) <var/>  </p></statement><setup><var><condition number="[63, 63]"><feedback><p>Correct, you can make a global counter at line 3, and then cout the increasing total under line 11.</p></feedback></condition><condition number="[62, 62]"><feedback><p>Technically you are correct but, you are off by one.</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>Please try again you need to add a statement at line 3, and under line 11.</p></feedback></condition></var></setup></exercise>    </reading-questions>   
     </section>
 

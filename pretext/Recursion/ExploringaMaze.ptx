@@ -109,7 +109,7 @@
             maze. In this instance, we will stick to a text-only representation (ASCII).</p>
         <p><ul>
             <li>
-                <p><c>__init__</c> Initializes basic variables to default values, and calls <c>readMazeFile</c></p>
+                <p><c>__init__</c> Initializes basic variables to default values, and calls <c>readMazeFile</c>.</p>
             </li>
             <li>
                 <p><c>readMazeFile</c> Reads the text of the maze text file, and calls <c>findStartPosition</c>.</p>
@@ -213,7 +213,7 @@ def searchFrom(maze, startRow, startColumn):
         <p>The <c>searchFrom</c> method uses this internal representation to traverse
             throughout the maze.</p>
         
-        <p xml:id="recursion_fig-exmaze" names="fig_exmaze">Figure 3: An Example Maze Data File</p>
+        <p xml:id="recursion_fig-exmaze" names="fig_exmaze">Figure 3: An Example Maze Data File.</p>
         <DataFileNode line="208" runestone_options="{'subchapter': 'ExploringaMaze', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'divid': 'maze1.txt', 'qnumber': 'Q-2', 'cols': 27, 'rows': 20, 'filecontent': '++++++++++++++++++++++\n+   +   ++ ++     +   \u200f\u200f\u200e \u200e\n+ +   +       +++ + ++\n+ + +  ++  ++++   + ++\n+++ ++++++    +++ +  +\n+          ++  ++    +\n+++++ ++++++   +++++ +\n+     +   +++++++  + +\n+ +++++++      S +   +\n+                + +++\n++++++++++++++++++ +++\n', 'hidden': '', 'edit': 'false', 'question_label': '5.11.1'}" source="/srv/web2py/applications/runestone/books/cppds/_sources/Recursion/ExploringaMaze.rst">
         </DataFileNode>
         <p>Finally, the <c>isOnEdge</c> method uses our current position
