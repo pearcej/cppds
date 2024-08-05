@@ -21,23 +21,13 @@
             abstraction in a program. Hence, whenever we want to implement an abstract data
             type, we will do so with a new class which will provide the blueprint or template for
             all of the objects of that type.</p>
-        <p>Four key principles are associated with object-oriented programming:</p>
-        <blockquote>
-            <p><ol label="1">
-                <li>
-                    <p>abstraction</p>
-                </li>
-                <li>
-                    <p>encapsulation</p>
-                </li>
-                <li>
-                    <p>inheritance</p>
-                </li>
-                <li>
-                    <p>polymorphism</p>
-                </li>
-            </ol></p>
-        </blockquote>
+        <p><term>Four key principles are associated with object-oriented programming:</term></p>
+
+          <article>
+            <figure xml:id="fig-centered-image">
+                <image source="Introduction/FOUROOP.png" width="50%"/>
+            </figure>
+    </article>
         <p>We will highlight each principle via examples.</p>
         <subsection xml:id="introduction_a-fraction-class">
             <title>A <c>Fraction</c> Class</title>
