@@ -227,11 +227,8 @@ Polymorphism
 ^^^^^^^^^^^^
 
 **Polymorphism** means the ability to appear in many forms. In object-oriented programming,
-**polymorphism** refers to the ability to process objects or methods differently depending
-on their data type, class, number of arguments, etc.
-For example, we can overload a constructor with different numbers and types of arguments
-to give us more optional ways to instantiate an object of the class in question.
-We can also add additional constructors to handle fractions that are whole numbers and instances with no parameters given:
+**polymorphism** Polymorphism refers to the ability to process methods or objects in different ways depending on their specific types or usage contexts. This can be achieved through method signatures (overloading) or by using the actual object type at runtime (overriding).
+For example, constructors can be overloaded with different numbers and types of arguments to provide multiple ways to instantiate an object. Here’s how this can be done:
 
 ::
 
