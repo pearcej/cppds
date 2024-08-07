@@ -37,7 +37,7 @@ Glossary
         a list whose elements are ordered
 
     unordered linked list
-        a linked list whose elements are not in an order
+        a linked list whose elements are not in an order.
 
 Matching 
 --------
