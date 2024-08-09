@@ -583,8 +583,8 @@ like more symmetry.
 Binary operators can either be members of their
 left-hand argument's class or friend functions.
 Since the stream operators' left-hand argument is a stream,
-stream operators either have to be members of the stream class
-or friend functions.
+stream operators (like << and >>) must be either member functions of the stream class
+or friend functions of the class they are used with.
 However, that is not true for ``+``.
 Let's rewrite the addition operator as a friend function.
 
