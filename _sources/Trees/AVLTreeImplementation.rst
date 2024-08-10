@@ -67,8 +67,6 @@ the calls to ``updateBalance`` on lines 8 and 17.
             }
         }
     }
-
-::
     
     int updateBalance(TreeNode *node){
         if (node->balanceFactor > 1 || node->balanceFactor < -1){
@@ -86,6 +84,7 @@ the calls to ``updateBalance`` on lines 8 and 17.
                 this->updateBalance(node->parent);
             }
         }
+        return 0;
     }
 
 
