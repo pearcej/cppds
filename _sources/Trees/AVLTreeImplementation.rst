@@ -88,7 +88,6 @@ the calls to ``updateBalance`` on lines 8 and 17.
     }
 
 
-
 .. highlight:: cpp
     :linenothreshold: 500
 
