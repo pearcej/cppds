@@ -1,3 +1,4 @@
+
 <section xml:id="graphs_general-depth-first-search">
         <title>General Depth First Search</title>
         <p>The knight's tour is a special case of a depth first search where the
@@ -340,29 +341,18 @@ main()
         <p>The visualization below shows the entire traversal of the example graph shown above.
             Nodes attached to an orange line are connected to the node attached with a brown line.
             This relationship is directional, and mirrors what can be observed above.</p>
-        <raw format="html" xml:space="preserve">&lt;div id="vis_dfs" class="video_popup runestone " &gt;
-&lt;video controls preload="none"  poster="../_static/vis_dfs_thumb.png"&gt;
-    &lt;source src="../_static/vis_dfs.webm" type="video/webm"&gt;&lt;/source&gt;
-    No supported video types
-&lt;/video&gt;
-&lt;/div&gt;
-&lt;script&gt;
-  window.addEventListener('load', (event) =&gt; {
-    jQuery(function($) {
-        var rb = new RunestoneBase();
-        $('#vis_dfs_thumb').click(function(e) {
-            $('#vis_dfs').show();
-            $('#vis_dfs_thumb').hide();
-            rb.logBookEvent({'event':'video','act':'play','div_id': 'vis_dfs'});
-            // Log the run event
-        });
-        $('#vis_dfs video').one("click", function(){
-            this.play();
-        });
-        $('#vis_dfs video').one("play", function(){
-            rb.logBookEvent({'event':'video','act':'play','div_id': 'vis_dfs'});
-        });
-    });
-  });
-&lt;/script&gt;
-</raw>
+
+        <figure align="center">
+    <caption>DFS Visualization</caption>
+    <video width="640" height="480" controls="controls">
+        <source src="Figures/Graphs/vis_dfs.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+</figure>
+
+    </section>
+
+
+
+
+
