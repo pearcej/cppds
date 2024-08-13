@@ -7,7 +7,7 @@
             moves by a knight and the corresponding edges in a graph.</p>
         
         <figure align="center" xml:id="fig-knightmoves">
-            <caption>Legal Moves for a Knight on Square 12, and the Corresponding Graph</caption>
+            <caption>Legal Moves for a Knight on Square 12, and the Corresponding Graph.</caption>
                 <image source="Graphs/knightmoves.png" width="80%">
                 <description>Image depicting the legal moves for a knight on a chessboard and the corresponding graph. On the left, there is a 5x5 section of a chessboard with numbered squares from 1 to 25. The knight is placed on square 12, with its legal moves indicated by gray dots on squares 5, 9, 15, 19, 21, and 23. On the right, a graph illustrates the knight's moves as a network of connected nodes. The central node, labeled '12', represents the knight's position, and it is connected to nodes labeled '5', '9', '15', '19', '21', and '23', which correspond to the potential moves available to the knight from its current position. </description>
                 </image>
@@ -103,7 +103,7 @@ vector&lt;int&gt; genLegalMoves(int id, int bdSize) {
             the adjacency matrix would be only 8.2 percent full.</p>
     
         <figure align="center" xml:id="fig-bigknight">
-            <caption>All Legal Moves for a Knight on an <m>8 \times 8</m> Chessboard</caption>
+            <caption>All Legal Moves for a Knight on an <m>8 \times 8</m> Chessboard.</caption>
                 <image source="Graphs/bigknight.png" width="80%">
                 <description>Complex graph showing all legal moves for a knight on an 8 x 8 chessboard, visualized as a network. The nodes are arranged in a grid pattern, numbered from 0 to 63, corresponding to the squares of a chessboard. The lines connecting the nodes represent the knight's potential moves, with each node being connected to others that a knight could reach in a single move based on the rules of chess. The myriad of crisscrossing lines create an intricate web, illustrating the complexity of the knight's movement possibilities across the entire board. </description>
                 </image>
