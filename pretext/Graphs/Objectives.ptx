@@ -9,7 +9,7 @@
                     representations.</p>
             </li>
             <li>
-                <p>To see how graphs can be used to solve a wide variety of problems</p>
+                <p>To see how graphs can be used to solve a wide variety of problems.</p>
             </li>
         </ul></p>
         <p>In this chapter we will study graphs. Graphs are a more general
@@ -35,7 +35,7 @@
             and the order in which they must be taken to complete a major in
             computer science at Luther College.</p>
         <figure align="center" xml:id="graphs_fig1">
-            <caption>Prerequisites for a Computer Science Major</caption>
+            <caption>Prerequisites for a Computer Science Major.</caption>
                 <image source="Graphs/CS-Prereqs.png" width="80%">
                 <description>Flowchart outlining the prerequisites for a Computer Science major. The chart begins with 'Math-151' leading into 'CS-220'. Below this, 'CS-150' points to 'CS-151', which in turn branches into 'CS-250' and 'CS-230'. 'CS-230' continues to 'CS-466', and 'CS-151' also points to 'CS-360', which then leads to 'CS-490'. Additionally, 'CS-360' branches off to 'CS-477'. Each course is represented as a node, and the arrows indicate the prerequisite relationship, where one course must be completed before moving on to the next. </description>
                 </image>
