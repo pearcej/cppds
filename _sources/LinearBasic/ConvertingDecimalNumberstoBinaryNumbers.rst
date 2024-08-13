@@ -33,9 +33,10 @@ than 0. A simple iteration then continually uses integer division to
 divide the decimal number
 by 2 and to keep track of the remainder. The first division by 2 gives
 information as to whether the value is even or odd. An even value will
-have a remainder of 0. It will have the digit 0 in the 1s place. An
-odd value will have a remainder of 1 and will have the digit 1 in the
-1s place. We think about building our binary number as a sequence of
+have a remainder of 0. When the number is even, dividing it by 2 will leave a remainder of 0, 
+meaning the binary representation of the number will have a 0 in the least significant bit (LSB). 
+Conversely, when the number is odd, the remainder will be 1, indicating a 1 in the LSB. 
+We think about building our binary number as a sequence of
 digits; the first remainder we compute will actually be the last digit
 in the sequence. As shown in :ref:`Figure 5 <fig_decbin>`, we again see the
 reversal property that signals that a stack is likely to be the
