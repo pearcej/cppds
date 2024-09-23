@@ -366,7 +366,7 @@ Reading Questions
     <exercise label="BIGO1">
         <statement>
     
-            <p>The Big O of a particular algorithm is <m>O(log_{2}n)</m>.
+            <p>The Big O of a particular algorithm is <m>O(\log_{2}n)</m>.
                 Given that it takes 2 seconds to complete the algorithm with 3 million inputs;
                 how long would it take with 4 million inputs?</p>
     
@@ -423,7 +423,7 @@ Reading Questions
     <exercise label="BIGO2">
         <statement>
     
-            <p>The Big O of a particular algorithm is <m>O(log_{2}n)</m>.
+            <p>The Big O of a particular algorithm is <m>O(\log_{2}n)</m>.
                 Given that it takes 2 seconds to complete the algorithm with 3 million inputs;
                 how long would it take with 10 million inputs?</p>
     
