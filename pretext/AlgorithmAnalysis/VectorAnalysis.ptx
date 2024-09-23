@@ -276,7 +276,7 @@ int main(){
             vector is moved to a larger contiguous underlying array, which
             is <m>O(n)</m>.</p>
         <p>Note that the vector class provides a find command which can determine
-            whether a given item is in the vector. It is <m>O(log n)</m> if
+            whether a given item is in the vector. It is <m>O(\log n)</m> if
             the vector is sorted and is <m>O(n)</m> otherwise. We will explain
             why this is in Chapter 3.</p>
         <p>As a way of demonstrating the difference in performance between push_back

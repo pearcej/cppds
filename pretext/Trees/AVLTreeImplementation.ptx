@@ -302,15 +302,15 @@ void rebalance(TreeNode *node){
             trees that are a little more complex than the tree in
             <xref ref="fig-rotatelr"/>.</p>
         <p>By keeping the tree in balance at all times, we can ensure that the
-            <c>get</c> method will run in order <m>O(log_2(n))</m> time. But the
+            <c>get</c> method will run in order <m>O(\log_2(n))</m> time. But the
             question is at what cost to our <c>put</c> method? Let us break this down
             into the operations performed by <c>put</c>. Since a new node is inserted
             as a leaf, updating the balance factors of all the parents will require
-            a maximum of <m>log_2(n)</m> operations, one for each level of the
+            a maximum of <m>\log_2(n)</m> operations, one for each level of the
             tree. If a subtree is found to be out of balance a maximum of two
             rotations are required to bring the tree back into balance. But, each of
             the rotations works in <m>O(1)</m> time, so even our <c>put</c>
-            operation remains <m>O(log_2(n))</m>.</p>
+            operation remains <m>O(\log_2(n))</m>.</p>
         <p>At this point we have implemented a functional AVL-Tree, unless you need
             the ability to delete a node. We leave the deletion of the node and
             subsequent updating and rebalancing as an exercise for you.</p>
