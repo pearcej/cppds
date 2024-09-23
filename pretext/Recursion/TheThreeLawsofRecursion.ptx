@@ -17,8 +17,8 @@
             </ol></p>
         </blockquote>
         <p>Let's look at each one of these laws in more detail and see how it was
-            used in the <c>vectsum</c> algorithm. First, a base case is the condition
-            that allows the algorithm to stop recursing. A base case is typically a
+            used in the <c>vectsum</c> algorithm. First, a <term>base case</term> is the condition
+            that allows the algorithm to stop recursing.<idx>base case</idx> A base case is typically a
             problem that is small enough to solve directly. In the <c>vectsum</c>
             algorithm the base case is a list of length 1.</p>
         <p>To obey the second law, we must arrange for a change of state that moves
