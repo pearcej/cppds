@@ -171,6 +171,7 @@
                         <p>Keyword for floating point data type.</p>
                     
                 </gi>
+                <gi>
                     <title>friend function</title>
                     
                         <p>A function defined outside that class' scope but has access to private and protected members of the class.</p>
