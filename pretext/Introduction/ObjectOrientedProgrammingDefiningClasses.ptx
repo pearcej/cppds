@@ -183,12 +183,14 @@ myfraction = Fraction(3, 5)
         <subsection xml:id="introduction_polymorphism">
             <title>Polymorphism</title>
             <p><idx>polymorphism</idx><term>Polymorphism</term> means the ability to appear in many forms. In object-oriented programming,
-                <term>polymorphism</term> refers to the ability to process objects or methods differently depending
+                <term>polymorphism</term> refers to the ability to handle objects or methods differently depending
                 on their data type, class, number of arguments, etc.
                 For example, we can overload a constructor with different numbers and types of arguments
-                to give us more optional ways to instantiate an object of the class in question.
-                We can also add additional constructors to handle fractions that are whole numbers and instances with no parameters given:</p>
-            <pre>Fraction(int top, int bottom){
+                to give us multiple ways to instantiate an object of a class as shown in the next listing for
+                the <c>Fraction</c> class.
+
+<program language="cpp"><input>
+Fraction(int top, int bottom){
     num = top;
     den = bottom;
 }
@@ -199,7 +201,9 @@ Fraction (int top){
 Fraction (){
     num = 0;
     den = 1;
-}</pre>
+}
+</input></program>
+
             <p>Calling the constructor with two arguments will invoke the first method,
                 calling it with a single argument will invoke the second method, and calling
                 it with no arguments will invoke the third method.</p>
