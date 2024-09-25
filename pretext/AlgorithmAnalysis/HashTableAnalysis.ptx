@@ -19,14 +19,14 @@
         important hash table operation is the <term>contains</term> operation. Unlike a vector, checking to
         see whether a value is in the hash table or not is also <m>O(1)</m>.</p>
     <p>The efficiency of all hash table operations is summarized in
-        <xref ref="algorithm_analysis_id1"/>. One important side note on hash table performance
+        <xref ref="algorithm-analysis_tbl-hashbigo-cpp"/>. One important side note on hash table performance
         is that the efficiencies we provide in the table below are for average
         performance. In some rare cases the <term>contains</term>, <term>get item</term>, and <term>set item</term>
         operations can degenerate into <m>O(n)</m> performance but we will
         get into that in a later chapter when we talk about the different ways
         that a hash table could be implemented.</p>
     
-    <table xml:id="algorithm_analysis_id1"><tabular>
+    <table xml:id="algorithm-analysis_tbl-hashbigo-cpp"><tabular>
         <title><term>Table 4: Big-O Efficiency of C++ hash table Operations</term></title>
         
             
