@@ -85,7 +85,7 @@
         <p>The Python code to implement Prim's algorithm is shown in <term>Listing 2</term>. Prim's algorithm is similar to Dijkstra's algorithm
             in that they both use a priority queue to select the next vertex to add
             to the growing graph.</p>
-        <paragraphs xml:id="lst-prims"><term>Listing 2 </term></paragraphs>
+        <paragraphs xml:id="lst-prims"><title><term>Listing 2</term></title></paragraphs>
         
         <pre>from pythonds.graphs import PriorityQueue, Graph, Vertex
 
