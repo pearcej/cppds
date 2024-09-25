@@ -21,7 +21,7 @@
             basic string operations and you will see a striking resemblance to vectors because
             the implementations are so similar.</p>
         
-        <table xml:id="algorithm-analysis_id1"><tabular>
+        <table xml:id="algorithm-analysis_tbl-strbigocpp"><tabular>
             <title><term>Table 3: Big-O Efficiency of C++ String Operations</term></title>
             
                 
