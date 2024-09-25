@@ -14,7 +14,7 @@
             </figure>
 
         <p>To build the full graph for an n-by-n board we can use the C++
-            function shown in <xref ref="lst-knighttour1"/>. The <c>knightGraph</c> function
+            function shown in <xref ref="graphs_lst-knighttour1"/>. The <c>knightGraph</c> function
             makes one pass over the entire board. At each square on the board the
             <c>knightGraph</c> function calls a helper, <c>genLegalMoves</c>, to create a
             list of legal moves for that position on the board. All legal moves are
@@ -23,7 +23,8 @@
             column into a linear vertex number similar to the vertex numbers shown
             in <xref ref="fig-knightmoves"/>.</p>
         
-        <p xml:id="graphs_lst-knighttour1" names="lst_knighttour1"><term>Listing 1</term></p>
+        <term>Listing 1</term>
+        <listing xml:id="graphs_lst-knighttour1" names="lst_knighttour1"><term>Listing 1</term>
         <pre>Graph knightGraph(int bdSize) {
     Graph ktGraph(false);
 
@@ -40,12 +41,14 @@
 
     return ktGraph;
 }</pre>
-        <p>The <c>genLegalMoves</c> function (<xref ref="lst-knighttour2"/>) takes the position of the knight on the
+</listing>
+        <p>The <c>genLegalMoves</c> function (<xref ref="graphs_lst-knighttour2"/>) takes the position of the knight on the
             board and generates each of the eight possible moves. The <c>legalCoord</c>
-            helper function (<xref ref="lst-knighttour2"/>) makes sure that a particular move that is generated is
+            helper function (<xref ref="graphs_lst-knighttour2"/>) makes sure that a particular move that is generated is
             still on the board.</p>
-        
-        <p xml:id="graphs_lst-knighttour2" names="lst_knighttour2"><term>Listing 2</term></p>
+    
+            <term>Listing 2</term>
+        <listing xml:id="graphs_lst-knighttour2" names="lst_knighttour2"><term>Listing 2</term>
         <pre>int coordToNum(int x, int y, int bdSize) {
     // Takes the x y position and returns the id from 0 to (bdSize*2)-1
     int id = 0;
@@ -90,6 +93,7 @@ vector&lt;int&gt; genLegalMoves(int id, int bdSize) {
 
     return newMoves;
 }</pre>
+</listing>
         <p><xref ref="fig-bigknight"/> shows the complete graph of possible moves on an
             eight-by-eight board. There are exactly 336 edges in the graph. Notice
             that the vertices corresponding to the edges of the board have fewer
@@ -109,7 +113,7 @@ vector&lt;int&gt; genLegalMoves(int id, int bdSize) {
             in the main function, we traverse using our previously created breadth-first search between
             two locations. In the next chapter, we will implement a different algorithm called a
             <c>depth first search (DFS)</c> to solve our knight's tour problem.</p>
-        <pre>#include &lt;fstream&gt;
+<pre>#include &lt;fstream&gt;
 #include &lt;iostream&gt;
 #include &lt;map&gt;
 #include &lt;queue&gt;
