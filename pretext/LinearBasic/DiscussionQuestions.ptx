@@ -1,6 +1,6 @@
 <section xml:id="linear-basic_discussion-questions">
         <title>Discussion Questions</title>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>Convert the following values to binary using <q>divide by 2.</q> Show the
                     stack of remainders.</p>

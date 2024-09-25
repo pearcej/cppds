@@ -1,6 +1,6 @@
 <section xml:id="sort_programming-exercises">
         <title>Programming Exercises</title>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>Using a random number generator, create a list of 500 integers.
                     Perform a benchmark analysis using some of the sorting algorithms

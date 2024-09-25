@@ -1,6 +1,6 @@
 <section xml:id="algorithm-analysis_programming-exercises">
         <title>Programming Exercises</title>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>Devise an experiment to verify that the vector index operator is
                     <m>O(1)</m></p>

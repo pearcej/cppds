@@ -293,7 +293,7 @@ TreeNode  *_get(int key, TreeNode *currentNode){
 }</pre>
         <p>Once we've found the node containing the key we want to delete, there
             are three cases that we must consider:</p>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>The node to be deleted has no children (see <xref ref="fig-bstdel1"/>).</p>
             </li>
@@ -326,7 +326,7 @@ TreeNode  *_get(int key, TreeNode *currentNode){
             Since the cases are symmetric with respect to either having a left or
             right child we will just discuss the case where the current node has a
             left child. The decision proceeds as follows:</p>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>If the current node is a left child then we only need to update the
                     parent reference of the left child to point to the parent of the
@@ -419,7 +419,7 @@ TreeNode  *_get(int key, TreeNode *currentNode){
             of the same properties of binary search trees that cause an inorder
             traversal to print out the nodes in the tree from smallest to largest.
             There are three cases to consider when looking for the successor:</p>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>If the node has a right child, then the successor is the smallest key
                     in the right subtree.</p>

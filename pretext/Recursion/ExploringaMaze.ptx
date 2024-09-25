@@ -87,7 +87,7 @@
             of them you may already have guessed based on the description in the
             previous paragraph. In this algorithm, there are four base cases to
             consider:</p>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>We have run into a wall. Since the square is occupied by a
                     wall no further exploration can take place.</p>

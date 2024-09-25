@@ -1,6 +1,6 @@
 <section xml:id="graphs_programming-exercises">
         <title>Programming Exercises</title>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>Modify the depth first search function to produce a topological sort.</p>
             </li>

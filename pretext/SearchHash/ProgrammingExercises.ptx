@@ -1,6 +1,6 @@
 <section xml:id="search-hash_programming-exercises">
         <title>Programming Exercises</title>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>Set up a random experiment to test the difference between a
                     sequential search and a binary search on a list of integers.</p>

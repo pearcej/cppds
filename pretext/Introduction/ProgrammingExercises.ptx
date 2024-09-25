@@ -1,6 +1,6 @@
 <section xml:id="introduction_programming-exercises">
         <title>Programming Exercises</title>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>Implement the simple methods <c>getNum</c> and <c>getDen</c> that will
                     return the numerator and denominator of a fraction.</p>

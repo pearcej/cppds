@@ -349,7 +349,7 @@
                 parentheses, ( and ). The operand tokens are the single-character
                 identifiers A, B, C, and so on. The following steps will produce a
                 string of tokens in postfix order.</p>
-            <p><ol label="1">
+            <p><ol marker="1">
                 <li>
                     <p>Create an empty stack called <c>opstack</c> for keeping operators.
                         Create an empty vector for output.</p>
@@ -580,7 +580,7 @@ main()
             <p>Assume the postfix expression is a string of tokens delimited by spaces.
                 The operators are *, /, +, and - and the operands are assumed to be
                 single-digit integer values. The output will be an integer result.</p>
-            <p><ol label="1">
+            <p><ol marker="1">
                 <li>
                     <p>Create an empty stack called <c>operandStack</c>.</p>
                 </li>

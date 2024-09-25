@@ -73,7 +73,7 @@
             are going to be leaf nodes and children of their operators. Finally, we
             know that every operator is going to have both a left and a right child.</p>
         <p>Using the information from above we can define four rules as follows:</p>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>If the current token is a <c>'('</c>, add a new node as the left child
                     of the current node, and descend to the left child.</p>
@@ -119,7 +119,7 @@
 
         <p>Using <xref ref="fig-bldexpstep"/>, let's walk through the example step by
             step:</p>
-        <p><ol label="a">
+        <p><ol marker="a">
             <li>
                 <p>Create an empty tree.</p>
             </li>

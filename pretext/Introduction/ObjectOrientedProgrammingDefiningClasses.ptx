@@ -23,7 +23,7 @@
             all of the objects of that type.</p>
         <p>Four key principles are associated with object-oriented programming:</p>
         <blockquote>
-            <p><ol label="1">
+            <p><ol marker="1">
                 <li>
                     <p>abstraction</p>
                 </li>

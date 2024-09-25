@@ -271,7 +271,7 @@ main()
             the minimum of one and five is one we store 1 in the table. Fast forward
             again to the end of the table and consider 11 cents. <xref ref="fig-elevencpp"/>
             shows the three options that we have to consider:</p>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>A penny plus the minimum number of coins to make change for
                     <m>11-1 = 10</m> cents (1)</p>

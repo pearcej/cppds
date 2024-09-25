@@ -48,7 +48,7 @@
         <subsection xml:id="linear-basic_main-simulation-steps">
             <title>Main Simulation Steps</title>
             <p>Here is the main simulation.</p>
-            <p><ol label="1">
+            <p><ol marker="1">
                 <li>
                     <p>Create a queue of print tasks. Each task will be given a timestamp
                         upon its arrival. The queue is empty to start.</p>

@@ -48,7 +48,7 @@
             trivial you might even say. This sounds like a base case in the making.</p>
         <p>Here is a high-level outline of how to move a tower from the starting
             pole, to the goal pole, using an intermediate pole:</p>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>Move a tower of height-1 to an intermediate pole, using the final
                     pole.</p>
