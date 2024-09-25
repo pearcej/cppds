@@ -31,7 +31,7 @@
         
         
 
-    <program xml:id="lst-seqsearchcpp" interactive="activecode" language="cpp">
+    <program xml:id="search1_cpp" interactive="activecode" language="cpp">
         <input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
