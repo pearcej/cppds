@@ -18,7 +18,7 @@
             find it or split the vector in half, therefore eliminating another large
             part of our possible search space. <xref ref="fig-binsearch"/> shows how this
             algorithm can quickly find the value 54. The complete function is shown
-            in <xref ref="lst-binarysearchpy"/>.</p>
+            in <xref ref="lst-binary_search_cpp"/>.</p>
             
         <figure align="center" xml:id="fig-binsearch">
             <caption>Binary Search of an Ordered vector of Integers</caption>
@@ -29,6 +29,7 @@
 
         <p>A similar implementation can be carried out using vectors in C++.</p>
 
+    <listing xml:id="lst-binary_search_cpp">
     <program xml:id="binary_search_cpp" interactive="activecode" language="cpp">
         <input>
 #include &lt;iostream&gt;
@@ -70,6 +71,7 @@ int main() {
 }
         </input>
     </program>
+    </listing>
         <p>Before we move on to the analysis, we should note that this algorithm is
             a great example of a divide and conquer strategy. Divide and conquer
             means that we divide the problem into smaller pieces, solve the smaller
@@ -79,12 +81,13 @@ int main() {
             item, we can simply perform a binary search of the left half of the
             original list. Likewise, if the item is greater, we can perform a binary
             search of the right half. Either way, this is a recursive call to the
-            binary search function passing a smaller list. <xref ref="lst-recbinarysearch"/>
+            binary search function passing a smaller list. <xref ref="binarysearch-1"/>
             shows this recursive version.</p>
         
         <p>There is a vector initializer within C++ that can be used much like python slices,
             however this can only be used when new vectors are created.</p>
 
+    <listing xml:id="binarysearch-1">
     <program xml:id="binary_search_cpp_recursive" interactive="activecode" language="cpp">
         <input>
 #include &lt;iostream&gt;
@@ -128,6 +131,7 @@ int main() {
 }
         </input>
     </program>
+    </listing>
         <subsection xml:id="search-hash_analysis-of-binary-search">
             <title>Analysis of Binary Search</title>
             <p>To analyze the binary search algorithm, we need to recall that each
@@ -215,6 +219,7 @@ int main() {
                 perform in strict logarithmic time. Luckily this can be remedied by
                 passing the list along with the starting and ending indices. The indices
                 can be calculated as we did in <xref ref="lst-binarysearchpy"/>. This is especially relevant in C++, where we are initializing a new vector for each split of our list. To truly optimize this algorithm, we could use an array and manually keep track of start and end indices of our array. Below is an example of such an implementation.</p>
+    <listing xml:id="binary_search_cpp-py_array">
             <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBinarySearch', 'chapter': 'SearchHash', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="binary_search_cpp_array" interactive="activecode" language="cpp">
@@ -291,6 +296,7 @@ main()
         </input>
     </program>
                 </TabNode>
+                </listing>
             <p>Even though a binary search is generally better than a sequential
                 search, it is important to note that for small values of <em>n</em>, the
                 additional cost of sorting is probably not worth it. In fact, we should
