@@ -25,49 +25,50 @@
                 <image source="SearchHash/binsearch.png" width="80%">
                 <description>Diagram of an ordered sequence of boxes containing integers, indicative of a binary search algorithm. The numbers in the boxes are '17', '20', '26', '31', '44', '54', '55', '65', '77', and '93', arranged in ascending order. An arrow labeled 'Start' splits into two, pointing to the middle of the sequence, suggesting the initial step in binary search where the middle element is first compared with the target value.</description>
                 </image>
-        </figure>
+            </figure>
 
         <p>A similar implementation can be carried out using vectors in C++.</p>
+
     <listing xml:id="lst-binary_search_cpp">
     <program xml:id="binary_search_cpp" interactive="activecode" language="cpp">
         <input>
-                #include &lt;iostream&gt;
-                #include &lt;vector&gt;
-                using namespace std;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
 
-                // Checks to see if item is in a vector
-                // retruns true or false (1 or 0)
-                // using binary Search
-                bool binarySearch(vector&lt;int&gt; avector, int item) {
-                    int first = 0;
-                    int last = avector.size() - 1;
-                    bool found = false;
+// Checks to see if item is in a vector
+// retruns true or false (1 or 0)
+// using binary Search
+bool binarySearch(vector&lt;int&gt; avector, int item) {
+    int first = 0;
+    int last = avector.size() - 1;
+    bool found = false;
 
-                    while (first &lt;= last &amp;&amp; !found) {
-                        int midpoint = (first + last) / 2;
-                        if (avector[midpoint] == item) {
-                            found = true;
-                        } else {
-                            if (item &lt; avector[midpoint]) {
-                                last = midpoint - 1;
-                            } else {
-                                first = midpoint + 1;
-                            }
-                        }
-                    }
-                    return found;
-                }
+    while (first &lt;= last &amp;&amp; !found) {
+        int midpoint = (first + last) / 2;
+        if (avector[midpoint] == item) {
+            found = true;
+        } else {
+            if (item &lt; avector[midpoint]) {
+                last = midpoint - 1;
+            } else {
+                first = midpoint + 1;
+            }
+        }
+    }
+    return found;
+}
 
-                int main() {
-                    // Using static array to initialize a vector
-                    static const int arr[] = {0, 1, 2, 8, 13, 17, 19, 32, 42};
-                    vector&lt;int&gt; avector(arr, arr + sizeof(arr) / sizeof(arr[0]));
+int main() {
+    // Using static array to initialize a vector
+    static const int arr[] = {0, 1, 2, 8, 13, 17, 19, 32, 42};
+    vector&lt;int&gt; avector(arr, arr + sizeof(arr) / sizeof(arr[0]));
 
-                    cout &lt;&lt; binarySearch(avector, 3) &lt;&lt; endl;
-                    cout &lt;&lt; binarySearch(avector, 13) &lt;&lt; endl;
+    cout &lt;&lt; binarySearch(avector, 3) &lt;&lt; endl;
+    cout &lt;&lt; binarySearch(avector, 13) &lt;&lt; endl;
 
-                    return 0;
-                }
+    return 0;
+}
         </input>
     </program>
     </listing>
@@ -85,6 +86,7 @@
         
         <p>There is a vector initializer within C++ that can be used much like python slices,
             however this can only be used when new vectors are created.</p>
+
     <listing xml:id="binarysearch-1">
     <program xml:id="binary_search_cpp_recursive" interactive="activecode" language="cpp">
         <input>
@@ -129,7 +131,7 @@ int main() {
 }
         </input>
     </program>
-</listing>
+    </listing>
         <subsection xml:id="search-hash_analysis-of-binary-search">
             <title>Analysis of Binary Search</title>
             <p>To analyze the binary search algorithm, we need to recall that each
@@ -142,7 +144,7 @@ int main() {
                 times can we split the list? <xref ref="search-hash_tbl-binaryanalysis"/> helps us to see the
                 answer.</p>
             
-            <table xml:id="search-hash_tbl-binaryanalysis"><tabular>
+            <table xml:id="search-hash_id2"><tabular>
                 <title><term>Table 3: Tabular Analysis for a Binary Search</term></title>
                 
                     
@@ -209,20 +211,17 @@ int main() {
                 the binary search is <m>O(\log n)</m>.</p>
             <p>One additional analysis issue needs to be addressed. In the recursive
                 solution shown above, the recursive call,</p>
-
             <p><c>binarySearch(alist[:midpoint],item)</c></p>
-
             <p>uses the slice operator to create the left half of the list that is then
                 passed to the next invocation (similarly for the right half as well).
                 The analysis that we did above assumed that the slice operator takes
                 constant time. This means that the binary search using slice will not
                 perform in strict logarithmic time. Luckily this can be remedied by
                 passing the list along with the starting and ending indices. The indices
-                can be calculated as we did in <xref ref="binary_search_cpp-py_array"/>. This is especially relevant in C++, where we are initializing a new vector for each split of our list. To truly optimize this algorithm, we could use an array and manually keep track of start and end indices of our array. Below is an example of such an implementation.</p>
-    
+                can be calculated as we did in <xref ref="lst-binarysearchpy"/>. This is especially relevant in C++, where we are initializing a new vector for each split of our list. To truly optimize this algorithm, we could use an array and manually keep track of start and end indices of our array. Below is an example of such an implementation.</p>
     <listing xml:id="binary_search_cpp-py_array">
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBinarySearch', 'chapter': 'SearchHash', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-    
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBinarySearch', 'chapter': 'SearchHash', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+
     <program xml:id="binary_search_cpp_array" interactive="activecode" language="cpp">
         <input>
 #include &lt;iostream&gt;
@@ -262,7 +261,6 @@ int main(void) {
 }
         </input>
     </program>
-
                 </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheBinarySearch', 'chapter': 'SearchHash', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
 
     <program xml:id="binary_search_python_array" interactive="activecode" language="python">
@@ -297,8 +295,8 @@ def main():
 main()
         </input>
     </program>
-</TabNode>
-</listing>
+                </TabNode>
+                </listing>
             <p>Even though a binary search is generally better than a sequential
                 search, it is important to note that for small values of <em>n</em>, the
                 additional cost of sorting is probably not worth it. In fact, we should
