@@ -17,13 +17,13 @@
             for a tree of height 3 there are <m>1 + 2 + 4 = 7</m>. More generally
             the pattern we see for the number of nodes in a tree of height h
             (<m>N_h</m>) is:</p>
-        <m docname="Trees/AVLTreePerformance" label="True" nowrap="False" number="True" xml:space="preserve">N_h = 1 + N_{h-1} + N_{h-2}</m>
+        <m docname="Trees/AVLTreePerformance" nowrap="False" number="True" xml:space="preserve">N_h = 1 + N_{h-1} + N_{h-2}</m>
         <p>This recurrence may look familiar to you because it is very similar to
             the Fibonacci sequence. We can use this fact to derive a formula for the
             height of an AVL tree given the number of nodes in the tree. Recall that
             for the Fibonacci sequence the <m>i_{th}</m> Fibonacci number is
             given by:</p>
-        <m docname="Trees/AVLTreePerformance" label="True" nowrap="False" number="True" xml:space="preserve">F_0 = 0 \\
+        <m docname="Trees/AVLTreePerformance" nowrap="False" number="True" xml:space="preserve">F_0 = 0 \\
 F_1 = 1 \\
 F_i = F_{i-1} + F_{i-2}  \text{ for all } i \ge 2</m>
         <p>An important mathematical result is that as the numbers of the Fibonacci
@@ -35,13 +35,13 @@ F_i = F_{i-1} + F_{i-2}  \text{ for all } i \ge 2</m>
             use this equation to approximate <m>F_i</m> as <m>F_i =
                 \Phi^i/\sqrt{5}</m>. If we make use of this approximation we can rewrite
             the equation for <m>N_h</m> as:</p>
-        <m docname="Trees/AVLTreePerformance" label="True" nowrap="False" number="True" xml:space="preserve">N_h = F_{h+1} - 1, h \ge 1</m>
+        <m docname="Trees/AVLTreePerformance" nowrap="False" number="True" xml:space="preserve">N_h = F_{h+1} - 1, h \ge 1</m>
         <p>By replacing the Fibonacci reference with its golden ratio approximation
             we get:</p>
-        <m docname="Trees/AVLTreePerformance" label="True" nowrap="False" number="True" xml:space="preserve">N_h = \frac{\Phi^{h+2}}{\sqrt{5}} - 1</m>
+        <m docname="Trees/AVLTreePerformance" nowrap="False" number="True" xml:space="preserve">N_h = \frac{\Phi^{h+2}}{\sqrt{5}} - 1</m>
         <p>If we rearrange the terms, and take the base 2 log of both sides and
             then solve for <m>h</m> we get the following derivation:</p>
-        <m docname="Trees/AVLTreePerformance" label="True" nowrap="False" number="True" xml:space="preserve">\log{N_h+1} = (h+2)\log{\Phi} - \frac{1}{2} \log{5} \\
+        <m docname="Trees/AVLTreePerformance" nowrap="False" number="True" xml:space="preserve">\log{N_h+1} = (h+2)\log{\Phi} - \frac{1}{2} \log{5} \\
 h = \frac{\log{N_h+1} - 2 \log{\Phi} + \frac{1}{2} \log{5}}{\log{\Phi}} \\
 h = 1.44 \log{N_h}</m>
         <p>This derivation shows us that at any time the height of our AVL tree is

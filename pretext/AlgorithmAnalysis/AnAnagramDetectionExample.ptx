@@ -120,7 +120,7 @@ main()
                 array will be visited once to match a character from <c>s1</c>. The number
                 of visits then becomes the sum of the integers from 1 to <em>n</em>. We stated
                 earlier that this can be written as</p>
-            <m docname="AlgorithmAnalysis/AnAnagramDetectionExample" label="True" nowrap="False" number="True" xml:space="preserve">
+            <m docname="AlgorithmAnalysis/AnAnagramDetectionExample" nowrap="False" number="True" xml:space="preserve">
             \begin{eqnarray}\sum_{i=1}^{n} i &amp;=&amp; \frac {n(n+1)}{2} \\
                  &amp; = &amp; \frac {1}{2}n^{2} + \frac {1}{2}n\end{eqnarray}</m>
             <p>As <m>n</m> gets large, the <m>n^{2}</m> term will dominate the
