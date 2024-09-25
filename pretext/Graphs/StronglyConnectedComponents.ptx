@@ -115,7 +115,7 @@
             </figure>
 
         <figure align="center" xml:id="fig-scc1b">
-            <caption>Starting and Finishing times for the original graph <md><mrow>G^T</mrow></md></caption>
+            <caption>Starting and finishing times for the original graph <md><mrow>G^T</mrow></md></caption>
                 <image source="Graphs/scc1b.png" width="80%">
                 <description>This image depicts a directed graph, labeled G^T, which is the transpose of a previous graph G. It consists of nine nodes labeled A through I. Each node is marked with two numbers, indicating the finishing times, in a format that suggests the order in which they were processed, with the first number likely representing the start time and the second the finish time. The graph is interconnected with solid and dashed arrows indicating the direction of the edges, where the dashed arrows might represent the reverse of the original connections inG. This graph is typically used to demonstrate concepts such as the calculation of finishing times in a Depth-First Search (DFS) on the transposed graph for algorithms like Kosaraju's or other strong component identification algorithms.</description>
                 </image>
