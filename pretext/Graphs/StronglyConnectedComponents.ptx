@@ -84,7 +84,7 @@
             components.</p>
         <p>We can now describe the algorithm to compute the strongly connected
             components for a graph.</p>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>Call <c>dfs</c> for the graph <m>G</m> to compute the finish times
                     for each vertex.</p>

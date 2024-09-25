@@ -1,6 +1,6 @@
 <section xml:id="linear-linked_programming-exercises">
         <title>Programming Exercises</title>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>Implement the <c>Queue</c> ADT, using a list such that the rear of the
                     queue is at the end of the list.</p>

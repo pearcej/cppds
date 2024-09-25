@@ -42,7 +42,7 @@
             iterating over its adjacency list. As each node on the adjacency list is
             examined its color is checked. If it is white, the vertex is unexplored,
             and four things happen:</p>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>The new, unexplored vertex <c>nbr</c>, is colored gray.</p>
             </li>

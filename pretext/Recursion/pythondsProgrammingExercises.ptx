@@ -1,6 +1,6 @@
 <section xml:id="recursion_programming-exercises">
         <title>Programming Exercises</title>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>Write a recursive function to compute the factorial of a number.</p>
             </li>
