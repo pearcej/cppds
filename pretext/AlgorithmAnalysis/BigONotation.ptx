@@ -70,12 +70,12 @@
         (average case). It is important for a computer scientist to understand
         these distinctions so they are not misled by one particular case.</p>
     <p>A number of very common order of magnitude functions will come up over
-        and over as you study algorithms. These are shown in <xref ref="algorithm-analysis_id1"/>. In
+        and over as you study algorithms. These are shown in <xref ref="algorithm-analysis_algorithm-analysis_tbl-fntablecpp"/>. In
         order to decide which of these functions is the dominant part of any
         <m>T(n)</m> function, we must see how they compare with one another
         as <em>n</em> gets large.</p>
     
-    <table xml:id="algorithm-analysis_id1"><tabular>
+    <table xml:id="algorithm-analysis_algorithm-analysis_tbl-fntablecpp"><tabular>
         <title><term>Table 1: Common Big-O Functions</term></title>
         
             
@@ -151,7 +151,7 @@
         
     </tabular></table>
     <p><xref ref="fig-graphfigurecpp"/> shows graphs of the common
-        functions from <xref ref="algorithm-analysis_id1"/>. Notice that when <em>n</em> is small, the
+        functions from <xref ref="algorithm-analysis_algorithm-analysis_tbl-fntablecpp"/>. Notice that when <em>n</em> is small, the
         functions are not very well defined with respect to one another. It is
         hard to tell which is dominant. However, as <em>n</em> grows, there is a
         definite relationship and it is easy to see how they compare with one
