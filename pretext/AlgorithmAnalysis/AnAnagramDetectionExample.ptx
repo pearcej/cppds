@@ -21,8 +21,8 @@
                 for checking off.
                 Each character
                 from the first string can be checked against the characters in the local second string
-                and if found, checked off by replacement. <xref ref="active0cpp_0"/> shows this function.</p>
-    <listing xml:id="active0cpp_0">         
+                and if found, checked off by replacement. <xref ref="lst-anagramsolution"/> shows this function.</p>
+    <listing xml:id="lst-anagramsolution">
             <TabNode tabname="C++" tabnode_options="{'subchapter': 'AnAnagramDetectionExample', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="active0cpp" interactive="activecode" language="cpp">
