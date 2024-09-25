@@ -187,7 +187,7 @@ myfraction = Fraction(3, 5)
                 on their data type, class, number of arguments, etc.
                 For example, we can overload a constructor with different numbers and types of arguments
                 to give us multiple ways to instantiate an object of a class as shown in the next listing for
-                the <c>Fraction</c> class.
+                the <c>Fraction</c> class.</p>
 
 <program language="cpp"><input>
 Fraction(int top, int bottom){
