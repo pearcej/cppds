@@ -53,6 +53,7 @@ the key in :math:`p` is smaller than or equal to the key in
 tree that has the heap order property.
 
 .. _fig_heapOrder:
+
 .. figure:: Figures/heapOrder.png
    :align: center
    :alt: image
