@@ -598,7 +598,7 @@ int varN = 100;</pre>
     <p>In C++ the results of running this code will look like the diagram below:</p>
     <figure align="center" xml:id="id2-fig-cpp-reference">
       <caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: C++ variable</caption>
-      <image source="Introduction/Figures/cpp_var.png" width="50%" alt="&quot;Box named varN containing value of 100&quot;"/>
+      <image source="Introduction/cpp_var.png" width="50%" alt="&quot;Box named varN containing value of 100&quot;"/>
     </figure>
     <p>When we want to output the value to the console, we use the variable name
                 to do so.</p>
@@ -684,7 +684,7 @@ ptrN = &amp;varN;</pre>
       <p>The results of running this C++ code will look like the diagram below.</p>
       <figure align="center" xml:id="id3-fig-point2">
         <caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 5: View into memory with pointers</caption>
-        <image source="Introduction/Figures/new_point2.png" width="50%" alt="image"/>
+        <image source="Introduction/new_point2.png" width="50%" alt="image"/>
       </figure>
     </subsubsection>
     <subsubsection xml:id="introduction_accessing-values-from-pointers">
@@ -806,7 +806,7 @@ int main() {
       </p>
       <figure align="center" xml:id="id4-fig-point3">
         <caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 6: dangling pointer reference</caption>
-        <image source="Introduction/Figures/new_point_broken.png" width="50%" alt="image"/>
+        <image source="Introduction/new_point_broken.png" width="50%" alt="image"/>
       </figure>
       <p>If your compiler does not catch that error (the one for this class may),
                     the first <c>cout</c> instruction outputs:</p>
