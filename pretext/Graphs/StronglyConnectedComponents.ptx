@@ -64,7 +64,7 @@
             <m>G^T</m> where all the edges in the graph have been reversed. That
             is, if there is a directed edge from node A to node B in the original
             graph then <m>G^T</m> will contain and edge from node B to node A.
-            <xref ref="fig-tpa"/> and <xref ref="fig-tpb"/> show a simple graph and its transposition.</p>
+            <xref ref="fig-transpose1"/> and <xref ref="fig-transpose2"/> show a simple graph and its transposition.</p>
         <figure align="center" xml:id="fig-transpose1">
             <caption> A Graph <m>G</m></caption>
                 <image source="Graphs/transpose1.png" width="80%">
@@ -73,18 +73,18 @@
             </figure>
         
         <figure align="center" xml:id="fig-transpose2">
-            <caption> Its Transpose <mrow>G^T</mrow></caption>
+            <caption> Its Transpose <m>G^T</m></caption>
                 <image source="Graphs/transpose2.png" width="80%">
-                <description>The image shows the transpose of the graph  G^ T from Figure 33, where the direction of all the edges in the original graph  G has been reversed. In this transposed graph, there is a directed edge from B to A, and two other directed edges, one from D to B and another from D to C, indicating that D can reach both B and C. This represents the inverse relationships compared to the original graph G.</description>
+                <description>The image shows the transpose of the graph  <m>G^T</m> from Figure 33, where the direction of all the edges in the original graph  G has been reversed. In this transposed graph, there is a directed edge from B to A, and two other directed edges, one from D to B and another from D to C, indicating that D can reach both B and C. This represents the inverse relationships compared to the original graph G.</description>
                 </image>
             </figure>
         <p>Look at the figures again. Notice that the graph in
-            <xref ref="fig-tpa"/> has two strongly connected components. Now look at
-            <xref ref="fig-tpb"/>. Notice that it has the same two strongly connected
+            <xref ref="fig-transpose1"/> has two strongly connected components. Now look at
+            <xref ref="fig-transpose2"/>. Notice that it has the same two strongly connected
             components.</p>
         <p>We can now describe the algorithm to compute the strongly connected
             components for a graph.</p>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>Call <c>dfs</c> for the graph <m>G</m> to compute the finish times
                     for each vertex.</p>
@@ -103,19 +103,19 @@
             </li>
         </ol></p>
         <p>Let's trace the operation of the steps described above on the example
-            graph in <xref ref="fig-scc1"/>. <xref ref="fig-sccalga"/> shows the starting and
+            graph in <xref ref="fig-scc1"/>. <xref ref="fig-scc1a"/> shows the starting and
             finishing times computed for the original graph by the DFS algorithm.
-            <xref ref="fig-sccalgb"/> shows the starting and finishing times computed by
+            <xref ref="fig-scc1b"/> shows the starting and finishing times computed by
             running DFS on the transposed graph.</p>
         <figure align="center" xml:id="fig-scc1a">
-            <caption> Finishing times for the original graph <m>G</m></caption>
+            <caption>Starting and finishing times for the original graph <m>G</m></caption>
                 <image source="Graphs/scc1a.png" width="80%">
                 <description>The image displays a directed graph G consisting of nine nodes labeled A through I. Each node is annotated with a pair of numbers, representing the finishing times in the format 'start/finish'. The edges indicate the direction of connection between nodes. Solid arrows represent direct connections, while dashed arrows signify connections that are part of the graph but are not the primary path in the context shown. This graph is likely used to demonstrate an algorithmic concept such as Depth-First Search (DFS), where the numbers indicate the order in which nodes are fully processed.</description>
                 </image>
             </figure>
 
         <figure align="center" xml:id="fig-scc1b">
-            <caption>Finishing times for <md><mrow>G^T</mrow></md></caption>
+            <caption>Starting and finishing times for the original graph <md><mrow>G^T</mrow></md></caption>
                 <image source="Graphs/scc1b.png" width="80%">
                 <description>This image depicts a directed graph, labeled G^T, which is the transpose of a previous graph G. It consists of nine nodes labeled A through I. Each node is marked with two numbers, indicating the finishing times, in a format that suggests the order in which they were processed, with the first number likely representing the start time and the second the finish time. The graph is interconnected with solid and dashed arrows indicating the direction of the edges, where the dashed arrows might represent the reverse of the original connections inG. This graph is typically used to demonstrate concepts such as the calculation of finishing times in a Depth-First Search (DFS) on the transposed graph for algorithms like Kosaraju's or other strong component identification algorithms.</description>
                 </image>

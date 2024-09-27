@@ -273,13 +273,13 @@
                 and the matching left parenthesis were removed, the complete postfix
                 expression would result (see <xref ref="fig-moveright"/>).</p>
             
-            <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 6: Moving Operators to the Right for Postfix Notation</caption><image source="LinearBasic/Figures/moveright.png" width="50%"/></figure>
+            <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 6: Moving Operators to the Right for Postfix Notation</caption><image source="LinearBasic/moveright.png" width="50%"/></figure>
             <p>If we do the same thing but instead of moving the symbol to the position
                 of the right parenthesis, we move it to the left, we get prefix notation
                 (see <xref ref="fig-moveleft"/>). The position of the parenthesis pair is
                 actually a clue to the final position of the enclosed operator.</p>
             
-            <figure align="center" xml:id="id5"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 7: Moving Operators to the Left for Prefix Notation</caption><image source="LinearBasic/Figures/moveleft.png" width="50%"/></figure>
+            <figure align="center" xml:id="id5"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 7: Moving Operators to the Left for Prefix Notation</caption><image source="LinearBasic/moveleft.png" width="50%"/></figure>
             <p>So in order to convert an expression, no matter how complex, to either
                 prefix or postfix notation, fully parenthesize the expression using the
                 order of operations. Then move the enclosed operator to the position of
@@ -289,7 +289,7 @@
                 <xref ref="fig-complexmove"/> shows the conversion to postfix and prefix
                 notations.</p>
             
-            <figure align="center" xml:id="id6"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 8: Converting a Complex Expression to Prefix and Postfix Notations</caption><image source="LinearBasic/Figures/complexmove.png" width="50%"/></figure>
+            <figure align="center" xml:id="id6"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 8: Converting a Complex Expression to Prefix and Postfix Notations</caption><image source="LinearBasic/complexmove.png" width="50%"/></figure>
    </subsection>
         <subsection xml:id="linear-basic_general-infix-to-postfix-conversion">
             <title>General Infix-to-Postfix Conversion</title>
@@ -349,7 +349,7 @@
                 parentheses, ( and ). The operand tokens are the single-character
                 identifiers A, B, C, and so on. The following steps will produce a
                 string of tokens in postfix order.</p>
-            <p><ol label="1">
+            <p><ol marker="1">
                 <li>
                     <p>Create an empty stack called <c>opstack</c> for keeping operators.
                         Create an empty vector for output.</p>
@@ -390,7 +390,7 @@
                 of the infix expression the stack is popped twice, removing both
                 operators and placing + as the last operator in the postfix expression.</p>
             
-            <figure align="center" xml:id="id7"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 9: Converting A * B + C * D to Postfix Notation</caption><image source="LinearBasic/Figures/intopost.png" width="50%"/></figure>
+            <figure align="center" xml:id="id7"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 9: Converting A * B + C * D to Postfix Notation</caption><image source="LinearBasic/intopost.png" width="50%"/></figure>
             <p>In order to code the algorithm in C++, we will use a hash map
                 called <c>prec</c> to hold the precedence values for the operators
                 which will be implemented with an unordered map.
@@ -564,7 +564,7 @@ main()
                 <xref ref="fig-evalpost1"/> shows the stack contents as this entire example
                 expression is being processed.</p>
             
-            <figure align="center" xml:id="id8"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 10: Stack Contents During Evaluation</caption><image source="LinearBasic/Figures/evalpostfix1.png" width="50%"/></figure>
+            <figure align="center" xml:id="id8"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 10: Stack Contents During Evaluation</caption><image source="LinearBasic/evalpostfix1.png" width="50%"/></figure>
             <p><xref ref="fig-evalpost2"/> shows a slightly more complex example, 7 8 + 3 2
                 + /. There are two things to note in this example. First, the stack size
                 grows, shrinks, and then grows again as the subexpressions are
@@ -576,11 +576,11 @@ main()
                 <m>15/5</m> is not the same as <m>5/15</m>, we must be sure that
                 the order of the operands is not switched.</p>
             
-            <figure align="center" xml:id="id9"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 11: A More Complex Example of Evaluation</caption><image source="LinearBasic/Figures/evalpostfix2.png" width="50%"/></figure>
+            <figure align="center" xml:id="id9"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 11: A More Complex Example of Evaluation</caption><image source="LinearBasic/evalpostfix2.png" width="50%"/></figure>
             <p>Assume the postfix expression is a string of tokens delimited by spaces.
                 The operators are *, /, +, and - and the operands are assumed to be
                 single-digit integer values. The output will be an integer result.</p>
-            <p><ol label="1">
+            <p><ol marker="1">
                 <li>
                     <p>Create an empty stack called <c>operandStack</c>.</p>
                 </li>

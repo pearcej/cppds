@@ -60,7 +60,7 @@
             size.</p>
         <p>Luckily there is a way to speed up the eight-by-eight case so that it
             runs in under one second. In the listing below we show the code that
-            speeds up the <c>knightTour</c>. This function (see <xref ref="lst-avail"/>), called <c>orderbyAvail</c>
+            speeds up the <c>knightTour</c>. This function (see <xref ref="graphs_lst-avail"/>), called <c>orderbyAvail</c>
             will be used in place of the call to <c>u.getConnections</c> in the code previously
             shown above. The critical line in the
             <c>orderByAvail</c> function is line 10. This line ensures that we
@@ -136,7 +136,8 @@
 &lt;/script&gt;
 </raw>
         
-        <p xml:id="graphs_lst-avail" names="lst_avail"><term>Listing 4</term></p>
+<term>Listing 4</term>
+<listing xml:id="graphs_lst-avail" names="lst_avail"><term>Listing 4</term>
         <program language="python"><input>
 def orderByAvail(n):
     resList = []
@@ -150,6 +151,7 @@ def orderByAvail(n):
     resList.sort(key=lambda x: x[0])
     return [y[1] for y in resList]
 </input></program>
+</listing>
         <reading-questions xml:id="rq-knights-tour-impl">
            <title>Reading Question</title>
            

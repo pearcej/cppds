@@ -1,6 +1,6 @@
 <section xml:id="trees_discussion-questions">
         <title>Discussion Questions</title>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>Draw the tree structure resulting from the following set of tree
                     function calls:</p>
@@ -63,19 +63,19 @@
                     implementing as a function?</p>
             </li>
         </ol></p>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>Show the function calls needed to build the following binary tree.</p>
             </li>
         </ol></p>
         <figure align="center" ><image source="Trees/exerTree.png" width="50%"/></figure>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>Given the following tree, perform the appropriate rotations to bring it back into balance.</p>
             </li>
         </ol></p>
         <figure align="center" ><image source="Trees/rotexer1.png" width="20%"/></figure>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>Using the following as a starting point, derive the equation that gives the updated balance factor for node D.</p>
             </li>

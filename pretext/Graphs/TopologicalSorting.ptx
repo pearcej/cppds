@@ -35,7 +35,7 @@
             matrices.</p>
         <p>The topological sort is a simple but useful adaptation of a depth first
             search. The algorithm for the topological sort is as follows:</p>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>Call <c>dfs(g)</c> for some graph <c>g</c>. The main reason we want to call
                     depth first search is to compute the finish times for each of the
@@ -57,7 +57,7 @@
                 </image>
             </figure>
         
-        <p>Finally, <xref ref="fig-pancakests"/> shows the results of applying the
+        <p>Finally, <xref ref="fig-pancakesTS"/> shows the results of applying the
             topological sort algorithm to our graph. Now all the ambiguity has been
             removed and we know exactly the order in which to perform the pancake
             making steps.</p>

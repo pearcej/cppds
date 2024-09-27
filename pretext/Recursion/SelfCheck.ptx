@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<section xml:id="recursion_recursion_self-check">
+  <title>Self-check</title>
+  <exercise label="laws">
+    <statement>
+      <p>Q-1: What are the three laws of recursion for an algorithm? (choose all that are correct)</p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>It must progress from the base case</p>
+        </statement>
+        <feedback>
+          <p>If it starts at the base case, then when would it stop?</p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>It must move towards the base case</p>
+        </statement>
+        <feedback>
+          <p>Correct. The base case is your endpoint.</p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>It must have a base case</p>
+        </statement>
+        <feedback>
+          <p>Correct. The base case is essential if you want a stopping point</p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>It must call itself</p>
+        </statement>
+        <feedback>
+          <p>Correct. If it doesn't call itself then it won't repeat</p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="whenToRecurse">
+    <statement>
+      <p>Which implementation would be ideal for each problem.</p>
+    </statement>
+    <feedback>
+      <p>Consider what would make you stop the process for each one.</p>
+    </feedback>
+    <matches>
+      <match order="1">
+        <premise>Counting the number of items in a list</premise>
+        <response>Iteration</response>
+      </match>
+      <match order="2">
+        <premise>Going through an entire tree</premise>
+        <response>Recursion</response>
+      </match>
+    </matches>
+  </exercise>
+  <exercise label="recursionefficiencyq">
+    <statement>
+      <p>Q-3:  Sometimes recursion can be more computationally expensive than an alternative, True or False?</p>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement>
+          <p>True</p>
+        </statement>
+        <feedback>
+          <p>Correct! Sometimes simple problems only need simple solutions, like a loop</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>False</p>
+        </statement>
+        <feedback>
+          <p>Incorrect. Recursion is not always the ideal solution.</p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+</section>

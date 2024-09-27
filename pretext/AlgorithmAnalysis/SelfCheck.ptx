@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<section xml:id="algorithmanalysis_algorithm-analysis_self-check">
+  <title>Self Check</title>
+  <exercise label="bigOefficiency">
+    <statement>
+      <p>Q-1: Which of the following algorithms has the least efficient big O complexity?</p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>10000(n<sup>3</sup> + n<sup>2</sup>)</p>
+        </statement>
+        <feedback>
+          <p>Incorrect, even though n<sup>3</sup> is the most significant part for all of these formulas, the way it interacts with the rest of the equation is also important to note.</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>45n<sup>3</sup> + 1710n<sup>2</sup> + 16n + 5</p>
+        </statement>
+        <feedback>
+          <p>Incorrect, even though n<sup>3</sup> is the most significant part for all of these formulas, the way it interacts with the rest of the equation is also important to note.</p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>(n<sup>3</sup> + n) (n<sup>2</sup> + 1)</p>
+        </statement>
+        <feedback>
+          <p>Correct!</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>A and B would be equally efficient/inefficient</p>
+        </statement>
+        <feedback>
+          <p>Look closer, the efficiencies would be different</p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="growth">
+    <statement>
+      <p>Drag the order of growth rates to their rankings from lowest to highest (the slowest i.e. the highest growth rate should be #1)</p>
+    </statement>
+    <feedback>
+      <p>Compare the functions at different values to see how they compare</p>
+    </feedback>
+    <matches>
+      <match order="1">
+        <premise>2<sup>n</sup></premise>
+        <response>1st</response>
+      </match>
+      <match order="2">
+        <premise>n<sup>2</sup></premise>
+        <response>2nd</response>
+      </match>
+      <match order="3">
+        <premise>nlogn</premise>
+        <response>3rd</response>
+      </match>
+      <match order="4">
+        <premise>logn</premise>
+        <response>4th</response>
+      </match>
+    </matches>
+  </exercise>
+  <exercise label="resources">
+    <statement>
+      <p>Q-3: When considering computer resources, what factors do we have in mind? Select all that apply.</p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>language constraints</p>
+        </statement>
+        <feedback>
+          <p>No, we do not consider the restraints of a language when thinking about how efficient an algorithm is.</p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>Space</p>
+        </statement>
+        <feedback>
+          <p>Yes, we consider how much space we need to solve a problem.</p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>Time</p>
+        </statement>
+        <feedback>
+          <p>Yes, we consider how much time it takes to solve a problem</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Energy</p>
+        </statement>
+        <feedback>
+          <p>No, we do not consider how much energy it takes at this point.</p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="bigO">
+    <statement>
+      <p>Q-4: When considering the Big O of an algorithm, what do we use to quantify our description of an algorithm.</p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>the space it takes</p>
+        </statement>
+        <feedback>
+          <p>This can be dependent of the programming language</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>the time it takes</p>
+        </statement>
+        <feedback>
+          <p>This can be dependent on the machine, programming language, and other factors</p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>the number of steps</p>
+        </statement>
+        <feedback>
+          <p>Yes, when quantifying the time it takes to execute an algorithm we base it on the number of steps it takes to solve the problem, not the time it takes</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>the readability of the code</p>
+        </statement>
+        <feedback>
+          <p>No, a very efficient algorithm can be programmed efficiently in C++ without any extra spaces making it unreadable, however the solution would still be efficient.</p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+</section>

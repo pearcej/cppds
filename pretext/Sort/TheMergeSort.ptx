@@ -290,7 +290,7 @@ merge_anim_init = function(divid)
             space to hold the two halves as they are extracted with the slicing
             operations. This additional space can be a critical factor if the vector
             is large and can make this sort problematic when working on large data
-            sets. In the case with using lists in python, the space complexity is <m>O(log n)</m>.</p>
+            sets. In the case with using lists in python, the space complexity is <m>O(\log n)</m>.</p>
 <reading-questions xml:id="rq-merge-sort">
 
     <exercise label="question_sort_5">

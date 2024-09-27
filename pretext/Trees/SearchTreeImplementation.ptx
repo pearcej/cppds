@@ -27,9 +27,9 @@
             greater than 14, so it becomes the right child of 14.</p>
         <p>To implement the binary search tree, we will use the nodes and
             references approach similar to the one we used to implement the linked
-            list, and the expression tree. However, because we must be able to create
-            and work with a binary search tree that is empty, our implementation
-            will use two classes. The first class we will call <c>BinarySearchTree</c>,
+            list, and the expression tree. To effectively manage scenerios where the binary
+            search tree might be empty, we use two separate classes.
+            The first class we will call <c>BinarySearchTree</c>,
             and the second class we will call <c>TreeNode</c>. The <c>BinarySearchTree</c>
             class has a reference to the <c>TreeNode</c> that is the root of the binary
             search tree. In most cases the external methods defined in the outer
@@ -144,7 +144,7 @@
     }</pre>
         <p>Now that we have the <c>BinarySearchTree</c> shell and the <c>TreeNode</c> it
             is time to write the <c>put</c> method that will allow us to build our
-            binary search tree. The <c>put</c> method is a method of the
+            binary search tree. The <c>put</c> method belongs to the 
             <c>BinarySearchTree</c> class. This method will check to see if the tree
             already has a root. If there is not a root then <c>put</c> will create a
             new <c>TreeNode</c> and install it as the root of the tree. If a root node
@@ -293,7 +293,7 @@ TreeNode  *_get(int key, TreeNode *currentNode){
 }</pre>
         <p>Once we've found the node containing the key we want to delete, there
             are three cases that we must consider:</p>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>The node to be deleted has no children (see <xref ref="fig-bstdel1"/>).</p>
             </li>
@@ -326,7 +326,7 @@ TreeNode  *_get(int key, TreeNode *currentNode){
             Since the cases are symmetric with respect to either having a left or
             right child we will just discuss the case where the current node has a
             left child. The decision proceeds as follows:</p>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>If the current node is a left child then we only need to update the
                     parent reference of the left child to point to the parent of the
@@ -419,7 +419,7 @@ TreeNode  *_get(int key, TreeNode *currentNode){
             of the same properties of binary search trees that cause an inorder
             traversal to print out the nodes in the tree from smallest to largest.
             There are three cases to consider when looking for the successor:</p>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>If the node has a right child, then the successor is the smallest key
                     in the right subtree.</p>

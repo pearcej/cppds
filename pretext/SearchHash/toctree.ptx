@@ -6,8 +6,10 @@
         <xi:include href='./TheSequentialSearch.ptx' />
         <xi:include href='./TheBinarySearch.ptx' />
         <xi:include href='./Hashing.ptx' />
+        <xi:include href='./SelfCheck.ptx' />
         <xi:include href='./Summary.ptx' />
         <xi:include href='./DiscussionQuestions.ptx' />
         <xi:include href='./ProgrammingExercises.ptx' />
         <xi:include href='./Glossary.ptx' />
+        <xi:include href='./Matching.ptx' />
     </chapter>

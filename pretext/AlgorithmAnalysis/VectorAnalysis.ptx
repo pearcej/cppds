@@ -33,10 +33,11 @@
             The <c>push_back()</c> method is typically <m>O(1)</m>, provided
             there is adequate capacity in the underlying array.</p>
         <p>First we'll use <c>push_back()</c> method.
-            <xref ref="lst-mkvectcpp"/> shows the code for
+            <xref ref="ls_mkvectcpp"/> shows the code for
             making our vector.</p>
         
         <p xml:id="algorithm-analysis_lst-mkvectcpp" names="lst_mkvectcpp"><term>Listing 3</term></p>
+        <listing xml:id="ls_mkvectcpp">
         <pre>#include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -52,6 +53,7 @@ void test1(int num){
 int main() {
     test1(1000);
 }</pre>
+</listing>
         <p>To capture the time it takes for each of our functions to execute we
             will use C++'s <c>ctime</c> module. The <c>ctime</c> module is designed
             to allow C++ developers to make cross-platform timing measurements by
@@ -151,7 +153,7 @@ int main(){
         </input>
     </program>
         <p>Now that we have seen how performance can be measured concretely you can
-            look at <xref ref="algorithm-analysis_algorithm-analysis_tbl-vectbigocpp"/> to see the Big-O efficiency of all the
+            look at <xref ref="algorithm_analysis_algorithm_analysis_tbl_vectbigocpp"/> to see the Big-O efficiency of all the
             basic vector operations. When <c>pop_back()</c> is called, the element
             at the end of the vector is removed and it typically takes
             <m>O(1)</m> but when <c>erase()</c> is called on the first element in the vector
@@ -159,12 +161,12 @@ int main(){
             in how C++ chooses to implement vectors. When an item is taken from the
             front of the vector, in C++ implementation, all the other elements in
             the vector are shifted one position closer to the beginning. This may seem
-            silly to you now, but if you look at <xref ref="algorithm-analysis_algorithm-analysis_tbl-vectbigocpp"/> you will see
+            silly to you now, but if you look at <xref ref="algorithm_analysis_algorithm_analysis_tbl_vectbigocpp"/> you will see
             that this implementation also allows the index operation to be
             <m>O(1)</m>. This is a tradeoff that the C++ implementers thought
             was a good one.</p>
         
-        <table xml:id="algorithm-analysis_id1"><tabular>
+        <table xml:id="algorithm_analysis_algorithm_analysis_tbl_vectbigocpp"><tabular>
             <title><term>Table 2: Big-O Efficiency of C++ Vector Operators</term></title>
             
                 
@@ -276,7 +278,7 @@ int main(){
             vector is moved to a larger contiguous underlying array, which
             is <m>O(n)</m>.</p>
         <p>Note that the vector class provides a find command which can determine
-            whether a given item is in the vector. It is <m>O(log n)</m> if
+            whether a given item is in the vector. It is <m>O(\log n)</m> if
             the vector is sorted and is <m>O(n)</m> otherwise. We will explain
             why this is in Chapter 3.</p>
         <p>As a way of demonstrating the difference in performance between push_back
@@ -289,16 +291,16 @@ int main(){
             see is that the time required to pop from the end of the vector will stay
             constant even as the vector grows in size, while the time to pop from the
             beginning of the vector will continue to increase as the vector grows.</p>
-        <p><xref ref="lst-popmeascpp"/> shows one attempt to measure the difference
+        <p><xref ref="lst_popmeascpp"/> shows one attempt to measure the difference
             between the <c>pop_back()</c> and <c>erase()</c>.</p>
-        <p>There are a couple of things to notice about <xref ref="lst-popmeascpp"/>.
+        <p>There are a couple of things to notice about <xref ref="lst_popmeascpp"/>.
             This approach allows us to time just the single <c>pop_back()</c> statement
             and get the most accurate measure of the time for that single operation.
             Because the timer repeats 10,000 times it is also important to point out
             that the vector is decreasing in size by 1 each time through the loop.</p>
         
         <p xml:id="algorithm-analysis_lst-popmeascpp" names="lst_popmeascpp"><term>Listing 4</term></p>
-
+    <listing xml:id="lst_popmeascpp">
     <program xml:id="popbackvserase" interactive="activecode" language="cpp">
         <input>
 #include &lt;iostream&gt;
@@ -346,6 +348,7 @@ int main(){
 }
         </input>
     </program>
+</listing>
 <reading-questions xml:id="rq-vector-analysis">
     <title>
         Reading Question

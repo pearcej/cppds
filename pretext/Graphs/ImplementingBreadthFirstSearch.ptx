@@ -27,7 +27,7 @@
             colored black, it has no white vertices adjacent to it. A gray node, on
             the other hand, may have some white vertices adjacent to it, indicating
             that there are still additional vertices to explore.</p>
-        <p>The breadth first search algorithm shown in <xref ref="lst-wordbucket2"/> below uses the
+        <p>The breadth first search algorithm shown in <xref ref="graphs_lst-wordbucket2"/> below uses the
             adjacency list graph representation we developed earlier. In addition it uses a <c>Queue</c>,
             a crucial point as we will see, to decide which vertex to explore next.</p>
         <p>In addition the BFS algorithm uses an extended version of the <c>Vertex</c>
@@ -42,7 +42,7 @@
             iterating over its adjacency list. As each node on the adjacency list is
             examined its color is checked. If it is white, the vertex is unexplored,
             and four things happen:</p>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>The new, unexplored vertex <c>nbr</c>, is colored gray.</p>
             </li>
@@ -60,7 +60,7 @@
             </li>
         </ol></p>
         
-        <p xml:id="graphs_lst-wordbucket2" names="lst_wordbucket2"><term>Listing 2</term></p>
+        <listing xml:id="graphs_lst-wordbucket2" names="lst_wordbucket2"><term>Listing 2</term>
         <pre>from pythonds.graphs import Graph, Vertex
 from pythonds.basic import Queue
 
@@ -100,8 +100,9 @@ Graph bfs(Graph g, Vertex *start) {
     }
     return g;
 }</pre>
+</listing>
         <p>Let's look at how the <c>bfs</c> function would construct the breadth first
-            tree corresponding to the graph in <xref ref="graphs_buildingthe-word-ladder-graph"/>. Starting
+            tree corresponding to the graph in <xref ref="fig-wordladder"/>. Starting
             from fool we take all nodes that are adjacent to fool and add them to
             the tree. The adjacent nodes include pool, foil, foul, and cool. Each of
             these nodes are added to the queue of new nodes to expand.
@@ -148,17 +149,17 @@ Graph bfs(Graph g, Vertex *start) {
                 </image>
             </figure>
         <p>You should continue to work through the algorithm on your own so that
-            you are comfortable with how it works. <xref ref="fig-bfsdone"/> shows the
+            you are comfortable with how it works. <xref ref="fig-bfsDone"/> shows the
             final breadth first search tree after all the vertices in
-            <xref ref="graphs_buildingthe-word-ladder-graph"/> have been expanded. The amazing thing about the
+            <xref ref="fig-bfs1"/> have been expanded. The amazing thing about the
             breadth first search solution is that we have not only solved the
             FOOL&#8211;SAGE problem we started out with, but we have solved many other
             problems along the way. We can start at any vertex in the breadth first
             search tree and follow the predecessor arrows back to the root to find
-            the shortest word ladder from any word back to fool. The function below (<xref ref="lst-wordbucket3"/>) shows how to follow the predecessor links to
+            the shortest word ladder from any word back to fool. The function below (<xref ref="graphs_lst-wordbucket3"/>) shows how to follow the predecessor links to
             print out the word ladder.</p>
         
-        <p xml:id="graphs_lst-wordbucket3" names="lst_wordbucket3"><term>Listing 3</term></p>
+        <listing xml:id="graphs_lst-wordbucket3" names="lst_wordbucket3"><term>Listing 3</term>
         <pre>void traverse(Vertex *y) {
     Vertex *x = y;
 
@@ -170,6 +171,7 @@ Graph bfs(Graph g, Vertex *start) {
 }
 
 traverse(g.getVertex('sage'))</pre>
+</listing>
         <p>Because of syntactic changes to C++ between C++98 and C++11, the following code
             will not run in your ActiveCode window and must be copied and pasted into a compiler using C++11 to run.</p>
         <p>Below is a completed implementation of both the Vertex and Graph classes, along

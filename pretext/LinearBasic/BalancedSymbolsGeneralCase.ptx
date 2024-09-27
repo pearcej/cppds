@@ -6,7 +6,7 @@
             closing symbols occurs frequently. For example, in Python
             square brackets, <c>[</c> and <c>]</c>, are used for lists; curly brackets, <c>{</c> and <c>}</c>, are
             used for dictionaries; and parenthesis, <c>(</c> and <c>)</c>, are used for tuples and
-            arithmetic expressions. .. include:: file C++, square brackets, <c>[</c> and <c>]</c>, are used for arrays and vectors,
+            arithmetic expressions. In C++, square brackets, <c>[</c> and <c>]</c>, are used for arrays and vectors,
             brackets <c>{</c> and <c>}</c> separate possibly nested blocks of code,
             and operations are given inside of possibly nested parentheses <c>(</c> and <c>)</c>.
             It is possible to mix symbols as long as each

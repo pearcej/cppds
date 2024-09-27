@@ -23,7 +23,7 @@
             all of the objects of that type.</p>
         <p>Four key principles are associated with object-oriented programming:</p>
         <blockquote>
-            <p><ol label="1">
+            <p><ol marker="1">
                 <li>
                     <p>abstraction</p>
                 </li>
@@ -183,12 +183,14 @@ myfraction = Fraction(3, 5)
         <subsection xml:id="introduction_polymorphism">
             <title>Polymorphism</title>
             <p><idx>polymorphism</idx><term>Polymorphism</term> means the ability to appear in many forms. In object-oriented programming,
-                <term>polymorphism</term> refers to the ability to process objects or methods differently depending
+                <term>polymorphism</term> refers to the ability to handle objects or methods differently depending
                 on their data type, class, number of arguments, etc.
                 For example, we can overload a constructor with different numbers and types of arguments
-                to give us more optional ways to instantiate an object of the class in question.
-                We can also add additional constructors to handle fractions that are whole numbers and instances with no parameters given:</p>
-            <pre>Fraction(int top, int bottom){
+                to give us multiple ways to instantiate an object of a class as shown in the next listing for
+                the <c>Fraction</c> class.</p>
+
+<program language="cpp"><input>
+Fraction(int top, int bottom){
     num = top;
     den = bottom;
 }
@@ -199,7 +201,9 @@ Fraction (int top){
 Fraction (){
     num = 0;
     den = 1;
-}</pre>
+}
+</input></program>
+
             <p>Calling the constructor with two arguments will invoke the first method,
                 calling it with a single argument will invoke the second method, and calling
                 it with no arguments will invoke the third method.</p>
@@ -284,7 +288,10 @@ def show(self):
             <p><idx>operator overloading</idx>Like function overloading, <term>operator overloading</term> allows us to make operators
                 work for user defined classes
                 by defining a special meaning for that operator when applied to objects
-                of the class as operands.</p>
+                of the class as operands.
+                This is a form of polymorphism because it enables the same operator to have
+                different behaviors depending on the class of the objects involved, demonstrating
+                how the same operation can be adapted to various types.</p>
             <p><idx>friend</idx>In C++ this new operator needs to be implemented as a <term>friend</term> of the class in order to
                 define the operator's behavior on objects of the class from a non-class method <c>&lt;&lt;</c>.
                 Operator overloading is yet another example

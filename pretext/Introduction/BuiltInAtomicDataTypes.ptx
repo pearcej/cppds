@@ -1,0 +1,986 @@
+<?xml version="1.0"?>
+<section xml:id="introduction_built-in-atomic-data-types">
+  <title>Built-in Atomic Data Types</title>
+  <p>C++ requires users to specify the data type of each variable before it is used.
+            The primary C++ built-in atomic data types are: integer (<c>int</c>),
+            floating point (<c>float</c>), double precision floating point (<c>double</c>),
+            Boolean (<c>bool</c>), and character (<c>char</c>). There is also a special
+            type which holds a memory location called <c>pointer</c>. C++ also has
+            collection or compound data types, which will be discussed in a future
+            chapter.</p>
+  <exercise label="atomicq1">
+    <statement>
+      <p>Q-1: After reading the above paragraph, what makes a data type categorized as an atomic data type? (hint:
+            arrays and vectors are not atomic)</p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>It must be mutable so that it can change at any time.</p>
+        </statement>
+        <feedback>
+          <p>Incorrect, Atomic data types are not required to be mutable.</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Its memory size cannot be too big, relating to how atoms are naturally very small.</p>
+        </statement>
+        <feedback>
+          <p>Incorrect, The data type can be any size, but you're close. (hint: atomic data types got their name when scientists thought atoms were the smallest things in existence.)</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>It must be statically allocated so it cannot change in size.</p>
+        </statement>
+        <feedback>
+          <p>Incorrect, atomic data types have nothing to do with being static or dynamic.</p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>It cannot be broken down any smaller while still being easily operable.</p>
+        </statement>
+        <feedback>
+          <p>Correct, the atomic data type actually got its name when scientists thought atoms were the smallest things in existence. That is why they are data types that cannot be broken down.</p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+  <subsection xml:id="introduction_numeric-data">
+    <title>Numeric Data</title>
+    <p>Numeric C++ data types include <c>int</c> for integer, <c>float</c>
+                for floating point, <c>double</c> for double precision floating point.</p>
+    <p>The standard arithmetic operations, +, -, *, and /
+                are used with optional parentheses to force the order of
+                operations away from normal operator precedence.</p>
+    <p>When two integers are divided in C++, the integer portion of the
+                quotient is returned and the fractional portion is removed.
+                i.e. When two integers are divided, integer division is used.
+                To get the whole quotient, declaring one of the numbers as a float will
+                convert the entire result into floating point.</p>
+    <p>Exponentiation in C++ is done using <c>pow()</c> from the <c>cmath</c> library
+                and the remainder (modulo) operator is done with <c>%</c>.</p>
+    <p>Run the following code to see that you understand each result.</p>
+    <exercise >
+      <TabNode tabname="C++" tabnode_options="{'subchapter': 'BuiltInAtomicDataTypes', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <program xml:id="intro_1cpp" interactive="activecode" language="cpp">
+          <input>
+//outputs results from various math expressions
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+
+int main(){
+
+    cout &lt;&lt; (2+3*4) &lt;&lt; endl;
+    cout &lt;&lt; (2+3)*4 &lt;&lt; endl;
+    cout &lt;&lt; pow(2, 10) &lt;&lt; endl;
+    cout &lt;&lt; float(6)/3 &lt;&lt; endl;
+    cout &lt;&lt; float(7)/3 &lt;&lt; endl;
+    cout &lt;&lt; 7/3 &lt;&lt; endl; //In C++ this is integer division
+    cout &lt;&lt; 7%3 &lt;&lt; endl;
+    cout &lt;&lt; float(3)/6 &lt;&lt; endl;
+    cout &lt;&lt; 3/6 &lt;&lt; endl;
+    cout &lt;&lt; 3%6 &lt;&lt; endl;
+    cout &lt;&lt; pow(2, 100) &lt;&lt; endl;
+
+    return 0;
+}
+        </input>
+        </program>
+      </TabNode>
+      <TabNode tabname="Python" tabnode_options="{'subchapter': 'BuiltInAtomicDataTypes', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+        <program xml:id="intro_1py" interactive="activecode" language="python">
+          <input>
+#outputs results from various math expressions
+def main():
+
+    print(2+3*4)
+    print((2+3)*4)
+    print(2**10)
+    print(6/3)
+    print(7/3)
+    print(7//3)
+    print(7%3)
+    print(3/6)
+    print(3//6)
+    print(3%6)
+    print(2**100)
+
+main()
+        </input>
+        </program>
+      </TabNode>
+    </exercise>
+    <p>When declaring numeric variables in C++,
+                modifiers like <c>short</c>, <c>long</c>, and <c>unsigned</c>
+                can optionally be used to help
+                to ensure space is used as efficiently as possible.</p>
+    <exercise label="mc_integer_div">
+      <statement>
+        <p>Q-4: what is the result of dividing <c>3/2</c> in C++?</p>
+      </statement>
+      <choices>
+        <choice correct="yes">
+          <statement>
+            <p>1</p>
+          </statement>
+          <feedback>
+            <p>Right!</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>1.5</p>
+          </statement>
+          <feedback>
+            <p>No. Integer division is used. Try again.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>2</p>
+          </statement>
+          <feedback>
+            <p>No. Integer division is used. Try again.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>A run-time error will occur.</p>
+          </statement>
+          <feedback>
+            <p>No, C++ generally will try to do as you ask.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>none of the above</p>
+          </statement>
+          <feedback>
+            <p>One of the above is correct.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+    <exercise label="mc_exponentiation">
+      <statement>
+        <p>Q-5: How do I raise 4 to 5th power in C++?</p>
+      </statement>
+      <choices>
+        <choice>
+          <statement>
+            <p>``4**5``</p>
+          </statement>
+          <feedback>
+            <p>No, ``**`` is used in other languages, but not C++.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>``5**4``</p>
+          </statement>
+          <feedback>
+            <p>No, ``**`` is used in other languages, but not C++, and the operators are reversed.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>``4^5``</p>
+          </statement>
+          <feedback>
+            <p>No. The ``^`` is a valid operator in C++, but it does something else.</p>
+          </feedback>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p>``pow(4, 5)``</p>
+          </statement>
+          <feedback>
+            <p>You got it! Remember the cmath library will need to be included for pow() to work.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+  <subsection xml:id="introduction_boolean-data">
+    <title>Boolean Data</title>
+    <p>Boolean data types are named after George Boole who was an English mathematician,
+                so the word &#x201C;Boolean&#x201D; should be capitalized. However,
+                the Boolean data type, in C++ uses the keyword <c>bool</c>
+                which is not capitalized.
+                The possible state values
+                for a C++ Boolean are lower case <c>true</c> and <c>false</c>.</p>
+    <p>C++ uses the standard Boolean operators, &#x201C;and&#x201D; is given by <c>&amp;&amp;</c> , &#x201C;or&#x201D; is given by <c>||</c>,
+                and &#x201C;not&#x201D; is given by <c>!</c>.
+                Note that the internally stored values representing <c>true</c> and <c>false</c>
+                are actually <c>1</c> and <c>0</c> respectively. Hence, we see this in output as well.</p>
+    <exercise >
+      <TabNode tabname="C++" tabnode_options="{'subchapter': 'BuiltInAtomicDataTypes', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <program xml:id="logical_1cpp" interactive="activecode" language="cpp">
+          <input>
+//outputs boolean results to the command line
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+  cout &lt;&lt; true &lt;&lt; endl;
+  cout &lt;&lt; false &lt;&lt; endl;
+  cout &lt;&lt; (true || false) &lt;&lt; endl;
+  cout &lt;&lt; (true &amp;&amp; false) &lt;&lt; endl;
+  return 0;
+}
+        </input>
+        </program>
+      </TabNode>
+      <TabNode tabname="Python" tabnode_options="{'subchapter': 'BuiltInAtomicDataTypes', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+        <program xml:id="logical_1py" interactive="activecode" language="python">
+          <input>
+#outputs boolean results to the command line
+def main():
+    print(True)
+    print(False)
+    print(True or False)
+    print(True and False)
+main()
+        </input>
+        </program>
+      </TabNode>
+    </exercise>
+    <p>Boolean data objects are also used as results for comparison operators
+                such as equality (==) and greater than (<math>&gt;</math>). In addition,
+                relational operators and logical operators can be combined together to
+                form complex logical questions. <xref ref="introduction_tab-relational"/> shows the relational
+                and logical operators with examples shown in the session that follows.</p>
+    <table xml:id="introduction_id1-introduction_tab-relational">
+      <tabular>
+        <title>
+          <term>Table 1: C++ Relational and Logical Operators</term>
+        </title>
+        <row header="yes">
+          <cell>
+            <term>Operation Name</term>
+          </cell>
+          <cell>
+            <term>Operator</term>
+          </cell>
+          <cell>
+            <term>Explanation</term>
+          </cell>
+        </row>
+        <row>
+          <cell>
+                                less than
+                            </cell>
+          <cell>
+            <math>&lt;</math>
+          </cell>
+          <cell>
+                                Less than operator
+                            </cell>
+        </row>
+        <row>
+          <cell>
+                                greater than
+                            </cell>
+          <cell>
+            <math>&gt;</math>
+          </cell>
+          <cell>
+                                Greater than operator
+                            </cell>
+        </row>
+        <row>
+          <cell>
+                                less than or equal
+                            </cell>
+          <cell>
+            <math>&lt;=</math>
+          </cell>
+          <cell>
+                                Less than or equal to operator
+                            </cell>
+        </row>
+        <row>
+          <cell>
+                                greater than or equal
+                            </cell>
+          <cell>
+            <math>&gt;=</math>
+          </cell>
+          <cell>
+                                Greater than or equal to operator
+                            </cell>
+        </row>
+        <row>
+          <cell>
+                                equal
+                            </cell>
+          <cell>
+            <math>==</math>
+          </cell>
+          <cell>
+                                Equality operator
+                            </cell>
+        </row>
+        <row>
+          <cell>
+                                not equal
+                            </cell>
+          <cell>
+            <math>!=</math>
+          </cell>
+          <cell>
+                                Not equal operator
+                            </cell>
+        </row>
+        <row>
+          <cell>
+                                logical and
+                            </cell>
+          <cell>
+            <math>&amp;&amp;</math>
+          </cell>
+          <cell>
+                                Both operands true for result to be true
+                            </cell>
+        </row>
+        <row>
+          <cell>
+                                logical or
+                            </cell>
+          <cell>
+            <math>||</math>
+          </cell>
+          <cell>
+                                One or the other operand is true for the result to be true
+                            </cell>
+        </row>
+        <row>
+          <cell>
+                                logical not
+                            </cell>
+          <cell>
+            <math>!</math>
+          </cell>
+          <cell>
+                                Negates the truth value, false becomes true, true becomes false
+                            </cell>
+        </row>
+      </tabular>
+    </table>
+    <exercise >
+      <TabNode tabname="C++" tabnode_options="{'subchapter': 'BuiltInAtomicDataTypes', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <program xml:id="locicalcpp" interactive="activecode" language="cpp">
+          <input>
+//outputs the results from the relational and logical operators
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+
+    cout &lt;&lt; (5 == 10) &lt;&lt; endl;
+    cout &lt;&lt; (10 &gt; 5) &lt;&lt; endl;
+    cout &lt;&lt; ((5 &gt;= 1) &amp;&amp; (5 &lt;= 10)) &lt;&lt; endl;
+
+    return 0;
+}
+        </input>
+        </program>
+      </TabNode>
+      <TabNode tabname="Python" tabnode_options="{'subchapter': 'BuiltInAtomicDataTypes', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+        <program xml:id="logicalpy" interactive="activecode" language="python">
+          <input>
+#outputs the results from the relational and logical operators
+def main():
+
+    print(5 == 10)
+    print(10 &gt; 5)
+    print((5 &gt;= 1) and (5 &lt;= 10))
+
+main()
+        </input>
+        </program>
+      </TabNode>
+    </exercise>
+    <p>When a C++ variable is declared space in memory is set aside to hold
+                this type of value.
+                A C++ variable can optionally be initialized in the declaration by
+                using a combination of a declaration and an assignment statement.</p>
+    <p>Consider the following session:</p>
+    <program xml:id="booleanpitfall" interactive="activecode" language="cpp">
+      <input>
+//showcases how variables work in C++
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+
+    int theSum = 4;
+    cout &lt;&lt; theSum &lt;&lt; endl;
+
+    theSum = theSum + 1;
+    cout &lt;&lt; theSum &lt;&lt; endl;
+
+    bool theBool = true;
+    cout &lt;&lt; theBool &lt;&lt; endl;
+
+    theBool = 4;
+    cout &lt;&lt; theBool &lt;&lt; endl;
+
+    return 0;
+}
+        </input>
+    </program>
+    <p>The declaration <c>int theSum = 0;</c> creates a variable called
+                <c>theSum</c> and initializes it to hold the data value of <c>0</c>.
+                The right-hand side of each assignment
+                statement is evaluated and the resulting data value is
+                &#x201C;assigned&#x201D; to the variable named on the left-hand side.
+                Here the type of the variable is integer.</p>
+    <p>In C++, the data type cannot change.
+                This is a characteristic of C++&#x2019;s static typing. A
+                variable can hold ever only one type of data.
+                Pitfall: C++ will often simply try to do the assignment you
+                requested without
+                complaining. Note what happened in the code above in the final output.</p>
+    <exercise label="mc_bool">
+      <statement>
+        <p>Q-11: Why did theBool output a value of 1 after being set to 4?</p>
+      </statement>
+      <choices>
+        <choice>
+          <statement>
+            <p>Setting theBool to anything other than true or false is ignored.</p>
+          </statement>
+          <feedback>
+            <p>No. Try changing the code and setting theBool to 0.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Setting theBool to anything &gt; 0 will be true and false otherwise.</p>
+          </statement>
+          <feedback>
+            <p>No. Try changing the code and setting theBool to -4.</p>
+          </feedback>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p>false == 0 and true = !false i.e. anything that is not zero and can be converted to a Boolean is not false, thus it must be true.</p>
+          </statement>
+          <feedback>
+            <p>Correct!</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>None of the above.</p>
+          </statement>
+          <feedback>
+            <p>Try again. One of the above is correct. You might try changing the code and rerunning.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+  <subsection xml:id="introduction_character-data">
+    <title>Character Data</title>
+    <p>In C++ single quotes are used for the character (<c>char</c>) data type,
+                and double quotes are used for the string data type.</p>
+    <p>Consider the following code.</p>
+    <exercise >
+      <TabNode tabname="Python" tabnode_options="{'subchapter': 'BuiltInAtomicDataTypes', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+        <program xml:id="charpy" interactive="activecode" language="python">
+          <input>
+#outputs the boolean results to show how strings and chars differ in C++
+def main():
+
+    strvar = "b"
+    charvar = 'b'
+
+    print('b' == charvar)
+    print("b" == strvar)
+    print('a' == "a")
+
+main()
+        </input>
+        </program>
+      </TabNode>
+      <TabNode tabname="C++" tabnode_options="{'subchapter': 'BuiltInAtomicDataTypes', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <program xml:id="charcpp" interactive="activecode" language="cpp">
+          <input>
+//outputs the boolean results to show how strings and chars differ in C++
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main(){
+
+    string strvar = "b";
+    char charvar = 'b';
+
+    cout &lt;&lt; ('b' == charvar) &lt;&lt; endl;
+    cout &lt;&lt; ("b" == strvar) &lt;&lt; endl;
+    //cout &lt;&lt; ('a' == "a") &lt;&lt; endl; // will error!
+
+    return 0;
+}
+        </input>
+        </program>
+      </TabNode>
+    </exercise>
+    <p>Try the following question.</p>
+    <exercise label="mc_cpp_strings">
+      <statement>
+        <p>Q-14: If I want to create a string in C++, what set of symbols may be used?</p>
+      </statement>
+      <choices>
+        <choice>
+          <statement>
+            <p>' '</p>
+          </statement>
+          <feedback>
+            <p>No, single quotes are only used for single characters.</p>
+          </feedback>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p>" "</p>
+          </statement>
+          <feedback>
+            <p>Good job reading!</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>' ' or " " may be used</p>
+          </statement>
+          <feedback>
+            <p>No. Only one set of symbols may be used.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>It depends upon the implementation.</p>
+          </statement>
+          <feedback>
+            <p>No. No matter what, the implementation is consistent.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>none of the above</p>
+          </statement>
+          <feedback>
+            <p>One of the above is indeed correct.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+  <subsection xml:id="introduction_pointers">
+    <title>Pointers</title>
+    <p>A C++ <term>pointer</term> is a variable that stores a memory address.</p>
+    <p>We know that variables in a computer program are used to label data with a
+                descriptive identifier so that the data can be accessed and used by that
+                computer program. How C++ variables are implemented is worthy of discussion.</p>
+    <p>In C++ the value of each variable is stored directly in memory without the need
+                for either a reference or an object. This makes access faster, but it is one of
+                the reasons we need to declare each variable because different types take differing
+                amounts of space in memory!</p>
+    <p>The following code declares a variable called <em>varN</em> that has in it a
+                value of 100:</p>
+    <pre>// C++ variable declaration and assignment of an integer value
+int varN = 100;</pre>
+    <p>In C++ the results of running this code will look like the diagram below:</p>
+    <figure align="center" xml:id="id2-fig-cpp-reference">
+      <caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: C++ variable</caption>
+      <image source="Introduction/cpp_var.png" width="50%" alt="&quot;Box named varN containing value of 100&quot;"/>
+    </figure>
+    <p>When we want to output the value to the console, we use the variable name
+                to do so.</p>
+    <p>But, we can also identify the memory location of the variable,
+                which is sometimes very valuable. This address
+                may change each time the program is run. In C++, this will always look
+                odd because it will be the actual memory address written in a hexadecimal code
+                which is a base 16 code like 0x7ffd93f25244.</p>
+    <p>In C++ we use the <em>address-of operator</em>, <c>&amp;</c> to reference the address.</p>
+    <exercise >
+      <TabNode tabname="C++" tabnode_options="{'subchapter': 'BuiltInAtomicDataTypes', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+        <program xml:id="address_cpp" interactive="activecode" language="cpp">
+          <input>
+//outputs both the value of varN and the location in memory of varN
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    int varN = 101;
+    cout &lt;&lt; varN &lt;&lt; endl;
+    cout &lt;&lt; &amp;varN &lt;&lt; endl;
+    return 0;
+}
+        </input>
+        </program>
+      </TabNode>
+      <TabNode tabname="Python" tabnode_options="{'subchapter': 'BuiltInAtomicDataTypes', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+        <program xml:id="address_py" interactive="activecode" language="python">
+          <input>
+#because python is an interpreted language, variables stored at a virtual memory address.
+def main():
+    varN = 101;
+    print(varN)
+    print(id(varN))
+
+main()
+        </input>
+        </program>
+      </TabNode>
+    </exercise>
+    <p>Variables are stored in memory locations which are dependent
+                upon the run itself. If you repeatedly run the above code you may
+                see the location change.</p>
+    <p>In C++, variables store values directly, making them faster to reference.</p>
+    <p>If in C++, we want to create a reference to a memory location in C++,
+                we must use a special syntax called a <term>pointer</term>.</p>
+    <subsubsection xml:id="introduction_pointer-syntax">
+      <title>Pointer Syntax</title>
+      <p>When declaring a pointer in C++ that will &#x201C;point&#x201D; to the memory address of some
+                    data type,
+                    you will use the same rules of declaring variables and data types.
+                    The key difference is that there must be an asterisk (*) between the data type and the
+                    identifier.</p>
+      <pre>variableType *identifier; // syntax to declare a C++ pointer
+int *ptrx; // example of a C++ pointer to an integer</pre>
+      <p>White space in C++ generally does not matter, so the following pointer declarations
+                    are identical:</p>
+      <pre>SOMETYPE *variablename; // preferable
+SOMETYPE * variablename;
+SOMETYPE* variablename;</pre>
+      <p>However, the first declaration is preferable because it is clearer to the
+                    programmer that the variable is in fact a pointer because the asterisk is closer
+                    to the variable name.</p>
+    </subsubsection>
+    <subsubsection xml:id="introduction_the-address-of-operator">
+      <title>The address-of operator, <c>&amp;</c></title>
+      <p>Now that we know how to declare pointers, how do we give them the address of
+                    where the value is going to be stored? One way to do this is to have a pointer
+                    refer to another variable by using the address-of operator, which is denoted by the
+                    ampersand symbol, <c>&amp;</c>. The address-of operator <c>&amp;</c> does exactly what it indicates,
+                    namely it returns the address.</p>
+      <p>The syntax is shown below, where varN stores the value, and ptrN stores
+                    the address of where varN is located:</p>
+      <pre>variableType varN;  // a variable to hold the value
+variableType *ptrN = &amp;varN;  // a variable pointing to the address of varN</pre>
+      <p>Keep in mind that when declaring a C++ pointer, the pointer needs to
+                    reference the same type as the variable or constant to which it points.</p>
+      <p>Expanding on the example above where varN has the value of 100.</p>
+      <pre>//variable declaration for a single integer value
+int varN = 100;
+int *ptrN;
+ptrN = &amp;varN;</pre>
+      <p>The results of running this C++ code will look like the diagram below.</p>
+      <figure align="center" xml:id="id3-fig-point2">
+        <caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 5: View into memory with pointers</caption>
+        <image source="Introduction/new_point2.png" width="50%" alt="image"/>
+      </figure>
+    </subsubsection>
+    <subsubsection xml:id="introduction_accessing-values-from-pointers">
+      <title>Accessing Values from Pointers</title>
+      <p>So, once you have a C++ pointer, how do you access the values associated with that location?
+                    You use the asterisk before the pointer variable, which
+                    goes to that address, effectively <em>dereferencing</em> the pointer,
+                    meaning that it will find the location of the value stored where the pointer was
+                    pointing.</p>
+      <p>In other words, varN and *ptrN (note the asterisk in front!) reference the same
+                    value in the code above.</p>
+      <p>Let&#x2019;s extend the example above to output the value of a variable and its address
+                    in memory:</p>
+      <p>&#x2026; _dereferencing:</p>
+      <blockquote>
+        <program xml:id="firstptr" interactive="activecode" language="cpp">
+          <input>
+//prints a variable by pointer and value
+#include &lt;iostream&gt;
+using namespace std;
+
+int main( ) {
+    int varN = 100;
+    int *ptrN = &amp;varN; // ptrN points to varN address
+
+    cout &lt;&lt; "varN value: " &lt;&lt; varN &lt;&lt; endl;
+    cout &lt;&lt; "varN location: " &lt;&lt; ptrN &lt;&lt; endl;
+    cout &lt;&lt; "dereference ptrN: " &lt;&lt; *ptrN &lt;&lt; "endl";
+
+
+    return 0;
+}
+        </input>
+        </program>
+      </blockquote>
+      <exercise label="mc_pntrhlp">
+        <statement>
+          <p>Q-18: If the lines (varN = 50;) and  (cout &lt;&lt; *ptrN &lt;&lt; endl;) were inserted into line 7-8, what would it cout?</p>
+        </statement>
+        <choices>
+          <choice>
+            <statement>
+              <p>varPntr: 100</p>
+            </statement>
+            <feedback>
+              <p>Not quite, the variable varN no longer equals 100 past line 7!</p>
+            </feedback>
+          </choice>
+          <choice correct="yes">
+            <statement>
+              <p>varPntr: 50</p>
+            </statement>
+            <feedback>
+              <p>Right!</p>
+            </feedback>
+          </choice>
+          <choice>
+            <statement>
+              <p>varPntr: 150</p>
+            </statement>
+            <feedback>
+              <p>No, the values do not add together!</p>
+            </feedback>
+          </choice>
+          <choice>
+            <statement>
+              <p>0x7ffeb9ce053c</p>
+            </statement>
+            <feedback>
+              <p>We are dereferencing the pointer, so you would not get the address of varN. Try again!</p>
+            </feedback>
+          </choice>
+          <choice>
+            <statement>
+              <p>none of the above</p>
+            </statement>
+            <feedback>
+              <p>One of the above is indeed correct.</p>
+            </feedback>
+          </choice>
+        </choices>
+      </exercise>
+      <p>Compiling and running the above code will have the program output the
+                    value in varN,
+                    what is in ptrN (the memory address of varN),
+                    and what value is located at that
+                    memory location.</p>
+      <p>The second output sentence is the address of varN, which would most likely be
+                    different if you run the program on your machine.</p>
+      <p>WARNING: What happens if you forget the asterisk
+                    when assigning a value to a pointer
+                    and had the following instructions instead?</p>
+      <blockquote>
+        <program xml:id="cpp_address_error1" interactive="activecode" language="cpp">
+          <input>
+//showcases what happens when reading from unknown memory locations
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int varN = 100;
+    int *ptrN = varN; // Note: no asterisk,
+        // ptrN now refers to memory position 100,
+        // whatever happens to be there!
+        // You might get an error or you might not!
+
+     cout &lt;&lt; "varN value: " &lt;&lt; varN &lt;&lt; endl;
+     cout &lt;&lt; "varN location: " &lt;&lt; ptrN &lt;&lt; endl;
+     cout &lt;&lt; "ptrN points to varN: " &lt;&lt; endl;
+     cout &lt;&lt; "dereference ptrN: " &lt;&lt; *ptrN &lt;&lt; "\n\n";
+
+     return 0;
+}
+        </input>
+        </program>
+      </blockquote>
+      <p>
+        <term>This is BAD, BAD, BAD!</term>
+      </p>
+      <figure align="center" xml:id="id4-fig-point3">
+        <caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 6: dangling pointer reference</caption>
+        <image source="Introduction/new_point_broken.png" width="50%" alt="image"/>
+      </figure>
+      <p>If your compiler does not catch that error (the one for this class may),
+                    the first <c>cout</c> instruction outputs:</p>
+      <pre>After changing *ptrN, varN now has: 50</pre>
+      <p>which is expected because you changed where ptrN is pointing to and
+                    NOT the contents of where it is pointing.</p>
+      <p>The second <c>cout</c> instruction is a disaster because</p>
+      <p>
+        <ol label="1">
+          <li>
+            <p>You don&#x2019;t know what is stored in location 100 in memory, and</p>
+          </li>
+        </ol>
+      </p>
+      <p>(2) that location is outside of your segment (area in memory reserved for your program), so the operating system will jump in with a message about a &#x201C;segmentation fault&#x201D;. Although such an error message looks bad,
+                    a &#x201C;seg fault&#x201D; is in fact, a helpful error because unlike the elusive logical
+                    errors, the reason is fairly localized.</p>
+    </subsubsection>
+    <subsubsection xml:id="introduction_the-null-pointer">
+      <title>The NULL pointer</title>
+      <p>The <c>NULL</c> pointer in C++ points to
+                    nothing and is often denoted by the keyword <c>NULL</c> (all caps) or by 0.
+                    The NULL pointer is often used in conditions and/or in logical operations.</p>
+      <p>The following example demonstrates how the NULL pointer works.
+                    The variable ptrx initially has the address of x when it is declared.
+                    On the first iteration of the loop, it is assigned the value of <c>NULL</c> (i.e. 0)
+                    thereby ending the loop:</p>
+      <blockquote>
+        <program xml:id="NULLexamplecpp" interactive="activecode" language="cpp">
+          <input>
+//showcases how you can use NULL.
+#include &lt;iostream&gt;
+using namespace std;
+
+int main( ) {
+    int x = 12345;
+    int *ptrx = &amp;x;
+
+    while (ptrx) {
+        cout &lt;&lt; "Pointer ptrx points to " &lt;&lt; ptrx &lt;&lt; endl;
+        ptrx = NULL;
+    }
+
+    cout &lt;&lt; "Pointer ptrx points to nothing!" &lt;&lt;endl;
+}
+        </input>
+        </program>
+      </blockquote>
+      <p>Helpful Tip: The NULL pointer becomes very useful when you must test
+                    the state of a pointer, such as whether the assignment to an address
+                    is valid or not.</p>
+      <exercise label="mc_characters">
+        <statement>
+          <p>Q-21: If I want to use the <c>char</c> type in C++, what set of symbols must be used?</p>
+        </statement>
+        <choices>
+          <choice correct="yes">
+            <statement>
+              <p>' '</p>
+            </statement>
+            <feedback>
+              <p>Right!</p>
+            </feedback>
+          </choice>
+          <choice>
+            <statement>
+              <p>" "</p>
+            </statement>
+            <feedback>
+              <p>No. Double quotes are only used for strings.</p>
+            </feedback>
+          </choice>
+          <choice>
+            <statement>
+              <p>' ' or " " may be used</p>
+            </statement>
+            <feedback>
+              <p>No. Only one set of symbols may be used.</p>
+            </feedback>
+          </choice>
+          <choice>
+            <statement>
+              <p>It depends upon the implementation.</p>
+            </statement>
+            <feedback>
+              <p>No. The implementation is consistent.</p>
+            </feedback>
+          </choice>
+          <choice>
+            <statement>
+              <p>none of the above</p>
+            </statement>
+            <feedback>
+              <p>One of the above is indeed correct.</p>
+            </feedback>
+          </choice>
+        </choices>
+      </exercise>
+      <exercise label="memoryvar">
+        <statement>
+          <p>Q-22:  A/an <c>___</c> is used to store a memory address in C++? <var/>  </p>
+        </statement>
+        <setup>
+          <var>
+            <condition string="^\s*pointer\s*$">
+              <feedback>
+                <p>Right!</p>
+              </feedback>
+            </condition>
+            <condition string="^\s*variable\s*$">
+              <feedback>
+                <p>Be more specific!</p>
+              </feedback>
+            </condition>
+            <condition string="^\s*reference\s*$">
+              <feedback>
+                <p>That&#x2019;s a general description of what it is, not a C++ term!</p>
+              </feedback>
+            </condition>
+            <condition string="^\s*default\s*$">
+              <feedback>
+                <p>Incorrect. Please try again</p>
+              </feedback>
+            </condition>
+          </var>
+        </setup>
+      </exercise>
+      <exercise label="mc_memory">
+        <statement>
+          <p>Q-23: How may one reference a variable&#x2019;s memory address in C++?</p>
+        </statement>
+        <choices>
+          <choice correct="yes">
+            <statement>
+              <p>using ``&amp;``</p>
+            </statement>
+            <feedback>
+              <p>Right! ``&amp;`` is the "address-of" operator, used to reference an address.</p>
+            </feedback>
+          </choice>
+          <choice>
+            <statement>
+              <p>using ``*``</p>
+            </statement>
+            <feedback>
+              <p>No. ``int *p;`` defines a pointer to an integer, and ``*p`` would dereference that pointer, i.e. retrieve the data that p points to.</p>
+            </feedback>
+          </choice>
+          <choice>
+            <statement>
+              <p>using ``id``</p>
+            </statement>
+            <feedback>
+              <p>No. This is used in other languages such as Python.</p>
+            </feedback>
+          </choice>
+          <choice>
+            <statement>
+              <p>It depends upon the implementation.</p>
+            </statement>
+            <feedback>
+              <p>No. The implementation remains consistent.</p>
+            </feedback>
+          </choice>
+          <choice>
+            <statement>
+              <p>none of the above</p>
+            </statement>
+            <feedback>
+              <p>One of the above is indeed correct.</p>
+            </feedback>
+          </choice>
+        </choices>
+      </exercise>
+    </subsubsection>
+  </subsection>
+</section>
