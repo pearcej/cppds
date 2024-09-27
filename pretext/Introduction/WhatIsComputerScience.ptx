@@ -75,6 +75,7 @@
             complexities of the implementation. As another example of abstraction,
             consider the C++ <c>cmath</c> module. Once we import the module, we can
             perform computations as in the following example:</p>
+
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsComputerScience', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="cPlusPlus" interactive="activecode" language="cpp">
