@@ -21,11 +21,11 @@
             named 1, a slot named 2, and so on.<idx>slot</idx>Initially, the hash table contains
             no items so every slot is empty. We can implement a hash table by using
             a list with each value initialized to an empty string.
-            <xref ref="fig-hashtable1"/> shows a hash table of size <m>m=11</m>.
+            <xref ref="search_hash-fig-hashtable1"/> shows a hash table of size <m>m=11</m>.
             In other words, there are <em>m</em> slots in the table, named 0 through 10.</p>
         
         <blockquote>
-            <figure align="center" xml:id="fig-hashtable">
+            <figure align="center" xml:id="search_hash-fig-hashtable1">
                 <caption>Hash Table with 11 Empty Slots</caption>
                     <image source="SearchHash/hashtable.png" width="80%">
                     <description>Image depicting a hash table data structure with eleven empty slots. The slots are numbered from 0 to 10 and each contains the word 'None', indicating that they are unoccupied. The table is presented in a horizontal format, with clear delineation between each slot.</description>
@@ -47,7 +47,7 @@
             (modulo arithmetic) will typically be present in some form in all hash
             functions, since the result must be in the range of slot names.</p>
         
-        <table xml:id="search-hash_id2"><tabular>
+        <table xml:id="search-hash_search-hash_tbl-hashvalues1"><tabular>
             <title><term>Table 4: Simple Hash Function Using Remainders</term></title>
             
                 
@@ -189,7 +189,7 @@
                 remainder method and the mid-square method. You should verify that you
                 understand how these values were computed.</p>
             
-            <table xml:id="search-hash_id4"><tabular>
+            <table xml:id="search-hash_tbl-hashvalues2"><tabular>
                 <title><term>Table 5: Comparison of Remainder and Mid-Square Methods</term></title>
                 
                     
@@ -295,7 +295,7 @@ cout&lt;&lt;i&lt;&lt;endl;
 &gt;&gt;104</pre>
             <p>We can then take these three ordinal values, add them up, and use the
                 remainder method to get a hash value (see <xref ref="fig-stringhash"/>).
-                <xref ref="lst-hashfunction1"/> shows a function called <c>hash</c> that takes a
+                <xref ref="search-hash_lst-hashfunction1"/> shows a function called <c>hash</c> that takes a
                 string and a table size and returns the hash value in the range from 0
                 to <c>tablesize</c>-1.</p>
             
@@ -306,7 +306,8 @@ cout&lt;&lt;i&lt;&lt;endl;
                     </image>
                 </figure>
             
-            <p xml:id="search-hash_lst-hashfunction1" names="lst_hashfunction1"><term>Listing 1</term></p>
+<listing xml:id="search-hash_lst-hashfunction1">
+<caption><c>hash</c> function</caption>
 
     <program xml:id="simplehash" interactive="activecode" language="cpp">
         <input>
@@ -335,6 +336,7 @@ int main() {
 }
         </input>
     </program>
+</listing>
             <p>It is interesting to note that when using this hash function, anagrams
                 will always be given the same hash value. To remedy this, we could use
                 the position of the character as a weight. <xref ref="fig-stringhash2"/> shows
@@ -376,7 +378,7 @@ int main() {
                 that it tries to find the next open slot or address in the hash table.<idx>open addressing</idx>
                 By systematically visiting each slot one at a time, we are performing an
                 open addressing technique called <term>linear probing</term>.<idx>linear probing</idx></p>
-            <p><xref ref="fig-linearprobing"/> shows an extended set of integer items under the
+            <p><xref ref="fig-linearprobing1"/> shows an extended set of integer items under the
                 simple remainder method hash function (54,26,93,17,77,31,44,55,20).
                 <xref ref="search-hash_search-hash_tbl-hashvalues1"/> above shows the hash values for the original items.
                 <xref ref="fig-hashtable2"/> shows the original contents. When we attempt to
@@ -575,7 +577,7 @@ int main() {
                 binary search but it would be even better to use a hash table as
                 described above since looking up an item in a hash table can approach
                 <m>O(1)</m> performance.</p>
-            <p>In <xref ref="lst-hashtablecodeconstructor"/> we use two lists to create a
+            <p>In <xref ref="search-hash_lst-hashtablecodeconstructor"/> we use two lists to create a
                 <c>HashTable</c> class that implements the Map abstract data type. One
                 list, called <c>slots</c>, will hold the key items and a parallel list,
                 called <c>data</c>, will hold the data values. When we look up a key, the
@@ -586,13 +588,15 @@ int main() {
                 the size be a prime number so that the collision resolution algorithm
                 can be as efficient as possible.</p>
             
-            <p xml:id="search-hash_lst-hashtablecodeconstructor" names="lst_hashtablecodeconstructor"><term>Listing 2</term></p>
+            <listing xml:id="search-hash_lst-hashtablecodeconstructor">
             <pre>class HashTable{
     public:
     static const int size=11;
     int slots[size];
-    string data[size];</pre>
-            <p>In <xref ref="lst-hashtablecodestore"/>, <c>hashfunction</c> implements the
+    string data[size];
+    </pre>
+    </listing>
+            <p>In <xref ref="search-hash_lst-hashtablecodestore"/>, <c>hashfunction</c> implements the
                 simple remainder method. The collision resolution technique is linear probing
                 with a <q>plus 1</q> rehash function. The <c>put</c> function assumes that there will
                 eventually be an empty slot unless the key is already present in the <c>self.slots</c>.
@@ -601,7 +605,7 @@ int main() {
                 contains the key, the old data value is replaced with the new data value.
                 Dealing with the situation where there are no empty slots left is an exercise.</p>
             
-            <p xml:id="search-hash_lst-hashtablecodestore" names="lst_hashtablecodestore"><term>Listing 3</term></p>
+            <listing xml:id="search-hash_lst-hashtablecodestore">
             <pre>def put(self,key,data):
     hashvalue = self.hashfunction(key,len(self.slots))
 
@@ -666,7 +670,8 @@ void put(int key, string val){
         }
     }
 }</pre>
-            <p>Likewise, the <c>get</c> function (see <xref ref="lst-hashtablecodesearch"/>)
+</listing>
+            <p>Likewise, the <c>get</c> function (see <xref ref="search-hash_lst-hashtablecodesearch"/>)
                 begins by computing the initial hash value. If the value is not in the
                 initial slot, <c>rehash</c> is used to locate the next possible position.
                 Notice that line 15 guarantees that the search will terminate by
@@ -679,7 +684,7 @@ void put(int key, string val){
                 once a <c>HashTable</c> has been created, the familiar index operator will
                 be available. We leave the remaining methods as exercises.</p>
             
-            <p xml:id="search-hash_lst-hashtablecodesearch" names="lst_hashtablecodesearch"><term>Listing 4</term></p>
+            <listing xml:id="search-hash_lst-hashtablecodesearch">
             <pre>def get(self,key):
     startslot = self.hashfunction(key,len(self.slots))
 
@@ -723,6 +728,7 @@ def __setitem__(self,key,data):
     }
     return val;
 }</pre>
+</listing>
             <p>The following session shows the <c>HashTable</c> class in action. First we
                 will create a hash table and store some items with integer keys and
                 string data values.</p>
