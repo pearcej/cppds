@@ -11,13 +11,13 @@
                 <gi>
                     <title>abstraction</title>
                     
-                        <p>Focusing on desired behaviors and properties while disregarding what is irrelevant/unimportant</p>
+                        <p>Focusing on desired behaviors and properties while disregarding what is irrelevant/unimportant.</p>
                     
                 </gi>
                 <gi>
                     <title>access keywords</title>
                     
-                        <p>Keywords such as &#8216;'public'', private'', and &#8216;'protected'' that indicates what class properties/behaviors a user can change</p>
+                        <p>Keywords such as &#8216;'public'', private'', and &#8216;'protected'' that indicates what class properties/behaviors a user can change.</p>
                     
                 </gi>
                 <gi>
@@ -83,7 +83,7 @@
                 <gi>
                     <title>class</title>
                     
-                        <p>A template for creating (instantiating) objects, for providing initial values for state via member variables, and for implementations of behavior via member functions or methods</p>
+                        <p>A template for creating (instantiating) objects, for providing initial values for state via member variables, and for implementations of behavior via member functions or methods.</p>
                     
                 </gi>
                 <gi>
@@ -162,7 +162,7 @@
                 <gi>
                     <title>encapsulation</title>
                     
-                        <p>Hiding the contents of a class except when absolutely necessary</p>
+                        <p>Hiding the contents of a class except when absolutely necessary.</p>
                     
                 </gi>
                 <gi>

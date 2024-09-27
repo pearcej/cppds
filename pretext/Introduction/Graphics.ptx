@@ -794,7 +794,7 @@ int main(){
 <match order="1"><premise>stops filling the shape.</premise><response>turtle.endfill</response></match>
 <match order="2"><premise>change the pen color.</premise><response>turtle.pencolor</response></match>
 <match order="3"><premise>change the pen size.</premise><response> turtle.width</response></match>
-<match order="4"><premise>change the speed</premise><response> turtle.speed</response></match>
+<match order="4"><premise>change the speed.</premise><response> turtle.speed</response></match>
 <match order="5"><premise>move backward.</premise><response> turtle.back</response></match>
 <match order="6"><premise>move forward.</premise><response> turtle.forward</response></match>
 <match order="7"><premise>move to a specific coordinate.</premise><response> turtle.goto</response></match>
