@@ -16,7 +16,7 @@
             link from one item to the next.</p>
 
         <figure align="center" xml:id="fig-idea">
-            <caption>Items Not Constrained in Their Physical Placement</caption>
+            <caption>Items Not Constrained in Their Physical Placement.</caption>
                 <image source="LinearLinked/idea.png" width="50%">
                 <description>Image displaying a scattered set of numbers representing items not constrained in their physical placement. The numbers shown are '31' and '17' at the top, '26' to the right, '54' and '77' in the middle, and '93' at the bottom. They are arranged without a discernible pattern or alignment, suggesting a random or unstructured layout.</description>
                 </image>

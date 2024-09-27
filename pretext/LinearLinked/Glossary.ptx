@@ -5,38 +5,38 @@
                 <gi>
                     <title>forward list</title>
                     
-                        <p>a list that is a singly-linked (only links to one other element) sequence container</p>
+                        <p>a list that is a singly-linked (only links to one other element) sequence container.</p>
                     
                 </gi>
                 <gi>
                     <title>head</title>
                     
-                        <p>the first item in a linked list</p>
+                        <p>the first item in a linked list.</p>
                     
                 </gi>
                 <gi>
                     <title>linked data structure</title>
                     
                         <p>a data structure which consists of a set of data structures called nodes
-                            which are linked together and organized by links created via references or pointers</p>
+                            which are linked together and organized by links created via references or pointers.</p>
                     
                 </gi>
                 <gi>
                     <title>linked list</title>
                     
-                        <p>a linear collection of data elements whose order is not determined by the placement in memory</p>
+                        <p>a linear collection of data elements whose order is not determined by the placement in memory.</p>
                     
                 </gi>
                 <gi>
                     <title>linked list traversal</title>
                     
-                        <p>the process of systematically visiting each node in a linked list</p>
+                        <p>the process of systematically visiting each node in a linked list.</p>
                     
                 </gi>
                 <gi>
                     <title>list</title>
                     
-                        <p>a doubly-linked (links to 2 other elements) container</p>
+                        <p>a doubly-linked (links to 2 other elements) container.</p>
                     
                 </gi>
                 <gi>
@@ -48,19 +48,19 @@
                 <gi>
                     <title>ordered linked list</title>
                     
-                        <p>a linked list whose elements are in an order</p>
+                        <p>a linked list whose elements are in an order.</p>
                     
                 </gi>
                 <gi>
                     <title>ordered list</title>
                     
-                        <p>a list whose elements are ordered</p>
+                        <p>a list whose elements are ordered.</p>
                     
                 </gi>
                 <gi>
                     <title>unordered linked list</title>
                     
-                        <p>a linked list whose elements are not in an order</p>
+                        <p>a linked list whose elements are not in an order.</p>
                     
                 </gi>
             
