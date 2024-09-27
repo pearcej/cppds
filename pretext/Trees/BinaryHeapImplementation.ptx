@@ -37,9 +37,9 @@
         </subsection>
         <subsection xml:id="trees_the-heap-order-property">
             <title>The Heap Order Property</title>
-            <p><idx>heap order property</idx>The method that we will use to store items in a heap relies on
+            <p><idx>heap order property</idx>The method that we will use to store items in a binary heap relies on
                 maintaining the heap order property. The <term>heap order property</term> is as
-                follows: In a heap, for every node <m>x</m> with parent <m>p</m>,
+                follows: In a binary heap, for every node <m>x</m> with parent <m>p</m>,
                 the key in <m>p</m> is smaller than or equal to the key in
                 <m>x</m>. <xref ref="fig-heaporder"/> also illustrates a complete binary
                 tree that has the heap order property.</p>
