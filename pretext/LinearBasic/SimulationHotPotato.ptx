@@ -9,7 +9,7 @@
             (the potato) is removed from the circle. Play continues until only one
             child is left.</p>
         
-        <figure align="center" xml:id="fig-quhotpotato"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 2: A Six Person Game of Hot Potato</caption><image source="LinearBasic/Figures/hotpotato.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-quhotpotato"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 2: A Six Person Game of Hot Potato</caption><image source="LinearBasic/hotpotato.png" width="50%"/></figure>
         <p>This game is a modern-day equivalent of the famous Josephus problem.
             Based on a legend about the famous first-century historian Flavius
             Josephus, the story is told that in the Jewish revolt against Rome,
@@ -37,7 +37,7 @@
             permanently and another cycle will begin. This process will continue
             until only one name remains (the size of the queue is 1).</p>
         
-        <figure align="center" xml:id="fig-qupotatoqueue"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 3: A Queue Implementation of Hot Potato</caption><image source="LinearBasic/Figures/namequeue.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-qupotatoqueue"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 3: A Queue Implementation of Hot Potato</caption><image source="LinearBasic/namequeue.png" width="50%"/></figure>
         <p>The program is shown in <xref ref="lst-josephussim"/>. A call to the
             <c>hotPotato</c> function using 7 as the counting constant returns <c>Susan</c>.</p>
         
