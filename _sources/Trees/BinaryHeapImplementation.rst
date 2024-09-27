@@ -45,9 +45,9 @@ an efficient implementation of our binary heap.
 The Heap Order Property
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The method that we will use to store items in a heap relies on
+The method that we will use to store items in a binary heap relies on
 maintaining the heap order property. The **heap order property** is as
-follows: In a heap, for every node :math:`x` with parent :math:`p`,
+follows: In a binary heap, for every node :math:`x` with parent :math:`p`,
 the key in :math:`p` is smaller than or equal to the key in
 :math:`x`. :ref:`Figure 2 <fig_heapOrder>` also illustrates a complete binary
 tree that has the heap order property.
