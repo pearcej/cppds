@@ -5,91 +5,91 @@
                 <gi>
                     <title>algorithm</title>
                     
-                        <p>a generic, step-by-step list of instructions for solving a problem</p>
+                        <p>a generic, step-by-step list of instructions for solving a problem.</p>
                     
                 </gi>
                 <gi>
                     <title>balanced parentheses</title>
                     
-                        <p>each opening symbol has a corresponding closing symbol and the pairs of parentheses are properly nested</p>
+                        <p>each opening symbol has a corresponding closing symbol and the pairs of parentheses are properly nested.</p>
                     
                 </gi>
                 <gi>
                     <title>deque</title>
                     
-                        <p>an ordered collection of items with two ends and the items remain positioned in the collection. New items can be added at either the front or the rear</p>
+                        <p>an ordered collection of items with two ends and the items remain positioned in the collection. New items can be added at either the front or the rear.</p>
                     
                 </gi>
                 <gi>
                     <title>first-in first-out (FIFO)</title>
                     
-                        <p>ordering principle in which the first item added is also the first removed</p>
+                        <p>ordering principle in which the first item added is also the first removed.</p>
                     
                 </gi>
                 <gi>
                     <title>fully parenthesized</title>
                     
-                        <p>the usage of one pair of parentheses for each operator</p>
+                        <p>the usage of one pair of parentheses for each operator.</p>
                     
                 </gi>
                 <gi>
                     <title>infix</title>
                     
-                        <p>expression notation in which the operator is in between the two operands that it is working on</p>
+                        <p>expression notation in which the operator is in between the two operands that it is working on.</p>
                     
                 </gi>
                 <gi>
                     <title>last-in first-out (LIFO)</title>
                     
-                        <p>ordering principle in which the last item added is also the first removed</p>
+                        <p>ordering principle in which the last item added is also the first removed.</p>
                     
                 </gi>
                 <gi>
                     <title>linear data structure</title>
                     
-                        <p>a data structure with elements that have positions relative to each other</p>
+                        <p>a data structure with elements that have positions relative to each other.</p>
                     
                 </gi>
                 <gi>
                     <title>palindrome</title>
                     
-                        <p>a string that reads the same forward and backward</p>
+                        <p>a string that reads the same forward and backward.</p>
                     
                 </gi>
                 <gi>
                     <title>postfix</title>
                     
-                        <p>expression notation in which all operators come after the two operands that they work on</p>
+                        <p>expression notation in which all operators come after the two operands that they work on.</p>
                     
                 </gi>
                 <gi>
                     <title>precedence</title>
                     
-                        <p>hierarchy on the order things occur</p>
+                        <p>hierarchy on the order things occur.</p>
                     
                 </gi>
                 <gi>
                     <title>prefix</title>
                     
-                        <p>expression notation in which all operators precede the two operands that they work on</p>
+                        <p>expression notation in which all operators precede the two operands that they work on.</p>
                     
                 </gi>
                 <gi>
                     <title>queue</title>
                     
-                        <p>an ordered collection of items where the addition of new items happens at one end and the removal of existing items occurs at the other end</p>
+                        <p>an ordered collection of items where the addition of new items happens at one end and the removal of existing items occurs at the other end.</p>
                     
                 </gi>
                 <gi>
                     <title>simulation</title>
                     
-                        <p>an imitation of a process or operations</p>
+                        <p>an imitation of a process or operations.</p>
                     
                 </gi>
                 <gi>
                     <title>stack</title>
                     
-                        <p>an ordered collection of items where the addition of new items and the removal of existing items always takes place at the same end</p>
+                        <p>an ordered collection of items where the addition of new items and the removal of existing items always takes place at the same end.</p>
                     
                 </gi>
             
