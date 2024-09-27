@@ -52,7 +52,7 @@
             right side of the diagram.</p>
         
         <figure align="center" xml:id="fig-tostr">
-            <caption>Converting an Integer to a String in Base 10</caption>
+            <caption>Converting an Integer to a String in Base 10.</caption>
                 <image source="Recursion/toStr.png" width="50%">
                 <description>Flowchart demonstrating the conversion of an integer to a string in base 10 using recursion. The process starts with 'toStr(769)', which divides '769' by '10' and adds the remainder 'g'. The result feeds into 'toStr(76)', which again divides by '10' to add the remainder '6'. The final call is 'toStr(7)', which is less than '10' and therefore converts directly to '7'. The remainders at each step are used to build the string representation of the integer.</description>
                 </image>
@@ -115,7 +115,7 @@ main()
             to its base 2 string representation (<c>"1010"</c>).</p>
     
         <figure align="center" xml:id="fig-tostr2">
-            <caption>Converting the Number 10 to its Base 2 String Representation</caption>
+            <caption>Converting the Number 10 to its Base 2 String Representation.</caption>
                 <image source="Recursion/toStrBase2.png" width="50%">
                 <description>Flowchart depicting the recursive process of converting the number 10 to its binary (base 2) string representation. The topmost operation 'toStr(10)' shows the division '10 / 2' with a remainder '0'. This leads to 'toStr(5)', with division '5 / 2' and remainder '1', followed by 'toStr(2)' with division '2 / 2' and remainder '0', and finally 'toStr(1)' indicating '1 &lt; 2' and yielding a remainder '1'. The remainders collected at each step form the binary representation of the number 10.</description>
                 </image>
@@ -197,28 +197,28 @@ int main(){
             <p>Write a function that takes a string as a parameter and returns True if the string is a palindrome, False otherwise.  Remember that a string is a palindrome if it is spelled the same both forward and backward.  For example:  radar is a palindrome.  for bonus points palindromes can also be phrases, but you need to remove the spaces and punctuation before checking.  for example:  madam i'm adam  is a palindrome.  Other fun palindromes include:</p>
             <p><ul>
                 <li>
-                    <p>kayak</p>
+                    <p>kayak.</p>
                 </li>
                 <li>
-                    <p>aibohphobia</p>
+                    <p>aibohphobia.</p>
                 </li>
                 <li>
-                    <p>Live not on evil</p>
+                    <p>Live not on evil.</p>
                 </li>
                 <li>
-                    <p>Reviled did I live, said I, as evil I did deliver</p>
+                    <p>Reviled did I live, said I, as evil I did deliver.</p>
                 </li>
                 <li>
                     <p>Go hang a salami; I'm a lasagna hog.</p>
                 </li>
                 <li>
-                    <p>Able was I ere I saw Elba</p>
+                    <p>Able was I ere I saw Elba.</p>
                 </li>
                 <li>
-                    <p>Kanakanak &#8211;  a town in Alaska</p>
+                    <p>Kanakanak &#8211;  a town in Alaska.</p>
                 </li>
                 <li>
-                    <p>Wassamassaw &#8211; a town in South Dakota</p>
+                    <p>Wassamassaw &#8211; a town in South Dakota.</p>
                 </li>
             </ul></p>
             <blockquote>
