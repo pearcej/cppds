@@ -1312,7 +1312,7 @@ int main(){
 
         <choice correct="yes">
             <statement>
-                <p>An array of characters that ends with a terminating null character. For instance, "\0"./p>
+                <p>An array of characters that ends with a terminating null character. For instance, "\0".</p>
             </statement>
             <feedback>
                 <p>Correct! a c-string is different from a string.</p>
