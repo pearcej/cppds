@@ -422,7 +422,7 @@ Sum is 50005000 required 0.000000 seconds</pre>
             
                     <choice>
                         <statement>
-                            <p>None of the above.</p>
+                            <p>None of the above</p>
                         </statement>
                         <feedback>
                             <p>One of the above is correct!</p>

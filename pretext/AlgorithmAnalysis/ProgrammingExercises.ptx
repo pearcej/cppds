@@ -3,7 +3,7 @@
         <p><ol marker="1">
             <li>
                 <p>Devise an experiment to verify that the vector index operator is
-                    <m>O(1)</m></p>
+                    <m>O(1)</m>.</p>
             </li>
             <li>
                 <p>Devise an experiment to verify that find and insert are
