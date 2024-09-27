@@ -67,7 +67,7 @@
             very different view of the computer. They must know the details of how
             operating systems work, how network protocols are configured, and how to
             code various scripts that control function. They must be able to control
-            the low-level details that a user simply assumes. </p>
+            the low-level details that a user simply assumes.</p>
         <p>The common point for both of these examples is that the user of the
             abstraction, sometimes also called the client, does not need to know the
             details as long as the user is aware of the way the interface works.
