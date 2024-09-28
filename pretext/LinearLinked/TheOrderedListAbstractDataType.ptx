@@ -99,7 +99,6 @@
             <p>Click here for more information about STL <url href="http://www.cplusplus.com/reference/list/list/" visual="http://www.cplusplus.com/reference/list/list/">lists</url>.</p>
         </subsection>
         <p>
-            
+                <!-- extra space before the progress bar -->
         </p>
-    </section>
-
+</section>

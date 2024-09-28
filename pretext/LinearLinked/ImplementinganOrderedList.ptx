@@ -379,6 +379,6 @@ int main() {
     </exercise>
         </subsection>
         <p>
-            
+            <!-- extra space before the progress bar -->            
         </p>
-    </section>
+</section>

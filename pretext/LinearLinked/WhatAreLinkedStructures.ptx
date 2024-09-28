@@ -30,7 +30,6 @@
             switch between, the more time it takes to finish them.</p>
         <p>This is accomplished by the operating system's use of a circular linked list.</p>
         <p>
-            
+            <!-- extra space before the progress bar -->            
         </p>
-    </section>
-
+</section>
