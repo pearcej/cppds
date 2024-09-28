@@ -157,5 +157,7 @@ main()
             an opening symbol seen earlier. At the end (lines 28-31), as long as the
             expression is balanced and the stack has been completely cleaned off,
             the string represents a correctly balanced sequence of parentheses.</p>
+        <p>
+            <!-- extra space before the progress bar -->
+        </p>
     </section>
-

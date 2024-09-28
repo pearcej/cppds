@@ -94,5 +94,7 @@
                 </gi>
             
         </glossary>
-    </section>
-    
+        <p>
+            <!-- extra space before the progress bar -->
+        </p>
+</section>

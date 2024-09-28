@@ -38,5 +38,7 @@
             other work at that moment. The keystrokes are being placed in a
             queue-like buffer so that they can eventually be displayed on the screen
             in the proper order.</p>
-    </section>
-
+        <p>
+            <!-- extra space before the progress bar -->
+        </p>
+</section>

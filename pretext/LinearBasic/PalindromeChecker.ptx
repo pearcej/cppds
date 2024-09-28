@@ -265,6 +265,7 @@ int main() {
 
     </exercise>
 </reading-questions>
-
+<p>
+    <!-- extra space before the progress bar -->        
+</p>
     </section>
-

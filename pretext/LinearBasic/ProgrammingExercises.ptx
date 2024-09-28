@@ -100,5 +100,7 @@
                     forward and backward if you ignore the blank characters.</p>
             </li>
         </ol></p>
-    </section>
-
+        <p>
+            <!-- extra space before the progress bar -->            
+        </p>
+</section>

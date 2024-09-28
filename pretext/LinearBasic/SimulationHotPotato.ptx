@@ -117,5 +117,7 @@ main()
             the queue. <c>Bill</c> in this case is the first item in the array and
             therefore moves to the front of the queue. A variation of this
             implementation, described in the exercises, allows for a random counter.</p>
-    </section>
-
+    <p>
+        <!-- extra space before the progress bar -->
+    </p>
+</section>

@@ -60,5 +60,7 @@
                     this mean for Big-O performance?</p>
             </li>
         </ol></p>
-    </section>
-
+        <p>
+            <!-- extra space before the progress bar -->
+        </p>
+</section>

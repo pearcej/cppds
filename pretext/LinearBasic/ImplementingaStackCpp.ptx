@@ -211,5 +211,7 @@ while (!m.empty()){
 
     </exercise>
 </reading-questions>  
-    </section>
-
+<p>
+    <!-- extra space before the progress bar -->            
+</p>
+</section>

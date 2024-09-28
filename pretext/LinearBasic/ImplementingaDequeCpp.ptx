@@ -144,5 +144,7 @@ main()
             the common operations that appear for adding and removing items. Again,
             the important thing is to be certain that we know where the front and
             rear are assigned in the implementation.</p>
-    </section>
-
+    <p>
+        <!-- extra space before the progress bar -->
+    </p>
+</section>

@@ -469,5 +469,8 @@ int main() {
                     to make the number of students a parameter of the simulation.</p>
             </note>
         </subsection>
-    </section>
+        <p>
+            <!-- extra space before the progress bar -->
+        </p>
+</section>
 
