@@ -1,4 +1,3 @@
-
 <section xml:id="graphs_general-depth-first-search">
         <title>General Depth First Search</title>
         <p>The knight's tour is a special case of a depth first search where the
