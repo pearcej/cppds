@@ -338,19 +338,16 @@ main()
                 <description>A completed depth first search tree with six nodes labeled A to F. The nodes are interconnected with arrows indicating the path of the search. Each node is annotated with two numbers; the first number represents the order in which the node was first visited, and the second number represents the order in which the final visit occurred, marking the node’s completion in the search. Node A is labeled "1/12", B "2/11", C "3/4", D "5/10", E "6/9", and F "7/8". This indicates the starting point of the search at node A, the backtracking steps, and the overall path taken to explore all the nodes.</description>
                 </image>
             </figure>
-        <p>The visualization below shows the entire traversal of the example graph shown above.
+        <p>The visualization in <xref ref="graphs_general_depth-dfs-vis"/> shows the entire traversal of the example graph shown above.
             Nodes attached to an orange line are connected to the node attached with a brown line.
             This relationship is directional, and mirrors what can be observed above.</p>
 
-        <figure align="center">
-    <caption>DFS Visualization</caption>
-    <video width="640" height="480" controls="controls">
-        <source src="Figures/Graphs/vis_dfs.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-    </video>
-</figure>
+        <figure xml:id="graphs_general_depth-dfs-vis" align="center">
+            <caption>DFS Visualization</caption>
+            <video label="graphs_general_depth-dfs-vis-video" source="Graphs/vis_dfs.mp4" width="80%" preview="Graphs/vis_dfs_thumb.png" />
+        </figure>
 
-    </section>
+</section>
 
 
 
