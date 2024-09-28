@@ -3,7 +3,7 @@
         <p><ol marker="1">
             <li>
                 <p>Using the hash table performance formulas given in the chapter,
-                    compute the average number of comparisons necessary when the table is</p>
+                    compute the average number of comparisons necessary when the table is:</p>
                 <p><ul>
                     <li>
                         <p>10% full</p>
