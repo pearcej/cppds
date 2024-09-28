@@ -13,5 +13,7 @@
             the performance is what it is. In later chapters you will see some
             possible implementations of both arrays and hash tables and how the
             performance depends on the implementation.</p>
+            <p>
+                <!-- extra space before the progress bar -->
+            </p>
     </section>
-

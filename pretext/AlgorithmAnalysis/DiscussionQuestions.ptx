@@ -59,5 +59,7 @@ for (int j = 0; j &lt; n; j++){
 for (int k = 0; k &lt; n; k++){
     count = count + 1;
 }</pre>
-    </section>
-
+<p>
+    <!-- extra space before the progress bar -->
+</p>
+</section>

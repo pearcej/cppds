@@ -359,6 +359,7 @@ print("%d,%10.3f,%10.3f" % (i, lst_time, d_time))
     
     <!--Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
 This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.-->
+<p>
+    <!-- extra space before the progress bar -->
+</p>
 </section>
-
-

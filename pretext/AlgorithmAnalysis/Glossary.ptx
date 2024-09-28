@@ -152,6 +152,7 @@
     <match order="4"><premise>order of magnitude</premise><response>a function describing an algorithm's steps as the size of the problem increases.</response></match>
     <match order="5"><premise>exponential</premise><response>Function represented as a number being raised to a power that increases.</response></match>
     </matches></exercise> 
-        
-    </section>
-    
+    <p>
+    <!-- extra space before the progress bar -->
+    </p>  
+</section>
