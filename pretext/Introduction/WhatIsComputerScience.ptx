@@ -121,7 +121,6 @@ print(math.sqrt(16))
                 </image>
             </figure>
             <p>
-                   
+                <!-- extra space before the progress bar -->
             </p>
     </section>
-
