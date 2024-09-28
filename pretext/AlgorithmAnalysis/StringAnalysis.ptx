@@ -130,7 +130,6 @@
             string is moved to a larger contiguous underlying array, which
             is <m>O(n)</m>.</p>
             <p>
-                   
+                <!-- extra space before the progress bar -->
             </p>
     </section>
-

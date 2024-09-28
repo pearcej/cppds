@@ -153,7 +153,6 @@
     <match order="5"><premise>exponential</premise><response>Function represented as a number being raised to a power that increases.</response></match>
     </matches></exercise> 
     <p>
-                   
+    <!-- extra space before the progress bar -->
     </p>  
-    </section>
-    
+</section>

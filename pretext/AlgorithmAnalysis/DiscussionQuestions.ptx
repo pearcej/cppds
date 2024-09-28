@@ -60,7 +60,6 @@ for (int k = 0; k &lt; n; k++){
     count = count + 1;
 }</pre>
 <p>
-                   
+    <!-- extra space before the progress bar -->
 </p>
-    </section>
-
+</section>
