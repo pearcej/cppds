@@ -108,78 +108,69 @@ main()
         </input>
     </program>
             </TabNode>
-        <raw format="html" xml:space="preserve">&lt;script src="../_static/sortmodels.js"&gt;&lt;/script&gt;
-&lt;script src="../_static/sortviewers.js"&gt;&lt;/script&gt;
 
-&lt;div id="bubble_anim" class=""&gt;
-&lt;canvas id="bubble_anim_canvas" width="400" height="400" style="border:4px solid blue"&gt;&lt;/canvas&gt;
-&lt;br /&gt;
-&lt;button onclick="bubble_anim_anim = bubble_anim_init('bubble_anim')"&gt;Initialize&lt;/button&gt;
-&lt;button onclick="bubble_anim_anim.run('bubble_anim_anim')"&gt;Run&lt;/button&gt;
-&lt;button onclick="bubble_anim_anim.stop()"&gt;Stop&lt;/button&gt; &lt;/br&gt;
-&lt;button onclick="bubble_anim_anim.begin()"&gt;Beginning&lt;/button&gt;
-&lt;button onclick="bubble_anim_anim.forward()"&gt;Step Forward&lt;/button&gt;
-&lt;button onclick="bubble_anim_anim.backward()"&gt;Step Backward&lt;/button&gt;
-&lt;button onclick="bubble_anim_anim.end()"&gt;End&lt;/button&gt;
-
-&lt;script&gt;
-bubble_anim_init = function(divid)
-{
-   var a = new Animator(new BubbleSortModel(), new BarViewer(), divid)
-   a.init()
-   return a
-}
-&lt;/script&gt;
-
-&lt;/div&gt;
-</raw>
-        <p>The following animation shows <c>bubbleSort</c> in action. The sort compares two
-            items at a time. Once it finds two out of place blocks it will find the correct place
-            for the smaller block and then resets for another pass through.</p>
-        <raw format="html" xml:space="preserve">&lt;div id="bubble_sort" class="video_popup runestone " &gt;
-&lt;video controls preload="none"  poster="../_static/vis_bubble_sort_thumb.png"&gt;
-    &lt;source src="../_static/vis_bubble_sort.webm" type="video/webm"&gt;&lt;/source&gt;
-    No supported video types
-&lt;/video&gt;
-&lt;/div&gt;
-&lt;script&gt;
-  window.addEventListener('load', (event) =&gt; {
-    jQuery(function($) {
-        var rb = new RunestoneBase();
-        $('#bubble_sort_thumb').click(function(e) {
-            $('#bubble_sort').show();
-            $('#bubble_sort_thumb').hide();
-            rb.logBookEvent({'event':'video','act':'play','div_id': 'bubble_sort'});
-            // Log the run event
-        });
-        $('#bubble_sort video').one("click", function(){
-            this.play();
-        });
-        $('#bubble_sort video').one("play", function(){
-            rb.logBookEvent({'event':'video','act':'play','div_id': 'bubble_sort'});
-        });
-    });
-  });
-&lt;/script&gt;
-</raw>
-        <!--For more detail, CodeLens 1 allows you to step through the algorithm.-->
-        <!---->
-        <!--.. codelens:: bubbletrace-->
-        <!--:caption: Tracing the Bubble Sort-->
-        <!---->
-        <!--def bubbleSort(alist):-->
-        <!--for passnum in range(len(alist)-1,0,-1):-->
-        <!--for i in range(passnum):-->
-        <!--if alist[i]>alist[i+1]:-->
-        <!--temp = alist[i]-->
-        <!--alist[i] = alist[i+1]-->
-        <!--alist[i+1] = temp-->
-        <!---->
-        <!--alist = [54,26,93,17,77,31,44,55,20]-->
-        <!--bubbleSort(alist)-->
-        <!--print(alist)-->
-        <p>This visualization allows you to step through the algorithm. Red bars represent
+    <p>The visualization in <xref ref="sort_bubblesort-animation"/> allows you to step through the algorithm. Red bars represent
             the elements being looked at.</p>
+
+    <figure xml:id="sort_bubblesort-animation">
+        <caption>Bubblesort animation.</caption>
+        <interactive platform="javascript" source="Sort/sortmodels.js" width="100%" aspect="10:8">
+            <sidebyside width="90%">
+                <slate aspect="10:6" xml:id="bubble_anim_canvas" surface="canvas"/>
+            </sidebyside>
+            <sidebyside widths="18% 18% 18% 18% 18%">
+                <slate surface="html">
+                    <input type="button" value="Initialize" onkeypress="bubble_anim_anim = bubble_anim_init('bubble_anim');" onclick="bubble_anim_anim = bubble_anim_init('bubble_anim');" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+                <slate surface="html">
+                    <input type="button" value="Run" onkeypress="bubble_anim_anim.run('bubble_anim_anim');" onclick="bubble_anim_anim.run('bubble_anim_anim');" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+                <slate surface="html">
+                    <input type="button" value="Stop" onkeypress="bubble_anim_anim.stop();" onclick="bubble_anim_anim.stop();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+                <slate surface="html">
+                    <input type="button" value="Beginning" onkeypress="bubble_anim_anim.begin();" onclick="bubble_anim_anim.begin();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+                <slate surface="html">
+                    <input type="button" value="End" onkeypress="bubble_anim_anim.end();" onclick="bubble_anim_anim.end();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+            </sidebyside>
+            <sidebyside widths="30% 30%" margins="20%">
+                <slate surface="html">
+                    <input type="button" value="Step Forward" onkeypress="bubble_anim_anim.forward();" onclick="bubble_anim_anim.forward();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+                <slate surface="html">
+                    <input type="button" value="Step Backward" onkeypress="bubble_anim_anim.backward();" onclick="bubble_anim_anim.backward();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+            </sidebyside>
+            <script><![CDATA[
+                // Load the rest of the scripts
+                // I can't figure out a better way to load multiple scripts in pretext
+
+                var script = document.createElement('script');
+                script.src = 'external/Sort/animationbase.js';
+                document.body.appendChild(script);
+
+                script = document.createElement('script');
+                script.src = 'external/Sort/sortviewers.js';
+                document.body.appendChild(script);
+
+                bubble_anim_init = function(divid)
+                {
+                    var a = new Animator(new BubbleSortModel(), new BarViewer(), divid)
+                    a.init()
+                    return a
+                }
+            ]]></script>
+        </interactive>
+    </figure>
+
+        <p>The following video shows <c>bubbleSort</c> in action. The sort compares two
+            items at a time (shown in blue). Once it finds two out of place blocks it will find the correct place
+            for the smaller block and then reset for another pass.</p>
+
+        <video label="sort_bubble_sort-video" source="Sort/vis_bubble_sort.webm" width="80%" preview="Sort/vis_bubble_sort_thumb.png" />
+
         <p>To analyze the bubble sort, we should note that regardless of how the
             items are arranged in the initial array, <m>n-1</m> passes will be
             made to sort an array of size <em>n</em>. <xref ref="sort_tbl-bubbleanalysis"/> shows the number
