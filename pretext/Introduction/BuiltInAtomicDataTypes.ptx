@@ -983,4 +983,7 @@ int main( ) {
       </exercise>
     </subsubsection>
   </subsection>
+  <p>
+    <!-- extra space before the progress bar -->
+  </p>
 </section>

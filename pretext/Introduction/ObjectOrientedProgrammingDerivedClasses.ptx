@@ -762,4 +762,7 @@ int main() {
 
         </reading-questions>
         </subsection>
+        <p>
+            <!-- extra space before the progress bar -->   
+        </p>
     </section>
