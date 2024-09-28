@@ -171,24 +171,6 @@ main()
 
         <video label="sort_bubble_sort-video" source="Sort/vis_bubble_sort.webm" width="80%" preview="Sort/vis_bubble_sort_thumb.png" />
 
-        <!--For more detail, CodeLens 1 allows you to step through the algorithm.-->
-        <!---->
-        <!--.. codelens:: bubbletrace-->
-        <!--:caption: Tracing the Bubble Sort-->
-        <!---->
-        <!--def bubbleSort(alist):-->
-        <!--for passnum in range(len(alist)-1,0,-1):-->
-        <!--for i in range(passnum):-->
-        <!--if alist[i]>alist[i+1]:-->
-        <!--temp = alist[i]-->
-        <!--alist[i] = alist[i+1]-->
-        <!--alist[i+1] = temp-->
-        <!---->
-        <!--alist = [54,26,93,17,77,31,44,55,20]-->
-        <!--bubbleSort(alist)-->
-        <!--print(alist)-->
-        <p>This visualization allows you to step through the algorithm. Red bars represent
-            the elements being looked at.</p>
         <p>To analyze the bubble sort, we should note that regardless of how the
             items are arranged in the initial array, <m>n-1</m> passes will be
             made to sort an array of size <em>n</em>. <xref ref="sort_tbl-bubbleanalysis"/> shows the number
