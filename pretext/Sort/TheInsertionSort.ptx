@@ -183,7 +183,7 @@ main()
 
     <figure xml:id="sort_insertion-video">
         <caption>Video of <c>insertionSort</c> in action.</caption>
-        <video label="sort_bubble_sort-video" source="Sort/vis_insertion_sort.webm" width="80%" preview="Sort/vis_insertion_sort_thumb.png" />
+        <video label="sort_insertion_sort-video" source="Sort/vis_insertion_sort.webm" width="80%" preview="Sort/vis_insertion_sort_thumb.png" />
     </figure>
 
 <reading-questions xml:id="rq-insertion-sort">
