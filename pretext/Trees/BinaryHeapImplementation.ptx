@@ -9,10 +9,10 @@
                 root. In our heap implementation we keep the tree balanced by creating a
                 <term>complete binary tree</term>. A complete binary tree is a tree in which each
                 level has all of its nodes. The exception to this is the bottom level of
-                the tree, which we fill in from left to right. <xref ref="fig-comptree"/>
+                the tree, which we fill in from left to right. <xref ref="binheap_fig-comptree"/>
                 shows an example of a complete binary tree.</p>
             
-            <figure align="center" xml:id="fig-comptree">
+            <figure align="center" xml:id="binheap_fig-comptree">
                 <caption>A Complete Binary Tree.</caption>
                     <image source="Trees/compTree.png" width="80%">
                     <description>Diagram of a complete binary tree. The top node, or the root, is labeled '5'. This root node has two child nodes: '9' to the left and '11' to the right. Each of these child nodes further branches out into two more nodes. The left child '9' has nodes '14' and '18' as children. '14' has a single left child labeled '33', while '18' has two children labeled '17' and '27'. On the right side, the child '11' has two children labeled '19' and '21'. The tree is balanced and each level is fully filled except for the last level, which is filled from the left. The image is labeled 'Figure 1: A Complete Binary Tree'.</description>
@@ -27,7 +27,7 @@
                 position <m>2p + 1</m> in the vector. To find the parent of any node in
                 the tree, we can simply use Python's integer division. Given that a node
                 is at position <m>n</m> in the vector, the parent is at position
-                <m>n/2</m>. <xref ref="fig-heaporder"/> shows a complete binary tree
+                <m>n/2</m>. <xref ref="binheap_fig-heaporder"/> shows a complete binary tree
                 and also gives the vector representation of the tree.  Note the <m>2p</m> and <m>2p+1</m> relationship between
                 parent and children. The vector
                 representation of the tree, along with the full structure property,
@@ -41,11 +41,11 @@
                 maintaining the heap order property. The <term>heap order property</term> is as
                 follows: In a binary heap, for every node <m>x</m> with parent <m>p</m>,
                 the key in <m>p</m> is smaller than or equal to the key in
-                <m>x</m>. <xref ref="fig-heaporder"/> also illustrates a complete binary
+                <m>x</m>. <xref ref="binheap_fig-heaporder"/> also illustrates a complete binary
                 tree that has the heap order property.</p>
             
 
-            <figure align="center" xml:id="fig-heaporder">
+            <figure align="center" xml:id="binheap_fig-heaporder">
                 <caption>A Complete Binary Tree, along with its Vector Representation.</caption>
                     <image source="Trees/heapOrder.png" width="80%">
                     <description>The image depicts a complete binary tree at the top and its corresponding vector representation at the bottom. The binary tree has a root node labeled '5', which branches out to two nodes labeled '9' on the left and '11' on the right. The '9' node further branches into '14' and '18', which in turn have children '33' and '17', and '27', respectively. The '11' node branches into '19' and '21'. Below the binary tree, there is a vector representation with indexed positions from 0 to 11. The values in the vector are arranged as '5', '9', '11', '14', '18', '19', '21', '33', '17', '27', respecting the binary tree's structure. The image is labeled 'Figure 2: A Complete Binary Tree, along with its Vector Representation'.</description>
@@ -58,12 +58,12 @@
                 Since the entire binary heap can be represented by a single vector, all
                 the constructor will do is initialize the vector and an attribute
                 <c>currentSize</c> to keep track of the current size of the heap.
-                <xref ref="lst-heap1a"/> shows the C++ code for the constructor. You
+                <xref ref="binheap_lst-heap1a"/> shows the C++ code for the constructor. You
                 will notice that an empty binary heap has a single zero as the first
                 element of <c>heapList</c> and that this zero is not used, but is there so
                 that simple integer division can be used in later methods.</p>
             
-            <p xml:id="trees_lst-heap1a" names="lst_heap1a"><term>Listing 1</term></p>
+            <p xml:id="binheap_lst-heap1a"><term>Listing 1</term></p>
             <pre>class BinHeap{
     private:
         vector&lt;int&gt; heapvector;
@@ -83,29 +83,29 @@
                 property. However, it is possible to write a method that will allow us
                 to regain the heap structure property by comparing the newly added item
                 with its parent. If the newly added item is less than its parent, then
-                we can swap the item with its parent. <xref ref="trees-binheap-fig-percup"/> shows the
+                we can swap the item with its parent. <xref ref="binheap_fig-percup"/> shows the
                 series of swaps needed to percolate the newly added item up to its
                 proper position in the tree.</p>
             
-            <figure align="center" xml:id="trees-binheap-fig-percup"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Percolate the New Node up to Its Proper Position.</caption><image source="Trees/percUp.png" width="50%" alt="image"/></figure>
+            <figure align="center" xml:id="binheap_fig-percup"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Percolate the New Node up to Its Proper Position.</caption><image source="Trees/percUp.png" width="50%" alt="image"/></figure>
             
             <p>Notice that when we percolate an item up, we are restoring the heap
                 property between the newly added item and the parent. We are also
                 preserving the heap property for any siblings. Of course, if the newly
                 added item is very small, we may still need to swap it up another level.
                 In fact, we may need to keep swapping until we get to the top of the
-                tree. <xref ref="lst-heap2"/> shows the <c>percUp</c> method, which
+                tree. <xref ref="binheap_lst-heap2"/> shows the <c>percUp</c> method, which
                 percolates a new item as far up in the tree as it needs to go to
                 maintain the heap property. Here is where our wasted element in
                 <c>heapvector</c> is important. Notice that we can compute the parent of any
                 node by using simple integer division. The parent of the current node
                 can be computed by dividing the index of the current node by 2.</p>
-            <p>We are now ready to write the <c>insert</c> method (see <xref ref="lst-heap3"/>). Most of the work in the
+            <p>We are now ready to write the <c>insert</c> method (see <xref ref="binheap_lst-heap3"/>). Most of the work in the
                 <c>insert</c> method is really done by <c>percUp</c>. Once a new item is
                 appended to the tree, <c>percUp</c> takes over and positions the new item
                 properly.</p>
             
-            <p xml:id="trees_lst-heap2" names="lst_heap2"><term>Listing 2</term></p>
+            <p xml:id="binheap_lst-heap2"><term>Listing 2</term></p>
             <pre>void percUp(int i){
     while ((i / 2) &gt; 0){
         if (this-&gt;heapvector[i] &lt; this-&gt;heapvector[i/2]){
@@ -117,7 +117,7 @@
     }
 }</pre>
             
-            <p xml:id="trees_lst-heap3" names="lst_heap3"><term>Listing 3</term></p>
+            <p xml:id="binheap_lst-heap3" names="lst_heap3"><term>Listing 3</term></p>
             <pre>void insert(int k){
     this-&gt;heapvector.push_back(k);
     this-&gt;currentSize = this-&gt;currentSize + 1;
@@ -133,20 +133,20 @@
                 Moving the last item maintains our heap structure property. However, we
                 have probably destroyed the heap order property of our binary heap.
                 Second, we will restore the heap order property by pushing the new root
-                node down the tree to its proper position. <xref ref="fig-percdown"/> shows
+                node down the tree to its proper position. <xref ref="binheap_fig-percdown"/> shows
                 the series of swaps needed to move the new root node to its proper
                 position in the heap.</p>
             
-            <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Percolating the Root Node down the Tree.</caption><image source="Trees/percDown.png" width="50%" alt="image"/></figure>
+            <figure align="center" xml:id="binheap_fig-percdown"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Percolating the Root Node down the Tree.</caption><image source="Trees/percDown.png" width="50%" alt="image"/></figure>
             <p>In order to maintain the heap order property, all we need to do is swap
                 the root with its smallest child less than the root. After the initial
                 swap, we may repeat the swapping process with a node and its children
                 until the node is swapped into a position on the tree where it is
                 already less than both children. The code for percolating a node down
                 the tree is found in the <c>percDown</c> and <c>minChild</c> methods in
-                <xref ref="lst-heap4"/>.</p>
+                <xref ref="binheap_lst-heap4"/>.</p>
             
-            <p xml:id="trees_lst-heap4" names="lst_heap4"><term>Listing 4</term></p>
+            <p xml:id="binheap_lst-heap4"><term>Listing 4</term></p>
             <pre>void percDown(int i){
     while ((i*2) &lt;= this-&gt;currentSize){
         int mc = this-&gt;minChild(i);
@@ -172,11 +172,11 @@ int minChild(int i){
         }
     }
 }</pre>
-            <p>The code for the <c>delmin</c> operation is in <xref ref="lst-heap5"/>. Note
+            <p>The code for the <c>delmin</c> operation is in <xref ref="binheap_lst-heap5"/>. Note
                 that once again the hard work is handled by a helper function, in this
                 case <c>percDown</c>.</p>
             
-            <p xml:id="trees_lst-heap5" names="lst_heap5"><term>Listing 5</term></p>
+            <p xml:id="binheap_lst-heap5" names="lst_heap5"><term>Listing 5</term></p>
             <pre>int delMin(){
     if (this-&gt;currentSize &gt; 1){
         int retval = this-&gt;heapvector[1];
@@ -207,10 +207,10 @@ int minChild(int i){
                 room for the new key. Therefore, to insert <m>n</m> keys into the
                 heap would require a total of <m>O(n \log{n})</m> operations.
                 However, if we start with an entire vector then we can build the whole
-                heap in <m>O(n)</m> operations. <xref ref="lst-heap6"/> shows the code
+                heap in <m>O(n)</m> operations. <xref ref="binheap_lst-heap6"/> shows the code
                 to build the entire heap.</p>
             
-            <p xml:id="trees_lst-heap6" names="lst_heap6"><term>Listing 6</term></p>
+            <p xml:id="binheap_lst-heap6"><term>Listing 6</term></p>
             <pre>void buildheap(vector&lt;int&gt; avector){
     int i = avector.size() / 2;
     this-&gt;currentSize = avector.size();
@@ -221,8 +221,8 @@ int minChild(int i){
     }
 }</pre>
             
-            <figure align="center" xml:id="id5"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Building a Heap from the vector [9, 6, 5, 2, 3].</caption><image source="Trees/buildheap.png" width="50%" alt="image"/></figure>
-            <p><xref ref="fig-buildheap"/> shows the swaps that the <c>buildHeap</c> method
+            <figure align="center" xml:id="binheap_fig-buildheap"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Building a Heap from the vector [9, 6, 5, 2, 3].</caption><image source="Trees/buildheap.png" width="50%" alt="image"/></figure>
+            <p><xref ref="binheap_fig-buildheap"/> shows the swaps that the <c>buildHeap</c> method
                 makes as it moves the nodes in an initial tree of [9, 6, 5, 2, 3] into
                 their proper positions. Although we start out in the middle of the tree
                 and work our way back toward the root, the <c>percDown</c> method ensures
@@ -231,14 +231,14 @@ int minChild(int i){
                 and therefore have no children. Notice that when <c>i=1</c>, we are
                 percolating down from the root of the tree, so this may require multiple
                 swaps. As you can see in the rightmost two trees of
-                <xref ref="fig-buildheap"/>, first the 9 is moved out of the root position,
+                <xref ref="binheap_fig-buildheap"/>, first the 9 is moved out of the root position,
                 but after 9 is moved down one level in the tree, <c>percDown</c> ensures
                 that we check the next set of children farther down in the tree to
                 ensure that it is pushed as low as it can go. In this case it results in
                 a second swap with 3. Now that 9 has been moved to the lowest level of
                 the tree, no further swapping can be done. It is useful to compare the
                 vector representation of this series of swaps as shown in
-                <xref ref="fig-buildheap"/> with the tree representation.</p>
+                <xref ref="binheap_fig-buildheap"/> with the tree representation.</p>
             <pre>i = 2  [0, 9, 5, 6, 2, 3]
 i = 1  [0, 9, 2, 6, 5, 3]
 i = 0  [0, 2, 3, 6, 5, 9]</pre>
@@ -476,7 +476,7 @@ main()
     
         <exercise>
             <statement>
-    <p>What is the vector used in the binary tree in the first image of <xref ref="fig-percdown"/>? Exclude any whitespace. <var/>  </p></statement><setup><var><condition string="^\s*0,9,14,11,17,18,19,21,33,27\s*$"><feedback><p>Is the correct answer!</p></feedback></condition><condition string="^\s*.*9,14,11,17,18,19,21,33,27\s*$"><feedback><p>Remember what has to be at the beginning of the vector to accurately traverse through the binary tree. Look back at chp. 8.9.2.</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>Refer to section 8.10.1 and 8.10.2</p></feedback></condition></var></setup></exercise> </reading-questions>
+    <p>What is the vector used in the binary tree in the first image of <xref ref="binheap_fig-percdown"/>? Exclude any whitespace. <var/>  </p></statement><setup><var><condition string="^\s*0,9,14,11,17,18,19,21,33,27\s*$"><feedback><p>Is the correct answer!</p></feedback></condition><condition string="^\s*.*9,14,11,17,18,19,21,33,27\s*$"><feedback><p>Remember what has to be at the beginning of the vector to accurately traverse through the binary tree. Look back at chp. 8.9.2.</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>Refer to section 8.10.1 and 8.10.2</p></feedback></condition></var></setup></exercise> </reading-questions>
 </subsection>
     </section>
 
