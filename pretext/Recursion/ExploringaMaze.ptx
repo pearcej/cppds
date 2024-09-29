@@ -10,35 +10,14 @@
             Theseus used a ball of thread to help him find his way back out again
             once he had finished off the beast. In our problem we will assume that
             our starting position is dropped down somewhere into the middle of the maze,
-            a fair distance from any exit. Look at <xref ref="fig-mazescreen"/> to get an idea of
+            a fair distance from any exit. Look at <xref ref="recursion-fig-maze"/> to get an idea of
             where we are going in this section.</p>
-        
-        <raw format="html" xml:id="recursion_fig-mazescreen" names="fig_mazescreen" xml:space="preserve">&lt;div id="vis_maze" class="video_popup runestone " &gt;
-&lt;video controls preload="none"  poster="../_static/vis_maze_thumb.png"&gt;
-    &lt;source src="../_static/vis_maze.webm" type="video/webm"&gt;&lt;/source&gt;
-    No supported video types
-&lt;/video&gt;
-&lt;/div&gt;
-&lt;script&gt;
-  window.addEventListener('load', (event) =&gt; {
-    jQuery(function($) {
-        var rb = new RunestoneBase();
-        $('#vis_maze_thumb').click(function(e) {
-            $('#vis_maze').show();
-            $('#vis_maze_thumb').hide();
-            rb.logBookEvent({'event':'video','act':'play','div_id': 'vis_maze'});
-            // Log the run event
-        });
-        $('#vis_maze video').one("click", function(){
-            this.play();
-        });
-        $('#vis_maze video').one("play", function(){
-            rb.logBookEvent({'event':'video','act':'play','div_id': 'vis_maze'});
-        });
-    });
-  });
-&lt;/script&gt;
-</raw>
+
+        <figure xml:id="recursion-fig-maze">
+            <caption>Exploring the maze.</caption>
+            <video label="recursion-maze-video" source="Recursion/vis_maze.webm" width="80%" preview="Recursion/vis_maze_thumb.png"/>
+        </figure>
+
         <p>To make it easier for us we will assume that our maze is divided up into
             <q>squares.</q> Each square of the maze is either open or occupied by a
             section of wall. We can only pass through the open squares of
