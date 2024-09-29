@@ -168,71 +168,76 @@ main()
             will not divide evenly. The first split gives [44] and the second gives
             [55,20]. It is easy to see how the splitting process eventually yields a
             vector that can be immediately merged with other sorted vectors.</p>
-           
-            
-            <interactive>
-                <script src="pretext/_static/sortmodels.js"></script>
-                <script src="pretext/_static/sortviewers.js"></script>
-                <div id="merge_anim" class="">
-                  <canvas id="merge_anim_canvas" width="400" height="400" style="border:4px solid blue"></canvas>
-                  <br />
-                  <button onclick="merge_anim_anim = merge_anim_init('merge_anim')">Initialize</button>
-                  <button onclick="merge_anim_anim.run('merge_anim_anim')">Run</button>
-                  <button onclick="merge_anim_anim.stop()">Stop</button> <br />
-                  <button onclick="merge_anim_anim.begin()">Beginning</button>
-                  <button onclick="merge_anim_anim.forward()">Step Forward</button>
-                  <button onclick="merge_anim_anim.backward()">Step Backward</button>
-                  <button onclick="merge_anim_anim.end()">End</button>
-                  <script>
-                    function merge_anim_init(divid) {
-                      var a = new Animator(new MergeSortModel(), new BarViewer(), divid);
-                      a.init();
-                      return a;
+
+        <p>The visualization in <xref ref="sort_mergesort-animation"/> allows you to step through the algorithm. Red bars represent
+            the element being looked at and blue represents the last element to look at
+            during a pass.</p>
+
+        <figure xml:id="sort_mergesort-animation">
+            <caption>Mergesort animation.</caption>
+            <interactive platform="javascript" source="Sort/sortmodels.js" width="100%" aspect="10:8">
+                <sidebyside width="90%">
+                    <slate aspect="10:6" xml:id="merge_anim_canvas" surface="canvas"/>
+                </sidebyside>
+                <sidebyside widths="18% 18% 18% 18% 18%">
+                    <slate surface="html">
+                        <input type="button" value="Initialize" onkeypress="merge_anim_anim = merge_anim_init('merge_anim');" onclick="merge_anim_anim = merge_anim_init('merge_anim');" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    </slate>
+                    <slate surface="html">
+                        <input type="button" value="Run" onkeypress="merge_anim_anim.run('merge_anim_anim');" onclick="merge_anim_anim.run('merge_anim_anim');" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    </slate>
+                    <slate surface="html">
+                        <input type="button" value="Stop" onkeypress="merge_anim_anim.stop();" onclick="merge_anim_anim.stop();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    </slate>
+                    <slate surface="html">
+                        <input type="button" value="Beginning" onkeypress="merge_anim_anim.begin();" onclick="merge_anim_anim.begin();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    </slate>
+                    <slate surface="html">
+                        <input type="button" value="End" onkeypress="merge_anim_anim.end();" onclick="merge_anim_anim.end();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    </slate>
+                </sidebyside>
+                <sidebyside widths="30% 30%" margins="20%">
+                    <slate surface="html">
+                        <input type="button" value="Step Forward" onkeypress="merge_anim_anim.forward();" onclick="merge_anim_anim.forward();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    </slate>
+                    <slate surface="html">
+                        <input type="button" value="Step Backward" onkeypress="merge_anim_anim.backward();" onclick="merge_anim_anim.backward();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    </slate>
+                </sidebyside>
+                <script><![CDATA[
+                    // Load the rest of the scripts
+                    // I can't figure out a better way to load multiple scripts in pretext
+    
+                    var script = document.createElement('script');
+                    script.src = 'external/Sort/animationbase.js';
+                    document.body.appendChild(script);
+    
+                    script = document.createElement('script');
+                    script.src = 'external/Sort/sortviewers.js';
+                    document.body.appendChild(script);
+    
+                    merge_anim_init = function(divid)
+                    {
+                        var a = new Animator(new MergeSortModel(), new BarViewer(), divid)
+                        a.init()
+                        return a
                     }
-                  </script>
-                </div>
-              </interactive>
-              <p>The visualization above allows you to step through the algorithm. Red bars represent
-                 the element being looked at and blue represents the last element to look at
-                 during a pass.</p>
-              <interactive>
-                <div id="vis_merge_sort" class="video_popup runestone">
-                  <video id="video_element" controls="" preload="none" poster="pretext/_static/vis_merge_sort_thumb.png">
-                    <source src="pretext/_static/vis_merge_sort.mp4" type="video/mp4"/>
-                    <source src="pretext/_static/vis_merge_sort.webm" type="video/webm"/>
-                    <source src="pretext/_static/vis_merge_sort.ogv" type="video/ogg"/>
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <script>
-                  window.addEventListener('load', (event) => {
-                    jQuery(function($) {
-                      var rb = new RunestoneBase();
-                      // Ensure the video is correctly referenced
-                      $('#video_element').on('error', function(e) {
-                        console.log("Video load error: ", e);
-                      });
-                      $('#vis_merge_sort_thumb').click(function(e) {
-                        $('#vis_merge_sort').show();
-                        $('#vis_merge_sort_thumb').hide();
-                        rb.logBookEvent({'event':'video','act':'play','div_id': 'vis_merge_sort'});
-                      });
-                      $('#video_element').one("click", function(){
-                        this.play();
-                      });
-                      $('#video_element').one("play", function(){
-                        rb.logBookEvent({'event':'video','act':'play','div_id': 'vis_merge_sort'});
-                      });
-                    });
-                  });
-                </script>
-              </interactive>
-              
-        <p>The visualization above highlights the individual components of the algorithm itself.
+                ]]></script>
+            </interactive>
+        </figure>
+
+        <p>The video in <xref ref="sort_merge-video"/> highlights the individual components of the algorithm itself.
+
             The arrows on the bottom indicate the left, middle, and right portions that the
             algorithm is currently examining. Left and right components are indicated by the color
             brown, while the middle is indicated by orange. Look for the <q>divide-and-conquer</q> aspect
             of the algorithm here.</p>
+
+        <figure xml:id="sort_merge-video">
+            <caption>Video of <c>mergeSort</c> in action.</caption>
+            <video label="sort_merge_sort-video" source="Sort/vis_merge_sort.webm" width="80%" preview="Sort/vis_merge_sort_thumb.png" />
+        </figure>
+
         <p>In order to analyze the <c>mergeSort</c> function, we need to consider the
             two distinct processes that make up its implementation. First, the vector
             is split into halves. We already computed (in a binary search) that we
