@@ -40,7 +40,7 @@
             the rear as you move items in and out of the collection as things can
             get a bit confusing.</p>
         
-        <table xml:id="linear-basic_id1"><tabular>
+        <table xml:id="linear-basic_dequeue-examples"><tabular>
             <title><term>Table 1: Examples of Deque Operations</term></title>
             
                 
