@@ -46,7 +46,7 @@
             going on the stack). The current page that you are viewing is on the top
             and the first page you looked at is at the base. If you click on the
             Back button, you begin to move in reverse order through the pages.</p>
-            <reading-questions xml:id="rq-what-is-stack">
+            <reading-questions xml:id="rq-stack-adt">
                 <title>Reading Question</title>
                 <exercise label="stack_prob" indent="show" language="python"><statement>
                         <p>Say we create a stack by pushing numbers 1 to 4 from lowest to highest. What would the stack look like afterwards?</p>
