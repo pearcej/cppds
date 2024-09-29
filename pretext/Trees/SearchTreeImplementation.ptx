@@ -5,13 +5,13 @@
             keys that are greater than the parent are found in the right subtree. We
             will call this the <term>bst property</term>. As we implement the Map interface
             as described above, the bst property will guide our implementation.
-            <xref ref="fig-simplebst"/> illustrates this property of a binary search
+            <xref ref="bst_fig-simplebst"/> illustrates this property of a binary search
             tree, showing the keys without any associated values. Notice that the
             property holds for each parent and child. All of the keys in the left
             subtree are less than the key in the root. All of the keys in the right
             subtree are greater than the root.</p>
         
-        <figure align="center" xml:id="fig-simplebst"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">A Simple Binary Search Tree.</caption><image source="Trees/simpleBST.png" width="50%"/></figure>
+        <figure align="center" xml:id="bst_fig-simplebst"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">A Simple Binary Search Tree.</caption><image source="Trees/simpleBST.png" width="50%"/></figure>
         <p>Now that you know what a binary search tree is, we will look at how a
             binary search tree is constructed. The search tree in
             <xref ref="fig-simplebst"/> represents the nodes that exist after we have
@@ -39,11 +39,11 @@
             the case where the tree is empty or we want to delete the key at the
             root of the tree, we must take special action. The code for the
             <c>BinarySearchTree</c> class constructor along with a few other
-            miscellaneous functions is shown in <xref ref="lst-bst1"/>.</p>
+            miscellaneous functions is shown in <xref ref="bst_lst-bst1"/>.</p>
 
     
         
-        <p xml:id="trees_lst-bst1" names="lst_bst1"><term>Listing 1</term></p>
+        <p xml:id="bst_lst-bst1"><term>Listing 1</term></p>
         <pre>class BinarySearchTree{
     private:
         TreeNode *root;
@@ -62,7 +62,7 @@
         <p>The <c>TreeNode</c> class provides many helper functions that make the work
             done in the <c>BinarySearchTree</c> class methods much easier. The
             constructor for a <c>TreeNode</c>, along with these helper functions, is
-            shown in <xref ref="lst-bst2"/>. As you can see in the listing many of
+            shown in <xref ref="bst_lst-bst2"/>. As you can see in the listing many of
             these helper functions help to classify a node according to its own
             position as a child, (left or right) and the kind of children the node
             has.
@@ -70,7 +70,7 @@
             of the parent as an attribute of each node. You will see why this is
             important when we discuss the implementation for the <c>del</c> operator.</p>
         <p>Another interesting aspect of the implementation of <c>TreeNode</c> in
-            <xref ref="lst-bst2"/> is that we use C++'s optional parameters.
+            <xref ref="bst_lst-bst2"/> is that we use C++'s optional parameters.
             Optional parameters make it easy for us to create a <c>TreeNode</c> under
             several different circumstances. Sometimes we will want to construct a
             new <c>TreeNode</c> that already has both a <c>parent</c> and a <c>child</c>.
@@ -80,7 +80,7 @@
             <c>child</c>. In this case, the default values of the optional parameters
             are used.</p>
         
-        <p xml:id="trees_lst-bst2" names="lst_bst2"><term>Listing 2</term></p>
+        <p xml:id="bst_lst-bst2"><term>Listing 2</term></p>
         <pre>class TreeNode{
     public:
         int key;
@@ -167,7 +167,7 @@
                     insert the object at the point discovered in the previous step.</p>
             </li>
         </ul></p>
-        <p><xref ref="lst-bst3"/> shows the C++ code for inserting a new node in
+        <p><xref ref="bst_lst-bst3"/> shows the C++ code for inserting a new node in
             the tree. The <c>_put</c> function is written recursively following the
             steps outlined above. Notice that when a new child is inserted into the
             tree, the <c>currentNode</c> is passed to the new tree as the parent.</p>
@@ -180,7 +180,7 @@
             associated with the new key to replace the old value. We leave fixing
             this bug as an exercise for you.</p>
         
-        <p xml:id="trees_lst-bst3" names="lst_bst3"><term>Listing 3</term></p>
+        <p xml:id="bst_lst-bst3" names="lst_bst3"><term>Listing 3</term></p>
         <pre>void put(int key, string val){
     if (this-&gt;root){
         this-&gt;_put(key, val, this-&gt;root);
@@ -209,11 +209,11 @@ void _put(int key, string val, TreeNode *currentNode){
         }
     }
 }</pre>
-        <p><xref ref="fig-bstput"/> illustrates the process for inserting a new node
+        <p><xref ref="bst_fig-bstput"/> illustrates the process for inserting a new node
             into a binary search tree. The lightly shaded nodes indicate the nodes
             that were visited during the insertion process.</p>
         
-        <figure align="center" xml:id="fig-bstput"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Inserting a Node with Key = 19.</caption><image source="Trees/bstput.png" width="50%"/></figure>
+        <figure align="center" xml:id="bst_fig-bstput"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Inserting a Node with Key = 19.</caption><image source="Trees/bstput.png" width="50%"/></figure>
         <note>
             <title>Self Check</title>
 
@@ -225,14 +225,14 @@ void _put(int key, string val, TreeNode *currentNode){
             until it gets to a non-matching leaf node or finds a matching key. When
             a matching key is found, the value stored in the payload of the node is
             returned.</p>
-        <p><xref ref="lst-bst4"/> shows the code for <c>get</c>  and <c>_get</c>. The search code in the <c>_get</c> method uses the same
+        <p><xref ref="bst_lst-bst4"/> shows the code for <c>get</c>  and <c>_get</c>. The search code in the <c>_get</c> method uses the same
             logic for choosing the left or right child as the <c>_put</c> method. Notice
             that the <c>_get</c> method returns a <c>TreeNode</c> to <c>get</c>, this allows
             <c>_get</c> to be used as a flexible helper method for other
             <c>BinarySearchTree</c> methods that may need to make use of other data
             from the <c>TreeNode</c> besides the payload.</p>
         
-        <p xml:id="trees_lst-bst4" names="lst_bst4"><term>Listing 4</term></p>
+        <p xml:id="bst_lst-bst4" names="bst_lst-bst4"><term>Listing 4</term></p>
         <pre>string get(int key){
     if (this-&gt;root){
         TreeNode *res = this-&gt;_get(key, this-&gt;root);
@@ -263,7 +263,7 @@ TreeNode  *_get(int key, TreeNode *currentNode){
     }
 }</pre>
         <p>Finally, we turn our attention to the most challenging method in the
-            binary search tree, the deletion of a key (see <xref ref="lst-bst5"/>). The first task is to find the
+            binary search tree, the deletion of a key (see <xref ref="bst_lst-bst5"/>). The first task is to find the
             node to delete by searching the tree. If the tree has more than one node
             we search using the <c>_get</c> method to find the <c>TreeNode</c> that needs
             to be removed. If the tree only has a single node, that means we are
@@ -271,7 +271,7 @@ TreeNode  *_get(int key, TreeNode *currentNode){
             key of the root matches the key that is to be deleted. In either case if
             the key is not found the <c>del</c> operator raises an error.</p>
         
-        <p xml:id="trees_lst-bst5" names="lst_bst5"><term>Listing 5</term></p>
+        <p xml:id="bst_lst-bst5" names="lst_bst5"><term>Listing 5</term></p>
         <pre>void del(int key){
     if (this-&gt;size &gt; 1){
         TreeNode *nodeToRemove = this-&gt;_get(key, this-&gt;root);
@@ -295,20 +295,20 @@ TreeNode  *_get(int key, TreeNode *currentNode){
             are three cases that we must consider:</p>
         <p><ol marker="1">
             <li>
-                <p>The node to be deleted has no children (see <xref ref="fig-bstdel1"/>).</p>
+                <p>The node to be deleted has no children (see <xref ref="bst_fig-bstdel1"/>).</p>
             </li>
             <li>
-                <p>The node to be deleted has only one child (see <xref ref="fig-bstdel2"/>).</p>
+                <p>The node to be deleted has only one child (see <xref ref="bst_fig-bstdel2"/>).</p>
             </li>
             <li>
-                <p>The node to be deleted has two children (see <xref ref="fig-bstdel3"/>).</p>
+                <p>The node to be deleted has two children (see <xref ref="bst_fig-bstdel3"/>).</p>
             </li>
         </ol></p>
-        <p>The first case is straightforward (see <xref ref="lst-bst6"/>). If the current node has no children
+        <p>The first case is straightforward (see <xref ref="bst_lst-bst6"/>). If the current node has no children
             all we need to do is delete the node and remove the reference to this
             node in the parent. The code for this case is shown in here.</p>
         
-        <p xml:id="trees_lst-bst6" names="lst_bst6"><term>Listing 6</term></p>
+        <p xml:id="bst_lst-bst6"><term>Listing 6</term></p>
         <pre>if (currentNode-&gt;isLeaf()){ //leaf
     if (currentNode == currentNode-&gt;parent-&gt;leftChild){
         currentNode-&gt;parent-&gt;leftChild = NULL;
@@ -318,8 +318,8 @@ TreeNode  *_get(int key, TreeNode *currentNode){
     }
 }</pre>
         
-        <figure align="center" xml:id="trees-search-lst-bst7"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Deleting Node 16, a Node without Children.</caption><image source="Trees/bstdel1.png" width="50%"/></figure>
-        <p>The second case is only slightly more complicated (see <xref ref="trees-search-lst-bst7"/>). If a node has only a
+        <figure align="center" xml:id="bst_fig-bstdel1"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Deleting Node 16, a Node without Children.</caption><image source="Trees/bstdel1.png" width="50%"/></figure>
+        <p>The second case is only slightly more complicated (see <xref ref="bst_lst-bst7"/>). If a node has only a
             single child, then we can simply promote the child to take the place of
             its parent. The code for this case is shown in the next listing. As
             you look at this code you will see that there are six cases to consider.
@@ -347,7 +347,7 @@ TreeNode  *_get(int key, TreeNode *currentNode){
             </li>
         </ol></p>
         
-        <p xml:id="trees_lst-bst7" names="lst_bst7"><term>Listing 7</term></p>
+        <p xml:id="bst_lst-bst7"><term>Listing 7</term></p>
         <pre>else{ // this node has one child
     if (currentNode-&gt;hasLeftChild()){
         if (currentNode-&gt;isLeftChild()){
@@ -384,8 +384,8 @@ TreeNode  *_get(int key, TreeNode *currentNode){
     }
 }</pre>
         
-        <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Deleting Node 25, a Node That Has a Single Child.</caption><image source="Trees/bstdel2.png" width="50%"/></figure>
-        <p><idx>successor node</idx>The third case is the most difficult case to handle (see <xref ref="lst-bst7"/>). If a node has two
+        <figure align="center" xml:id="bst_fig-bstdel2"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Deleting Node 25, a Node That Has a Single Child.</caption><image source="Trees/bstdel2.png" width="50%"/></figure>
+        <p><idx>successor node</idx>The third case is the most difficult case to handle (see <xref ref="bst_lst-bst7"/>). If a node has two
             children, then it is unlikely that we can simply promote one of them to
             take the node's place. We can, however, search the tree for a node that
             can be used to replace the one scheduled for deletion. What we need is a
@@ -398,7 +398,7 @@ TreeNode  *_get(int key, TreeNode *currentNode){
             implemented. Once the successor has been removed, we simply put it in
             the tree in place of the node to be deleted.</p>
         
-        <figure align="center" xml:id="id5"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Deleting Node 5, a Node with Two Children.</caption><image source="Trees/bstdel3.png" width="50%"/></figure>
+        <figure align="center" xml:id="bst_fig-bstdel3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Deleting Node 5, a Node with Two Children.</caption><image source="Trees/bstdel3.png" width="50%"/></figure>
         <p>The code to handle the third case is shown in the next listing.
             Notice that we make use of the helper methods <c>findSuccessor</c> and
             <c>findMin</c> to find the successor. To remove the successor, we make use
@@ -407,14 +407,14 @@ TreeNode  *_get(int key, TreeNode *currentNode){
             changes. We could call <c>delete</c> recursively, but then we would waste
             time re-searching for the key node.</p>
         
-        <p xml:id="trees_lst-bst8" names="lst_bst8"><term>Listing 8</term></p>
+        <p xml:id="bst_lst-bst8" names="lst_bst8"><term>Listing 8</term></p>
         <pre>else if (currentNode-&gt;hasBothChildren()){ //interior
     TreeNode *succ = currentNode-&gt;findSuccessor();
     succ-&gt;spliceOut();
     currentNode-&gt;key = succ-&gt;key;
     currentNode-&gt;payload = succ-&gt;payload;
 }</pre>
-        <p>The code to find the successor is shown below (see <xref ref="lst-bst9"/>) and as
+        <p>The code to find the successor is shown below (see <xref ref="bst_lst-bst9"/>) and as
             you can see is a method of the <c>TreeNode</c> class. This code makes use
             of the same properties of binary search trees that cause an inorder
             traversal to print out the nodes in the tree from smallest to largest.
@@ -444,7 +444,7 @@ TreeNode  *_get(int key, TreeNode *currentNode){
             method simply follows the <c>leftChild</c> references in each node of the
             subtree until it reaches a node that does not have a left child.</p>
         
-        <p xml:id="trees_lst-bst9" names="lst_bst9"><term>Listing 9</term></p>
+        <p xml:id="bst_lst-bst9" names="lst_bst9"><term>Listing 9</term></p>
         <pre>TreeNode *findSuccessor(){
     TreeNode *succ = NULL;
     if (this-&gt;hasRightChild()){
