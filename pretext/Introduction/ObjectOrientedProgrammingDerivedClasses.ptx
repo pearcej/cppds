@@ -161,7 +161,7 @@ return 0;
                 appropriate logic based on the current input. In order to produce
                 output, the gate needs to know specifically what that logic is. This
                 means calling a method to perform the logic computation. The complete
-                class is shown in <xref ref="lst-logicgateclass"/>.</p>
+                class is shown in <xref ref="introduction_lst-logicgateclass"/>.</p>
             
             <p xml:id="introduction_lst-logicgateclass" names="lst_logicgateclass"><term>Listing 8</term></p>
             <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
@@ -312,7 +312,7 @@ class UnaryGate(LogicGate):
                 return int(input("Enter Pin input for gate "+ self.getLabel()+"-&gt;"))
 </input></program>
                 </TabNode>
-            <p><xref ref="lst-logicgateclass"/> and <xref ref="lst-logicgateclass"/> implement these two
+            <p><xref ref="introduction_lst-logicgateclass"/> and <xref ref="introduction_lst-unarygateclass"/> implement these two
                 classes. The constructors in both of these classes start with an
                 explicit call to the constructor of the parent class using the parent's name
                 method. When creating an instance of the <c>BinaryGate</c> class, we
