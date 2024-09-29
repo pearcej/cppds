@@ -318,8 +318,8 @@ TreeNode  *_get(int key, TreeNode *currentNode){
     }
 }</pre>
         
-        <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Deleting Node 16, a Node without Children.</caption><image source="Trees/bstdel1.png" width="50%"/></figure>
-        <p>The second case is only slightly more complicated (see <xref ref="lst-bst7"/>). If a node has only a
+        <figure align="center" xml:id="trees-search-lst-bst7"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Deleting Node 16, a Node without Children.</caption><image source="Trees/bstdel1.png" width="50%"/></figure>
+        <p>The second case is only slightly more complicated (see <xref ref="trees-search-lst-bst7"/>). If a node has only a
             single child, then we can simply promote the child to take the place of
             its parent. The code for this case is shown in the next listing. As
             you look at this code you will see that there are six cases to consider.

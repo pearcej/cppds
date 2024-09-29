@@ -83,11 +83,11 @@
                 property. However, it is possible to write a method that will allow us
                 to regain the heap structure property by comparing the newly added item
                 with its parent. If the newly added item is less than its parent, then
-                we can swap the item with its parent. <xref ref="fig-percup"/> shows the
+                we can swap the item with its parent. <xref ref="trees-binheap-fig-percup"/> shows the
                 series of swaps needed to percolate the newly added item up to its
                 proper position in the tree.</p>
             
-            <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Percolate the New Node up to Its Proper Position.</caption><image source="Trees/percUp.png" width="50%" alt="image"/></figure>
+            <figure align="center" xml:id="trees-binheap-fig-percup"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Percolate the New Node up to Its Proper Position.</caption><image source="Trees/percUp.png" width="50%" alt="image"/></figure>
             
             <p>Notice that when we percolate an item up, we are restoring the heap
                 property between the newly added item and the parent. We are also
