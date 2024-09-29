@@ -165,11 +165,15 @@ main()
         </interactive>
     </figure>
 
-        <p>The following video shows <c>bubbleSort</c> in action. The sort compares two
+        <p>The video in <xref ref="sort_bubble-video"/> shows <c>bubbleSort</c> in action. The sort compares two
             items at a time (shown in blue). Once it finds two out of place blocks it will find the correct place
             for the smaller block and then reset for another pass.</p>
 
-        <video label="sort_bubble_sort-video" source="Sort/vis_bubble_sort.webm" width="80%" preview="Sort/vis_bubble_sort_thumb.png" />
+        <figure xml:id="sort_bubble-video">
+            <caption>Video of <c>insertionSort</c> in action.</caption>
+            <video label="sort_bubble_sort-video" source="Sort/vis_bubble_sort.webm" width="80%" preview="Sort/vis_bubble_sort_thumb.png" />
+        </figure>
+        
 
         <p>To analyze the bubble sort, we should note that regardless of how the
             items are arranged in the initial array, <m>n-1</m> passes will be
