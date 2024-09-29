@@ -815,7 +815,7 @@ int main() {
                     NOT the contents of where it is pointing.</p>
       <p>The second <c>cout</c> instruction is a disaster because</p>
       <p>
-        <ol label="1">
+        <ol marker="1">
           <li>
             <p>You don&#x2019;t know what is stored in location 100 in memory, and</p>
           </li>
