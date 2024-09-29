@@ -75,16 +75,15 @@ int main() {
             takes a value <m>n</m> and repeatedly guesses the square root by
             making each <m>newguess</m> the <m>oldguess</m> in the subsequent
             iteration. The initial guess used here is <m>\frac {n}{2}</m>.
-            <xref ref="lst-root"/> shows a function definition that accepts a value
+            <xref ref="introduction_lst-root"/> shows a function definition that accepts a value
             <m>n</m> and returns the square root of <m>n</m> after making 20
             guesses. Again, the details of Newton's Method are hidden inside the
             function definition and the user does not have to know anything about
             the implementation to use the function for its intended purpose.
-            <xref ref="lst-root"/> also shows the use of the // characters as a comment
+            <xref ref="introduction_lst-root"/> also shows the use of the // characters as a comment
             marker. Any characters that follow the // on a line are ignored.</p>
         
-        <p xml:id="introduction_lst-root" names="lst_root"><term>Listing 1</term></p>
-
+    <listing xml:id="introduction_lst-root" names="lst_root">
     <program xml:id="newtonsmethod" interactive="activecode" language="cpp">
         <input>
 #include &lt;iostream&gt;
@@ -108,7 +107,7 @@ int main() {
       return 0;
 }
         </input>
-    </program>
+    </program></listing>
             
         <subsection xml:id="introduction_parameter-passing-by-value-versus-by-reference">
             <title>Parameter Passing: by Value versus by Reference</title>
@@ -163,9 +162,8 @@ void callingFunction() { /*return type int which indicates
                 called <c>swap_values(...)</c> that swaps its two inputs and the <c>main()</c> function
                 that calls <c>swap_values(...)</c>.</p>
             
-            <blockquote>
-
-    <program xml:id="activepassrefcpp" interactive="activecode" language="cpp">
+    <listing xml:id="activepassrefcpp">
+    <program interactive="activecode" language="cpp">
         <input>
 #include &lt;iostream&gt;
 using namespace std;
@@ -194,9 +192,8 @@ int main( ) {
     return 0;
 }
         </input>
-    </program>
-            </blockquote>
-            <p>For this program <xref ref="lst-swap-inputs"/> to reverse the order of the integers the users types in, the function <c>swap_values(...)</c> must be able to change the values of the arguments. Try removing one or both of the <q>&amp;</q> &#8216;s in this code to see what happens.</p>
+    </program></listing>
+            <p>For the program in <xref ref="activepassrefcpp"/> to reverse the order of the integers the users types in, the function <c>swap_values(...)</c> must be able to change the values of the arguments. Try removing one or both of the <q>&amp;</q> &#8216;s in this code to see what happens.</p>
         </subsection>
         <transition/>
         <subsection xml:id="introduction_arrays-as-parameters-in-functions">
