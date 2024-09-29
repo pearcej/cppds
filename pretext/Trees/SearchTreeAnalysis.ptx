@@ -44,7 +44,7 @@
             But remember that the worst-case scenario to find the successor is also
             just the height of the tree which means that you would simply double the
             work. Since doubling is a constant factor it does not change worst case</p>
-<reading-questions xml:id="rq-search-tree">
+<reading-questions xml:id="rq-search-tree-analysis">
     <title>Reading Question</title>
 <exercise>
             <statement>

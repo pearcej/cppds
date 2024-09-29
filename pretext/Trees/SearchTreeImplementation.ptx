@@ -1122,7 +1122,7 @@ main()
     </program>
             </TabNode>
 
-            <reading-questions xml:id="rq-search-tree">
+            <reading-questions xml:id="rq-search-tree-impl">
                 <title>Reading Questions</title>
                 
                 <exercise label="question1_2">
