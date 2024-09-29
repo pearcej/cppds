@@ -254,7 +254,7 @@ main()
                 relational operators and logical operators can be combined together to
                 form complex logical questions. <xref ref="introduction_tab-relational"/> shows the relational
                 and logical operators with examples shown in the session that follows.</p>
-    <table xml:id="introduction_id1-introduction_tab-relational">
+    <table xml:id="introduction_tab-relational">
       <tabular>
         <title>
           <term>Table 1: C++ Relational and Logical Operators</term>
