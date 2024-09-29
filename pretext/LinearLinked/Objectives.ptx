@@ -20,5 +20,7 @@
                 <p>To understand the abstract data types node and linked list, including the unordered list and ordered list.</p>
             </li>
         </ul></p>
-    </section>
-
+        <p>
+            <!-- extra space before the progress bar -->            
+        </p>
+</section>

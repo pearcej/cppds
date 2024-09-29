@@ -87,5 +87,7 @@
                     last. Code this implementation in C++.</p>
             </li>
         </ol></p>
-    </section>
-
+        <p>
+            <!-- extra space before the progress bar -->            
+        </p>
+</section>
