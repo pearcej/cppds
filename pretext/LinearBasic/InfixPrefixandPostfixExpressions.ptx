@@ -70,7 +70,7 @@
             respective operands, the order of the operands stayed exactly the same
             relative to one another.</p>
         
-        <table xml:id="linear-basic_id1"><tabular>
+        <table xml:id="linear-basic_xfix_examples"><tabular>
             <title><term>Table 2: Examples of Infix, Prefix, and Postfix</term></title>
             
                 
