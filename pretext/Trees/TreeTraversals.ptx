@@ -88,7 +88,7 @@
             will stick with binary trees for now.</p>
  
         <figure align="center" xml:id="fig-booktree">
-            <caption>Representing a Book as a Tree</caption>
+            <caption>Representing a Book as a Tree.</caption>
                 <image source="Trees/booktree.png" width="50%">
                 <description>Diagram of a hierarchical tree representing the structure of a book. The root node at the top is labeled 'Book', which branches out to two child nodes labeled 'Chapter1' and 'Chapter2'. Each chapter node further divides into sections: 'Chapter1' into 'Section 1.1' and 'Section 1.2', while 'Chapter2' splits into 'Section 2.1' and 'Section 2.2'. Each section node also branches into subsections, with 'Section 1.1' leading to 'Section 1.2.1' and 'Section 1.2.2', and 'Section 2.2' leading to 'Section 2.2.1' and 'Section 2.2.2'. The nodes are connected by lines that represent the tree structure, demonstrating the organizational hierarchy of the book's contents. </description>
                 </image>
