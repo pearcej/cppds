@@ -119,84 +119,73 @@ main()
         </input>
     </program>
             </TabNode>
-        <raw format="html" xml:space="preserve">&lt;script src="../_static/sortmodels.js"&gt;&lt;/script&gt;
-&lt;script src="../_static/sortviewers.js"&gt;&lt;/script&gt;
 
-&lt;div id="insertion_anim" class=""&gt;
-&lt;canvas id="insertion_anim_canvas" width="400" height="400" style="border:4px solid blue"&gt;&lt;/canvas&gt;
-&lt;br /&gt;
-&lt;button onclick="insertion_anim_anim = insertion_anim_init('insertion_anim')"&gt;Initialize&lt;/button&gt;
-&lt;button onclick="insertion_anim_anim.run('insertion_anim_anim')"&gt;Run&lt;/button&gt;
-&lt;button onclick="insertion_anim_anim.stop()"&gt;Stop&lt;/button&gt; &lt;/br&gt;
-&lt;button onclick="insertion_anim_anim.begin()"&gt;Beginning&lt;/button&gt;
-&lt;button onclick="insertion_anim_anim.forward()"&gt;Step Forward&lt;/button&gt;
-&lt;button onclick="insertion_anim_anim.backward()"&gt;Step Backward&lt;/button&gt;
-&lt;button onclick="insertion_anim_anim.end()"&gt;End&lt;/button&gt;
+    <p>The visualization in <xref ref="sort_insertionsort-animation"/>  allows you to step through the algorithm. Red bars represent
+        the element being looked at and blue represents the last element to look at
+        during a pass.</p>
 
-&lt;script&gt;
-insertion_anim_init = function(divid)
-{
-   var a = new Animator(new InsertionSortModel(), new BarViewer(), divid)
-   a.init()
-   return a
-}
-&lt;/script&gt;
+    <figure xml:id="sort_insertionsort-animation">
+        <caption>Insertion animation.</caption>
+        <interactive platform="javascript" source="Sort/sortmodels.js" width="100%" aspect="10:8">
+            <sidebyside width="90%">
+                <slate aspect="10:6" xml:id="insertion_anim_canvas" surface="canvas"/>
+            </sidebyside>
+            <sidebyside widths="18% 18% 18% 18% 18%">
+                <slate surface="html">
+                    <input type="button" value="Initialize" onkeypress="insertion_anim_anim = insertion_anim_init('insertion_anim');" onclick="insertion_anim_anim = insertion_anim_init('insertion_anim');" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+                <slate surface="html">
+                    <input type="button" value="Run" onkeypress="insertion_anim_anim.run('insertion_anim_anim');" onclick="insertion_anim_anim.run('insertion_anim_anim');" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+                <slate surface="html">
+                    <input type="button" value="Stop" onkeypress="insertion_anim_anim.stop();" onclick="insertion_anim_anim.stop();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+                <slate surface="html">
+                    <input type="button" value="Beginning" onkeypress="insertion_anim_anim.begin();" onclick="insertion_anim_anim.begin();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+                <slate surface="html">
+                    <input type="button" value="End" onkeypress="insertion_anim_anim.end();" onclick="insertion_anim_anim.end();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+            </sidebyside>
+            <sidebyside widths="30% 30%" margins="20%">
+                <slate surface="html">
+                    <input type="button" value="Step Forward" onkeypress="insertion_anim_anim.forward();" onclick="insertion_anim_anim.forward();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+                <slate surface="html">
+                    <input type="button" value="Step Backward" onkeypress="insertion_anim_anim.backward();" onclick="insertion_anim_anim.backward();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+            </sidebyside>
+            <script><![CDATA[
+                // Load the rest of the scripts
+                // I can't figure out a better way to load multiple scripts in pretext
 
-&lt;/div&gt;
-</raw>
-        <!--For more detail, CodeLens 4 allows you to step through the algorithm.-->
-        <!---->
-        <!--.. codelens:: insertionsortcodetrace-->
-        <!--:caption: Tracing the Insertion Sort-->
-        <!---->
-        <!--def insertionSort(alist):-->
-        <!--for index in range(1,len(alist)):-->
-        <!---->
-        <!--currentvalue = alist[index]-->
-        <!--position = index-->
-        <!---->
-        <!--while position>0 and alist[position-1]>currentvalue:-->
-        <!--alist[position]=alist[position-1]-->
-        <!--position = position-1-->
-        <!---->
-        <!--alist[position]=currentvalue-->
-        <!--def main():-->
-        <!--alist = [54,26,93,17,77,31,44,55,20]-->
-        <!--insertionSort(alist)-->
-        <!--print(alist)
-main()-->
-        <p>The visualization above allows you to step through the algorithm. Red bars represent
-            the element being looked at and blue represents the last element to look at
-            during a pass.</p>
-        <p>The visualization below allows you to examine the individual steps of the algorithm at a slower pace.
-            Bars that are orange indicate that it is being compared to items to the left.
-            Bars that are blue indicate that it is one of the items currently being compared against the orange bar.</p>
-        <raw format="html" xml:space="preserve">&lt;div id="vis_insertion_sort" class="video_popup runestone " &gt;
-&lt;video controls preload="none"  poster="../_static/vis_insertion_sort_thumb.png"&gt;
-    &lt;source src="../_static/vis_insertion_sort.webm" type="video/webm"&gt;&lt;/source&gt;
-    No supported video types
-&lt;/video&gt;
-&lt;/div&gt;
-&lt;script&gt;
-  window.addEventListener('load', (event) =&gt; {
-    jQuery(function($) {
-        var rb = new RunestoneBase();
-        $('#vis_insertion_sort_thumb').click(function(e) {
-            $('#vis_insertion_sort').show();
-            $('#vis_insertion_sort_thumb').hide();
-            rb.logBookEvent({'event':'video','act':'play','div_id': 'vis_insertion_sort'});
-            // Log the run event
-        });
-        $('#vis_insertion_sort video').one("click", function(){
-            this.play();
-        });
-        $('#vis_insertion_sort video').one("play", function(){
-            rb.logBookEvent({'event':'video','act':'play','div_id': 'vis_insertion_sort'});
-        });
-    });
-  });
-&lt;/script&gt;
-</raw>
+                var script = document.createElement('script');
+                script.src = 'external/Sort/animationbase.js';
+                document.body.appendChild(script);
+
+                script = document.createElement('script');
+                script.src = 'external/Sort/sortviewers.js';
+                document.body.appendChild(script);
+
+                insertion_anim_init = function(divid)
+                {
+                    var a = new Animator(new InsertionSortModel(), new BarViewer(), divid)
+                    a.init()
+                    return a
+                }
+            ]]></script>
+        </interactive>
+    </figure>
+    
+    <p>The video in <xref ref="sort_insertion-video"/> allows you to examine the individual steps of the algorithm at a slower pace.
+        Bars that are orange indicate that it is being compared to items to the left.
+        Bars that are blue indicate that it is one of the items currently being compared against the orange bar.</p>
+
+    <figure xml:id="sort_insertion-video">
+        <caption>Video of <c>insertionSort</c> in action.</caption>
+        <video label="sort_bubble_sort-video" source="Sort/vis_insertion_sort.webm" width="80%" preview="Sort/vis_insertion_sort_thumb.png" />
+    </figure>
+
 <reading-questions xml:id="rq-insertion-sort">
     <exercise label="question_sort_3">
         <statement>
