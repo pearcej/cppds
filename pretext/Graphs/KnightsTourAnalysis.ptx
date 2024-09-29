@@ -83,7 +83,7 @@
             decisions, heuristic searches are often used in the field of artificial
             intelligence. This particular heuristic is called Warnsdorff's
             algorithm, named after H. C. Warnsdorff who published his idea in 1823.</p>
-        <p>The visualization below depicts the full process of a Knight's Tour solution.
+        <p>The visualization in <xref ref="graphs_knighttour-figvideo"/> depicts the full process of a Knight's Tour solution.
             It portrays the visitation of every spot on the chess board and an analysis
             on all neighboring locations, and finishes by showing the final solution wherein
             all locations on the chess board have been visited. The Warnsdorff heuristic is used
@@ -109,32 +109,11 @@
                 </ul></p>
             </li>
         </ul></p>
-        <raw format="html" xml:space="preserve">&lt;div id="knights_tour_vis" class="video_popup runestone " &gt;
-&lt;video controls preload="none"  poster="../_static/kt_vis_thumb.png"&gt;
-    &lt;source src="../_static/knights_tour_vis.webm" type="video/webm"&gt;&lt;/source&gt;
-    No supported video types
-&lt;/video&gt;
-&lt;/div&gt;
-&lt;script&gt;
-  window.addEventListener('load', (event) =&gt; {
-    jQuery(function($) {
-        var rb = new RunestoneBase();
-        $('#knights_tour_vis_thumb').click(function(e) {
-            $('#knights_tour_vis').show();
-            $('#knights_tour_vis_thumb').hide();
-            rb.logBookEvent({'event':'video','act':'play','div_id': 'knights_tour_vis'});
-            // Log the run event
-        });
-        $('#knights_tour_vis video').one("click", function(){
-            this.play();
-        });
-        $('#knights_tour_vis video').one("play", function(){
-            rb.logBookEvent({'event':'video','act':'play','div_id': 'knights_tour_vis'});
-        });
-    });
-  });
-&lt;/script&gt;
-</raw>
+ 
+        <figure xml:id="graphs_knighttour-figvideo">
+            <caption>Knights tour visualization</caption>
+            <video label="graphs_knighttour-video" source="Graphs/knights_tour_vis.webm" width="80%" preview="Graphs/kt_vis_thumb.png" />
+        </figure>
         
 <term>Listing 4</term>
 <listing xml:id="graphs_lst-avail" names="lst_avail"><term>Listing 4</term>

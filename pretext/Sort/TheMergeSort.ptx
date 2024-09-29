@@ -227,6 +227,7 @@ main()
         </figure>
 
         <p>The video in <xref ref="sort_merge-video"/> highlights the individual components of the algorithm itself.
+
             The arrows on the bottom indicate the left, middle, and right portions that the
             algorithm is currently examining. Left and right components are indicated by the color
             brown, while the middle is indicated by orange. Look for the <q>divide-and-conquer</q> aspect

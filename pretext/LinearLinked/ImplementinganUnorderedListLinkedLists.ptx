@@ -34,5 +34,7 @@
             first item can tell us where the second is, and so on. <idx>head</idx> The external
             reference is often referred to as the <term>head</term> of the list. Similarly,
             the last item needs to know that there is no next item.</p>
+            <p>
+                <!-- extra space before the progress bar -->            
+            </p>
     </section>
-    

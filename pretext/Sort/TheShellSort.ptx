@@ -160,95 +160,71 @@ main()
         </input>
     </program>
             </TabNode>
-        <raw format="html" xml:space="preserve">&lt;script src="../_static/sortmodels.js"&gt;&lt;/script&gt;
-&lt;script src="../_static/sortviewers.js"&gt;&lt;/script&gt;
 
-&lt;div id="shell_anim" class=""&gt;
-&lt;canvas id="shell_anim_canvas" width="400" height="400" style="border:4px solid blue"&gt;&lt;/canvas&gt;
-&lt;br /&gt;
-&lt;button onclick="shell_anim_anim = shell_anim_init('shell_anim')"&gt;Initialize&lt;/button&gt;
-&lt;button onclick="shell_anim_anim.run('shell_anim_anim')"&gt;Run&lt;/button&gt;
-&lt;button onclick="shell_anim_anim.stop()"&gt;Stop&lt;/button&gt; &lt;/br&gt;
-&lt;button onclick="shell_anim_anim.begin()"&gt;Beginning&lt;/button&gt;
-&lt;button onclick="shell_anim_anim.forward()"&gt;Step Forward&lt;/button&gt;
-&lt;button onclick="shell_anim_anim.backward()"&gt;Step Backward&lt;/button&gt;
-&lt;button onclick="shell_anim_anim.end()"&gt;End&lt;/button&gt;
+ 
+    <figure xml:id="sort_shellsort-animation">
+        <caption>Shell sort animation.</caption>
+        <interactive platform="javascript" source="Sort/sortmodels.js" width="100%" aspect="10:8">
+            <sidebyside width="90%">
+                <slate aspect="10:6" xml:id="shell_anim_canvas" surface="canvas"/>
+            </sidebyside>
+            <sidebyside widths="18% 18% 18% 18% 18%">
+                <slate surface="html">
+                    <input type="button" value="Initialize" onkeypress="shell_anim_anim = shell_anim_init('shell_anim');" onclick="shell_anim_anim = shell_anim_init('shell_anim');" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+                <slate surface="html">
+                    <input type="button" value="Run" onkeypress="shell_anim_anim.run('shell_anim_anim');" onclick="shell_anim_anim.run('shell_anim_anim');" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+                <slate surface="html">
+                    <input type="button" value="Stop" onkeypress="shell_anim_anim.stop();" onclick="shell_anim_anim.stop();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+                <slate surface="html">
+                    <input type="button" value="Beginning" onkeypress="shell_anim_anim.begin();" onclick="shell_anim_anim.begin();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+                <slate surface="html">
+                    <input type="button" value="End" onkeypress="shell_anim_anim.end();" onclick="shell_anim_anim.end();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+            </sidebyside>
+            <sidebyside widths="30% 30%" margins="20%">
+                <slate surface="html">
+                    <input type="button" value="Step Forward" onkeypress="shell_anim_anim.forward();" onclick="shell_anim_anim.forward();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+                <slate surface="html">
+                    <input type="button" value="Step Backward" onkeypress="shell_anim_anim.backward();" onclick="shell_anim_anim.backward();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                </slate>
+            </sidebyside>
+            <script><![CDATA[
+                // Load the rest of the scripts
+                // I can't figure out a better way to load multiple scripts in pretext
 
-&lt;script&gt;
-shell_anim_init = function(divid)
-{
-   var a = new Animator(new ShellSortModel(), new BarViewer(), divid)
-   a.init()
-   return a
-}
-&lt;/script&gt;
+                var script = document.createElement('script');
+                script.src = 'external/Sort/animationbase.js';
+                document.body.appendChild(script);
 
-&lt;/div&gt;
-</raw>
-        <!--For more detail, CodeLens 5 allows you to step through the algorithm.-->
-        <!---->
-        <!---->
-        <!--.. codelens:: shellSorttrace-->
-        <!--:caption: Tracing the Shell Sort-->
-        <!---->
-        <!--def shellSort(alist): #function shellsorts through the vector-->
-        <!--sublistcount = len(alist)//2 #cuts vector by half-->
-        <!--while sublistcount > 0:-->
-        <!---->
-        <!--for startposition in range(sublistcount):-->
-        <!--gapInsertionSort(alist,startposition,sublistcount)
-#runs avector through gapInsertionSort function-->
-        <!---->
-        <!--print("After increments of size",sublistcount,-->
-        <!--"The list is",alist)-->
-        <!---->
-        <!--sublistcount = sublistcount // 2-->
-        <!---->
-        <!--def gapInsertionSort(alist,start,gap): # sorts values through Insertion Sort-->
-        <!--for i in range(start+gap,len(alist),gap):-->
-        <!---->
-        <!--currentvalue = alist[i]-->
-        <!--position = i-->
-        <!---->
-        <!--while position>=gap and alist[position-gap]>currentvalue:-->
-        <!--alist[position]=alist[position-gap]-->
-        <!--position = position-gap-->
-        <!---->
-        <!--alist[position]=currentvalue-->
-        <!--def main():-->
-        <!--alist = [54,26,93,17,77,31,44,55,20]#initializes a list of numbers-->
-        <!--shellSort(alist)-->
-        <!--print(alist)
-main()-->
-        <p>The following visualization shows the <q>gap</q> attribute in the form of brown, vertical bars.
-            There are marker arrows that portray the <q>current values</q> being compared during the sort.
-            It finishes by performing a full insertion sort on the full set of bars.</p>
-        <raw format="html" xml:space="preserve">&lt;div id="vis_shell_sort" class="video_popup runestone " &gt;
-&lt;video controls preload="none"  poster="../_static/vis_shell_sort_thumb.png"&gt;
-    &lt;source src="../_static/vis_shell_sort.webm" type="video/webm"&gt;&lt;/source&gt;
-    No supported video types
-&lt;/video&gt;
-&lt;/div&gt;
-&lt;script&gt;
-  window.addEventListener('load', (event) =&gt; {
-    jQuery(function($) {
-        var rb = new RunestoneBase();
-        $('#vis_shell_sort_thumb').click(function(e) {
-            $('#vis_shell_sort').show();
-            $('#vis_shell_sort_thumb').hide();
-            rb.logBookEvent({'event':'video','act':'play','div_id': 'vis_shell_sort'});
-            // Log the run event
-        });
-        $('#vis_shell_sort video').one("click", function(){
-            this.play();
-        });
-        $('#vis_shell_sort video').one("play", function(){
-            rb.logBookEvent({'event':'video','act':'play','div_id': 'vis_shell_sort'});
-        });
-    });
-  });
-&lt;/script&gt;
-</raw>
+                script = document.createElement('script');
+                script.src = 'external/Sort/sortviewers.js';
+                document.body.appendChild(script);
+
+                shell_anim_init = function(divid)
+                {
+                    var a = new Animator(new ShellSortModel(), new BarViewer(), divid)
+                    a.init()
+                    return a
+                }
+            ]]></script>
+        </interactive>
+    </figure>
+    
+    <p>The video in <xref ref="sort_shell-video"/> shows the <q>gap</q> attribute in the form of brown, vertical bars.
+        There are marker arrows that portray the <q>current values</q> being compared during the sort.
+        It finishes by performing a full insertion sort on the full set of bars.</p>
+
+    <figure xml:id="sort_shell-video">
+        <caption>Video of <c>shellSort</c> in action.</caption>
+        <video label="sort_shell_sort-video" source="Sort/vis_shell_sort.webm" width="80%" preview="Sort/vis_shell_sort_thumb.png" />
+    </figure>
+
+
         <p>At first glance you may think that a shell sort cannot be better than an
             insertion sort, since it does a complete insertion sort as the last
             step. It turns out, however, that this final insertion sort does not

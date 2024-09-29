@@ -13,5 +13,7 @@
                 <p>Modification to the head of the linked list is a special case.</p>
             </li>
         </ul></p>
-    </section>
-
+        <p>
+            <!-- extra space before the progress bar -->            
+        </p>
+</section>
