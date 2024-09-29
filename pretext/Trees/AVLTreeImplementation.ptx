@@ -196,8 +196,8 @@ void rotateLeft(TreeNode *rotRoot){
             the heights of the new subtrees? The following derivation should
             convince you that these lines are correct.</p>
         
-        <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">A Left Rotation.</caption><image source="Trees/bfderive.png" width="70%"/></figure>
-        <p><xref ref="fig-bfderive"/> shows a left rotation. B and D are the pivotal
+        <figure align="center" xml:id="trees-avl-fig-bfderive"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">A Left Rotation.</caption><image source="Trees/bfderive.png" width="70%"/></figure>
+        <p><xref ref="trees-avl-fig-bfderive"/> shows a left rotation. B and D are the pivotal
             nodes and A, C, E are their subtrees. Let <m>h_x</m> denote the
             height of a particular subtree rooted at node <m>x</m>. By definition
             we know the following:</p>
