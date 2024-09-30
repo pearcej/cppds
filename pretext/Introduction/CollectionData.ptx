@@ -1008,6 +1008,36 @@ int main(){
 <reading-questions xml:id="rq-collection-data">
                     <title>Reading Questions</title>
 
+    <exercise label="matching_ht">
+        <statement><p> Match the Hash Table operations with their corresponding explination.</p></statement>
+        <feedback><p>Feedback shows incorrect matches.</p></feedback>
+        <matches>
+            <match order="1">
+                <premise>begin</premise>
+                <response>An iterator to the first element in the hash table.</response>
+            </match>
+            <match order="2">
+                <premise>[ ]</premise>
+                <response>Returns the value associated with the key, creating a default entry if necessary.</response>
+            </match>
+            <match order="3">
+                <premise>erase</premise>
+                <response>Deletes the entry from the hash table.</response>
+            </match>
+            <match order="4">
+                <premise>at</premise>
+                <response>Returns the value associated with the key, otherwise throws error.</response>
+            </match>
+            <match order="5">
+                <premise>end</premise>
+                <response>An iterator pointing to past-the-end element of the hash table.</response>
+            </match>
+            <match order="6">
+                <premise>count</premise>
+                <response>Returns true if key is in the hash table, and false otherwise.</response>
+            </match>
+        </matches>
+    </exercise>
 
 <exercise label="matching_us">
     <statement><p> Match the Unordered Sets operations with their corresponding explanation.</p></statement>
