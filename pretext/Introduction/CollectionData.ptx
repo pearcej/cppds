@@ -861,10 +861,6 @@ main()
                     
                 
             </tabular></table>
-            <subsubsection xml:id="introduction_id2">
-                <title>Matching</title>
-
-            </subsubsection>
         </subsection>
         <subsection xml:id="introduction_unordered-sets">
             <title>Unordered Sets</title>
