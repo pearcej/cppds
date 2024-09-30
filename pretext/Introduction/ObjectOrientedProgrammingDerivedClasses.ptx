@@ -40,11 +40,12 @@
             A virtual function is a member function which is declared within a base class
             and is overwritten by a derived class. In C++, the keyword
             <c>virtual</c> is used.
-            A simple example of using a virtual function in C++ is shown in <xref ref="virtualfunction"/>.
-            In this example, the two derived subclasses inherit the <c>printType</c>
+            A simple example of using a virtual function in C++ is shown below.
+            In this example, the two derived subclasses inherit the printType
             method from the Base class.</p>
 
-        <listing xml:id="virtualfunction"><program language="cpp"><input>
+    <program xml:id="virtualfunction" interactive="activecode" language="cpp">
+        <input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -74,16 +75,16 @@ virtual void subfunction() {
 };
 
 int main() {
-        SubFirst first;       // runs  subfirst class using printType virtual function
-        first.printType();    // calls Subfirst class, and runs virtual function on it's own
+SubFirst first;       // runs  subfirst class using printType virtual function
+first.printType();    // calls Subfirst class, and runs virtual function on it's own
 
-        SubSecond second;    // runs  subsecond class using printType virtual function
-        second.printType();  // calls Subsecond class, and runs virtual function on it's own
+SubSecond second;    // runs  subsecond class using printType virtual function
+second.printType();  // calls Subsecond class, and runs virtual function on it's own
 
-        return 0;
+return 0;
 }
-        </input></program></listing>
- 
+        </input>
+    </program>
         <subsection xml:id="introduction_logic-gates-and-circuits">
             <title>Logic Gates and Circuits</title>
             <p>To explore this idea further, we will construct a <term>simulation</term>, an
@@ -101,12 +102,12 @@ int main() {
             <p><term>NOT</term> gates differ from the other two gates in that they only have a
                 single input line. The output value is simply the opposite of the input
                 value. If 0 appears on the input, 1 is produced on the output.
-                Similarly, 1 produces 0. <xref ref="ooderive_fig-truthtable"/> shows how each of these
+                Similarly, 1 produces 0. <xref ref="fig-truthtable"/> shows how each of these
                 gates is typically represented. Each gate also has a <term>truth table</term> of
                 values showing the input-to-output mapping that is performed by the
                 gate.</p>
 
-            <figure align="center" xml:id="ooderive_fig-truthtable">
+            <figure align="center" xml:id="fig-truthtable">
                 <caption>Three Types of Logic Gates</caption>
                     <image source="Introduction/truthtable.png" width="50%">
                     <description>Image depicting three types of logic gates and their corresponding truth tables. On the left is the 'AND' gate symbol with a two-input truth table below it, showing outputs of '0' for all inputs except '1' and '1'. The center shows the 'OR' gate symbol with a truth table, displaying '1' when at least one input is '1'. On the right, the 'NOT' gate symbol is presented with a single-input truth table, showing an output inverse to the input.</description>
@@ -114,15 +115,15 @@ int main() {
                 </figure>
             <p>By combining these gates in various patterns and then applying a set of
                 input values, we can build circuits that have logical functions.
-                <xref ref="ooderive_fig-circuit1"/> shows a circuit consisting of two <term>AND</term> gates,
+                <xref ref="fig-circuit1"/> shows a circuit consisting of two <term>AND</term> gates,
                 one <term>OR</term> gate, and a <term>NOT</term> gate. The output lines from the two <term>AND</term> gates
                 feed directly into the <term>OR</term> gate, and the resulting output from the <term>OR</term>
                 gate is given to the <term>NOT</term> gate. If we apply a set of input values to the
                 four input lines (two inputs for each <term>AND</term> gate), the values are processed and a
-                result appears at the output of the <term>NOT</term> gate. <xref ref="ooderive_fig-circuit1"/> also
+                result appears at the output of the <term>NOT</term> gate. <xref ref="fig-circuit1"/> also
                 shows an example with values.</p>
 
-            <figure align="center" xml:id="ooderive_fig-circuit1">
+            <figure align="center" xml:id="fig-circuit1">
                 <caption>Circuit</caption>
                     <image source="Introduction/circuit1.png" width="50%">
                     <description>Diagram of a logic circuit with labeled gates and sample inputs/outputs. The top part shows two 'AND' gates labeled 'g1' and 'g2' feeding into an 'OR' gate labeled 'g3', which in turn feeds into a 'NOT' gate labeled 'g4'. Below, the same circuit is shown with binary inputs and the resulting outputs: 'AND' gates receiving '0, 1' and '1, 1' inputs with '0' and '1' outputs respectively; the 'OR' gate then combines the two to output '1', which is inverted to '0' by the 'NOT' gate.</description>
@@ -132,21 +133,19 @@ int main() {
 
 
 
-            <p>In order to implement a circuit such as <xref ref="ooderive_fig-circuit0"/>, we will first build a representation
+            <p>In order to implement a circuit, we will first build a representation
                 for logic gates. Logic gates are easily organized into a class
-                inheritance hierarchy as shown in <xref ref="ooderive_fig-gates"/>. At the top of the
+                inheritance hierarchy as shown in <xref ref="fig-gates"/>. At the top of the
                 hierarchy, the <c>LogicGate</c> class represents the most general
                 characteristics of logic gates: namely, a label for the gate and an
                 output line. The next level of subclasses breaks the logic gates into
                 two families, those that have one input line and those that have two.
                 Below that, the specific logic functions of each appear.</p>
-            <figure align="center" xml:id="ooderive_fig-circuit0">
-                <image source="Introduction/logicquestion.png" width="50%"/>
-            </figure>
+            <figure align="center" ><image source="Introduction/logicquestion.png" width="50%"/></figure>
 
          
     
-    <figure align="center" xml:id="ooderive_fig-gates">
+    <figure align="center" xml:id="fig-gates">
         <caption>An Inheritance Hierarchy for Logic Gates</caption>
             <image source="Introduction/gates.png" width="50%">
             <description>Flowchart representing an inheritance hierarchy for logic gates. The topmost block is labeled 'Logic Gate', which branches down into two categories: 'Binary Gate' and 'Unary Gate'. Under 'Binary Gate', two further blocks represent 'AND' and 'OR' gates, each accompanied by their respective symbols. To the right, under 'Unary Gate', there's a block for the 'NOT' gate with its symbol. The structure implies that 'AND' and 'OR' gates inherit from 'Binary Gate', which along with 'Unary Gate' inherits from 'Logic Gate'. </description>
@@ -164,7 +163,9 @@ int main() {
                 means calling a method to perform the logic computation. The complete
                 class is shown in <xref ref="introduction_lst-logicgateclass"/>.</p>
             
-        <listing xml:id="introduction_lst-logicgateclass"><program language="cpp"><input>
+            <p xml:id="introduction_lst-logicgateclass" names="lst_logicgateclass"><term>Listing 8</term></p>
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+                    <program language="cpp"><input>
 class LogicGate {
 public:
         LogicGate(string n) {
@@ -181,7 +182,23 @@ protected:
         string label;
         bool output;
 };
-        </input></program></listing>
+</input></program>
+                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+                    <program language="Python"><input>
+class LogicGate:
+
+        def __init__(self,n):
+                self.label = n
+                self.output = None
+
+        def getLabel(self):
+                return self.label
+
+        def getOutput(self):
+                self.output = self.performGateLogic()
+                return self.output
+</input></program>
+                </TabNode>
             <p>A protected member variable or function is similar to a
                 private member but it has the additional benefit that they
                 can be accessed by derived classes. The access keyword
@@ -206,8 +223,10 @@ protected:
                 will also subclass <c>LogicGate</c> but will have only a single input line.
                 In computer circuit design, these lines are sometimes called <q>pins</q> so
                 we will use that terminology in our implementation.</p>
-
-        <listing xml:id="introduction_lst-binarygateclass"><program language="cpp"><input>
+            
+            <p xml:id="introduction_lst-binarygateclass" names="lst_binarygateclass"><term>Listing 9</term></p>
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+                    <program language="cpp"><input>
 class BinaryGate : public LogicGate {
 public:
         BinaryGate(string n) : LogicGate(n) { // When we create an instance of
@@ -240,9 +259,28 @@ protected:
         bool pinB;
         bool pinBTaken;
 };
-        </input></program></listing>
+</input></program>
+                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+                    <program language="Python"><input>
+class BinaryGate(LogicGate):
 
-        <listing xml:id="introduction_lst-unarygateclass"><program language="cpp"><input>
+        def __init__(self,n):
+                LogicGate.__init__(self,n)
+
+                self.pinA = None
+                self.pinB = None
+
+        def getPinA(self):
+                return int(input("Enter Pin A input for gate "+ self.getLabel()+"-&gt;"))
+
+        def getPinB(self):
+                return int(input("Enter Pin B input for gate "+ self.getLabel()+"-&gt;"))
+</input></program>
+                </TabNode>
+            
+            <p xml:id="introduction_lst-unarygateclass" names="lst_unarygateclass"><term>Listing 10</term></p>
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+                    <program language="cpp"><input>
 class UnaryGate : public LogicGate {
 public:
         UnaryGate(string n) : LogicGate(n) {
@@ -260,8 +298,21 @@ protected:
         bool pin;
         bool pinTaken;
 };
-        </input></program></listing>
-            <p><xref ref="introduction_lst-binarygateclass"/> and <xref ref="introduction_lst-unarygateclass"/> implement these two
+</input></program>
+                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+                    <program language="Python"><input>
+class UnaryGate(LogicGate):
+
+        def __init__(self,n):
+                LogicGate.__init__(self,n)
+
+                self.pin = None
+
+        def getPin(self):
+                return int(input("Enter Pin input for gate "+ self.getLabel()+"-&gt;"))
+</input></program>
+                </TabNode>
+            <p><xref ref="introduction_lst-logicgateclass"/> and <xref ref="introduction_lst-unarygateclass"/> implement these two
                 classes. The constructors in both of these classes start with an
                 explicit call to the constructor of the parent class using the parent's name
                 method. When creating an instance of the <c>BinaryGate</c> class, we
@@ -285,7 +336,9 @@ protected:
                 that the <c>AndGate</c> class does not provide any new data since it
                 inherits two input lines, one output line, and a label.</p>
             
-        <listing xml:id="introduction_lst-andgateclass" names="lst_andgateclass"><program language="cpp"><input>
+            <p xml:id="introduction_lst-andgateclass" names="lst_andgateclass"><term>Listing 11</term></p>
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+                    <program language="cpp"><input>
 class AndGate : public BinaryGate {
 public:
         AndGate(string n) : BinaryGate(n) {};
@@ -301,34 +354,58 @@ public:
                 }
         }
 };
-        </input></program></listing>
+</input></program>
+                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+                    <program language="Python"><input>
+class AndGate(BinaryGate):
 
+        def __init__(self,n):
+                super(AndGate,self).__init__(n)
+
+        def performGateLogic(self):
+
+                a = self.getPinA()
+                b = self.getPinB()
+                if a==1 and b==1:
+                        return 1
+                else:
+                        return 0
+</input></program>
+                </TabNode>
             <p>The only thing <c>AndGate</c> needs to add is the specific behavior that
                 performs the Boolean operation that was described earlier. This is the
                 place where we can provide the <c>performGateLogic</c> method. For an <term>AND</term>
                 gate, this method first must get the two input values and then only
                 return 1 if both input values are 1. The complete class is shown in
-                <xref ref="introduction_lst-andgateclass"/>.</p>
+                <xref ref="lst-andgateclass"/>.</p>
             <p>We can show the <c>AndGate</c> class in action by creating an instance and
                 asking it to compute its output. The following session shows an
                 <c>AndGate</c> object, <c>gand1</c>, that has an internal label <c>"gand1"</c>. When we
                 invoke the <c>getOutput</c> method, the object must first call its
                 <c>performGateLogic</c> method which in turn queries the two input lines.
                 Once the values are provided, the correct output is shown.</p>
+            <!--tabbed::get_ouput
 
-        <listing xml:id="introduction_fig-andusage"><program><input>
-                &gt;&gt;&gt; AndGate gand2("gand2")
-                &gt;&gt;&gt; gand2.getOutput()
-                Enter Pin A input for gate gand2: 1
-                Enter Pin B input for gate gand2: 1
-                1
-                &gt;&gt;&gt; gand2.getOutput()
-                Enter Pin A input for gate gand2: 0
-                Enter Pin B input for gate gand2: 0
+.. tab:: C++
+
+        .. code-block:: cpp
+
+                >>> AndGate gand1("gand1")
+                >>> gand1.getOutput()
+                Enter Pin A input for gate gand1: 1
+                Enter Pin B input for gate gand1: 0
                 0
-        </input></program></listing>
-.
-           <p>The same development can be done for <term>OR</term> gates and <term>NOT</term> gates. The
+
+.. tab:: Python
+
+        .. code-block:: Python
+
+                >>> g1 = AndGate("G1")
+                >>> g1.getOutput()
+                Enter Pin A input for gate G1->1
+                Enter Pin B input for gate G1->0
+                0-->
+            <p>The same development can be done for <term>OR</term> gates and <term>NOT</term> gates. The
                 <c>OrGate</c> class will also be a subclass of <c>BinaryGate</c> and the
                 <c>NotGate</c> class will extend the <c>UnaryGate</c> class. Both of these
                 classes will need to provide their own <c>performGateLogic</c> functions,
@@ -336,12 +413,24 @@ public:
             <p>We can use a single gate by first constructing an instance of one of the
                 gate classes and then asking the gate for its output (which will in turn
                 need inputs to be provided). For example:</p>
-
-        <listing xml:id="introduction_fig-andusage"><program><input>
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+                    <program language="cpp"><input>
+&gt;&gt;&gt; OrGate gand2("gand2")
+&gt;&gt;&gt; gand2.getOutput()
+Enter Pin A input for gate gand2: 1
+Enter Pin B input for gate gand2: 1
+1
+&gt;&gt;&gt; gand2.getOutput()
+Enter Pin A input for gate gand2: 0
+Enter Pin B input for gate gand2: 0
+0
 &gt;&gt;&gt; NotGate gor2("gor2")
 &gt;&gt;&gt; gor2.getOutput()
 Enter Pin input for gate gor2: 0
 1
+</input></program>
+                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDerivedClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+                    <program language="Python"><input>
 &gt;&gt;&gt; g2 = OrGate("G2")
 &gt;&gt;&gt; g2.getOutput()
 Enter Pin A input for gate G2-&gt;1
@@ -355,7 +444,8 @@ Enter Pin B input for gate G2-&gt;0
 &gt;&gt;&gt; g3.getOutput()
 Enter Pin input for gate G3-&gt;0
 1
-        </input></program></listing>
+</input></program>
+                </TabNode>
         </subsection>
         <subsection xml:id="introduction_building-circuits">
             <title>Building Circuits</title>
@@ -365,18 +455,18 @@ Enter Pin input for gate G3-&gt;0
                 do this, we will implement a new class called <c>Connector</c>.</p>
             <p>The <c>Connector</c> class will not reside in the gate hierarchy. It will,
                 however, use the gate hierarchy in that each connector will have two
-                gates, one on either end (see <xref ref="ooderive_fig-connector"/>).
+                gates, one on either end (see <xref ref="fig-connector"/>).
                 This relationship is
                 very important in object-oriented programming. It is called the <term>HAS-A
                     Relationship</term>. Recall earlier that we used the phrase <q>IS-A
                 Relationship</q> to say that a child class is related to a parent class,
                 for example <c>UnaryGate</c> IS-A <c>LogicGate</c>.</p>
-        <figure align="center" xml:id="ooderive_fig-connector">
-                <caption>A Connector Connects the Output of One Gate to the Input of Another</caption>
-                <image source="Introduction/connector.png" width="50%">
-                <description>Diagram showing two logic gate symbols, 'AND' and 'OR', connected by a line labeled 'connector'. The 'AND' gate is on the left with an arrow pointing from its output to the 'connector'. Another arrow extends from the 'connector' to the input of the 'OR' gate on the right. This illustrates how the output of one gate serves as the input to another.</description>
-                </image>
-        </figure>
+                <figure align="center" xml:id="fig-connector">
+                        <caption>A Connector Connects the Output of One Gate to the Input of Another</caption>
+                        <image source="Introduction/connector.png" width="50%">
+                        <description>Diagram showing two logic gate symbols, 'AND' and 'OR', connected by a line labeled 'connector'. The 'AND' gate is on the left with an arrow pointing from its output to the 'connector'. Another arrow extends from the 'connector' to the input of the 'OR' gate on the right. This illustrates how the output of one gate serves as the input to another.</description>
+                        </image>
+                        </figure>
 
 
             <p>Now, with the <c>Connector</c> class, we say that a <c>Connector</c> HAS-A
@@ -385,23 +475,29 @@ Enter Pin input for gate G3-&gt;0
                 designing classes, it is very important to distinguish between those
                 that have the IS-A relationship (which requires inheritance) and those
                 that have HAS-A relationships (with no inheritance).</p>
-            <p><xref ref="ooderive_program"/> shows the <c>Connector</c> class.
+            <p><inline classes="xref std std-ref">Listing 12</inline> shows the <c>Connector</c> class.
                 The two gate instances within each connector object will be referred to as the
                 <c>fromgate</c> and the <c>togate</c>, recognizing that data values will
                 <q>flow</q> from the output of one gate into an input line of the next. The
                 call to <c>setNextPin</c> is very important for making connections (see
-                <xref ref="ooderive_program"/>). We need to add this method to our gate classes so
+                <inline classes="xref std std-ref">Listing 13</inline>). We need to add this method to our gate classes so
                 that each <c>togate</c> can choose the proper input line for the
                 connection.</p>
       
-            <figure align="center" xml:id="ooderive_fig-desired-circuit">
+            <figure align="center" xml:id="fig-desired-circuit">
                 <caption>Circit of NOT(AND(ganda,gnadb)OR AND(gandc,gandd))</caption>
                     <image source="Introduction/desired_circuit.png" width="80%">
                     <description>Circuit diagram illustrating a logical expression with labeled components. Two 'AND' gates, labeled 'gand1' and 'gand2', are connected to an 'OR' gate labeled 'gor3' via lines labeled 'connector'. The output of 'gor3' is then fed into a 'NOT' gate labeled 'gnot4'. The connections suggest the logical operation NOT(AND(a,b)) OR AND(c,d). </description>
                     </image>
                 </figure>
 
-    <listing xml:id="ooderive_program"><program interactive="activecode" language="cpp"><input>
+
+
+
+    
+
+    <program xml:id="desiredcircuit" interactive="activecode" language="cpp">
+        <input>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -594,8 +690,9 @@ int main() {
     cin &gt;&gt; stopme; //holds open window under some conditions.
     return 0;
 }
-        </input></program></listing>
+        </input>
 
+    </program>
     <reading-questions xml:id="rq-oop-derived-classes">
         <title>Reading Questions</title>
         <exercise>
