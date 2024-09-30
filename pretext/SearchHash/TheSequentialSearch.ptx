@@ -121,7 +121,7 @@
                 approximation, so the complexity of the sequential search, is
                 <m>O(n)</m>. <xref ref="search-hash_tbl-seqsearchtable"/> summarizes these results.</p>
             
-            <table xml:id="search-hash_id2"><tabular>
+            <table xml:id="search-hash_tbl-seqsearchtable"><tabular>
                 <title><term>Table 1: Comparisons Used in a Sequential Search of an Unordered List</term></title>
                 
                     
