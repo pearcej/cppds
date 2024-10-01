@@ -1,5 +1,6 @@
 <section xml:id="introduction_defining-c-functions">
         <title>Defining C++ Functions</title>
+        <introduction>
         <p>In general, we can hide the details of any computation by defining
             a function. A function definition requires a name, a group of
             parameters, a return type, and a body. It may either return a variable, value, or nothing (specified by the keyword void). For
@@ -108,7 +109,7 @@ int main() {
 }
         </input>
     </program></listing>
-            
+    </introduction>        
         <subsection xml:id="introduction_parameter-passing-by-value-versus-by-reference">
             <title>Parameter Passing: by Value versus by Reference</title>
             <p><idx>pass-by-value</idx>In all of the functions we have written thus far, we have used a function calling
@@ -446,7 +447,7 @@ int main() {
                 
             </reading-questions>
         </subsection>
-        <p>
+        <conclusion><p>
             <!-- extra space before the progress bar -->
-        </p>
+        </p></conclusion>
     </section>
