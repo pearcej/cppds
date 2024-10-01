@@ -1,5 +1,6 @@
 <section xml:id="linear-linked_implementing-an-ordered-linked-list">
         <title>Implementing an Ordered Linked List</title>
+        <introduction>
         <definition xml:id="def-ordered-linked-list">
         <idx>ordered linked list</idx>
             <statement>
@@ -311,6 +312,7 @@ int main() {
 }
         </input>
     </program>
+    </introduction>
         <subsection xml:id="linear-linked_analysis-of-linked-lists">
             <title>Analysis of Linked Lists</title>
             <p>To analyze the complexity of the linked list operations, we need to
@@ -378,7 +380,7 @@ int main() {
 
     </exercise>
         </subsection>
-        <p>
+        <conclusion><p>
             <!-- extra space before the progress bar -->            
-        </p>
+        </p></conclusion>
 </section>
