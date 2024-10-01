@@ -373,7 +373,7 @@ main()
         </row>
       </tabular>
     </table>
-    <exercise >
+    <exercise label="intro_logical-printops">
       <TabNode tabname="C++" tabnode_options="{'subchapter': 'BuiltInAtomicDataTypes', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
         <program xml:id="locicalcpp" interactive="activecode" language="cpp">
           <input>
@@ -493,7 +493,7 @@ int main(){
     <p>In C++ single quotes are used for the character (<c>char</c>) data type,
                 and double quotes are used for the string data type.</p>
     <p>Consider the following code.</p>
-    <exercise >
+    <exercise label="intro_logical-printchar">
       <TabNode tabname="Python" tabnode_options="{'subchapter': 'BuiltInAtomicDataTypes', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
         <program xml:id="charpy" interactive="activecode" language="python">
           <input>
