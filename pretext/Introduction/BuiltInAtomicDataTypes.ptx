@@ -65,7 +65,7 @@
     <p>Exponentiation in C++ is done using <c>pow()</c> from the <c>cmath</c> library
                 and the remainder (modulo) operator is done with <c>%</c>.</p>
     <p>Run the following code to see that you understand each result.</p>
-    <exercise >
+    <exercise label="intro_numeric-ex1">
       <TabNode tabname="C++" tabnode_options="{'subchapter': 'BuiltInAtomicDataTypes', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
         <program xml:id="intro_1cpp" interactive="activecode" language="cpp">
           <input>
@@ -219,7 +219,7 @@ main()
                 and &#x201C;not&#x201D; is given by <c>!</c>.
                 Note that the internally stored values representing <c>true</c> and <c>false</c>
                 are actually <c>1</c> and <c>0</c> respectively. Hence, we see this in output as well.</p>
-    <exercise >
+    <exercise label="intro_builtin-ex_printbool">
       <TabNode tabname="C++" tabnode_options="{'subchapter': 'BuiltInAtomicDataTypes', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
         <program xml:id="logical_1cpp" interactive="activecode" language="cpp">
           <input>
@@ -373,7 +373,7 @@ main()
         </row>
       </tabular>
     </table>
-    <exercise >
+    <exercise label="intro_logical-printops">
       <TabNode tabname="C++" tabnode_options="{'subchapter': 'BuiltInAtomicDataTypes', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
         <program xml:id="locicalcpp" interactive="activecode" language="cpp">
           <input>
@@ -493,7 +493,7 @@ int main(){
     <p>In C++ single quotes are used for the character (<c>char</c>) data type,
                 and double quotes are used for the string data type.</p>
     <p>Consider the following code.</p>
-    <exercise >
+    <exercise label="intro_logical-printchar">
       <TabNode tabname="Python" tabnode_options="{'subchapter': 'BuiltInAtomicDataTypes', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
         <program xml:id="charpy" interactive="activecode" language="python">
           <input>
@@ -611,7 +611,7 @@ int varN = 100;</pre>
                 odd because it will be the actual memory address written in a hexadecimal code
                 which is a base 16 code like 0x7ffd93f25244.</p>
     <p>In C++ we use the <em>address-of operator</em>, <c>&amp;</c> to reference the address.</p>
-    <exercise >
+    <exercise label="intro_pointers-ex_print_ptr">
       <TabNode tabname="C++" tabnode_options="{'subchapter': 'BuiltInAtomicDataTypes', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
         <program xml:id="address_cpp" interactive="activecode" language="cpp">
           <input>
