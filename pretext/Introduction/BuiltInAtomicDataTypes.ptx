@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <section xml:id="introduction_built-in-atomic-data-types">
   <title>Built-in Atomic Data Types</title>
+  <introduction>
   <p>C++ requires users to specify the data type of each variable before it is used.
             The primary C++ built-in atomic data types are: integer (<c>int</c>),
             floating point (<c>float</c>), double precision floating point (<c>double</c>),
@@ -48,6 +49,7 @@
       </choice>
     </choices>
   </exercise>
+</introduction>
   <subsection xml:id="introduction_numeric-data">
     <title>Numeric Data</title>
     <p>Numeric C++ data types include <c>int</c> for integer, <c>float</c>
@@ -983,7 +985,7 @@ int main( ) {
       </exercise>
     </subsubsection>
   </subsection>
-  <p>
+  <conclusion><p>
     <!-- extra space before the progress bar -->
-  </p>
+  </p></conclusion>
 </section>
