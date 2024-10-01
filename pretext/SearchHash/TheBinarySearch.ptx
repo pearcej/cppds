@@ -144,7 +144,7 @@ int main() {
                 times can we split the list? <xref ref="search-hash_tbl-binaryanalysis"/> helps us to see the
                 answer.</p>
             
-            <table xml:id="search-hash_id2"><tabular>
+            <table xml:id="search-hash_tbl-binaryanalysis"><tabular>
                 <title><term>Table 3: Tabular Analysis for a Binary Search</term></title>
                 
                     

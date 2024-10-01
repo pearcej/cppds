@@ -170,45 +170,47 @@
         analyze performance.</p>
     
 <listing xml:id="algo_analysis_dummycode_1">
-    <p xml:id="algorithm-analysis_lst-dummycode" names="lst_dummycode"><term>Listing 2</term></p>
     <p><term>C++ Implementation</term></p>
-    <pre>#include &lt;iostream&gt;
+    <program language="cpp"><input>
+#include &lt;iostream&gt;
 using namespace std;
 
 int main(){
-int a=5;
-int b=6;
-int c=10;
-for (int i=0; i&lt;n; i++){
-    for (int j=0; j&lt;n; j++){
-        int x = i * i;
-        int y = j * j;
-        int z = i * j;
+    int a=5;
+    int b=6;
+    int c=10;
+    for (int i=0; i&lt;n; i++){
+        for (int j=0; j&lt;n; j++){
+            int x = i * i;
+            int y = j * j;
+            int z = i * j;
+        }
     }
-}
 
-for (int k = 0; k &lt; n; k++){
-    int w = a*k + 45;
-    int v = b*b;
-}
-int d = 33;
-return 0;
-}</pre>
-    <p><term>Python Implementation</term></p>
-    <pre>def main():
-a=5
-b=6
-c=10
-for i in range(n):
-    for j in range(n):
-       x = i * i
-       y = j * j
-       z = i * j
-for k in range(n):
-    w = a*k + 45
-    v = b*b
-d = 33
-main()</pre>
+    for (int k = 0; k &lt; n; k++){
+        int w = a*k + 45;
+        int v = b*b;
+    }
+    int d = 33;
+    return 0;
+}</input></program>
+<p><term>Python Implementation</term></p>
+<program language="python"><input>
+def main():
+    a=5
+    b=6
+    c=10
+    for i in range(n):
+        for j in range(n):
+            x = i * i
+            y = j * j
+            z = i * j
+    for k in range(n):
+        w = a*k + 45
+        v = b*b
+    d = 33
+main()
+</input></program>
 </listing>
     <p>The number of assignment operations is the sum of four terms. The first
         term is the constant 3, representing the three assignment statements at
