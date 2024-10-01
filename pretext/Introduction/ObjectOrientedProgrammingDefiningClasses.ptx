@@ -1,5 +1,6 @@
 <section xml:id="introduction_object-oriented-programming-in-c-defining-classes">
         <title>Object-Oriented Programming in C++: Defining Classes</title>
+        <introduction>
         <p><idx>object-oriented programming</idx>We stated earlier that C++ is an <term>object-oriented programming
             language</term>. Object-oriented programming is a programming technique based on
             real world things such as turtles, airplanes, customers, etc.
@@ -39,6 +40,7 @@
             </ol></p>
         </blockquote>
         <p>We will highlight each principle via examples.</p>
+        </introduction>
         <subsection xml:id="introduction_a-fraction-class">
             <title>A <c>Fraction</c> Class</title>
             <p>A very common example to show the details of implementing a user-defined
@@ -1023,7 +1025,7 @@ int main(){
 
 
         </subsection>
-        <p>
+        <conclusion><p>
             <!-- extra space before the progress bar -->
-        </p>
+        </p></conclusion>
     </section>
