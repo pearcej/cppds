@@ -302,7 +302,7 @@ void rebalance(TreeNode *node){
             that requires a left rotation followed by a right. In addition the
             discussion questions provide you with the opportunity to rebalance some
             trees that are a little more complex than the tree in
-            <xref ref="fig-rotatelr"/>.</p>
+            <xref ref="avlimpl_fig-rotatelr"/>.</p>
         <p>By keeping the tree in balance at all times, we can ensure that the
             <c>get</c> method will run in order <m>O(\log_2(n))</m> time. But the
             question is at what cost to our <c>put</c> method? Let us break this down

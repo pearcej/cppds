@@ -1,12 +1,14 @@
 <section xml:id="introduction_collections">
         <title>Collections</title>
-        <p>In addition to the numeric, Boolean, and character types,
-            C++ also offers built-in collection types.
-            A <term>collection</term> data type is a grouping of some number of other data items
-            (possibly only zero or one) that have some shared significance
-            or need to be operated upon together.</p>
-        <p>Arrays, vectors, strings, sets, and hash tables are among these useful
-            C++ collection types.</p>
+        <introduction>
+            <p>In addition to the numeric, Boolean, and character types,
+                C++ also offers built-in collection types.
+                A <term>collection</term> data type is a grouping of some number of other data items
+                (possibly only zero or one) that have some shared significance
+                or need to be operated upon together.</p>
+            <p>Arrays, vectors, strings, sets, and hash tables are among these useful
+                C++ collection types.</p>
+        </introduction>
         <subsection xml:id="introduction_arrays">
             <title>Arrays</title>
             <p><term>What is an Array?</term>
@@ -861,10 +863,6 @@ main()
                     
                 
             </tabular></table>
-            <subsubsection xml:id="introduction_id2">
-                <title>Matching</title>
-
-            </subsubsection>
         </subsection>
         <subsection xml:id="introduction_unordered-sets">
             <title>Unordered Sets</title>
@@ -1012,6 +1010,36 @@ int main(){
 <reading-questions xml:id="rq-collection-data">
                     <title>Reading Questions</title>
 
+    <exercise label="matching_ht">
+        <statement><p> Match the Hash Table operations with their corresponding explination.</p></statement>
+        <feedback><p>Feedback shows incorrect matches.</p></feedback>
+        <matches>
+            <match order="1">
+                <premise>begin</premise>
+                <response>An iterator to the first element in the hash table.</response>
+            </match>
+            <match order="2">
+                <premise>[ ]</premise>
+                <response>Returns the value associated with the key, creating a default entry if necessary.</response>
+            </match>
+            <match order="3">
+                <premise>erase</premise>
+                <response>Deletes the entry from the hash table.</response>
+            </match>
+            <match order="4">
+                <premise>at</premise>
+                <response>Returns the value associated with the key, otherwise throws error.</response>
+            </match>
+            <match order="5">
+                <premise>end</premise>
+                <response>An iterator pointing to past-the-end element of the hash table.</response>
+            </match>
+            <match order="6">
+                <premise>count</premise>
+                <response>Returns true if key is in the hash table, and false otherwise.</response>
+            </match>
+        </matches>
+    </exercise>
 
 <exercise label="matching_us">
     <statement><p> Match the Unordered Sets operations with their corresponding explanation.</p></statement>
@@ -1363,7 +1391,7 @@ int main(){
 </reading-questions>
 
         </subsection>
-        <p>
+        <conclusion><p>
             <!-- extra space before the progress bar -->
-        </p>
+        </p></conclusion>
     </section>

@@ -98,11 +98,11 @@
             <m>(3 + (4 * 5))</m>. We will parse this expression into the
             following vector of character tokens <c>['(', '3', '+',</c>
             <c>'(', '4', '*', '5' ,')',')']</c>. Initially we will start out with a
-            parse tree that consists of an empty root node. <xref ref="fig-bldexpstep"/>
+            parse tree that consists of an empty root node. <xref ref="parse_fig-bldexpstep"/>
             illustrates the structure and contents of the parse tree, as each new
             token is processed.</p>
     
-        <figure align="center" xml:id="fig-buildExp">
+        <figure align="center" xml:id="parse_fig-bldexpstep">
             <caption>Tracing Parse Tree Construction.</caption>
                 <image source="Trees/buildExp1.png" width="15%"/>
                 <image source="Trees/buildExp2.png" width="25%"/>
@@ -117,7 +117,7 @@
             </figure>
 
 
-        <p>Using <xref ref="fig-bldexpstep"/>, let's walk through the example step by
+        <p>Using <xref ref="parse_fig-bldexpstep"/>, let's walk through the example step by
             step:</p>
         <p><ol marker="a">
             <li>
