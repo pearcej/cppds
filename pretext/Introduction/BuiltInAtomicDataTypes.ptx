@@ -585,6 +585,7 @@ int main(){
   </subsection>
   <subsection xml:id="introduction_pointers">
     <title>Pointers</title>
+    <introduction>
     <p>A C++ <term>pointer</term> is a variable that stores a memory address.</p>
     <p>We know that variables in a computer program are used to label data with a
                 descriptive identifier so that the data can be accessed and used by that
@@ -647,6 +648,7 @@ main()
     <p>In C++, variables store values directly, making them faster to reference.</p>
     <p>If in C++, we want to create a reference to a memory location in C++,
                 we must use a special syntax called a <term>pointer</term>.</p>
+    </introduction>
     <subsubsection xml:id="introduction_pointer-syntax">
       <title>Pointer Syntax</title>
       <p>When declaring a pointer in C++ that will &#x201C;point&#x201D; to the memory address of some
