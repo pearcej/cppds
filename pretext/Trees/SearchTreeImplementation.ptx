@@ -14,7 +14,7 @@
         <figure align="center" xml:id="bst_fig-simplebst"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">A Simple Binary Search Tree.</caption><image source="Trees/simpleBST.png" width="50%"/></figure>
         <p>Now that you know what a binary search tree is, we will look at how a
             binary search tree is constructed. The search tree in
-            <xref ref="fig-simplebst"/> represents the nodes that exist after we have
+            <xref ref="bst_fig-simplebst"/> represents the nodes that exist after we have
             inserted the following keys in the order shown:
             <m>70,31,93,94,14,23,73</m>. Since 70 was the first key inserted into
             the tree, it is the root. Next, 31 is less than 70, so it becomes the
