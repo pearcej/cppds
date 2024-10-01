@@ -1,6 +1,6 @@
 <section xml:id="search-hash_hashing">
         <title>Hashing</title>
-        
+        <introduction>
         <p>In previous sections we were able to make improvements on our search
             algorithms by taking advantage of information about where items are
             stored in the collection with respect to one another. For example, by
@@ -23,7 +23,7 @@
             a list with each value initialized to an empty string.
             <xref ref="search_hash-fig-hashtable1"/> shows a hash table of size <m>m=11</m>.
             In other words, there are <em>m</em> slots in the table, named 0 through 10.</p>
-        
+
         <blockquote>
             <figure align="center" xml:id="search_hash-fig-hashtable1">
                 <caption>Hash Table with 11 Empty Slots.</caption>
@@ -143,6 +143,7 @@
             a <term>collision</term> (it may also be called a <q>clash</q>). <idx>collision</idx> Clearly, collisions
             create a problem for the hashing technique. We will discuss them in
             detail later.</p>
+        </introduction>
         <subsection xml:id="search-hash_hash-functions">
             <title>Hash Functions</title>
             

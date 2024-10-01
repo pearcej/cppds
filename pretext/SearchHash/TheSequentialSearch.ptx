@@ -1,5 +1,6 @@
 <section xml:id="search-hash_the-sequential-search">
         <title>The Sequential Search</title> 
+        <introduction>
         <p>
             When data items are stored in a container type such as a Python list or a C++
             array/vector, we say that they have a linear or sequential relationship. Each data
@@ -93,7 +94,7 @@
                 </input>
             </program>
         </listing>
-            
+        </introduction>
         <subsection xml:id="search-hash_analysis-of-sequential-search">
             <title>Analysis of Sequential Search</title>
             <p>To analyze searching algorithms, we need to decide on a basic unit of

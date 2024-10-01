@@ -1,5 +1,6 @@
 <section xml:id="search-hash_the-binary-search">
         <title>The Binary Search</title>
+        <introduction>
         <p>It is possible to take greater advantage of the ordered vector if we are
             clever with our comparisons. In the sequential search, when we compare
             against the first item, there are at most <m>n-1</m> more items to
@@ -132,6 +133,7 @@ int main() {
         </input>
     </program>
     </listing>
+    </introduction>
         <subsection xml:id="search-hash_analysis-of-binary-search">
             <title>Analysis of Binary Search</title>
             <p>To analyze the binary search algorithm, we need to recall that each
