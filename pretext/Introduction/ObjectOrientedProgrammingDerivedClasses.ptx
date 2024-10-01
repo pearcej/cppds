@@ -1,6 +1,6 @@
 <section xml:id="introduction_inheritance-in-c">
         <title>Inheritance in C++</title>
-        <p>In this section we introduce another important aspect of
+        <introduction><p>In this section we introduce another important aspect of
             object-oriented programming. <term>Inheritance</term> is the ability for one
             class to be related to another class in much the same way that people
             can be related to one another. Children inherit characteristics from
@@ -85,6 +85,7 @@ return 0;
 }
         </input>
     </program>
+</introduction>
         <subsection xml:id="introduction_logic-gates-and-circuits">
             <title>Logic Gates and Circuits</title>
             <p>To explore this idea further, we will construct a <term>simulation</term>, an
@@ -762,7 +763,7 @@ int main() {
 
         </reading-questions>
         </subsection>
-        <p>
+        <conclusion><p>
             <!-- extra space before the progress bar -->   
-        </p>
+        </p></conclusion>
     </section>
