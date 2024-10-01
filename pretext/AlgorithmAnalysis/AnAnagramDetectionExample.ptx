@@ -1,5 +1,6 @@
 <section xml:id="algorithm-analysis_an-anagram-detection-example">
         <title>An Anagram Detection Example</title>
+        <introduction>
         <p>A good example problem for showing algorithms with different orders of
             magnitude is the classic anagram detection problem for strings. One
             string is an anagram of another if the second is simply a rearrangement
@@ -9,6 +10,7 @@
             equal length and that they are made up of symbols from the set of 26
             lowercase alphabetic characters. Our goal is to write a Boolean function
             that will take two strings and return whether they are anagrams.</p>
+        </introduction>
         <subsection xml:id="algorithm-analysis_solution-1-checking-off">
             <title>Solution 1: Checking Off</title>
             <p>Our first solution to the anagram problem will check the lengths of the
@@ -532,7 +534,7 @@ main()
     <p>If an algorithm performing at <m>O(n^{2})</m> has the integer 8 as input, what is the worst case scenario for the algorithm? <var/>  </p></statement><setup><var><condition number="[64]"><feedback><p>Correct!</p></feedback></condition><condition number="[16]"><feedback><p>That would be 2n, which would be simplified as n.</p></feedback></condition><condition number="[8]"><feedback><p>That would be n.</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>Wrong, Try again!</p></feedback></condition></var></setup></exercise>
     </reading-questions>            
         </subsection>
-        <p>
+        <conclusion><p>
             <!-- extra space before the progress bar -->
-        </p>
+        </p></conclusion>
     </section>

@@ -1,5 +1,6 @@
 <section xml:id="algorithm-analysis_what-is-algorithm-analysis">
     <title>What Is Algorithm Analysis?</title>
+    <introduction>
     <p>It is very common for beginning computer science students to
         compare their programs with one another. You may also have noticed that
         it is common for computer programs to look very similar, especially the
@@ -238,6 +239,7 @@ int theSum = 0;
 for (int i=0; i&lt;n+1; i++){
   theSum = theSum + 1; //how many times?
 }</pre>
+    </introduction>
 
            <subsection xml:id="algorithm-analysis_some-needed-math-notation">
         <title>Some Needed Math Notation</title>
@@ -438,7 +440,7 @@ Sum is 50005000 required 0.000000 seconds</pre>
         <p>If <title_reference>SumOfN3</title_reference> is called once with a parameter of <title_reference>n=10</title_reference>, how many times is the <title_reference>int sum_n = (n*(n+1))/2;</title_reference> line executed? <var/>  </p></statement><setup><var><condition number="[1]"><feedback><p>Right! Good job!</p></feedback></condition><condition number="[10]"><feedback><p>No, consider that the function is called only once, and n is the parameter.</p></feedback></condition><condition string="^\s*default\s*$"><feedback><p>Incorrect. Please try again.</p></feedback></condition></var></setup></exercise>   
             </reading-questions>
     </subsection>
-    <p>
+    <conclusion><p>
         <!-- extra space before the progress bar -->
-    </p>
+    </p></conclusion>
 </section>
