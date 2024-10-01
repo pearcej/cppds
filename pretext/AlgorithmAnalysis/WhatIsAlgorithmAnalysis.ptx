@@ -34,18 +34,18 @@ using namespace std;
 
 //adds the sum of (n + n-1 + n-2 ...)
 int sumOfN(int n){
-int theSum = 0;
-for (int i = 0; i &lt; n+1; i++){
+  int theSum = 0;
+  for (int i = 0; i &lt; n+1; i++){
     theSum = theSum + i;
-}
-return theSum;
+  }
+  return theSum;
 }
 
 int main(){
 
-// n is 10 (10 + 9 + 8 ...)
-cout &lt;&lt; sumOfN(10);
-return 0;
+  // n is 10 (10 + 9 + 8 ...)
+  cout &lt;&lt; sumOfN(10);
+  return 0;
 }
     </input>
 </program>
@@ -54,15 +54,16 @@ return 0;
 <program xml:id="ec1_py" interactive="activecode" language="python">
     <input>
 # adds the sum of (n + n-1 + n-2 ...)
-def sumOfN(n):
-theSum = 0
-for i in range(1,n+1):
-    theSum = theSum + i
 
-return theSum
+def sumOfN(n):
+  theSum = 0
+  for i in range(1,n+1):
+    theSum = theSum + i
+  return theSum
 
 def main():
-print(sumOfN(10)) # n is 10 (10 + 9 + 8 ...)
+  print(sumOfN(10)) # n is 10 (10 + 9 + 8 ...)
+
 main()
     </input>
 </program>
@@ -91,15 +92,15 @@ using namespace std;
 int foo(int tom){
 int fred = 0;
 for (int bill = 0; bill &lt; tom+1; bill++){
-    int barney = bill;
-    fred = fred + barney;
-}
-return fred;
+  int barney = bill;
+  fred = fred + barney;
+  }
+  return fred;
 }
 
 int main(){
-cout &lt;&lt; foo(10);
-return 0;
+  cout &lt;&lt; foo(10);
+  return 0;
 }
     </input>
 </program>
@@ -111,15 +112,15 @@ return 0;
 #This is not good practice
 
 def foo(tom):
-fred = 0
-for bill in range(1,tom+1):
+  fred = 0
+  for bill in range(1,tom+1):
     barney = bill
     fred = fred + barney
-
-return fred
+  return fred
 
 def main():
-print(foo(10))
+  print(foo(10))
+
 main()
     </input>
 </program>
@@ -177,23 +178,23 @@ using namespace std;
 //the function
 
 int sumofN2(int n) {
- clock_t begin = clock();
- int theSum = 0;
- for(int i = 0; i &lt; n+1; i++){
-     theSum = theSum + i;
- }
- clock_t end = clock();
- double elapsed_secs = double(end - begin) /CLOCKS_PER_SEC;
- cout &lt;&lt; fixed &lt;&lt; endl;
- cout &lt;&lt; "Sum is " &lt;&lt; theSum &lt;&lt; " required "&lt;&lt;elapsed_secs &lt;&lt; " seconds" &lt;&lt; endl;
- return theSum;
+  clock_t begin = clock();
+  int theSum = 0;
+  for(int i = 0; i &lt; n+1; i++){
+    theSum = theSum + i;
+  }
+  clock_t end = clock();
+  double elapsed_secs = double(end - begin) /CLOCKS_PER_SEC;
+  cout &lt;&lt; fixed &lt;&lt; endl;
+  cout &lt;&lt; "Sum is " &lt;&lt; theSum &lt;&lt; " required "&lt;&lt;elapsed_secs &lt;&lt; " seconds" &lt;&lt; endl;
+  return theSum;
 }
 
 int main(){
-for (int i = 0; i &lt; 6; i++){
-     sumofN2(10000);
-}
-return 0;
+  for (int i = 0; i &lt; 6; i++){
+    sumofN2(10000);
+  }
+ return 0;
 }
     </input>
 </program>
@@ -207,21 +208,22 @@ import time
 the function """
 
 def sumOfN2(n):
-start = time.time()
+  start = time.time()
 
-theSum = 0
-for i in range(1,n+1):
+  theSum = 0
+  for i in range(1,n+1):
     theSum = theSum + i
 
-end = time.time()
-elapsed = end-start
-print("Sum is", theSum, "required", elapsed, "seconds")
+  end = time.time()
+  elapsed = end-start
+  print("Sum is", theSum, "required", elapsed, "seconds")
 
-return elapsed
+  return elapsed
 
 def main():
-for i in range(5):
+  for i in range(5):
     sumOfN2(10000)
+
 main()
     </input>
 </program>
@@ -234,7 +236,7 @@ main()
     <pre>int n = 1000;
 int theSum = 0;
 for (int i=0; i&lt;n+1; i++){
-theSum = theSum + 1; //how many times?
+  theSum = theSum + 1; //how many times?
 }</pre>
 
            <subsection xml:id="algorithm-analysis_some-needed-math-notation">
@@ -302,13 +304,13 @@ using namespace std;
 #include &lt;ctime&gt;
 
 int sumOfN3(int n){
-    int sum_n = (n*(n+1))/2;
-    return sum_n;
+  int sum_n = (n*(n+1))/2;
+  return sum_n;
 }
 
 int main(){
-    cout &lt;&lt; sumOfN3(10);
-    return 0;
+  cout &lt;&lt; sumOfN3(10);
+  return 0;
 }
             </input></program></statement></task>
             <task xml:id="active3_py">
@@ -318,10 +320,11 @@ int main(){
 the function, and it performs better with larger inputs or (n) """
 
 def sumOfN3(n):
-return (n*(n+1))//2
+  return (n*(n+1))//2
 
 def main():
-print(sumOfN3(10))
+  print(sumOfN3(10))
+
 main()
         </input></program></statement></task></exploration>
 
