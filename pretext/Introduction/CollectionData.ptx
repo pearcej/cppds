@@ -203,6 +203,7 @@ main()
         </subsection>
         <subsection xml:id="introduction_vectors">
             <title>Vectors</title>
+            <introduction>
             <p><term>Vectors</term> use a dynamically allocated array to store their elements,
                 so they can change size, and they have other friendly features as well.
                 Because they use a dynamically allocated array, they use contiguous storage locations
@@ -343,6 +344,7 @@ main()
                 as we see in the next example.
                 Because vectors can change size, vectors typically allocate some extra storage to accommodate for possible growth.
                 Thus the vector typically has an actual <em>capacity</em> greater than the storage <em>size</em> strictly needed to contain its elements.</p>
+            </introduction>
             <subsubsection xml:id="introduction_matching">
                 <title>Matching</title>
 
@@ -468,6 +470,7 @@ main()
         </subsection>
         <subsection xml:id="introduction_strings">
             <title>Strings</title>
+            <introduction>
             <p><term>Strings</term> are sequential collections of zero or more characters such as letters, numbers
                 and other symbols. There are actually two types of strings in C++ . The <em>C++ string</em> or just <em>string</em> from the
                 <c>&lt;string&gt;</c> library is the more modern type.
@@ -618,6 +621,7 @@ char cstring[] = {"Hello World!"};    // C-string or char array uses double quot
                     
                 
             </tabular></table>
+            </introduction>
             <subsubsection xml:id="introduction_id1">
                 <title>Matching</title>
 
