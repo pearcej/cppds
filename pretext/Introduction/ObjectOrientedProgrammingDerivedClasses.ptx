@@ -163,8 +163,12 @@ int main() {
                 output, the gate needs to know specifically what that logic is. This
                 means calling a method to perform the logic computation. The complete
                 class is shown in <xref ref="introduction_lst-logicgateclass"/>.</p>
-            
-        <listing xml:id="introduction_lst-logicgateclass"><program language="cpp"><input>
+
+        <exploration>
+                <title>Complete <c>LogicGate</c> class</title>
+                <task xml:id="introduction_lst-logicgateclass">
+                        <title>C++ implementation</title>
+                        <statement><program language="cpp"><input>
 class LogicGate {
 public:
         LogicGate(string n) {
@@ -181,7 +185,25 @@ protected:
         string label;
         bool output;
 };
-        </input></program></listing>
+                </input></program></statement></task>
+                <task xml:id="introduction_lst-logicgateclass-py">
+                        <title>Python implementation</title>
+                        <statement><program language="python"><input>
+class LogicGate:
+        def __init__(self,n):
+                self.label = n
+                self.output = None
+
+        def getLabel(self):
+                return self.label
+
+        def getOutput(self):
+                self.output = self.performGateLogic()
+                return self.output                        
+                </input></program></statement></task>
+
+        </exploration>
+
             <p>A protected member variable or function is similar to a
                 private member but it has the additional benefit that they
                 can be accessed by derived classes. The access keyword
@@ -207,7 +229,11 @@ protected:
                 In computer circuit design, these lines are sometimes called <q>pins</q> so
                 we will use that terminology in our implementation.</p>
 
-        <listing xml:id="introduction_lst-binarygateclass"><program language="cpp"><input>
+                <exploration>
+                        <title>Implementation of <c>BinaryGate</c></title>
+                        <task xml:id="introduction_lst-binarygateclass">
+                                <title>C++ implementation</title>
+                                <statement><program language="cpp"><input>
 class BinaryGate : public LogicGate {
 public:
         BinaryGate(string n) : LogicGate(n) { // When we create an instance of
@@ -240,9 +266,32 @@ protected:
         bool pinB;
         bool pinBTaken;
 };
-        </input></program></listing>
+                        </input></program></statement></task>
+                        <task>
+                                <title>Python implementation</title>
+                                <statement><program language="python"><input>
+class BinaryGate(LogicGate):
 
-        <listing xml:id="introduction_lst-unarygateclass"><program language="cpp"><input>
+        def __init__(self,n):
+                LogicGate.__init__(self,n)
+
+                self.pinA = None
+                self.pinB = None
+
+        def getPinA(self):
+                return int(input("Enter Pin A input for gate "+ self.getLabel()+"-&gt;"))
+
+        def getPinB(self):
+                return int(input("Enter Pin B input for gate "+ self.getLabel()+"-&gt;"))
+                                </input></program></statement>
+                        </task>
+                </exploration>
+
+                <exploration>
+                        <title>Implementation of <c>UnaryGate</c></title>
+                        <task xml:id="introduction_lst-unarygateclass">
+                                <title>C++ implementation</title>
+                                <statement><program language="cpp"><input>
 class UnaryGate : public LogicGate {
 public:
         UnaryGate(string n) : LogicGate(n) {
@@ -260,7 +309,21 @@ protected:
         bool pin;
         bool pinTaken;
 };
-        </input></program></listing>
+                        </input></program></statement></task>
+                        <task>
+                                <title>Python implementation</title>
+                                <statement><program language="python"><input>
+class UnaryGate(LogicGate):
+
+        def __init__(self,n):
+                LogicGate.__init__(self,n)
+
+                self.pin = None
+
+        def getPin(self):
+                return int(input("Enter Pin input for gate "+ self.getLabel()+"-&gt;"))
+                </input></program></statement></task></exploration>
+
             <p><xref ref="introduction_lst-binarygateclass"/> and <xref ref="introduction_lst-unarygateclass"/> implement these two
                 classes. The constructors in both of these classes start with an
                 explicit call to the constructor of the parent class using the parent's name
@@ -284,8 +347,12 @@ protected:
                 which in turn calls its parent class constructor (<c>LogicGate</c>). Note
                 that the <c>AndGate</c> class does not provide any new data since it
                 inherits two input lines, one output line, and a label.</p>
-            
-        <listing xml:id="introduction_lst-andgateclass" names="lst_andgateclass"><program language="cpp"><input>
+
+        <exploration>
+                <title>Implementation of <c>AndGate</c></title>
+                <task xml:id="introduction_lst-andgateclass">
+                        <title>C++ implementation</title>
+                        <statement><program language="cpp"><input>
 class AndGate : public BinaryGate {
 public:
         AndGate(string n) : BinaryGate(n) {};
@@ -301,7 +368,22 @@ public:
                 }
         }
 };
-        </input></program></listing>
+                </input></program></statement></task>
+                <task><statement><program language="python">
+class AndGate(BinaryGate):
+
+        def __init__(self,n):
+                super(AndGate,self).__init__(n)
+
+        def performGateLogic(self):
+
+                a = self.getPinA()
+                b = self.getPinB()
+                if a==1 and b==1:
+                        return 1
+                else:
+                        return 0
+        </program></statement></task></exploration>
 
             <p>The only thing <c>AndGate</c> needs to add is the specific behavior that
                 performs the Boolean operation that was described earlier. This is the
@@ -338,10 +420,6 @@ public:
                 need inputs to be provided). For example:</p>
 
         <listing xml:id="introduction_fig-andusage"><program><input>
-&gt;&gt;&gt; NotGate gor2("gor2")
-&gt;&gt;&gt; gor2.getOutput()
-Enter Pin input for gate gor2: 0
-1
 &gt;&gt;&gt; g2 = OrGate("G2")
 &gt;&gt;&gt; g2.getOutput()
 Enter Pin A input for gate G2-&gt;1
