@@ -419,7 +419,7 @@ class AndGate(BinaryGate):
                 gate classes and then asking the gate for its output (which will in turn
                 need inputs to be provided). For example:</p>
 
-        <listing xml:id="introduction_fig-andusage"><program><input>
+        <listing xml:id="introduction_fig-ornotusage"><program><input>
 &gt;&gt;&gt; g2 = OrGate("G2")
 &gt;&gt;&gt; g2.getOutput()
 Enter Pin A input for gate G2-&gt;1
