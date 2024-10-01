@@ -288,11 +288,12 @@ return sum_n;
              <p>We see this in <xref ref="algorithm-analysis_active3cpp"/>,
             which shows <c>sumOfN3</c>
             taking advantage of the formula we just developed.</p>
-        
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-<program xml:id="algorithm-analysis_active3cpp" interactive="activecode" language="cpp">
-    <input>
+        <exploration>
+            <title>Algorithm to analyze</title>
+            <task xml:id="algorithm-analysis_active3cpp">
+                <title>C++ implementation</title>
+                <statement><program interactive="activecode" language="cpp"><input>
 //Performs same function as listing one, and also list the time it takes to perfrom
 //the function, and it performs better with larger inputs or (n)
 
@@ -301,20 +302,18 @@ using namespace std;
 #include &lt;ctime&gt;
 
 int sumOfN3(int n){
-int sum_n = (n*(n+1))/2;
-return sum_n;
+    int sum_n = (n*(n+1))/2;
+    return sum_n;
 }
 
 int main(){
-cout &lt;&lt; sumOfN3(10);
-return 0;
+    cout &lt;&lt; sumOfN3(10);
+    return 0;
 }
-    </input>
-</program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-<program xml:id="active3_py" interactive="activecode" language="python">
-    <input>
+            </input></program></statement></task>
+            <task xml:id="active3_py">
+                <title>Python implementation</title>
+                <statement><program interactive="activecode" language="python"><input>
 """ Performs same function as listing one, and also list the time it takes to perform
 the function, and it performs better with larger inputs or (n) """
 
@@ -324,9 +323,8 @@ return (n*(n+1))//2
 def main():
 print(sumOfN3(10))
 main()
-    </input>
-</program>
-            </TabNode>
+        </input></program></statement></task></exploration>
+
         <p>If we do the same benchmark measurement for <c>sumOfN3</c> for differnet values of <c>n</c>, we get the following results:</p>
         <p>When the value of <c>n</c> is 10:</p>
         <pre>Sum is 55 required 0.000000 seconds
