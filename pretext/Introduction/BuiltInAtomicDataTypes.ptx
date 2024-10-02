@@ -9,6 +9,7 @@
             type which holds a memory location called <c>pointer</c>. C++ also has
             collection or compound data types, which will be discussed in a future
             chapter.</p>
+  </introduction>
   <exercise label="atomicq1">
     <statement>
       <p>Q-1: After reading the above paragraph, what makes a data type categorized as an atomic data type? (hint:
@@ -49,7 +50,7 @@
       </choice>
     </choices>
   </exercise>
-</introduction>
+
   <subsection xml:id="introduction_numeric-data">
     <title>Numeric Data</title>
     <p>Numeric C++ data types include <c>int</c> for integer, <c>float</c>
@@ -611,6 +612,13 @@ int varN = 100;</pre>
                 odd because it will be the actual memory address written in a hexadecimal code
                 which is a base 16 code like 0x7ffd93f25244.</p>
     <p>In C++ we use the <em>address-of operator</em>, <c>&amp;</c> to reference the address.</p>
+    <p>Variables are stored in memory locations which are dependent
+                upon the run itself. If you repeatedly run the above code you may
+                see the location change.</p>
+    <p>In C++, variables store values directly, making them faster to reference.</p>
+    <p>If in C++, we want to create a reference to a memory location in C++,
+                we must use a special syntax called a <term>pointer</term>.</p>
+    </introduction>
     <exercise label="intro_pointers-ex_print_ptr">
       <TabNode tabname="C++" tabnode_options="{'subchapter': 'BuiltInAtomicDataTypes', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
         <program xml:id="address_cpp" interactive="activecode" language="cpp">
@@ -642,13 +650,6 @@ main()
         </program>
       </TabNode>
     </exercise>
-    <p>Variables are stored in memory locations which are dependent
-                upon the run itself. If you repeatedly run the above code you may
-                see the location change.</p>
-    <p>In C++, variables store values directly, making them faster to reference.</p>
-    <p>If in C++, we want to create a reference to a memory location in C++,
-                we must use a special syntax called a <term>pointer</term>.</p>
-    </introduction>
     <subsubsection xml:id="introduction_pointer-syntax">
       <title>Pointer Syntax</title>
       <p>When declaring a pointer in C++ that will &#x201C;point&#x201D; to the memory address of some
