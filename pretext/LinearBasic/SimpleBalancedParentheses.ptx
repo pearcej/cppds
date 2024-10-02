@@ -54,12 +54,13 @@
             no opening symbol on the stack to match a closing symbol, the string is
             not balanced properly. At the end of the string, when all symbols have
             been processed, the stack should be empty. The C++ and Python code to implement
-            this algorithm is shown in <xref ref="lst-parcheck1"/>.</p>
-        
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'SimpleBalancedParentheses', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            this algorithm is shown in <xref ref="task-parcheck1_cpp"/>.</p>
 
-    <program xml:id="parcheck1_cpp" interactive="activecode" language="cpp">
-        <input>
+        <exploration xml:id="expl-lst-parcheck1">
+            <title>Parenthesis checker</title>
+            <task xml:id="task-parcheck1_cpp">
+                <title>C++ Implementation</title>
+                <statement><program xml:id="parcheck1_cpp" interactive="activecode" language="cpp"><input>
 //simple program that checks for missing parantheses
 #include &lt;iostream&gt;
 #include &lt;stack&gt;
@@ -102,12 +103,10 @@ int main() {
     cout &lt;&lt; parChecker("((()))") &lt;&lt; endl;
     cout &lt;&lt; parChecker("(()") &lt;&lt; endl;
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'SimpleBalancedParentheses', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="parcheck1_py" interactive="activecode" language="python">
-        <input>
+                </input></program></statement>
+            </task>
+            <task xml:id="task-parcheck1_py">
+                <statement><program xml:id="parcheck1_py" interactive="activecode" language="python"><input>
 #Program that detects if a set of parentheses is complete.
 
 #simple program that checks for missing parantheses
@@ -144,9 +143,9 @@ def main():
     print(parChecker('(()'))
 
 main()
-        </input>
-    </program>
-            </TabNode>
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>This function, <c>parChecker</c>, assumes that a <c>Stack</c> class is
             available and returns a Boolean result as to whether the string of
             parentheses is balanced. Note that the Boolean variable <c>balanced</c> is
