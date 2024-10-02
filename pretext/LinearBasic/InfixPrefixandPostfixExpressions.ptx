@@ -58,7 +58,7 @@
             Prefix expression notation requires that all operators precede the two
             operands that they work on. Postfix, on the other hand, requires that
             its operators come after the corresponding operands. A few more examples
-            should help to make this a bit clearer (see <xref ref="linear-basic_tbl-example1"/>).</p>
+            should help to make this a bit clearer (see <xref ref="linear-basic_xfix_examples"/>).</p>
         <p>In prefix, A + B * C would be written as + A * B C . The multiplication
             operator comes immediately before the operands B and C, denoting that *
             has precedence over +. The addition operator then appears before the A
@@ -134,8 +134,8 @@
             determined by the position of the operator and nothing else. In many
             ways, this makes infix the least desirable notation to use.</p>
         
-        <table xml:id="linear-basic_id2"><tabular>
-            <title><term>Table 3: An Expression with Parentheses</term></title>
+        <table xml:id="linear-basic_tbl-parexample"><tabular>
+            <title>An Expression with Parentheses</title>
             
                 
                 
@@ -173,8 +173,8 @@
             understand how they are equivalent in terms of the order of the
             operations being performed.</p>
         
-        <table xml:id="linear-basic_id3"><tabular>
-            <title><term>Table 4: Additional Examples of Infix, Prefix, and Postfix</term></title>
+        <table xml:id="linear-basic_tbl-example3"><tabular>
+            <title>Additional Examples of Infix, Prefix, and Postfix</title>
             
                 
                 

@@ -104,7 +104,7 @@
             <p>To design this simulation we will create classes for the three
                 real-world objects described above: <c>Printer</c>, <c>Task</c>, and
                 <c>PrintQueue</c>.</p>
-            <p>The <c>Printer</c> class (<xref ref="lst-printer"/>) will need to track whether
+            <p>The <c>Printer</c> class (<xref ref="linear-basic_lst-printer"/>) will need to track whether
                 it has a current task. If it does, then it is busy (lines 13&#8211;17) and the
                 amount of time needed can be computed from the number of pages in the
                 task. The constructor will also allow the pages-per-minute setting to be
@@ -148,7 +148,7 @@ private:
     int timeRemaining; // Time remaining, in "seconds".
 };
 </input></program>
-            <p>The Task class (<xref ref="lst-task"/>) will represent a single printing
+            <p>The Task class (<xref ref="linear-basic_lst-task"/>) will represent a single printing
                 task. When the task is created, a random number generator will provide a
                 length from 1 to 20 pages. We have chosen to use the <c>rand()</c>
                 function to provide the random number using the format below. <c>srand()</c> is used
@@ -192,7 +192,7 @@ private:
     int pages;
 };
 </input></program>
-            <p>The main simulation (<xref ref="lst-qumainsim"/>) implements the algorithm
+            <p>The main simulation (<xref ref="linear-basic_lst-qumainsim"/>) implements the algorithm
                 described above. The <c>printQueue</c> object is an instance of our
                 existing queue ADT. A boolean helper function, <c>newPrintTask</c>, decides
                 whether a new printing task has been created. We have again chosen to

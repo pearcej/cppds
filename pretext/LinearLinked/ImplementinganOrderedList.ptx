@@ -26,7 +26,7 @@
         <p>To implement the <c>OrderedList</c> class, we will use the same technique
             as seen previously with unordered linked lists. Once again, an empty linked list will
             be denoted by a <c>head</c> reference to <c>NULL</c> (see
-            <xref ref="lst-orderlist"/>).</p>
+            <xref ref="linear-linked_lst-orderlist"/>).</p>
         
         <p xml:id="linear-linked_lst-orderlist" names="lst_orderlist"><term>Listing 8</term></p>
         <pre>class OrderedList {
@@ -65,7 +65,7 @@
                 </image>
             </figure>
 
-        <p><xref ref="lst-ordersearch"/> shows the complete <c>search</c> method. It is
+        <p><xref ref="linear-linked_lst-ordersearch"/> shows the complete <c>search</c> method. It is
             easy to incorporate the new condition discussed above by adding another
             boolean variable, <c>stop</c>, and initializing it to <c>False</c> (line 4).
             While <c>stop</c> is <c>False</c> (in other words, while the search is still ongoing) we can continue to look
@@ -118,7 +118,7 @@
 
         <p>As we saw with unordered linked lists, it is necessary to have an additional
             reference, again called <c>previous</c>, since <c>current</c> will not provide
-            access to the node that must be modified. <xref ref="lst-orderadd"/> shows
+            access to the node that must be modified. <xref ref="linear-linked_lst-orderadd"/> shows
             the complete <c>add</c> method. Lines 2&#8211;3 set up the two external
             references and lines 9&#8211;10 again allow <c>previous</c> to follow one node
             behind <c>current</c> every time through the iteration. The condition (line
