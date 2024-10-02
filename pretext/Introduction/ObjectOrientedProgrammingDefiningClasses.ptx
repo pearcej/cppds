@@ -91,11 +91,13 @@ class Fraction:
                 <c>Fraction</c> object, we will need to initialize two pieces of data, the
                 numerator and the denominator. In C++, the constructor method is
                 always named with the same name as the class it creates
-                and is shown in <xref ref="introduction_lst-constructor"/>.</p>
-            
-            <p xml:id="introduction_lst-constructor" names="lst_constructor"><term>Listing 2</term></p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-                    <program language="C++"><input>
+                and is shown in <xref ref="introduction_lst-constructor-cpp"/>.</p>
+
+            <exploration xml:id="introduction_lst-constructor">
+                <title>Constructor for <c>Fraction</c> class</title>
+                <task xml:id="introduction_lst-constructor-cpp" label="introduction_lst-constructor-cpp">
+                    <title>C++</title>
+                    <statement><program language="cpp"><input>
 class Fraction {
     public:
       Fraction(int top, int bottom) {
@@ -107,19 +109,18 @@ class Fraction {
        int num; // num atribute
        int den; // den attribute
 };
-</input></program>
-                    <p>Creating a constructor in C++</p>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                </input></program></statement></task>
+                <task xml:id="introduction_lst-constructor-py" label="introduction_lst-constructor-py">
+                    <title>Python</title>
+                    <statement><program language="Python"><input>
 class Fraction:
 
     def __init__(self,top,bottom):
 
         self.num = top
         self.den = bottom
-</input></program>
-                    <p>Creating a constructor in Python</p>
-                </TabNode>
+            </input></program></statement></task></exploration>
+
             <p>As described earlier, fractions require
                 two pieces of state data, the numerator and the denominator. The
                 notation <c>int num</c> outside the constructor defines the <c>fraction</c> object
@@ -236,14 +237,15 @@ Fraction (){
             <p>There are two ways we can solve this problem. One is to define a method
                 called something like <c>show</c> that will allow the <c>Fraction</c> object to print itself
                 as a string. We can implement this method as shown in
-                <inline classes="xref std std-ref">Listing 3</inline>. If we create a <c>Fraction</c> object as before, we
+                <xref ref="showmethod-cpp"/>. If we create a <c>Fraction</c> object as before, we
                 can ask it to show itself, in other words, print itself in the proper
                 format by invoking the show method on our fractions.</p>
-            <p><term>Listing 3</term></p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-    <program xml:id="showmethod_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration>
+                <title>Implementing a <c>show</c> method</title>
+                <task xml:id="showmethod-cpp" label="showmethod-cpp">
+                    <title>C++</title>
+                    <statement><program interactive="activecode" language="cpp"><input>
 //using functions to print fractions to the command line.
 #include &lt;iostream&gt;
 using namespace std;
@@ -272,14 +274,17 @@ int main() {
     fracc.show();
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="showmethod-py" label="showmethod_py">
+                    <title>Python</title>
+                    <statement><program xml:id="showmethod_cpp" interactive="activecode" language="cpp"><input>
 def show(self):
-    print(self.num,"/",self.den)
-</input></program>
-                </TabNode>
+  print(self.num,"/",self.den)
+                    </input></program></statement>
+                </task>
+            </exploration>
+
             <p>The downside of this approach is that it is not how we expect to print to the console.
                 In C++, there are many operators that are provided for atomic and STL data types
                 that may not work as expected with a user defined class until you <term>overload</term> them.
@@ -402,36 +407,39 @@ f1.__add__(f2)
                 way to make sure they have the same denominator is to simply use the
                 product of the two denominators as a common denominator so that
                 <m>\frac {a}{b} + \frac {c}{d} = \frac {ad}{bd} + \frac {cb}{bd} = \frac{ad+cb}{bd}</m>
-                The implementation is shown in <xref ref="introduction_lst-addmethod"/>. The addition
+                The implementation is shown in <xref ref="introduction_lst-addmethod-cpp"/>. The addition
                 function returns a new <c>Fraction</c> object with the numerator and
                 denominator of the sum. We can use this method by writing a standard
                 arithmetic expression involving fractions, assigning the result of the
                 addition, and then printing our result.</p>
             
-            <p xml:id="introduction_lst-addmethod"><term>Listing 5</term></p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-                    <program language="C++"><input>
+            <exploration xml:id="expl-lst-addmethod">
+                <title>Adding an addition method</title>
+                <task xml:id="introduction_lst-addmethod-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program language="cpp"><input>
 Fraction operator +(const Fraction &amp;otherFrac){
     //Note the return type is a Fraction
     int newnum = num*otherFrac.den + den*otherFrac.num;
     int newden = den*otherFrac.den;
     return Fraction(newnum, newden);
 }
-</input></program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="introduction_lst-addmethod-py">
+                    <title>Python Implementation</title>
+                    <statement><program language="python"><input>
 def __add__(self, otherfraction):
 
-    newnum = self.num*otherfraction.den + self.den*otherfraction.num
-    newden = self.den * otherfraction.den
+  newnum = self.num*otherfraction.den + self.den*otherfraction.num
+  newden = self.den * otherfraction.den
 
-    return Fraction(newnum,newden)
-</input></program>
-                </TabNode>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="addfrac_cpp" interactive="activecode" language="cpp">
-        <input>
+  return Fraction(newnum,newden)
+                    </input></program></statement>
+                </task>
+                <task xml:id="introduction_lst-addmethod-cpp-usage">
+                    <title>C++ Usage Example</title>
+                    <statement><program xml:id="addfrac_cpp" label="addfrac_cpp" language="cpp" interactive="activecode"><input>
 //using functions to abstract the idea of a fraction
 #include &lt;iostream&gt;
 using namespace std;
@@ -466,16 +474,18 @@ int main(){
     cout &lt;&lt; f3 &lt;&lt; " is "&lt;&lt; f1 &lt;&lt; " + " &lt;&lt; f2 &lt;&lt; endl;
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="introduction_lst-addmethod-py-usage">
+                    <title>Python Usage Example</title>
+                    <statement><program xml:id="addfrac_py" label="addfrac_py" language="python" interactive="activecode"><input>
 f1=Fraction(1,4)
 f2=Fraction(1,2)
 f3=f1+f2
 print(f3)
-</input></program>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>The addition method works as we desire, but a couple of things
                 can be improved. When we use a binary operator like <c>+</c> we
                 like more symmetry.
@@ -622,10 +632,9 @@ print(gcd(20,10))
                 the bottom by 2 creates a new fraction, <m>3/4</m> (see
                 <xref ref="introduction_lst-newaddmethod"/>).</p>
             
-            <p xml:id="introduction_lst-newaddmethod"><term>Listing 6</term></p>
-
-    <program xml:id="gcdadd" interactive="activecode" language="cpp">
-        <input>
+    <listing xml:id="introduction_lst-newaddmethod">
+        <title>New addition implementation using <c>gcd</c></title>
+        <program xml:id="gcdadd" label="gcdadd" interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -680,8 +689,8 @@ int main(){
     cout &lt;&lt; f3 &lt;&lt; " is "&lt;&lt; f1 &lt;&lt; " + " &lt;&lt; f2 &lt;&lt; endl;
     return 0;
 }
-        </input>
-    </program>
+        </input></program>
+    </listing>
             <figure align="center" xml:id="fig-fraction2cpp">
                 <caption>An Instance of the <literal>Fraction</literal> Class with Two Methods</caption>
                     <image source="Introduction/fraction2cpp.png" width="50%">
@@ -698,37 +707,46 @@ int main(){
                 This is a design choice because we want <m>\frac {1}{2}</m> to be considered
                 equal to <m>\frac {2}{4}</m> as well as <m>\frac {3}{6}</m>, etc.
                 Hence, in the <c>Fraction</c> class, we can implement the <c>==</c> method by
-                cross-multiplying (see <xref ref="introduction_lst-cmpmethod"/>) rather than
+                cross-multiplying (see <xref ref="introduction_lst-cmpmethod-cpp"/>) rather than
                 by just comparing numerators and denominators.</p>
             <p>Of course there are other relational operators that can be overridden. For example, the
                 <c>&lt;=</c> operator could be overridden to provide the less than or equal functionality.</p>
             
-            <p xml:id="introduction_lst-cmpmethod"><term>Listing 7</term></p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-                    <program language="C++"><input>
+            <exploration xml:id="introduction_lst-cmpmethod">
+                <title>Overloading the comparison operator</title>
+                <task xml:id="introduction_lst-cmpmethod-cpp" label="introduction_lst-cmpmethod-cpp">
+                    <title>C++</title>
+                    <statement><program language="cpp"><input>
 bool operator ==(Fraction &amp;otherFrac) {
     int firstnum = num*otherFrac.den;
     int secondnum = otherFrac.num*den;
 
     return firstnum==secondnum;
 }
-</input></program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                    </input></program></statement>
+                </task>
+                <task label="introduction_lst-cmpmethod-py">
+                    <title>Python</title>
+                    <statement><program language="python"><input>
 def __eq__(self, other):
     firstnum = self.num * other.den
     secondnum = other.num * self.den
 
     return firstnum == secondnum
-</input></program>
-                </TabNode>
-            <p>The complete <c>Fraction</c> class, up to this point, is shown in
-                <inline classes="xref std std-ref">ActiveCode 6</inline>. We leave the remaining arithmetic and relational
-                methods as exercises.</p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+                    </input></program></statement>
+                </task>
+            </exploration>
 
-    <program xml:id="fraction_class_cpp" interactive="activecode" language="cpp">
-        <input>
+            <p>The complete <c>Fraction</c> class, up to this point, is shown in
+                <xref ref="fraction_class_cpp"/>. We leave the remaining arithmetic and relational
+                methods as exercises.</p>
+
+
+            <exploration xml:id="fraction_class">
+                <title>Complete <c>Fraction</c> class</title>
+                <task xml:id="fraction_class_cpp" label="fraction_class_cpp">
+                    <title>C++</title>
+                    <statement><program interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -795,12 +813,11 @@ int main(){
     }
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="fraction_class_py" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+            <task label="fraction_class_py">
+                <title>Python</title>
+                <statement><program xml:id="fraction_class_py" interactive="activecode" language="python"><input>
 def gcd(m,n):
     while m%n != 0:
         oldm = m
@@ -838,9 +855,8 @@ x = Fraction(1,2)
 y = Fraction(2,3)
 print(x + y)
 print(x == y)
-        </input>
-    </program>
-                </TabNode>
+            </input></program></statement></task>
+        </exploration>>
         </subsection>
         <subsection xml:id="introduction_self-check">
             <!--OOP class example:-->
