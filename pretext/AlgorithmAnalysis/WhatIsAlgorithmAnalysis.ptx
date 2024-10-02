@@ -294,9 +294,9 @@ for (int i=0; i&lt;n+1; i++){
             which shows <c>sumOfN3</c>
             taking advantage of the formula we just developed.</p>
 
-        <exploration>
+        <exploration xml:id="algorithm-analysis_active3cpp-expl">
             <title>Algorithm to analyze</title>
-            <task xml:id="algorithm-analysis_active3cpp">
+            <task xml:id="algorithm-analysis_active3cpp" label="algorithm-analysis_active3cpp">
                 <title>C++ implementation</title>
                 <statement><program interactive="activecode" language="cpp"><input>
 //Performs same function as listing one, and also list the time it takes to perform
@@ -316,7 +316,7 @@ int main(){
   return 0;
 }
             </input></program></statement></task>
-            <task xml:id="active3_py">
+            <task xml:id="active3_py" label="active3_py">
                 <title>Python implementation</title>
                 <statement><program interactive="activecode" language="python"><input>
 """ Performs same function as listing one, and also list the time it takes to perform

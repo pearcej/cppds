@@ -164,9 +164,9 @@ int main() {
                 means calling a method to perform the logic computation. The complete
                 class is shown in <xref ref="introduction_lst-logicgateclass"/>.</p>
 
-        <exploration>
+        <exploration xml:id="introduction_expl-logicgateclass">
                 <title>Complete <c>LogicGate</c> class</title>
-                <task xml:id="introduction_lst-logicgateclass">
+                <task xml:id="introduction_lst-logicgateclass" label="introduction_lst-logicgateclass">
                         <title>C++ implementation</title>
                         <statement><program language="cpp"><input>
 class LogicGate {
@@ -186,7 +186,7 @@ protected:
         bool output;
 };
                 </input></program></statement></task>
-                <task xml:id="introduction_lst-logicgateclass-py">
+                <task xml:id="introduction_lst-logicgateclass-py" label="introduction_lst-logicgateclass-py">
                         <title>Python implementation</title>
                         <statement><program language="python"><input>
 class LogicGate:
@@ -229,9 +229,9 @@ class LogicGate:
                 In computer circuit design, these lines are sometimes called <q>pins</q> so
                 we will use that terminology in our implementation.</p>
 
-                <exploration>
+                <exploration xml:id="introduction_expl-binarygateclass">
                         <title>Implementation of <c>BinaryGate</c></title>
-                        <task xml:id="introduction_lst-binarygateclass">
+                        <task xml:id="introduction_lst-binarygateclass" label="introduction_lst-binarygateclass">
                                 <title>C++ implementation</title>
                                 <statement><program language="cpp"><input>
 class BinaryGate : public LogicGate {
@@ -267,7 +267,7 @@ protected:
         bool pinBTaken;
 };
                         </input></program></statement></task>
-                        <task>
+                        <task xml:id="introduction_lst-binarygateclass-py" label="introduction_lst-binarygateclass-py">
                                 <title>Python implementation</title>
                                 <statement><program language="python"><input>
 class BinaryGate(LogicGate):
@@ -287,9 +287,9 @@ class BinaryGate(LogicGate):
                         </task>
                 </exploration>
 
-                <exploration>
+                <exploration xml:id="introduction_expl-unarygateclass">
                         <title>Implementation of <c>UnaryGate</c></title>
-                        <task xml:id="introduction_lst-unarygateclass">
+                        <task xml:id="introduction_lst-unarygateclass" label="introduction_lst-unarygateclass">
                                 <title>C++ implementation</title>
                                 <statement><program language="cpp"><input>
 class UnaryGate : public LogicGate {
@@ -310,7 +310,7 @@ protected:
         bool pinTaken;
 };
                         </input></program></statement></task>
-                        <task>
+                        <task xml:id="introduction_lst-unarygateclass-py" label="introduction_lst-unarygateclass-py">
                                 <title>Python implementation</title>
                                 <statement><program language="python"><input>
 class UnaryGate(LogicGate):
@@ -348,9 +348,9 @@ class UnaryGate(LogicGate):
                 that the <c>AndGate</c> class does not provide any new data since it
                 inherits two input lines, one output line, and a label.</p>
 
-        <exploration>
+        <exploration xml:id="introduction_expl-andgateclass">
                 <title>Implementation of <c>AndGate</c></title>
-                <task xml:id="introduction_lst-andgateclass">
+                <task xml:id="introduction_lst-andgateclass" label="introduction_lst-andgateclass">
                         <title>C++ implementation</title>
                         <statement><program language="cpp"><input>
 class AndGate : public BinaryGate {
@@ -369,7 +369,9 @@ public:
         }
 };
                 </input></program></statement></task>
-                <task><statement><program language="python">
+                <task xml:id="introduction_lst-andgateclass-py" label="introduction_lst-andgateclass-py">
+                        <title>Python implementation</title>
+                        <statement><program language="python"><input>
 class AndGate(BinaryGate):
 
         def __init__(self,n):
@@ -383,7 +385,7 @@ class AndGate(BinaryGate):
                         return 1
                 else:
                         return 0
-        </program></statement></task></exploration>
+        </input></program></statement></task></exploration>
 
             <p>The only thing <c>AndGate</c> needs to add is the specific behavior that
                 performs the Boolean operation that was described earlier. This is the
