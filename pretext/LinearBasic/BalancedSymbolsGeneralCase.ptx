@@ -34,16 +34,17 @@
             the two symbols do not match, the string is not balanced. Once again, if
             the entire string is processed and nothing is left on the stack, the
             string is correctly balanced.</p>
-        <p>Implementations of this are shown in <xref ref="lst-parcheck2"/>.
+        <p>Implementations of this are shown in <xref ref="lst-parcheck2-cpp"/>.
             The key C++ feature appears in line 16 where we call a helper function, <c>matches</c>, to
             assist with symbol-matching. Each symbol that is removed from the stack
             must be checked to see that it matches the current closing symbol. If a
             mismatch occurs, the Boolean variable <c>balanced</c> is set to <c>false</c>.</p>
         
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'BalancedSymbolsGeneralCase', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="parcheck2_cpp" interactive="activecode" language="cpp">
-        <input>
+        <exploration xml:id="expl-lst-parcheck2">
+            <title>Generalized Balance Symbol Checking</title>
+            <task xml:id="lst-parcheck2-cpp" label="lst-parcheck2-cpp">
+                <title>C++ Implementation</title>
+                <statement><program xml:id="parcheck2_cpp" interactive="activecode" language="cpp" line-numbers="yes"><input>
 //program that returns whether a string is balanced or not
   #include &lt;iostream&gt;
   #include &lt;string&gt;
@@ -101,12 +102,11 @@
       cout &lt;&lt; parChecker("[{()}]") &lt;&lt; endl;
       return 0;
   }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'BalancedSymbolsGeneralCase', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="parcheck2_py" interactive="activecode" language="python">
-        <input>
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-parcheck2-py" label="lst-parcheck2-py">
+                <title>Python Implementation</title>
+                <statement><program xml:id="parcheck2_py" interactive="activecode" language="python"><input>
 #Program does the same as before, except with 2 extra symbols.
 
 from pythonds.basic.stack import Stack
@@ -147,9 +147,9 @@ def main():
     print(parChecker('{[([][])]()}'))
     print(parChecker('[{()]'))
 main()
-        </input>
-    </program>
-            </TabNode>
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>These two examples show that stacks are very important data structures
             for the processing of language constructs in computer science. Almost
             any notation you can think of has some type of nested symbols that must
