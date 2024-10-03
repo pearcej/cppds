@@ -48,7 +48,7 @@
             <c>hotPotato</c> function using 7 as the counting constant returns <c>Susan</c>.</p>
 
         <exploration xml:id="expl-lst-josephussim-cpp">
-            <title>Postfix Expression Evaluator</title>
+            <title>Hot Potato Simulator</title>
             <task xml:id="lst-josephussim-cpp" label="lst-josephussim-cpp">
                 <title>C++ Implementation</title>
                 <statement><program xml:id="hot_potato_cpp" interactive="activecode" language="cpp"><input>
