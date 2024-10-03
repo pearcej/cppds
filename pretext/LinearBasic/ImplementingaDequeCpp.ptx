@@ -7,7 +7,7 @@
             the front of the deque is at position 0 in the array.</p>
         
         <exploration xml:id="expl-lst-dequecode-cpp">
-            <title>Postfix Expression Evaluator</title>
+            <title>Dequeue Implementation</title>
             <task xml:id="lst-dequecode-cpp" label="lst-dequecode-cpp">
                 <title>C++ Implementation</title>
                 <statement><program xml:id="dequecode_cpp" interactive="activecode" language="cpp"><input>
