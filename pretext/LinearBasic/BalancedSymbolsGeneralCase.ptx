@@ -35,7 +35,7 @@
             the entire string is processed and nothing is left on the stack, the
             string is correctly balanced.</p>
         <p>Implementations of this are shown in <xref ref="lst-parcheck2-cpp"/>.
-            The key C++ feature appears in line 16 where we call a helper function, <c>matches</c>, to
+            The key C++ feature appears in line 38 where we call a helper function, <c>matches</c>, to
             assist with symbol-matching. Each symbol that is removed from the stack
             must be checked to see that it matches the current closing symbol. If a
             mismatch occurs, the Boolean variable <c>balanced</c> is set to <c>false</c>.</p>
