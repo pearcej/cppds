@@ -58,13 +58,13 @@
                 </image>
             </figure>
 
-
-        <p><xref ref="lst-rectostrcpp"/> shows the C++ and Python code that implements the algorithm
+        <p><xref ref="expl-rectostr"/> shows the C++ and Python code that implements the algorithm
             outlined above for any base between 2 and 16.</p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'pythondsConvertinganIntegertoaStringinAnyBase', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="lst_rectostrcpp" interactive="activecode" language="cpp">
-        <input>
+        <exploration xml:id="expl-rectostr">
+            <title>Convert Integer to String</title>
+            <task xml:id="lst-rectostr-cpp" label="lst-rectostr-cpp">
+                <title>C++ Implementation</title>
+                <statement><program xml:id="lst_rectostrcpp" interactive="activecode" language="cpp"><input>
 //Recursive example of converting from int to string.
 
 #include &lt;iostream&gt;
@@ -83,12 +83,11 @@ string toStr(int n, int base) {
 int main() {
   cout &lt;&lt; toStr(1453, 16);
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'pythondsConvertinganIntegertoaStringinAnyBase', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="lst_rectostrpy" interactive="activecode" language="python">
-        <input>
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-rectostr-py" label="lst-rectostr-py">
+                <title>Python Implementation</title>
+                <statement><program xml:id="lst_rectostrpy" interactive="activecode" language="python"><input>
 #Recursive example of converting an int to str.
 
 def toStr(n,base):
@@ -102,9 +101,9 @@ def main():
    print(toStr(1453,16))
 
 main()
-        </input>
-    </program>
-            </TabNode>
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>Notice that in line 7 we check for the base case where <c>n</c>
             is less than the base we are converting to. When we detect the base
             case, we stop recursing and simply return the string from the
