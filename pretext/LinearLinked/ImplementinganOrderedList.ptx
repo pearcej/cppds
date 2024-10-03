@@ -28,10 +28,14 @@
             be denoted by a <c>head</c> reference to <c>NULL</c> (see
             <xref ref="linear-linked_lst-orderlist"/>).</p>
         
-        <p xml:id="linear-linked_lst-orderlist" names="lst_orderlist"><term>Listing 8</term></p>
-        <pre>class OrderedList {
+        <listing xml:id="linear-linked_lst-orderlist">
+            <title><c>OrderedList</c> Member Variable</title>
+            <program language="cpp"><input>
+class OrderedList {
     Node* head;
-}</pre>
+}
+            </input></program>
+        </listing>
         <p>As we consider the operations for the ordered linked list, we should note that
             the <c>isEmpty</c> and <c>size</c> methods can be implemented the same as
             with unordered linked lists since they deal only with the number of nodes in
@@ -74,8 +78,10 @@
             <c>stop</c> to <c>True</c> (lines 9&#8211;10). The remaining lines are identical to
             the unordered linked list search.</p>
         
-        <p xml:id="linear-linked_lst-ordersearch" names="lst_ordersearch"><term>Listing 9</term></p>
-        <pre>bool search(int item) {
+        <listing xml:id="linear-linked_lst-ordersearch">
+            <title><c>search</c> Method</title>
+            <program language="cpp"><input>
+bool search(int item) {
     Node *current = head;
     bool found = false;
     bool stop = false;
@@ -92,7 +98,9 @@
     }
 
     return found;
-}</pre>
+}
+            </input></program>
+        </listing>
         <p>The most significant method modification will take place in <c>add</c>.
             Recall that for unordered linked lists, the <c>add</c> method could simply place a
             new node at the head of the linked list. It was the easiest point of access.
@@ -132,8 +140,10 @@
             beginning of the linked list or some place in the middle. Again,
             <c>previous == NULL</c> (line 13) can be used to provide the answer.</p>
         
-        <p xml:id="linear-linked_lst-orderadd" names="lst_orderadd"><term>Listing 10</term></p>
-        <pre>void add(int item) {
+        <listing xml:id="linear-linked_lst-orderadd">
+            <title><c>add</c> Method</title>
+            <program language="cpp"><input>
+void add(int item) {
     if (head == NULL) {
         Node *newNode = new Node(item);
         head = newNode;
@@ -158,7 +168,9 @@
             previous-&gt;setNext(temp);
         }
     }
-}</pre>
+}
+            </input></program>
+        </listing>
         <p>The <c>OrderedList</c> class with methods discussed thus far can be found
             in ActiveCode 1.
             We leave the remaining methods as exercises. You should carefully
