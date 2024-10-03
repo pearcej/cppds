@@ -274,13 +274,19 @@
                 and the matching left parenthesis were removed, the complete postfix
                 expression would result (see <xref ref="xfix_fig-moveright"/>).</p>
             
-            <figure align="center" xml:id="xfix_fig-moveright"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 6: Moving Operators to the Right for Postfix Notation</caption><image source="LinearBasic/moveright.png" width="50%"/></figure>
+            <figure align="center" xml:id="xfix_fig-moveright">
+                <caption>Moving Operators to the Right for Postfix Notation</caption>
+                <image source="LinearBasic/moveright.png" width="50%"/>
+            </figure>
             <p>If we do the same thing but instead of moving the symbol to the position
                 of the right parenthesis, we move it to the left, we get prefix notation
                 (see <xref ref="xfix_fig-moveleft"/>). The position of the parenthesis pair is
                 actually a clue to the final position of the enclosed operator.</p>
             
-            <figure align="center" xml:id="xfix_fig-moveleft"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 7: Moving Operators to the Left for Prefix Notation</caption><image source="LinearBasic/moveleft.png" width="50%"/></figure>
+            <figure align="center" xml:id="xfix_fig-moveleft">
+                <caption>Moving Operators to the Left for Prefix Notation</caption>
+                <image source="LinearBasic/moveleft.png" width="50%"/>
+            </figure>
             <p>So in order to convert an expression, no matter how complex, to either
                 prefix or postfix notation, fully parenthesize the expression using the
                 order of operations. Then move the enclosed operator to the position of
@@ -290,7 +296,10 @@
                 <xref ref="xfix_fig-complexmove"/> shows the conversion to postfix and prefix
                 notations.</p>
             
-            <figure align="center" xml:id="xfix_fig-complexmove"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 8: Converting a Complex Expression to Prefix and Postfix Notations</caption><image source="LinearBasic/complexmove.png" width="50%"/></figure>
+            <figure align="center" xml:id="xfix_fig-complexmove">
+                <caption>Converting a Complex Expression to Prefix and Postfix Notations</caption>
+                <image source="LinearBasic/complexmove.png" width="50%"/>
+            </figure>
    </subsection>
         <subsection xml:id="linear-basic_general-infix-to-postfix-conversion">
             <title>General Infix-to-Postfix Conversion</title>
@@ -391,7 +400,10 @@
                 of the infix expression the stack is popped twice, removing both
                 operators and placing + as the last operator in the postfix expression.</p>
             
-            <figure align="center" xml:id="xfix_fig-intopost"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 9: Converting A * B + C * D to Postfix Notation</caption><image source="LinearBasic/intopost.png" width="50%"/></figure>
+            <figure align="center" xml:id="xfix_fig-intopost">
+                <caption>Converting A * B + C * D to Postfix Notation</caption>
+                <image source="LinearBasic/intopost.png" width="50%"/>
+            </figure>
             <p>In order to code the algorithm in C++, we will use a hash map
                 called <c>prec</c> to hold the precedence values for the operators
                 which will be implemented with an unordered map.
@@ -402,12 +414,13 @@
                 will have higher precedence and will be placed on top of it.
                 Line 18 defines the operands to be any upper-case character or digit.
                 The complete conversion function is
-                shown in <xref ref="lst-intopost"/>.</p>
+                shown in <xref ref="lst-intopost-cpp"/>.</p>
             
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'InfixPrefixandPostfixExpressions', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="intpost_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="expl-lst-intopost-cpp">
+                <title>Infix to Postfix Conversion</title>
+                <task xml:id="lst-intopost-cpp" label="lst-intopost-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program xml:id="intpost_cpp" interactive="activecode" language="cpp"><input>
 //Converts an infix expression to a postfix expression.
 
 #include &lt;iostream&gt;
@@ -477,12 +490,11 @@ int main() {
 
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'InfixPrefixandPostfixExpressions', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="intopost" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="lst-intopost-py" label="lst-intopost-py">
+                    <title>Python Implementation</title>
+                    <statement><program xml:id="intopost" interactive="activecode" language="python"><input>
 #Converts an infix expression to a postfix expression.
 
 from pythonds.basic.stack import Stack
@@ -525,9 +537,9 @@ def main():
     print(infixToPostfix("A * B + C * D"))
     print(infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )"))
 main()
-        </input>
-    </program>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <transition/>
             <p>A few more results of execution are shown below.</p>
             <pre>&gt;&gt;&gt; infixtopostfix("( A + B ) * ( C + D )")
@@ -565,7 +577,10 @@ main()
                 <xref ref="xfix_fig-evalpost1"/> shows the stack contents as this entire example
                 expression is being processed.</p>
             
-            <figure align="center" xml:id="xfix_fig-evalpost1"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 10: Stack Contents During Evaluation</caption><image source="LinearBasic/evalpostfix1.png" width="50%"/></figure>
+            <figure align="center" xml:id="xfix_fig-evalpost1">
+                <caption>Stack Contents During Evaluation</caption>
+                <image source="LinearBasic/evalpostfix1.png" width="50%"/>
+            </figure>
             <p><xref ref="xfix_fig-evalpost2"/> shows a slightly more complex example, 7 8 + 3 2
                 + /. There are two things to note in this example. First, the stack size
                 grows, shrinks, and then grows again as the subexpressions are
@@ -577,7 +592,10 @@ main()
                 <m>15/5</m> is not the same as <m>5/15</m>, we must be sure that
                 the order of the operands is not switched.</p>
             
-            <figure align="center" xml:id="xfix_fig-evalpost2"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 11: A More Complex Example of Evaluation</caption><image source="LinearBasic/evalpostfix2.png" width="50%"/></figure>
+            <figure align="center" xml:id="xfix_fig-evalpost2">
+                <caption>A More Complex Example of Evaluation</caption>
+                <image source="LinearBasic/evalpostfix2.png" width="50%"/>
+            </figure>
             <p>Assume the postfix expression is a string of tokens delimited by spaces.
                 The operators are *, /, +, and - and the operands are assumed to be
                 single-digit integer values. The output will be an integer result.</p>
@@ -610,14 +628,15 @@ main()
                 </li>
             </ol></p>
             <p>The complete function for the evaluation of postfix expressions is shown
-                in <xref ref="lst-postfixeval"/>. To assist with the arithmetic, a helper
+                in <xref ref="lst-postfixeval-cpp"/>. To assist with the arithmetic, a helper
                 function <c>doMath</c> is defined that will take two operands and an
                 operator and then perform the proper arithmetic operation.</p>
-            
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'InfixPrefixandPostfixExpressions', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-    <program xml:id="postfixeval_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="expl-lst-postfixeval-cpp">
+                <title>Postfix Expression Evaluator</title>
+                <task xml:id="lst-postfixeval-cpp" label="lst-postfixeval-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program xml:id="postfixeval_cpp" interactive="activecode" language="cpp"><input>
 //Solves a postfix math problem.
 
 #include &lt;iostream&gt;
@@ -665,12 +684,11 @@ int main() {
 
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'InfixPrefixandPostfixExpressions', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="postfixeval" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="lst-postfixeval-py" label="lst-postfixeval-py">
+                    <title>Python Implementation</title>
+                    <statement><program xml:id="postfixeval" interactive="activecode" language="python"><input>
 #Solves a postfix math problem.
 
 from pythonds.basic.stack import Stack
@@ -703,9 +721,9 @@ def doMath(op, op1, op2):
 def main():
     print(postfixEval('7 8 + 3 2 + /'))
 main()
-        </input>
-    </program>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>It is important to note that in both the postfix conversion and the
                 postfix evaluation programs we assumed that there were no errors in the
                 input expression. Using these programs as a starting point, you can
