@@ -27,7 +27,10 @@
             to be printed. This is equal to the average amount of time a task waits
             in the queue.</p>
         
-        <figure align="center" xml:id="fig-qulabsim"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: Computer Science Laboratory Printing Queue</caption><image source="LinearBasic/simulationsetup.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-qulabsim">
+            <caption>Computer Science Laboratory Printing Queue</caption>
+            <image source="LinearBasic/simulationsetup.png" width="50%"/>
+        </figure>
         <p>To model this situation we need to use some probabilities. For example,
             students may print a paper from 1 to 20 pages in length. If each length
             from 1 to 20 is equally likely, the actual length for a print task can
@@ -110,9 +113,10 @@
                 task. The constructor will also allow the pages-per-minute setting to be
                 initialized. The <c>tick</c> method decrements the internal timer and sets
                 the printer to idle (line 11) if the task is completed.</p>
-            
-            <p xml:id="linear-basic_lst-printer" names="lst_printer"><term>Listing 2</term></p>
-            <program language="cpp"><input>
+
+            <listing xml:id="linear-basic_lst-printer">
+                <title>The <c>Printer</c> class</title>
+                <program language="cpp"><input>
 class Printer {
 public:
     Printer(int pagesPerMinute) {
@@ -147,7 +151,8 @@ private:
     bool working; // Are we working on the current task?
     int timeRemaining; // Time remaining, in "seconds".
 };
-</input></program>
+                </input></program>
+            </listing>
             <p>The Task class (<xref ref="linear-basic_lst-task"/>) will represent a single printing
                 task. When the task is created, a random number generator will provide a
                 length from 1 to 20 pages. We have chosen to use the <c>rand()</c>
@@ -167,8 +172,9 @@ private:
                 then be used to retrieve the amount of time spent in the queue before
                 printing begins.</p>
             
-            <p xml:id="linear-basic_lst-task" names="lst_task"><term>Listing 3</term></p>
-            <program language="cpp"><input>
+            <listing xml:id="linear-basic_lst-task">
+                <title>The <c>Task</c> class</title>
+                <program language="cpp"><input>
 class Task {
 public:
     Task(int time) {
@@ -191,7 +197,8 @@ private:
     int timestamp;
     int pages;
 };
-</input></program>
+                </input></program>
+            </listing>
             <p>The main simulation (<xref ref="linear-basic_lst-qumainsim"/>) implements the algorithm
                 described above. The <c>printQueue</c> object is an instance of our
                 existing queue ADT. A boolean helper function, <c>newPrintTask</c>, decides
@@ -203,8 +210,9 @@ private:
                 allows us to set the total time and the pages per minute for the
                 printer.</p>
             
-            <p xml:id="linear-basic_lst-qumainsim" names="lst_qumainsim"><term>Listing 4</term></p>
-            <program language="cpp"><input>
+            <listing xml:id="linear-basic_lst-qumainsim">
+                <title>The main simulation function</title>
+                <program language="cpp"><input>
 void simulation(int numSeconds, int pagesPerMinute) {
     Printer labprinter(pagesPerMinute);
 
@@ -244,7 +252,8 @@ void simulation(int numSeconds, int pagesPerMinute) {
 
     cout &lt;&lt; "Average Wait "&lt;&lt;total/waitingTimes.size()&lt;&lt;" secs "&lt;&lt;printQueue.size()&lt;&lt;" tasks remaining."&lt;&lt;endl;
 }
-</input></program>
+                </input></program>
+            </listing>
             <p>When we run the simulation, we should not be concerned that the
                 results are different each time. This is due to the probabilistic nature
                 of the random numbers. We are interested in the trends that may be
