@@ -15,7 +15,7 @@
             manipulate the opposite side, the <term>front</term> end.</p>
         
         <exploration xml:id="expl-lst-queuecode1-cpp">
-            <title>Postfix Expression Evaluator</title>
+            <title>Queue Implementation</title>
             <task xml:id="lst-queuecode1-cpp" label="lst-queuecode1-cpp">
                 <title>C++ Implementation</title>
                 <statement><program xml:id="queue1accpp" interactive="activecode" language="cpp"><input>
