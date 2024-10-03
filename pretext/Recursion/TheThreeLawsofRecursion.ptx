@@ -28,7 +28,7 @@
             algorithm our primary data structure is a vector, so we must focus our
             state-changing efforts on the vector. Since the base case is a list of
             length 1, a natural progression toward the base case is to shorten the
-            vector. This is exactly what happens on line 5 of <xref ref="recursion_pythonds-calculatingthe-sumofa-listof-numbers"/> when we call <c>vectsum</c> with a shorter list.</p>
+            vector. This is exactly what happens on line 5 of <xref ref="lst-recsum-cpp"/> when we call <c>vectsum</c> with a shorter list.</p>
         <p>The final law is that the algorithm must call itself. This is the very
             definition of recursion. Recursion is a confusing concept to many
             beginning programmers. As a novice programmer, you have learned that
@@ -43,7 +43,7 @@
         <p>It is important to note that regardless of whether or not a recursive function
             implements these three rules, it may still take an unrealistic amount of time
             to compute (and thus not be particularly useful). A great example of this is the
-            ackermann function, named after Wilhelm Ackermann, which recursively expands to
+            ackermann function (shown in <xref ref="ackermann"/>), named after Wilhelm Ackermann, which recursively expands to
             unrealistic proportions. An example as to how many calls this function makes to
             itself is the case of ackermann(4,3). In this case, it calls itself well over 100
             billion times, with an average time of expected completion that falls after the
@@ -51,8 +51,7 @@
             but you probably won't be around to see it. This goes to show that the efficiency
             of recursive functions are largely dependent on how they're implemented.</p>
 
-    <program xml:id="ackermann" interactive="activecode" language="cpp">
-        <input>
+    <listing xml:id="ackermann"><program interactive="activecode" language="cpp"><input>
 //ackermann function example
 #include &lt;iostream&gt;
 using namespace std;
@@ -76,8 +75,7 @@ int main(){
    cout &lt;&lt; ackermann(1,2) &lt;&lt; endl;
    return 0;
 }
-        </input>
-    </program>
+    </input></program></listing>
         <p>In the remainder of this chapter we will look at more examples of
             recursion. In each case we will focus on designing a solution to a
             problem by using the three laws of recursion.</p>
