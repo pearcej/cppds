@@ -12,11 +12,10 @@
             should note that we will typically represent a node object as shown in
             <xref ref="id2-fig-node2"/>. The <c>Node</c> class also includes the usual methods
             to access and modify the data and the next reference.</p>
-  <p xml:id="linear-linked_lst-nodeclass" names="lst_nodeclass">
-    <term>Listing 1</term>
-  </p>
-  <program language="cpp">
-    <input>
+
+  <listing xml:id="linear-linked_lst-nodeclass" names="lst_nodeclass">
+    <title><c>Node</c> Class</title>
+    <program language="cpp"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -47,8 +46,7 @@ class Node {
                     next = newnext;
             }
 };
-</input>
-  </program>
+    </input></program></listing>
   <pre>&gt;&gt;&gt; temp = Node(93) //sets the nodes data to the integer 93
 &gt;&gt;&gt; temp.getData() // calls the getData() function.
 93</pre>
