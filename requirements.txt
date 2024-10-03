@@ -1,3 +1,2 @@
-pretext>=2.7.0
-runestone>=3.0.0b5
-SQLAlchemy>=1.0.8
+# <!-- Managed automatically by PreTeXt authoring tools -->
+pretext == 2.7.0
