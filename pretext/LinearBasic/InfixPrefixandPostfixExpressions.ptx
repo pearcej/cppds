@@ -391,7 +391,10 @@
                 of the infix expression the stack is popped twice, removing both
                 operators and placing + as the last operator in the postfix expression.</p>
             
-            <figure align="center" xml:id="xfix_fig-intopost"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 9: Converting A * B + C * D to Postfix Notation</caption><image source="LinearBasic/intopost.png" width="50%"/></figure>
+            <figure align="center" xml:id="xfix_fig-intopost">
+                <caption>Figure 9: Converting A * B + C * D to Postfix Notation</caption>
+                <image source="LinearBasic/intopost.png" width="50%"/>
+            </figure>
             <p>In order to code the algorithm in C++, we will use a hash map
                 called <c>prec</c> to hold the precedence values for the operators
                 which will be implemented with an unordered map.
@@ -402,12 +405,13 @@
                 will have higher precedence and will be placed on top of it.
                 Line 18 defines the operands to be any upper-case character or digit.
                 The complete conversion function is
-                shown in <xref ref="lst-intopost"/>.</p>
+                shown in <xref ref="lst-intopost-cpp"/>.</p>
             
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'InfixPrefixandPostfixExpressions', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="intpost_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="expl-lst-intopost-cpp">
+                <title>Infix to Postfix Conversion</title>
+                <task xml:id="lst-intopost-cpp" label="lst-intopost-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program xml:id="intpost_cpp" interactive="activecode" language="cpp"><input>
 //Converts an infix expression to a postfix expression.
 
 #include &lt;iostream&gt;
@@ -477,12 +481,11 @@ int main() {
 
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'InfixPrefixandPostfixExpressions', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="intopost" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="lst-intopost-py" label="lst-intopost-py">
+                    <title>Python Implementation</title>
+                    <statement><program xml:id="intopost" interactive="activecode" language="python"><input>
 #Converts an infix expression to a postfix expression.
 
 from pythonds.basic.stack import Stack
@@ -525,9 +528,9 @@ def main():
     print(infixToPostfix("A * B + C * D"))
     print(infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )"))
 main()
-        </input>
-    </program>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <transition/>
             <p>A few more results of execution are shown below.</p>
             <pre>&gt;&gt;&gt; infixtopostfix("( A + B ) * ( C + D )")
@@ -610,14 +613,15 @@ main()
                 </li>
             </ol></p>
             <p>The complete function for the evaluation of postfix expressions is shown
-                in <xref ref="lst-postfixeval"/>. To assist with the arithmetic, a helper
+                in <xref ref="lst-postfixeval-cpp"/>. To assist with the arithmetic, a helper
                 function <c>doMath</c> is defined that will take two operands and an
                 operator and then perform the proper arithmetic operation.</p>
-            
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'InfixPrefixandPostfixExpressions', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-    <program xml:id="postfixeval_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="expl-lst-postfixeval-cpp">
+                <title>Postfix Expression Evaluator</title>
+                <task xml:id="lst-postfixeval-cpp" label="lst-postfixeval-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program xml:id="postfixeval_cpp" interactive="activecode" language="cpp"><input>
 //Solves a postfix math problem.
 
 #include &lt;iostream&gt;
@@ -665,12 +669,11 @@ int main() {
 
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'InfixPrefixandPostfixExpressions', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="postfixeval" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="lst-postfixeval-py" label="lst-postfixeval-py">
+                    <title>Python Implementation</title>
+                    <statement><program xml:id="postfixeval" interactive="activecode" language="python"><input>
 #Solves a postfix math problem.
 
 from pythonds.basic.stack import Stack
@@ -703,9 +706,9 @@ def doMath(op, op1, op2):
 def main():
     print(postfixEval('7 8 + 3 2 + /'))
 main()
-        </input>
-    </program>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>It is important to note that in both the postfix conversion and the
                 postfix evaluation programs we assumed that there were no errors in the
                 input expression. Using these programs as a starting point, you can
