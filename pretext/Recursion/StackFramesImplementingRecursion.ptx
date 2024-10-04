@@ -6,7 +6,7 @@
             call. The code for this modified algorithm is shown in
             <xref ref="lst-recstack-cpp"/>.</p>
         <exploration xml:id="expl-lst-recstack-cpp">
-            <title>Postfix Expression Evaluator</title>
+            <title>Using Stack Instead of Recursion</title>
             <task xml:id="lst-recstack-cpp" label="lst-recstack-cpp">
                 <title>C++ Implementation</title>
                 <statement><program xml:id="lst_recstackcpp" interactive="activecode" language="cpp"><input>
