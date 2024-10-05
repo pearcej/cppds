@@ -32,8 +32,7 @@ The Divide by 2 algorithm assumes that we start with an integer greater
 than 0. A simple iteration then continually uses integer division to
 divide the decimal number
 by 2 and to keep track of the remainder. The first division by 2 gives
-information as to whether the value is even or odd. An even value will
-have a remainder of 0. When the number is even, dividing it by 2 will leave a remainder of 0, 
+information as to whether the value is even or odd. When the number is even, dividing it by 2 will leave a remainder of 0, 
 meaning the binary representation of the number will have a 0 in the least significant bit (LSB). 
 Conversely, when the number is odd, the remainder will be 1, indicating a 1 in the LSB. 
 We think about building our binary number as a sequence of
