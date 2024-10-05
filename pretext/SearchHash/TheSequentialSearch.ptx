@@ -187,7 +187,7 @@
                 other elements beyond 54 can work either since the list is sorted. In
                 this case, the algorithm does not have to continue looking through all
                 of the items to report that the item was not found. It can stop
-                immediately. <xref ref="lst-seqsearchpython2"/> shows this variation of the
+                immediately. <xref ref="lst-orderedseq"/> shows this variation of the
                 sequential search function.</p>
 
           
@@ -199,8 +199,9 @@
                 </figure>
             
 
-    <program xml:id="search2_cpp" interactive="activecode" language="cpp">
-        <input>
+            <listing xml:id="lst-orderedseq">
+                <caption>Ordered Sequential Search</caption>
+                <program xml:id="search2_cpp" interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -237,8 +238,8 @@ int main() {
 
     return 0;
 }
-        </input>
-    </program>
+                </input></program>
+            </listing>
             <p><xref ref="search-hash_search-hash_tbl-seqsearchtable2"/> summarizes these results. Note that in the best
                 case we might discover that the item is not in the vector by looking at
                 only one item. On average, we will know after looking through only
