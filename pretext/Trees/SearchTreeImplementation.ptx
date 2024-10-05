@@ -346,9 +346,11 @@ TreeNode  *_get(int key, TreeNode *currentNode){
                     root.</p>
             </li>
         </ol></p>
-        
-        <p xml:id="bst_lst-bst7"><term>Listing 7</term></p>
-        <pre>else{ // this node has one child
+
+        <listing xml:id="bst_lst-bst7">
+            <caption>Handling One Child Node</caption>
+            <program language="cpp"><input>
+else{ // this node has one child
     if (currentNode-&gt;hasLeftChild()){
         if (currentNode-&gt;isLeftChild()){
             currentNode-&gt;leftChild-&gt;parent = currentNode-&gt;parent;
@@ -382,7 +384,9 @@ TreeNode  *_get(int key, TreeNode *currentNode){
                                          currentNode-&gt;rightChild-&gt;rightChild);
         }
     }
-}</pre>
+}
+            </input></program>
+        </listing>
         
         <figure align="center" xml:id="bst_fig-bstdel2"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Deleting Node 25, a Node That Has a Single Child.</caption><image source="Trees/bstdel2.png" width="50%"/></figure>
         <p><idx>successor node</idx>The third case is the most difficult case to handle (see <xref ref="bst_lst-bst7"/>). If a node has two
