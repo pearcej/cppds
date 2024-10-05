@@ -14,11 +14,12 @@
         <p>On each step,
             the largest remaining item is selected and then placed in its proper
             location. The first pass places 93, the second pass places 77, the third
-            places 55, and so on. The function is shown in <xref ref="lst-selectionsortcode-cpp"/> .</p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheSelectionSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="lst_selectionsortcode_cpp" interactive="activecode" language="cpp">
-        <input>
+            places 55, and so on. The function is shown in <xref ref="lst-selectionsort-cpp"/> .</p>
+        <exploration xml:id="expl-selectionsort">
+            <title>Selection Sort</title>
+            <task xml:id="lst-selectionsort-cpp" label="lst-selectionsort-cpp">
+                <title>C++ Implementation</title>
+                <statement><program xml:id="prog-selectionsort-cpp" interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -55,12 +56,11 @@ int main() {
 
     return 0;
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheSelectionSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="lst_selectionsortcode" interactive="activecode" language="python">
-        <input>
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-selectionsort-py" label="lst-selectionsort-py">
+                <title>Python Implementation</title>
+                <statement><program xml:id="prog-selectionsort-py" interactive="activecode" language="python"><input>
 #function sorts through values in list using selection sort
 def selectionSort(alist):
    for fillslot in range(len(alist)-1,0,-1):
@@ -78,10 +78,10 @@ def main():
     selectionSort(alist)
     print(alist)
 main()
-        </input>
-    </program>
-            </TabNode>
 
+                </input></program></statement>
+            </task>
+        </exploration>
     <p>The visualization in <xref ref="sort_selectionsort-animation"/> allows you to step through the algorithm. Yellow bars
         represent the current element, red represents the element being looked at,
         and blue represents the last element to look at during a step.</p>
