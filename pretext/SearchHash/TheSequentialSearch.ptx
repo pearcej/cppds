@@ -123,13 +123,7 @@
                 <m>O(n)</m>. <xref ref="search-hash_tbl-seqsearchtable"/> summarizes these results.</p>
             
             <table xml:id="search-hash_tbl-seqsearchtable"><tabular>
-                <title><term>Table 1: Comparisons Used in a Sequential Search of an Unordered List</term></title>
-                
-                    
-                    
-                    
-                    
-                    
+                <title>Comparisons Used in a Sequential Search of an Unordered List</title>
                         <row header="yes">
                             <cell>
                                 <term>Case</term>
@@ -252,14 +246,8 @@ int main() {
                 <m>O(n)</m>. In summary, a sequential search is improved by ordering
                 the vector only in the case where we do not find the item.</p>
             
-            <table xml:id="search-hash_id4"><tabular>
-                <title><term>Table 2: Comparisons Used in Sequential Search of an Ordered List</term></title>
-                
-                    
-                    
-                    
-                    
-                    
+            <table xml:id="search-hash_search-hash_tbl-seqsearchtable2"><tabular>
+                <title>Comparisons Used in Sequential Search of an Ordered List</title>
                         <row header="yes">
                             <cell>
                             </cell>
