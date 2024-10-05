@@ -21,8 +21,11 @@
         <p>The code for Dijkstra's algorithm is shown in <xref ref="graphs_lst-shortpath"/>. When the algorithm finishes the distances are set
             correctly as are the predecessor links for each vertex in the graph.</p>
         
-        <p xml:id="graphs_lst-shortpath" names="lst_shortpath"><term>Listing 1</term></p>
-        <pre>from pythonds.graphs import PriorityQueue, Graph, Vertex
+        <listing xml:id="graphs_lst-shortpath">
+            <caption>Dijkstra's Algorithm</caption>
+            <program language="python"><input>
+from pythonds.graphs import PriorityQueue, Graph, Vertex
+
 def dijkstra(aGraph,start):
     pq = PriorityQueue()
     start.setDistance(0)
@@ -35,7 +38,9 @@ def dijkstra(aGraph,start):
             if newDist &lt; nextVert.getDistance():
                 nextVert.setDistance( newDist )
                 nextVert.setPred(currentVert)
-                pq.decreaseKey(nextVert,newDist)</pre>
+                pq.decreaseKey(nextVert,newDist)
+            </input></program>
+        </listing>
         <p>Dijkstra's algorithm uses a priority queue. You may recall that a
             priority queue is based on the heap that we implemented in the Tree Chapter.
             There are a couple of differences between that
