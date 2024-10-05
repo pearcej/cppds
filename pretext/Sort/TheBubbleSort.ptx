@@ -41,7 +41,12 @@ alist[j] = temp;</pre>
         <figure align="center" xml:id="fig-pythonswap">
             <caption>Exchanging Two Values in Python.</caption>
                 <image source="Sort/swap.png" width="50%">
-                <description>A diagram explaining the process of exchanging two values in a programming language with an extra storage location, compared to Python where exchange can be done with two simultaneous assignments. The upper part of the image shows two array elements labeled 'i' and 'j' with values 93 and 44, and a 'temp' variable used for the 3-step swap process. The lower part shows the simplified Python method where the values 93 and 44 are swapped in place without needing a temporary storage variable.</description>
+                <description>A diagram explaining the process of exchanging two values in a programming language with an
+                    extra storage location, compared to Python where exchange can be done with two simultaneous
+                    assignments. The upper part of the image shows two array elements labeled 'i' and 'j'
+                    with values 93 and 44, and a 'temp' variable used for the 3-step swap process.
+                    The lower part shows the simplified Python method where the values 93 and 44 are swapped
+                    in place without needing a temporary storage variable.</description>
                 </image>
             </figure>
 
@@ -49,10 +54,11 @@ alist[j] = temp;</pre>
 
         <p>The following activecode example shows the complete <c>bubbleSort</c> function working on the array
             shown above.</p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="lst_bubble_cpp" interactive="activecode" language="cpp">
-        <input>
+        <exploration xml:id="expl-lst-bubble">
+            <title>Bubble Sort Implementation</title>
+            <task xml:id="lst-bubble-cpp" label="lst-bubble-cpp">
+                <title>C++ Implementation</title>
+                <statement><program xml:id="prog-bubble-cpp" interactive="activecode" language="cpp" line-numbers="yes"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -83,12 +89,11 @@ int main() {
     }
     return 0;
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="lst_bubble_py" interactive="activecode" language="python">
-        <input>
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-bubble-py" label="lst-bubble-py">
+                <title>Python Implementation</title>
+                <statement><program xml:id="prog-bubble-py" interactive="activecode" language="python"><input>
 """function goes through list sorting adjacent values as it bubbles
 the largest value to the top."""
 def bubbleSort(alist):
@@ -105,9 +110,9 @@ def main():
     print(alist)
 
 main()
-        </input>
-    </program>
-            </TabNode>
+                </input></program></statement>
+            </task>
+        </exploration>
 
     <p>The visualization in <xref ref="sort_bubblesort-animation"/> allows you to step through the algorithm. Red bars represent
             the elements being looked at.</p>
@@ -256,10 +261,12 @@ main()
             advantage in that it will recognize the sorted array and stop.
             <xref ref="lst-shortbubbles-cpp"/> shows this modification, which is often referred
             to as the <term>short bubble</term>.</p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-    <program xml:id="lst_shortbubbles_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="expl-shortbubbles">
+                <title>Short Bubbles Implementation</title>
+                <task xml:id="lst-shortbubbles-cpp" label="lst-shortbubbles-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program xml:id="prog-shortbubbles-cpp" interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 
@@ -299,12 +306,11 @@ int main() {
     }
     return 0;
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="lst_shortbubble_py" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="lst-shotbubbles-py" label="lst-shotbubbles-py">
+                    <title>Python Implementation</title>
+                    <statement><program xml:id="prog-shortbubbles-py" interactive="activecode" language="python"><input>
 def shortBubbleSort(alist):
     exchanges = True
     passnum = len(alist)-1
@@ -323,9 +329,9 @@ def shortBubbleSort(alist):
 alist=[20,30,40,90,50,60,70,80,100,110]
 shortBubbleSort(alist)
 print(alist)
-        </input>
-    </program>
-            </TabNode>
+               </input></program></statement>
+            </task>
+        </exploration>
         <!--Finally, here is ``shortBubbleSort`` in CodeLens (CodeLens 2)..-->
         <!---->
         <!--.. codelens:: shortbubbletrace-->
