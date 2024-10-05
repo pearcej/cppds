@@ -48,7 +48,7 @@
             functions, since the result must be in the range of slot names.</p>
         
         <table xml:id="search-hash_search-hash_tbl-hashvalues1"><tabular>
-            <title><term>Table 4: Simple Hash Function Using Remainders</term></title>
+            <title>Simple Hash Function Using Remainders</title>
             
                 
                 
@@ -191,7 +191,7 @@
                 understand how these values were computed.</p>
             
             <table xml:id="search-hash_tbl-hashvalues2"><tabular>
-                <title><term>Table 5: Comparison of Remainder and Mid-Square Methods</term></title>
+                <title>Comparison of Remainder and Mid-Square Methods</title>
                 
                     
                     
@@ -498,7 +498,7 @@ int main() {
                 between a key and a value. The operations are given below.</p>
             
             <table xml:id="search-hash_id12"><tabular>
-                <title><term>Table 1: Map  Operations</term></title>
+                <title>Map  Operations</title>
                 
                     
                     

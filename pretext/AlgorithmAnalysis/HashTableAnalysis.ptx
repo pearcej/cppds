@@ -27,7 +27,7 @@
         that a hash table could be implemented.</p>
     
     <table xml:id="algorithm-analysis_tbl-hashbigo-cpp"><tabular>
-        <title><term>Table 4: Big-O Efficiency of C++ hash table Operations</term></title>
+        <title>Big-O Efficiency of C++ hash table Operations</title>
         
             
             
