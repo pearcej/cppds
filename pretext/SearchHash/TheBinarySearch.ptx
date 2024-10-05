@@ -220,12 +220,15 @@ int main() {
                 constant time. This means that the binary search using slice will not
                 perform in strict logarithmic time. Luckily this can be remedied by
                 passing the list along with the starting and ending indices. The indices
-                can be calculated as we did in <xref ref="lst-binarysearchpy"/>. This is especially relevant in C++, where we are initializing a new vector for each split of our list. To truly optimize this algorithm, we could use an array and manually keep track of start and end indices of our array. Below is an example of such an implementation.</p>
-    <listing xml:id="binary_search_cpp-py_array">
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBinarySearch', 'chapter': 'SearchHash', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="binary_search_cpp_array" interactive="activecode" language="cpp">
-        <input>
+                can be calculated as we did in <xref ref="binarysearch-1"/>.
+                This is especially relevant in C++, where we are initializing a new vector
+                for each split of our list. To truly optimize this algorithm, we could use
+                an array and manually keep track of start and end indices of our array.
+                <xref ref="tsk-binsearch-array-cpp"/> shows such an implementation.</p>
+            <exploration xml:id="expl-binary_search_cpp_array">
+                <title>Binary Search Using Array Optimization</title>
+                <task xml:id="tsk-binsearch-array-cpp" label="tsk-binsearch-array-cpp">
+                    <statement><program xml:id="binary_search_cpp_array" interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -261,12 +264,10 @@ int main(void) {
 
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheBinarySearch', 'chapter': 'SearchHash', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="binary_search_python_array" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="tsk-binsearch-array-py" label="tsk-binsearch-array-py">
+                    <statement><program xml:id="binary_search_python_array" interactive="activecode" language="python"><input>
 '''Checks to see if item is in a list
 retruns true or false (1 or 0)
 using binary Search and
@@ -295,10 +296,9 @@ def main():
     b = binarySearch(array, 99, 0, len(array))
     print("answer is", b)
 main()
-        </input>
-    </program>
-                </TabNode>
-                </listing>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>Even though a binary search is generally better than a sequential
                 search, it is important to note that for small values of <em>n</em>, the
                 additional cost of sorting is probably not worth it. In fact, we should
