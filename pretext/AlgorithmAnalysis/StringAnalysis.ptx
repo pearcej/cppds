@@ -22,7 +22,7 @@
             the implementations are so similar.</p>
         
         <table xml:id="algorithm-analysis_tbl-strbigocpp"><tabular>
-            <title><term>Table 3: Big-O Efficiency of C++ String Operations</term></title>
+            <title>Big-O Efficiency of C++ String Operations</title>
             
                 
                 

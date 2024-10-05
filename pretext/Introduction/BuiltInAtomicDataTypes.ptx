@@ -259,9 +259,7 @@ main()
                 and logical operators with examples shown in the session that follows.</p>
     <table xml:id="introduction_tab-relational">
       <tabular>
-        <title>
-          <term>Table 1: C++ Relational and Logical Operators</term>
-        </title>
+        <title>C++ Relational and Logical Operators</title>
         <row header="yes">
           <cell>
             <term>Operation Name</term>

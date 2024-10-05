@@ -8,7 +8,7 @@
             map ADT (see <xref ref="trees_tab-compare"/>).</p>
         
         <table xml:id="trees_tab-compare"><tabular>
-            <title><term>Table 1: Comparing the Performance of Different Map Implementations</term></title>
+            <title>Comparing the Performance of Different Map Implementations</title>
             
                 
                 
