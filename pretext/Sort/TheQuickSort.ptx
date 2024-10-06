@@ -66,17 +66,18 @@
                 <description>The image shows the final step in the partitioning process of the Quick Sort algorithm, where the split point for the pivot value 54 is established. Two separate groups of numbers are displayed. The first group to the left includes numbers less than 54: 31, 26, 20, 17, and 44, with the annotation 'quicksort left half'. The second group to the right includes numbers greater than 54: 77, 55, and 93, with the annotation 'quicksort right half'. The number 54 is positioned in the center, labeled '54 is in place', indicating that it is at its correct position in the sorted array. </description>
                 </image>
         </figure>
-        <p>The <c>quickSort</c> function shown in <xref ref="lst-quick"/> invokes a recursive
+        <p>The <c>quickSort</c> function shown in <xref ref="lst-quicksort-cpp"/> invokes a recursive
             function, <c>quickSortHelper</c>. <c>quickSortHelper</c> begins with the same
             base case as the merge sort. If the length of the list is less than or
             equal to one, it is already sorted. If it is greater, then it can be
             partitioned and recursively sorted. The <c>partition</c> function
             implements the process described earlier. The following program sorts the
             list that was used in the example above.</p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheQuickSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="lst_quick_cpp" interactive="activecode" language="cpp">
-        <input>
+        <exploration xml:id="expl-quicksort">
+            <title>Quick Sort</title>
+            <task xml:id="lst-quicksort-cpp" label="lst-quicksort-cpp">
+                <title>C++ Implementation</title>
+                <statement><program xml:id="prog-quicksort-cpp" interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -141,12 +142,11 @@ int main() {
 
   return 0;
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheQuickSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="lst_quick" interactive="activecode" language="python">
-        <input>
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-quicksort-py" label="lst-quicksort-py">
+                <title>Python Implementation</title>
+                <statement><program xml:id="prog-quicksort-py" interactive="activecode" language="python"><input>
 #recursive function that calls itself to quicksort through a given list of values
 def quickSort(alist,first,last):
   if first&lt;last:
@@ -194,9 +194,9 @@ def main():
   print(alist)
 
 main()
-        </input>
-    </program>
-            </TabNode>
+                </input></program></statement>
+            </task>
+        </exploration>
 
     <p>The visualization in <xref ref="sort_quicksort-animation"/> allows you to step through the algorithm.</p>
 
