@@ -64,7 +64,7 @@
             partially sorted vectors after each increment, with the final sort being
             an insertion sort with an increment of one.</p>
         <exploration xml:id="expl-lst-shell">
-            <title>Postfix Expression Evaluator</title>
+            <title>Shell Sort</title>
             <task xml:id="lst-shell-cpp" label="lst-shell-cpp">
                 <title>C++ Implementation</title>
                 <statement><program xml:id="prog-shell-cpp" interactive="activecode" language="cpp"><input>
