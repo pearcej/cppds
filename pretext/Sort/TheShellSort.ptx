@@ -63,10 +63,11 @@
         <p>The following invocation of the <c>shellSort</c> function shows the
             partially sorted vectors after each increment, with the final sort being
             an insertion sort with an increment of one.</p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheShellSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="lst_shell_cpp" interactive="activecode" language="cpp">
-        <input>
+        <exploration xml:id="expl-lst-shell">
+            <title>Postfix Expression Evaluator</title>
+            <task xml:id="lst-shell-cpp" label="lst-shell-cpp">
+                <title>C++ Implementation</title>
+                <statement><program xml:id="prog-shell-cpp" interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -122,12 +123,11 @@ int main() {
 
     return 0;
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheShellSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="lst_shell_py" interactive="activecode" language="python">
-        <input>
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-shell-py" label="lst-shell-py">
+                <title>Python Implementation</title>
+                <statement><program xml:id="prog-shell-py" interactive="activecode" language="python"><input>
 def shellSort(alist):
     sublistcount = len(alist)//2
     while sublistcount &gt; 0:
@@ -157,11 +157,9 @@ def main():
     print(alist)
 
 main()
-        </input>
-    </program>
-            </TabNode>
-
- 
+                </input></program></statement>
+            </task>
+        </exploration>
     <figure xml:id="sort_shellsort-animation">
         <caption>Shell sort animation.</caption>
         <interactive platform="javascript" source="Sort/sortmodels.js" width="100%" aspect="10:8">
