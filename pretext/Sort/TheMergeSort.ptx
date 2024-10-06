@@ -36,10 +36,11 @@
             halves. It is important to note that the vector may not have an even
             number of items. That does not matter, as the lengths will differ by at
             most one.</p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheMergeSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="lst_mergeSort_cpp" interactive="activecode" language="cpp">
-        <input>
+        <exploration xml:id="expl-mergesort">
+            <title>Merge Sort</title>
+            <task xml:id="lst-mergesort-cpp" label="lst-mergesort-cpp">
+                <title>C++ Implementation</title>
+                <statement><program xml:id="prog-mergesort-cpp" interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -107,12 +108,11 @@ int main() {
 
     return 0;
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheMergeSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="lst_mergeSort" interactive="activecode" language="python">
-        <input>
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-mergesort-py" label="lst-mergesort-py">
+                <title>Python Implementation</title>
+                <statement><program xml:id="prog-mergesort-py" interactive="activecode" language="python"><input>
 def mergeSort(alist):
     print("Splitting ",alist)
     if len(alist)&gt;1:
@@ -151,9 +151,9 @@ def main():
     mergeSort(alist)
     print(alist)
 main()
-        </input>
-    </program>
-            </TabNode>
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>Once the <c>mergeSort</c> function is invoked on the left half and the
             right half (lines 8&#8211;9), it is assumed they are sorted. The rest of the
             function (lines&#160;11&#8211;31) is responsible for merging the two smaller sorted
