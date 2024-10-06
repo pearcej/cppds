@@ -1,6 +1,6 @@
 <section xml:id="linear-basic_programming-exercises">
         <title>Programming Exercises</title>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>Modify the infix-to-postfix algorithm so that it can handle errors.</p>
             </li>
@@ -100,5 +100,7 @@
                     forward and backward if you ignore the blank characters.</p>
             </li>
         </ol></p>
-    </section>
-
+        <p>
+            <!-- extra space before the progress bar -->            
+        </p>
+</section>

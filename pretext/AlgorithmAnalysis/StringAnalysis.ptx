@@ -21,8 +21,8 @@
             basic string operations and you will see a striking resemblance to vectors because
             the implementations are so similar.</p>
         
-        <table xml:id="algorithm-analysis_id1"><tabular>
-            <title><term>Table 3: Big-O Efficiency of C++ String Operations</term></title>
+        <table xml:id="algorithm-analysis_tbl-strbigocpp"><tabular>
+            <title>Big-O Efficiency of C++ String Operations</title>
             
                 
                 
@@ -129,5 +129,7 @@
             in which case the entire
             string is moved to a larger contiguous underlying array, which
             is <m>O(n)</m>.</p>
+            <p>
+                <!-- extra space before the progress bar -->
+            </p>
     </section>
-

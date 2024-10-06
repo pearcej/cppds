@@ -1,9 +1,9 @@
 <section xml:id="algorithm-analysis_programming-exercises">
         <title>Programming Exercises</title>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>Devise an experiment to verify that the vector index operator is
-                    <m>O(1)</m></p>
+                    <m>O(1)</m>.</p>
             </li>
             <li>
                 <p>Devise an experiment to verify that find and insert are
@@ -21,5 +21,7 @@
                 <p>Can you improve the algorithm from the previous problem to be linear? Explain.</p>
             </li>
         </ol></p>
+        <p>
+            <!-- extra space before the progress bar -->
+        </p>
     </section>
-

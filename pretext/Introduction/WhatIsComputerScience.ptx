@@ -74,7 +74,8 @@
             This interface is the way we as users communicate with the underlying
             complexities of the implementation. As another example of abstraction,
             consider the C++ <c>cmath</c> module. Once we import the module, we can
-            perform computations such as</p>
+            perform computations as in the following example:</p>
+
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsComputerScience', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="cPlusPlus" interactive="activecode" language="cpp">
@@ -119,6 +120,7 @@ print(math.sqrt(16))
                 <description>Diagram illustrating the concept of procedural abstraction with a central box labeled 'sqrt()' representing a function. An arrow labeled 'n' points to the box, indicating the input, and another arrow points away from the box, labeled 'square root of n', indicating the output.</description>
                 </image>
             </figure>
-
+            <p>
+                <!-- extra space before the progress bar -->
+            </p>
     </section>
-

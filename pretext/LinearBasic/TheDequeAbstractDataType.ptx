@@ -40,8 +40,8 @@
             the rear as you move items in and out of the collection as things can
             get a bit confusing.</p>
         
-        <table xml:id="linear-basic_id1"><tabular>
-            <title><term>Table 1: Examples of Deque Operations</term></title>
+        <table xml:id="linear-basic_tbl-dequeoperations"><tabular>
+            <title>Examples of Deque Operations</title>
             
                 
                 
@@ -166,5 +166,7 @@
                 
             
         </tabular></table>
+        <p>
+            <!-- extra space before the progress bar -->
+        </p>
     </section>
-

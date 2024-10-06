@@ -1,5 +1,6 @@
 <section xml:id="introduction_optional-graphics-in-c">
         <title><term>Optional</term>: Graphics in C++</title>
+        <introduction>
         <p>C++ is designed with the principal that speed is more important than safety and error-checking.
             This differs from the majority of other programming languages, which tend to be considerably more
             restrictive in regards to aspects such as memory allocations and resource management.
@@ -18,6 +19,7 @@
             Drawing with Turtles can be as basic as a simple triangle and as complex as a highly detailed fractal image.
             Nearly all commands used when drawing with Turtles are as simple as telling your Turtle to move forward, backward,
             left, and right in as few or many steps as desired.</p>
+        </introduction>
         <subsection xml:id="introduction_introduction-to-turtles">
             <title>Introduction to Turtles</title>
             <p>Visual representations afford students an opportunity to observe a facet of computer science
@@ -482,7 +484,7 @@ turtle.shape("square");
             <p>Using the default <c classes="code">indented_triangle</c> shape as an example, Figure 1 shows the nature of the counter-clockwise order.</p>
             <figure align="center" xml:id="ccpolygon">
                 <caption>Indented Triangle Definition</caption>
-                    <image source="../_static/cc_polygon.png" width="50%">
+                    <image source="Introduction/cc_polygon.png" width="50%">
                     <description>Graphic illustrating an indented triangle with coordinate points. At the top vertex, the point is labeled '0, 0'. The bottom left vertex is labeled '-5, 10', and the bottom right vertex is labeled '5, 10'. An arrow curves above the triangle, indicating rotation or flipping. Each vertex is marked with a green circle. The image defines the shape and position of an indented triangle in a coordinate system</description>
                     </image>
                 </figure>
@@ -794,7 +796,7 @@ int main(){
 <match order="1"><premise>stops filling the shape.</premise><response>turtle.endfill</response></match>
 <match order="2"><premise>change the pen color.</premise><response>turtle.pencolor</response></match>
 <match order="3"><premise>change the pen size.</premise><response> turtle.width</response></match>
-<match order="4"><premise>change the speed</premise><response> turtle.speed</response></match>
+<match order="4"><premise>change the speed.</premise><response> turtle.speed</response></match>
 <match order="5"><premise>move backward.</premise><response> turtle.back</response></match>
 <match order="6"><premise>move forward.</premise><response> turtle.forward</response></match>
 <match order="7"><premise>move to a specific coordinate.</premise><response> turtle.goto</response></match>
@@ -897,5 +899,7 @@ int main(){
         
     </reading-questions>
         </subsection>
+        <conclusion><p>
+            <!-- extra space before the progress bar -->
+        </p></conclusion>
     </section>
-

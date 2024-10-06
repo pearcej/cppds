@@ -1,5 +1,6 @@
 <section xml:id="algorithm-analysis_what-is-algorithm-analysis">
     <title>What Is Algorithm Analysis?</title>
+    <introduction>
     <p>It is very common for beginning computer science students to
         compare their programs with one another. You may also have noticed that
         it is common for computer programs to look very similar, especially the
@@ -18,12 +19,13 @@
         programming language. There may be many programs for the same algorithm,
         depending on the programmer and the programming language being used.</p>
     <p>To explore this difference further, consider the function shown in
-        <xref ref="lst-sum0"/>. This function solves a familiar problem, computing the
+        <xref ref="lst_sum0"/>. This function solves a familiar problem, computing the
         sum of the first <em>n</em> integers. The algorithm uses the idea of an
         accumulator variable that is initialized to 0. The solution then
         iterates through the <em>n</em> integers, adding each to the accumulator.</p>
     
     <p xml:id="algorithm-analysis_lst-sum0" names="lst_sum0"><term>Listing 1</term></p>
+<listing xml:id="lst_sum0">
     <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
 <program xml:id="ec1_cpp" interactive="activecode" language="cpp">
@@ -33,18 +35,18 @@ using namespace std;
 
 //adds the sum of (n + n-1 + n-2 ...)
 int sumOfN(int n){
-int theSum = 0;
-for (int i = 0; i &lt; n+1; i++){
+  int theSum = 0;
+  for (int i = 0; i &lt; n+1; i++){
     theSum = theSum + i;
-}
-return theSum;
+  }
+  return theSum;
 }
 
 int main(){
 
-// n is 10 (10 + 9 + 8 ...)
-cout &lt;&lt; sumOfN(10);
-return 0;
+  // n is 10 (10 + 9 + 8 ...)
+  cout &lt;&lt; sumOfN(10);
+  return 0;
 }
     </input>
 </program>
@@ -53,20 +55,22 @@ return 0;
 <program xml:id="ec1_py" interactive="activecode" language="python">
     <input>
 # adds the sum of (n + n-1 + n-2 ...)
-def sumOfN(n):
-theSum = 0
-for i in range(1,n+1):
-    theSum = theSum + i
 
-return theSum
+def sumOfN(n):
+  theSum = 0
+  for i in range(1,n+1):
+    theSum = theSum + i
+  return theSum
 
 def main():
-print(sumOfN(10)) # n is 10 (10 + 9 + 8 ...)
+  print(sumOfN(10)) # n is 10 (10 + 9 + 8 ...)
+
 main()
     </input>
 </program>
         </TabNode>
-    <p>Now look at the function in <xref ref="lst-sum2"/>.
+    </listing>
+    <p>Now look at the function in <xref ref="lst_sum2"/>.
         At first glance it may look
         strange, but upon further inspection you can see that this function is
         essentially doing the same thing as the previous one. The reason this is
@@ -75,6 +79,7 @@ main()
         during the accumulation step that was not really necessary.</p>
     
     <p xml:id="algorithm-analysis_lst-sum2" names="lst_sum2"><term>Listing 2</term></p>
+<listing xml:id="lst_sum2">
     <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
 <program xml:id="ec2_cpp" interactive="activecode" language="cpp">
@@ -88,15 +93,15 @@ using namespace std;
 int foo(int tom){
 int fred = 0;
 for (int bill = 0; bill &lt; tom+1; bill++){
-    int barney = bill;
-    fred = fred + barney;
-}
-return fred;
+  int barney = bill;
+  fred = fred + barney;
+  }
+  return fred;
 }
 
 int main(){
-cout &lt;&lt; foo(10);
-return 0;
+  cout &lt;&lt; foo(10);
+  return 0;
 }
     </input>
 </program>
@@ -108,19 +113,20 @@ return 0;
 #This is not good practice
 
 def foo(tom):
-fred = 0
-for bill in range(1,tom+1):
+  fred = 0
+  for bill in range(1,tom+1):
     barney = bill
     fred = fred + barney
-
-return fred
+  return fred
 
 def main():
-print(foo(10))
+  print(foo(10))
+
 main()
     </input>
 </program>
         </TabNode>
+</listing>
     <p>The question we raised earlier asked whether one function is better than
         another. The answer depends on your criteria. The function <c>sumOfN</c> is
         certainly better than the function <c>foo</c> if you are concerned with
@@ -160,6 +166,7 @@ main()
         (fractions in most cases) for execution.</p>
     
     <p xml:id="algorithm-analysis_lst-sum11" names="lst_sum11"><term>Listing 3</term></p>
+<listing xml:id="lst_sum1">
     <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
 <program xml:id="ec2cpp" interactive="activecode" language="cpp">
@@ -172,23 +179,23 @@ using namespace std;
 //the function
 
 int sumofN2(int n) {
- clock_t begin = clock();
- int theSum = 0;
- for(int i = 0; i &lt; n+1; i++){
-     theSum = theSum + i;
- }
- clock_t end = clock();
- double elapsed_secs = double(end - begin) /CLOCKS_PER_SEC;
- cout &lt;&lt; fixed &lt;&lt; endl;
- cout &lt;&lt; "Sum is " &lt;&lt; theSum &lt;&lt; " required "&lt;&lt;elapsed_secs &lt;&lt; " seconds" &lt;&lt; endl;
- return theSum;
+  clock_t begin = clock();
+  int theSum = 0;
+  for(int i = 0; i &lt; n+1; i++){
+    theSum = theSum + i;
+  }
+  clock_t end = clock();
+  double elapsed_secs = double(end - begin) /CLOCKS_PER_SEC;
+  cout &lt;&lt; fixed &lt;&lt; endl;
+  cout &lt;&lt; "Sum is " &lt;&lt; theSum &lt;&lt; " required "&lt;&lt;elapsed_secs &lt;&lt; " seconds" &lt;&lt; endl;
+  return theSum;
 }
 
 int main(){
-for (int i = 0; i &lt; 6; i++){
-     sumofN2(10000);
-}
-return 0;
+  for (int i = 0; i &lt; 6; i++){
+    sumofN2(10000);
+  }
+ return 0;
 }
     </input>
 </program>
@@ -202,34 +209,37 @@ import time
 the function """
 
 def sumOfN2(n):
-start = time.time()
+  start = time.time()
 
-theSum = 0
-for i in range(1,n+1):
+  theSum = 0
+  for i in range(1,n+1):
     theSum = theSum + i
 
-end = time.time()
-elapsed = end-start
-print("Sum is", theSum, "required", elapsed, "seconds")
+  end = time.time()
+  elapsed = end-start
+  print("Sum is", theSum, "required", elapsed, "seconds")
 
-return elapsed
+  return elapsed
 
 def main():
-for i in range(5):
+  for i in range(5):
     sumOfN2(10000)
+
 main()
     </input>
 </program>
         </TabNode>
-    <p><xref ref="lst-sum11"/> shows the original <c>sumOfN</c> function with the timing
+    </listing>
+    <p><xref ref="lst_sum1"/> shows the original <c>sumOfN</c> function with the timing
         calls embedded before and after the summation. The function returns the amount of time (in seconds)
         required for the calculation.</p>
     <p>Consider the following code block:</p>
     <pre>int n = 1000;
 int theSum = 0;
 for (int i=0; i&lt;n+1; i++){
-theSum = theSum + 1; //how many times?
+  theSum = theSum + 1; //how many times?
 }</pre>
+    </introduction>
 
            <subsection xml:id="algorithm-analysis_some-needed-math-notation">
         <title>Some Needed Math Notation</title>
@@ -274,20 +284,22 @@ theSum = theSum + 1; //how many times?
             closed equation <m>\sum_{i=1}^{n} i = \frac {(n)(n+1)}{2}</m> to
             compute the sum of the first <c>n</c> integers without iterating.</p>
         <p>Consider the following function:</p>
+
         <pre>int sumOfN3(int n){
-int sum_n = (n*(n+1))/2; // how many times?
-return sum_n;
+  int sum_n = (n*(n+1))/2; // how many times?
+  return sum_n;
 }</pre>
 
              <p>We see this in <xref ref="algorithm-analysis_active3cpp"/>,
             which shows <c>sumOfN3</c>
             taking advantage of the formula we just developed.</p>
-        
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-<program xml:id="algorithm-analysis_active3cpp" interactive="activecode" language="cpp">
-    <input>
-//Performs same function as listing one, and also list the time it takes to perfrom
+        <exploration xml:id="algorithm-analysis_active3cpp-expl">
+            <title>Algorithm to analyze</title>
+            <task xml:id="algorithm-analysis_active3cpp" label="algorithm-analysis_active3cpp">
+                <title>C++ implementation</title>
+                <statement><program interactive="activecode" language="cpp"><input>
+//Performs same function as listing one, and also list the time it takes to perform
 //the function, and it performs better with larger inputs or (n)
 
 #include &lt;iostream&gt;
@@ -295,33 +307,31 @@ using namespace std;
 #include &lt;ctime&gt;
 
 int sumOfN3(int n){
-int sum_n = (n*(n+1))/2;
-return sum_n;
+  int sum_n = (n*(n+1))/2;
+  return sum_n;
 }
 
 int main(){
-cout &lt;&lt; sumOfN3(10);
-return 0;
+  cout &lt;&lt; sumOfN3(10);
+  return 0;
 }
-    </input>
-</program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-<program xml:id="active3_py" interactive="activecode" language="python">
-    <input>
+            </input></program></statement></task>
+            <task xml:id="active3_py" label="active3_py">
+                <title>Python implementation</title>
+                <statement><program interactive="activecode" language="python"><input>
 """ Performs same function as listing one, and also list the time it takes to perform
 the function, and it performs better with larger inputs or (n) """
 
 def sumOfN3(n):
-return (n*(n+1))//2
+  return (n*(n+1))//2
 
 def main():
-print(sumOfN3(10))
+  print(sumOfN3(10))
+
 main()
-    </input>
-</program>
-            </TabNode>
-        <p>If we do the same benchmark measurement for <c>sumOfN3</c> for differnet values of <c>n</c>, we get the following results:</p>
+        </input></program></statement></task></exploration>
+
+        <p>If we do the same benchmark measurement for <c>sumOfN3</c> for different values of <c>n</c>, we get the following results:</p>
         <p>When the value of <c>n</c> is 10:</p>
         <pre>Sum is 55 required 0.000000 seconds
 Sum is 55 required 0.000000 seconds
@@ -416,7 +426,7 @@ Sum is 50005000 required 0.000000 seconds</pre>
             
                     <choice>
                         <statement>
-                            <p>None of the above.</p>
+                            <p>None of the above</p>
                         </statement>
                         <feedback>
                             <p>One of the above is correct!</p>
@@ -430,5 +440,7 @@ Sum is 50005000 required 0.000000 seconds</pre>
         <p>If <title_reference>SumOfN3</title_reference> is called once with a parameter of <title_reference>n=10</title_reference>, how many times is the <title_reference>int sum_n = (n*(n+1))/2;</title_reference> line executed? <var/>  </p></statement><setup><var><condition number="[1]"><feedback><p>Right! Good job!</p></feedback></condition><condition number="[10]"><feedback><p>No, consider that the function is called only once, and n is the parameter.</p></feedback></condition><condition string="^\s*default\s*$"><feedback><p>Incorrect. Please try again.</p></feedback></condition></var></setup></exercise>   
             </reading-questions>
     </subsection>
+    <conclusion><p>
+        <!-- extra space before the progress bar -->
+    </p></conclusion>
 </section>
-

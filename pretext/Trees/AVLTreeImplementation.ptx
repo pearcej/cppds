@@ -28,13 +28,14 @@
         <p>We will implement the AVL tree as a subclass of <c>BinarySearchTree</c>. To
             begin, we will override the <c>_put</c> method and write a new
             <c>updateBalance</c> helper method. These methods are shown in
-            <xref ref="lst-updbal"/>. You will notice that the definition for <c>_put</c> is
+            <xref ref="trees_lst-updbal"/>. You will notice that the definition for <c>_put</c> is
             exactly the same as in simple binary search trees except for the additions of
             the calls to <c>updateBalance</c> on lines&#160;8 and&#160;17.</p>
-        <p><term>Listing 1</term></p>
-        
-        <p xml:id="trees_lst-updbal" names="lst_updbal"><term>C++ Implementation</term></p>
-        <program language="cpp"><input>
+
+        <p xml:id="trees_lst-updbal" names="lst_updbal"><term>Listing 1:</term> Implementation of <c>_put</c> and <c>updateBalance</c></p>
+
+        <program language="cpp" line-numbers="yes">
+            <input>
 void _put(int key, string val, TreeNode *currentNode){
     if (key &lt; currentNode-&gt;key){
         if (currentNode-&gt;hasLeftChild()){
@@ -55,8 +56,7 @@ void _put(int key, string val, TreeNode *currentNode){
         }
     }
 }
-</input></program>
-        <program language="cpp"><input>
+
 int updateBalance(TreeNode *node){
     if (node-&gt;balanceFactor &gt; 1 || node-&gt;balanceFactor &lt; -1){
         this-&gt;rebalance(node);
@@ -73,12 +73,13 @@ int updateBalance(TreeNode *node){
             this-&gt;updateBalance(node-&gt;parent);
         }
     }
+    return 0;
 }
 </input></program>
         <p>The new <c>updateBalance</c> method is where most of the work is done. This
             implements the recursive procedure we just described. The
             <c>updateBalance</c> method first checks to see if the current node is out
-            of balance enough to require rebalancing (line&#160;16). If that
+            of balance enough to require rebalancing (line&#160;23). If that
             is the case then the rebalancing is done and no further updating to
             parents is required. If the current node does not require rebalancing
             then the balance factor of the parent is adjusted. If the balance factor
@@ -94,7 +95,7 @@ int updateBalance(TreeNode *node){
             is out of balance with a balance factor of -2. To bring this tree into
             balance we will use a left rotation around the subtree rooted at node A.</p>
         
-        <figure align="center" xml:id="fig-unbalsimple"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Transforming an Unbalanced Tree Using a Left Rotation</caption><image source="Trees/simpleunbalanced.png" width="70%"/></figure>
+        <figure align="center" xml:id="fig-unbalsimple"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Transforming an Unbalanced Tree Using a Left Rotation.</caption><image source="Trees/simpleunbalanced.png" width="70%"/></figure>
         <p>To perform a left rotation we essentially do the following:</p>
         <p><ul>
             <li>
@@ -136,9 +137,9 @@ int updateBalance(TreeNode *node){
             </li>
         </ul></p>
         
-        <figure align="center" xml:id="fig-rightrot1"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Transforming an Unbalanced Tree Using a Right Rotation</caption><image source="Trees/rightrotate1.png" width="70%"/></figure>
+        <figure align="center" xml:id="fig-rightrot1"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Transforming an Unbalanced Tree Using a Right Rotation.</caption><image source="Trees/rightrotate1.png" width="70%"/></figure>
         <p>Now that you have seen the rotations and have the basic idea of how a
-            rotation works let us look at the code. <xref ref="lst-bothrotations"/> shows the
+            rotation works let us look at the code. <xref ref="trees_lst-bothrotations"/> shows the
             code for both the right and the left rotations. In line&#160;2
             we create a temporary variable to keep track of the new root of the
             subtree. As we said before the new root is the right child of the
@@ -152,16 +153,16 @@ int updateBalance(TreeNode *node){
             must set the root of the tree to point to this new root. Otherwise, if
             the old root is a left child then we change the parent of the left child
             to point to the new root; otherwise we change the parent of the right
-            child to point to the new root. (lines&#160;10-13).
+            child to point to the new root. (lines&#160;11-18).
             Finally we set the parent of the old root to be the new root. This is a
             lot of complicated bookkeeping, so we encourage you to trace through
             this function while looking at <xref ref="fig-unbalsimple"/>. The
             <c>rotateRight</c> method is symmetrical to <c>rotateLeft</c> so we will leave
             it to you to study the code for <c>rotateRight</c>.</p>
-        
-        <p xml:id="trees_lst-bothrotations" names="lst_bothrotations"><term>Listing 2</term></p>
-        <p><term>C++ Implementation</term></p>
-        <program language="cpp"><input>
+
+        <p xml:id="trees_lst-bothrotations"><term>Listing 2:</term> Implementation of <c>rotateLeft</c> and <c>rotateRight</c></p>
+
+        <program language="cpp" line-numbers="yes" open="yes"><input>
 void rotateLeft(TreeNode *rotRoot){
     TreeNode *newRoot = rotRoot-&gt;rightChild;
     rotRoot-&gt;rightChild = newRoot-&gt;leftChild;
@@ -186,6 +187,7 @@ void rotateLeft(TreeNode *rotRoot){
     newRoot-&gt;balanceFactor = newRoot-&gt;balanceFactor + 1 + max(rotRoot-&gt;balanceFactor, 0);
 }
 </input></program>
+
         <p>Finally, lines&#160;16-17 require some explanation. In
             these two lines we update the balance factors of the old and the new
             root. Since all the other moves are moving entire subtrees around the
@@ -194,12 +196,12 @@ void rotateLeft(TreeNode *rotRoot){
             the heights of the new subtrees? The following derivation should
             convince you that these lines are correct.</p>
         
-        <figure align="center" xml:id="id3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">A Left Rotation</caption><image source="Trees/bfderive.png" width="70%"/></figure>
-        <p><xref ref="fig-bfderive"/> shows a left rotation. B and D are the pivotal
+        <figure align="center" xml:id="trees-avl-fig-bfderive"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">A Left Rotation.</caption><image source="Trees/bfderive.png" width="70%"/></figure>
+        <p><xref ref="trees-avl-fig-bfderive"/> shows a left rotation. B and D are the pivotal
             nodes and A, C, E are their subtrees. Let <m>h_x</m> denote the
             height of a particular subtree rooted at node <m>x</m>. By definition
             we know the following:</p>
-        <m docname="Trees/AVLTreeImplementation" label="True" nowrap="False" number="True" xml:space="preserve">newBal(B) = h_A - h_C \\
+        <m docname="Trees/AVLTreeImplementation" nowrap="False" number="True" xml:space="preserve">newBal(B) = h_A - h_C \\
 oldBal(B) = h_A - h_D</m>
         <p>But we know that the old height of D can also be given by <m>1 +
                 max(h_C,h_E)</m>, that is, the height of D is one more than the maximum
@@ -210,19 +212,19 @@ oldBal(B) = h_A - h_D</m>
         <p>and then subtract the two equations. The following steps
             do the subtraction and use some algebra to simplify the equation for
             <m>newBal(B)</m>.</p>
-        <m docname="Trees/AVLTreeImplementation" label="True" nowrap="False" number="True" xml:space="preserve">newBal(B) - oldBal(B) = h_A - h_C - (h_A - (1 + max(h_C,h_E))) \\
+        <m docname="Trees/AVLTreeImplementation" nowrap="False" number="True" xml:space="preserve">newBal(B) - oldBal(B) = h_A - h_C - (h_A - (1 + max(h_C,h_E))) \\
 newBal(B) - oldBal(B) = h_A - h_C - h_A + (1 + max(h_C,h_E)) \\
 newBal(B) - oldBal(B) = h_A  - h_A + 1 + max(h_C,h_E) - h_C  \\
 newBal(B) - oldBal(B) =  1 + max(h_C,h_E) - h_C</m>
         <p>Next we will move <m>oldBal(B)</m> to the right hand side of the
             equation and make use of the fact that
             <m>max(a,b)-c = max(a-c, b-c)</m>.</p>
-        <m docname="Trees/AVLTreeImplementation" label="True" nowrap="False" number="True" xml:space="preserve">newBal(B) = oldBal(B) + 1 + max(h_C - h_C ,h_E - h_C) \\</m>
+        <m docname="Trees/AVLTreeImplementation" nowrap="False" number="True" xml:space="preserve">newBal(B) = oldBal(B) + 1 + max(h_C - h_C ,h_E - h_C) \\</m>
         <p>But, <m>h_E - h_C</m> is the same as <m>-oldBal(D)</m>. So we can
             use another identity that says <m>max(-a,-b) = -min(a,b)</m>. So we
             can finish our derivation of <m>newBal(B)</m> with the following
             steps:</p>
-        <m docname="Trees/AVLTreeImplementation" label="True" nowrap="False" number="True" xml:space="preserve">newBal(B) = oldBal(B) + 1 + max(0 , -oldBal(D)) \\
+        <m docname="Trees/AVLTreeImplementation" nowrap="False" number="True" xml:space="preserve">newBal(B) = oldBal(B) + 1 + max(0 , -oldBal(D)) \\
 newBal(B) = oldBal(B) + 1 - min(0 , oldBal(D)) \\</m>
         <p>Now we have all of the parts in terms that we readily know. If we
             remember that B is <c>rotRoot</c> and D is <c>newRoot</c> then we can see this
@@ -235,16 +237,16 @@ rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(0,newRoot.balanceFactor)
             exercises for you.</p>
         <p>Now you might think that we are done. We know how to do our left and
             right rotations, and we know when we should do a left or right rotation,
-            but take a look at <xref ref="fig-hardrotate"/>. Since node A has a balance
+            but take a look at <xref ref="avlimpl_fig-hardrotate"/>. Since node A has a balance
             factor of -2 we should do a left rotation. But, what happens when we do
             the left rotation around A?</p>
         
-        <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">An Unbalanced Tree that is More Difficult to Balance</caption><image source="Trees/hardunbalanced.png" width="20%"/></figure>
-        <p><xref ref="fig-badrotate"/> shows us that after the left rotation we are now
+        <figure align="center" xml:id="avlimpl_fig-hardrotate"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">An Unbalanced Tree that is More Difficult to Balance.</caption><image source="Trees/hardunbalanced.png" width="20%"/></figure>
+        <p><xref ref="avlimpl_fig-badrotate"/> shows us that after the left rotation we are now
             out of balance the other way. If we do a right rotation to correct the
             situation we are right back where we started.</p>
         
-        <figure align="center" xml:id="id5"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">After a Left Rotation the Tree is Out of Balance in the Other Direction</caption><image source="Trees/badrotate.png" width="20%"/></figure>
+        <figure align="center" xml:id="avlimpl_fig-badrotate"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">After a Left Rotation the Tree is Out of Balance in the Other Direction.</caption><image source="Trees/badrotate.png" width="20%"/></figure>
         <p>To correct this problem we must use the following set of rules:</p>
         <p><ul>
             <li>
@@ -260,19 +262,19 @@ rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(0,newRoot.balanceFactor)
                     the original right rotation.</p>
             </li>
         </ul></p>
-        <p><xref ref="fig-rotatelr"/> shows how these rules solve the dilemma we
-            encountered in <xref ref="fig-hardrotate"/> and <xref ref="fig-badrotate"/>. Starting
+        <p><xref ref="avlimpl_fig-rotatelr"/> shows how these rules solve the dilemma we
+            encountered in <xref ref="avlimpl_fig-hardrotate"/> and <xref ref="avlimpl_fig-badrotate"/>. Starting
             with a right rotation around node C puts the tree in a position where
             the left rotation around A brings the entire subtree back into balance.</p>
         
-        <figure align="center" xml:id="id6"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">A Right Rotation Followed by a Left Rotation</caption><image source="Trees/rotatelr.png" width="80%"/></figure>
+        <figure align="center" xml:id="avlimpl_fig-rotatelr"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">A Right Rotation Followed by a Left Rotation.</caption><image source="Trees/rotatelr.png" width="80%"/></figure>
         <p>The code that implements these rules can be found in our <c>rebalance</c>
-            method, which is shown in <xref ref="lst-rebalance"/>. Rule number 1 from
+            method, which is shown in <xref ref="avlimpl_lst-rebalance"/>. Rule number 1 from
             above is implemented by the <c>if</c> statement starting on line&#160;2.
             Rule number 2 is implemented by the <c>elif</c> statement starting on
             line 8.</p>
         
-        <p xml:id="trees_lst-rebalance" names="lst_rebalance"><term>Listing 3</term></p>
+        <p xml:id="avlimpl_lst-rebalance"><term>Listing 3</term></p>
         <p><term>C++ Implementation</term></p>
         <program language="cpp"><input>
 void rebalance(TreeNode *node){
@@ -300,17 +302,17 @@ void rebalance(TreeNode *node){
             that requires a left rotation followed by a right. In addition the
             discussion questions provide you with the opportunity to rebalance some
             trees that are a little more complex than the tree in
-            <xref ref="fig-rotatelr"/>.</p>
+            <xref ref="avlimpl_fig-rotatelr"/>.</p>
         <p>By keeping the tree in balance at all times, we can ensure that the
-            <c>get</c> method will run in order <m>O(log_2(n))</m> time. But the
+            <c>get</c> method will run in order <m>O(\log_2(n))</m> time. But the
             question is at what cost to our <c>put</c> method? Let us break this down
             into the operations performed by <c>put</c>. Since a new node is inserted
             as a leaf, updating the balance factors of all the parents will require
-            a maximum of <m>log_2(n)</m> operations, one for each level of the
+            a maximum of <m>\log_2(n)</m> operations, one for each level of the
             tree. If a subtree is found to be out of balance a maximum of two
             rotations are required to bring the tree back into balance. But, each of
             the rotations works in <m>O(1)</m> time, so even our <c>put</c>
-            operation remains <m>O(log_2(n))</m>.</p>
+            operation remains <m>O(\log_2(n))</m>.</p>
         <p>At this point we have implemented a functional AVL-Tree, unless you need
             the ability to delete a node. We leave the deletion of the node and
             subsequent updating and rebalancing as an exercise for you.</p>

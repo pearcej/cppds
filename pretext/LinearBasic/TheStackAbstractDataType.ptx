@@ -38,7 +38,7 @@
             far right.</p>
         
         <table xml:id="linear-basic_tbl-stackops"><tabular>
-            <title><term>Table 1: Sample Stack Operations</term></title>
+            <title>Sample Stack Operations</title>
                     <row header="yes">
                         <cell>
                             <term>Stack Operation</term>
@@ -220,5 +220,7 @@
 
     </exercise>
 </reading-questions>
-    </section>
-
+<p>
+    <!-- extra space before the progress bar -->        
+</p>
+</section>

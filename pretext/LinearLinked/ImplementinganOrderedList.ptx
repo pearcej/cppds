@@ -1,5 +1,6 @@
 <section xml:id="linear-linked_implementing-an-ordered-linked-list">
         <title>Implementing an Ordered Linked List</title>
+        <introduction>
         <definition xml:id="def-ordered-linked-list">
         <idx>ordered linked list</idx>
             <statement>
@@ -25,12 +26,16 @@
         <p>To implement the <c>OrderedList</c> class, we will use the same technique
             as seen previously with unordered linked lists. Once again, an empty linked list will
             be denoted by a <c>head</c> reference to <c>NULL</c> (see
-            <xref ref="lst-orderlist"/>).</p>
+            <xref ref="linear-linked_lst-orderlist"/>).</p>
         
-        <p xml:id="linear-linked_lst-orderlist" names="lst_orderlist"><term>Listing 8</term></p>
-        <pre>class OrderedList {
+        <listing xml:id="linear-linked_lst-orderlist">
+            <title><c>OrderedList</c> Member Variable</title>
+            <program language="cpp"><input>
+class OrderedList {
     Node* head;
-}</pre>
+}
+            </input></program>
+        </listing>
         <p>As we consider the operations for the ordered linked list, we should note that
             the <c>isEmpty</c> and <c>size</c> methods can be implemented the same as
             with unordered linked lists since they deal only with the number of nodes in
@@ -64,7 +69,7 @@
                 </image>
             </figure>
 
-        <p><xref ref="lst-ordersearch"/> shows the complete <c>search</c> method. It is
+        <p><xref ref="linear-linked_lst-ordersearch"/> shows the complete <c>search</c> method. It is
             easy to incorporate the new condition discussed above by adding another
             boolean variable, <c>stop</c>, and initializing it to <c>False</c> (line 4).
             While <c>stop</c> is <c>False</c> (in other words, while the search is still ongoing) we can continue to look
@@ -73,8 +78,10 @@
             <c>stop</c> to <c>True</c> (lines 9&#8211;10). The remaining lines are identical to
             the unordered linked list search.</p>
         
-        <p xml:id="linear-linked_lst-ordersearch" names="lst_ordersearch"><term>Listing 9</term></p>
-        <pre>bool search(int item) {
+        <listing xml:id="linear-linked_lst-ordersearch">
+            <title><c>search</c> Method</title>
+            <program language="cpp"><input>
+bool search(int item) {
     Node *current = head;
     bool found = false;
     bool stop = false;
@@ -91,7 +98,9 @@
     }
 
     return found;
-}</pre>
+}
+            </input></program>
+        </listing>
         <p>The most significant method modification will take place in <c>add</c>.
             Recall that for unordered linked lists, the <c>add</c> method could simply place a
             new node at the head of the linked list. It was the easiest point of access.
@@ -117,7 +126,7 @@
 
         <p>As we saw with unordered linked lists, it is necessary to have an additional
             reference, again called <c>previous</c>, since <c>current</c> will not provide
-            access to the node that must be modified. <xref ref="lst-orderadd"/> shows
+            access to the node that must be modified. <xref ref="linear-linked_lst-orderadd"/> shows
             the complete <c>add</c> method. Lines 2&#8211;3 set up the two external
             references and lines 9&#8211;10 again allow <c>previous</c> to follow one node
             behind <c>current</c> every time through the iteration. The condition (line
@@ -131,8 +140,10 @@
             beginning of the linked list or some place in the middle. Again,
             <c>previous == NULL</c> (line 13) can be used to provide the answer.</p>
         
-        <p xml:id="linear-linked_lst-orderadd" names="lst_orderadd"><term>Listing 10</term></p>
-        <pre>void add(int item) {
+        <listing xml:id="linear-linked_lst-orderadd">
+            <title><c>add</c> Method</title>
+            <program language="cpp"><input>
+void add(int item) {
     if (head == NULL) {
         Node *newNode = new Node(item);
         head = newNode;
@@ -157,7 +168,9 @@
             previous-&gt;setNext(temp);
         }
     }
-}</pre>
+}
+            </input></program>
+        </listing>
         <p>The <c>OrderedList</c> class with methods discussed thus far can be found
             in ActiveCode 1.
             We leave the remaining methods as exercises. You should carefully
@@ -311,6 +324,7 @@ int main() {
 }
         </input>
     </program>
+    </introduction>
         <subsection xml:id="linear-linked_analysis-of-linked-lists">
             <title>Analysis of Linked Lists</title>
             <p>To analyze the complexity of the linked list operations, we need to
@@ -378,4 +392,7 @@ int main() {
 
     </exercise>
         </subsection>
-    </section>
+        <conclusion><p>
+            <!-- extra space before the progress bar -->            
+        </p></conclusion>
+</section>

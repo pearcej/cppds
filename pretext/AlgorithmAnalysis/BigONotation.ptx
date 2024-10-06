@@ -75,7 +75,7 @@
         <m>T(n)</m> function, we must see how they compare with one another
         as <em>n</em> gets large.</p>
     
-    <table xml:id="algorithm-analysis_id1"><tabular>
+    <table xml:id="algorithm-analysis_algorithm-analysis_tbl-fntablecpp"><tabular>
         <title><term>Table 1: Common Big-O Functions</term></title>
         
             
@@ -165,49 +165,53 @@
     </figure>
 
         <p>As a final example, suppose that we have the fragment of C++ code
-        shown in <xref ref="lst-dummycode"/>. Although this program does not really do
+        shown in <xref ref="algo_analysis_dummycode_1"/>. Although this program does not really do
         anything, it is instructive to see how we can take actual code and
         analyze performance.</p>
     
-    <p xml:id="algorithm-analysis_lst-dummycode" names="lst_dummycode"><term>Listing 2</term></p>
+<listing xml:id="algo_analysis_dummycode_1">
     <p><term>C++ Implementation</term></p>
-    <pre>#include &lt;iostream&gt;
+    <program language="cpp"><input>
+#include &lt;iostream&gt;
 using namespace std;
 
 int main(){
-int a=5;
-int b=6;
-int c=10;
-for (int i=0; i&lt;n; i++){
-    for (int j=0; j&lt;n; j++){
-        int x = i * i;
-        int y = j * j;
-        int z = i * j;
+    int a=5;
+    int b=6;
+    int c=10;
+    for (int i=0; i&lt;n; i++){
+        for (int j=0; j&lt;n; j++){
+            int x = i * i;
+            int y = j * j;
+            int z = i * j;
+        }
     }
-}
 
-for (int k = 0; k &lt; n; k++){
-    int w = a*k + 45;
-    int v = b*b;
-}
-int d = 33;
-return 0;
-}</pre>
-    <p><term>Python Implementation</term></p>
-    <pre>def main():
-a=5
-b=6
-c=10
-for i in range(n):
-    for j in range(n):
-       x = i * i
-       y = j * j
-       z = i * j
-for k in range(n):
-    w = a*k + 45
-    v = b*b
-d = 33
-main()</pre>
+    for (int k = 0; k &lt; n; k++){
+        int w = a*k + 45;
+        int v = b*b;
+    }
+    int d = 33;
+    return 0;
+}</input></program>
+<p><term>Python Implementation</term></p>
+<program language="python"><input>
+def main():
+    a=5
+    b=6
+    c=10
+    for i in range(n):
+        for j in range(n):
+            x = i * i
+            y = j * j
+            z = i * j
+    for k in range(n):
+        w = a*k + 45
+        v = b*b
+    d = 33
+main()
+</input></program>
+</listing>
     <p>The number of assignment operations is the sum of four terms. The first
         term is the constant 3, representing the three assignment statements at
         the start of the fragment. The second term is <m>3n^{2}</m>, since
@@ -221,14 +225,14 @@ main()</pre>
         the other terms as well as the coefficient on the dominant term can be
         ignored as <em>n</em> grows larger.</p>
     
-    <figure align="center" xml:id="id3">
+    <figure align="center" xml:id="fig_graphfigure2cpp">
         <caption>Comparing <m>T(n)</m> with Big-O Functions</caption>
             <image source="AlgorithmAnalysis/newplot2.png" width="50%">
                 <description>This figure shows a few of the common Big-O functions as they compare with the T(n) function discussed above. Note that T(n) is initially larger than the cubic function. However, as n grows, the cubic function quickly overtakes T(n). It is easy to see that T(n) then follows the quadratic function as n continues to grow.</description>
             </image>
     </figure>
 
-    <p><xref ref="fig-graphfigure2cpp"/> shows a few of the common Big-O functions as they
+    <p><xref ref="fig_graphfigure2cpp"/> shows a few of the common Big-O functions as they
         compare with the <m>T(n)</m> function discussed above. Note that
         <m>T(n)</m> is initially larger than the cubic function. However, as
         n grows, the cubic function quickly overtakes <m>T(n)</m>. It is easy
@@ -366,7 +370,7 @@ Reading Questions
     <exercise label="BIGO1">
         <statement>
     
-            <p>The Big O of a particular algorithm is <m>O(log_{2}n)</m>.
+            <p>The Big O of a particular algorithm is <m>O(\log_{2}n)</m>.
                 Given that it takes 2 seconds to complete the algorithm with 3 million inputs;
                 how long would it take with 4 million inputs?</p>
     
@@ -423,7 +427,7 @@ Reading Questions
     <exercise label="BIGO2">
         <statement>
     
-            <p>The Big O of a particular algorithm is <m>O(log_{2}n)</m>.
+            <p>The Big O of a particular algorithm is <m>O(\log_{2}n)</m>.
                 Given that it takes 2 seconds to complete the algorithm with 3 million inputs;
                 how long would it take with 10 million inputs?</p>
     
@@ -593,5 +597,7 @@ Reading Questions
     
     </exercise>
 </reading-questions>
+<p>
+    <!-- extra space before the progress bar -->
+</p>
 </section>
-

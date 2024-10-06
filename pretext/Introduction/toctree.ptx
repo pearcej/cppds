@@ -9,6 +9,7 @@
         <xi:include href='./WhyStudyAlgorithms.ptx' />
         <xi:include href='./ReviewofBasicCpp.ptx' />
         <xi:include href='./GettingStartedwithData.ptx' />
+        <xi:include href='./BuiltInAtomicDataTypes.ptx' />
         <xi:include href='./CollectionData.ptx' />
         <xi:include href='./DefiningFunctions.ptx' />
         <xi:include href='./ObjectOrientedProgrammingDefiningClasses.ptx' />
@@ -18,4 +19,5 @@
         <xi:include href='./DiscussionQuestions.ptx' />
         <xi:include href='./ProgrammingExercises.ptx' />
         <xi:include href='./Glossary.ptx' />
+        <xi:include href='./Matching.ptx' />
     </chapter>

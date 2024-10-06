@@ -21,7 +21,7 @@
             waited the necessary amount of time to get to the front.
             <xref ref="fig-qubasicqueue1"/> shows a simple queue of Python data objects.</p>
         
-        <figure align="center" xml:id="fig-qubasicqueue1"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 1: A queue of strings</caption><image source="LinearBasic/Figures/basicqueue1.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-qubasicqueue1"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 1: A queue of strings</caption><image source="LinearBasic/basicqueue1.png" width="50%"/></figure>
         <p>Computer science also has common examples of queues. Our computer
             laboratory has 30 computers networked with a single printer. When
             students want to print, their print tasks <q>get in line</q> with all the
@@ -38,5 +38,7 @@
             other work at that moment. The keystrokes are being placed in a
             queue-like buffer so that they can eventually be displayed on the screen
             in the proper order.</p>
-    </section>
-
+        <p>
+            <!-- extra space before the progress bar -->
+        </p>
+</section>

@@ -6,7 +6,7 @@
             trees can be used to represent real-world constructions like sentences or mathematical expressions.</p>
         
         <figure align="center" xml:id="fig-nlparse">
-            <caption>A Parse Tree for a Simple Sentence</caption>
+            <caption>A Parse Tree for a Simple Sentence.</caption>
                 <image source="Trees/nlParse.png" width="50%">
                 <description>Diagram of a parse tree for linguistic analysis. The root of the tree is labeled 'Sentence' which splits into two branches: 'Noun Phrase' and 'Verb Phrase'. The 'Noun Phrase' branch further breaks down into 'Proper Noun', which leads to the word 'Homer'. The 'Verb Phrase' branch divides into 'Verb', leading to the word 'Hit', and another 'Noun Phrase', which further breaks down into 'Proper Noun', leading to the word 'Bart'. The structure illustrates the grammatical relationships in a simple sentence. </description>
                 </image>
@@ -16,7 +16,7 @@
             with the individual parts of the sentence by using subtrees.</p>
         
         <figure align="center" xml:id="fig-meparse">
-            <caption>Parse Tree for <m>((7+3)*(5-2))</m></caption>
+            <caption>Parse Tree for <m>((7+3)*(5-2))</m>.</caption>
                 <image source="Trees/meParse.png" width="50%">
                 <description>Diagram of a parse tree for an arithmetic expression. The root node is an asterisk '*', indicating multiplication. It has two child nodes: on the left, a plus sign '+' connects the numbers 7 and 3, and on the right, a minus sign '-' connects the numbers 5 and 2. This tree represents the mathematical expression ((7 + 3) * (5 - 2)). The image is labeled 'Figure 2: Parse Tree for ((7 + 3) * (5 - 2)). </description>
                 </image>
@@ -42,7 +42,7 @@
 
 
         <figure align="center" xml:id="fig-mesimple">
-            <caption>A Simplified Parse Tree for <m>((7+3)*(5-2))</m></caption>
+            <caption>A Simplified Parse Tree for <m>((7+3)*(5-2))</m>.</caption>
                 <image source="Trees/meSimple.png" width="50%">
                 <description>Diagram of a simplified parse tree for an arithmetic expression after evaluation. The root node is an asterisk '*', indicating multiplication. It has two child nodes, which are the results of the arithmetic operations: the number 10 on the left, which is the sum of 7 and 3, and the number 3 on the right, which is the result of subtracting 2 from 5. This tree represents the evaluated mathematical expression ((7 + 3) * (5 - 2)). The image is labeled 'Figure 3: A Simplified Parse Tree for ((7 + 3) * (5 - 2)). </description>
                 </image>
@@ -73,7 +73,7 @@
             are going to be leaf nodes and children of their operators. Finally, we
             know that every operator is going to have both a left and a right child.</p>
         <p>Using the information from above we can define four rules as follows:</p>
-        <p><ol label="1">
+        <p><ol marker="1">
             <li>
                 <p>If the current token is a <c>'('</c>, add a new node as the left child
                     of the current node, and descend to the left child.</p>
@@ -98,12 +98,12 @@
             <m>(3 + (4 * 5))</m>. We will parse this expression into the
             following vector of character tokens <c>['(', '3', '+',</c>
             <c>'(', '4', '*', '5' ,')',')']</c>. Initially we will start out with a
-            parse tree that consists of an empty root node. <xref ref="fig-bldexpstep"/>
+            parse tree that consists of an empty root node. <xref ref="parse_fig-bldexpstep"/>
             illustrates the structure and contents of the parse tree, as each new
             token is processed.</p>
     
-        <figure align="center" xml:id="fig-buildExp">
-            <caption>Tracing Parse Tree Construction</caption>
+        <figure align="center" xml:id="parse_fig-bldexpstep">
+            <caption>Tracing Parse Tree Construction.</caption>
                 <image source="Trees/buildExp1.png" width="15%"/>
                 <image source="Trees/buildExp2.png" width="25%"/>
                 <image source="Trees/buildExp3.png" width="25%"/>
@@ -117,9 +117,9 @@
             </figure>
 
 
-        <p>Using <xref ref="fig-bldexpstep"/>, let's walk through the example step by
+        <p>Using <xref ref="parse_fig-bldexpstep"/>, let's walk through the example step by
             step:</p>
-        <p><ol label="a">
+        <p><ol marker="a">
             <li>
                 <p>Create an empty tree.</p>
             </li>

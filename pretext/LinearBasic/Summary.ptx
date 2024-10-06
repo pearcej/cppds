@@ -39,5 +39,7 @@
                 <p>The fundamental operations for a deque are <c>push_front</c>, <c>push_back</c>, <c>pop_front</c>, <c>pop_back</c>, and <c>empty</c>.</p>
             </li>
         </ul></p>
+        <p>
+            <!-- extra space before the progress bar -->
+        </p>
     </section>
-

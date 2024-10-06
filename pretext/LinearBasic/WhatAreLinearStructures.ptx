@@ -19,5 +19,7 @@
         <p>These variations give rise to some of the most useful data structures in
             computer science. They appear in many algorithms and can be used to
             solve a variety of important problems.</p>
-    </section>
-
+        <p>
+            <!-- extra space before the progress bar -->
+        </p>
+</section>

@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<section xml:id="linear-linked_the-node-class">
+  <title>The <c>Node</c> Class</title>
+  <p>The basic building block for the linked list implementation is the
+            <term>node</term>. Each node object must hold at least two pieces of information.
+            First, the node must contain the list item itself. We will call this the
+            <term>data field</term> of the node. In addition, each node must hold a reference
+            to the next node. <xref ref="linear-linked_lst-nodeclass"/> shows the C++
+            implementation. To construct a node, you need to supply the initial data
+            value for the node. Evaluating the assignment statement below will yield
+            a node object containing the value 93 (see <xref ref="id1-fig-node"/>). You
+            should note that we will typically represent a node object as shown in
+            <xref ref="id2-fig-node2"/>. The <c>Node</c> class also includes the usual methods
+            to access and modify the data and the next reference.</p>
+
+  <listing xml:id="linear-linked_lst-nodeclass" names="lst_nodeclass">
+    <title><c>Node</c> Class</title>
+    <program language="cpp"><input>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Node {
+    private:
+            int data; //data in the beginning node
+            Node *next; //pointer to the next node
+
+    public:
+            Node(int initdata) {
+                    data = initdata; //the initialized data is set as the head
+                    next = NULL; //the next node is set as NULL, as there is no next node yet.
+            }
+
+            int getData() { //function that return data of a given node.
+                    return data;
+            }
+
+            Node *getNext() {
+                    return next;
+            }
+
+            void setData(int newData) {
+                    data = newData;
+            }
+
+            void setNext(Node *newnext) {
+                    next = newnext;
+            }
+};
+    </input></program></listing>
+  <pre>&gt;&gt;&gt; temp = Node(93) //sets the nodes data to the integer 93
+&gt;&gt;&gt; temp.getData() // calls the getData() function.
+93</pre>
+  <p>The special C++ reference value <c>NULL</c> will play an important role
+            in the <c>Node</c> class and later in the linked list itself. A reference
+            to <c>NULL</c> will denote the fact that there is no next node.</p>
+  <p>Note:</p>
+  <blockquote>
+    <p>in the constructor that a node is initially created with <c>next</c> and a pointer to
+                <c>NULL</c>. Since this is sometimes referred to as &#x201C;grounding the node,&#x201D;
+                we will use the standard ground symbol to denote a reference that is
+                referring to <c>NULL</c>.</p>
+  </blockquote>
+  <figure align="center" xml:id="id1-fig-node">
+    <caption>A Node Object Contains the Item and a Reference to the Next Node</caption>
+    <image source="LinearLinked/node.png" width="50%"/>
+  </figure>
+  <figure align="center" xml:id="id2-fig-node2">
+    <caption>A Typical Representation for a Node</caption>
+    <image source="LinearLinked/node2.png" width="50%"/>
+  </figure>
+  <p>
+    <!-- extra space before the progress bar -->
+  </p>
+</section>

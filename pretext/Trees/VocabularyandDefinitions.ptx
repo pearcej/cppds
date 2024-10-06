@@ -26,7 +26,7 @@
             <title>Root</title>
             <idx><h>Tree Components</h><h>root</h></idx>
                 <p>The <term>root</term> of the tree is the only node in the tree that has no
-                    incoming edges. In <xref ref="trees_examplesof-trees"/>, / is the root of the tree.</p>
+                    incoming edges. In <xref ref="trees_examples-filetree"/>, / is the root of the tree.</p>
             
         </li>
         <li>
@@ -43,7 +43,7 @@
             <idx><h>Tree Components</h><h>children</h></idx>
                 <p>The set of nodes <m>c</m> that have incoming edges from the same
                     node to are said to be the children of that node. In
-                    <xref ref="trees_examplesof-trees"/>, nodes log/, spool/, and yp/ are the children of node
+                    <xref ref="trees_examples-filetree"/>, nodes log/, spool/, and yp/ are the children of node
                     var/.</p>
             
         </li>
@@ -51,7 +51,7 @@
             <title>Parent</title>
             <idx><h>Tree Components</h><h>parent</h></idx>
                 <p>A node is the <term>parent</term> of all the nodes it connects to with outgoing
-                    edges. In <xref ref="trees_examplesof-trees"/> the node var/ is the parent of nodes
+                    edges. In <xref ref="trees_examples-filetree"/> the node var/ is the parent of nodes
                     log/, spool/, and yp/.</p>
             
         </li>
@@ -74,7 +74,7 @@
             <title>Leaf Node</title>
             <idx><h>Tree Components</h><h>leaf node</h></idx>
                 <p>A <term>leaf node</term> is a node that has no children. For example, Human and
-                    Chimpanzee are leaf nodes in <xref ref="trees_examplesof-trees"/>.</p>
+                    Chimpanzee are leaf nodes in <xref ref="trees_examples-biotree"/>.</p>
             
         </li>
         <li>
@@ -82,7 +82,7 @@
             <idx><h>Tree Components</h><h>level</h></idx>
                 <p>The <term>level</term> of a node <m>n</m> is the number of edges on the path
                     from the root node to <m>n</m>. For example, the level of the
-                    Felis node in <xref ref="trees_examplesof-trees"/> is five. By definition, the level
+                    Felis node in <xref ref="trees_examples-biotree"/> is five. By definition, the level
                     of the root node is zero.</p>
             
         </li>
@@ -90,7 +90,7 @@
             <title>Height</title>
             <idx><h>Tree Components</h><h>height</h></idx>
                 <p>The <term>height</term> of a tree is equal to the maximum level of any node in
-                    the tree. The height of the tree in <xref ref="trees_examplesof-trees"/> is two.</p>
+                    the tree. The height of the tree in <xref ref="trees_examples-filetree"/> is two.</p>
             
         </li>
     </dl>
@@ -121,7 +121,7 @@
         The arrowheads on the edges indicate the direction of the connection.</p>
 
     <figure align="center" xml:id="fig-nodeedgetree">
-        <caption>A Tree Consisting of a Set of Nodes and Edges</caption>
+        <caption>A Tree Consisting of a Set of Nodes and Edges.</caption>
             <image source="Trees/treedef1.png" width="50%">
             <description>The image shows a basic conceptual diagram of a tree data structure, consisting of a set of nodes connected by edges. The top of the tree features a 'rootnode', which branches into 'child1' and 'child2'. Below 'child1', there is 'node1' with three children labeled 'child1', 'child2', and 'child3', while 'child2' branches into 'node2' with a single 'child1'. Further down, 'node1' branches into 'node3', 'node4', and 'node5', and 'node2' branches into 'node6'. The nodes are represented by rectangles, and the connecting lines represent the edges of the tree. </description>
             </image>
@@ -137,7 +137,7 @@
     
    
     <figure align="center" xml:id="fig-recursivetree">
-        <caption>A recursive Definition of a tree</caption>
+        <caption>A recursive Definition of a tree.</caption>
             <image source="Trees/TreeDefRecursive.png" width="50%">
             <description>The image presents a simplified diagram of a tree data structure with a single 'root' node at the top, branching out into three 'subtrees' labeled 'subtree-1', 'subtree-2', and 'subtree-3'. This visual model illustrates the concept of recursion in data structures, where each subtree can be seen as a smaller instance of the larger structure. </description>
             </image>

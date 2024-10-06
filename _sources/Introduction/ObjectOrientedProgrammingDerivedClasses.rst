@@ -48,8 +48,10 @@ representations.
 A child class inherits both behaviors and properties
 from the parent subject to some access restrictions.
 These variables and functions become members of the derived class.
-A virtual function is a member function which is declared within a base class
-and is overwritten by a derived class. In C++, the keyword
+A virtual function (also known as a virtual method) is a member function 
+that is declared within a base class and is designed to be overridden 
+by a derived class. 
+For this, in C++, the keyword
 ``virtual`` is used.
 A simple example of using a virtual function in C++ is shown below.
 In this example, the two derived subclasses inherit the printType

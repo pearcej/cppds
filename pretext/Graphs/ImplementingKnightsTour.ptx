@@ -61,7 +61,7 @@ def knightTour(n,path,u,limit):
             can refer to the figures below to follow the steps of the search. For
             this example we will assume that the call to the <c>getConnections</c>
             method on line 6 orders the nodes in
-            alphabetical order. We begin by calling <c>knightTour(0,path,A,6)</c></p>
+            alphabetical order. We begin by calling <c>knightTour(0,path,A,6)</c>.</p>
         <p><c>knightTour</c> starts with node A <xref ref="fig-kta"/>. The nodes adjacent to A are B and D.
             Since B is before D alphabetically, DFS selects B to expand next as
             shown in <xref ref="fig-ktb"/>. Exploring B happens when <c>knightTour</c> is
@@ -82,67 +82,67 @@ def knightTour(n,path,u,limit):
             we need to traverse the graph to visit each node exactly once.</p>
         
         <figure align="center" xml:id="fig-kta">
-            <caption>Start with node A</caption>
+            <caption>Start with node A.</caption>
                 <image source="Graphs/ktdfsa.png" width="80%">
                 <description>Graph with node 'fool' as the central node connected to four adjacent nodes labeled 'pool', 'foil', 'foul', and 'cool', each marked with the number '1'. Below the graph is a visual representation of a queue with the nodes 'pool', 'foil', 'foul', and 'cool' lined up in order.</description>
                 </image>
             </figure>
         
         <figure align="center" xml:id="fig-ktb">
-            <caption>Explore B</caption>
+            <caption>Explore B.</caption>
                 <image source="Graphs/ktdfsb.png" width="80%">
                 <description>Graph with nodes A, B, C, D, E, and F, with node B highlighted, indicating exploration from node B to nodes A and E.</description>
                 </image>
             </figure>
 
         <figure align="center" xml:id="fig-ktc">
-            <caption>Node C is a dead end</caption>
+            <caption>Node C is a dead end.</caption>
                 <image source="Graphs/ktdfsc.png" width="80%">
                 <description>Graph highlighting node C, showing no further connections, indicating that C is a dead end in the search process.</description>
                 </image>
             </figure>
         
         <figure align="center" xml:id="fig-ktd">
-            <caption>Backtrack to B</caption>
+            <caption>Backtrack to B.</caption>
                 <image source="Graphs/ktdfsd.png" width="80%">
                 <description>Graph with a backtrack path from node C to node B, illustrating the step of returning to node B to continue the search.</description>
                 </image>
             </figure>
         
         <figure align="center" xml:id="fig-kte">
-            <caption>Explore D</caption>
+            <caption>Explore D.</caption>
                 <image source="Graphs/ktdfse.png" width="80%">
                 <description>Graph with node D highlighted, indicating the exploration is continuing from node D to nodes A and E.</description>
                 </image>
             </figure>
         
         <figure align="center" xml:id="fig-ktf">
-            <caption>Explore E</caption>
+            <caption>Explore E.</caption>
                 <image source="Graphs/ktdfsf.png" width="80%">
                 <description>Graph focusing on node E, with exploration proceeding from node E to nodes B and D.</description>
                 </image>
             </figure>
         
         <figure align="center" xml:id="fig-ktg">
-            <caption>Explore F</caption>
+            <caption>Explore F.</caption>
                 <image source="Graphs/ktdfsg.png" width="80%">
                 <description>Graph with node F highlighted, representing the search exploring potential paths from node F to node C.</description>
                 </image>
             </figure>
         
         <figure align="center" xml:id="fig-kth">
-            <caption>Finish</caption>
+            <caption>Finish.</caption>
                 <image source="Graphs/ktdfsh.png" width="80%">
                 <description>Final graph with all nodes no longer highlighted, representing the completion of the depth-first search process.</description>
                 </image>
             </figure>
-        <p><xref ref="fig-tour"/> shows you what a complete tour around an
+        <p><xref ref="fig-completeTour"/> shows you what a complete tour around an
             eight-by-eight board looks like. There are many possible tours; some are
             symmetric. With some modification you can make circular tours that start
             and end at the same square.</p>
         
         <figure align="center" xml:id="fig-completeTour">
-            <caption>A Complete Tour of the Board</caption>
+            <caption>A Complete Tour of the Board.</caption>
                 <image source="Graphs/completeTour.png" width="80%">
                 <description>Image depicting a graph overlaid on an 8x8 chessboard grid representing a complete Knight's Tour. The nodes, numbered from 0 to 63, correspond to the squares of the chessboard. Lines crisscross the grid, mapping the knight's moves in a sequential path that visits each square exactly once. The complex web of lines indicates the knight's route, creating a Hamiltonian circuit where the start and end points are connected. Captioned 'Figure 11: A Complete Tour of the Board'.</description>
                 </image>

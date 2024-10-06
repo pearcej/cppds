@@ -353,7 +353,10 @@ via **operator overloading**.
 Like function overloading, operator overloading allows us to make operators
 work for user defined classes
 by defining a special meaning for that operator when applied to objects
-of the class as operands.
+of the class as operands. This is a form of polymorphism because it enables
+the same operator to have different behaviors depending on the class
+of the objects involved, demonstrating how the same operation can be adapted 
+to various types.
 
 In C++ this new operator needs to be implemented as a **friend** of the class in order to
 define the operator's behavior on objects of the class from a non-class method ``<<``.
@@ -580,9 +583,9 @@ like more symmetry.
 Binary operators can either be members of their
 left-hand argument's class or friend functions.
 Since the stream operators' left-hand argument is a stream,
-stream operators either have to be members of the stream class
-or friend functions.
-However, that is not true for ``+``.
+stream operators (such as &lt;&lt; and &gt;&gt;) must be either member functions of the stream class
+or friend functions of the class they are used with.
+However, that is not true for the ``+`` operator.
 Let's rewrite the addition operator as a friend function.
 
 **Listing 6**

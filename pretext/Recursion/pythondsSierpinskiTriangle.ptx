@@ -14,9 +14,13 @@
             drawing the Sierpinski triangle yourself, using the method described.</p>
         
         <figure align="center" xml:id="fig-sierpinski">
-            <caption>The Sierpinski Triangle</caption>
+            <caption>The Sierpinski Triangle.</caption>
                 <image source="Recursion/sierpinski.png" width="50%">
-                <description>"Image of the Sierpinski Triangle, a fractal composed of colored triangles. The main triangle is outlined with progressively smaller triangles in alternating colors of red, green, and white, forming a pattern that repeats at smaller scales. The center of the triangle features a large inverted blue triangle, emphasizing the fractal's characteristic self-similarity.</description>
+                <description>Image of the Sierpinski Triangle, a fractal composed of colored triangles. 
+                    The main triangle is outlined with progressively smaller triangles in
+                    alternating colors of red, green, and white, forming a pattern that repeats at smaller scales.
+                    The center of the triangle features a large inverted blue triangle, emphasizing the fractal's
+                    characteristic self-similarity.</description>
                 </image>
             </figure>
 
@@ -28,11 +32,12 @@
             recursive call, we subtract 1 from the degree until we reach 0. When we
             reach a degree of 0, we stop making recursive calls. The code that
             generated the Sierpinski Triangle in <xref ref="fig-sierpinski"/> is shown in
-            <xref ref="lst-st"/>.</p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'pythondsSierpinskiTriangle', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="first_csierpinksi_tri" interactive="activecode" language="cpp">
-        <input>
+            <xref ref="lst-st-cpp"/>.</p>
+        <exploration xml:id="expl-lst-st-cpp">
+            <title>Darawing the Sierpinski Triangle</title>
+            <task xml:id="lst-st-cpp" label="lst-st-cpp">
+                <title>C++ Implementation</title>
+                <statement><program xml:id="first_csierpinksi_tri" interactive="activecode" language="cpp"><input>
 #include &lt;CTurtle.hpp&gt;
 
 namespace ct = cturtle;
@@ -77,12 +82,11 @@ int main() {
     screen.bye();
     return 0;
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'pythondsSierpinskiTriangle', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="lst_st" interactive="activecode" language="python">
-        <input>
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-st-py" label="lst-st-py">
+                <title>Python Implementation</title>
+                <statement><program xml:id="lst_st" interactive="activecode" language="python"><input>
 #Recursive example of the Sierpinski Triangle.
 
 import turtle
@@ -128,10 +132,10 @@ sierpinski(myPoints,3,myTurtle)
 myWin.exitonclick()
 
 main()
-        </input>
-    </program>
-            </TabNode>
-        <p>The program in <xref ref="lst-st"/> follows the ideas outlined above. The
+                </input></program></statement>
+            </task>
+        </exploration>
+        <p>The program in <xref ref="lst-st-cpp"/> follows the ideas outlined above. The
             first thing <c>sierpinski</c> does is draw the outer triangle. Next, there
             are three recursive calls, one for each of the new corner triangles we
             get when we connect the midpoints. Once again we make use of the
@@ -157,7 +161,7 @@ main()
             finished with the bottom left it moves to the bottom middle, and so on.</p>
         
         <figure align="center" xml:id="fig-stcalltree">
-            <caption>Building a Sierpinski Triangle</caption>
+            <caption>Building a Sierpinski Triangle.</caption>
                 <image source="Recursion/stCallTree.png" width="50%">
                 <description>Diagram showing the recursive construction of a Sierpinski Triangle using a tree structure. The diagram starts with a single top circle labeled 'top', branching out into three interconnected circles labeled 'left', 'top', and 'right'. Each of these circles further branches out in a similar pattern, with the process repeating for several iterations. The circles decrease in size from top to bottom, representing the fractal's recursive nature. The grayscale shading of the circles suggests depth or iteration levels.</description>
                 </image>
@@ -165,7 +169,7 @@ main()
 
         <p>The <c>sierpinski</c> function relies heavily on the <c>middle</c> function.
             <c>middle</c> takes as arguments two endpoints and returns the point
-            halfway between them. In addition, <xref ref="lst-st"/> has a function that
+            halfway between them. In addition, <xref ref="lst-st-cpp"/> has a function that
             draws a filled triangle using the <c>begin_fill</c> and <c>end_fill</c> turtle
             methods.</p>
         <p>The above sierpinski triangle visualization utilizes C-Turtle, a C++ equivalent of

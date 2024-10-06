@@ -13,7 +13,10 @@
         <xi:include href='./TowerofHanoi.ptx' />
         <xi:include href='./ExploringaMaze.ptx' />
         <xi:include href='./DynamicProgramming.ptx' />
+        <xi:include href='./Summary.ptx' />
+        <xi:include href='./SelfCheck.ptx' />
         <xi:include href='./DiscussionQuestions.ptx' />
         <xi:include href='./pythondsProgrammingExercises.ptx' />
         <xi:include href='./Glossary.ptx' />
+        <xi:include href='./Matching.ptx' />
     </chapter>
