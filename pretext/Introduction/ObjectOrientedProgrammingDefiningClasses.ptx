@@ -345,7 +345,7 @@ ostream &amp;operator &lt;&lt; (ostream &amp;stream, const Fraction &amp;frac) {
 
 int main() {
     Fraction myfraction(3, 5);
-    cout &lt;&lt; myfraction;
+    cout &lt;&lt; myfraction &lt;&lt; " is my fraction" &lt;&lt; endl;
 
     return 0;
 }
