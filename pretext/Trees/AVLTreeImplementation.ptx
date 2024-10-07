@@ -32,10 +32,9 @@
             exactly the same as in simple binary search trees except for the additions of
             the calls to <c>updateBalance</c> on lines&#160;8 and&#160;17.</p>
 
-        <p xml:id="trees_lst-updbal" names="lst_updbal"><term>Listing 1:</term> Implementation of <c>_put</c> and <c>updateBalance</c></p>
-
-        <program language="cpp" line-numbers="yes">
-            <input>
+        <listing xml:id="trees_lst-updbal">
+            <caption>Implementation of <c>_put</c> and <c>updateBalance</c></caption>
+            <program line-numbers="yes" language="cpp"><input>
 void _put(int key, string val, TreeNode *currentNode){
     if (key &lt; currentNode-&gt;key){
         if (currentNode-&gt;hasLeftChild()){
@@ -75,7 +74,9 @@ int updateBalance(TreeNode *node){
     }
     return 0;
 }
-</input></program>
+            </input></program>
+        </listing>
+
         <p>The new <c>updateBalance</c> method is where most of the work is done. This
             implements the recursive procedure we just described. The
             <c>updateBalance</c> method first checks to see if the current node is out
@@ -95,7 +96,10 @@ int updateBalance(TreeNode *node){
             is out of balance with a balance factor of -2. To bring this tree into
             balance we will use a left rotation around the subtree rooted at node A.</p>
         
-        <figure align="center" xml:id="fig-unbalsimple"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Transforming an Unbalanced Tree Using a Left Rotation.</caption><image source="Trees/simpleunbalanced.png" width="70%"/></figure>
+        <figure align="center" xml:id="fig-unbalsimple">
+            <caption>Transforming an Unbalanced Tree Using a Left Rotation.</caption>
+            <image source="Trees/simpleunbalanced.png" width="70%"/>
+        </figure>
         <p>To perform a left rotation we essentially do the following:</p>
         <p><ul>
             <li>
@@ -137,7 +141,10 @@ int updateBalance(TreeNode *node){
             </li>
         </ul></p>
         
-        <figure align="center" xml:id="fig-rightrot1"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Transforming an Unbalanced Tree Using a Right Rotation.</caption><image source="Trees/rightrotate1.png" width="70%"/></figure>
+        <figure align="center" xml:id="fig-rightrot1">
+            <caption>Transforming an Unbalanced Tree Using a Right Rotation.</caption>
+            <image source="Trees/rightrotate1.png" width="70%"/>
+        </figure>
         <p>Now that you have seen the rotations and have the basic idea of how a
             rotation works let us look at the code. <xref ref="trees_lst-bothrotations"/> shows the
             code for both the right and the left rotations. In line&#160;2
@@ -160,9 +167,9 @@ int updateBalance(TreeNode *node){
             <c>rotateRight</c> method is symmetrical to <c>rotateLeft</c> so we will leave
             it to you to study the code for <c>rotateRight</c>.</p>
 
-        <p xml:id="trees_lst-bothrotations"><term>Listing 2:</term> Implementation of <c>rotateLeft</c> and <c>rotateRight</c></p>
-
-        <program language="cpp" line-numbers="yes" open="yes"><input>
+        <listing xml:id="trees_lst-bothrotations">
+            <caption>Implementation of <c>rotateLeft</c> and <c>rotateRight</c></caption>
+            <program language="cpp" line-numbers="yes" open="yes"><input>
 void rotateLeft(TreeNode *rotRoot){
     TreeNode *newRoot = rotRoot-&gt;rightChild;
     rotRoot-&gt;rightChild = newRoot-&gt;leftChild;
@@ -186,7 +193,8 @@ void rotateLeft(TreeNode *rotRoot){
     rotRoot-&gt;balanceFactor = rotRoot-&gt;balanceFactor + 1 - min(newRoot-&gt;balanceFactor, 0);
     newRoot-&gt;balanceFactor = newRoot-&gt;balanceFactor + 1 + max(rotRoot-&gt;balanceFactor, 0);
 }
-</input></program>
+            </input></program>
+        </listing>
 
         <p>Finally, lines&#160;16-17 require some explanation. In
             these two lines we update the balance factors of the old and the new
@@ -196,7 +204,10 @@ void rotateLeft(TreeNode *rotRoot){
             the heights of the new subtrees? The following derivation should
             convince you that these lines are correct.</p>
         
-        <figure align="center" xml:id="trees-avl-fig-bfderive"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">A Left Rotation.</caption><image source="Trees/bfderive.png" width="70%"/></figure>
+        <figure align="center" xml:id="trees-avl-fig-bfderive">
+            <caption>A Left Rotation.</caption>
+            <image source="Trees/bfderive.png" width="70%"/>
+        </figure>
         <p><xref ref="trees-avl-fig-bfderive"/> shows a left rotation. B and D are the pivotal
             nodes and A, C, E are their subtrees. Let <m>h_x</m> denote the
             height of a particular subtree rooted at node <m>x</m>. By definition
@@ -241,12 +252,18 @@ rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(0,newRoot.balanceFactor)
             factor of -2 we should do a left rotation. But, what happens when we do
             the left rotation around A?</p>
         
-        <figure align="center" xml:id="avlimpl_fig-hardrotate"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">An Unbalanced Tree that is More Difficult to Balance.</caption><image source="Trees/hardunbalanced.png" width="20%"/></figure>
+        <figure align="center" xml:id="avlimpl_fig-hardrotate">
+            <caption>An Unbalanced Tree that is More Difficult to Balance.</caption>
+            <image source="Trees/hardunbalanced.png" width="20%"/>
+        </figure>
         <p><xref ref="avlimpl_fig-badrotate"/> shows us that after the left rotation we are now
             out of balance the other way. If we do a right rotation to correct the
             situation we are right back where we started.</p>
         
-        <figure align="center" xml:id="avlimpl_fig-badrotate"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">After a Left Rotation the Tree is Out of Balance in the Other Direction.</caption><image source="Trees/badrotate.png" width="20%"/></figure>
+        <figure align="center" xml:id="avlimpl_fig-badrotate">
+            <caption>After a Left Rotation the Tree is Out of Balance in the Other Direction.</caption>
+            <image source="Trees/badrotate.png" width="20%"/>
+        </figure>
         <p>To correct this problem we must use the following set of rules:</p>
         <p><ul>
             <li>
@@ -267,16 +284,19 @@ rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(0,newRoot.balanceFactor)
             with a right rotation around node C puts the tree in a position where
             the left rotation around A brings the entire subtree back into balance.</p>
         
-        <figure align="center" xml:id="avlimpl_fig-rotatelr"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">A Right Rotation Followed by a Left Rotation.</caption><image source="Trees/rotatelr.png" width="80%"/></figure>
+        <figure align="center" xml:id="avlimpl_fig-rotatelr">
+            <caption>A Right Rotation Followed by a Left Rotation.</caption>
+            <image source="Trees/rotatelr.png" width="80%"/>
+        </figure>
         <p>The code that implements these rules can be found in our <c>rebalance</c>
             method, which is shown in <xref ref="avlimpl_lst-rebalance"/>. Rule number 1 from
             above is implemented by the <c>if</c> statement starting on line&#160;2.
             Rule number 2 is implemented by the <c>elif</c> statement starting on
             line 8.</p>
         
-        <p xml:id="avlimpl_lst-rebalance"><term>Listing 3</term></p>
-        <p><term>C++ Implementation</term></p>
-        <program language="cpp"><input>
+        <listing xml:id="avlimpl_lst-rebalance">
+            <caption>Implementation of <c>rebalance</c></caption>
+            <program language="cpp"><input>
 void rebalance(TreeNode *node){
     if (node-&gt;balanceFactor &lt; 0){
         if (node-&gt;rightChild-&gt;balanceFactor &gt; 0){
@@ -297,7 +317,8 @@ void rebalance(TreeNode *node){
         }
     }
 }
-</input></program>
+            </input></program>
+        </listing>
         <p>The <inline classes="xref std std-ref">discussion questions</inline> provide you the opportunity to rebalance a tree
             that requires a left rotation followed by a right. In addition the
             discussion questions provide you with the opportunity to rebalance some
