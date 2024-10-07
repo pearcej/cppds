@@ -32,9 +32,11 @@
             is removed each time.  We will now turn our attention to creating an implementation for this idea.</p>
         
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'BinaryHeapOperations', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="heap1cpp" interactive="activecode" language="cpp">
-        <input>
+        <exploration xml:id="expl-binheapops">
+            <title>Binary Heap Operations</title>
+            <task xml:id="lst-binheapops-cpp" label="lst-binheapops-cpp">
+                <title>C++ Implementation</title>
+                <statement><program xml:id="prog-binheapops-cpp" interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -148,12 +150,11 @@ int main(){
 
     return 0;
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'BinaryHeapOperations', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="heap1py" interactive="activecode" language="python">
-        <input>
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-binheapops-py" label="lst-binheapops-py">
+                <title>Python Implementation</title>
+                <statement><program xml:id="prog-binheapops-py" interactive="activecode" language="python"><input>
 #you can use the command below to import the binheap library:
 #from pythonds.trees.binheap import BinHeap
 
@@ -236,8 +237,8 @@ def main():
     print(bh.delMin())
 
 main()
-        </input>
-    </program>
-            </TabNode>
-    </section>
+                </input></program></statement>
+            </task>
+        </exploration>
+</section>
 
