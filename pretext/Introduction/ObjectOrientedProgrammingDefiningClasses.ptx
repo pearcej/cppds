@@ -225,7 +225,7 @@ Fraction (){
     Fraction myfraction(3, 5);
 
     // Throws an error
-    cout &lt;&lt; myfraction &lt;&lt; " is my fraction" &lt;&lt; endl;
+    cout &lt;&lt; myfraction &lt;&lt; endl;
 
     return 0;
 }</pre>
