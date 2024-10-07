@@ -175,12 +175,13 @@
         <p>Using the rules described above, along with the <c>Stack</c> and
             <c>BinaryTree</c> operations, we are now ready to write a C++ function
             to create a parse tree. The code for our parse tree builder is presented
-            in <xref ref="lst-buildparse"/>.</p>
+            in <xref ref="lst-buildparse-cpp"/>.</p>
         
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'ParseTree', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="parsebuildcpp" interactive="activecode" language="cpp">
-        <input>
+        <exploration xml:id="expl-buildparse">
+            <title>Building A Parse Tree</title>
+            <task xml:id="lst-buildparse-cpp" label="lst-buildparse-cpp">
+                <title>C++ Implementation</title>
+                <statement><program xml:id="prog-buildparse-cpp" interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;cstdlib&gt;
 #include &lt;stack&gt;
@@ -206,23 +207,23 @@ class BinaryTree {
 
         void insertLeft(string newNode){
             if (this-&gt;leftChild == NULL){
-            this-&gt;leftChild = new BinaryTree(newNode);
+                this-&gt;leftChild = new BinaryTree(newNode);
             }
             else {
-            BinaryTree *t = new BinaryTree(newNode);
-            t-&gt;leftChild = this-&gt;leftChild;
-            this-&gt;leftChild = t;
+                BinaryTree *t = new BinaryTree(newNode);
+                t-&gt;leftChild = this-&gt;leftChild;
+                this-&gt;leftChild = t;
             }
         }
 
         void insertRight(string newNode){
             if (this-&gt;rightChild == NULL){
-            this-&gt;rightChild = new BinaryTree(newNode);
+                this-&gt;rightChild = new BinaryTree(newNode);
             }
             else {
-            BinaryTree *t = new BinaryTree(newNode);
-            t-&gt;rightChild = this-&gt;rightChild;
-            this-&gt;rightChild = t;
+                BinaryTree *t = new BinaryTree(newNode);
+                t-&gt;rightChild = this-&gt;rightChild;
+                this-&gt;rightChild = t;
             }
         }
 
@@ -309,17 +310,15 @@ int main() {
 
     BinaryTree *pt = buildParseTree("( ( 10 + 5 ) * 3 )");
 
-
     postorder(pt);
 
     return 0;
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ParseTree', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="parsebuildpy" interactive="activecode" language="python">
-        <input>
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-buildparse-py" label="lst-buildparse-py">
+                <title>Python Implementation</title>
+                <statement><program xml:id="prog-buildparse-py" interactive="activecode" language="python"><input>
 from pythonds.basic.stack import Stack
 from pythonds.trees.binaryTree import BinaryTree
 
@@ -360,12 +359,12 @@ def main():
     pt = buildParseTree("( ( 10 + 5 ) * 3 )")
     pt.postorder()  #defined and explained in the next section
 main()
-        </input>
-    </program>
-            </TabNode>
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>The four rules for building a parse tree are coded as the first four
             clauses of the <c>if</c> statement on lines 12, 17,
-            23, and 26 of <xref ref="lst-buildparse"/>. In each case you
+            23, and 26 of <xref ref="lst-buildparse-cpp"/>. In each case you
             can see that the code implements the rule, as described above, with a
             few calls to the <c>BinaryTree</c> or <c>Stack</c> methods. The only error
             checking we do in this function is in the <c>else</c> clause where a
@@ -396,7 +395,7 @@ main()
             10 and 3. Applying the multiplication operator gives us a final result
             of 30.</p>
         <p>The code for a recursive <c>evaluate</c> function is shown in
-            <xref ref="lst-eval"/>. First, we obtain references to the left and the
+            <xref ref="lst-eval-cpp"/>. First, we obtain references to the left and the
             right children of the current node. If both the left and right children
             evaluate to <c>None</c>, then we know that the current node is really a
             leaf node. This check is on line 7. If the current node is not
@@ -411,8 +410,11 @@ main()
             <c>function(param1,param2)</c>. So the lookup <c>opers['+'](2,2)</c> is
             equivalent to <c>operator.add(2,2)</c>.</p>
         
-        <p xml:id="trees_lst-eval" names="lst_eval"><term>Listing 1</term></p>
-        <program language="cpp"><input>
+        <exploration xml:id="expl-eval">
+            <title>Evaluating A Parse Tree</title>
+            <task xml:id="lst-eval-cpp" label="lst-eval-cpp">
+                <title>C++ Implementation</title>
+                <statement><program xml:id="prog-eval-cpp" interactive="activecode" language="cpp"><input>
 class Operator {
     public:
         int add(int x, int y){
@@ -472,8 +474,11 @@ int main(){
 
     return 0;
 }
-</input></program>
-        <program language="Python"><input>
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-eval-py" label="lst-eval-py">
+                <title>Python Implementation</title>
+                <statement><program language="Python"><input>
 def evaluate(parseTree):
     opers = {'+':operator.add, '-':operator.sub, '*':operator.mul, '/':operator.truediv}
 
@@ -485,9 +490,11 @@ def evaluate(parseTree):
         return fn(evaluate(leftC),evaluate(rightC))
     else:
         return parseTree.getRootVal()
-</input></program>
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>Finally, we will trace the <c>evaluate</c> function on the parse tree we
-            created in <xref ref="fig-bldexpstep"/>. When we first call <c>evaluate</c>, we
+            created in <xref ref="parse_fig-bldexpstep"/>. When we first call <c>evaluate</c>, we
             pass the root of the entire tree as the parameter <c>parseTree</c>. Then we
             obtain references to the left and right children to make sure they
             exist. The recursive call takes place on line 9. We begin
