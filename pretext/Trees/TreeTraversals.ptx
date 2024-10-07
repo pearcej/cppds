@@ -225,10 +225,13 @@ def postorder(tree):
             subtree, and combining them in the root through the function call to an
             operator. Assume that our binary tree is going to store only expression
             tree data. Let's rewrite the evaluation function, but model it even more
-            closely on the <c>postorder</c> code in <xref ref="lst-postorder1-cpp"/> (see <xref ref="trees_lst-postordereval"/>).</p>
+            closely on the <c>postorder</c> code in <xref ref="lst-postorder1-cpp"/> (see <xref ref="lst-postordereval-cpp"/>).</p>
             
-        <p xml:id="trees_lst-postordereval" names="lst_postordereval"><term>Listing 5</term></p>
-<program language="cpp"><input>
+        <exploration xml:id="expl-postordereval">
+            <title>Postorder Evaluation</title>
+            <task xml:id="lst-postordereval-cpp" label="lst-postordereval-cpp">
+                <title>C++ Implementation</title>
+                <statement><program language="cpp"><input>
 class Operator {
     public:
         int add(int x, int y){
@@ -288,65 +291,12 @@ int main(){
 
     return 0;
 }
-</input></program>
-        <program language="Python"><input>
-class Operator {
-    public:
-    int add(int x, int y){
-        return x + y;
-    }
-
-    int sub(int x, int y){
-        return x - y;
-    }
-
-    int mul(int x, int y){
-        return x * y;
-    }
-
-    int div(int x, int y){
-        return x / y;
-    }
-};
-
-int to_int(string str) {
-    stringstream convert(str);
-    int x = 0;
-    convert &gt;&gt; x;
-    return x;
-}
-
-string t_string(int num) {
-    string str;
-    ostringstream convert;
-    convert &lt;&lt; num;
-    str = convert.str();
-    return str;
-}
-
-string postordereval(BinaryTree *tree){
-    Operator Oper;
-    BinaryTree *res1 = tree-&gt;getLeftChild();
-    BinaryTree *res2 = tree-&gt;getRightChild();
-    if (tree) {
-        if (res1 &amp;&amp; res2) {
-            if (tree-&gt;getRootVal() == "+") {
-                return t_string(Oper.add(to_int(postordereval(res1)), to_int(postordereval(res2))));
-            } else if (tree-&gt;getRootVal() == "-") {
-                return t_string(Oper.sub(to_int(postordereval(res1)), to_int(postordereval(res2))));
-            } else if (tree-&gt;getRootVal() == "*") {
-                return t_string(Oper.mul(to_int(postordereval(res1)), to_int(postordereval(res2))));
-            } else {
-                return t_string(Oper.div(to_int(postordereval(res1)), to_int(postordereval(res2))));
-            }
-        } else {
-            return tree-&gt;getRootVal();
-        }
-
-    }
-}
-</input></program>
-        <pre>def postordereval(tree):
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-postordereval-py" label="lst-postordereval-py">
+                <title>Python Implementation</title>
+                <statement><program language="python"><input>
+def postordereval(tree):
     opers = {'+':operator.add, '-':operator.sub, '*':operator.mul, '/':operator.truediv}
     res1 = None
     res2 = None
@@ -356,23 +306,27 @@ string postordereval(BinaryTree *tree){
         if res1 and res2:
             return opers[tree.getRootVal()](res1,res2)
         else:
-            return tree.getRootVal()</pre>
+            return tree.getRootVal()
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>Notice that the form in <xref ref="lst-postorder1-cpp"/> is the same as the form
-            in <xref ref="trees_lst-postordereval"/>, except that instead of printing the key at
+            in <xref ref="lst-postordereval-cpp"/>, except that instead of printing the key at
             the end of the function, we return it. This allows us to save the values
             returned from the recursive calls in lines 6 and 7. We
             then use these saved values along with the operator on line 9.</p>
         <p>The final traversal we will look at in this section is the inorder
             traversal. In the inorder traversal we visit the left subtree, followed
-            by the root, and finally the right subtree. <xref ref="trees_lst-inorder1"/> shows
+            by the root, and finally the right subtree. <xref ref="lst-inorder1-cpp"/> shows
             our code for the inorder traversal. Notice that in all three of the
             traversal functions we are simply changing the position of the <c>print</c>
             statement with respect to the two recursive function calls.</p>
         
-        <p xml:id="trees_lst-inorder1"><term>Listing 6</term></p>
-        <program language="python"><input>
-C++ Implementation
-
+        <exploration xml:id="expl-inorder1">
+            <title>Inorder Traversal</title>
+            <task xml:id="lst-inorder1-cpp" label="lst-inorder1-cpp">
+                <title>C++ Implementation</title>
+                <statement><program language="cpp"><input>
 void inorder(BinaryTree *tree){
     if (tree != NULL){
         inorder(tree-&gt;getLeftChild());
@@ -380,16 +334,19 @@ void inorder(BinaryTree *tree){
         inorder(tree-&gt;getRightChild());
     }
 }
-</input></program>
-        <program language="python"><input>
-Python Implementation
-
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-inorder1-py" label="lst-inorder1-py">
+                <title>Python Implementation</title>
+                <statement><program language="python"><input>
 def inorder(tree):
   if tree != None:
       inorder(tree.getLeftChild())
       print(tree.getRootVal())
       inorder(tree.getRightChild())
-</input></program>
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>If we perform a simple inorder traversal of a parse tree we get our
             original expression back, without any parentheses. Let's modify the
             basic inorder algorithm to allow us to recover the fully parenthesized
