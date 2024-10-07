@@ -31,7 +31,6 @@
             heap methods.  Notice that no matter the order that we add items to the heap, the smallest
             is removed each time.  We will now turn our attention to creating an implementation for this idea.</p>
         
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'BinaryHeapOperations', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
         <exploration xml:id="expl-binheapops">
             <title>Binary Heap Operations</title>
             <task xml:id="lst-binheapops-cpp" label="lst-binheapops-cpp">
