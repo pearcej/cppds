@@ -226,9 +226,9 @@ in the original expression is reversed in the resulting postfix
 expression.
 
 As we process the expression, the operators have to be saved somewhere
-since their corresponding right operands are not seen yet. Also, the
-order of these saved operators may need to be reversed due to their
-precedence. This is the case with the addition and the multiplication in
+since their corresponding right operands have not yet been seen. Additionally,
+because of their priority, the order of these saved operators might need
+to be changed, which is the case for the multiplication and addition in
 this example. Since the addition operator comes before the
 multiplication operator and has lower precedence, it needs to appear
 after the multiplication operator is used. Because of this reversal of

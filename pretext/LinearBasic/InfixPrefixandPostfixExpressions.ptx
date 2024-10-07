@@ -329,7 +329,7 @@
                 in the original expression is reversed in the resulting postfix
                 expression.</p>
             <p>As we process the expression, the operators have to be saved somewhere
-                since their corresponding right operands are not seen yet. Additionally,
+                since their corresponding right operands have not yet been seen. Additionally,
                 because of their priority, the order of these saved operators might need
                 to be changed, which is the case for the multiplication and addition in
                 this example. Since the addition operator comes before the
