@@ -11,7 +11,10 @@
             subtree are less than the key in the root. All of the keys in the right
             subtree are greater than the root.</p>
         
-        <figure align="center" xml:id="bst_fig-simplebst"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">A Simple Binary Search Tree.</caption><image source="Trees/simpleBST.png" width="50%"/></figure>
+        <figure align="center" xml:id="bst_fig-simplebst">
+            <caption>A Simple Binary Search Tree.</caption>
+            <image source="Trees/simpleBST.png" width="50%"/>
+        </figure>
         <p>Now that you know what a binary search tree is, we will look at how a
             binary search tree is constructed. The search tree in
             <xref ref="bst_fig-simplebst"/> represents the nodes that exist after we have
@@ -43,8 +46,10 @@
 
     
         
-        <p xml:id="bst_lst-bst1"><term>Listing 1</term></p>
-        <pre>class BinarySearchTree{
+        <listing xml:id="bst_lst-bst1">
+            <caption><c>BinarySearchTree</c> Class and Constructor</caption>
+            <program language="cpp"><input>
+class BinarySearchTree{
     private:
         TreeNode *root;
         int size;
@@ -58,7 +63,9 @@
         int length(){
             return this-&gt;size;
         }
-}</pre>
+}
+            </input></program>
+        </listing>
         <p>The <c>TreeNode</c> class provides many helper functions that make the work
             done in the <c>BinarySearchTree</c> class methods much easier. The
             constructor for a <c>TreeNode</c>, along with these helper functions, is
@@ -80,8 +87,10 @@
             <c>child</c>. In this case, the default values of the optional parameters
             are used.</p>
         
-        <p xml:id="bst_lst-bst2"><term>Listing 2</term></p>
-        <pre>class TreeNode{
+        <listing xml:id="bst_lst-bst2">
+            <caption><c>TreeNode</c> Class</caption>
+            <program language="cpp"><input>
+class TreeNode{
     public:
         int key;
         string payload;
@@ -141,7 +150,9 @@
                 this-&gt;rightChild-&gt;parent = this;
             }
         }
-    }</pre>
+    }
+            </input></program>
+        </listing>
         <p>Now that we have the <c>BinarySearchTree</c> shell and the <c>TreeNode</c> it
             is time to write the <c>put</c> method that will allow us to build our
             binary search tree. The <c>put</c> method is a method of the
@@ -180,8 +191,10 @@
             associated with the new key to replace the old value. We leave fixing
             this bug as an exercise for you.</p>
         
-        <p xml:id="bst_lst-bst3" names="lst_bst3"><term>Listing 3</term></p>
-        <pre>void put(int key, string val){
+        <listing xml:id="bst_lst-bst3" names="lst_bst3">
+            <caption><c>put</c> and <c>_put</c> Methods</caption>
+            <program language="cpp"><input>
+void put(int key, string val){
     if (this-&gt;root){
         this-&gt;_put(key, val, this-&gt;root);
     }
@@ -208,12 +221,16 @@ void _put(int key, string val, TreeNode *currentNode){
             currentNode-&gt;rightChild = new TreeNode(key, val, currentNode);
         }
     }
-}</pre>
+}
+            </input></program>
+        </listing>
         <p><xref ref="bst_fig-bstput"/> illustrates the process for inserting a new node
             into a binary search tree. The lightly shaded nodes indicate the nodes
             that were visited during the insertion process.</p>
         
-        <figure align="center" xml:id="bst_fig-bstput"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Inserting a Node with Key = 19.</caption><image source="Trees/bstput.png" width="50%"/></figure>
+        <figure align="center" xml:id="bst_fig-bstput">
+            <caption>Inserting a Node with Key = 19.</caption>
+            <image source="Trees/bstput.png" width="50%"/></figure>
         <note>
             <title>Self Check</title>
 
@@ -232,8 +249,10 @@ void _put(int key, string val, TreeNode *currentNode){
             <c>BinarySearchTree</c> methods that may need to make use of other data
             from the <c>TreeNode</c> besides the payload.</p>
         
-        <p xml:id="bst_lst-bst4" names="bst_lst-bst4"><term>Listing 4</term></p>
-        <pre>string get(int key){
+        <listing xml:id="bst_lst-bst4" names="bst_lst-bst4">
+            <caption><c>get</c> and <c>_get</c> Methods</caption>
+            <program language="cpp"><input>
+string get(int key){
     if (this-&gt;root){
         TreeNode *res = this-&gt;_get(key, this-&gt;root);
         if (res){
@@ -261,7 +280,9 @@ TreeNode  *_get(int key, TreeNode *currentNode){
     else{
         return this-&gt;_get(key, currentNode-&gt;rightChild);
     }
-}</pre>
+}
+            </input></program>
+        </listing>
         <p>Finally, we turn our attention to the most challenging method in the
             binary search tree, the deletion of a key (see <xref ref="bst_lst-bst5"/>). The first task is to find the
             node to delete by searching the tree. If the tree has more than one node
@@ -271,8 +292,10 @@ TreeNode  *_get(int key, TreeNode *currentNode){
             key of the root matches the key that is to be deleted. In either case if
             the key is not found the <c>del</c> operator raises an error.</p>
         
-        <p xml:id="bst_lst-bst5" names="lst_bst5"><term>Listing 5</term></p>
-        <pre>void del(int key){
+        <listing xml:id="bst_lst-bst5" names="lst_bst5">
+            <caption><c>del</c> Method</caption>
+            <program language="cpp"><input>
+void del(int key){
     if (this-&gt;size &gt; 1){
         TreeNode *nodeToRemove = this-&gt;_get(key, this-&gt;root);
         if (nodeToRemove){
@@ -290,7 +313,9 @@ TreeNode  *_get(int key, TreeNode *currentNode){
     else{
         cerr &lt;&lt; "Error, key not in tree" &lt;&lt; endl;
     }
-}</pre>
+}
+            </input></program>
+        </listing>
         <p>Once we've found the node containing the key we want to delete, there
             are three cases that we must consider:</p>
         <p><ol marker="1">
@@ -308,17 +333,23 @@ TreeNode  *_get(int key, TreeNode *currentNode){
             all we need to do is delete the node and remove the reference to this
             node in the parent. The code for this case is shown in here.</p>
         
-        <p xml:id="bst_lst-bst6"><term>Listing 6</term></p>
-        <pre>if (currentNode-&gt;isLeaf()){ //leaf
+        <listing xml:id="bst_lst-bst6">
+            <caption>Deleting a Node With No Children</caption>
+            <program language="cpp"><input>
+if (currentNode-&gt;isLeaf()){ //leaf
     if (currentNode == currentNode-&gt;parent-&gt;leftChild){
         currentNode-&gt;parent-&gt;leftChild = NULL;
     }
     else{
         currentNode-&gt;parent-&gt;rightChild = NULL;
     }
-}</pre>
-        
-        <figure align="center" xml:id="bst_fig-bstdel1"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Deleting Node 16, a Node without Children.</caption><image source="Trees/bstdel1.png" width="50%"/></figure>
+}
+            </input></program>
+        </listing>
+        <figure align="center" xml:id="bst_fig-bstdel1">
+            <caption>Deleting Node 16, a Node without Children.</caption>
+            <image source="Trees/bstdel1.png" width="50%"/>
+        </figure>
         <p>The second case is only slightly more complicated (see <xref ref="bst_lst-bst7"/>). If a node has only a
             single child, then we can simply promote the child to take the place of
             its parent. The code for this case is shown in the next listing. As
@@ -388,8 +419,11 @@ else{ // this node has one child
             </input></program>
         </listing>
         
-        <figure align="center" xml:id="bst_fig-bstdel2"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Deleting Node 25, a Node That Has a Single Child.</caption><image source="Trees/bstdel2.png" width="50%"/></figure>
-        <p><idx>successor node</idx>The third case is the most difficult case to handle (see <xref ref="bst_lst-bst7"/>). If a node has two
+        <figure align="center" xml:id="bst_fig-bstdel2">
+            <caption>Deleting Node 25, a Node That Has a Single Child.</caption>
+            <image source="Trees/bstdel2.png" width="50%"/>
+        </figure>
+        <p><idx>successor node</idx>The third case is the most difficult case to handle (see <xref ref="bst_lst-bst8"/>). If a node has two
             children, then it is unlikely that we can simply promote one of them to
             take the node's place. We can, however, search the tree for a node that
             can be used to replace the one scheduled for deletion. What we need is a
@@ -402,8 +436,11 @@ else{ // this node has one child
             implemented. Once the successor has been removed, we simply put it in
             the tree in place of the node to be deleted.</p>
         
-        <figure align="center" xml:id="bst_fig-bstdel3"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Deleting Node 5, a Node with Two Children.</caption><image source="Trees/bstdel3.png" width="50%"/></figure>
-        <p>The code to handle the third case is shown in the next listing.
+        <figure align="center" xml:id="bst_fig-bstdel3">
+            <caption>Deleting Node 5, a Node with Two Children.</caption>
+            <image source="Trees/bstdel3.png" width="50%"/>
+        </figure>
+        <p>The code to handle the third case is shown in <xref ref="bst_lst-bst8"/>.
             Notice that we make use of the helper methods <c>findSuccessor</c> and
             <c>findMin</c> to find the successor. To remove the successor, we make use
             of the method <c>spliceOut</c>. The reason we use <c>spliceOut</c> is that it
@@ -537,7 +574,7 @@ void spliceOut(){
                 for elem in self.rightChild:
                     yield elem</pre>
         <p>At this point you may want to download the entire file containing the
-            full version of the <c>BinarySearchTree</c> and <c>TreeNode</c> classes.</p>
+            full version of the <c>BinarySearchTree</c> and <c>TreeNode</c> classes (<xref ref="completebstcodecpp"/>).</p>
         <TabNode tabname="C++" tabnode_options="{'subchapter': 'SearchTreeImplementation', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
     <program xml:id="completebstcodecpp" interactive="activecode" language="cpp">
