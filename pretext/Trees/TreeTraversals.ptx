@@ -354,12 +354,13 @@ def inorder(tree):
             basic template are as follows: print a left parenthesis <em>before</em> the
             recursive call to the left subtree, and print a right parenthesis
             <em>after</em> the recursive call to the right subtree. The modified code is
-            shown in <xref ref="trees_lst-printexp"/>.</p>
+            shown in <xref ref="lst-printexp-cpp"/>.</p>
         
-        <p xml:id="trees_lst-printexp" names="lst_printexp"><term>Listing 7</term></p>
-        <program language="python"><input>
-C++ Implementation
-
+        <exploration xml:id="expl-printexp">
+            <title>Inorder Traversal</title>
+            <task xml:id="lst-printexp-cpp" label="lst-printexp-cpp">
+                <title>C++ Implementation</title>
+                <statement><program language="cpp"><input>
 string printexp(BinaryTree *tree){
     string sVal;
     if (tree){
@@ -369,10 +370,11 @@ string printexp(BinaryTree *tree){
     }
     return sVal;
 }
-</input></program>
-        <program language="python"><input>
-Python Implementation
-
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-printexp-py" label="lst-printexp-py">
+                <title>Python Implementation</title>
+                <statement><program language="python"><input>
 def printexp(tree):
   sVal = ""
   if tree:
@@ -380,7 +382,9 @@ def printexp(tree):
       sVal = sVal + str(tree.getRootVal())
       sVal = sVal + printexp(tree.getRightChild())+')'
   return sVal
-</input></program>
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>Notice that the <c>printexp</c> function as we have implemented it puts
             parentheses around each number. While not incorrect, the parentheses are
             clearly not needed. In the exercises at the end of this chapter you are
