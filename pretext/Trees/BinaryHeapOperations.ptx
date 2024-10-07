@@ -27,7 +27,7 @@
                 <p><c>buildHeap(vector)</c> builds a new heap from a vector of keys.</p>
             </li>
         </ul></p>
-        <p><xref ref="binheap_lst-heap1"/> demonstrates the use of some of the binary
+        <p><xref ref="lst-binheapops-cpp"/> demonstrates the use of some of the binary
             heap methods.  Notice that no matter the order that we add items to the heap, the smallest
             is removed each time.  We will now turn our attention to creating an implementation for this idea.</p>
         
