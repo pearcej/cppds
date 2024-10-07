@@ -15,39 +15,49 @@
                 </image>
             </figure>
         <p>We will start out with a simple class definition for the nodes and
-            references approach as shown in <xref ref="lst-nar"/>. The important thing
+            references approach as shown in <xref ref="lst-nar-cpp"/>. The important thing
             to remember about this representation is that the attributes <c>left</c>
             and <c>right</c> will become references to other instances of the
             <c>BinaryTree</c> class. For example, when we insert a new left child into
             the tree we create another instance of <c>BinaryTree</c> and modify
             <c>self.leftChild</c> in the root to reference the new tree.</p>
         
-        <p xml:id="trees_lst-nar" names="lst_nar"><term>Listing 4</term></p>
-        <p><term>C++ Implementation</term></p>
-        <pre>#include &lt;iostream&gt;
+        <exploration xml:id="expl-nar">
+            <title>Nodes and References <c>BinaryTree</c></title>
+            <task xml:id="lst-nar-cpp" label="lst-nar-cpp">
+                <title>C++ Implementation</title>
+                <statement><progam xml:id="prog-nar-cpp" language="cpp"><input>
+#include &lt;iostream&gt;
 #include &lt;cstdlib&gt;
 using namespace std;
 
 class BinaryTree {
-
-    private:
+private:
     char key;
     BinaryTree *leftChild;
     BinaryTree *rightChild;
 
-    public:
+public:
     BinaryTree(char rootObj){
         this-&gt;key = rootObj;
         this-&gt;leftChild = NULL;
         this-&gt;rightChild = NULL;
-    }</pre>
-        <p><term>Python Implementation</term></p>
-        <pre>class BinaryTree:
+    }
+};
+                </input></progam></statement>
+            </task>
+            <task xml:id="lst-nar-py" label="lst-nar-py">
+                <title>Python Implementation</title>
+                <statement><progam xml:id="prog-nar-py" language="cpp"><input>
+class BinaryTree:
     def __init__(self,rootObj):
         self.key = rootObj
         self.leftChild = None
-        self.rightChild = None</pre>
-        <p>Notice that in <xref ref="lst-nar"/>, the constructor function expects to
+        self.rightChild = None
+                </input></progam></statement>
+            </task>
+        </exploration>
+        <p>Notice that in <xref ref="lst-nar-cpp"/>, the constructor function expects to
             get some kind of object to store in the root. Just like you can store
             any object you like in an array, the root object of a tree can be a
             reference to any object. For our early examples, we will store the name
@@ -58,24 +68,28 @@ class BinaryTree {
             root node. To add a left child to the tree, we will create a new binary
             tree object and set the <c>left</c> attribute of the root to refer to this
             new object. The code for <c>insertLeft</c> is shown in
-            <xref ref="lst-insl"/>.</p>
-        
-        <p xml:id="trees_lst-insl" names="lst_insl"><term>Listing 5</term></p>
-        <p><term>C++ Implementation</term></p>
-        <program language="python"><input>
+            <xref ref="lst-insl-cpp"/>.</p>
+
+        <exploration xml:id="expl-insl">
+            <title><c>insertLeft</c></title>
+            <task xml:id="lst-insl-cpp" label="lst-insl-cpp">
+                <title>C++ Implementation</title>
+                <statement><program language="cpp"><input>
 void insertLeft(char newNode){
     if (this-&gt;leftChild == NULL){
-    this-&gt;leftChild = new BinaryTree(newNode);
+        this-&gt;leftChild = new BinaryTree(newNode);
     }
     else {
-    BinaryTree *t = new BinaryTree(newNode);
-    t-&gt;leftChild = this-&gt;leftChild;
-    this-&gt;leftChild = t;
+        BinaryTree *t = new BinaryTree(newNode);
+        t-&gt;leftChild = this-&gt;leftChild;
+        this-&gt;leftChild = t;
     }
 }
-</input></program>
-        <p><term>Python Implementation</term></p>
-        <program language="python"><input>
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-insl-py" label="lst-insl-py">
+                <title>Python Implementation</title>
+                <statement><program language="cpp"><input>
 def insertLeft(self,newNode):
     if self.leftChild == None:
         self.leftChild = BinaryTree(newNode)
@@ -83,35 +97,41 @@ def insertLeft(self,newNode):
         t = BinaryTree(newNode)
         t.leftChild = self.leftChild
         self.leftChild = t
-</input></program>
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>We must consider two cases for insertion. The first case is
             characterized by a node with no existing left child. When there is no
             left child, simply add a node to the tree. The second case is
             characterized by a node with an existing left child. In the second
             case, we insert a node and push the existing child down one level in the
             tree. The second case is handled by the <c>else</c> statement on line
-            4 of <xref ref="lst-insl"/>.</p>
+            4 of <xref ref="lst-insl-cpp"/>.</p>
         <p>The code for <c>insertRight</c> must consider a symmetric set of cases.
             There will either be no right child, or we must insert the node between
             the root and an existing right child. The insertion code is shown in
-            <xref ref="lst-insr"/>.</p>
-        
-        <p xml:id="trees_lst-insr" names="lst_insr"><term>Listing 6</term></p>
-        <p><term>C++ Implementation</term></p>
-        <program language="python"><input>
+            <xref ref="lst-insr-cpp"/>.</p>
+
+        <exploration xml:id="expl-insr">
+            <title><c>insertRight</c></title>
+            <task xml:id="lst-insr-cpp" label="lst-insr-cpp">
+                <title>C++ Implementation</title>
+                <statement><program language="cpp"><input>
 void insertRight(char newNode){
     if (this-&gt;rightChild == NULL){
-    this-&gt;rightChild = new BinaryTree(newNode);
+        this-&gt;rightChild = new BinaryTree(newNode);
     }
     else {
-    BinaryTree *t = new BinaryTree(newNode);
-    t-&gt;rightChild = this-&gt;rightChild;
-    this-&gt;rightChild = t;
+        BinaryTree *t = new BinaryTree(newNode);
+        t-&gt;rightChild = this-&gt;rightChild;
+        this-&gt;rightChild = t;
     }
 }
-</input></program>
-        <p><term>Python Implementation</term></p>
-        <program language="python"><input>
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-insr-py" label="lst-insr-py">
+                <title>Python Implementation</title>
+                <statement><program language="python"><input>
 def insertRight(self,newNode):
     if self.rightChild == None:
         self.rightChild = BinaryTree(newNode)
@@ -119,14 +139,18 @@ def insertRight(self,newNode):
         t = BinaryTree(newNode)
         t.rightChild = self.rightChild
         self.rightChild = t
-</input></program>
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>To round out the definition for a simple binary tree data structure, we
-            will write accessor methods (see <xref ref="lst-naracc"/>) for the left and right children, as well as
+            will write accessor methods (see <xref ref="lst-naracc-cpp"/>) for the left and right children, as well as
             the root values.</p>
         
-        <p xml:id="trees_lst-naracc" names="lst_naracc"><term>Listing 7</term></p>
-        <p><term>C++ Implementation</term></p>
-        <program language="python"><input>
+        <exploration xml:id="expl-naracc">
+            <title>Accessor Methods for <c>BinaryTree</c></title>
+            <task xml:id="lst-naracc-cpp" label="lst-naracc-cpp">
+                <title>C++ Implementation</title>
+                <statement><program language="cpp"><input>
 BinaryTree *getRightChild(){
     return this-&gt;rightChild;
 }
@@ -142,10 +166,12 @@ void setRootVal(char obj){
 char getRootVal(){
     return this-&gt;key;
 }
-</input></program>
-        <p><term>Python Implementation</term></p>
-        <program language="python"><input>
-def getRightChild(self):
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-naracc-py" label="lst-naracc-py">
+                <title>Python Implementation</title>
+                <statement><program language="python"><input>
+ef getRightChild(self):
     return self.rightChild
 
 def getLeftChild(self):
@@ -156,20 +182,23 @@ def setRootVal(self,obj):
 
 def getRootVal(self):
     return self.key
-</input></program>
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>Now that we have all the pieces to create and manipulate a binary tree,
             let's use them to check on the structure a bit more. Let's make a simple
-            tree with node a as the root, and add nodes b and c as children. <xref ref="lst-comptest"/> creates the tree and looks at the some of the
+            tree with node a as the root, and add nodes b and c as children. <xref ref="lst-comptest-cpp"/> creates the tree and looks at the some of the
             values stored in <c>key</c>, <c>left</c>, and <c>right</c>. Notice that both the
             left and right children of the root are themselves distinct instances of
             the <c>BinaryTree</c> class. As we said in our original recursive
             definition for a tree, this allows us to treat any child of a binary
             tree as a binary tree itself.</p>
         
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'NodesandReferences', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="bintree_cpp" interactive="activecode" language="cpp">
-        <input>
+        <exploration xml:id="expl-comptest">
+            <title>Accessor Methods for <c>BinaryTree</c></title>
+            <task xml:id="lst-comptest-cpp" label="lst-comptest-cpp">
+                <title>C++ Implementation</title>
+                <statement><program interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;cstdlib&gt;
 using namespace std;
@@ -177,13 +206,12 @@ using namespace std;
 //creates a binary tree, allows you to insert nodes
 // and access those nodes.
 class BinaryTree {
-
-    private:
+private:
     char key;
     BinaryTree *leftChild;  // reference other instances of the binary tree the BinaryTree class
     BinaryTree *rightChild; // reference other instances of the binary tree the BinaryTree class
 
-    public: //constructor function expects to get some kind of object to store in the root
+public: //constructor function expects to get some kind of object to store in the root
     BinaryTree(char rootObj){
         this-&gt;key = rootObj;
         this-&gt;leftChild = NULL;
@@ -192,23 +220,23 @@ class BinaryTree {
 
     void insertLeft(char newNode){ // Handles insertion if there is no left child simply adds a node to the tree.
         if (this-&gt;leftChild == NULL){
-        this-&gt;leftChild = new BinaryTree(newNode);
+            this-&gt;leftChild = new BinaryTree(newNode);
         }
         else { // handles insertion if there is a left child pushes the existing child down one level in the tree.
-        BinaryTree *t = new BinaryTree(newNode);
-        t-&gt;leftChild = this-&gt;leftChild;
-        this-&gt;leftChild = t;
+            BinaryTree *t = new BinaryTree(newNode);
+            t-&gt;leftChild = this-&gt;leftChild;
+            this-&gt;leftChild = t;
         }
     }
 
     void insertRight(char newNode){
         if (this-&gt;rightChild == NULL){
-        this-&gt;rightChild = new BinaryTree(newNode);
+            this-&gt;rightChild = new BinaryTree(newNode);
         }
         else {
-        BinaryTree *t = new BinaryTree(newNode);
-        t-&gt;rightChild = this-&gt;rightChild;
-        this-&gt;rightChild = t;
+            BinaryTree *t = new BinaryTree(newNode);
+            t-&gt;rightChild = this-&gt;rightChild;
+            this-&gt;rightChild = t;
         }
     }
 
@@ -244,12 +272,11 @@ int main() {
 
     return 0;
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'NodesandReferences', 'chapter': 'Trees', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="bintree_py" interactive="activecode" language="python">
-        <input>
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-comptest-py" label="lst-comptest-py">
+                <title>Python Implementation</title>
+                <statement><program interactive="activecode" language="python"><input>
 """ creates a binary tree, allows you to insert nodes
  and access those nodes. """
 class BinaryTree:
@@ -301,9 +328,9 @@ def main():
     r.getRightChild().setRootVal('d')
     print(r.getRightChild().getRootVal())
 main()
-        </input>
-    </program>
-            </TabNode>
+                </input></program></statement>
+            </task>
+        </exploration>
 <reading-questions xml:id="rq-nodes-and-references">
     <title>Reading Question</title>
     <exercise label="treeLike">
