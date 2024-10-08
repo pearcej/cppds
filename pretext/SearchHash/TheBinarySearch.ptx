@@ -252,7 +252,7 @@ bool binarySearch(int arr[], int item, int start, int end) {
 }
 
 bool binarySearchHelper(int arr[], int size, int item) {
-    return binarySearch(arr, item, 0, size);
+    return binarySearch(arr, item, 0, size - 1);
 }
 
 int main(void) {
@@ -275,8 +275,6 @@ uses start and end indices'''
 
 def binarySearch(array, item, start, end):
 
-    if end == start:
-        return False
     if end &gt;= start:
         mid = start + (end - start) // 2
         if array[mid] == item:
@@ -291,9 +289,9 @@ def binarySearch(array, item, start, end):
 def main():
     array = [0, 1, 2, 8, 13, 17, 19, 32, 42]
 
-    a = binarySearch(array, 17, 0 , len(array))
+    a = binarySearch(array, 17, 0 , len(array)-1)
     print("answer is ", a)
-    b = binarySearch(array, 99, 0, len(array))
+    b = binarySearch(array, 99, 0, len(array)-1)
     print("answer is", b)
 main()
                     </input></program></statement>
