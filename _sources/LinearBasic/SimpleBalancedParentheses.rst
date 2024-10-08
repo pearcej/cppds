@@ -92,7 +92,7 @@ this algorithm is shown in :ref:`ActiveCode 1 <lst_parcheck1>`.
       :caption: Solving the Balanced Parentheses Problem
       :language: cpp
 
-      //simple program that checks for missing parantheses
+      //simple program that checks for missing parentheses
       #include <iostream>
       #include <stack>
       #include <string>
@@ -143,7 +143,7 @@ this algorithm is shown in :ref:`ActiveCode 1 <lst_parcheck1>`.
 	   
        #Program that detects if a set of parentheses is complete.
 
-       #simple program that checks for missing parantheses 
+       #simple program that checks for missing parentheses 
        from pythonds.basic.stack import Stack
 
        #returns whether the parentheses in the input are balanced  
