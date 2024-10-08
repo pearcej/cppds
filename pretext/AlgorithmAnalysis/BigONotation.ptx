@@ -243,11 +243,6 @@ main()
     <title>
 Reading Questions
     </title>
-    <exercise>
-
-            <p>Write two C++ functions to find the minimum number in an array.  The first function should compare each number to every other number on the array. <m>O(n^2)</m>.  The second function should be linear <m>O(n)</m>.</p>
-        
-    </exercise>
     <exercise label="bigo3">
         <statement>
     
