@@ -38,7 +38,7 @@
 using namespace std;
 
 // Checks to see if item is in a vector
-// retruns true or false (1 or 0)
+// returns true or false (1 or 0)
 // using binary Search
 bool binarySearch(vector&lt;int&gt; avector, int item) {
     int first = 0;
@@ -96,7 +96,7 @@ int main() {
 using namespace std;
 
  // Checks to see if item is in a vector
- // retruns true or false (1 or 0)
+ // returns true or false (1 or 0)
  // using binary Search and
  // seperating the vector in halves
 
@@ -233,7 +233,7 @@ int main() {
 using namespace std;
 
 //Checks to see if item is in a vector
-//retruns true or false (1 or 0)
+//returns true or false (1 or 0)
 //using binary Search and
 //uses start and end indices
 bool binarySearch(int arr[], int item, int start, int end) {
@@ -269,7 +269,7 @@ int main(void) {
                 <task xml:id="tsk-binsearch-array-py" label="tsk-binsearch-array-py">
                     <statement><program xml:id="binary_search_python_array" interactive="activecode" language="python"><input>
 '''Checks to see if item is in a list
-retruns true or false (1 or 0)
+returns true or false (1 or 0)
 using binary Search and
 uses start and end indices'''
 
@@ -384,7 +384,7 @@ main()
                     <p>14, 12, 17, 15</p>
                 </statement>
                 <feedback>
-                    <p>Looks like you might be off by one, be careful that you are calculating the midpont using integer arithmetic.</p>
+                    <p>Looks like you might be off by one, be careful that you are calculating the midpoint using integer arithmetic.</p>
                 </feedback>
             </choice>
 
