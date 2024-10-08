@@ -109,45 +109,55 @@
             return to Chapter 1. Then we return to the Book node and follow the same
             procedure for Chapter 2.</p>
         <p>The code for writing tree traversals is surprisingly elegant, largely
-            because the traversals are written recursively. <xref ref="trees_lst-preorder1"/>
+            because the traversals are written recursively. <xref ref="lst-preorder1-cpp"/>
             shows the C++ code for a preorder traversal of a binary tree.</p>
         <p>You may wonder, what is the best way to write an algorithm like preorder
             traversal? Should it be a function that simply uses a tree as a data
             structure, or should it be a method of the tree data structure itself?
-            <xref ref="trees_lst-preorder1"/> shows a version of the preorder traversal
+            <xref ref="lst-preorder1-cpp"/> shows a version of the preorder traversal
             written as an external function that takes a binary tree as a parameter.
             The external function is particularly elegant because our base case is
             simply to check if the tree exists. If the tree parameter is <c>None</c>,
             then the function returns without taking any action.</p>
         
-        <p xml:id="trees_lst-preorder1" names="lst_preorder1"><term>Listing 2</term></p>
-        <pre>C++ Implementation
-
+        <exploration xml:id="expl-preorder1">
+            <title>Preorder Traversal</title>
+            <task xml:id="lst-preorder1-cpp" label="lst-preorder1-cpp">
+                <title>C++ Implementation</title>
+                <statement><program language="cpp">C++ Implementation<input>
 void preorder(BinaryTree *tree){
     if (tree){
         cout &lt;&lt; tree-&gt;getRootVal() &lt;&lt; endl;
         preorder(tree-&gt;getLeftChild());
         preorder(tree-&gt;getRightChild());
     }
-}</pre>
-        <pre>Python Implementation
-
+}
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-preorder1-py" label="lst-preorder1-py">
+                <title>Python Implementation</title>
+                <statement><program language="python"><input>
 def preorder(tree):
     if tree:
         print(tree.getRootVal())
         preorder(tree.getLeftChild())
-        preorder(tree.getRightChild())</pre>
+        preorder(tree.getRightChild())
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>We can also implement <c>preorder</c> as a method of the <c>BinaryTree</c>
             class. The code for implementing <c>preorder</c> as an internal method is
-            shown in <xref ref="trees_lst-preorder2"/>. Notice what happens when we move the
+            shown in <xref ref="lst-preorder2-cpp"/>. Notice what happens when we move the
             code from external to internal. In general, we just replace <c>tree</c>
             with <c>self</c>. However, we also need to modify the base case. The
             internal method must check for the existence of the left and the right
             children <em>before</em> making the recursive call to <c>preorder</c>.</p>
-        
-        <p xml:id="trees_lst-preorder2" names="lst_preorder2"><term>Listing 3</term></p>
-        <pre>C++ Implementation
 
+        <exploration xml:id="expl-preorder2">
+            <title>Preorder Traversal as a Method</title>
+            <task xml:id="lst-preorder2-cpp" label="lst-preorder2-cpp">
+                <title>C++ Implementation</title>
+                <statement><program language="cpp">C++ Implementation<input>
 void preorder(){
     cout &lt;&lt; this-&gt;key &lt;&lt; endl;
     if (this-&gt;leftChild){
@@ -156,15 +166,21 @@ void preorder(){
     if (this-&gt;rightChild){
         this-&gt;rightChild-&gt;preorder();
     }
-}</pre>
-        <pre>Python Implementation
-
+}
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-preorder2-py" label="lst-preorder2-py">
+                <title>Python Implementation</title>
+                <statement><program language="python"><input>
 def preorder(self):
     print(self.key)
     if self.leftChild:
         self.leftChild.preorder()
     if self.rightChild:
-        self.rightChild.preorder()</pre>
+        self.rightChild.preorder()
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>Which of these two ways to implement <c>preorder</c> is best? The answer is
             that implementing <c>preorder</c> as an external function is probably
             better in this case. The reason is that you very rarely want to just
@@ -175,36 +191,47 @@ def preorder(self):
             tree. Therefore we will write the rest of the traversals as external
             functions.</p>
         <p>The algorithm for the <c>postorder</c> traversal, shown in
-            <xref ref="trees_lst-postorder1"/>, is nearly identical to <c>preorder</c> except that
+            <xref ref="lst-postorder1-cpp"/>, is nearly identical to <c>preorder</c> except that
             we move the call to print to the end of the function.</p>
         
-        <p xml:id="trees_lst-postorder1" names="lst_postorder1"><term>Listing 4</term></p>
-        <pre>C++ Implementation
-
+        <exploration xml:id="expl-postorder1">
+            <title>Postorder Traversal</title>
+            <task xml:id="lst-postorder1-cpp" label="lst-postorder1-cpp">
+                <title>C++ Implementation</title>
+                <statement><program language="cpp">C++ Implementation<input>
 void postorder(BinaryTree *tree){
     if (tree != NULL){
         postorder(tree-&gt;getLeftChild());
         postorder(tree-&gt;getRightChild());
         cout &lt;&lt; tree-&gt;getRootVal() &lt;&lt; endl;
     }
-}</pre>
-        <pre>Python Implementation
-
+}
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-postorder1-py" label="lst-postorder1-py">
+                <title>Python Implementation</title>
+                <statement><program language="python"><input>
 def postorder(tree):
     if tree != None:
         postorder(tree.getLeftChild())
         postorder(tree.getRightChild())
-        print(tree.getRootVal())</pre>
+        print(tree.getRootVal())
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>We have already seen a common use for the postorder traversal, namely
             evaluating a parse tree. Look back at <xref ref="trees_parse-tree"/> again. What
             we are doing is evaluating the left subtree, evaluating the right
             subtree, and combining them in the root through the function call to an
             operator. Assume that our binary tree is going to store only expression
             tree data. Let's rewrite the evaluation function, but model it even more
-            closely on the <c>postorder</c> code in <xref ref="trees_lst-postorder1"/> (see <xref ref="trees_lst-postordereval"/>).</p>
-        
-        <p xml:id="trees_lst-postordereval" names="lst_postordereval"><term>Listing 5</term></p>
-        <program language="cpp"><input>
+            closely on the <c>postorder</c> code in <xref ref="lst-postorder1-cpp"/> (see <xref ref="lst-postordereval-cpp"/>).</p>
+            
+        <exploration xml:id="expl-postordereval">
+            <title>Postorder Evaluation</title>
+            <task xml:id="lst-postordereval-cpp" label="lst-postordereval-cpp">
+                <title>C++ Implementation</title>
+                <statement><program language="cpp"><input>
 class Operator {
     public:
         int add(int x, int y){
@@ -264,65 +291,12 @@ int main(){
 
     return 0;
 }
-</input></program>
-        <program language="Python"><input>
-class Operator {
-    public:
-    int add(int x, int y){
-        return x + y;
-    }
-
-    int sub(int x, int y){
-        return x - y;
-    }
-
-    int mul(int x, int y){
-        return x * y;
-    }
-
-    int div(int x, int y){
-        return x / y;
-    }
-};
-
-int to_int(string str) {
-    stringstream convert(str);
-    int x = 0;
-    convert &gt;&gt; x;
-    return x;
-}
-
-string t_string(int num) {
-    string str;
-    ostringstream convert;
-    convert &lt;&lt; num;
-    str = convert.str();
-    return str;
-}
-
-string postordereval(BinaryTree *tree){
-    Operator Oper;
-    BinaryTree *res1 = tree-&gt;getLeftChild();
-    BinaryTree *res2 = tree-&gt;getRightChild();
-    if (tree) {
-        if (res1 &amp;&amp; res2) {
-            if (tree-&gt;getRootVal() == "+") {
-                return t_string(Oper.add(to_int(postordereval(res1)), to_int(postordereval(res2))));
-            } else if (tree-&gt;getRootVal() == "-") {
-                return t_string(Oper.sub(to_int(postordereval(res1)), to_int(postordereval(res2))));
-            } else if (tree-&gt;getRootVal() == "*") {
-                return t_string(Oper.mul(to_int(postordereval(res1)), to_int(postordereval(res2))));
-            } else {
-                return t_string(Oper.div(to_int(postordereval(res1)), to_int(postordereval(res2))));
-            }
-        } else {
-            return tree-&gt;getRootVal();
-        }
-
-    }
-}
-</input></program>
-        <pre>def postordereval(tree):
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-postordereval-py" label="lst-postordereval-py">
+                <title>Python Implementation</title>
+                <statement><program language="python"><input>
+def postordereval(tree):
     opers = {'+':operator.add, '-':operator.sub, '*':operator.mul, '/':operator.truediv}
     res1 = None
     res2 = None
@@ -332,23 +306,27 @@ string postordereval(BinaryTree *tree){
         if res1 and res2:
             return opers[tree.getRootVal()](res1,res2)
         else:
-            return tree.getRootVal()</pre>
-        <p>Notice that the form in <xref ref="trees_lst-postorder1"/> is the same as the form
-            in <xref ref="trees_lst-postordereval"/>, except that instead of printing the key at
+            return tree.getRootVal()
+                </input></program></statement>
+            </task>
+        </exploration>
+        <p>Notice that the form in <xref ref="lst-postorder1-cpp"/> is the same as the form
+            in <xref ref="lst-postordereval-cpp"/>, except that instead of printing the key at
             the end of the function, we return it. This allows us to save the values
             returned from the recursive calls in lines 6 and 7. We
             then use these saved values along with the operator on line 9.</p>
         <p>The final traversal we will look at in this section is the inorder
             traversal. In the inorder traversal we visit the left subtree, followed
-            by the root, and finally the right subtree. <xref ref="trees_lst-inorder1"/> shows
+            by the root, and finally the right subtree. <xref ref="lst-inorder1-cpp"/> shows
             our code for the inorder traversal. Notice that in all three of the
             traversal functions we are simply changing the position of the <c>print</c>
             statement with respect to the two recursive function calls.</p>
         
-        <p xml:id="trees_lst-inorder1"><term>Listing 6</term></p>
-        <program language="python"><input>
-C++ Implementation
-
+        <exploration xml:id="expl-inorder1">
+            <title>Inorder Traversal</title>
+            <task xml:id="lst-inorder1-cpp" label="lst-inorder1-cpp">
+                <title>C++ Implementation</title>
+                <statement><program language="cpp"><input>
 void inorder(BinaryTree *tree){
     if (tree != NULL){
         inorder(tree-&gt;getLeftChild());
@@ -356,16 +334,19 @@ void inorder(BinaryTree *tree){
         inorder(tree-&gt;getRightChild());
     }
 }
-</input></program>
-        <program language="python"><input>
-Python Implementation
-
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-inorder1-py" label="lst-inorder1-py">
+                <title>Python Implementation</title>
+                <statement><program language="python"><input>
 def inorder(tree):
   if tree != None:
       inorder(tree.getLeftChild())
       print(tree.getRootVal())
       inorder(tree.getRightChild())
-</input></program>
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>If we perform a simple inorder traversal of a parse tree we get our
             original expression back, without any parentheses. Let's modify the
             basic inorder algorithm to allow us to recover the fully parenthesized
@@ -373,12 +354,13 @@ def inorder(tree):
             basic template are as follows: print a left parenthesis <em>before</em> the
             recursive call to the left subtree, and print a right parenthesis
             <em>after</em> the recursive call to the right subtree. The modified code is
-            shown in <xref ref="trees_lst-printexp"/>.</p>
+            shown in <xref ref="lst-printexp-cpp"/>.</p>
         
-        <p xml:id="trees_lst-printexp" names="lst_printexp"><term>Listing 7</term></p>
-        <program language="python"><input>
-C++ Implementation
-
+        <exploration xml:id="expl-printexp">
+            <title>Inorder Traversal</title>
+            <task xml:id="lst-printexp-cpp" label="lst-printexp-cpp">
+                <title>C++ Implementation</title>
+                <statement><program language="cpp"><input>
 string printexp(BinaryTree *tree){
     string sVal;
     if (tree){
@@ -388,10 +370,11 @@ string printexp(BinaryTree *tree){
     }
     return sVal;
 }
-</input></program>
-        <program language="python"><input>
-Python Implementation
-
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-printexp-py" label="lst-printexp-py">
+                <title>Python Implementation</title>
+                <statement><program language="python"><input>
 def printexp(tree):
   sVal = ""
   if tree:
@@ -399,7 +382,9 @@ def printexp(tree):
       sVal = sVal + str(tree.getRootVal())
       sVal = sVal + printexp(tree.getRightChild())+')'
   return sVal
-</input></program>
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>Notice that the <c>printexp</c> function as we have implemented it puts
             parentheses around each number. While not incorrect, the parentheses are
             clearly not needed. In the exercises at the end of this chapter you are
