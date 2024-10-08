@@ -487,7 +487,7 @@ print(f3)
                 </task>
             </exploration>
             <p>The addition method works as we desire, but a couple of things
-                can be improved. When we use a binary operator like <c>+</c> we
+                can be improved. When we use a binary operator like <c>+</c>, we
                 like more symmetry.
                 Binary operators can either be members of their
                 left-hand argument's class or friend functions.

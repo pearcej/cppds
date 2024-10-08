@@ -578,7 +578,7 @@ addition, and then printing our result.
             print(f3)
 
 The addition method works as we desire, but a couple of things
-can be improved. When we use a binary operator like ``+``. We
+can be improved. When we use a binary operator like ``+``, we
 like more symmetry.
 Binary operators can either be members of their
 left-hand argument's class or friend functions.
