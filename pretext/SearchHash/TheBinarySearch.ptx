@@ -325,7 +325,7 @@ main()
 
             <choice correct="yes">
                 <statement>
-                    <p>12, 6, 8</p>
+                    <p>11, 5, 6, 8</p>
                 </statement>
                 <feedback>
                     <p>Binary search starts at the midpoint and halves the list each time.</p>
@@ -334,7 +334,7 @@ main()
 
             <choice>
                 <statement>
-                    <p>3, 5, 8</p>
+                    <p>3, 5, 6, 8</p>
                 </statement>
                 <feedback>
                     <p>Binary search does not start at the beginning and search sequentially, its starts in the middle and halves the list after each compare.</p>
@@ -363,7 +363,7 @@ main()
 
             <choice>
                 <statement>
-                    <p>11, 17, 14, 15</p>
+                    <p>12, 15, 17</p>
                 </statement>
                 <feedback>
                     <p>Looks like you might be guilty of an off-by-one error.  Remember the first position is index 0.</p>
@@ -372,7 +372,7 @@ main()
 
             <choice>
                 <statement>
-                    <p>18, 17, 14, 15</p>
+                    <p>18, 17, 14</p>
                 </statement>
                 <feedback>
                     <p>Remember binary search starts in the middle and halves the list.</p>
@@ -381,7 +381,7 @@ main()
 
             <choice>
                 <statement>
-                    <p>14, 12, 17, 15</p>
+                    <p>14, 12, 17</p>
                 </statement>
                 <feedback>
                     <p>Looks like you might be off by one, be careful that you are calculating the midpoint using integer arithmetic.</p>
@@ -390,10 +390,10 @@ main()
 
             <choice correct="yes">
                 <statement>
-                    <p>12, 17, 14, 15</p>
+                    <p>11, 15, 17</p>
                 </statement>
                 <feedback>
-                    <p>Binary search starts at the midpoint and halves the list each time. It is done when the list is empty.</p>
+                    <p>Binary search starts at the midpoint and halves the list each time. It is done when the start index is greater than the end index.</p>
                 </feedback>
             </choice>
 </choices>
