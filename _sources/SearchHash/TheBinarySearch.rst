@@ -40,7 +40,7 @@ in :ref:`CodeLens 3 <lst_binarysearchpy>`.
     :caption: Binary Search of an Ordered List
     
     # Checks to see if item is in a list  
-    # retruns true or false 
+    # returns true or false 
     # using binary Search
     def binarySearch(alist, item):
         first = 0
@@ -78,7 +78,7 @@ A similar implementation can be carried out using vectors in C++.
   using namespace std;
 
   // Checks to see if item is in a vector  
-  // retruns true or false (1 or 0) 
+  // returns true or false (1 or 0) 
   // using binary Search
   bool binarySearch(vector<int> avector, int item) {
       int first = 0;
@@ -129,7 +129,7 @@ shows this recursive version.
     :caption: A Binary Search--Recursive Version
 
     # Checks to see if item is in a list  
-    # retruns true or false 
+    # returns true or false 
     # using binary Search recursively 
     def binarySearch(alist, item):
         if len(alist) == 0:
@@ -160,7 +160,7 @@ however this can only be used when new vectors are created.
   using namespace std;
 
    // Checks to see if item is in a vector
-   // retruns true or false (1 or 0)
+   // returns true or false (1 or 0)
    // using binary Search and 
    // seperating the vector in halves
 
@@ -258,7 +258,7 @@ can be calculated as we did in :ref:`Listing 3 <lst_binarysearchpy>`. This is es
             using namespace std;
 
             //Checks to see if item is in a vector
-            //retruns true or false (1 or 0)
+            //returns true or false (1 or 0)
             //using binary Search and 
             //uses start and end indices
             bool binarySearch(int arr[], int item, int start, int end) {
@@ -277,7 +277,7 @@ can be calculated as we did in :ref:`Listing 3 <lst_binarysearchpy>`. This is es
             }
 
             bool binarySearchHelper(int arr[], int size, int item) {
-                return binarySearch(arr, item, 0, size);
+                return binarySearch(arr, item, 0, size - 1);
             }
 
             int main(void) {
@@ -297,14 +297,12 @@ can be calculated as we did in :ref:`Listing 3 <lst_binarysearchpy>`. This is es
             :optional:
 
             '''Checks to see if item is in a list
-            retruns true or false (1 or 0)
+            returns true or false (1 or 0)
             using binary Search and 
             uses start and end indices'''
             
             def binarySearch(array, item, start, end):
                 
-                if end == start: 
-                    return False
                 if end >= start: 
                     mid = start + (end - start) // 2
                     if array[mid] == item:
@@ -319,9 +317,9 @@ can be calculated as we did in :ref:`Listing 3 <lst_binarysearchpy>`. This is es
             def main():
                 array = [0, 1, 2, 8, 13, 17, 19, 32, 42]
                 
-                a = binarySearch(array, 17, 0 , len(array))
+                a = binarySearch(array, 17, 0 , len(array)-1)
                 print("answer is ", a)
-                b = binarySearch(array, 99, 0, len(array))
+                b = binarySearch(array, 99, 0, len(array)-1)
                 print("answer is", b) 
             main()
             
@@ -340,8 +338,8 @@ performing a sequential search from the start may be the best choice.
    .. mchoice:: BSRCH_1
       :correct: b
       :answer_a: 11, 5, 8
-      :answer_b: 12, 6, 8
-      :answer_c: 3, 5, 8
+      :answer_b: 11, 5, 6, 8
+      :answer_c: 3, 5, 6, 8
       :answer_d: 18, 12, 8
       :feedback_a:  Looks like you might be guilty of an off-by-one error.  Remember the first position is index 0.
       :feedback_b:  Binary search starts at the midpoint and halves the list each time.
@@ -352,13 +350,13 @@ performing a sequential search from the start may be the best choice.
 
    .. mchoice:: BSRCH_2
       :correct: d
-      :answer_a: 11, 17, 14, 15
-      :answer_b: 18, 17, 14, 15
-      :answer_c: 14, 12, 17, 15
-      :answer_d: 12, 17, 14, 15
+      :answer_a: 12, 15, 17
+      :answer_b: 18, 17, 14
+      :answer_c: 14, 12, 17
+      :answer_d: 11, 15, 17
       :feedback_a:  Looks like you might be guilty of an off-by-one error.  Remember the first position is index 0.
       :feedback_b:  Remember binary search starts in the middle and halves the list.
-      :feedback_c:  Looks like you might be off by one, be careful that you are calculating the midpont using integer arithmetic.
-      :feedback_d: Binary search starts at the midpoint and halves the list each time. It is done when the list is empty.
+      :feedback_c:  Looks like you might be off by one, be careful that you are calculating the midpoint using integer arithmetic.
+      :feedback_d: Binary search starts at the midpoint and halves the list each time. It is done when the start index is greater than the end index.
 
       Suppose you have the following sorted list [3, 5, 6, 8, 11, 12, 14, 15, 17, 18] and are using the recursive binary search algorithm.  Which group of numbers correctly shows the sequence of comparisons used to search for the key 16?
