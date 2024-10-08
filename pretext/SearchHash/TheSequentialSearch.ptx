@@ -207,7 +207,7 @@
 using namespace std;
 
 // Checks to see if item is in a vector
-// retruns true or false (1 or 0)
+// returns true or false (1 or 0)
 // using ordered sequential Search
 bool orderedSequentialSearch(vector&lt;int&gt; avector, int item) {
     unsigned int pos = 0;
