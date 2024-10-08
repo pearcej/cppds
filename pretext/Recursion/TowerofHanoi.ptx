@@ -103,9 +103,7 @@ int moveTower(int height, char fromPole, char toPole, char withPole){
             that it gives you a very efficient solution to the puzzle.</p>
 
         <exploration xml:id="expl-hanoi">
-            <title>Postfix Expression Evaluator</title>
-            <task xml:id="lst-movediskcpp" label="lst-movediskcpp">
-                <title>C++ Implementation of <c>moveDisk</c></title>
+            <title>Towers of Hanoi<</title>
                 <statement><program language="cpp"><input>
 int moveDisk(char fp, char tp){
     cout &lt;&lt; "moving disk from " &lt;&lt; fp &lt;&lt; " to " &lt;&lt; tp &lt;&lt; endl;
