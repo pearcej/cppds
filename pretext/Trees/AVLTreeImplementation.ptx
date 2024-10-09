@@ -195,7 +195,7 @@ void rotateLeft(TreeNode *rotRoot){
             </input></program>
         </listing>
 
-        <p>Finally, lines&#160;16-17 require some explanation. In
+        <p>Finally, lines&#160;21-22 require some explanation. In
             these two lines we update the balance factors of the old and the new
             root. Since all the other moves are moving entire subtrees around the
             balance factors of all other nodes are unaffected by the rotation. But
@@ -238,7 +238,7 @@ newBal(B) - oldBal(B) =  1 + max(h_C,h_E) - h_C</m>
 newBal(B) = oldBal(B) + 1 - min(0 , oldBal(D)) \\</m>
         <p>Now we have all of the parts in terms that we readily know. If we
             remember that B is <c>rotRoot</c> and D is <c>newRoot</c> then we can see this
-            corresponds exactly to the statement on line&#160;16, or:</p>
+            corresponds exactly to the statement on line&#160;21, or:</p>
         <program language="cpp"><input>
 rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(0,newRoot.balanceFactor)
 </input></program>
@@ -290,12 +290,12 @@ rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(0,newRoot.balanceFactor)
         <p>The code that implements these rules can be found in our <c>rebalance</c>
             method, which is shown in <xref ref="avlimpl_lst-rebalance"/>. Rule number 1 from
             above is implemented by the <c>if</c> statement starting on line&#160;2.
-            Rule number 2 is implemented by the <c>elif</c> statement starting on
-            line 8.</p>
+            Rule number 2 is implemented by the <c>else if</c> statement starting on
+            line 11.</p>
         
         <listing xml:id="avlimpl_lst-rebalance">
             <caption>Implementation of <c>rebalance</c></caption>
-            <program language="cpp"><input>
+            <program language="cpp" line-numbers="yes"><input>
 void rebalance(TreeNode *node){
     if (node-&gt;balanceFactor &lt; 0){
         if (node-&gt;rightChild-&gt;balanceFactor &gt; 0){
