@@ -89,4 +89,7 @@
             <match order="5"><premise>unordered linked list</premise><response>A linked list whose elements are not in an order.</response></match>
         </matches>
     </exercise>
+    <p>
+        <!-- extra space before the progress bar -->            
+    </p>
 </section>
