@@ -76,9 +76,8 @@ int updateBalance(TreeNode *node){
 }
             </input></program>
         </listing>
-
-        <p>The new <c>updateBalance</c> method is where most of the work is done. This
-            implements the recursive procedure we just described. The
+        
+        <p>The new <c>updateBalance</c> method is where most of the work is done. The
             <c>updateBalance</c> method first checks to see if the current node is out
             of balance enough to require rebalancing (line&#160;23). If that
             is the case then the rebalancing is done and no further updating to
