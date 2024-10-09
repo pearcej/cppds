@@ -192,6 +192,9 @@ it to you to study the code for ``rotateRight``.
 
 **C++ Implementation**
 
+.. highlight:: cpp
+    :linenothreshold: 5
+
 ::
 
     void rotateLeft(TreeNode *rotRoot){
@@ -219,9 +222,11 @@ it to you to study the code for ``rotateRight``.
     }
 
 
+.. highlight:: cpp
+    :linenothreshold: 500
 
 
-Finally, lines 16-17 require some explanation. In
+Finally, lines 21-22 require some explanation. In
 these two lines we update the balance factors of the old and the new
 root. Since all the other moves are moving entire subtrees around the
 balance factors of all other nodes are unaffected by the rotation. But
@@ -290,7 +295,7 @@ steps:
 
 Now we have all of the parts in terms that we readily know. If we
 remember that B is ``rotRoot`` and D is ``newRoot`` then we can see this
-corresponds exactly to the statement on line 16, or:
+corresponds exactly to the statement on line 21, or:
 
 ::
 
@@ -354,8 +359,8 @@ the left rotation around A brings the entire subtree back into balance.
 The code that implements these rules can be found in our ``rebalance``
 method, which is shown in :ref:`Listing 3 <lst_rebalance>`. Rule number 1 from
 above is implemented by the ``if`` statement starting on line 2.
-Rule number 2 is implemented by the ``elif`` statement starting on
-line 8.
+Rule number 2 is implemented by the ``else if`` statement starting on
+line 11.
 
 .. _lst_rebalance:
 
