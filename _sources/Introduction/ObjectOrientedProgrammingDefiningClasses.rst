@@ -117,12 +117,12 @@ and is shown in :ref:`Listing 2 <lst_constructor>`.
         class Fraction {
             public:
               Fraction(int top, int bottom) {
-                 /** Fraction contructor method */
+                 /** Fraction constructor method */
                   num = top;     // setting num's value
                   den = bottom;  // setting den's value
                 }
              private:
-               int num; // num atribute
+               int num; // num attribute
                int den; // den attribute
         };
 
@@ -194,18 +194,9 @@ following figure:
 
     .. image:: Figures/fractions_partsofwhole.png
 
-Since we are using classes to create abstract data types, we should probably discuss the meaning of
-the word "abstract" in this context.
-**Abstraction** in object-oriented programming requires you to focus only on the desired properties
-and behaviors of the objects
-and discard what is unimportant or irrelevant. Hence, if we do not need to think about
-the "parts of a whole" metaphor, then we will not include it in the class. If that metaphor
-is important, then we will include it. For our purposes, we want to think of
-fractions as numbers, so we will not use the "parts of a whole" visual metaphor.
+Because we are using classes to create abstract data types, we should probably define the term “abstract” in this context. In object-oriented programming, **abstraction** requires you to focus solely on the desired properties and behaviors of the objects, discarding everything else that is unimportant or irrelevant. As a result, if we don’t need to consider the “parts of a whole” visual metaphor of a fraction, we won’t include it in the Fraction class. If a given metaphor is important, we will include it. For our purposes, we want to think of fractions as numbers, so we will avoid using the “parts of a whole” visual metaphor.
 
-The object-oriented principle of **encapsulation** is the notion that we should
-hide the contents of a class, except what is
-absolutely necessary to expose.
+The object-oriented principle of **encapsulation** refers to the practice of grouping or encapsulating related data and the methods that operate on that data into a single unit, typically a class, and we should hide most of the internal contents of that class, except what is absolutely necessary to expose.
 Hence, we will restrict the access to our class as much
 as we can, so that a user can change the class properties and behaviors only from methods
 provided by the class.  C++ allows us to control access with the **access keywords** ``public`` and ``private``.

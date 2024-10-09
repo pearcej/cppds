@@ -101,12 +101,12 @@ class Fraction:
 class Fraction {
     public:
       Fraction(int top, int bottom) {
-         /** Fraction contructor method */
+         /** Fraction constructor method */
           num = top;     // setting num's value
           den = bottom;  // setting den's value
         }
      private:
-       int num; // num atribute
+       int num; // num attribute
        int den; // den attribute
 };
                 </input></program></statement></task>
@@ -161,16 +161,16 @@ myfraction = Fraction(3, 5)
             <blockquote>
                 <image source="Introduction/fractions_partsofwhole.png" width="50%"/>
             </blockquote>
-            <p><idx>abstraction</idx>Since we are using classes to create abstract data types, we should probably discuss the meaning of
-                the word <q>abstract</q> in this context.
-                <term>Abstraction</term> in object-oriented programming requires you to focus only on the desired properties
-                and behaviors of the objects
-                and discard what is unimportant or irrelevant. Hence, if we do not need to think about
-                the <q>parts of a whole</q> metaphor, then we will not include it in the class. If that metaphor
-                is important, then we will include it. For our purposes, we want to think of
-                fractions as numbers, so we will not use the <q>parts of a whole</q> visual metaphor.</p>
-            <p><idx>access keywords</idx><idx>encapsulation</idx>The object-oriented principle of <term>encapsulation</term> is the notion that we should
-                hide the contents of a class, except what is
+            <p><idx>abstraction</idx>Because we are using classes to create abstract data types, we should probably
+                define the term <q>abstract</q> in this context. In object-oriented programming,
+                <term>abstraction</term> requires you to focus solely on the desired properties and behaviors of
+                the objects, discarding everything else that is unimportant or irrelevant. As a result,
+                if we don't need to consider the <q>parts of a whole</q> visual metaphor of a fraction, we won't include it in the
+                <c>Fraction</c> class. If a given metaphor is important, we will include it. For our purposes, we want to
+                think of fractions as numbers, so we will avoid using the <q>parts of a whole</q> visual
+                metaphor.</p>
+            <p><idx>access keywords</idx><idx>encapsulation</idx>The object-oriented principle of <term>encapsulation</term> 
+                refers to the practice of grouping or encapsulating related data and the methods that operate on that data into a single unit, typically a class. Encapsulation also requires we hide most of the internal contents of that class, except what is
                 absolutely necessary to expose.
                 Hence, we will restrict the access to our class as much
                 as we can, so that a user can change the class properties and behaviors only from methods
