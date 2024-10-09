@@ -15,24 +15,6 @@
                     
                 </gi>
                 <gi>
-                    <title>Child Class</title>
-                    
-                        <p>inherit characteristic data and/or behaviors from a parent class</p>
-                    
-                </gi>
-                <gi>
-                    <title>Parent Class</title>
-                    
-                        <p>A class that has been extended by another existing class</p>
-                    
-                </gi>
-                <gi>
-                    <title>Virtual function</title>
-                    
-                        <p>Member function which is declared within a base class and is overwritten by a derived class</p>
-                    
-                </gi>
-                <gi>
                     <title>access keywords</title>
                     
                         <p>Keywords such as &#8216;'public'', private'', and &#8216;'protected'' that indicates what class properties/behaviors a user can change.</p>
@@ -96,6 +78,12 @@
                     <title><c>char</c></title>
                     
                         <p>Keyword for character data type that stores a single character.</p>
+                    
+                </gi>
+                <gi>
+                    <title>child class</title>
+                    
+                        <p>inherit characteristic data and/or behaviors from a parent class.</p>
                     
                 </gi>
                 <gi>
@@ -328,6 +316,12 @@
                     
                 </gi>
                 <gi>
+                    <title>parent class</title>
+                    
+                        <p>A class that has been extended by another existing class.</p>
+                    
+                </gi>
+                <gi>
                     <title>pass by reference</title>
                     
                         <p>To pass an object to a function by referencing its location in memory.</p>
@@ -403,6 +397,12 @@
                     <title>vector</title>
                     
                         <p>Sequence container storing data of a single type that is stored in a dynamically allocated array which can change in size.</p>
+                    
+                </gi>
+                <gi>
+                    <title>virtual function</title>
+                    
+                        <p>Member function which is declared within a base class and is overridden by a derived class.</p>
                     
                 </gi>
                 <gi>
