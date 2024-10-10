@@ -81,6 +81,12 @@
                     
                 </gi>
                 <gi>
+                    <title>child class</title>
+                    
+                        <p>inherit characteristic data and/or behaviors from a parent class.</p>
+                    
+                </gi>
+                <gi>
                     <title>class</title>
                     
                         <p>A template for creating (instantiating) objects, for providing initial values for state via member variables, and for implementations of behavior via member functions or methods.</p>
@@ -310,6 +316,12 @@
                     
                 </gi>
                 <gi>
+                    <title>parent class</title>
+                    
+                        <p>A class that has been extended by another existing class.</p>
+                    
+                </gi>
+                <gi>
                     <title>pass by reference</title>
                     
                         <p>To pass an object to a function by referencing its location in memory.</p>
@@ -385,6 +397,12 @@
                     <title>vector</title>
                     
                         <p>Sequence container storing data of a single type that is stored in a dynamically allocated array which can change in size.</p>
+                    
+                </gi>
+                <gi>
+                    <title>virtual function</title>
+                    
+                        <p>Member function which is declared within a base class and is overridden by a derived class.</p>
                     
                 </gi>
                 <gi>
