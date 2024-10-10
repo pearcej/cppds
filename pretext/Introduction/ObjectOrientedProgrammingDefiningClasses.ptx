@@ -499,7 +499,7 @@ print(f3)
             <p><term>Listing 6</term></p>
             <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
                     <program language="C++"><input>
-Fraction operator +(const &amp;Fraction otherFrac){
+Fraction operator +(const Fraction &amp;otherFrac){
     //Note the return type is a Fraction
     int newnum = num*otherFrac.den + den*otherFrac.num;
     int newden = den*otherFrac.den;
@@ -664,7 +664,7 @@ class Fraction {
             num = 1;
             den = 1;
         }
-        Fraction operator +(Fraction otherFrac) {
+        Fraction operator +(const Fraction &amp;otherFrac) {
             int newnum = num*otherFrac.den + den*otherFrac.num;
             int newden = den*otherFrac.den;
             int common = gcd(newnum, newden);
@@ -717,7 +717,7 @@ int main(){
                 <task xml:id="introduction_lst-cmpmethod-cpp" label="introduction_lst-cmpmethod-cpp">
                     <title>C++</title>
                     <statement><program language="cpp"><input>
-bool operator ==(Fraction &amp;otherFrac) {
+bool operator ==(const Fraction &amp;otherFrac) {
     int firstnum = num*otherFrac.den;
     int secondnum = otherFrac.num*den;
 
@@ -775,14 +775,14 @@ class Fraction {
             num = 1;
             den = 1;
         }
-        Fraction operator +(Fraction otherFrac) {
+        Fraction operator +(const Fraction &amp;otherFrac) {
             int newnum = num*otherFrac.den + den*otherFrac.num;
             int newden = den*otherFrac.den;
             int common = gcd(newnum, newden);
 
             return Fraction(newnum/common,newden/common);
         }
-        bool operator ==(Fraction &amp;otherFrac) {
+        bool operator ==(const Fraction &amp;otherFrac) {
             int firstnum = num*otherFrac.den;
             int secondnum = otherFrac.num*den;
             return firstnum==secondnum;
@@ -916,14 +916,14 @@ class Fraction {
             num = 1;
             den = 1;
         }
-        Fraction operator +(Fraction otherFrac) {
+        Fraction operator +(const Fraction &amp;otherFrac) {
             int newnum = num*otherFrac.den + den*otherFrac.num;
             int newden = den*otherFrac.den;
             int common = gcd(newnum, newden);
 
             return Fraction(newnum/common,newden/common);
         }
-        bool operator ==(Fraction &amp;otherFrac) {
+        bool operator ==(const Fraction &amp;otherFrac) {
             int firstnum = num*otherFrac.den;
             int secondnum = otherFrac.num*den;
 

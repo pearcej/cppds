@@ -47,6 +47,9 @@ Glossary
     ``char``
         Keyword for character data type that stores a single character.
 
+    child class
+        Inherit characteristic data and/or behaviors from a parent class.
+
     class
         A template for creating (instantiating) objects, for providing initial values for state via member variables, and for implementations of behavior via member functions or methods
 
@@ -165,6 +168,9 @@ Glossary
     parameter
         A variable in a function or method definition that accepts data passed from an argument.
     
+    parent class
+        A class that has been extended by another existing class
+
     pass by reference
         To pass an object to a function by referencing its location in memory.
 
@@ -203,6 +209,9 @@ Glossary
 
     vector
         Sequence container storing data of a single type that is stored in a dynamically allocated array which can change in size.
+
+    virtual function
+        Member function which is declared within a base class and is overridden by a derived class.
 
     ``void``
         Keyword indicating a function has no return value.
