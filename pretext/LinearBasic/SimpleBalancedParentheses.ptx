@@ -149,12 +149,11 @@ main()
         <p>This function, <c>parChecker</c>, assumes that a <c>Stack</c> class is
             available and returns a Boolean result as to whether the string of
             parentheses is balanced. Note that the Boolean variable <c>balanced</c> is
-            initialized to <title_reference>true`</title_reference> as there is no reason to assume otherwise at the
+            initialized to <c>true</c> as there is no reason to assume otherwise at the
             start. If the current symbol is <c>(</c>, then it is pushed on the stack
-            (lines 15-16). Note also in line 22 that <c>pop</c> simply removes a symbol
-            from the stack. The returned value is not used since we know it must be
-            an opening symbol seen earlier. At the end (lines 28-31), as long as the
-            expression is balanced and the stack has been completely cleaned off,
+            (lines 15-16). Note also in line 22 that <c>pop</c> removes a symbol
+            from the stack. At the end (lines 28-31), as long as the
+            expression is balanced and the stack has been completely emptied,
             the string represents a correctly balanced sequence of parentheses.</p>
         <p>
             <!-- extra space before the progress bar -->
