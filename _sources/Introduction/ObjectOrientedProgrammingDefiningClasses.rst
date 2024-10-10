@@ -587,7 +587,7 @@ Let's rewrite the addition operator as a friend function.
 
         .. code-block:: C++
 
-                Fraction operator +(const &Fraction otherFrac){
+                Fraction operator +(const Fraction &otherFrac){
                     //Note the return type is a Fraction
                     int newnum = num*otherFrac.den + den*otherFrac.num;
                     int newden = den*otherFrac.den;
@@ -773,7 +773,7 @@ the bottom by 2 creates a new fraction, :math:`3/4` (see
               num = 1;
               den = 1;
           }
-          Fraction operator +(Fraction otherFrac) {
+          Fraction operator +(const Fraction &otherFrac) {
               int newnum = num*otherFrac.den + den*otherFrac.num;
               int newden = den*otherFrac.den;
               int common = gcd(newnum, newden);
@@ -833,7 +833,7 @@ Of course there are other relational operators that can be overridden. For examp
 
         .. code-block:: C++
 
-            bool operator ==(Fraction &otherFrac) {
+            bool operator ==(const Fraction &otherFrac) {
                 int firstnum = num*otherFrac.den;
                 int secondnum = otherFrac.num*den;
 
@@ -892,14 +892,14 @@ methods as exercises.
                         num = 1;
                         den = 1;
                     }
-                    Fraction operator +(Fraction otherFrac) {
+                    Fraction operator +(const Fraction &otherFrac) {
                         int newnum = num*otherFrac.den + den*otherFrac.num;
                         int newden = den*otherFrac.den;
                         int common = gcd(newnum, newden);
 
                         return Fraction(newnum/common,newden/common);
                     }
-                    bool operator ==(Fraction &otherFrac) {
+                    bool operator ==(const Fraction &otherFrac) {
                         int firstnum = num*otherFrac.den;
                         int secondnum = otherFrac.num*den;
                         return firstnum==secondnum;
@@ -1091,14 +1091,14 @@ To make sure you understand how operators are implemented in C++ classes, and ho
                 num = 1;
                 den = 1;
             }
-            Fraction operator +(Fraction otherFrac) {
+            Fraction operator +(const Fraction &otherFrac) {
                 int newnum = num*otherFrac.den + den*otherFrac.num;
                 int newden = den*otherFrac.den;
                 int common = gcd(newnum, newden);
 
                 return Fraction(newnum/common,newden/common);
             }
-            bool operator ==(Fraction &otherFrac) {
+            bool operator ==(const Fraction &otherFrac) {
                 int firstnum = num*otherFrac.den;
                 int secondnum = otherFrac.num*den;
 
