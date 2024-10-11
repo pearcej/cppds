@@ -9,7 +9,7 @@
         the other?</p>
     <p>In order to answer this question, we need to remember that there is an
         important difference between a program and the underlying algorithm that
-        the program is representing. As we stated in Chapter 1, an <term>algorithm</term> is
+        the program is representing. As we stated in <xref ref="ch-intro"/>, an <term>algorithm</term> is
         a generic, step-by-step list of instructions for solving a problem. It
         is a method for solving any instance of the problem such that given a
         particular input, the algorithm produces the desired result. A 
@@ -24,12 +24,10 @@
         accumulator variable that is initialized to 0. The solution then
         iterates through the <em>n</em> integers, adding each to the accumulator.</p>
     
-    <p xml:id="algorithm-analysis_lst-sum0" names="lst_sum0"><term>Listing 1</term></p>
-<listing xml:id="lst_sum0">
-    <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-<program xml:id="ec1_cpp" interactive="activecode" language="cpp">
-    <input>
+    <exploration xml:id="expl-lst-sum0">
+        <title>Sum of First <em>n</em> Integers</title>
+        <task label="lst_sum0" xml:id="lst_sum0">
+            <statement><program interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -48,12 +46,10 @@ int main(){
   cout &lt;&lt; sumOfN(10);
   return 0;
 }
-    </input>
-</program>
-        </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-<program xml:id="ec1_py" interactive="activecode" language="python">
-    <input>
+            </input></program></statement>
+        </task>
+        <task label="ec1_py" xml:id="ec1_py">
+            <statement><program interactive="activecode" language="python"><input>
 # adds the sum of (n + n-1 + n-2 ...)
 
 def sumOfN(n):
@@ -66,10 +62,9 @@ def main():
   print(sumOfN(10)) # n is 10 (10 + 9 + 8 ...)
 
 main()
-    </input>
-</program>
-        </TabNode>
-    </listing>
+            </input></program></statement>
+        </task>
+    </exploration>
     <p>Now look at the function in <xref ref="lst_sum2"/>.
         At first glance it may look
         strange, but upon further inspection you can see that this function is
@@ -78,12 +73,10 @@ main()
         assist with readability, and we used an extra assignment statement
         during the accumulation step that was not really necessary.</p>
     
-    <p xml:id="algorithm-analysis_lst-sum2" names="lst_sum2"><term>Listing 2</term></p>
-<listing xml:id="lst_sum2">
-    <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-<program xml:id="ec2_cpp" interactive="activecode" language="cpp">
-    <input>
+    <exploration xml:id="expl-lst-sum2">
+        <title>Sum of First <em>n</em> Integers</title>
+        <task label="lst_sum2" xml:id="lst_sum2">
+            <statement><program interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -103,12 +96,10 @@ int main(){
   cout &lt;&lt; foo(10);
   return 0;
 }
-    </input>
-</program>
-        </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-<program xml:id="ec2_py" interactive="activecode" language="python">
-    <input>
+            </input></program></statement>
+        </task>
+        <task label="ec2_py" xml:id="ec2_py">
+            <statement><program interactive="activecode" language="python"><input>
 #Performs same function as listing 1, but is less descriptive
 #This is not good practice
 
@@ -123,10 +114,9 @@ def main():
   print(foo(10))
 
 main()
-    </input>
-</program>
-        </TabNode>
-</listing>
+            </input></program></statement>
+        </task>
+    </exploration>
     <p>The question we raised earlier asked whether one function is better than
         another. The answer depends on your criteria. The function <c>sumOfN</c> is
         certainly better than the function <c>foo</c> if you are concerned with
@@ -165,12 +155,11 @@ main()
         and then computing the difference, we can get an exact number of seconds
         (fractions in most cases) for execution.</p>
     
-    <p xml:id="algorithm-analysis_lst-sum11" names="lst_sum11"><term>Listing 3</term></p>
-<listing xml:id="lst_sum1">
-    <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-<program xml:id="ec2cpp" interactive="activecode" language="cpp">
-    <input>
+    <exploration xml:id="expl-lst-sum1">
+        <title>Sum of First <em>n</em> Integers (With Timing)</title>
+        <task label="lst_sum1" xml:id="lst_sum1">
+            <statement><program interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;ctime&gt;
 using namespace std;
@@ -197,12 +186,10 @@ int main(){
   }
  return 0;
 }
-    </input>
-</program>
-        </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'WhatIsAlgorithmAnalysis', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-<program xml:id="ec2py" interactive="activecode" language="python">
-    <input>
+            </input></program></statement>
+        </task>
+        <task xml:id="ec2py" label="ec2py">
+            <statement><program interactive="activecode" language="python"><input>
 import time
 
 """ Performs same function as listing one, and also list the time it takes to perform
@@ -226,19 +213,23 @@ def main():
     sumOfN2(10000)
 
 main()
-    </input>
-</program>
-        </TabNode>
-    </listing>
+            </input></program></statement>
+        </task>
+    </exploration>
     <p><xref ref="lst_sum1"/> shows the original <c>sumOfN</c> function with the timing
         calls embedded before and after the summation. The function returns the amount of time (in seconds)
         required for the calculation.</p>
     <p>Consider the following code block:</p>
-    <pre>int n = 1000;
+    <listing xml:id="n1000-how-many">
+        <caption>How many times?</caption>
+        <program language="cpp"><input>
+int n = 1000;
 int theSum = 0;
 for (int i=0; i&lt;n+1; i++){
   theSum = theSum + 1; //how many times?
-}</pre>
+}
+        </input></program>
+    </listing>
     </introduction>
 
            <subsection xml:id="algorithm-analysis_some-needed-math-notation">
@@ -283,12 +274,16 @@ for (int i=0; i&lt;n+1; i++){
         <p>Hence, when we have a variable <title_reference>n</title_reference>, we have learned that we can just use the
             closed equation <m>\sum_{i=1}^{n} i = \frac {(n)(n+1)}{2}</m> to
             compute the sum of the first <c>n</c> integers without iterating.</p>
-        <p>Consider the following function:</p>
-
-        <pre>int sumOfN3(int n){
+        <p>Consider the function in <xref ref="sum-of-n3"/>.</p>
+        <listing xml:id="sum-of-n3">
+            <caption><c>sumOfN3</c></caption>
+            <program language="cpp"><input>
+int sumOfN3(int n){
   int sum_n = (n*(n+1))/2; // how many times?
   return sum_n;
-}</pre>
+}
+            </input></program>
+        </listing>
 
              <p>We see this in <xref ref="algorithm-analysis_active3cpp"/>,
             which shows <c>sumOfN3</c>
@@ -377,9 +372,9 @@ Sum is 50005000 required 0.000000 seconds</pre>
                 </title>
                 
                 
-                <exercise>
+                <exercise label="somemath1">
                     <statement>
-            <p>How many times is the <title_reference>theSum = theSum + 1</title_reference> line executed? <var/>  </p></statement><setup><var><condition number="[1001]"><feedback><p>Right! Good job!</p></feedback></condition><condition number="[1000, 1000]"><feedback><p>No. Look carefully at the loop condition i&lt;n+1.</p></feedback></condition><condition string="^\s*default\s*$"><feedback><p>Incorrect. Please try again.</p></feedback></condition></var></setup></exercise> 
+            <p>How many times is the <c>theSum = theSum + i</c> line executed in <xref ref="n1000-how-many"/>? <var/>  </p></statement><setup><var><condition number="[1001]"><feedback><p>Right! Good job!</p></feedback></condition><condition number="[1000, 1000]"><feedback><p>No. Look carefully at the loop condition i&lt;n+1.</p></feedback></condition><condition string="^\s*default\s*$"><feedback><p>Incorrect. Please try again.</p></feedback></condition></var></setup></exercise> 
             <exercise label="somemath1">
                 <statement>
             
@@ -393,7 +388,7 @@ Sum is 50005000 required 0.000000 seconds</pre>
                             <p>6</p>
                         </statement>
                         <feedback>
-                            <p>No. Use i = 1, i = 2, and i = 3, plugging into i^3.</p>
+                            <p>No. Use i = 1, i = 2, and i = 3, plugging into <m>i^3</m>.</p>
                         </feedback>
                     </choice>
             
@@ -402,7 +397,7 @@ Sum is 50005000 required 0.000000 seconds</pre>
                             <p>14</p>
                         </statement>
                         <feedback>
-                            <p>No. Use i = 1, i = 2, and i = 3, plugging into i^3.</p>
+                            <p>No. Use i = 1, i = 2, and i = 3, plugging into <m>i^3</m>.</p>
                         </feedback>
                     </choice>
             
@@ -411,7 +406,7 @@ Sum is 50005000 required 0.000000 seconds</pre>
                             <p>25</p>
                         </statement>
                         <feedback>
-                            <p>No. Use i = 1, i = 2, and i = 3, plugging into i^3.</p>
+                            <p>No. Use i = 1, i = 2, and i = 3, plugging into <m>i^3</m>.</p>
                         </feedback>
                     </choice>
             
@@ -420,7 +415,7 @@ Sum is 50005000 required 0.000000 seconds</pre>
                             <p>36</p>
                         </statement>
                         <feedback>
-                            <p>Right! It is 1^3 + 2^3 + 3^3 = 1 + 8 + 27.</p>
+                            <p>Right! It is <m>1^3 + 2^3 + 3^3 = 1 + 8 + 27</m>.</p>
                         </feedback>
                     </choice>
             
@@ -435,9 +430,16 @@ Sum is 50005000 required 0.000000 seconds</pre>
             </choices>
             
             </exercise>
-            <exercise>
+            <exercise label="bigo2">
                 <statement>
-        <p>If <title_reference>SumOfN3</title_reference> is called once with a parameter of <title_reference>n=10</title_reference>, how many times is the <title_reference>int sum_n = (n*(n+1))/2;</title_reference> line executed? <var/>  </p></statement><setup><var><condition number="[1]"><feedback><p>Right! Good job!</p></feedback></condition><condition number="[10]"><feedback><p>No, consider that the function is called only once, and n is the parameter.</p></feedback></condition><condition string="^\s*default\s*$"><feedback><p>Incorrect. Please try again.</p></feedback></condition></var></setup></exercise>   
+        <p>If <c>SumOfN3</c> (<xref ref="sum-of-n3"/>) is called once with a parameter of <c>n=10</c>, how many times is the <c>int sum_n = (n*(n+1))/2;</c> line executed? <var/>  </p>
+                </statement>
+                <setup><var>
+                    <condition number="[1]"><feedback><p>Right! Good job!</p></feedback></condition>
+                    <condition number="[10]"><feedback><p>No, consider that the function is called only once, and n is the parameter.</p></feedback></condition>
+                    <condition string="^\s*default\s*$"><feedback><p>Incorrect. Please try again.</p></feedback></condition>
+                </var></setup>
+            </exercise>   
             </reading-questions>
     </subsection>
     <conclusion><p>
