@@ -372,7 +372,7 @@ Sum is 50005000 required 0.000000 seconds</pre>
                 </title>
                 
                 
-                <exercise label="somemath1">
+                <exercise label="howmany1">
                     <statement>
             <p>How many times is the <c>theSum = theSum + i</c> line executed in <xref ref="n1000-how-many"/>? <var/>  </p></statement><setup><var><condition number="[1001]"><feedback><p>Right! Good job!</p></feedback></condition><condition number="[1000, 1000]"><feedback><p>No. Look carefully at the loop condition i&lt;n+1.</p></feedback></condition><condition string="^\s*default\s*$"><feedback><p>Incorrect. Please try again.</p></feedback></condition></var></setup></exercise> 
             <exercise label="somemath1">
