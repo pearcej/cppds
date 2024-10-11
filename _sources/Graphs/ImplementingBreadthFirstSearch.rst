@@ -193,9 +193,6 @@ print out the word ladder.
 
     traverse(g.getVertex('sage'))
 
-Because of syntactic changes to C++ between C++98 and C++11, the following code
-will not run in your ActiveCode window and must be copied and pasted into a compiler using C++11 to run.
-
 Below is a completed implementation of both the Vertex and Graph classes, along
 with an implementation for the breadth-first search shown above.
 
