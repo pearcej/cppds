@@ -51,7 +51,9 @@
             but you probably won't be around to see it. This goes to show that the efficiency
             of recursive functions are largely dependent on how they're implemented.</p>
 
-    <listing xml:id="ackermann"><program interactive="activecode" language="cpp"><input>
+    <listing xml:id="ackermann">
+        <caption>Ackermann Function</caption>
+        <program interactive="activecode" language="cpp"><input>
 //ackermann function example
 #include &lt;iostream&gt;
 using namespace std;
@@ -75,7 +77,8 @@ int main(){
    cout &lt;&lt; ackermann(1,2) &lt;&lt; endl;
    return 0;
 }
-    </input></program></listing>
+        </input></program>
+    </listing>
         <p>In the remainder of this chapter we will look at more examples of
             recursion. In each case we will focus on designing a solution to a
             problem by using the three laws of recursion.</p>

@@ -111,7 +111,9 @@
             row, and the starting column. This is important because as a recursive
             function the search logically starts again with each recursive call.</p>
         
-        <listing xml:id="lst-mazesearch"><program language="python"><input>
+        <listing xml:id="lst-mazesearch">
+            <caption><c>searchFrom</c> Function</caption>
+            <program language="python"><input>
 def searchFrom(maze, startRow, startColumn):
     #  Check for base cases (Steps 1, 2, and 3):
 
@@ -146,7 +148,8 @@ def searchFrom(maze, startRow, startColumn):
         maze[startRow][startColumn] = MAZE_DEAD_END
 
     return found
-        </input></program></listing>
+            </input></program>
+        </listing>
         <p>As you look through the algorithm you will see that the first thing the
             code does (steps 1 and 2) is determine if the space <em>should be visited</em>.
             This is done by checking if the spot is an obstacle (<c classes="code">MAZE_OBSTACLE</c>),
@@ -175,7 +178,9 @@ def searchFrom(maze, startRow, startColumn):
             This secondary list contains one character per square using the
             characters described above. For the data file in <xref ref="lst-exmaze"/> the
             internal representation looks like the following:</p>
-        <listing xml:id="lst-exmaze"><program language="python"><input>
+        <listing xml:id="lst-exmaze">
+            <caption>Example Maze</caption>
+            <program language="python"><input>
 [['+','+','+','+',...,'+','+','+','+','+','+','+'],
  ['+',' ',' ',' ',...,' ',' ',' ','+',' ',' ',' '],
  ['+',' ','+',' ',...,'+','+',' ','+',' ','+','+'],
@@ -187,7 +192,8 @@ def searchFrom(maze, startRow, startColumn):
  ['+',' ','+','+',...,' ',' ','+',' ',' ',' ','+'],
  ['+',' ',' ',' ',...,' ',' ','+',' ','+','+','+'],
  ['+','+','+','+',...,'+','+','+',' ','+','+','+']]
-        </input></program></listing>
+            </input></program>
+        </listing>
         <p>The <c>searchFrom</c> method uses this internal representation to traverse
             throughout the maze.</p>
         
@@ -213,7 +219,7 @@ def searchFrom(maze, startRow, startColumn):
             have navigated to the edge of the maze, either row zero or column zero,
             or the far right column or the bottom row.</p>
         <listing xml:id="lst-maze">
-                
+            <caption><c>Maze</c> Class</caption>
             <program language="python"><input>
 MAZE_OBSTACLE = '+'
 MAZE_START = 'S'
@@ -286,7 +292,9 @@ class Maze:
         <DataFileNode line="306" runestone_options="{'subchapter': 'ExploringaMaze', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'divid': 'maze2.txt', 'qnumber': 'Q-3', 'cols': 31, 'rows': 20, 'filecontent': '++++++++++++++++++++++\n+   +   ++ ++        +\n+     ++++++++++      \u200f\u200f\u200e \u200e\u200e\u200f\u200f\u200e\n+ +    ++  ++++ +++ ++\n+ +   + + ++    +++  +\n+          ++  ++  + +\n+++++ + +      ++  + +\n+++++ +++  + +  ++   +\n+          + + S+ +  +\n+++++ +  + + +       +\n++++++++++++++++++++++\n', 'hidden': '', 'edit': 'false', 'question_label': '5.11.2'}" source="/srv/web2py/applications/runestone/books/cppds/_sources/Recursion/ExploringaMaze.rst">
         </DataFileNode>
 
-    <listing xml:id="completemaze"><program interactive="activecode" language="python"><input>
+    <listing xml:id="completemaze">
+        <caption>Complete <c>Maze</c> Code</caption>
+        <program interactive="activecode" language="python"><input>
 MAZE_OBSTACLE = '+'
 MAZE_START = 'S'
 MAZE_PATH = 'O'
