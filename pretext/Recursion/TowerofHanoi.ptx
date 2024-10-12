@@ -166,7 +166,7 @@ main()
             provides the stacks that we need implicitly through the call stack.</p>
 
         <reading-questions xml:id="rq-tower-hanoi">
-            <exercise>
+            <exercise label="ex-hanoi">
                     <statement>
                         <p>If you change the tower height in Line 17 from 3 to 6, how many moves must you make to complete
                             the Hanoi tower? (Hint, try implementing a counter to return the correct number.)<var/>  </p>

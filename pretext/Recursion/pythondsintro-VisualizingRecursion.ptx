@@ -116,6 +116,7 @@ main()
             getting too small. The C++ equivalent to this function is shown below and exists in <q>Turtle.cpp</q>.</p>
 
         <listing xml:id="lst-fractree-py" names="lst_fractree">
+            <caption>Fractal Tree</caption>
             <program language="python"><input>
 def tree(branchLen,t):
     if branchLen &gt; 5:
