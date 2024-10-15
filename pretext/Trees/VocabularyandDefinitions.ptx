@@ -147,7 +147,7 @@
     <title>
         Reading Question
     </title>  
-<exercise>
+<exercise label="trees_vocab_1">
         <statement>
             <p>In your own words, define a tree relative to the first definition provided above.</p>
         </statement> 
