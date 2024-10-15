@@ -143,7 +143,13 @@ int main() {
                 two families, those that have one input line and those that have two.
                 Below that, the specific logic functions of each appear.</p>
             <figure align="center" xml:id="ooderive_fig-circuit0">
-                <image source="Introduction/logicquestion.png" width="50%"/>
+                <caption>Example Logic Circuit</caption>
+                <image source="Introduction/logicquestion.png" width="50%">
+                        <description>
+                                Circuit diagram showing a two-input AND gate and a two-input OR gate.
+                                The output of these two gates are the inputs to another two-input AND gate
+                        </description>
+                </image>
             </figure>
 
          
