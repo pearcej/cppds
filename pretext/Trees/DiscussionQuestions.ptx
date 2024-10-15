@@ -62,24 +62,37 @@
                     implementing as a method, whereas we could check inside the call when
                     implementing as a function?</p>
             </li>
-        </ol></p>
-        <p><ol marker="1">
             <li>
-                <p>Show the function calls needed to build the following binary tree.</p>
+                <p>Show the function calls needed to build the binary tree in <xref ref="exertree"/>.</p>
+                <figure align="center" xml:id="exertree">
+                    <caption>Tree of Programming Languages</caption>
+                    <image source="Trees/exerTree.png" width="50%">
+                        <description>A tree whose root node is language. The language node has two children: compiled and interpreted.
+                            The compiled node has two children: C and Java. The interpreted node has two children: Python and Scheme.
+                        </description>
+                    </image>
+                </figure>
+            </li>
+            <li>
+                <p>Given the tree in <xref ref="rotexer1"/>, perform the appropriate rotations to bring it back into balance.</p>
+                <figure align="center" xml:id="rotexer1">
+                    <caption>Out of Balance Tree</caption>
+                    <image source="Trees/rotexer1.png" width="20%">
+                        <description>
+                            A tree whose root node is B with a balance factor of -2. B has two children: A with a balance factor of 0 and
+                            E with a balanace factor of 1. A has no children. E has two children: D with a balance factor of 1 and F with
+                            a balance factor of 0. D has only a left child: C with balance factor 0. F has no children.
+                        </description>
+                    </image>
+                </figure>
+            </li>
+            <li>
+                <p>Using <xref ref="bfderive"/> as a starting point, derive the equation that gives the updated balance factor for node D.</p>
+                <figure align="center" xml:id="bfderive">
+                    <caption>Compute Updated Balance Factor</caption>
+                    <image source="Trees/bfderive.png" width="50%"/>
+                </figure>
             </li>
         </ol></p>
-        <figure align="center" ><image source="Trees/exerTree.png" width="50%"/></figure>
-        <p><ol marker="1">
-            <li>
-                <p>Given the following tree, perform the appropriate rotations to bring it back into balance.</p>
-            </li>
-        </ol></p>
-        <figure align="center" ><image source="Trees/rotexer1.png" width="20%"/></figure>
-        <p><ol marker="1">
-            <li>
-                <p>Using the following as a starting point, derive the equation that gives the updated balance factor for node D.</p>
-            </li>
-        </ol></p>
-        <figure align="center" ><image source="Trees/bfderive.png" width="50%"/></figure>
     </section>
 
