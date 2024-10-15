@@ -415,7 +415,7 @@ f1.__add__(f2)
             
             <exploration xml:id="expl-lst-addmethod">
                 <title>Adding an addition method</title>
-                <task xml:id="introduction_lst-addmethod-cpp">
+                <task xml:id="introduction_lst-addmethod-cpp" label="introduction_lst-addmethod-cpp">
                     <title>C++ Implementation</title>
                     <statement><program language="cpp"><input>
 Fraction operator +(const Fraction &amp;otherFrac){
@@ -426,7 +426,7 @@ Fraction operator +(const Fraction &amp;otherFrac){
 }
                     </input></program></statement>
                 </task>
-                <task xml:id="introduction_lst-addmethod-py">
+                <task xml:id="introduction_lst-addmethod-py" label="introduction_lst-addmethod-py">
                     <title>Python Implementation</title>
                     <statement><program language="python"><input>
 def __add__(self, otherfraction):
@@ -437,7 +437,7 @@ def __add__(self, otherfraction):
   return Fraction(newnum,newden)
                     </input></program></statement>
                 </task>
-                <task xml:id="introduction_lst-addmethod-cpp-usage">
+                <task xml:id="introduction_lst-addmethod-cpp-usage" label="introduction_lst-addmethod-cpp-usage">
                     <title>C++ Usage Example</title>
                     <statement><program xml:id="addfrac_cpp" label="addfrac_cpp" language="cpp" interactive="activecode"><input>
 //using functions to abstract the idea of a fraction
@@ -476,7 +476,7 @@ int main(){
 }
                     </input></program></statement>
                 </task>
-                <task xml:id="introduction_lst-addmethod-py-usage">
+                <task xml:id="introduction_lst-addmethod-py-usage" label="introduction_lst-addmethod-py-usage">
                     <title>Python Usage Example</title>
                     <statement><program xml:id="addfrac_py" label="addfrac_py" language="python" interactive="activecode"><input>
 f1=Fraction(1,4)
