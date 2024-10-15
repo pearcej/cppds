@@ -58,7 +58,7 @@
 
         <exploration xml:id="expl-lst-parcheck1">
             <title>Parenthesis checker</title>
-            <task xml:id="task-parcheck1_cpp">
+            <task xml:id="task-parcheck1_cpp" label="task-parcheck1_cpp">
                 <title>C++ Implementation</title>
                 <statement><program xml:id="parcheck1_cpp" interactive="activecode" language="cpp"><input>
 //simple program that checks for missing parentheses
@@ -105,7 +105,7 @@ int main() {
 }
                 </input></program></statement>
             </task>
-            <task xml:id="task-parcheck1_py">
+            <task xml:id="task-parcheck1_py" label="task-parcheck1_py">
                 <statement><program xml:id="parcheck1_py" interactive="activecode" language="python"><input>
 #Program that detects if a set of parentheses is complete.
 
