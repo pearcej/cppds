@@ -680,7 +680,7 @@ int main() {
 
     <reading-questions xml:id="rq-oop-derived-classes">
         <title>Reading Questions</title>
-        <exercise>
+        <exercise label="logic-gate-1">
                 <statement>
         <p>What will the logic gate yield (1 / 0)? <var/>  </p></statement><setup><var><condition number="[0]"><feedback><p>Correct!</p></feedback></condition><condition number="[1]"><feedback><p>Take a closer look at the logic gates.</p></feedback></condition></var></setup></exercise>   
         <exercise label="mc_IS-A_HAS-A">

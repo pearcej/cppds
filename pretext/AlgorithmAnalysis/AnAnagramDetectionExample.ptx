@@ -529,7 +529,7 @@ main()
     
         </exercise>
         
-        <exercise>
+        <exercise label="analysis_4">
             <statement>
     <p>If an algorithm performing at <m>O(n^{2})</m> has the integer 8 as input, what is the worst case scenario for the algorithm? <var/>  </p></statement><setup><var><condition number="[64]"><feedback><p>Correct!</p></feedback></condition><condition number="[16]"><feedback><p>That would be 2n, which would be simplified as n.</p></feedback></condition><condition number="[8]"><feedback><p>That would be n.</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>Wrong, Try again!</p></feedback></condition></var></setup></exercise>
     </reading-questions>            
