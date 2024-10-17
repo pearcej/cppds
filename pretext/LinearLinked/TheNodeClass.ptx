@@ -14,7 +14,7 @@
             to access and modify the data and the next reference.</p>
 
   <listing xml:id="linear-linked_lst-nodeclass" names="lst_nodeclass">
-    <title><c>Node</c> Class</title>
+    <caption><c>Node</c> Class</caption>
     <program language="cpp"><input>
 #include &lt;iostream&gt;
 using namespace std;

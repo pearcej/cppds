@@ -32,7 +32,7 @@ class CppsXmlTest:
 
 class TagsNeedsCaption(CppsXmlTest):
     """The tags below should have a <caption> elements as a child"""
-    captioned_things = ('figure',)
+    captioned_things = ('figure', 'listing', 'table')
     @classmethod
     def test_file(cls, fname, doc):
         ret = True

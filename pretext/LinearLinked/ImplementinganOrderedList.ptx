@@ -29,7 +29,7 @@
             <xref ref="linear-linked_lst-orderlist"/>).</p>
         
         <listing xml:id="linear-linked_lst-orderlist">
-            <title><c>OrderedList</c> Member Variable</title>
+            <caption><c>OrderedList</c> Member Variable</caption>
             <program language="cpp"><input>
 class OrderedList {
     Node* head;
@@ -79,7 +79,7 @@ class OrderedList {
             the unordered linked list search.</p>
         
         <listing xml:id="linear-linked_lst-ordersearch">
-            <title><c>search</c> Method</title>
+            <caption><c>search</c> Method</caption>
             <program language="cpp"><input>
 bool search(int item) {
     Node *current = head;
@@ -141,7 +141,7 @@ bool search(int item) {
             <c>previous == NULL</c> (line 13) can be used to provide the answer.</p>
         
         <listing xml:id="linear-linked_lst-orderadd">
-            <title><c>add</c> Method</title>
+            <caption><c>add</c> Method</caption>
             <program language="cpp"><input>
 void add(int item) {
     if (head == NULL) {
