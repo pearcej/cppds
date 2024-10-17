@@ -15,7 +15,14 @@
         
         <figure align="center" xml:id="fig-palindrome">
             <caption>A Deque</caption>
-            <image source="LinearBasic/palindromesetup.png" width="50%"/>
+            <image source="LinearBasic/palindromesetup.png" width="50%">
+                <description>
+                    The image depicts adding the word "radar" to a dequeue. Each character is added to
+                    the rear of the queue during initialization, when all the characters have been added
+                    character afters are removed from each end of the queue: R is removed from the rear
+                    and another R is removed from the head of the queue.
+                </description>
+            </image>
         </figure>
         <p>Since we can remove both of them directly, we can compare them and
             continue only if they match. If we can keep matching first and the last
@@ -109,7 +116,7 @@ main()
         <p><xref ref="advanced-linear-basic_palinedrome-cpp"/>.</p>
         
         <listing xml:id="advanced-linear-basic_palinedrome-cpp">
-            <title>Advanced Palindrome Checker</title>
+            <caption>Advanced Palindrome Checker</caption>
             <program xml:id="advanced_palinedrome_cpp" interactive="activecode" language="cpp"><input>
 //program that detects palindromes.
 
