@@ -115,7 +115,7 @@
                 the printer to idle (line 11) if the task is completed.</p>
 
             <listing xml:id="linear-basic_lst-printer">
-                <title>The <c>Printer</c> class</title>
+                <caption>The <c>Printer</c> class</caption>
                 <program language="cpp"><input>
 class Printer {
 public:
@@ -173,7 +173,7 @@ private:
                 printing begins.</p>
             
             <listing xml:id="linear-basic_lst-task">
-                <title>The <c>Task</c> class</title>
+                <caption>The <c>Task</c> class</caption>
                 <program language="cpp"><input>
 class Task {
 public:
@@ -211,7 +211,7 @@ private:
                 printer.</p>
             
             <listing xml:id="linear-basic_lst-qumainsim">
-                <title>The main simulation function</title>
+                <caption>The main simulation function</caption>
                 <program language="cpp"><input>
 void simulation(int numSeconds, int pagesPerMinute) {
     Printer labprinter(pagesPerMinute);
