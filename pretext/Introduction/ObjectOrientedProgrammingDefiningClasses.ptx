@@ -633,7 +633,7 @@ print(gcd(20,10))
                 <xref ref="introduction_lst-newaddmethod"/>).</p>
             
     <listing xml:id="introduction_lst-newaddmethod">
-        <title>New addition implementation using <c>gcd</c></title>
+        <caption>New addition implementation using <c>gcd</c></caption>
         <program xml:id="gcdadd" label="gcdadd" interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 using namespace std;
