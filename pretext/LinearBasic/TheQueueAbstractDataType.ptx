@@ -40,13 +40,9 @@
             such that the front is on the right. 4 was the first item pushed so it
             is the first item returned by dequeue.</p>
         
-        <table xml:id="linear-basic_tbl-queueoperations"><tabular>
-            <title>Example Queue Operations</title>
-            
-                
-                
-                
-                
+        <table xml:id="linear-basic_tbl-queueoperations">
+            <caption>Example Queue Operations</caption>
+            <tabular>
                     <row header="yes">
                         <cell>
                             <term>Queue Operation</term>

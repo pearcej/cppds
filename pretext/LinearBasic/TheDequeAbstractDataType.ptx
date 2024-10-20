@@ -40,131 +40,124 @@
             the rear as you move items in and out of the collection as things can
             get a bit confusing.</p>
         
-        <table xml:id="linear-basic_tbl-dequeoperations"><tabular>
-            <title>Examples of Deque Operations</title>
-            
-                
-                
-                
-                
-                    <row header="yes">
-                        <cell>
-                            <term>Deque Operation</term>
-                        </cell>
-                        <cell>
-                            <term>Deque Contents</term>
-                        </cell>
-                        <cell>
-                            <term>Return Value</term>
-                        </cell>
-                    </row>
-                
-                
-                    <row>
-                        <cell>
-                            <c>d.empty()</c>
-                        </cell>
-                        <cell>
-                            <c>[]</c>
-                        </cell>
-                        <cell>
-                            <c>True</c>
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            <c>d.push_back(4)</c>
-                        </cell>
-                        <cell>
-                            <c>[4]</c>
-                        </cell>
-                        <cell>
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            <c>d.push_back(17)</c>
-                        </cell>
-                        <cell>
-                            <c>[17,4]</c>
-                        </cell>
-                        <cell>
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            <c>d.push_front(93)</c>
-                        </cell>
-                        <cell>
-                            <c>[17,4,93]</c>
-                        </cell>
-                        <cell>
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            <c>d.push_front(65)</c>
-                        </cell>
-                        <cell>
-                            <c>[17,4,93,65]</c>
-                        </cell>
-                        <cell>
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            <c>d.size()</c>
-                        </cell>
-                        <cell>
-                            <c>[17,4,93,65]</c>
-                        </cell>
-                        <cell>
-                            <c>4</c>
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            <c>d.empty()</c>
-                        </cell>
-                        <cell>
-                            <c>[17,4,93,65]</c>
-                        </cell>
-                        <cell>
-                            <c>False</c>
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            <c>d.push_back(25)</c>
-                        </cell>
-                        <cell>
-                            <c>[25,17,4,93,65]</c>
-                        </cell>
-                        <cell>
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            <c>d.pop_back()</c>
-                        </cell>
-                        <cell>
-                            <c>[17,4,93,65]</c>
-                        </cell>
-                        <cell>
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            <c>d.pop_front()</c>
-                        </cell>
-                        <cell>
-                            <c>[17,4,93]</c>
-                        </cell>
-                        <cell>
-                        </cell>
-                    </row>
-                
-            
+        <table xml:id="linear-basic_tbl-dequeoperations">
+            <caption>Examples of Deque Operations</caption>
+            <tabular>
+                <row header="yes">
+                    <cell>
+                        <term>Deque Operation</term>
+                    </cell>
+                    <cell>
+                        <term>Deque Contents</term>
+                    </cell>
+                    <cell>
+                        <term>Return Value</term>
+                    </cell>
+                </row>
+
+                <row>
+                    <cell>
+                        <c>d.empty()</c>
+                    </cell>
+                    <cell>
+                        <c>[]</c>
+                    </cell>
+                    <cell>
+                        <c>True</c>
+                    </cell>
+                </row>
+                <row>
+                    <cell>
+                        <c>d.push_back(4)</c>
+                    </cell>
+                    <cell>
+                        <c>[4]</c>
+                    </cell>
+                    <cell>
+                    </cell>
+                </row>
+                <row>
+                    <cell>
+                        <c>d.push_back(17)</c>
+                    </cell>
+                    <cell>
+                        <c>[17,4]</c>
+                    </cell>
+                    <cell>
+                    </cell>
+                </row>
+                <row>
+                    <cell>
+                        <c>d.push_front(93)</c>
+                    </cell>
+                    <cell>
+                        <c>[17,4,93]</c>
+                    </cell>
+                    <cell>
+                    </cell>
+                </row>
+                <row>
+                    <cell>
+                        <c>d.push_front(65)</c>
+                    </cell>
+                    <cell>
+                        <c>[17,4,93,65]</c>
+                    </cell>
+                    <cell>
+                    </cell>
+                </row>
+                <row>
+                    <cell>
+                        <c>d.size()</c>
+                    </cell>
+                    <cell>
+                        <c>[17,4,93,65]</c>
+                    </cell>
+                    <cell>
+                        <c>4</c>
+                    </cell>
+                </row>
+                <row>
+                    <cell>
+                        <c>d.empty()</c>
+                    </cell>
+                    <cell>
+                        <c>[17,4,93,65]</c>
+                    </cell>
+                    <cell>
+                        <c>False</c>
+                    </cell>
+                </row>
+                <row>
+                    <cell>
+                        <c>d.push_back(25)</c>
+                    </cell>
+                    <cell>
+                        <c>[25,17,4,93,65]</c>
+                    </cell>
+                    <cell>
+                    </cell>
+                </row>
+                <row>
+                    <cell>
+                        <c>d.pop_back()</c>
+                    </cell>
+                    <cell>
+                        <c>[17,4,93,65]</c>
+                    </cell>
+                    <cell>
+                    </cell>
+                </row>
+                <row>
+                    <cell>
+                        <c>d.pop_front()</c>
+                    </cell>
+                    <cell>
+                        <c>[17,4,93]</c>
+                    </cell>
+                    <cell>
+                    </cell>
+                </row>
         </tabular></table>
         <p>
             <!-- extra space before the progress bar -->
