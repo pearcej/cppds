@@ -30,12 +30,14 @@
                 It acts as a close replacement to provide easy to use graphics to C++, while maintaining
                 the objects and commands present in Python. It was developed by Jesse Walker-Schadler
                 at Berea College during the summer of 2019 and can be found on GitHub here: <url href="https://github.com/walkerje/C-Turtle/" visual="https://github.com/walkerje/C-Turtle/">https://github.com/walkerje/C-Turtle/</url></p>
-            <p>Below is a comparison of two versions, C++ and Python, which should do
+            <p><xref ref="expl-cturtle_1"/> is a comparison of two versions, C++ and Python, which should do
                 the same thing. Try running both and comparing how the code looks between the two versions.</p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'Graphics', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-    <program xml:id="cturtle_1" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="expl-cturtle_1">
+                <title>Comapring C++ and Python Usage</title>
+                <task label="cturtle_1">
+                    <title>C++</title>
+                    <statement><program xml:id="cturtle_1" interactive="activecode" language="cpp"><input>
 #include &lt;CTurtle.hpp&gt;
 namespace ct = cturtle;
 
@@ -53,12 +55,11 @@ int main() {
     scr.bye();
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'Graphics', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="cturtle_python_1" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task label="cturtle_python_1">
+                    <title>Python</title>
+                    <statement><program xml:id="cturtle_python_1" interactive="activecode" language="python"><input>
 import turtle
 
 turt = turtle.Turtle()
@@ -71,10 +72,9 @@ for i in range(4):
     turt.right(90)
 turt.end_fill()
 turt.bye()
-        </input>
-    </program>
-                </TabNode>
-
+                    </input></program></statement>
+                </task>
+            </exploration>
     
         </subsection>
         <subsection xml:id="introduction_turtle-turtlescreen">
@@ -96,9 +96,11 @@ screen.bye();
             <p>Turtles are based on the following premise: <q>There is a turtle on a canvas with a colored pen
                 attached to their tail.</q> In this case, the <em>canvas</em> is a <c classes="code">TurtleScreen</c>. This Turtle will
                 follow any command you give it, which consist of telling it to go certain directions, what color
-                of pen to use, when to raise or lower its pen, and others. Below is an outline of commonly used
+                of pen to use, when to raise or lower its pen, and others. <xref ref="tab-turtlefun"/> has an outline of commonly used
                 methods when working with turtles.</p>
-            <table><tabular>
+            <table xml:id="tab-turtlefun">
+                <title>Turtle Methods</title>
+                <tabular>
                 
                     
                     
@@ -228,10 +230,12 @@ screen.bye();
                     
                 
             </tabular></table>
-            <p>Many of these methods are used alongside one-another to create different images. All speeds are measured on a range of 1 to 10,
+            <p>Many of these methods are used alongside one-another to create different images. All speeds (<xref ref="turtle-speeds"/>are measured on a range of 1 to 10,
                 the latter being the fastest and the former being the slowest. The exception is the fastest speed, <c classes="code">TS_FASTEST</c>,
                 which is set to 0. The <c classes="code">TS</c> prefix represents <q>Turtle Speed</q>.</p>
-            <table><tabular>
+            <table xml:id="turtle-speeds">
+                <title>Turtle Speeds</title>
+                <tabular>
                 
                     
                     
@@ -289,10 +293,11 @@ screen.bye();
                     
                 
             </tabular></table>
-            <p>Consider the following annotated example.</p>
+            <p>Consider the example in <xref ref="lst-cturtle_4"/>.</p>
 
-    <program xml:id="cturtle_4" interactive="activecode" language="cpp">
-        <input>
+            <listing xml:id="lst-cturtle_4">
+                <caption>Using Turtle Speed Controls</caption>
+                <program xml:id="cturtle_4" interactive="activecode" language="cpp"><input>
 #include &lt;CTurtle.hpp&gt;
 namespace ct = cturtle;
 
@@ -330,8 +335,8 @@ int main() {
     screen.bye();
     return 0;
 }
-        </input>
-    </program>
+                </input></program>
+            </listing>
             <p>The order of operations given to a turtle is important, as some actions must be completed
                 one after another. A good example of this is the <c classes="code">begin_fill</c> and <c classes="code">end_fill</c>
                 pattern, which must be called in that specified order to actually fill a shape.</p>
@@ -349,7 +354,8 @@ int main() {
             <program language="cpp"><input>
 turtle.shape("square");
 </input></program>
-            <p>Given that all primitive shapes are defined as a collection of points, all of the default shapes are also defined this way.
+            <p>Given that all primitive shapes are defined as a collection of points, all of the default shapes are also defined this way
+                <xref ref="turtle-shapes"/>.
                 Polygons, for custom and default shapes, must have their points defined in counter-clockwise order to appear correctly.
                 This is due to the mathematics behind filling arbitrary shapes, and is a limitation almost all computer graphics need to
                 abide by. Consider the order of their points in the following table, and how they could be considered <q>counter-clockwise</q>.
@@ -357,7 +363,9 @@ turtle.shape("square");
                 that positive Y coordinates are <em>lower</em> on the screen, while negative Y coordinates are <em>higher</em> on the screen. Coordinates at
                 the origin&#8211; that is, coordinate 0x, 0y&#8211; is at the <q>point</q> or <q>tip</q> of the turtle. This is why most of the default shapes
                 have their first coordinate there.</p>
-            <table><tabular>
+            <table xml:id="turtle-shapes">
+                <title>Turtle Shapes</title>
+                <tabular>
                 
                     
                     
@@ -481,7 +489,7 @@ turtle.shape("square");
                     
                 
             </tabular></table>
-            <p>Using the default <c classes="code">indented_triangle</c> shape as an example, Figure 1 shows the nature of the counter-clockwise order.</p>
+            <p>Using the default <c classes="code">indented_triangle</c> shape as an example, <xref ref="ccpolygon"/> shows the nature of the counter-clockwise order.</p>
             <figure align="center" xml:id="ccpolygon">
                 <caption>Indented Triangle Definition</caption>
                     <image source="Introduction/cc_polygon.png" width="50%">
@@ -581,8 +589,10 @@ int main(){
                 of turtles themselves. A few of these include the <c classes="code">tracer</c> and <c classes="code">undo</c> methods, and also screen modes.</p>
             <p>Screen modes dictate the direction of angle measurements. This means that, depending on which mode a <c classes="code">TurtleScreen</c>
                 object is in, positive angles could represent clockwise rotations or counterclockwise rotations. The <c classes="code">mode</c> method
-                for <c classes="code">TurtleScreen</c> allows you to set which mode a screen is in.</p>
-            <table><tabular>
+                for <c classes="code">TurtleScreen</c> allows you to set which mode a screen is in, see <xref ref="turtle-modes"/>.</p>
+            <table xml:id="turtle-modes">
+                <title>Turtle Modes</title>
+                <tabular>
                 
                     
                     
