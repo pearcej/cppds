@@ -6,10 +6,9 @@ Defining C++ Functions
 ~~~~~~~~~~~~~~~~~~~~~~
 
 In general, we can hide the details of any computation by defining
-a function. A function definition requires a name, a group of
-parameters, a return type, and a body. It may either return a variable, value, or nothing (specified by the keyword void). For
-example, the simple function defined below returns an integer which is the double of the
-value you pass into it.
+a function. A function is a block of code which only runs when it is called. You can pass data, known as parameters, into a function. Functions are used to perform certain actions, and they are important for reusing code. A programmer can define the code once and can use it many times.
+
+A function definition requires a name, a group of parameters, a return type, and a body. It may either return a variable, a value, or nothing (specified by the keyword ``void``). According to the most recent set of C++ standards in 2024, the ``main`` function must return an ``int``, so should ``return 0`` or ``EXIT_SUCCESS`` which has ``0`` as  return value. In particular, it should not return ``void``.
 
 .. _lst_timesTwo:
 
@@ -29,12 +28,11 @@ value you pass into it.
     int main() {
         /* return type int which indicates that
            an integer is being returned */
-        cout<<timesTwo(5)<<endl;
-
+        cout << timesTwo(5) << endl;
         return 0;
     }
 
-The syntax for this function definition includes the name, ``timesTwo``,
+The syntax for the ``timesTwo`` function definition includes the name, ``timesTwo``,
 and a parenthesized list of formal parameters and their types. For this function an ``int`` named ``num``
 is the only formal parameter, which suggests that ``timesTwo`` needs only
 one piece of data to do its work. The details, hidden “inside the box,”
@@ -45,7 +43,6 @@ Note that the call to ``timesTwo`` returns an integer that can in turn be
 passed to another invocation.
 
 Let us look at a similar function.
-
 
 .. _lst_timesTwoVoid:
 
@@ -59,14 +56,13 @@ Let us look at a similar function.
     void timesTwoVoid(int num) {
       /* return type void which indicates
          that an nothing is being returned */
-      cout<< num*2<<endl;
+      cout << num*2 << endl;
     }
 
     int main() {
         /* return type int which indicates that
            an integer is being returned */
         timesTwoVoid(5);
-
         return 0;
     }
 
@@ -90,9 +86,6 @@ function definition and the user does not have to know anything about
 the implementation to use the function for its intended purpose.
 :ref:`Listing 1 <lst_root>` also shows the use of the // characters as a comment
 marker. Any characters that follow the // on a line are ignored.
-
-
-
 
 .. _lst_root:
 
@@ -144,7 +137,6 @@ marker. Any characters that follow the // on a line are ignored.
         int main() {
 
             dogWalk(11);
-
             return 0;
 
         }
