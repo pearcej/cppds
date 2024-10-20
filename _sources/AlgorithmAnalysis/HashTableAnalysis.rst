@@ -26,7 +26,7 @@ important hash table operation is the **contains** operation. Unlike a vector, c
 see whether a value is in the hash table or not is also :math:`O(1)`.
 
 The efficiency of all hash table operations is summarized in
-:ref:`Table 6 <tbl_hashbigo_cpp>`. One important side note on hash table performance
+:ref:`Table 4 <tbl_hashbigo_cpp>`. One important side note on hash table performance
 is that the efficiencies we provide in the table below are for average
 performance. In some rare cases the **contains**, **get item**, and **set item**
 operations can degenerate into :math:`O(n)` performance but we will
