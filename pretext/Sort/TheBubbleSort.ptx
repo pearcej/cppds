@@ -195,7 +195,7 @@ main()
             time.</p>
         
         <table xml:id="sort_tbl-bubbleanalysis">
-            <caption>Comparisons for Each Pass of Bubble Sort</caption>
+            <title>Comparisons for Each Pass of Bubble Sort</title>
             <tabular>
                     <row header="yes">
                         <cell>

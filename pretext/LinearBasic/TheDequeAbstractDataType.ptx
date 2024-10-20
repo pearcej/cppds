@@ -41,7 +41,7 @@
             get a bit confusing.</p>
         
         <table xml:id="linear-basic_tbl-dequeoperations">
-            <caption>Examples of Deque Operations</caption>
+            <title>Examples of Deque Operations</title>
             <tabular>
                 <row header="yes">
                     <cell>

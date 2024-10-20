@@ -41,7 +41,7 @@
             is the first item returned by dequeue.</p>
         
         <table xml:id="linear-basic_tbl-queueoperations">
-            <caption>Example Queue Operations</caption>
+            <title>Example Queue Operations</title>
             <tabular>
                     <row header="yes">
                         <cell>

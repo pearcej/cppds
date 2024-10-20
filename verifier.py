@@ -30,9 +30,22 @@ class CppsXmlTest:
         return True
 
 
+class TabNodeIsNotAThing(CppsXmlTest):
+    """TabNode is something the automatic conversion tools emitted.
+    PreTeXt doesn't actually have the concept of a TabNode per se,
+    so everywhere this tag occurs we have to do some manual work.
+    """
+    @classmethod
+    def test_file(cls, fname, doc):
+        n = len(doc.getElementsByTagName("TabNode"))
+        if n > 0:
+            print(f"{fname} has {n} TabNode tags")
+        return n == 0
+
+
 class TagsNeedsCaption(CppsXmlTest):
     """The tags below should have a <caption> elements as a child"""
-    captioned_things = ('figure', 'listing', 'table')
+    captioned_things = ('figure', 'listing')
     @classmethod
     def test_file(cls, fname, doc):
         ret = True
@@ -43,6 +56,25 @@ class TagsNeedsCaption(CppsXmlTest):
                     if child.nodeType != xml.dom.Node.ELEMENT_NODE:
                         continue
                     if child.nodeName == "caption":
+                        found = True
+                if not found:
+                    ret = False
+                    print(f'{fname}: {captioned_thing} is missing caption')
+
+
+class TagsNeedsTitle(CppsXmlTest):
+    """The tags below should have a <title> elements as a child"""
+    captioned_things = ('table', 'exploration', 'task')
+    @classmethod
+    def test_file(cls, fname, doc):
+        ret = True
+        for captioned_thing in cls.captioned_things:
+            for fig in doc.getElementsByTagName(captioned_thing):
+                found = False
+                for child in fig.childNodes:
+                    if child.nodeType != xml.dom.Node.ELEMENT_NODE:
+                        continue
+                    if child.nodeName == "title":
                         found = True
                 if not found:
                     ret = False
