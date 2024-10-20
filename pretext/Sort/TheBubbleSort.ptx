@@ -194,8 +194,9 @@ main()
             comparison will cause an exchange. On average, we exchange half of the
             time.</p>
         
-        <table xml:id="sort_tbl-bubbleanalysis"><tabular>
-            <title>Comparisons for Each Pass of Bubble Sort</title>
+        <table xml:id="sort_tbl-bubbleanalysis">
+            <caption>Comparisons for Each Pass of Bubble Sort</caption>
+            <tabular>
                     <row header="yes">
                         <cell>
                             <term>Pass</term>
