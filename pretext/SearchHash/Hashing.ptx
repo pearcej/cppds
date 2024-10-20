@@ -24,16 +24,14 @@
             <xref ref="search_hash-fig-hashtable1"/> shows a hash table of size <m>m=11</m>.
             In other words, there are <em>m</em> slots in the table, named 0 through 10.</p>
 
-        <blockquote>
-            <figure align="center" xml:id="search_hash-fig-hashtable1">
-                <caption>Hash Table with 11 Empty Slots.</caption>
-                    <image source="SearchHash/hashtable.png" width="80%">
-                    <description>Image depicting a hash table data structure with eleven empty slots. The slots are numbered from 0 to 10 and each contains the word 'None', indicating that they are unoccupied. The table is presented in a horizontal format, with clear delineation between each slot.</description>
-                    </image>
-                </figure>
-        </blockquote>
-
-
+        <figure align="center" xml:id="search_hash-fig-hashtable1">
+            <caption>Hash Table with 11 Empty Slots.</caption>
+            <image source="SearchHash/hashtable.png" width="80%">
+                <description>Image depicting a hash table data structure with eleven empty slots. The slots
+                    are numbered from 0 to 10 and each contains the word 'None', indicating that they are unoccupied.
+                    The table is presented in a horizontal format, with clear delineation between each slot.</description>
+            </image>
+        </figure>
         
         <p>In a hash table, the mapping between an item and the slot where that item belongs in the
             hash table is called the <term>hash function</term>.<idx>hash function</idx> The hash function will take
@@ -48,7 +46,7 @@
             functions, since the result must be in the range of slot names.</p>
         
         <table xml:id="search-hash_search-hash_tbl-hashvalues1"><tabular>
-            <title>Simple Hash Function Using Remainders</title>
+            <caption>Simple Hash Function Using Remainders</caption>
             
                 
                 
@@ -123,10 +121,15 @@
         
         <figure align="center" xml:id="fig-hashtable2">
             <caption> Hash Table with Six Items.</caption>
-                <image source="SearchHash/hashtable2.png" width="80%">
-                <description>Image showing a hash table with eleven slots, numbered from 0 to 10. Some slots contain integers while others are empty. Starting from the left, slot 0 contains '77', slot 4 contains '26', slot 5 contains '93', slot 6 contains '17', slot 9 contains '31', and slot 10 contains '54'. Slots 1, 2, 3, 7, and 8 are labeled 'None', indicating they are unoccupied. </description>
-                </image>
-            </figure>
+            <image source="SearchHash/hashtable2.png" width="80%">
+                <description>Image showing a hash table with eleven slots, numbered from 0 to 10.
+                    Some slots contain integers while others are empty. Starting from the left,
+                    slot 0 contains '77', slot 4 contains '26', slot 5 contains '93',
+                    slot 6 contains '17', slot 9 contains '31', and slot 10 contains '54'.
+                    Slots 1, 2, 3, 7, and 8 are labeled 'None', indicating they are unoccupied.
+                </description>
+            </image>
+        </figure>
         <p>Now when we want to search for an item, we simply use the hash function
             to compute the slot name for the item and then check the hash table to
             see if it is present. This searching operation is <m>O(1)</m>, since
@@ -283,7 +286,8 @@
                 strings. The word <q>cat</q> can be thought of as a sequence of int
                 values. The corresponding int value can be found by declaring an int and using
                 it to store a char. You can also cast the value as an int using <term>int()</term></p>
-            <pre>string h = "hello";
+            <program language="cpp"><input>
+string h = "hello";
 char c = h[0];
 int i = c;
 
@@ -293,7 +297,8 @@ cout&lt;&lt;i&lt;&lt;endl;
 
 &gt;&gt;hello
 &gt;&gt;h
-&gt;&gt;104</pre>
+&gt;&gt;104
+            </input></program>
             <p>We can then take these three ordinal values, add them up, and use the
                 remainder method to get a hash value (see <xref ref="fig-stringhash"/>).
                 <xref ref="search-hash_lst-hashfunction1"/> shows a function called <c>hash</c> that takes a
@@ -302,16 +307,21 @@ cout&lt;&lt;i&lt;&lt;endl;
             
             <figure align="center" xml:id="fig-stringhash">
                 <caption>Hashing a String Using Ordinal Values.</caption>
-                    <image source="SearchHash/stringhash.png" width="80%">
-                    <description>Diagram illustrating the process of hashing a string using ordinal values. Three characters 'c', 'a', and 't' are shown at the top with arrows pointing down to their respective ordinal values: '99', '97', and '116'. These values are summed to equal '312'. An arrow then points from this sum to an operation '312 % 11', which results in '4'. This demonstrates a simple hash function where the sum of the character ordinals is divided by 11 to get a remainder, which serves as the hash value.</description>
-                    </image>
-                </figure>
+                <image source="SearchHash/stringhash.png" width="80%">
+                    <description>Diagram illustrating the process of hashing a string using ordinal values.
+                        Three characters 'c', 'a', and 't' are shown at the top with arrows pointing down to
+                        their respective ordinal values: '99', '97', and '116'. These values are summed to
+                        equal '312'. An arrow then points from this sum to an operation '312 % 11',
+                        which results in '4'. This demonstrates a simple hash function where the sum of the
+                        character ordinals is divided by 11 to get a remainder, which serves as the hash value.
+                    </description>
+                </image>
+            </figure>
             
 <listing xml:id="search-hash_lst-hashfunction1">
-<caption><c>hash</c> function</caption>
+    <caption><c>hash</c> function</caption>
 
-    <program xml:id="simplehash" interactive="activecode" language="cpp">
-        <input>
+    <program xml:id="simplehash" interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -335,8 +345,7 @@ int main() {
 
     return 0;
 }
-        </input>
-    </program>
+    </input></program>
 </listing>
             <p>It is interesting to note that when using this hash function, anagrams
                 will always be given the same hash value. To remedy this, we could use
@@ -347,9 +356,16 @@ int main() {
             <figure align="center" xml:id="fig-stringhash2">
                 <caption>Hashing a String Using Ordinal Values with Weighting.</caption>
                     <image source="SearchHash/stringhash2.png" width="80%">
-                    <description>Image depicting a hashing algorithm that uses ordinal values of characters with weighting by their positions. The character 'c' in position 1 is multiplied by its ordinal value '99' and added to 1, 'a' in position 2 is multiplied by '97' and added to 2, and 't' in position 3 is multiplied by '116' and added to 3. The resulting sums are combined to total '641'. This sum is then divided by 11, as shown by the operation '641 % 11', resulting in a hash value of '3'.</description>
-                    </image>
-                </figure>
+                        <description>Image depicting a hashing algorithm that uses ordinal values
+                            of characters with weighting by their positions. The character 'c' in
+                            position 1 is multiplied by its ordinal value '99' and added to 1,
+                            'a' in position 2 is multiplied by '97' and added to 2, and 't' in
+                            position 3 is multiplied by '116' and added to 3. The resulting sums
+                            are combined to total '641'. This sum is then divided by 11,
+                            as shown by the operation '641 % 11', resulting in a hash value of '3'.
+                        </description>
+                </image>
+            </figure>
 
             <p>You may be able to think of a number of additional ways to compute hash
                 values for items in a collection. The important thing to remember is
@@ -392,10 +408,17 @@ int main() {
                 and 2, and finally find an empty slot at position 3.</p>
             <figure align="center" xml:id="fig-linearprobing1">
                 <caption>Collision Resolution with Linear Probing.</caption>
-                    <image source="SearchHash/linearprobing1.png" width="80%">
-                    <description>Image of a hash table illustrating collision resolution with linear probing. The table has eleven slots numbered from 0 to 10. Filled slots contain the following integers: '77' in slot 0, '44' in slot 1, '55' in slot 2, '20' in slot 3, '26' in slot 4, '93' in slot 5, '17' in slot 6, '31' in slot 9, and '54' in slot 10. Slots 7 and 8 are labeled 'None', indicating they are empty. This setup suggests that when a collision occurs, the algorithm probes sequentially through the table to find the next available slot.</description>
-                    </image>
-                </figure>
+                <image source="SearchHash/linearprobing1.png" width="80%">
+                    <description>Image of a hash table illustrating collision resolution with linear probing.
+                        The table has eleven slots numbered from 0 to 10. Filled slots contain the
+                        following integers: '77' in slot 0, '44' in slot 1, '55' in slot 2,
+                        '20' in slot 3, '26' in slot 4, '93' in slot 5, '17' in slot 6, '31' in slot 9,
+                        and '54' in slot 10. Slots 7 and 8 are labeled 'None', indicating they are empty.
+                        This setup suggests that when a collision occurs, the algorithm probes sequentially
+                        through the table to find the next available slot.
+                    </description>
+                </image>
+            </figure>
             <p>Once we have built a hash table using open addressing and linear
                 probing, it is essential that we utilize the same methods to search for
                 items. Assume we want to look up the item 93. When we compute the hash
@@ -416,10 +439,16 @@ int main() {
 
             <figure align="center" xml:id="fig-clustering">
                 <caption>A Cluster of Items for Slot 0.</caption>
-                    <image source="SearchHash/clustering.png" width="80%">
-                    <description>Image of a hash table with a series of filled and empty slots. The slots are numbered from 0 to 10. Slot 0 contains the number '77', followed by '44' in slot 1, '55' in slot 2, '20' in slot 3, '26' in slot 4, '93' in slot 5, and '17' in slot 6. Slots 7 and 8 are empty and labeled 'None'. Slot 9 contains the number '31', and slot 10 contains '54'. This demonstrates a clustering effect where a sequence of items are hashed to neighboring slots starting from slot 0.</description>
-                    </image>
-                </figure>
+                <image source="SearchHash/clustering.png" width="80%">
+                    <description>Image of a hash table with a series of filled and empty slots.
+                        The slots are numbered from 0 to 10. Slot 0 contains the number '77',
+                        followed by '44' in slot 1, '55' in slot 2, '20' in slot 3, '26' in slot 4,
+                        '93' in slot 5, and '17' in slot 6. Slots 7 and 8 are empty and labeled 'None'.
+                        Slot 9 contains the number '31', and slot 10 contains '54'.
+                        This demonstrates a clustering effect where a sequence of items are hashed
+                        to neighboring slots starting from slot 0.</description>
+                </image>
+            </figure>
 
             <p>One way to deal with clustering is to extend the linear probing
                 technique so that instead of looking sequentially for the next open
@@ -431,10 +460,18 @@ int main() {
                 that is empty.</p>
             <figure align="center" xml:id="fig-linearprobing2">
                 <caption>Collision Resolution Using <q>Plus 3</q>.</caption>
-                    <image source="SearchHash/linearprobing2.png" width="80%">
-                    <description>Image of a hash table with eleven slots, demonstrating collision resolution using the 'Plus 3' strategy. The slots are numbered from 0 to 10, with '77' in slot 0, '55' in slot 1, 'None' in slot 2, '44' in slot 3, '26' in slot 4, '93' in slot 5, '17' in slot 6, '20' in slot 7, 'None' in slot 8, '31' in slot 9, and '54' in slot 10. The 'None' slots indicate empty positions where no value has been hashed to. The placement of numbers suggests that when a collision occurs, the item is placed in the next available slot that is three positions away.</description>
-                    </image>
-                </figure>
+                <image source="SearchHash/linearprobing2.png" width="80%">
+                    <description>Image of a hash table with eleven slots, demonstrating collision
+                        resolution using the 'Plus 3' strategy. The slots are numbered from 0 to 10,
+                        with '77' in slot 0, '55' in slot 1, 'None' in slot 2, '44' in slot 3,
+                        '26' in slot 4, '93' in slot 5, '17' in slot 6, '20' in slot 7,
+                        'None' in slot 8, '31' in slot 9, and '54' in slot 10. The 'None' slots
+                        indicate empty positions where no value has been hashed to. The placement
+                        of numbers suggests that when a collision occurs, the item is placed in
+                        the next available slot that is three positions away.
+                    </description>
+                </image>
+            </figure>
             <p> The general name for this process of looking for another slot after a
                 collision is <term>rehashing</term>. <idx>rehashing</idx> With simple linear probing, the rehash
                 function is <m>newhashvalue = rehash(oldhashvalue)</m> where
@@ -457,10 +494,19 @@ int main() {
 
             <figure align="center" xml:id="fig-quadratic">
                 <caption>Collision Resolution with Quadratic Probing.</caption>
-                    <image source="SearchHash/quadratic.png" width="80%">
-                    <description>Image of a hash table with eleven numbered slots, illustrating collision resolution with quadratic probing. The hash table contains the numbers '77' in slot 0, '44' in slot 1, '20' in slot 2, '55' in slot 3, '26' in slot 4, '93' in slot 5, '17' in slot 6, and slots 7 and 8 are empty, labeled 'None'. The table ends with '31' in slot 9 and '54' in slot 10. The 'None' slots indicate that no items have been placed there, and the distribution of numbers shows that quadratic probing has been used to resolve collisions by placing items in slots that are a quadratic function of the distance from the original hashed slot.</description>
-                    </image>
-                </figure>
+                <image source="SearchHash/quadratic.png" width="80%">
+                    <description>Image of a hash table with eleven numbered slots, illustrating
+                        collision resolution with quadratic probing. The hash table contains
+                        the numbers '77' in slot 0, '44' in slot 1, '20' in slot 2, '55' in slot 3,
+                        '26' in slot 4, '93' in slot 5, '17' in slot 6, and slots 7 and 8 are empty,
+                        labeled 'None'. The table ends with '31' in slot 9 and '54' in slot 10.
+                        The 'None' slots indicate that no items have been placed there,
+                        and the distribution of numbers shows that quadratic probing has been used
+                        to resolve collisions by placing items in slots that are a quadratic function
+                        of the distance from the original hashed slot.
+                    </description>
+                </image>
+            </figure>
             <p>An alternative method for handling the collision problem is to allow
                 each slot to hold a reference to a collection (or chain) of items.
                 <term>Chaining</term> allows many items to exist at the same location in the hash
@@ -472,10 +518,18 @@ int main() {
                 
             <figure align="center" xml:id="fig-chaining">
                 <caption>Collision Resolution with Chaining.</caption>
-                    <image source="SearchHash/chaining.png" width="80%">
-                    <description>Image of a hash table with eleven slots numbered from 0 to 10, demonstrating collision resolution with chaining. Each slot is either empty, labeled 'None', or contains a vertical list of numbers, representing a chain of items that have been hashed to the same slot. Slot 0 has a chain of '77', followed by '44' and '55'. Slot 4 has '26' and '93', slot 6 has '17', slot 9 has '31' and '54', and slot 10 has '20'. The chains are represented by numbers in boxes with arrows pointing downwards to the next number in the chain, depicting how collisions are resolved by linking items within the same slot.</description>
-                    </image>
-                </figure>
+                <image source="SearchHash/chaining.png" width="80%">
+                    <description>Image of a hash table with eleven slots numbered from 0 to 10,
+                        demonstrating collision resolution with chaining. Each slot is either empty,
+                        labeled 'None', or contains a vertical list of numbers, representing a chain
+                        of items that have been hashed to the same slot. Slot 0 has a chain of '77',
+                        followed by '44' and '55'. Slot 4 has '26' and '93', slot 6 has '17',
+                        slot 9 has '31' and '54', and slot 10 has '20'. The chains are represented
+                        by numbers in boxes with arrows pointing downwards to the next number in the chain,
+                        depicting how collisions are resolved by linking items within the same slot.
+                    </description>
+                </image>
+            </figure>
             <p>When we want to search for an item, we use the hash function to generate
                 the slot where it should reside. Since each slot holds a collection, we
                 use a searching technique to decide whether the item is present. The
@@ -498,7 +552,7 @@ int main() {
                 between a key and a value. The operations are given below.</p>
             
             <table xml:id="search-hash_id12"><tabular>
-                <title>Map  Operations</title>
+                <caption>Map Operations</caption>
                 
                     
                     
@@ -588,16 +642,18 @@ int main() {
                 been chosen to be 11. Although this is arbitrary, it is important that
                 the size be a prime number so that the collision resolution algorithm
                 can be as efficient as possible.</p>
-            
+    
             <listing xml:id="search-hash_lst-hashtablecodeconstructor">
-            <pre>class HashTable{
+                <caption><c>HashTable</c> Class</caption>
+                <program language="cpp"><input>
+    class HashTable{
     public:
-    static const int size=11;
-    int slots[size];
-    string data[size];
-    </pre>
-    </listing>
-            <p>In <xref ref="search-hash_lst-hashtablecodestore"/>, <c>hashfunction</c> implements the
+        static const int size=11;
+        int slots[size];
+        string data[size];
+                </input></program>
+            </listing>
+            <p>In <xref ref="search-hash_lst-hashtablecodestore-cpp"/>, <c>hashfunction</c> implements the
                 simple remainder method. The collision resolution technique is linear probing
                 with a <q>plus 1</q> rehash function. The <c>put</c> function assumes that there will
                 eventually be an empty slot unless the key is already present in the <c>self.slots</c>.
@@ -605,34 +661,12 @@ int main() {
                 <c>rehash</c> function until an empty slot occurs. If a nonempty slot already
                 contains the key, the old data value is replaced with the new data value.
                 Dealing with the situation where there are no empty slots left is an exercise.</p>
-            
-            <listing xml:id="search-hash_lst-hashtablecodestore">
-            <pre>def put(self,key,data):
-    hashvalue = self.hashfunction(key,len(self.slots))
 
-    if self.slots[hashvalue] == None:
-        self.slots[hashvalue] = key
-        self.data[hashvalue] = data
-    else:
-        if self.slots[hashvalue] == key:
-            self.data[hashvalue] = data  #replace
-        else:
-            nextslot = self.rehash(hashvalue,len(self.slots))
-            while self.slots[nextslot] != None and self.slots[nextslot] != key:
-                nextslot = self.rehash(nextslot,len(self.slots))
-
-        if self.slots[nextslot] == None:
-            self.slots[nextslot] = key
-            self.data[nextslot] = data
-        else:
-            self.data[nextslot] = data #replace
-
-def hashfunction(self,key,size):
-    return key%size
-
-def rehash(self,oldhash,size):
-    return (oldhash+1)%size</pre>
-            <pre>int hashfunction(int key) {
+            <exploration xml:id="expl-hashtablecodestore">
+                <task label="search-hash_lst-hashtablecodestore-cpp" xml:id="search-hash_lst-hashtablecodestore-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program language="cpp"><input>
+int hashfunction(int key) {
     return key%size;
 }
 
@@ -670,9 +704,42 @@ void put(int key, string val){
             }
         }
     }
-}</pre>
-</listing>
-            <p>Likewise, the <c>get</c> function (see <xref ref="search-hash_lst-hashtablecodesearch"/>)
+}
+                    </input></program></statement>
+                </task>
+                <task label="search-hash_lst-hashtablecodestore-py" xml:id="search-hash_lst-hashtablecodestore-py">
+                    <title>Python Implementation</title>
+                    <statement><program language="python"><input>
+def put(self,key,data):
+    hashvalue = self.hashfunction(key,len(self.slots))
+
+    if self.slots[hashvalue] == None:
+        self.slots[hashvalue] = key
+        self.data[hashvalue] = data
+    else:
+        if self.slots[hashvalue] == key:
+            self.data[hashvalue] = data  #replace
+        else:
+            nextslot = self.rehash(hashvalue,len(self.slots))
+            while self.slots[nextslot] != None and self.slots[nextslot] != key:
+                nextslot = self.rehash(nextslot,len(self.slots))
+
+        if self.slots[nextslot] == None:
+            self.slots[nextslot] = key
+            self.data[nextslot] = data
+        else:
+            self.data[nextslot] = data #replace
+
+def hashfunction(self,key,size):
+    return key%size
+
+def rehash(self,oldhash,size):
+    return (oldhash+1)%size
+                    </input></program></statement>
+                </task>
+            </exploration>
+                
+            <p>Likewise, the <c>get</c> function (see <xref ref="search-hash_lst-hashtablecodesearch-cpp"/>)
                 begins by computing the initial hash value. If the value is not in the
                 initial slot, <c>rehash</c> is used to locate the next possible position.
                 Notice that line 15 guarantees that the search will terminate by
@@ -684,9 +751,37 @@ void put(int key, string val){
                 __setitem__ methods to allow access using``[]``. This means that
                 once a <c>HashTable</c> has been created, the familiar index operator will
                 be available. We leave the remaining methods as exercises.</p>
-            
-            <listing xml:id="search-hash_lst-hashtablecodesearch">
-            <pre>def get(self,key):
+
+            <exploration xml:id="expl-hashtablecodesearch">
+                <title>Final Methods of <c>HashTable</c></title>
+                <task xml:id="search-hash_lst-hashtablecodesearch-cpp" label="search-hash_lst-hashtablecodesearch-cpp">
+                    <statement><program language="cpp"><input>
+string get(int key) {
+    int startslot = hashfunction(key);
+
+    string val;
+    bool stop=false;
+    bool found=false;
+    int position = startslot;
+    while(data[position]!="" &amp;&amp; !found &amp;&amp; !stop) {
+        if (slots[position]==key) {
+            found = true;
+            val = data[position];
+        } else {
+            position=rehash(position);
+            if (position==startslot) {
+                stop=true;
+            }
+        }
+
+    }
+    return val;
+}
+                    </input></program></statement>
+                </task>
+                <task xml:id="search-hash_lst-hashtablecodesearch-py" label="search-hash_lst-hashtablecodesearch-py">
+                    <statement><program language="python"><input>
+def get(self,key):
     startslot = self.hashfunction(key,len(self.slots))
 
     data = None
@@ -707,33 +802,17 @@ def __getitem__(self,key):
     return self.get(key)
 
 def __setitem__(self,key,data):
-    self.put(key,data)</pre>
-            <pre>string get(int key) {
-    int startslot = hashfunction(key);
-
-    string val;
-    bool stop=false;
-    bool found=false;
-    int position = startslot;
-    while(data[position]!="" &amp;&amp; !found &amp;&amp; !stop) {
-        if (slots[position]==key) {
-            found = true;
-            val = data[position];
-        } else {
-            position=rehash(position);
-            if (position==startslot) {
-                stop=true;
-            }
-        }
-
-    }
-    return val;
-}</pre>
-</listing>
-            <p>The following session shows the <c>HashTable</c> class in action. First we
+    self.put(key,data)
+                    </input></program></statement>
+                </task>
+            </exploration>
+            <p><xref ref="hashtable-output"/> shows the <c>HashTable</c> class in action. First we
                 will create a hash table and store some items with integer keys and
                 string data values.</p>
-            <pre>int main() {
+            <listing xml:id="hashtable-output">
+                <caption>Example Use of <c>HashTable</c></caption>
+                <program language="cpp"><input>
+int main() {
     HashTable h;
 
     h.put(54, "cat");
@@ -749,8 +828,9 @@ def __setitem__(self,key,data):
 
     return 0;
 }
-
-&gt;&gt; Output:
+                </input></program>
+                <console><output>
+Output:
   77: bird
   44: goat
   55: pig
@@ -761,33 +841,44 @@ def __setitem__(self,key,data):
   0:
   0:
   31: cow
-  54: cat</pre>
-            <p>Next we will access and modify some items in the hash table. Note that
+  54: cat
+                </output></console>
+            </listing>
+            <p>Next we will access and modify some items in the hash table
+                (<xref ref="hashtable-output2"/>). Note that
                 the value for the key 20 is being replaced.</p>
-            <pre>...
+            <listing xml:id="hashtable-output2">
+                <caption>Continued use of <c>HashTable</c></caption>
+                <program language="cpp"><input>
+...
 h.put(20,"chicken");
 h.put(17,"tiger");
 h.put(20,"duck");
 cout&lt;&lt;h&lt;&lt;endl;
 ...
-
-&gt;&gt; Output:
-77: bird
-44: goat
-55: pig
-20: duck
-26: dog
-93: lion
-17: tiger
-65535:
-0:
-31: cow
-54: cat</pre>
+                </input></program>
+                <console><output>
+Output:
+  77: bird
+  44: goat
+  55: pig
+  20: duck
+  26: dog
+  93: lion
+  17: tiger
+  65535:
+  0:
+  31: cow
+  54: cat
+                </output></console>
+            </listing>
             <p>The complete hash table example can be found in ActiveCode 1.</p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'Hashing', 'chapter': 'SearchHash', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-    <program xml:id="complete_hash_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="expl-completehash">
+                <title>Complete <c>HashTable</c></title>
+                <task xml:id="complete_hash_cpp" label="complete_hash_cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program language="cpp" interactive="activecode"><input>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -902,12 +993,11 @@ int main() {
 
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'Hashing', 'chapter': 'SearchHash', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="complete_hash_py" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="complete_hash_py" label="complete_hash_py">
+                    <title>Python Implementation</title>
+                    <statement><program language="python" interactive="activecode"><input>
 class HashTable:
     def __init__(self):
         self.size = 11 # initial size of hash table is prime to help with collision resolution
@@ -991,9 +1081,9 @@ print(H[17])
 H[20]='duck'
 print(H[20])
 print(H[99])
-        </input>
-    </program>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
         </subsection>
         <subsection xml:id="search-hash_analysis-of-hashing">
             <title>Analysis of Hashing</title>
