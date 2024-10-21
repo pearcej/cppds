@@ -75,8 +75,9 @@
         <m>T(n)</m> function, we must see how they compare with one another
         as <em>n</em> gets large.</p>
     
-    <table xml:id="algorithm-analysis_algorithm-analysis_tbl-fntablecpp"><tabular>
-        <title><term>Table 1: Common Big-O Functions</term></title>
+    <table xml:id="algorithm-analysis_algorithm-analysis_tbl-fntablecpp">
+        <title>Common Big-O Functions</title>
+        <tabular>
         
             
             
@@ -160,7 +161,10 @@
     <figure align="center" xml:id="fig-graphfigurecpp">
         <caption>Common Big-O Functions</caption>
             <image source="AlgorithmAnalysis/newplot.png" width="50%">
-                <description>Figure 1 shows graphs of the common functions from Table 1. Notice that when n is small, the functions are not very well defined with respect to one another. It is hard to tell which is dominant. However, as n grows, there is a definite relationship and it is easy to see how they compare with one another.</description>
+                <description>This figure shows graphs of the common functions from <xref ref="algorithm-analysis_algorithm-analysis_tbl-fntablecpp"/>.
+                    When n is small, the functions are not very well defined with respect to one another. It is hard to tell which is
+                    dominant. However, as n grows, there is a definite relationship and it is easy to see how they compare with one another.
+                </description>
             </image>
     </figure>
 
