@@ -78,7 +78,7 @@ class TagsNeedsTitle(CppsXmlTest):
                         found = True
                 if not found:
                     ret = False
-                    print(f'{fname}: {captioned_thing} is missing caption')
+                    print(f'{fname}: {captioned_thing} is missing title')
 
 
 class ImageNeedsDescription(CppsXmlTest):
