@@ -170,8 +170,9 @@ int main(){
             <m>O(1)</m>. This is a tradeoff that the C++ implementers thought
             was a good one.</p>
         
-        <table xml:id="algorithm_analysis_algorithm_analysis_tbl_vectbigocpp"><tabular>
+        <table xml:id="algorithm_analysis_algorithm_analysis_tbl_vectbigocpp">
             <title>Big-O Efficiency of C++ Vector Operators</title>
+            <tabular>
             
                 
                 
