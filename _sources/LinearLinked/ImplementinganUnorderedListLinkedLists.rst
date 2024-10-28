@@ -372,8 +372,8 @@ As in the ``size`` method, the traversal is initialized to start at
 the head of the linked list (line 2). As long as there are
 more nodes to visit and we have not found the item we are looking for,
 we continue to check the next node. The question in line 4 asks whether
-the data item is present in the current node. If so, we return ``True``.
-When we reach the end of the list and the item has not been found, we return ``False``.
+the data item is present in the current node. If so, we return ``true``.
+When we reach the end of the list and the item has not been found, we return ``false``.
 
 .. _lst_search:
 
@@ -412,7 +412,7 @@ item 17.
 
 Since 17 is in the linked list, the traversal process needs to move only to the
 node containing 17. At that point, the variable ``found`` is set to
-``True`` and the ``while`` condition will fail, leading to the return
+``true`` and the ``while`` condition will fail, leading to the return
 value seen above. This process can be seen in :ref:`Figure 10 <fig_searchpic>`.
 
 .. _fig_searchpic:
@@ -433,7 +433,7 @@ present, we know that the iteration will stop before ``current`` gets to
 ``NULL``. This means that we can simply use the boolean ``found`` in the
 condition.
 
-When ``found`` becomes ``True``, ``current`` will be a reference to the
+When ``found`` becomes ``true``, ``current`` will be a reference to the
 node containing the item to be removed. But how do we remove it? One
 possibility would be to replace the value of the item with some marker
 that suggests that the item is no longer present. The problem with this
@@ -466,7 +466,7 @@ current. For this reason, ``previous`` starts out with a value of
 used to control the iteration.
 
 In lines 6–7 we ask whether the item stored in the current node is the
-item we wish to remove. If so, ``found`` can be set to ``True``. If we
+item we wish to remove. If so, ``found`` can be set to ``true``. If we
 do not find the item, ``previous`` and ``current`` must both be moved
 one node ahead. Again, the order of these two statements is crucial.
 ``previous`` must first be moved one node ahead to the location of
@@ -546,7 +546,7 @@ to be changed (see :ref:`Figure 14 <fig_removehead>`).
 
 Line 12 allows us to check whether we are dealing with the special case
 described above. If ``previous`` did not move, it will still have the
-value ``NULL`` when the boolean ``found`` becomes ``True``. In that case
+value ``NULL`` when the boolean ``found`` becomes ``true``. In that case
 (line 13) the head of the linked list is modified to refer to the node after
 the current node, in effect removing the first node from the linked
 list. However, if previous is not ``NULL``, the node to be removed is

@@ -1,0 +1,511 @@
+<?xml version="1.0"?>
+<section xml:id="linear-linked_unordered-linked-list">
+    <title>The <c>Unordered Linked List</c> Class</title>
+
+    <p>As we suggested above, the <term>unordered linked list</term>
+        will be built from a collection of nodes, each linked to the next by explicit
+        pointers. As long as we know where to find the first node (containing the first
+        item), each item after that can be found by successively following the
+        next links. With this in mind, the <c>UnorderedList</c> class must maintain
+        a reference to the first node. <xref ref="unordered-constructor"/> shows the
+        constructor. Note that each list object will maintain a single reference
+        to the head of the list.</p>
+
+    <listing xml:id="unordered-constructor">
+        <caption><c>UnorderedList</c> Constructor</caption>
+        <program language="cpp"><input>
+class UnorderedList {
+    public:
+        Node *head;
+
+        UnorderedList() {
+                head = NULL;
+        }
+};
+        </input></program>
+    </listing>
+    <p>Initially when we construct a list, there are no items. The assignment and declaration statment</p>
+    <pre>UnorderedList myList;</pre>
+    <p>creates the linked list representation shown in <xref ref="fig-unordered-empty"/>.
+        As we discussed in the Node class, the special reference <c>NULL</c> will again be used to state
+        that the head of the list does not refer to anything. Eventually, the example list given earlier
+        will be represented by a linked list as shown in <xref ref="fig-unordered-full"/>.
+        The head of the list points to the first node which contains the first item of the list.
+        In turn, that node holds a reference to the next node (the next item) and so on.
+        It is very important to note that the list class itself does not contain any node objects.
+        Instead it contains a single pointer to only the first node in the linked structure.</p>
+
+    <figure align="center" xml:id="fig-unordered-empty">
+        <caption>Newly constructed (empty) list.</caption>
+        <image source="LinearLinked/initlinkedlist.png" width="50%"/>
+    </figure>
+
+    <figure align="center" xml:id="fig-unordered-full">
+        <caption>Linked list with some items inserted.</caption>
+        <image source="LinearLinked/linkedlist.png" width="50%"/>
+    </figure>
+
+    <p>The <c>isEmpty</c> method, shown in <xref ref="unordered-isempty"/>, simply checks to
+        see if the head of the list is a reference to <c>NULL</c>. The result of
+        the boolean expression <c>this-&gt;head==NULL</c> will only be true if there
+        are no nodes in the linked list. Since a new list is empty, the
+        constructor and the check for empty must be consistent with one another.
+        This shows the advantage to using the reference <c>NULL</c> to denote the
+        <q>end</q> of the linked structure. Two references are equal if they both refer to the same
+        object. We will use this often in our remaining methods.</p>
+    <listing xml:id="unordered-isempty">
+        <caption><c>UnorderedList</c> <c>isEmpty()</c> method</caption>
+        <program language="cpp"><input>
+bool isEmpty() {
+    return head == NULL;
+}
+        </input></program>
+    </listing>
+
+    <p>So, how do we get items into our linked list? We need to implement the <c>add</c> method.
+        However, before we can do that, we need to address the important question of where in
+        the linked list to place the new item. Since this linked list is unordered,
+        the specific location of the new item with respect to the other items already
+        in the linked list is not important. The new item can go anywhere.
+        With that in mind, it makes sense to place the new item in the easiest location possible.</p>
+
+    <p>Recall that the linked list structure provides us with only one entry point,
+        the head of the linked list. All of the other nodes can only be reached by accessing
+        the first node and then following <c>next</c> links. This means that the easiest place to add
+        the new node is right at the head, or beginning, of the linked list.
+        In other words, we will make the new item the first item of the linked list and the
+        existing items will need to be linked to this new first item so that they follow.</p>
+
+
+    <p>The linked linked list shown in <xref ref="fig-unordered-full"/> was built by calling
+        the <c>add</c> method a number of times as in <xref ref="unordered-lst-add"/>.</p>
+
+    <listing xml:id="unordered-lst-add">
+        <caption><c>UnorderedList</c> Adding Elements</caption>
+        <program language="cpp"><input>
+mylist.add(31);
+mylist.add(77);
+mylist.add(17);
+mylist.add(93);
+mylist.add(26);
+mylist.add(54);
+        </input></program>
+    </listing>
+
+    <p>Note that since 31 is the first item added to the linked list, it will
+        eventually be the last node on the linked list as every other item is
+        added ahead of it. Also, since 54 is the last item added, it will become
+        the data value in the first node of the linked list.</p>
+
+    <p>The <c>add</c> method is shown in <xref ref="unordered-add"/>. Each item of the linked list
+        must reside in a node object. Line 2 creates a new node and places the
+        item as its data. Now we must complete the process by linking the new
+        node into the existing structure. This requires two steps as shown in
+        <xref ref="fig-unordered-add-correct"/>. Step 1 (line 3) changes the <c>next</c> reference
+        of the new node to refer to the old first node of the linked list. Now that the
+        rest of the linked list has been properly attached to the new node, we can
+        modify the head of the linked list to refer to the new node. The assignment
+        statement in line 4 sets the head of the linked list.</p>
+            
+    <listing xml:id="unordered-add">
+        <caption><c>UnorderedList</c> <c>add</c> Method</caption>
+        <program language="cpp" line-numbers="yes"><input>
+void add(int item) {
+    Node *temp = new Node(item);
+    temp-&gt;setNext(head);
+    head = temp;
+}
+        </input></program>
+    </listing>
+
+    <figure align="center" xml:id="fig-unordered-add-correct">
+        <caption>Adding a Node.</caption>
+        <image source="LinearLinked/addtohead.png" width="50%"/>
+    </figure>
+    
+    <p>The order of the two steps described above is very important. What
+    happens if the order of line 3 and line 4 is reversed? If the
+    modification of the head of the linked list happens first, the result can be
+    seen in <xref ref="fig-unordered-add-wrong"/>. Since the head was the only external
+    reference to the linked list nodes, all of the original nodes are lost and can
+    no longer be accessed.</p>
+
+    <figure align="center" xml:id="fig-unordered-add-wrong">
+        <caption>Incorrect Order for Adding a Node.</caption>
+        <image source="LinearLinked/wrongorder.png" width="50%"/>
+    </figure>
+
+    <p>The next methods that we will implement – <c>size</c>, <c>search</c>, and
+        <c>remove</c> – are all based on a technique known as
+        <term>linked list traversal</term>. Traversal refers to the process of
+        systematically visiting each node. To do this we use an external reference
+        that starts at the first node in the linked list. As we visit each node,
+        we move the reference to the next node by <q>traversing</q> the next reference.</p>
+
+    <p>To implement the <c>size</c> method, we need to traverse the linked list
+        and keep a count of the number of nodes that occurred.
+        <xref ref="unordered-size"/> shows the C++ code for counting the number of
+        nodes in the linked list. The external reference is called <c>current</c> and is
+        initialized to the head of the linked list in line 2. At the start of the
+        process we have not seen any nodes so the count is set to <m>0</m>.
+        Lines 4–6 actually implement the traversal. As long as the current
+        reference has not seen the end of the linked list (<c>NULL</c>), we move current
+        along to the next node via the assignment statement in line 6. Again,
+        the ability to compare a reference to <c>NULL</c> is very useful. Every
+        time current moves to a new node, we add <m>1</m> to <c>count</c>.
+        Finally, <c>count</c> gets returned after the iteration stops.
+        <xref ref="fig-traversal"/> shows this process as it proceeds down the linked list.</p>
+
+    <listing xml:id="unordered-size">
+        <caption><c>UnorderedList</c> <c>size</c> Method</caption>
+        <program language="cpp" line-numbers="yes"><input>
+int size() {
+    Node *current = head;
+    int count = 0;
+    while (current != NULL) {
+        count++;
+        current = current->getNext();
+    }
+
+    return count;
+}
+        </input></program>
+    </listing>
+
+    <figure align="center" xml:id="fig-traversal">
+        <caption>Traversing a Linked List.</caption>
+        <image source="LinearLinked/traversal.png" width="50%"/>
+    </figure>
+    <p>Searching for a value in a linked list implementation of an unordered
+        linked list also uses the traversal technique. As we visit each node in the
+        linked list we will ask whether the data stored there matches the item
+        we are looking for. In this case, however, we may not have to traverse
+        all the way to the end of the linked list. In fact, if we do get to the end of
+        the linked list, that means that the item we are looking for must not be
+        present. Also, if we do find the item, there is no need to continue.</p>
+    
+    <p><xref ref="unordered-search"/> shows the implementation for the <c>search</c> method.
+        As in the <c>size</c> method, the traversal is initialized to start at
+        the head of the linked list (line 2). As long as there are
+        more nodes to visit and we have not found the item we are looking for,
+        we continue to check the next node. The question in line 4 asks whether
+        the data item is present in the current node. If so, we return <c>true</c>.
+        When we reach the end of the list and the item has not been found, we return <c>false</c>.</p>
+
+    <listing xml:id="unordered-search">
+        <caption><c>UnorderedList</c> <c>search</c> Method</caption>
+        <program language="cpp" line-numbers="yes"><input>
+bool search(int item) {
+    Node *current = head;
+    while (current != NULL) {
+        if (current->getData() == item) {
+            return true;
+        } else {
+            current = current->getNext();
+        }
+    }
+    return false;
+}
+        </input></program>
+    </listing>
+
+    <p>As an example, consider invoking the <c>search</c> method looking for the
+        item 17.</p>
+    <pre>
+&gt;&gt;&gt; mylist.search(17);
+1
+    </pre>
+
+    <p>Since 17 is in the linked list, the traversal process needs to move only to the
+        node containing 17. At that point, the variable <c>found</c> is set to
+        <c>true</c> and the <c>while</c> condition will fail, leading to the return
+        value seen above. This process can be seen in <xref ref="fig-unordered-search"/>.</p>
+
+    <figure align="center" xml:id="fig-unordered-search">
+        <caption>Searching a Linked List.</caption>
+        <image source="LinearLinked/search.png" width="50%"/>
+    </figure>
+
+    <p>The <c>remove</c> method requires two logical steps. First, we need to
+        traverse the linked list looking for the item we want to remove. Once we find
+        the item (recall that we assume it is present), we must remove it. The
+        first step is very similar to <c>search</c>. Starting with an external
+        reference set to the head of the linked list, we traverse the links until we
+        discover the item we are looking for. Since we assume that item is
+        present, we know that the iteration will stop before <c>current</c> gets to
+        <c>NULL</c>. This means that we can simply use the boolean <c>found</c> in the
+        condition.</p>
+    
+    <p>When <c>found</c> becomes <c>true</c>, <c>current</c> will be a reference to the
+        node containing the item to be removed. But how do we remove it? One
+        possibility would be to replace the value of the item with some marker
+        that suggests that the item is no longer present. The problem with this
+        approach is the number of nodes will no longer match the number of
+        items. It would be much better to remove the item by removing the entire
+        node.</p>
+    
+    <p>In order to remove the node containing the item, we need to modify the
+        link in the previous node so that it refers to the node that comes after
+        <c>current</c>. Unfortunately, there is no way to go backward in the linked
+        list. Since <c>current</c> refers to the node ahead of the node where we
+        would like to make the change, it is too late to make the necessary
+        modification.</p>
+    
+    <p>The solution to this dilemma is to use two external references as we
+        traverse down the linked list. <c>current</c> will behave just as it did
+        before, marking the current location of the traverse. The new reference,
+        which we will call <c>previous</c>, will always travel one node behind
+        <c>current</c>. That way, when <c>current</c> stops at the node to be removed,
+        <c>previous</c> will be referring to the proper place in the linked list
+        for the modification.</p>
+    
+    <p><xref ref="unordered-remove"/> shows the complete <c>remove</c> method. Lines 2–3
+        assign initial values to the two references. Note that <c>current</c>
+        starts out at the linked list head as in the other traversal examples.
+        <c>previous</c>, however, is assumed to always travel one node behind
+        current. For this reason, <c>previous</c> starts out with a value of
+        <c>NULL</c> since there is no node before the head (see
+        <xref ref="fig-unordered-removeinit"/>). The boolean variable <c>found</c> will again be
+        used to control the iteration.</p>
+    
+    <listing xml:id="unordered-remove">
+        <caption><c>UnorderedList</c> <c>remove</c> Method</caption>
+        <program language="cpp" line-numbers="yes"><input>
+void remove(int item) {
+    Node *current = head;
+    Node *previous = NULL;
+    bool found = false;
+    while (!found) {
+        if (current->getData() == item) {
+            found = true;
+        } else {
+            previous = current;
+            current = current->getNext();
+        }
+    }
+    if (previous == NULL) {
+        head = current->getNext();
+    } else {
+        previous->setNext(current->getNext());
+    }
+}
+        </input></program>
+    </listing>
+
+    <figure align="center" xml:id="fig-unordered-removeinit">
+        <caption>Initialization of <c>remove</c> method.</caption>
+        <image source="LinearLinked/removeinit.png" width="50%"/>
+    </figure>
+
+    <p>In lines 6–7 we ask whether the item stored in the current node is the
+        item we wish to remove. If so, <c>found</c> can be set to <c>true</c>. If we
+        do not find the item, <c>previous</c> and <c>current</c> must both be moved
+        one node ahead. Again, the order of these two statements is crucial.
+        <c>previous</c> must first be moved one node ahead to the location of
+        <c>current</c>. At that point, <c>current</c> can be moved. This process is
+        often referred to as “inch-worming” as <c>previous</c> must catch up to
+        <c>current</c> before <c>current</c> moves ahead. <xref ref="fig-unordered-prevcurr"/> shows
+        the movement of <c>previous</c> and <c>current</c> as they progress down the linked
+        list looking for the node containing the value 17.</p>
+
+    <figure align="center" xml:id="fig-unordered-prevcurr">
+        <caption>Initialization of <c>remove</c> method.</caption>
+        <image source="LinearLinked/prevcurr.png" width="50%"/>
+    </figure>
+
+    <p>Once the searching step of the <c>remove</c> has been completed, we need to
+        remove the node from the linked list. <xref ref="fig-unordered-remove"/> shows the
+        link that must be modified. However, there is a special case that needs
+        to be addressed. If the item to be removed happens to be the first item
+        in the linked list, then <c>current</c> will reference the first node in the
+        linked list. This also means that <c>previous</c> will be <c>NULL</c>. We said
+        earlier that <c>previous</c> would be referring to the node whose next
+        reference needs to be modified in order to complete the remove. In this
+        case, it is not <c>previous</c> but rather the head of the linked list that needs
+        to be changed (see <xref ref="fig-unordered-removehead"/>).</p>
+
+    <figure align="center" xml:id="fig-unordered-remove">
+        <caption>Removing an Item from the Middle of the Linked List.</caption>
+        <image source="LinearLinked/remove.png" width="50%"/>
+    </figure>
+
+    <figure align="center" xml:id="fig-unordered-removehead">
+        <caption>Removing the First Node from the Linked List.</caption>
+        <image source="LinearLinked/remove2.png" width="50%"/>
+    </figure>
+
+    <p>Line 12 allows us to check whether we are dealing with the special case
+        described above. If <c>previous</c> did not move, it will still have the
+        value <c>NULL</c> when the boolean <c>found</c> becomes <c>true</c>. In that case
+        (line 13) the head of the linked list is modified to refer to the node after
+        the current node, in effect removing the first node from the linked
+        list. However, if previous is not <c>NULL</c>, the node to be removed is
+        somewhere down the linked list structure. In this case the previous
+        reference is providing us with the node whose next reference must be
+        changed. Line 15 uses the <c>setNext</c> method from <c>previous</c> to
+        accomplish the removal. Note that in both cases the destination of the
+        reference change is <c>current.getNext()</c>. One question that often
+        arises is whether the two cases shown here will also handle the
+        situation where the item to be removed is in the last node of the linked
+        list. We leave that for you to consider.</p>
+
+    <p>You can try out the <c>UnorderedList</c> class in <xref ref="lst-unordered"/>.</p>
+            
+    <listing xml:id="lst-unordered">
+        <caption>Complete <c>UnorderList</c> Implementation</caption>
+        <program language="cpp" interactive="activecode"><input>
+#include &lt;iostream&gt;
+using namespace std;
+
+//creates a node class
+class Node {
+    //defines data, and next as a pointer.
+    private:
+        int data; //data in the beginning node
+        Node *next; //pointer to the next node
+
+    public:
+        Node(int initdata) {
+                data = initdata; //the initialized data is set as the head
+                next = NULL; //the next node is set as NULL, as there is no next node yet.
+        }
+
+        int getData() { //function that return data of a given node.
+                return data;
+        }
+
+        Node *getNext() { // pointer that gets the next node
+                return next;
+        }
+
+        void setData(int newData) { // sets data in node
+                data = newData;
+        }
+
+        void setNext(Node *newnext) {
+                next = newnext;
+        }
+};
+
+    // creates unorderedlist that points to the head of the linked list
+class UnorderedList {
+    public:
+            Node *head;
+
+            UnorderedList() { // makes the head node equal to null
+                    head = NULL;
+            }
+
+        bool isEmpty() { // the head node is empty if it is null
+            return head == NULL;
+        }
+
+        void add(int item) { //cerates a "temp" pointer that adds the new node to the head of the list
+            Node *temp = new Node(item);
+            temp-&gt;setNext(head);
+            head = temp;
+        }
+
+        int size() { //cereates a "current" pointer that iterates through the list until it reaches null
+            Node *current = head;
+            int count = 0;
+            while (current != NULL) {
+                count++;
+                current = current-&gt;getNext();
+            }
+
+            return count;
+        }
+
+        // creates "current" pointer that iterates through the list
+        // untli it finds the item being searched for, and returns a boolean value
+
+        bool search(int item) {
+            Node *current = head;
+            while (current != NULL) {
+                if (current-&gt;getData() == item) {
+                    return true;
+                } else {
+                    current = current-&gt;getNext();
+                }
+            }
+            return false;
+        }
+
+        // uses current and previous pointer to iterate through the lists
+        // finds the items that is searched for, and removes it
+
+        void remove(int item) {
+            Node *current = head;
+            Node *previous = NULL;
+            bool found = false;
+            while (!found) {
+                if (current-&gt;getData() == item) {
+                    found = true;
+                } else {
+                    previous = current;
+                    current = current-&gt;getNext();
+                }
+            }
+            if (previous == NULL) {
+                head = current-&gt;getNext();
+            } else {
+                previous-&gt;setNext(current-&gt;getNext());
+            }
+        }
+
+        friend ostream&amp; operator&lt;&lt;(ostream&amp; os, const UnorderedList&amp; ol);
+};
+
+ostream&amp; operator&lt;&lt;(ostream&amp; os, const UnorderedList&amp; ol) {
+    Node *current = ol.head;
+    while (current != NULL) {
+        os&lt;&lt;current-&gt;getData()&lt;&lt;endl;
+        current = current-&gt;getNext();
+    }
+    return os;
+}
+
+
+int main() {
+    UnorderedList mylist;
+    mylist.add(31);
+    mylist.add(77);
+    mylist.add(17);
+    mylist.add(93);
+    mylist.add(26);
+    mylist.add(54);
+
+    cout&lt;&lt;"SIZE: "&lt;&lt;mylist.size()&lt;&lt;endl;
+    cout&lt;&lt;"contains 93?\t"&lt;&lt;mylist.search(93)&lt;&lt;endl;
+    cout&lt;&lt;"contains 100?\t"&lt;&lt;mylist.search(100)&lt;&lt;endl&lt;&lt;endl;
+
+    mylist.add(100);
+    cout&lt;&lt;"contains 100?\t"&lt;&lt;mylist.search(100)&lt;&lt;endl&lt;&lt;endl;
+    cout&lt;&lt;"SIZE: "&lt;&lt;mylist.size()&lt;&lt;endl;
+
+    mylist.remove(54);
+    cout&lt;&lt;"SIZE: "&lt;&lt;mylist.size()&lt;&lt;endl;
+    mylist.remove(93);
+    cout&lt;&lt;"SIZE: "&lt;&lt;mylist.size()&lt;&lt;endl;
+    mylist.remove(31);
+    cout&lt;&lt;"SIZE: "&lt;&lt;mylist.size()&lt;&lt;endl;
+    mylist.search(93);
+
+    cout&lt;&lt;"MY LIST: "&lt;&lt;endl&lt;&lt;mylist;
+        return 0;
+}
+        </input></program>
+    </listing>
+
+    <p>The remaining methods <c>append</c>, <c>insert</c>, <c>index</c>, and <c>pop</c> are
+        left as exercises. Remember that each of these must take into account
+        whether the change is taking place at the head of the linked list or someplace
+        else. Also, <c>insert</c>, <c>index</c>, and <c>pop</c> require that we name the
+        positions of the linked list. We will assume that position names are integers
+        starting with 0.</p>
+    
+    <p>
+        <!-- extra space before the progress bar -->
+    </p>
+</section>
