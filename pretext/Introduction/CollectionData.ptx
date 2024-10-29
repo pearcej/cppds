@@ -218,8 +218,9 @@ main()
                 needs to include the vector library.</p>
             <pre>#include &lt;vector&gt;</pre>
             
-            <table xml:id="introduction_id4"><tabular>
-                <title><term>Common C++ Vector Operators</term></title>
+            <table xml:id="introduction_id4">
+                <title>Common C++ Vector Operators</title>
+                <tabular>
                 
                     
                     
@@ -488,13 +489,9 @@ char cstring[] = {"Hello World!"};    // C-string or char array uses double quot
 
     
             
-            <table xml:id="introduction_tab-stringmethods"><tabular>
+            <table xml:id="introduction_tab-stringmethods">
                 <title>String Methods Provided in C++</title>
-                
-                    
-                    
-                    
-                    
+                <tabular>
                         <row header="yes">
                             <cell>
                                 <term>Method Name</term>
@@ -789,13 +786,9 @@ main()
             <p>Hash Tables have both methods and operators. <xref ref="introduction_tab-hashopers"/>
                 describes them, and the session shows them in action.</p>
             
-            <table xml:id="introduction_tab-hashopers"><tabular>
+            <table xml:id="introduction_tab-hashopers">
                 <title>Important Hash Table Operators Provided in C++</title>
-                
-                    
-                    
-                    
-                    
+                <tabular>
                         <row header="yes">
                             <cell>
                                 <term>Operator</term>
@@ -886,13 +879,9 @@ main()
                 have worked with sets in a mathematics setting. <xref ref="introduction_tab-setmethods"/>
                 provides a summary. Examples of their use follow.</p>
             
-            <table xml:id="introduction_tab-setmethods"><tabular>
+            <table xml:id="introduction_tab-setmethods">
                 <title>Methods Provided by Sets in C++</title>
-                
-                    
-                    
-                    
-                    
+                <tabular>
                         <row header="yes">
                             <cell>
                                 <term>Method Name</term>
