@@ -1,0 +1,60 @@
+<section xml:id="sec-SelfCheck-sort">
+    <title>Self Check</title>
+
+    <exercise label="question_sort_9">
+        <statement><p>Which of the following sort algorithms are guaranteed to be <m>O(n \log n)</m> even in the worst case?</p></statement>
+        <choices>
+            <choice correct="false">
+                <statement>Shell Sort</statement>
+                <feedback>Shell sort is between <m>O(n)</m> and <m>O(n^2)</m></feedback>
+            </choice>
+            <choice correct="false">
+                <statement>Quick Sort</statement>
+                <feedback>Quick sort can be <m>O(n \log n)</m>, but if the pivot points are not well chosen and the list is just so, it can be <m>O(n^2)</m>.</feedback>
+            </choice>
+            <choice correct="true">
+                <statement>Merge Sort</statement>
+                <feedback>Correct! Merge Sort is the only guaranteed <m>O(n \log n)</m> even in the worst case. The cost is that merge sort uses more memory.</feedback>
+            </choice>
+            <choice correct="false">
+                <statement>Insertion Sort</statement>
+                <feedback>Insertion sort is <m>O(n^2)</m></feedback>
+            </choice>
+        </choices>
+    </exercise>
+
+    <exercise label="question_sort_10">
+        <statement><p>Match each sorting method with its appropriate estimated comparisons.</p></statement>
+        <feedback><p>Refer to previous sections of the chapter</p></feedback>
+        <matches>
+            <match order="1"><premise>Quick Sort</premise><response><m>O(n \log n)</m> or <m>O(n^2)</m></response></match>
+            <match order="2"><premise>Insertion/Bubble/Merge</premise><response><m>O(n^2)</m></response></match>
+            <match order="3"><premise>Merge Sort</premise><response><m>O(n \log n)</m></response></match>
+            <match order="4"><premise>Shell Sort</premise><response>between <m>O(n)</m> and <m>O(n^2)</m></response></match>
+        </matches>
+    </exercise>
+
+    <exercise label="sortefficiencyrandom">
+        <statement><p>Which sort should you use for best efficiency If you need to sort through 100,000 random items in a list?</p></statement>
+        <choices>
+            <choice correct="true">
+                <statement>Merge</statement>
+                <feedback>Correct!</feedback>
+            </choice>
+            <choice correct="false">
+                <statement>Selection</statement>
+                <feedback>Selection sort is inefficient in large lists.</feedback>
+            </choice>
+            <choice correct="false">
+                <statement>Bubble</statement>
+                <feedback>Bubble sort works best with mostly sorted lists.</feedback>
+            </choice>
+            <choice correct="false">
+                <statement>Insertion</statement>
+                <feedback>Insertion sort works best with either small or mostly sorted lists.</feedback>
+            </choice>
+        </choices>
+    </exercise>
+
+    
+</section>
