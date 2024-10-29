@@ -128,18 +128,10 @@
                 <title>Comparisons Used in a Sequential Search of an Unordered List</title>
                 <tabular>
                     <row header="yes">
-                            <cell>
-                                <term>Case</term>
-                            </cell>
-                            <cell>
-                                <term>Best Case</term>
-                            </cell>
-                            <cell>
-                                <term>Worst Case</term>
-                            </cell>
-                            <cell>
-                                <term>Average Case</term>
-                            </cell>
+                            <cell>Case</cell>
+                            <cell>Best Case</cell>
+                            <cell>Worst Case</cell>
+                            <cell>Average Case</cell>
                         </row>
                     
                     
@@ -254,17 +246,11 @@ int main() {
                 <title>Comparisons Used in Sequential Search of an Ordered List</title>
                 <tabular>
                     <row header="yes">
-                            <cell>
-                            </cell>
-                            <cell>
-                            </cell>
-                            <cell>
-                            </cell>
-                            <cell>
-                            </cell>
-                        </row>
-                    
-                    
+                        <cell>Case</cell>
+                        <cell>Best Case</cell>
+                        <cell>Worst Case</cell>
+                        <cell>Average Case</cell>
+                    </row>
                         <row>
                             <cell>
                                 item is present
