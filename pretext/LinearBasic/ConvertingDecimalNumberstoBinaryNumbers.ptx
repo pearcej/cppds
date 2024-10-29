@@ -148,6 +148,7 @@ main()
         <exploration>
             <title>Implementation of <c>baseConverter</c></title>
             <task xml:id="lst-baseconverter-cpp" label="lst-baseconverter-cpp">
+                <title>C++ Implementation</title>
                 <statement><program xml:id="baseconvertcpp" interactive="activecode" language="cpp" line-numbers="yes"><input>
 //converts a decimal number into desired base 1-16.
 
