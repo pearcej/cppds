@@ -27,6 +27,7 @@
     <exploration xml:id="expl-lst-sum0">
         <title>Sum of First <em>n</em> Integers</title>
         <task label="lst_sum0" xml:id="lst_sum0">
+            <title>C++ Implementation</title>
             <statement><program interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 using namespace std;
@@ -49,6 +50,7 @@ int main(){
             </input></program></statement>
         </task>
         <task label="ec1_py" xml:id="ec1_py">
+            <title>Python Implementation</title>
             <statement><program interactive="activecode" language="python"><input>
 # adds the sum of (n + n-1 + n-2 ...)
 
@@ -76,6 +78,7 @@ main()
     <exploration xml:id="expl-lst-sum2">
         <title>Sum of First <em>n</em> Integers</title>
         <task label="lst_sum2" xml:id="lst_sum2">
+            <title>C++ Implementation</title>
             <statement><program interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 using namespace std;
@@ -99,6 +102,7 @@ int main(){
             </input></program></statement>
         </task>
         <task label="ec2_py" xml:id="ec2_py">
+            <title>Python Implementation</title>
             <statement><program interactive="activecode" language="python"><input>
 #Performs same function as listing 1, but is less descriptive
 #This is not good practice
@@ -159,6 +163,7 @@ main()
     <exploration xml:id="expl-lst-sum1">
         <title>Sum of First <em>n</em> Integers (With Timing)</title>
         <task label="lst_sum1" xml:id="lst_sum1">
+            <title>C++ Implementation</title>
             <statement><program interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;ctime&gt;
@@ -189,6 +194,7 @@ int main(){
             </input></program></statement>
         </task>
         <task xml:id="ec2py" label="ec2py">
+            <title>Python Implementation</title>
             <statement><program interactive="activecode" language="python"><input>
 import time
 
