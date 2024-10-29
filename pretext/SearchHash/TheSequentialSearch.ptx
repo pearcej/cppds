@@ -31,6 +31,7 @@
                 assigned the value <c>True</c> if we discover the item in the list (or vector, in the case of C++).</p>
 
             <listing xml:id="seqsearchonepy">
+                <caption>Python Implementation</caption>
                 <program interactive="activecode" language="python">
                     <input>
                     # Python implementation of sequential search
@@ -56,6 +57,7 @@
 
 
             <listing xml:id="seqsearchonecpp" >
+                <caption>C++ Implementation</caption>
 
                 <program xml:id="lst-seqsearchcpp" interactive="activecode" language="cpp">
                     <input>
@@ -122,9 +124,10 @@
                 approximation, so the complexity of the sequential search, is
                 <m>O(n)</m>. <xref ref="search-hash_tbl-seqsearchtable"/> summarizes these results.</p>
             
-            <table xml:id="search-hash_tbl-seqsearchtable"><tabular>
+            <table xml:id="search-hash_tbl-seqsearchtable">
                 <title>Comparisons Used in a Sequential Search of an Unordered List</title>
-                        <row header="yes">
+                <tabular>
+                    <row header="yes">
                             <cell>
                                 <term>Case</term>
                             </cell>
@@ -247,9 +250,10 @@ int main() {
                 <m>O(n)</m>. In summary, a sequential search is improved by ordering
                 the vector only in the case where we do not find the item.</p>
             
-            <table xml:id="search-hash_search-hash_tbl-seqsearchtable2"><tabular>
+            <table xml:id="search-hash_search-hash_tbl-seqsearchtable2">
                 <title>Comparisons Used in Sequential Search of an Ordered List</title>
-                        <row header="yes">
+                <tabular>
+                    <row header="yes">
                             <cell>
                             </cell>
                             <cell>

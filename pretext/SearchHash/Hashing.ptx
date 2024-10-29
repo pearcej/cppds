@@ -45,12 +45,9 @@
             (modulo arithmetic) will typically be present in some form in all hash
             functions, since the result must be in the range of slot names.</p>
         
-        <table xml:id="search-hash_search-hash_tbl-hashvalues1"><tabular>
-            <caption>Simple Hash Function Using Remainders</caption>
-            
-                
-                
-                
+        <table xml:id="search-hash_search-hash_tbl-hashvalues1">
+            <title>Simple Hash Function Using Remainders</title>
+            <tabular>
                     <row header="yes">
                         <cell>
                             <term>Item</term>
@@ -193,13 +190,9 @@
                 remainder method and the mid-square method. You should verify that you
                 understand how these values were computed.</p>
             
-            <table xml:id="search-hash_tbl-hashvalues2"><tabular>
+            <table xml:id="search-hash_tbl-hashvalues2">
                 <title>Comparison of Remainder and Mid-Square Methods</title>
-                
-                    
-                    
-                    
-                    
+                <tabular>
                         <row header="yes">
                             <cell>
                                 <term>Item</term>
@@ -551,12 +544,9 @@ int main() {
                 keys in a map are all unique so that there is a one-to-one relationship
                 between a key and a value. The operations are given below.</p>
             
-            <table xml:id="search-hash_id12"><tabular>
-                <caption>Map Operations</caption>
-                
-                    
-                    
-                    
+            <table xml:id="search-hash_id12">
+                <title>Map Operations</title>
+                <tabular>
                         <row header="yes">
                             <cell>
                                 <term>Map Operation</term>
@@ -663,6 +653,7 @@ int main() {
                 Dealing with the situation where there are no empty slots left is an exercise.</p>
 
             <exploration xml:id="expl-hashtablecodestore">
+                <title>Linear Probing with Simple Remainder Method.</title>
                 <task label="search-hash_lst-hashtablecodestore-cpp" xml:id="search-hash_lst-hashtablecodestore-cpp">
                     <title>C++ Implementation</title>
                     <statement><program language="cpp"><input>
@@ -755,6 +746,7 @@ def rehash(self,oldhash,size):
             <exploration xml:id="expl-hashtablecodesearch">
                 <title>Final Methods of <c>HashTable</c></title>
                 <task xml:id="search-hash_lst-hashtablecodesearch-cpp" label="search-hash_lst-hashtablecodesearch-cpp">
+                    <title>C++ Implementation</title>
                     <statement><program language="cpp"><input>
 string get(int key) {
     int startslot = hashfunction(key);
@@ -780,6 +772,7 @@ string get(int key) {
                     </input></program></statement>
                 </task>
                 <task xml:id="search-hash_lst-hashtablecodesearch-py" label="search-hash_lst-hashtablecodesearch-py">
+                    <title>Python Implementation</title>
                     <statement><program language="python"><input>
 def get(self,key):
     startslot = self.hashfunction(key,len(self.slots))
