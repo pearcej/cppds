@@ -14,12 +14,9 @@
         <p><ol marker="1">
             <li>
                 <p>Draw the graph corresponding to the following list of edges.</p>
-                <table><tabular>
-                    
-                        
-                        
-                        
-                        
+                <table>
+                    <title>Weighted Graph</title>
+                    <tabular>
                             <row header="yes">
                                 <cell>
                                     from

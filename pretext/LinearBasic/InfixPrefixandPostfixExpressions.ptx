@@ -70,13 +70,9 @@
             respective operands, the order of the operands stayed exactly the same
             relative to one another.</p>
         
-        <table xml:id="linear-basic_xfix_examples"><tabular>
+        <table xml:id="linear-basic_xfix_examples">
             <title>Examples of Infix, Prefix, and Postfix</title>
-            
-                
-                
-                
-                
+            <tabular>
                     <row header="yes">
                         <cell>
                             <term>Infix Expression</term>
@@ -134,13 +130,9 @@
             determined by the position of the operator and nothing else. In many
             ways, this makes infix the least desirable notation to use.</p>
         
-        <table xml:id="linear-basic_tbl-parexample"><tabular>
+        <table xml:id="linear-basic_tbl-parexample">
             <title>An Expression with Parentheses</title>
-            
-                
-                
-                
-                
+            <tabular>
                     <row header="yes">
                         <cell>
                             <term>Infix Expression</term>
@@ -173,8 +165,9 @@
             understand how they are equivalent in terms of the order of the
             operations being performed.</p>
         
-        <table xml:id="linear-basic_tbl-example3"><tabular>
+        <table xml:id="linear-basic_tbl-example3">
             <title>Additional Examples of Infix, Prefix, and Postfix</title>
+            <tabular>
             
                 
                 
