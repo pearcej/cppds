@@ -9,6 +9,7 @@
         <xi:include href='./TheShellSort.ptx' />
         <xi:include href='./TheMergeSort.ptx' />
         <xi:include href='./TheQuickSort.ptx' />
+        <xi:include href='./SelfCheck.ptx' />
         <xi:include href='./Summary.ptx' />
         <xi:include href='./DiscussionQuestions.ptx' />
         <xi:include href='./ProgrammingExercises.ptx' />
