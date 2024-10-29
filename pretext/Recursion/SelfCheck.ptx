@@ -3,7 +3,7 @@
   <title>Self-check</title>
   <exercise label="laws">
     <statement>
-      <p>Q-1: What are the three laws of recursion for an algorithm? (choose all that are correct)</p>
+      <p>What are the three laws of recursion for an algorithm? (choose all that are correct)</p>
     </statement>
     <choices>
       <choice>
@@ -60,7 +60,7 @@
   </exercise>
   <exercise label="recursionefficiencyq">
     <statement>
-      <p>Q-3:  Sometimes recursion can be more computationally expensive than an alternative, True or False?</p>
+      <p>Sometimes recursion can be more computationally expensive than an alternative, True or False?</p>
     </statement>
     <choices>
       <choice correct="yes">
