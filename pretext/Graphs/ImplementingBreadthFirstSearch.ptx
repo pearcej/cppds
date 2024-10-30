@@ -60,25 +60,11 @@
             </li>
         </ol></p>
         
-        <listing xml:id="graphs_lst-wordbucket2" names="lst_wordbucket2"><term>Listing 2</term>
-        <pre>from pythonds.graphs import Graph, Vertex
-from pythonds.basic import Queue
-
-def bfs(g,start):
-    start.setDistance(0)
-    start.setPred(None)
-    vertQueue = Queue()
-    vertQueue.enqueue(start)
-    while (vertQueue.size() &gt; 0):
-        currentVert = vertQueue.dequeue()
-        for nbr in currentVert.getConnections():
-            if (nbr.getColor() == 'white'):
-                nbr.setColor('gray')
-                nbr.setDistance(currentVert.getDistance() + 1)
-                nbr.setPred(currentVert)
-                vertQueue.enqueue(nbr)
-        currentVert.setColor('black')
-
+        <exploration xml:id="graphs_lst-wordbucket2">
+            <title>Breadth First Search</title>
+            <task xml:id="graphs_lst-wordbucket2-cpp" label="graphs_lst-wordbucket2-cpp">
+                <title>C++ Implementation</title>
+                <statement><program language="cpp"><input>
 Graph bfs(Graph g, Vertex *start) {
     start-&gt;dist = 0;
     start-&gt;pred = NULL;
@@ -99,8 +85,33 @@ Graph bfs(Graph g, Vertex *start) {
         currentVert-&gt;color = 'b';
     }
     return g;
-}</pre>
-</listing>
+}
+                </input></program></statement>
+            </task>
+            <task xml:id="graphs_lst-wordbucket2-py" label="graphs_lst-wordbucket2-py">
+                <title>Python Implementation</title>
+                <statement><program language="python"><input>
+from pythonds.graphs import Graph, Vertex
+from pythonds.basic import Queue
+
+def bfs(g,start):
+    start.setDistance(0)
+    start.setPred(None)
+    vertQueue = Queue()
+    vertQueue.enqueue(start)
+    while (vertQueue.size() &gt; 0):
+        currentVert = vertQueue.dequeue()
+        for nbr in currentVert.getConnections():
+            if (nbr.getColor() == 'white'):
+                nbr.setColor('gray')
+                nbr.setDistance(currentVert.getDistance() + 1)
+                nbr.setPred(currentVert)
+                vertQueue.enqueue(nbr)
+        currentVert.setColor('black')
+
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>Let's look at how the <c>bfs</c> function would construct the breadth first
             tree corresponding to the graph in <xref ref="fig-wordladder"/>. Starting
             from fool we take all nodes that are adjacent to fool and add them to
@@ -159,8 +170,10 @@ Graph bfs(Graph g, Vertex *start) {
             the shortest word ladder from any word back to fool. The function below (<xref ref="graphs_lst-wordbucket3"/>) shows how to follow the predecessor links to
             print out the word ladder.</p>
         
-        <listing xml:id="graphs_lst-wordbucket3" names="lst_wordbucket3"><term>Listing 3</term>
-        <pre>void traverse(Vertex *y) {
+        <listing xml:id="graphs_lst-wordbucket3" names="lst_wordbucket3">
+            <caption>Printing the Word Bucker</caption>
+            <program language="cpp"><input>
+void traverse(Vertex *y) {
     Vertex *x = y;
 
     while (x-&gt;pred) {
@@ -170,11 +183,15 @@ Graph bfs(Graph g, Vertex *start) {
     cout &lt;&lt; x-&gt;id &lt;&lt; endl;
 }
 
-traverse(g.getVertex('sage'))</pre>
-</listing>
-        <p>Below is a completed implementation of both the Vertex and Graph classes, along
+traverse(g.getVertex('sage'))
+            </input></program>
+        </listing>
+        <p><xref ref="dfs-full"/> is a complete implementation of both the Vertex and Graph classes, along
             with an implementation for the breadth-first search shown above.</p>
-        <pre>#include &lt;fstream&gt;
+        <listing xml:id="dfs-full" label="dfs-full">
+            <caption>Complete Implementation of Vertex, Graph, and BFS</caption>
+            <program language="cpp" interactive="activecode"><input>
+#include &lt;fstream&gt;
 #include &lt;iostream&gt;
 #include &lt;map&gt;
 #include &lt;queue&gt;
@@ -414,6 +431,7 @@ int main() {
     traverse(g.getVertex("pall"));
 
     return 0;
-}</pre>
-    </section>
-
+}
+            </input></program>
+        </listing>
+</section>

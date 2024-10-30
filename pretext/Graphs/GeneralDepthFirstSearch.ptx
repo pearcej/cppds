@@ -35,11 +35,11 @@
             is an instance of the <c>DFSGraph</c> class, and iterating over all the
             vertices in an instance of a graph is a natural thing to do.</p>
         
-        <p xml:id="lst-dfsgeneral" names="lst_dfsgeneral"><term>Listing 5</term></p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'GeneralDepthFirstSearch', 'chapter': 'Graphs', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="cppdfs0" interactive="activecode" language="cpp">
-        <input>
+        <exploration xml:id="expl-dfsgeneral">
+            <title>Generalized Depth First Search</title>
+            <task xml:id="lst-dfsgeneral" label="lst-dfsgeneral">
+                <title>C++ Implementation</title>
+                <statement><program xml:id="cppdfs0" interactive="activecode" language="cpp"><input>
 #include &lt;list&gt;         //std::list
 #include &lt;utility&gt;      //std::pair
 #include &lt;algorithm&gt;    //std::find
@@ -130,12 +130,11 @@ int main(int argc, char** argv){
 
     return 0;
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'GeneralDepthFirstSearch', 'chapter': 'Graphs', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="pythondfs0" interactive="activecode" language="python3">
-        <input>
+                </input></program></statement>
+            </task>
+            <task xml:id="pythondfs0" label="pythondfs0">
+                <title>Python Implementation</title>
+                <statement><program interactive="activecode" language="python3"><input>
 from pythonds.graphs import Graph
 
 class DFSGraph(Graph):
@@ -184,9 +183,9 @@ def main():
     graph.dfs()
 
 main()
-        </input>
-    </program>
-            </TabNode>
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>Although our implementation of <c>bfs</c> was only interested in
             considering nodes for which there was a path leading back to the start,
             it is possible to create a breadth first forest that represents the
