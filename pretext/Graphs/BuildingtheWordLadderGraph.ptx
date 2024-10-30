@@ -53,6 +53,7 @@
             same key in the map. <xref ref="graphs_wordbucket_cpp"/> shows the C++
             code required to build the graph.</p>
 <listing xml:id="graphs_wordbucket_cpp">
+    <caption>Building the Word Bucket Graph</caption>
     <program xml:id="wordbucket_cpp" interactive="activecode" language="cpp">
         <input>
 #include &lt;fstream&gt;

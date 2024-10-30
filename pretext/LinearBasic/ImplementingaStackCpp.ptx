@@ -13,10 +13,12 @@
             the end of the array will hold the top element of the stack. As the stack
             grows (as <c>push</c> operations occur), new items will be added on the end
             of the array. <c>pop</c> operations will manipulate that same end.</p>
-        
-    <listing xml:id="stack-code1">
-        <p><term>C++ Implementation</term></p>
-        <program xml:id="stack_1ac_cpp" interactive="activecode" language="cpp"><input>
+
+        <exploration xml:id="expl-stack-code1">
+            <title>Stack Implementation</title>
+            <task xml:id="stack-code1" label="stack-code1">
+                <title>C++ Implementation</title>
+                <statement><program interactive="activecode" language="cpp"><input>
 //Tests the push, empty, size, pop, and top methods of the stack library.
 
 #include &lt;iostream&gt;
@@ -49,9 +51,11 @@ int main() {
 
     return 0;
 }
-    </input></program>
-    <p><term>Python Implementation</term></p>
-    <program xml:id="stack_1ac_py" interactive="activecode" language="python"><input>
+                </input></program></statement>
+            </task>
+            <task xml:id="stack_1ac_py" label="stack_1ac_py">
+                <title>Python Implementation</title>
+                <statement><program interactive="activecode" language="python"><input>
 #Tests the push, empty, size, pop, and top methods of the stack library.
 
 class Stack:
@@ -89,7 +93,9 @@ def main():
 
     print("Top Element of the Stack: ", newStack.top())
 main()
-    </input></program></listing>
+                </input></program></statement>
+            </task>
+        </exploration>
 
 <reading-questions xml:id="rq-stack-implementation">
                 <title>Reading Questions</title>

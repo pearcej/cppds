@@ -76,10 +76,11 @@
             consider the C++ <c>cmath</c> module. Once we import the module, we can
             perform computations as in the following example:</p>
 
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsComputerScience', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="cPlusPlus" interactive="activecode" language="cpp">
-        <input>
+        <exploration xml:id="expl-cplusplus">
+            <title>Example using <c>&lt;cmath&gt;</c></title>
+            <task label="cPlusPlus" xml:id="cPlusPlus">
+                <title>C++ Implementation</title>
+                <statement><program interactive="activecode" language="cpp"><input>
 //Outputs the square root of a given number.
 #include &lt;iostream&gt;
 #include &lt;cmath&gt;
@@ -88,19 +89,18 @@ using namespace std;
 int main() {
     cout &lt;&lt; sqrt(16);
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'WhatIsComputerScience', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="Python" interactive="activecode" language="python">
-        <input>
+                </input></program></statement>
+            </task>
+            <task label="mathpy" xml:id="mathpy">
+                <title>Python Implementation</title>
+                <statement><program interactive="activecode" language="python"><input>
 #Outputs the square root of a given number.
 import math
 
 print(math.sqrt(16))
-        </input>
-    </program>
-            </TabNode>
+                </input></program></statement>
+            </task>
+        </exploration>
         <p> <idx>procedural abstraction</idx>
             This is an example of <term>procedural abstraction</term>. We do not necessarily
             know how the square root is being calculated, but we know what the

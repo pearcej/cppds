@@ -173,9 +173,11 @@
         anything, it is instructive to see how we can take actual code and
         analyze performance.</p>
     
-<listing xml:id="algo_analysis_dummycode_1">
-    <p><term>C++ Implementation</term></p>
-    <program language="cpp"><input>
+    <exploration xml:id="expl-dummycode_1">
+        <title>Analysis Example</title>
+        <task label="algo_analysis_dummycode_1" xml:id="algo_analysis_dummycode_1">
+            <title>C++ Implementation</title>
+            <statement><program language="cpp"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -197,9 +199,12 @@ int main(){
     }
     int d = 33;
     return 0;
-}</input></program>
-<p><term>Python Implementation</term></p>
-<program language="python"><input>
+}
+            </input></program></statement>
+        </task>
+        <task xml:id="algo_analysis_dummycode_1_py" label="algo_analysis_dummycode_1_py">
+            <title>Python Implementation</title>
+            <statement><program language="python"><input>
 def main():
     a=5
     b=6
@@ -214,8 +219,9 @@ def main():
         v = b*b
     d = 33
 main()
-</input></program>
-</listing>
+            </input></program></statement>
+        </task>
+    </exploration>
     <p>The number of assignment operations is the sum of four terms. The first
         term is the constant 3, representing the three assignment statements at
         the start of the fragment. The second term is <m>3n^{2}</m>, since
