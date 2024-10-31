@@ -108,8 +108,8 @@ main()
             is less than the base we are converting to. When we detect the base
             case, we stop recursing and simply return the string from the
             <c>convertString</c> sequence. In line 10 we satisfy both the
-            second and third laws&#8211;by making the recursive call and by reducing the
-            problem size&#8211;using division.</p>
+            second and third laws<ndash/>by making the recursive call and by reducing the
+            problem size<ndash/>using division.</p>
         <p>Let's trace the algorithm again; this time we will convert the number 10
             to its base 2 string representation (<c>"1010"</c>).</p>
     
@@ -214,10 +214,10 @@ int main(){
                     <p>Able was I ere I saw Elba.</p>
                 </li>
                 <li>
-                    <p>Kanakanak &#8211;  a town in Alaska.</p>
+                    <p>Kanakanak <ndash/>  a town in Alaska.</p>
                 </li>
                 <li>
-                    <p>Wassamassaw &#8211; a town in South Dakota.</p>
+                    <p>Wassamassaw <ndash/> a town in South Dakota.</p>
                 </li>
             </ul></p>
             <blockquote>

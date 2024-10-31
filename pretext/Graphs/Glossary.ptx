@@ -113,7 +113,7 @@
                 <gi>
                     <title>strongly connected components (SCC)</title>
                     
-                        <p>The largest subset of vertices C&#8834;V such that for every pair of vertices v,w&#8712;C we have a path from v to w and a path from w to v.</p>
+                        <p>The largest subset of vertices <m>C \subset V</m> such that for every pair of vertices <m>v,w \in C</m> we have a path from <m>v</m> to <m>w</m> and a path from <m>w</m> to <m>v</m>.</p>
                     
                 </gi>
                 <gi>

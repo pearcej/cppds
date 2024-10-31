@@ -535,7 +535,7 @@ int main() {
         <subsection xml:id="search-hash_implementing-the-map-abstract-data-type">
             <title>Implementing the <c>Map</c> Abstract Data Type</title>
             <p>One of the most useful C++ data structures is the <term>map</term>. Recall that
-                a map is an associative data type where you can store key&#8211;data
+                a map is an associative data type where you can store key<ndash/>data
                 pairs. <idx>map</idx> In a map data structure, the key plays a crucial role as it is used
                 to look up and retrieve the associated data value. By providing a key, 
                 you can quickly access the specific data element stored within the map.</p>

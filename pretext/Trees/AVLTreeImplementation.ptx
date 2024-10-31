@@ -30,7 +30,7 @@
             <c>updateBalance</c> helper method. These methods are shown in
             <xref ref="trees_lst-updbal"/>. You will notice that the definition for <c>_put</c> is
             exactly the same as in simple binary search trees except for the additions of
-            the calls to <c>updateBalance</c> on lines&#160;8 and&#160;17.</p>
+            the calls to <c>updateBalance</c> on lines<nbsp/>8 and<nbsp/>17.</p>
 
         <listing xml:id="trees_lst-updbal">
             <caption>Implementation of <c>_put</c> and <c>updateBalance</c></caption>
@@ -79,7 +79,7 @@ int updateBalance(TreeNode *node){
         
         <p>The new <c>updateBalance</c> method is where most of the work is done. The
             <c>updateBalance</c> method first checks to see if the current node is out
-            of balance enough to require rebalancing (line&#160;23). If that
+            of balance enough to require rebalancing (line<nbsp/>23). If that
             is the case then the rebalancing is done and no further updating to
             parents is required. If the current node does not require rebalancing
             then the balance factor of the parent is adjusted. If the balance factor
@@ -146,7 +146,7 @@ int updateBalance(TreeNode *node){
         </figure>
         <p>Now that you have seen the rotations and have the basic idea of how a
             rotation works let us look at the code. <xref ref="trees_lst-bothrotations"/> shows the
-            code for both the right and the left rotations. In line&#160;2
+            code for both the right and the left rotations. In line<nbsp/>2
             we create a temporary variable to keep track of the new root of the
             subtree. As we said before the new root is the right child of the
             previous root. Now that a reference to the right child has been stored
@@ -159,7 +159,7 @@ int updateBalance(TreeNode *node){
             must set the root of the tree to point to this new root. Otherwise, if
             the old root is a left child then we change the parent of the left child
             to point to the new root; otherwise we change the parent of the right
-            child to point to the new root. (lines&#160;11-18).
+            child to point to the new root. (lines<nbsp/>11-18).
             Finally we set the parent of the old root to be the new root. This is a
             lot of complicated bookkeeping, so we encourage you to trace through
             this function while looking at <xref ref="fig-unbalsimple"/>. The
@@ -195,7 +195,7 @@ void rotateLeft(TreeNode *rotRoot){
             </input></program>
         </listing>
 
-        <p>Finally, lines&#160;21-22 require some explanation. In
+        <p>Finally, lines<nbsp/>21-22 require some explanation. In
             these two lines we update the balance factors of the old and the new
             root. Since all the other moves are moving entire subtrees around the
             balance factors of all other nodes are unaffected by the rotation. But
@@ -238,7 +238,7 @@ newBal(B) - oldBal(B) =  1 + max(h_C,h_E) - h_C</m>
 newBal(B) = oldBal(B) + 1 - min(0 , oldBal(D)) \\</m>
         <p>Now we have all of the parts in terms that we readily know. If we
             remember that B is <c>rotRoot</c> and D is <c>newRoot</c> then we can see this
-            corresponds exactly to the statement on line&#160;21, or:</p>
+            corresponds exactly to the statement on line<nbsp/>21, or:</p>
         <program language="cpp"><input>
 rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(0,newRoot.balanceFactor)
 </input></program>
@@ -289,7 +289,7 @@ rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(0,newRoot.balanceFactor)
         </figure>
         <p>The code that implements these rules can be found in our <c>rebalance</c>
             method, which is shown in <xref ref="avlimpl_lst-rebalance"/>. Rule number 1 from
-            above is implemented by the <c>if</c> statement starting on line&#160;2.
+            above is implemented by the <c>if</c> statement starting on line<nbsp/>2.
             Rule number 2 is implemented by the <c>else if</c> statement starting on
             line 11.</p>
         

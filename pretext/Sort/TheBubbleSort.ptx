@@ -34,7 +34,7 @@ alist[j] = temp;</pre>
         <p>will exchange the <title_reference>ith</title_reference> and <title_reference>jth</title_reference> items in the array. Without the
             temporary storage, one of the values would be overwritten.</p>
         <p>Lines 5-7 in <xref ref="lst-bubble-cpp"/> perform the exchange of the <m>i</m> and
-            <m>(i+1)th</m> items using the three&#8211;step procedure described
+            <m>(i+1)th</m> items using the three<ndash/>step procedure described
             earlier. Note that we could also have used the simultaneous assignment
             to swap the items.</p>
         
@@ -233,10 +233,10 @@ main()
                     </row>
                     <row>
                         <cell>
-                            &#8230;
+                            <ellipsis/>
                         </cell>
                         <cell>
-                            &#8230;
+                            <ellipsis/>
                         </cell>
                     </row>
                     <row>

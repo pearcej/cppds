@@ -56,15 +56,15 @@
  \end{cases}
  \label{eqn_changecpp}</m>
         <p>The algorithm for doing what we have just described is shown in
-            <xref ref="lst-change1-cpp"/>. In line&#160;7 we are checking our base case;
+            <xref ref="lst-change1-cpp"/>. In line<nbsp/>7 we are checking our base case;
             that is, we are trying to make change in the exact amount of one of our
             coins. If we do not have a coin equal to the amount of change, we make
             recursive calls for each different coin value less than the amount of
-            change we are trying to make. Line&#160;6 shows how we filter the
+            change we are trying to make. Line<nbsp/>6 shows how we filter the
             list of coins to those less than the current value of change using a
             list comprehension. The recursive call also reduces the total amount of
             change we need to make by the value of the coin selected. The recursive
-            call is made in line&#160;14. Notice that on that same line we add 1
+            call is made in line<nbsp/>14. Notice that on that same line we add 1
             to our number of coins to account for the fact that we are using a coin.
             Just adding 1 is the same as if we had made a recursive call asking
             where we satisfy the base case condition immediately.</p>
@@ -239,7 +239,7 @@ main()
                 </input></program></statement>
             </task>
         </exploration>
-        <p>Notice that in line&#160;15 we have added a test to see if our table
+        <p>Notice that in line<nbsp/>15 we have added a test to see if our table
             contains the minimum number of coins for a certain amount of change. If
             it does not, we compute the minimum recursively and store the computed
             minimum in the table. Using this modified algorithm reduces the number
@@ -376,7 +376,7 @@ main()
             realize that just because you can write a recursive solution to a
             problem does not mean it is the best or most efficient solution. The
             bulk of the work in this function is done by the loop that starts on
-            line&#160;4. In this loop we consider using all possible coins to
+            line<nbsp/>4. In this loop we consider using all possible coins to
             make change for the amount specified by <c>cents</c>. Like we did for the
             11 cent example above, we remember the minimum value and store it in our
             <c>minCoins</c> list.</p>

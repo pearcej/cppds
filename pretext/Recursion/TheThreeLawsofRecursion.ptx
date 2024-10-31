@@ -180,7 +180,7 @@ int main(){
     <exercise label="question_recsimp_3">
         <statement>
 
-            <p>Suppose you are going to write a recursive function to calculate the factorial of a number.  fact(n) returns n * n-1 * n-2 * &#8230; Where the factorial of zero is defined to be 1.  What would be the most appropriate base case?</p>
+            <p>Suppose you are going to write a recursive function to calculate the factorial of a number.  fact(n) returns n * n-1 * n-2 * <ellipsis/> Where the factorial of zero is defined to be 1.  What would be the most appropriate base case?</p>
 
         </statement>
 <choices>

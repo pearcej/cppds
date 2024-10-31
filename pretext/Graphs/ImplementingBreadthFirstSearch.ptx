@@ -164,7 +164,7 @@ def bfs(g,start):
             final breadth first search tree after all the vertices in
             <xref ref="fig-bfs1"/> have been expanded. The amazing thing about the
             breadth first search solution is that we have not only solved the
-            FOOL&#8211;SAGE problem we started out with, but we have solved many other
+            FOOL<ndash/>SAGE problem we started out with, but we have solved many other
             problems along the way. We can start at any vertex in the breadth first
             search tree and follow the predecessor arrows back to the root to find
             the shortest word ladder from any word back to fool. The function below (<xref ref="graphs_lst-wordbucket3"/>) shows how to follow the predecessor links to
