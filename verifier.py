@@ -10,7 +10,7 @@ import xml.dom.minidom
 import os
 from abc import abstractmethod
 import sys
-
+import argparse
 
 class CppsXmlTest:
     """generic test"""
@@ -133,7 +133,6 @@ class LabelsShouldBeUnique(CppsXmlTest):
 
     @classmethod
     def teardown(cls):
-        print(f"unique labels: {len(cls.labels)}")
         ok = True
         for k, v in cls.labels.items():
             if len(v) > 1:
@@ -164,28 +163,57 @@ class TagsNeedLabels(CppsXmlTest):
 ALL_TESTS = CppsXmlTest.__subclasses__()
 
 
-def handle_file(fname):
+def handle_file(fname, tests):
     """Run all the tests on the given filename"""
     dom = xml.dom.minidom.parse(fname)
     r = []
-    for t in ALL_TESTS:
+    for t in tests:
         r.append(t.test_file(fname, dom))
     return all(r)
 
 
 def main():
     """run through all of the ptx files running tests"""
+
+    parser = argparse.ArgumentParser(prog="pretext verifier",
+                                     description="PreTeXt XML verifier")
+    parser.add_argument('-D', '--disable', action='append',
+                        metavar='test',
+                        help='disable a test (can be repeated)', default=[])
+    parser.add_argument('-L', '--listtests', action='store_true',
+                        help="list available tests and exit")
+    parser.add_argument('dirs', nargs='*',
+                        help="directories to search for ptx files")
+
+    args = parser.parse_args()
+    if not args.dirs:
+        args.dirs = ["."]
+
+    if args.listtests:
+        _ = [print(t.__name__) for t in ALL_TESTS]
+        sys.exit(0)
+
+    failed = False
+    for x in args.disable:
+        if x not in [t.__name__ for t in ALL_TESTS]:
+            failed = True
+            print(f"No such test: {x}")
+    if failed:
+        sys.exit(1)
+
+    tests = [t for t in ALL_TESTS if t.__name__ not in args.disable]
     res = []
-    for t in ALL_TESTS:
+    for t in tests:
         res.append(t.setup())
 
-    for root, _, files in os.walk("."):
-        for fname in files:
-            if not fname.endswith('.ptx'):
-                continue
-            res.append(handle_file(os.path.join(root, fname)))
+    for dir in args.dirs:
+        for root, _, files in os.walk(dir):
+            for fname in files:
+                if not fname.endswith('.ptx'):
+                    continue
+                res.append(handle_file(os.path.join(root, fname), tests))
 
-    for t in ALL_TESTS:
+    for t in tests:
         res.append(t.teardown())
 
     sys.exit(0) if all(res) else sys.exit(1)
