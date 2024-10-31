@@ -361,7 +361,7 @@ turtle.shape("square");
                 abide by. Consider the order of their points in the following table, and how they could be considered <q>counter-clockwise</q>.
                 They are in order from top to bottom, and one edge exists between the first last points for each of these shapes. Please note
                 that positive Y coordinates are <em>lower</em> on the screen, while negative Y coordinates are <em>higher</em> on the screen. Coordinates at
-                the origin&#8211; that is, coordinate 0x, 0y&#8211; is at the <q>point</q> or <q>tip</q> of the turtle. This is why most of the default shapes
+                the origin<ndash/> that is, coordinate 0x, 0y<ndash/> is at the <q>point</q> or <q>tip</q> of the turtle. This is why most of the default shapes
                 have their first coordinate there.</p>
             <table xml:id="turtle-shapes">
                 <title>Turtle Shapes</title>

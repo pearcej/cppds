@@ -25,7 +25,7 @@
             implement the code as methods of a class that inherits from the
             <c>Graph</c> class. This implementation extends the graph class by adding a
             <c>time</c> instance variable and the two methods <c>dfs</c> and <c>dfsvisit</c>.
-            Looking at line&#160;11 you will notice that the <c>dfs</c> method
+            Looking at line<nbsp/>11 you will notice that the <c>dfs</c> method
             iterates over all of the vertices in the graph calling <c>dfsvisit</c> on
             the nodes that are white. The reason we iterate over all the nodes,
             rather than simply searching from a chosen starting node, is to make
@@ -236,7 +236,7 @@ main()
         <p>Vertex F has only one adjacent vertex, C, but since C is colored black
             there is nothing else to explore, and the algorithm has reached the end
             of another branch. From here on, you will see in <xref ref="fig-gdfsh"/> through
-            <xref ref="fig-gdfsl"/>&#160; that the algorithm works its way back to the first node,
+            <xref ref="fig-gdfsl"/><nbsp/> that the algorithm works its way back to the first node,
             setting finish times and coloring vertices black.</p>
     
         <figure align="center" xml:id="fig-gdfsa">

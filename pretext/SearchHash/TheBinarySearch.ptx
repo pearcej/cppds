@@ -191,7 +191,7 @@ int main() {
                         </row>
                         <row>
                             <cell>
-                                &#8230;
+                                <ellipsis/>
                             </cell>
                             <cell>
                             </cell>

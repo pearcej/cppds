@@ -21,7 +21,7 @@
             rules specify, the disks on each peg are stacked so that smaller disks
             are always on top of the larger disks. If you have not tried to solve
             this puzzle before, you should try it now. You do not need fancy disks
-            and poles&#8211;a pile of books or pieces of paper will work.</p>
+            and poles<ndash/>a pile of books or pieces of paper will work.</p>
         
         <figure align="center" xml:id="fig-hanoicpp">
             <caption>An Example Arrangement of Disks for the Tower of Hanoi.</caption>

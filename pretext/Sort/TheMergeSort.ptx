@@ -155,8 +155,8 @@ main()
             </task>
         </exploration>
         <p>Once the <c>mergeSort</c> function is invoked on the left half and the
-            right half (lines 8&#8211;9), it is assumed they are sorted. The rest of the
-            function (lines&#160;11&#8211;31) is responsible for merging the two smaller sorted
+            right half (lines 8<ndash/>9), it is assumed they are sorted. The rest of the
+            function (lines<nbsp/>11<ndash/>31) is responsible for merging the two smaller sorted
             vectors into a larger sorted vector. Notice that the merge operation places
             the items back into the original vector (<c>avector</c>) one at a time by
             repeatedly taking the smallest item from the sorted vectors.</p>

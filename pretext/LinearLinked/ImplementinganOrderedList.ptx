@@ -75,7 +75,7 @@ class OrderedList {
             While <c>stop</c> is <c>False</c> (in other words, while the search is still ongoing) we can continue to look
             forward in the linked list (line 5). If any node is ever discovered that
             contains data greater than the item we are looking for, we will set
-            <c>stop</c> to <c>True</c> (lines 9&#8211;10). The remaining lines are identical to
+            <c>stop</c> to <c>True</c> (lines 9<ndash/>10). The remaining lines are identical to
             the unordered linked list search.</p>
         
         <listing xml:id="linear-linked_lst-ordersearch">
@@ -127,8 +127,8 @@ bool search(int item) {
         <p>As we saw with unordered linked lists, it is necessary to have an additional
             reference, again called <c>previous</c>, since <c>current</c> will not provide
             access to the node that must be modified. <xref ref="linear-linked_lst-orderadd"/> shows
-            the complete <c>add</c> method. Lines 2&#8211;3 set up the two external
-            references and lines 9&#8211;10 again allow <c>previous</c> to follow one node
+            the complete <c>add</c> method. Lines 2<ndash/>3 set up the two external
+            references and lines 9<ndash/>10 again allow <c>previous</c> to follow one node
             behind <c>current</c> every time through the iteration. The condition (line
             5) allows the iteration to continue as long as there are more nodes and
             the value in the current node is not larger than the item. In either

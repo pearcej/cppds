@@ -26,14 +26,14 @@
             of words that approach would work fine; however let's suppose we have a
             list of 5,110 words. Roughly speaking, comparing one word to every other
             word on the list is an <m>O(n^2)</m> algorithm. For 5,110 words,
-            <m>n^2</m> is more than 26&#160;million comparisons.</p>
+            <m>n^2</m> is more than 26<nbsp/>million comparisons.</p>
         <p>We can do much better by using the following approach. Suppose that we
             have a huge number of buckets, each of them with a four-letter word on
             the outside, except that one of the letters in the label has been
             replaced by an underscore. For example, consider
             <xref ref="fig-wordbucket"/>, we might have a bucket labeled <q>pop_.</q> As we
             process each word in our list we compare the word with each bucket,
-            using the &#8216;_' as a wildcard, so both <q>pope</q> and <q>pops</q> would match
+            using the <q>_</q> as a wildcard, so both <q>pope</q> and <q>pops</q> would match
             <q>pop_.</q> Every time we find a matching bucket, we put our word in that
             bucket. Once we have all the words in the appropriate buckets we know
             that all the words in the bucket must be connected.</p>

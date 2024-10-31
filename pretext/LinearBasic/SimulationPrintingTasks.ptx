@@ -108,7 +108,7 @@
                 real-world objects described above: <c>Printer</c>, <c>Task</c>, and
                 <c>PrintQueue</c>.</p>
             <p>The <c>Printer</c> class (<xref ref="linear-basic_lst-printer"/>) will need to track whether
-                it has a current task. If it does, then it is busy (lines 13&#8211;17) and the
+                it has a current task. If it does, then it is busy (lines 13<ndash/>17) and the
                 amount of time needed can be computed from the number of pages in the
                 task. The constructor will also allow the pages-per-minute setting to be
                 initialized. The <c>tick</c> method decrements the internal timer and sets
