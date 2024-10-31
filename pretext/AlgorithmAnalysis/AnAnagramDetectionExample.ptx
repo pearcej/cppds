@@ -24,11 +24,12 @@
                 Each character
                 from the first string can be checked against the characters in the local second string
                 and if found, checked off by replacement. <xref ref="lst-anagramsolution"/> shows this function.</p>
-    <listing xml:id="lst-anagramsolution">
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'AnAnagramDetectionExample', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-    <program xml:id="active0cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="expl-anagramsolution">
+                <title>Anagram Solution</title>
+                <task xml:id="lst-anagramsolution" label="lst-anagramsolution">
+                    <title>C++ Implementation</title>
+                    <statement><program xml:id="active0cpp" interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -73,12 +74,11 @@ int main(){
     cout &lt;&lt; value &lt;&lt; endl;
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'AnAnagramDetectionExample', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="active0py" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="active0py" label="active0py">
+                    <title>Python Implementation</title>
+                    <statement><program interactive="activecode" language="python"><input>
 #checks to see if the anagrams have the same number of characters
 
 def anagramSolution1(s1,s2):
@@ -112,10 +112,9 @@ def anagramSolution1(s1,s2):
 def main():
     print(anagramSolution1('abcd','dcba'))
 main()
-        </input>
-    </program>
-            </TabNode>
-    </listing>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>To analyze this algorithm, we need to note that each of the <em>n</em>
                 characters in <c>s1</c> will cause an iteration through up to <em>n</em>
                 characters in the array from <c>s2</c>. Each of the <em>n</em> positions in the
@@ -138,11 +137,11 @@ main()
                 string if the original two strings are anagrams. <xref ref="lst_ana2"/> shows
                 this solution.</p>
 
-    <listing xml:id="lst_ana2">            
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'AnAnagramDetectionExample', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="active6cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration>
+                <title>Anagram Solution: Sorting</title>
+                <task xml:id="lst_ana2" label="lst_ana2">
+                    <title>C++ Implementation</title>
+                    <statement><program xml:id="active6cpp" interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 #include &lt;algorithm&gt;
@@ -171,12 +170,11 @@ int main(){
     cout &lt;&lt; value &lt;&lt; endl;
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'AnAnagramDetectionExample', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="active6py" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="active6py" label="active6py">
+                    <title>Python Implementation</title>
+                    <statement><program interactive="activecode" language="python"><input>
 # sorts anagrams in order from a-z, and then compares them
 def anagramSolution2(s1,s2):
     alist1 = list(s1)
@@ -199,10 +197,9 @@ def anagramSolution2(s1,s2):
 def main():
     print(anagramSolution2('abcde','edcba'))
 main()
-        </input>
-    </program>
-                </TabNode>
-    </listing>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>At first glance you may be tempted to think that this algorithm is
                 <m>O(n)</m>, since there are three consecutive simple iterations:
                 the first two to convert strings to char arrays and the last
@@ -245,11 +242,12 @@ main()
                 particular character, we will increment the counter at that position. In
                 the end, if the two arrays of counters are identical, the strings must be
                 anagrams. <xref ref="lst_ana4"/> shows this solution.</p>
-<listing xml:id="lst_ana4">            
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'AnAnagramDetectionExample', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-    <program xml:id="active7cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="expl-ana4">
+                <title>Anagram Solution: Character Frequency</title>
+                <task xml:id="lst_ana4" label="lst_ana4">
+                    <title>C++ Implementation</title>
+                    <statement><program interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -294,12 +292,11 @@ int main(){
     cout &lt;&lt; value &lt;&lt; endl;
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'AnAnagramDetectionExample', 'chapter': 'AlgorithmAnalysis', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="active7py" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="active7py" label="active7py">
+                    <title>Python Implementation</title>
+                    <statement><program interactive="activecode" language="python"><input>
 """ uses an array to count the number of a ocurrences of the two inputs
 if the number of occurrences is the same then the input is an anagram """
 
@@ -328,10 +325,9 @@ def anagramSolution4(s1,s2):
 def main():
     print(anagramSolution4('apple','pleap'))
 main()
-        </input>
-    </program>
-</TabNode>
-</listing>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>Again, the solution has a number of iterations. However, unlike the
                 first solution, none of them are nested. The first two iterations used
                 to count the characters are both based on <em>n</em>. The third iteration,
@@ -377,37 +373,37 @@ main()
     
                 <choice>
                     <statement>
-                        <p>O(n)</p>
+                        <p><m>O(n)</m></p>
                     </statement>
                     <feedback>
-                        <p>No. In an example like this you want to count the nested loops, especially the loops that are dependent on the same variable, in this case, n.</p>
+                        <p>No. In an example like this you want to count the nested loops, especially the loops that are dependent on the same variable, in this case, <m>n</m>.</p>
                     </feedback>
                 </choice>
     
                 <choice correct="yes">
                     <statement>
-                        <p>O(n<sup>2</sup>)</p>
+                        <p><m>O(n^2)</m></p>
                     </statement>
                     <feedback>
-                        <p>Right! A nested loop like this is O(n<sup>2</sup>).</p>
+                        <p>Right! A nested loop like this is <m>O(n^2)</m>.</p>
                     </feedback>
                 </choice>
     
                 <choice>
                     <statement>
-                        <p>O(log n)</p>
+                        <p><m>O(\log n)</m></p>
                     </statement>
                     <feedback>
-                        <p>No. log n typically is indicated when the problem is iteratively made smaller</p>
+                        <p>No. <m>\log n</m> is typically indicated when the problem is iteratively made smaller</p>
                     </feedback>
                 </choice>
     
                 <choice>
                     <statement>
-                        <p>O(n<sup>3</sup>)</p>
+                        <p><m>O(n^3)</m></p>
                     </statement>
                     <feedback>
-                        <p>No. In an example like this you want to count the nested loops. especially the loops that are dependent on the same variable, in this case, n.</p>
+                        <p>No. In an example like this you want to count the nested loops. especially the loops that are dependent on the same variable, in this case, <m>n</m>.</p>
                     </feedback>
                 </choice>
     </choices>
@@ -435,16 +431,16 @@ main()
     
                 <choice correct="yes">
                     <statement>
-                        <p>O(n)</p>
+                        <p><m>O(n)</m></p>
                     </statement>
                     <feedback>
-                        <p>Right! Even though there are two loops they are not nested.  You might think of this as O(2n) but we can ignore the constant 2.</p>
+                        <p>Right! Even though there are two loops they are not nested.  You might think of this as <m>O(2n)</m> but we can ignore the constant 2.</p>
                     </feedback>
                 </choice>
     
                 <choice>
                     <statement>
-                        <p>O(n<sup>2</sup>)</p>
+                        <p><m>O(n^2)</m></p>
                     </statement>
                     <feedback>
                         <p>No. Be careful, in counting loops you want to look carefully at whether or not the loops are nested.</p>
@@ -453,16 +449,16 @@ main()
     
                 <choice>
                     <statement>
-                        <p>O(log n)</p>
+                        <p><m>O(\log n)</m></p>
                     </statement>
                     <feedback>
-                        <p>No. log n typically is indicated when the problem is iteratively made smaller.</p>
+                        <p>No. <m>\log n</m> is typically indicated when the problem is iteratively made smaller.</p>
                     </feedback>
                 </choice>
     
                 <choice>
                     <statement>
-                        <p>O(n<sup>3</sup>)</p>
+                        <p><m>O(n^3)</m></p>
                     </statement>
                     <feedback>
                         <p>No. Be careful, in counting loops you want to look carefully at whether or not the loops are nested.</p>
@@ -492,16 +488,16 @@ main()
     
                 <choice>
                     <statement>
-                        <p>O(n)</p>
+                        <p><m>O(n)</m></p>
                     </statement>
                     <feedback>
-                        <p>No. Look carefully at the loop variable i.  Notice that the value of i is cut in half each time through the loop.  This is a big hint that the performance is better than O(n)</p>
+                        <p>No. Look carefully at the loop variable <c>i</c>.  Notice that the value of <c>i</c> is cut in half each time through the loop.  This is a big hint that the performance is better than <m>O(n)</m></p>
                     </feedback>
                 </choice>
     
                 <choice>
                     <statement>
-                        <p>O(n<sup>2</sup>)</p>
+                        <p><m>O(n^2)</m></p>
                     </statement>
                     <feedback>
                         <p>No. Check again, is this a nested loop?</p>
@@ -510,16 +506,16 @@ main()
     
                 <choice correct="yes">
                     <statement>
-                        <p>O(log n)</p>
+                        <p><m>O(\log n)</m></p>
                     </statement>
                     <feedback>
-                        <p>Right! The value of i is cut in half each time through the loop so it will only take log n iterations.</p>
+                        <p>Right! The value of <c>i</c> is cut in half each time through the loop so it will only take <m>\log n</m> iterations.</p>
                     </feedback>
                 </choice>
     
                 <choice>
                     <statement>
-                        <p>O(n<sup>3</sup>)</p>
+                        <p><m>O(n^3)</m></p>
                     </statement>
                     <feedback>
                         <p>No. Check again, is this a nested loop?</p>
@@ -531,9 +527,28 @@ main()
         
         <exercise label="analysis_4">
             <statement>
-    <p>If an algorithm performing at <m>O(n^{2})</m> has the integer 8 as input, what is the worst case scenario for the algorithm? <var/>  </p></statement><setup><var><condition number="[64]"><feedback><p>Correct!</p></feedback></condition><condition number="[16]"><feedback><p>That would be 2n, which would be simplified as n.</p></feedback></condition><condition number="[8]"><feedback><p>That would be n.</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>Wrong, Try again!</p></feedback></condition></var></setup></exercise>
+                <p>If an algorithm performing at <m>O(n^{2})</m> has the integer 8 as input,
+                    what is the worst case scenario for the algorithm?<var/></p>
+            </statement>
+            <setup>
+                <var>
+                    <condition number="[64]">
+                        <feedback><p>Correct!</p></feedback>
+                    </condition>
+                    <condition number="[16]">
+                        <feedback><p>That would be 2n, which would be simplified as n.</p></feedback>
+                    </condition>
+                    <condition number="[8]">
+                        <feedback><p>That would be n.</p></feedback>
+                    </condition>
+                    <condition string="^\s*.*\s*$">
+                        <feedback><p>Wrong, Try again!</p></feedback>
+                    </condition>
+                </var>
+            </setup>
+        </exercise>
     </reading-questions>            
-        </subsection>
+</subsection>
         <conclusion><p>
             <!-- extra space before the progress bar -->
         </p></conclusion>
