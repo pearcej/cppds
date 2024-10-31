@@ -56,7 +56,7 @@ class Node {
   <p>Note:</p>
   <blockquote>
     <p>in the constructor that a node is initially created with <c>next</c> and a pointer to
-                <c>NULL</c>. Since this is sometimes referred to as &#x201C;grounding the node,&#x201D;
+                <c>NULL</c>. Since this is sometimes referred to as <q>grounding the node,</q>
                 we will use the standard ground symbol to denote a reference that is
                 referring to <c>NULL</c>.</p>
   </blockquote>
