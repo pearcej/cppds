@@ -178,7 +178,7 @@ myfraction = Fraction(3, 5)
                 It is typical in C++ to make all data attributes <c>private</c> and most methods <c>public</c>.
                 All attribute variables under the <c>private</c>
                 keyword will only be able to be accessed by the object's class methods, not by the user.
-                Only C++'s &#8216;<c>public</c> methods can be accessed and used by the user. Because we
+                Only C++<rsq/>s <c>public</c> methods can be accessed and used by the user. Because we
                 want our user to be able to call every constructor directly, we always place the
                 constructor under <c>public</c>. A third access keyword, <c>protected</c> will be discussed later.</p>
 
@@ -372,7 +372,7 @@ Fraction f1(1, 4);
 Fraction f2(1, 2);
 Fraction f3 = f1 + f2;
 
-// &gt;&gt; error: no match for &#8216;operator+' (operand types are &#8216;Fraction' and &#8216;Fraction'))
+// &gt;&gt; error: no match for `operator+' (operand types are `Fraction' and `Fraction'))
 </input></program>
                     <p>An error received before overloading</p>
                 </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">

@@ -439,7 +439,7 @@ int main(){
                 <q>assigned</q> to the variable named on the left-hand side.
                 Here the type of the variable is integer.</p>
     <p>In C++, the data type cannot change.
-                This is a characteristic of C++&#x2019;s static typing. A
+                This is a characteristic of C++<rsq/>s static typing. A
                 variable can hold ever only one type of data.
                 Pitfall: C++ will often simply try to do the assignment you
                 requested without
@@ -696,11 +696,10 @@ ptrN = &amp;varN;</pre>
                     goes to that address, effectively <em>dereferencing</em> the pointer,
                     meaning that it will find the location of the value stored where the pointer was
                     pointing.</p>
-      <p>In other words, varN and *ptrN (note the asterisk in front!) reference the same
+      <p>In other words, <c>varN</c> and <c>*ptrN</c> (note the asterisk in front!) reference the same
                     value in the code above.</p>
-      <p>Let&#x2019;s extend the example above to output the value of a variable and its address
-                    in memory:</p>
-      <p>&#x2026; _dereferencing:</p>
+      <p>Let<rsq/>s extend the example above to output the value of a variable and its address
+                    in memory: <ellipsis/> _dereferencing.</p>
       <blockquote>
         <program xml:id="firstptr" interactive="activecode" language="cpp">
           <input>
@@ -818,7 +817,7 @@ int main() {
       <p>The second <c>cout</c> instruction is a disaster because</p>
       <ol marker="1">
         <li>
-          <p>You don&#x2019;t know what is stored in location 100 in memory, and</p>
+          <p>You don<rsq/>t know what is stored in location 100 in memory, and</p>
         </li>
         <li>
           <p>that location is outside of your segment (area in memory reserved for your program), so the operating system will jump in with a message about a <q>segmentation fault</q>. Although such an error message looks bad,
@@ -925,7 +924,7 @@ int main( ) {
             </condition>
             <condition string="^\s*reference\s*$">
               <feedback>
-                <p>That&#x2019;s a general description of what it is, not a C++ term!</p>
+                <p>That<rsq/>s a general description of what it is, not a C++ term!</p>
               </feedback>
             </condition>
             <condition string="^\s*default\s*$">
@@ -938,7 +937,7 @@ int main( ) {
       </exercise>
       <exercise label="mc_memory">
         <statement>
-          <p>How may one reference a variable&#x2019;s memory address in C++?</p>
+          <p>How may one reference a variable<rsq/>s memory address in C++?</p>
         </statement>
         <choices>
           <choice correct="yes">

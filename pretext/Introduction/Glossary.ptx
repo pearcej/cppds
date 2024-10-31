@@ -17,7 +17,7 @@
                 <gi>
                     <title>access keywords</title>
                     
-                        <p>Keywords such as &#8216;'public'', private'', and &#8216;'protected'' that indicates what class properties/behaviors a user can change.</p>
+                        <p>Keywords such as <c>public</c>, <c>private</c>, and <c>protected</c> that indicate what class properties/behaviors a user can change.</p>
                     
                 </gi>
                 <gi>

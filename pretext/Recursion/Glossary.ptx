@@ -73,8 +73,8 @@
                     <title>recursive call</title>
                     
                         <p>The statement that calls an already executing function.  Recursion can
-                            even be indirect &#8212; function <title_reference>f</title_reference> can call <title_reference>g</title_reference> which calls <title_reference>h</title_reference>,
-                            and <title_reference>h</title_reference> could make a call back to <title_reference>f</title_reference>.</p>
+                            even be indirect <mdash/> function <em>f</em> can call <em>g</em> which calls <em>h</em>,
+                            and <em>h</em> could make a call back to <em>f</em>.</p>
                     
                 </gi>
                 <gi>

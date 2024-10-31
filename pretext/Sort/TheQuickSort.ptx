@@ -26,8 +26,8 @@
             </figure>
 
 
-        <p>Partitioning begins by locating two position markers&#8212;let's call them
-            <c>leftmark</c> and <c>rightmark</c>&#8212;at the beginning and end of the remaining
+        <p>Partitioning begins by locating two position markers <mdash/> let's call them
+            <c>leftmark</c> and <c>rightmark</c> <mdash/> at the beginning and end of the remaining
             items in the list (positions 1 and 8 in <xref ref="fig-partitiona"/>). The goal
             of the partition process is to move items that are on the wrong side
             with respect to the pivot value while also converging on the split
