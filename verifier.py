@@ -133,7 +133,6 @@ class LabelsShouldBeUnique(CppsXmlTest):
 
     @classmethod
     def teardown(cls):
-        print(f"unique labels: {len(cls.labels)}")
         ok = True
         for k, v in cls.labels.items():
             if len(v) > 1:
