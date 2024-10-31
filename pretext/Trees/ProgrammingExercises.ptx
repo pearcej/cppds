@@ -34,7 +34,7 @@
             </li>
             <li>
                 <p>Clean up the <c>printexp</c> function so that it does not include an
-                    &#8216;extra' set of parentheses around each number.</p>
+                    <q>extra</q> set of parentheses around each number.</p>
             </li>
             <li>
                 <p>Using the <c>buildHeap</c> method, write a sorting function that can

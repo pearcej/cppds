@@ -193,7 +193,7 @@ int main( ) {
 }
         </input>
     </program></listing>
-            <p>For the program in <xref ref="activepassrefcpp"/> to reverse the order of the integers the users types in, the function <c>swap_values(...)</c> must be able to change the values of the arguments. Try removing one or both of the <q>&amp;</q> &#8216;s in this code to see what happens.</p>
+            <p>For the program in <xref ref="activepassrefcpp"/> to reverse the order of the integers the users types in, the function <c>swap_values(...)</c> must be able to change the values of the arguments. Try removing one or both of the <c>&amp;</c><rsq/>s in this code to see what happens.</p>
         </subsection>
         <transition/>
         <subsection xml:id="introduction_arrays-as-parameters-in-functions">
@@ -440,7 +440,7 @@ int main() {
         <title>Self Check Challenge</title>
         <p>See if you can improve upon the program in the self check by keeping letters
             that are correct and only modifying one character in the best string so far.
-            This is a type of algorithm in the class of &#8216;hill climbing' algorithms, that
+            This is a type of algorithm in the class of <q>hill climbing</q> algorithms, that
             is we only keep the result if it is better than the previous one.</p>
     </note>       
                 
