@@ -65,22 +65,27 @@
                 terms so that no matter what computation is performed, we always end up
                 with the most common form.</p>
             <p>In C++, we define a new class by providing a name and a set of method
-                definitions that are syntactically similar to function definitions. For example:</p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-                    <program language="C++"><input>
+                definitions that are syntactically similar to function definitions.
+                For example, see <xref ref="defn-classes"/>.</p>
+            <exploration xml:id="defn-classes">
+                <title>Defining Classes</title>
+                <task xml:id="defn-classes-cpp" label="defn-classes-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program language="cpp"><input>
 class Fraction {
     // The class methods and class variables go here
 };  // The ";" is required by C++ to end a class definition
-</input></program>
-                    <p>Creating a class in C++</p>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="defn-classes-py" label="defn-classes-py">
+                    <title>Python Implementation</title>
+                    <statement><program language="python"><input>
 class Fraction:
 
 #the methods go here
-</input></program>
-                    <p>Creating a class in Python</p>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p><idx>constructor</idx>provides the framework for us to define the methods. The first method
                 that all classes should provide is the <term>constructor</term>.
                 The constructor
@@ -132,12 +137,12 @@ class Fraction:
                 constructor. This happens by using the name of the class and passing
                 actual values for the necessary state after the variable name. For example,</p>
             <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-                    <program language="C++"><input>
+                    <program language="cpp"><input>
 Fraction myfraction(3, 5);
 </input></program>
                     <p>Invoking constructor in C++</p>
                 </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                    <program language="python"><input>
 myfraction = Fraction(3, 5)
 </input></program>
                     <p>Invoking constructor in Python</p>
@@ -189,10 +194,11 @@ myfraction = Fraction(3, 5)
                 <term>polymorphism</term> refers to the ability to handle objects or methods differently depending
                 on their data type, class, number of arguments, etc.
                 For example, we can overload a constructor with different numbers and types of arguments
-                to give us multiple ways to instantiate an object of a class as shown in the next listing for
+                to give us multiple ways to instantiate an object of a class as shown in <xref ref="frac-poly"/> for
                 the <c>Fraction</c> class.</p>
-
-<program language="cpp"><input>
+            <listing xml:id="frac-poly">
+                <caption>Example of Polymorphism</caption>
+                <program language="cpp"><input>
 Fraction(int top, int bottom){
     num = top;
     den = bottom;
@@ -205,7 +211,7 @@ Fraction (){
     num = 0;
     den = 1;
 }
-</input></program>
+            </input></program></listing>
 
             <p>Calling the constructor with two arguments will invoke the first method,
                 calling it with a single argument will invoke the second method, and calling
@@ -221,14 +227,14 @@ Fraction (){
             <p>The next thing we need to do is implement some behaviors that the abstract
                 data type requires. To begin, let's consider what happens when we try to print
                 a <c>Fraction</c> object.</p>
-            <pre>int main() {
+            <program language="cpp">int main() {
     Fraction myfraction(3, 5);
 
     // Throws an error
     cout &lt;&lt; myfraction &lt;&lt; endl;
 
     return 0;
-}</pre>
+}</program>
             <p>The <c>fraction</c> object, <c>myfraction</c>, does not know how to respond to this
                 request to print to the console. The <c>cout</c> function requires that the object
                 knows how to interact with the <c>&lt;&lt;</c> operator so that the string can be sent to the
