@@ -60,19 +60,22 @@ main()
             problem from adding a vector to adding pairs of numbers, we could rewrite
             the vector as a fully parenthesized expression. Such an expression looks
             like this:</p>
-        <m docname="Recursion/pythondsCalculatingtheSumofaListofNumbers" nowrap="False" number="True" xml:space="preserve">((((1 + 3) + 5) + 7) + 9)</m>
+        <me>((((1 + 3) + 5) + 7) + 9)</me>
         <p>We can also parenthesize
             the expression the other way around,</p>
-        <m docname="Recursion/pythondsCalculatingtheSumofaListofNumbers" nowrap="False" number="True" xml:space="preserve">(1 + (3 + (5 + (7 + 9))))</m>
+        <me>(1 + (3 + (5 + (7 + 9))))</me>
         <p>Notice that the innermost set of
             parentheses, <m>(7 + 9)</m>, is a problem that we can solve without a
             loop or any special constructs. In fact, we can use the following
             sequence of simplifications to compute a final sum.</p>
-        <m docname="Recursion/pythondsCalculatingtheSumofaListofNumbers" nowrap="False" number="True" xml:space="preserve">total = \  (1 + (3 + (5 + (7 + 9)))) \\
-total = \  (1 + (3 + (5 + 16))) \\
-total = \  (1 + (3 + 21)) \\
-total = \  (1 + 24) \\
-total = \  25</m>
+        <me>\begin{split}
+            total &amp; = (1 + (3 + (5 + (7 + 9)))) \\
+            total &amp; = (1 + (3 + (5 + 16))) \\
+            total &amp; = (1 + (3 + 21)) \\
+            total &amp; = (1 + 24) \\
+            total &amp; = 25
+            \end{split}
+        </me>
         <p>How can we take this idea and turn it into a C++ program? First,
             let's restate the sum problem in terms of C++ arrays. We might say
             the sum of the vector <c>numVect</c> is the sum of the first element of the

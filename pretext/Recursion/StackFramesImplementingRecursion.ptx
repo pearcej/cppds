@@ -94,7 +94,7 @@ main()
             call stack after the return statement on line 4.</p>
         
         <figure align="center" xml:id="fig-callstack">
-            <caption>Call Stack Generated from <literal>toStr(10,2).</literal></caption>
+            <caption>Call Stack Generated from <c>toStr(10,2).</c></caption>
                 <image source="Recursion/newcallstack.png" width="50%">
                 <description>Diagram illustrating a call stack generated from the function toStr(10,2), which converts the number 10 into a base 2 string. The bottom of the stack shows 'toStr(10/2, 2) + convertString[10%2]', then above it 'toStr(5,2) n = 5 base = 2' with 'toStr(5/2,2) + convertString[5%2]', followed by 'toStr(2,2) n = 2 base = 2' and at the top 'toStr(2/2,2) + convertString[2%2]'. A single character '1' floats above the stack, indicating the start of the conversion process.</description>
                 </image>
