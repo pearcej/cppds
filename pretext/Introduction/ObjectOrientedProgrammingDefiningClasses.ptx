@@ -135,24 +135,29 @@ class Fraction:
                 <c>fraction</c> object to know its starting values.</p>
             <p>To create an object or instance of the <c>Fraction</c> class, we must invoke the
                 constructor. This happens by using the name of the class and passing
-                actual values for the necessary state after the variable name. For example,</p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-                    <program language="cpp"><input>
+                actual values for the necessary state after the variable name.
+                For example, see <xref ref="invoking-constructor"/>.</p>
+            <exploration xml:id="invoking-constructor">
+                <title>Invoking Constructor</title>
+                <task xml:id="invoking-constructor-cpp" label="invoking-constructor-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program language="cpp"><input>
 Fraction myfraction(3, 5);
-</input></program>
-                    <p>Invoking constructor in C++</p>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="python"><input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="invoking-constructor-py" label="invoking-constructor-py">
+                    <title>Python Implementation</title>
+                    <statement><program language="python"><input>
 myfraction = Fraction(3, 5)
-</input></program>
-                    <p>Invoking constructor in Python</p>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>creates an object called <c>myfraction</c> representing the fraction
                 <m>\frac {3}{5}</m> (three-fifths). <xref ref="fig-fraction1cpp"/> shows this
                 object as it is now implemented.</p>
             
             <figure align="center" xml:id="fig-fraction1cpp">
-                <caption>An instance of the <literal>Fraction</literal> Class</caption>
+                <caption>An instance of the <c>Fraction</c> Class</caption>
                     <image source="Introduction/fraction1cpp.png" width="50%">
                     <description>Diagram showing an instance of the Fraction class. The instance is named 'myfraction' and is depicted as a set of concentric circles. The innermost circle is labeled 'State' and contains two segments: 'num' with the number 3 above 'den' with the number 5, representing the numerator and denominator of a fraction. The middle circle is labeled 'Methods', indicating the functionality associated with the fraction instance.</description>
                     </image>
@@ -698,7 +703,7 @@ int main(){
         </input></program>
     </listing>
             <figure align="center" xml:id="fig-fraction2cpp">
-                <caption>An Instance of the <literal>Fraction</literal> Class with Two Methods</caption>
+                <caption>An Instance of the <c>Fraction</c> Class with Two Methods</caption>
                     <image source="Introduction/fraction2cpp.png" width="50%">
                     <description>Visual representation of a Fraction class instance called 'myfraction'. It features concentric circles with the innermost labeled 'State' showcasing 'num' with a value of 3 above 'den' with a value of 5, indicating the fraction's numerator and denominator. The outer circle is labeled 'Methods', suggesting the object's functionality. Two symbols, '&lt;&lt;' and '+', are shown outside the Methods circle, implying additional methods. </description>
                     </image>
