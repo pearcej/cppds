@@ -324,11 +324,11 @@ def show(self):
                 Note that stream operators
                 need to return the address of the stream because of the fact that the
                 stream is changed by the stream operator.</p>
-            <p><term>Listing 4</term></p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="overloaded_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="expl-overload">
+                <title>Operator Overloading Example</title>
+                <task xml:id="overloaded-cpp" label="overloaded-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program xml:id="overloaded_cpp" interactive="activecode" language="cpp"><input>
 /*overloading functions to take in different
 inputs and output the correct results*/
 #include &lt;iostream&gt;
@@ -360,18 +360,20 @@ int main() {
 
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="overloaded-py" label="overloaded-py">
+                    <title>Python Implementation</title>
+                    <statement><program language="python"><input>
 def __str__(self):
     return str(self.num)+"/"+str(self.den)
 
     myf = Fraction(3,5)
     print(myf)
     print("I ate", myf, "of the pizza")
-</input></program>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>We can overload many other operators for our new <c>Fraction</c> class. Some
                 of the most important of these are the basic arithmetic operations. We
                 would like to be able to create two <c>Fraction</c> objects and then be able to add
@@ -507,28 +509,31 @@ print(f3)
                 or friend functions of the class they are used with.
                 However, that is not true for the <c>+</c> operator.
                 Let's rewrite the addition operator as a friend function.</p>
-            <p><term>Listing 6</term></p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-                    <program language="C++"><input>
+            <exploration xml:id="expl-addoverload">
+                <title>Overloading Addition</title>
+                <task xml:id="addoverload-cpp" label="addoverload-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program language="cpp"><input>
 Fraction operator +(const Fraction &amp;otherFrac){
     //Note the return type is a Fraction
     int newnum = num*otherFrac.den + den*otherFrac.num;
     int newden = den*otherFrac.den;
     return Fraction(newnum, newden);
 }
-</input></program>
-                    <p>Rewriting addition operator as a friend function</p>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="addoverload-py" label="addoverload-py">
+                    <title>Python Implementation</title>
+                    <statement><program language="python"><input>
 def __add__(self,otherfraction):
     newnum = self.num*otherfraction.den + self.den*otherfraction.num
     newden = self.den * otherfraction.den
     return Fraction(newnum,newden)
-</input></program>
-                </TabNode>
-
-    <program xml:id="addfrac" interactive="activecode" language="cpp">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="addoverload-usage">
+                    <title>C++ Usage</title>
+                    <statement><program interactive="activecode" language="cpp"><input>
 //overloading the addition operator to create clearer syntax
 #include &lt;iostream&gt;
 using namespace std;
@@ -566,8 +571,9 @@ int main(){
     cout &lt;&lt; f3 &lt;&lt; " is "&lt;&lt; f1 &lt;&lt; " + " &lt;&lt; f2 &lt;&lt; endl;
     return 0;
 }
-        </input>
-    </program>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>How you choose to overload operators  like <c>+</c> is a design choice
                 since both methods will work perfectly well. This is another
                 example of encapsulation; your user does not need to know
