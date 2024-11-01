@@ -31,7 +31,7 @@
         
 
         <figure align="center" xml:id="fig-insertionpass">
-            <caption><literal>InsertionSort</literal>: Fifth Pass of the Sort.</caption>
+            <caption><c>InsertionSort</c>: Fifth Pass of the Sort.</caption>
                 <image source="Sort/insertionpass.png" width="50%">
                 <description>An educational illustration depicting the fifth pass of the insertion sort algorithm. The diagram shows a series of rows with numerical values in boxes, each row representing a step in the sorting process. Arrows indicate the shifting of numbers to make space for the correctly positioned value. Descriptive text accompanies each step explaining the movement required, such as '93>31 so shift it to the right' and 'Need to insert 31 back into the sorted list'. The final row shows the number 31 being inserted into its correct position in the sequence.</description>
                 </image>
