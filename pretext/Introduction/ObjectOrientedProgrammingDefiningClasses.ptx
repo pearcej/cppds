@@ -379,27 +379,31 @@ def __str__(self):
                 would like to be able to create two <c>Fraction</c> objects and then be able to add
                 them together using the standard <q>+</q> notation. At this point, if we try
                 to add two fractions using <q>+</q>, we get the following:</p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-                    <program language="C++"><input>
+            <exploration xml:id="expl-adderror">
+                <title>Error Before Overloading Addition</title>
+                <task xml:id="adderror-cpp" label="adderror-cpp">
+                    <title>C++ Addition Error</title>
+                    <statement><console><input prompt="">
 Fraction f1(1, 4);
 Fraction f2(1, 2);
 Fraction f3 = f1 + f2;
-
-// &gt;&gt; error: no match for `operator+' (operand types are `Fraction' and `Fraction'))
-</input></program>
-                    <p>An error received before overloading</p>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                    </input><output>
+&gt;&gt; error: no match for `operator+' (operand types are `Fraction' and `Fraction'))
+                    </output></console></statement>
+                </task>
+                <task xml:id="adderror-py" label="adderror-py">
+                    <title>Python Addition Error</title>
+                    <statement><console><input prompt="">
 f1 = Fraction(1,4)
 f2 = Fraction(1,2)
 f1+f2
-
+                    </input><output>
 Traceback (most recent call last):
 File "&lt;pyshell#173&gt;", line 1, in -toplevel- f1+f2
 TypeError: unsupported operand type(s) for +: 'instance' and 'instance'
-</input></program>
-                    <p>An error received before overloading</p>
-                </TabNode>
+                    </output></console></statement>
+                </task>
+            </exploration>
             <p>If you look closely at the error, you see that the problem is that the
                 <q>+</q> operator does not understand the <c>Fraction</c> operands.</p>
             <p>We can, of course create something like:</p>
@@ -901,7 +905,7 @@ class Airplane: public Vehicle
 };
 </input></program>
             <p>To make sure you understand how operators are implemented in C++ classes, and how to properly write methods, write some methods to implement
-                <c classes="code">*</c>, <c classes="code">/</c>, and <c classes="code">-</c>.  Also implement comparison operators <c classes="code">&gt;</c> and <c classes="code">&lt;</c>.</p>
+                <c>*</c>, <c>/</c>, and <c>-</c>.  Also implement comparison operators <c>&gt;</c> and <c>&lt;</c>.</p>
 
     <program xml:id="self_check_4cpp" interactive="activecode" language="cpp">
         <input>
