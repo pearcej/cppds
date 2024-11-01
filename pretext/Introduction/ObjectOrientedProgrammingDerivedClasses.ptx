@@ -46,7 +46,9 @@
             In this example, the two derived subclasses inherit the <c>printType</c>
             method from the Base class.</p>
 
-        <listing xml:id="virtualfunction"><program language="cpp"><input>
+        <listing xml:id="virtualfunction">
+            <caption>Virtual function example</caption>
+            <program language="cpp"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -84,7 +86,8 @@ int main() {
 
         return 0;
 }
-        </input></program></listing>
+            </input></program>
+        </listing>
 </introduction>
         <subsection xml:id="introduction_logic-gates-and-circuits">
             <title>Logic Gates and Circuits</title>
@@ -408,7 +411,9 @@ class AndGate(BinaryGate):
                 <c>performGateLogic</c> method which in turn queries the two input lines.
                 Once the values are provided, the correct output is shown.</p>
 
-        <listing xml:id="introduction_fig-andusage"><program><input>
+        <listing xml:id="introduction_fig-andusage">
+            <caption><c>AndGate</c> Usage</caption>
+            <program><input>
                 &gt;&gt;&gt; AndGate gand2("gand2")
                 &gt;&gt;&gt; gand2.getOutput()
                 Enter Pin A input for gate gand2: 1
@@ -418,7 +423,8 @@ class AndGate(BinaryGate):
                 Enter Pin A input for gate gand2: 0
                 Enter Pin B input for gate gand2: 0
                 0
-        </input></program></listing>
+            </input></program>
+        </listing>
 .
            <p>The same development can be done for <term>OR</term> gates and <term>NOT</term> gates. The
                 <c>OrGate</c> class will also be a subclass of <c>BinaryGate</c> and the
@@ -429,7 +435,9 @@ class AndGate(BinaryGate):
                 gate classes and then asking the gate for its output (which will in turn
                 need inputs to be provided). For example:</p>
 
-        <listing xml:id="introduction_fig-ornotusage"><program><input>
+            <listing xml:id="introduction_fig-ornotusage">
+                <caption>Usage of <c>OrGate</c> and <c>NotGate</c></caption>
+                <program><input>
 &gt;&gt;&gt; g2 = OrGate("G2")
 &gt;&gt;&gt; g2.getOutput()
 Enter Pin A input for gate G2-&gt;1
@@ -443,7 +451,8 @@ Enter Pin B input for gate G2-&gt;0
 &gt;&gt;&gt; g3.getOutput()
 Enter Pin input for gate G3-&gt;0
 1
-        </input></program></listing>
+                </input></program>
+            </listing>
         </subsection>
         <subsection xml:id="introduction_building-circuits">
             <title>Building Circuits</title>
@@ -489,7 +498,9 @@ Enter Pin input for gate G3-&gt;0
                     </image>
                 </figure>
 
-    <listing xml:id="ooderive_program"><program interactive="activecode" language="cpp"><input>
+            <listing xml:id="ooderive_program">
+                <caption>Using the <c>Connector</c> Class</caption>
+                <program interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -682,7 +693,8 @@ int main() {
     cin &gt;&gt; stopme; //holds open window under some conditions.
     return 0;
 }
-        </input></program></listing>
+                </input></program>
+            </listing>
 
     <reading-questions xml:id="rq-oop-derived-classes">
         <title>Reading Questions</title>
