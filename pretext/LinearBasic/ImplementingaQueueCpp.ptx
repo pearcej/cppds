@@ -2,7 +2,7 @@
         <title>Using a Queue in C++</title>
         <p>Now we will turn our attention to using the queue data structure
             with the help of the Standard Template Library (STL) in C++.</p>
-        <p>As we described in Chapter 1, in C++, as in any object-oriented
+        <p>As we described in <xref ref="ch-intro"/>, in C++, as in any object-oriented
             programming language,
             the implementation of choice for an abstract data
             type such as a queue is a class in which the queue

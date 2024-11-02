@@ -99,15 +99,15 @@
             preorder traversal gives you exactly that ordering. Starting at the root
             of the tree (the Book node) we will follow the preorder traversal
             instructions. We recursively call <c>preorder</c> on the left child, in
-            this case Chapter1. We again recursively call <c>preorder</c> on the left
-            child to get to Section 1.1. Since Section 1.1 has no children, we do
+            this case Chapter<nbsp/>1. We again recursively call <c>preorder</c> on the left
+            child to get to Section<nbsp/>1.1. Since Section<nbsp/>1.1 has no children, we do
             not make any additional recursive calls. When we are finished with
-            Section 1.1, we move up the tree to Chapter 1. At this point we still
-            need to visit the right subtree of Chapter 1, which is Section 1.2. As
-            before we visit the left subtree, which brings us to Section 1.2.1, then
-            we visit the node for Section 1.2.2. With Section 1.2 finished, we
-            return to Chapter 1. Then we return to the Book node and follow the same
-            procedure for Chapter 2.</p>
+            Section<nbsp/>1.1, we move up the tree to Chapter<nbsp/>1. At this point we still
+            need to visit the right subtree of Chapter<nbsp/>1, which is Section<nbsp/>1.2. As
+            before we visit the left subtree, which brings us to Section<nbsp/>1.2.1, then
+            we visit the node for Section<nbsp/>1.2.2. With Section<nbsp/>1.2 finished, we
+            return to Chapter<nbsp/>1. Then we return to the Book node and follow the same
+            procedure for Chapter<nbsp/>2.</p>
         <p>The code for writing tree traversals is surprisingly elegant, largely
             because the traversals are written recursively. <xref ref="lst-preorder1-cpp"/>
             shows the C++ code for a preorder traversal of a binary tree.</p>
@@ -409,8 +409,8 @@ def printexp(tree):
 
             <choice correct="yes">
                 <statement>
-                    <p>Book, Chapter 1, Section 1.1, Section 1.2, Section 1.2.2,
-Section 1.2.2, Chapter 2, Section 2.1, Section 2.2, Section 2.2.1, Section 2.2.2</p>
+                    <p>Book, Chapter<nbsp/>1, Section<nbsp/>1.1, Section<nbsp/>1.2, Section<nbsp/>1.2.2,
+Section<nbsp/>1.2.2, Chapter<nbsp/>2, Section<nbsp/>2.1, Section<nbsp/>2.2, Section<nbsp/>2.2.1, Section<nbsp/>2.2.2</p>
                 </statement>
                 <feedback>
                     <p>correct</p>
@@ -419,8 +419,8 @@ Section 1.2.2, Chapter 2, Section 2.1, Section 2.2, Section 2.2.1, Section 2.2.2
 
             <choice>
                 <statement>
-                    <p>Section 1.1, Chapter 1.2, Section 1.2.1, Section 1.2, Section 1.2.2,
-Section 2.1, Chapter 2, Section 2.2.1, Section 2.2, Section 2.2.2</p>
+                    <p>Section<nbsp/>1.1, Chapter<nbsp/>1.2, Section<nbsp/>1.2.1, Section<nbsp/>1.2, Section<nbsp/>1.2.2,
+Section<nbsp/>2.1, Chapter<nbsp/>2, Section<nbsp/>2.2.1, Section<nbsp/>2.2, Section<nbsp/>2.2.2</p>
                 </statement>
                 <feedback>
                     <p>Incorrect, this is postorder traversal</p>
@@ -429,8 +429,8 @@ Section 2.1, Chapter 2, Section 2.2.1, Section 2.2, Section 2.2.2</p>
 
             <choice>
                 <statement>
-                    <p>Section 1.1, Section 1.2.1, Section 1.2.2, Section 1.2, Chapter 1,
-Section 2.1, Section 2.2.1, Section 2.2.2, Section 2.2, Chapter 2, Book</p>
+                    <p>Section<nbsp/>1.1, Section<nbsp/>1.2.1, Section<nbsp/>1.2.2, Section<nbsp/>1.2, Chapter<nbsp/>1,
+Section<nbsp/>2.1, Section<nbsp/>2.2.1, Section<nbsp/>2.2.2, Section<nbsp/>2.2, Chapter<nbsp/>2, Book</p>
                 </statement>
                 <feedback>
                     <p>Incorrect, this is inorder traversal</p>
