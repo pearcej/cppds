@@ -406,16 +406,22 @@ TypeError: unsupported operand type(s) for +: 'instance' and 'instance'
             </exploration>
             <p>If you look closely at the error, you see that the problem is that the
                 <q>+</q> operator does not understand the <c>Fraction</c> operands.</p>
-            <p>We can, of course create something like:</p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-                    <program language="C++"><input>
+            <p>We can, of course create something like <xref ref="expl-addmodel"/>.</p>
+            <exploration xml:id="expl-addmodel">
+                <title>Function for Addition</title>
+                <task xml:id="addmodel-cpp" label="addmodel-cpp">
+                    <title>C++</title>
+                    <statement><program language="cpp"><input>
 f1.add(f2)
-</input></program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="addmodel-py" label="addmodel-py">
+                    <title>Python</title>
+                    <statement><program language="python"><input>
 f1.__add__(f2)
-</input></program>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>which would ask the <c>Fraction</c> object <c>f1</c> to add the <c>Fraction</c> object
                 <c>f2</c> to itself. It would be much better to be written in the standard notation,
                 <c>f1 + f2</c>. We can fix this by providing the <c>Fraction</c> class with a friend that
@@ -535,7 +541,7 @@ def __add__(self,otherfraction):
     return Fraction(newnum,newden)
                     </input></program></statement>
                 </task>
-                <task xml:id="addoverload-usage">
+                <task xml:id="addoverload-usage" label="addoverload-usage">
                     <title>C++ Usage</title>
                     <statement><program interactive="activecode" language="cpp"><input>
 //overloading the addition operator to create clearer syntax
@@ -604,10 +610,11 @@ int main(){
                 fraction class because we have said that a negative fraction will be
                 represented by a negative numerator.</p>
             
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="gcd_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="gcdalg">
+                <title>Greatest Common Divisor</title>
+                <task xml:id="gcd-cpp" label="gcd-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -627,12 +634,11 @@ int main() {
     cout &lt;&lt; gcd(20, 10) &lt;&lt; endl;
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="gcd_py" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="gcd-py" label="gcd-py">
+                    <title>Python Implementation</title>
+                    <statement><program interactive="activecode" language="python"><input>
 def gcd(m,n):
     while m%n != 0:
         oldm = m
@@ -643,9 +649,9 @@ def gcd(m,n):
     return n
 
 print(gcd(20,10))
-        </input>
-    </program>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>Now we can use this function to help reduce any fraction. To put a
                 fraction in lowest terms, we will divide the numerator and the
                 denominator by their greatest common divisor. So, for the fraction
