@@ -319,7 +319,7 @@ def show(self):
                 all private and protected members of the class.
                 In C++, we overload an operator by declaring it a <term>friend</term>
                 function in the class definition and giving it a new implementation.
-                <inline classes="xref std std-ref">Listing 4</inline> shows an example of the <c>&lt;&lt;</c> operator being overloaded
+                <xref ref="expl-overload"/> shows an example of the <c>&lt;&lt;</c> operator being overloaded
                 in the <c>Fraction</c> class.
                 Note that stream operators
                 need to return the address of the stream because of the fact that the
