@@ -33,7 +33,7 @@
                     
                 </gi>
                 <gi>
-                    <title><c classes="code">contains</c></title>
+                    <title><c>contains</c></title>
                     
                         <p>A hash operation used to check if a table contains a specific element.</p>
                     
@@ -57,7 +57,7 @@
                     
                 </gi>
                 <gi>
-                    <title><c classes="code">get_item</c></title>
+                    <title><c>get_item</c></title>
                     
                         <p>A hash operation used to retrieve the information associated with a hash key.</p>
                     
@@ -97,7 +97,7 @@
                     
                 </gi>
                 <gi>
-                    <title><c classes="code">set_item</c></title>
+                    <title><c>set_item</c></title>
                     
                         <p>A hash operation used to add an item to your table.</p>
                     

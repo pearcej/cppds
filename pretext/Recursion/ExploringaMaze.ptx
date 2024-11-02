@@ -152,8 +152,8 @@ def searchFrom(maze, startRow, startColumn):
         </listing>
         <p>As you look through the algorithm you will see that the first thing the
             code does (steps 1 and 2) is determine if the space <em>should be visited</em>.
-            This is done by checking if the spot is an obstacle (<c classes="code">MAZE_OBSTACLE</c>),
-            or has already been visited (<c classes="code">MAZE_TRIED</c>). The algorithm then
+            This is done by checking if the spot is an obstacle (<c>MAZE_OBSTACLE</c>),
+            or has already been visited (<c>MAZE_TRIED</c>). The algorithm then
             determines if it has found an exit (step 3). If none of these cases
             are true, it continues the search recursively.</p>
         <p>You will notice that in the recursive step there are four recursive
