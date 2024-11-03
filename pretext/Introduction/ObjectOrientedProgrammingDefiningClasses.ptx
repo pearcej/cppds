@@ -597,7 +597,7 @@ int main(){
                 divisor, or GCD. We can then divide the numerator and the denominator by
                 the GCD and the result will be reduced to lowest terms.</p>
             <p>The best-known algorithm for finding a greatest common divisor is
-                Euclid's Algorithm, which will be discussed in detail in Chapter 8.
+                Euclid's Algorithm, which will be discussed in detail in <xref ref="ch-trees"/>.
                 Euclid's Algorithm states that the greatest common divisor of two
                 integers <m>m</m> and <m>n</m> is <m>n</m> if <m>n</m>
                 divides <m>m</m> evenly. However, if <m>n</m> does not divide

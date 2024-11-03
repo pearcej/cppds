@@ -4,7 +4,7 @@
             will turn our attention to using a stack with the help of the Standard Template Library (STL) in C++. Recall
             that when we give an abstract data type a physical implementation we
             refer to the implementation as a data structure.</p>
-        <p>As we described in Chapter 1, in C++, as in any object-oriented
+        <p>As we described in <xref ref="ch-intro"/>, in C++, as in any object-oriented
             programming language, the implementation of choice for an abstract data
             type such as a stack is the creation of a new class. The stack
             operations are implemented as methods. However, the STL already has a well
