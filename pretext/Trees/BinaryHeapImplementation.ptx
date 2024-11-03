@@ -96,17 +96,15 @@ class BinHeap{
                 <image source="Trees/percUp.png" width="50%" alt="image"/>
             </figure>
             
-            <p>Notice that when we percolate an item up, we are restoring the heap
-                property between the newly added item and the parent. We are also
-                preserving the heap property for any siblings. Of course, if the newly
-                added item is very small, we may still need to swap it up another level.
-                In fact, we may need to keep swapping until we get to the top of the
-                tree. <xref ref="binheap_lst-heap2"/> shows the <c>percUp</c> method, which
-                percolates a new item as far up in the tree as it needs to go to
-                maintain the heap property. Here is where our wasted element in
-                <c>heapvector</c> is important. Notice that we can compute the parent of any
-                node by using simple integer division. The parent of the current node
-                can be computed by dividing the index of the current node by 2.</p>
+            <P>Notice that as we percolate an item up the tree, the heap property is restored
+                between the newly added item and the parent. We also preserve the heap property
+                for any siblings. If an item is very small, we will need to swap it up another level.
+                In fact, we may need to keep swapping until we get to the top of the tree.
+                <xref ref="binheap_lst-heap2"/> shows the <c>percUp</c> method,
+                which percolates a new item as far up the tree as it needs to go to maintain the heap property.
+                Here is where our wasted element in <c>heapvector</c> is important.
+                Notice that we can compute the parent of any node by using simple integer division
+                because the parent of a node is computed by dividing the index of the current node by 2.</p>
             <p>We are now ready to write the <c>insert</c> method (see <xref ref="binheap_lst-heap3"/>). Most of the work in the
                 <c>insert</c> method is really done by <c>percUp</c>. Once a new item is
                 appended to the tree, <c>percUp</c> takes over and positions the new item
