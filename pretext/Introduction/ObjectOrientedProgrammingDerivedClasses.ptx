@@ -358,7 +358,13 @@ class UnaryGate(LogicGate):
                 which in turn calls its parent class constructor (<c>LogicGate</c>). Note
                 that the <c>AndGate</c> class does not provide any new data since it
                 inherits two input lines, one output line, and a label.</p>
-
+            <p>The only thing <c>AndGate</c> needs to add is the specific behavior that
+                performs the Boolean operation that was described earlier. This is the
+                place where we can provide the <c>performGateLogic</c> method. For an <term>AND</term>
+                gate, this method first must get the two input values and then only
+                return 1 if both input values are 1. The complete class is shown in
+                <xref ref="introduction_lst-andgateclass"/>.</p>
+        
         <exploration xml:id="introduction_expl-andgateclass">
                 <title>Implementation of <c>AndGate</c></title>
                 <task xml:id="introduction_lst-andgateclass" label="introduction_lst-andgateclass">
@@ -398,12 +404,6 @@ class AndGate(BinaryGate):
                         return 0
         </input></program></statement></task></exploration>
 
-            <p>The only thing <c>AndGate</c> needs to add is the specific behavior that
-                performs the Boolean operation that was described earlier. This is the
-                place where we can provide the <c>performGateLogic</c> method. For an <term>AND</term>
-                gate, this method first must get the two input values and then only
-                return 1 if both input values are 1. The complete class is shown in
-                <xref ref="introduction_lst-andgateclass"/>.</p>
             <p>We can show the <c>AndGate</c> class in action by creating an instance and
                 asking it to compute its output. The following session shows an
                 <c>AndGate</c> object, <c>gand1</c>, that has an internal label <c>"gand1"</c>. When we
@@ -482,12 +482,12 @@ Enter Pin input for gate G3-&gt;0
                 designing classes, it is very important to distinguish between those
                 that have the IS-A relationship (which requires inheritance) and those
                 that have HAS-A relationships (with no inheritance).</p>
-            <p><xref ref="ooderive_program"/> shows the <c>Connector</c> class.
-                The two gate instances within each connector object will be referred to as the
+            <p><xref ref="ooderive_program"/> adds the <c>Connector</c> class.
+                The two gate instances within each connector object are referred to as the
                 <c>fromgate</c> and the <c>togate</c>, recognizing that data values will
                 <q>flow</q> from the output of one gate into an input line of the next. The
-                call to <c>setNextPin</c> is very important for making connections (see
-                <xref ref="ooderive_program"/>). We need to add this method to our gate classes so
+                call to <c>setNextPin</c> is very important for making connections.
+                We need to add this method to our gate classes so
                 that each <c>togate</c> can choose the proper input line for the
                 connection.</p>
       
@@ -596,7 +596,7 @@ class UnaryGate : public LogicGate {
 };
 
 //Class that sets up the logic for an "and" gate
-    class AndGate : public BinaryGate{
+class AndGate : public BinaryGate{
     public:
             AndGate(string n) : BinaryGate(n) {};
 
@@ -613,7 +613,7 @@ class UnaryGate : public LogicGate {
 };
 
 //class that sets up the logic for an "or" gate
-    class OrGate : public BinaryGate {
+class OrGate : public BinaryGate {
     public:
             OrGate(string n) : BinaryGate(n) {};
 
@@ -630,7 +630,7 @@ class UnaryGate : public LogicGate {
 };
 
 //class that sets up the logic for a "not" gate
-    class NotGate : public UnaryGate {
+class NotGate : public UnaryGate {
     public:
             NotGate(string n) : UnaryGate(n) {};
 
@@ -645,7 +645,7 @@ class UnaryGate : public LogicGate {
 };
 
 // class that sets up logic for the connection of one gate to another
-    class Connector{
+class Connector{
     public:
             Connector(LogicGate *fgate, LogicGate *tgate) {
                     fromgate = fgate;
