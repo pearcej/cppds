@@ -393,6 +393,13 @@ which in turn calls its parent class constructor (``LogicGate``). Note
 that the ``AndGate`` class does not provide any new data since it
 inherits two input lines, one output line, and a label.
 
+The only thing ``AndGate`` needs to add is the specific behavior that
+performs the Boolean operation that was described earlier. This is the
+place where we can provide the ``performGateLogic`` method. For an **AND**
+gate, this method first must get the two input values and then only
+return 1 if both input values are 1. The complete class is shown in
+:ref:`Listing 11 <lst_andgateclass>`.
+
 .. _lst_andgateclass:
 
 **Listing 11**
@@ -437,13 +444,6 @@ inherits two input lines, one output line, and a label.
 					else:
 						return 0
 
-
-The only thing ``AndGate`` needs to add is the specific behavior that
-performs the Boolean operation that was described earlier. This is the
-place where we can provide the ``performGateLogic`` method. For an **AND**
-gate, this method first must get the two input values and then only
-return 1 if both input values are 1. The complete class is shown in
-:ref:`Listing 11 <lst_andgateclass>`.
 
 We can show the ``AndGate`` class in action by creating an instance and
 asking it to compute its output. The following session shows an
@@ -555,12 +555,12 @@ designing classes, it is very important to distinguish between those
 that have the IS-A relationship (which requires inheritance) and those
 that have HAS-A relationships (with no inheritance).
 
-:ref:`Listing 12 <lst_Connectorclass>` shows the ``Connector`` class.
-The two gate instances within each connector object will be referred to as the
+:ref:`Listing 12 <lst_Connectorclass>` adds the ``Connector`` class.
+The two gate instances within each connector object are referred to as the
 ``fromgate`` and the ``togate``, recognizing that data values will
 “flow” from the output of one gate into an input line of the next. The
-call to ``setNextPin`` is very important for making connections (see
-:ref:`Listing 13 <lst_setpin>`). We need to add this method to our gate classes so
+call to ``setNextPin`` is very important for making connections.
+We need to add this method to our gate classes so
 that each ``togate`` can choose the proper input line for the
 connection.
 
@@ -569,7 +569,7 @@ connection.
 .. figure:: Figures/desired_circuit.png
    :align: center
 
-   Figure 13: Circit of NOT(AND(ganda,gnadb)OR AND(gandc,gandd))
+   Figure 13: Circuit of NOT(AND(ganda,gnadb)OR AND(gandc,gandd))
 
 .. mchoice:: mc_IS-A_HAS-A
 	:multiple_answers:
@@ -587,7 +587,9 @@ connection.
 	
 	What is the difference between HAS-A and IS-A relationships? Select all that apply. 
    
+.. _lst_Connectorclass:
 
+**Listing 12**
 
 .. activecode:: desiredcircuit
     :language: cpp
@@ -688,7 +690,7 @@ connection.
     };
 
     //Class that sets up the logic for an "and" gate 
-	class AndGate : public BinaryGate{
+    class AndGate : public BinaryGate{
 	public:
 		AndGate(string n) : BinaryGate(n) {};
 
@@ -705,7 +707,7 @@ connection.
     };
 
     //class that sets up the logic for an "or" gate 
-	class OrGate : public BinaryGate {
+    class OrGate : public BinaryGate {
 	public:
 		OrGate(string n) : BinaryGate(n) {};
 
@@ -722,7 +724,7 @@ connection.
     };
 
     //class that sets up the logic for a "not" gate
-	class NotGate : public UnaryGate {
+    class NotGate : public UnaryGate {
 	public:
 		NotGate(string n) : UnaryGate(n) {};
 
@@ -737,7 +739,7 @@ connection.
     };
 
     // class that sets up logic for the connection of one gate to another
-	class Connector{
+    class Connector{
 	public:
 		Connector(LogicGate *fgate, LogicGate *tgate) {
 			fromgate = fgate;
