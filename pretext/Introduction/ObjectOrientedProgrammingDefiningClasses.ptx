@@ -524,7 +524,7 @@ print(f3)
                 <task xml:id="addoverload-cpp" label="addoverload-cpp">
                     <title>C++ Implementation</title>
                     <statement><program language="cpp"><input>
-Fraction operator +(const Fraction &frac1, const Fraction &frac2) {
+Fraction operator +(const Fraction &amp;frac1, const Fraction &amp;frac2) {
     int newnum = frac1.num * frac2.den + frac1.den * frac2.num;
     int newden = frac1.den * frac2.den;
     return Fraction(newnum, newden);
