@@ -574,7 +574,7 @@ like more symmetry.
 Binary operators can either be members of their
 left-hand argument's class or friend functions.
 Since the stream operators' left-hand argument is a stream,
-stream operators (such as &lt;&lt; and &gt;&gt;) must be either member functions of the stream class
+stream operators (such as ``<<`` and ``>>``) must be either member functions of the stream class
 or friend functions of the class they are used with.
 However, that is not true for the ``+`` operator.
 Let's rewrite the addition operator as a friend function.
@@ -587,10 +587,9 @@ Let's rewrite the addition operator as a friend function.
 
         .. code-block:: C++
 
-                Fraction operator +(const Fraction &otherFrac){
-                    //Note the return type is a Fraction
-                    int newnum = num*otherFrac.den + den*otherFrac.num;
-                    int newden = den*otherFrac.den;
+                Fraction operator +(const Fraction &frac1, const Fraction &frac2) {
+                    int newnum = frac1.num * frac2.den + frac1.den * frac2.num;
+                    int newden = frac1.den * frac2.den;
                     return Fraction(newnum, newden);
                 }
 
@@ -622,7 +621,7 @@ Let's rewrite the addition operator as a friend function.
           }
 
       friend ostream &operator << (ostream &stream, const Fraction &frac);
-  		friend Fraction operator +(const Fraction &frac1, const Fraction &frac2);
+      friend Fraction operator +(const Fraction &frac1, const Fraction &frac2);
 
       private:
           int num, den;
