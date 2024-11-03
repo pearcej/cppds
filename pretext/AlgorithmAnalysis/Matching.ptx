@@ -33,10 +33,6 @@
         <premise>logarithmic</premise>
         <response>functions that are the inverse of exponential functions</response>
       </match>
-      <match order="15">
-        <premise>order of magnitude</premise>
-        <response>a function describing an algorithm's steps as the size of the problem increases.</response>
-      </match>
       <match order="2">
         <premise>average case</premise>
         <response>When an algorithm performs between its worst and best case given a certain data set or circumstance.</response>
@@ -59,7 +55,7 @@
       </match>
       <match order="7">
         <premise>Big-O notation</premise>
-        <response>another term for order of magnitude</response>
+        <response>a function describing an algorithm's steps as the size of the problem increases.</response>
       </match>
       <match order="8">
         <premise>brute force</premise>
