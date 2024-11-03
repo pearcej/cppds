@@ -96,7 +96,7 @@ class BinHeap{
                 <image source="Trees/percUp.png" width="50%" alt="image"/>
             </figure>
             
-            <P>Notice that as we percolate an item up the tree, the heap property is restored
+            <p>Notice that as we percolate an item up the tree, the heap property is restored
                 between the newly added item and the parent. We also preserve the heap property
                 for any siblings. If an item is very small, we will need to swap it up another level.
                 In fact, we may need to keep swapping until we get to the top of the tree.
