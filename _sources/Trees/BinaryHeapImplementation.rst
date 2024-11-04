@@ -101,7 +101,7 @@ appending is that we will very likely violate the heap structure
 property. However, it is possible to write a method that will allow us
 to regain the heap structure property by comparing the newly added item
 with its parent. If the newly added item is less than its parent, then
-we can swap the item with its parent. :ref:`Figure 2 <fig_percUp>` shows the
+we can swap the item with its parent. :ref:`Figure 3 <fig_percUp>` shows the
 series of swaps needed to percolate the newly added item up to its
 proper position in the tree.
 
