@@ -69,7 +69,7 @@
             this case, we need move only a single disk to its final destination. A
             tower of one disk will be our base case. In addition, the steps outlined
             above move us toward the base case by reducing the height of the tower
-            in steps 1 and 3. <xref ref="lst-movetower"/> shows the Python code to solve the
+            in steps 1 and 3. <xref ref="lst-movetower"/> shows the code to solve the
             Tower of Hanoi puzzle.</p>
         
         <listing xml:id="lst-movetower">
