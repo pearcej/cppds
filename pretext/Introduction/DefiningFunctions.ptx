@@ -323,7 +323,7 @@ int main() {
     <exercise label="dog_walker">
         <statement>
 
-        <p>What is the correct return type of the function above <term>int main()</term>?</p>
+        <p>What is the return type of the first function defined in this code?</p>
 
         </statement>
 <choices>

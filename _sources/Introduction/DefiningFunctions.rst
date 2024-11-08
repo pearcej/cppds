@@ -161,7 +161,7 @@ marker. Any characters that follow the // on a line are ignored.
     :feedback_c: Not quite, dog is not even a data type!
     :feedback_d: Not quite, that is the name of the function itself!
 
-    What is the correct return type of the function above **int main()**?
+    What is the return type of the first function defined in this code?
 
 Parameter Passing: by Value versus by Reference
 -----------------------------------------------
