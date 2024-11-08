@@ -13,5 +13,7 @@
                 <p>Hash tables can provide constant time searching.</p>
             </li>
         </ul></p>
+        <p>
+          <!-- extra space before the progress bar -->
+        </p>
     </section>
-
