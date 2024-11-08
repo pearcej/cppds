@@ -69,7 +69,7 @@
             this case, we need move only a single disk to its final destination. A
             tower of one disk will be our base case. In addition, the steps outlined
             above move us toward the base case by reducing the height of the tower
-            in steps 1 and 3. <xref ref="lst-movetower"/> shows the code to solve the
+            in steps<nbsp/>1 and<nbsp/>3. <xref ref="lst-movetower"/> shows the code to solve the
             Tower of Hanoi puzzle.</p>
         
         <listing xml:id="lst-movetower">
@@ -86,11 +86,11 @@ int moveTower(int height, char fromPole, char toPole, char withPole){
         </listing>
         <p>Notice that the code in <xref ref="lst-movetower"/> is almost identical to the
             English description. The key to the simplicity of the algorithm is that
-            we make two different recursive calls, one on line 3 and a
-            second on line 5. On line 3 we move all but the bottom
+            we make two different recursive calls, one on line<nbsp/>3 and a
+            second on line<nbsp/>5. On line<nbsp/>3 we move all but the bottom
             disk on the initial tower to an intermediate pole. The next line simply
-            moves the bottom disk to its final resting place. Then on line
-            5 we move the tower from the intermediate pole to the top of
+            moves the bottom disk to its final resting place. Then on
+            line<nbsp/>5 we move the tower from the intermediate pole to the top of
             the largest disk. The base case is detected when the tower height is 0;
             in this case there is nothing to do, so the <c>moveTower</c> function
             simply returns. The important thing to remember about handling the base
@@ -114,7 +114,7 @@ int moveDisk(char fp, char tp){
             </task>
             <task xml:id="lst-hanoi-whole" label="lst-hanoi-whole">
                 <title>C++ Solution to Towers of Hanoi</title>
-                <statement><program xml:id="hanoicpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="hanoicpp" interactive="activecode" language="cpp" line-numbers="yes"><input>
 //Simulation of the tower of hanoi.
 
 #include &lt;iostream&gt;
@@ -168,8 +168,9 @@ main()
         <reading-questions xml:id="rq-tower-hanoi">
             <exercise label="ex-hanoi">
                     <statement>
-                        <p>If you change the tower height in Line 17 from 3 to 6, how many moves must you make to complete
-                            the Hanoi tower? (Hint, try implementing a counter to return the correct number.)<var/>  </p>
+                      <p>If you change the tower height in line<nbsp/>19 in <xref ref="lst-hanoi-whole"/>
+                          from 3 to 6, how many moves must you make to complete the Hanoi tower?
+                          (Hint, try implementing a counter to return the correct number.)<var/>  </p>
                     </statement>
                     <setup><var>
                         <condition number="[63, 63]">
