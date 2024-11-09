@@ -135,8 +135,8 @@ void add(int item) {
         <image source="LinearLinked/wrongorder.png" width="50%"/>
     </figure>
 
-    <p>The next methods that we will implement – <c>size</c>, <c>search</c>, and
-        <c>remove</c> – are all based on a technique known as
+    <p>The next methods that we will implement <mdash/> <c>size</c>, <c>search</c>, and
+        <c>remove</c> <mdash/> are all based on a technique known as
         <term>linked list traversal</term>. Traversal refers to the process of
         systematically visiting each node. To do this we use an external reference
         that starts at the first node in the linked list. As we visit each node,
@@ -146,9 +146,9 @@ void add(int item) {
         and keep a count of the number of nodes that occurred.
         <xref ref="unordered-size"/> shows the C++ code for counting the number of
         nodes in the linked list. The external reference is called <c>current</c> and is
-        initialized to the head of the linked list in line 2. At the start of the
+        initialized to the head of the linked list in line<nbsp/>2. At the start of the
         process we have not seen any nodes so the count is set to <m>0</m>.
-        Lines 4–6 actually implement the traversal. As long as the current
+        Lines 4<ndash/>6 actually implement the traversal. As long as the current
         reference has not seen the end of the linked list (<c>NULL</c>), we move current
         along to the next node via the assignment statement in line 6. Again,
         the ability to compare a reference to <c>NULL</c> is very useful. Every
@@ -259,7 +259,7 @@ bool search(int item) {
         <c>previous</c> will be referring to the proper place in the linked list
         for the modification.</p>
     
-    <p><xref ref="unordered-remove"/> shows the complete <c>remove</c> method. Lines 2–3
+    <p><xref ref="unordered-remove"/> shows the complete <c>remove</c> method. Lines 2<ndash/>3
         assign initial values to the two references. Note that <c>current</c>
         starts out at the linked list head as in the other traversal examples.
         <c>previous</c>, however, is assumed to always travel one node behind
@@ -297,13 +297,13 @@ void remove(int item) {
         <image source="LinearLinked/removeinit.png" width="50%"/>
     </figure>
 
-    <p>In lines 6–7 we ask whether the item stored in the current node is the
+    <p>In lines 6<ndash/>7 we ask whether the item stored in the current node is the
         item we wish to remove. If so, <c>found</c> can be set to <c>true</c>. If we
         do not find the item, <c>previous</c> and <c>current</c> must both be moved
         one node ahead. Again, the order of these two statements is crucial.
         <c>previous</c> must first be moved one node ahead to the location of
         <c>current</c>. At that point, <c>current</c> can be moved. This process is
-        often referred to as “inch-worming” as <c>previous</c> must catch up to
+        often referred to as <q>inch-worming</q> as <c>previous</c> must catch up to
         <c>current</c> before <c>current</c> moves ahead. <xref ref="fig-unordered-prevcurr"/> shows
         the movement of <c>previous</c> and <c>current</c> as they progress down the linked
         list looking for the node containing the value 17.</p>

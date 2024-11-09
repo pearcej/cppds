@@ -333,7 +333,7 @@ main()
         <figure align="center" xml:id="fig-dfstree">
             <caption> The Resulting Depth First Search Tree.</caption>
                 <image source="Graphs/dfstree.png" width="80%">
-                <description>A completed depth first search tree with six nodes labeled A to F. The nodes are interconnected with arrows indicating the path of the search. Each node is annotated with two numbers; the first number represents the order in which the node was first visited, and the second number represents the order in which the final visit occurred, marking the node’s completion in the search. Node A is labeled "1/12", B "2/11", C "3/4", D "5/10", E "6/9", and F "7/8". This indicates the starting point of the search at node A, the backtracking steps, and the overall path taken to explore all the nodes.</description>
+                <description>A completed depth first search tree with six nodes labeled A to F. The nodes are interconnected with arrows indicating the path of the search. Each node is annotated with two numbers; the first number represents the order in which the node was first visited, and the second number represents the order in which the final visit occurred, marking the node<rsq/>s completion in the search. Node A is labeled "1/12", B "2/11", C "3/4", D "5/10", E "6/9", and F "7/8". This indicates the starting point of the search at node A, the backtracking steps, and the overall path taken to explore all the nodes.</description>
                 </image>
             </figure>
         <p>The visualization in <xref ref="graphs_general_depth-dfs-vis"/> shows the entire traversal of the example graph shown above.
