@@ -87,17 +87,17 @@ class ImageNeedsDescription(CppsXmlTest):
     @classmethod
     def test_file(cls, fname, doc):
         ret = True
-        for captioned_thing in cls.captioned_things:
-            for fig in doc.getElementsByTagName(captioned_thing):
-                found = False
-                for child in fig.childNodes:
-                    if child.nodeType != xml.dom.Node.ELEMENT_NODE:
-                        continue
-                    if child.nodeName == "description":
-                        found = True
-                if not found:
-                    ret = False
-                    print(f'{fname}: {captioned_thing} is missing description')
+        for fig in doc.getElementsByTagName('image'):
+            src = fig.getAttribute("source")
+            found = False
+            for child in fig.childNodes:
+                if child.nodeType != xml.dom.Node.ELEMENT_NODE:
+                    continue
+                if child.nodeName == "description":
+                    found = True
+            if not found:
+                ret = False
+                print(f'{fname}: image is missing description: {src}')
         return ret
 
 
