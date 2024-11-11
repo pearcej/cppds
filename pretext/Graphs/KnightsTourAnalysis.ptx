@@ -147,7 +147,7 @@ def orderByAvail(n):
 
             <choice correct="yes">
                 <statement>
-                    <p>O(k^n)</p>
+                    <p><m>O(k^n)</m></p>
                 </statement>
                 <feedback>
                     <p>You are correct! K is a small constant, and N is the total number of vertices (or spaces on a chessboard).</p>
@@ -156,7 +156,7 @@ def orderByAvail(n):
 
             <choice>
                 <statement>
-                    <p>O(n)</p>
+                    <p><m>O(n)</m></p>
                 </statement>
                 <feedback>
                     <p>No, the Knight's Tour is not linear.</p>
@@ -165,7 +165,7 @@ def orderByAvail(n):
 
             <choice>
                 <statement>
-                    <p>O(n^2)</p>
+                    <p><m>O(n^2)</m></p>
                 </statement>
                 <feedback>
                     <p>No, the Knight's Tour does not have a nested loop that iterates through all values twice.</p>
@@ -174,7 +174,7 @@ def orderByAvail(n):
 
             <choice>
                 <statement>
-                    <p>O(n!)</p>
+                    <p><m>O(n!)</m></p>
                 </statement>
                 <feedback>
                     <p>No, the input is not processed in a fashion indicative of a factorial.</p>
