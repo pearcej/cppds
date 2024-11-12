@@ -88,10 +88,7 @@
             maze. In this instance, we will stick to a text-only representation (ASCII).</p>
         <p><ul>
             <li>
-                <p><c>__init__</c> Initializes basic variables to default values, and calls <c>readMazeFile</c>.</p>
-            </li>
-            <li>
-                <p><c>readMazeFile</c> Reads the text of the maze text file, and calls <c>findStartPosition</c>.</p>
+                <p><c>readMazeFile</c> reads a maze file and returns a <c>vector</c> of <c>vector</c> of <c>char</c> representing the maze.</p>
             </li>
             <li>
                 <p><c>findStartPosition</c> Finds the row and column of the starting position.</p>
@@ -103,17 +100,54 @@
                 <p><c>print</c> Prints the text of the maze to the screen.</p>
             </li>
         </ul></p>
-        <p>The <c>Maze</c> class also overloads the index operator <c>[]</c> so that our
-            algorithm can easily access the status of any particular square.</p>
         <p>Let's examine the code for the search function which we call
-            <c>searchFrom</c>. The code is shown in <xref ref="lst-mazesearch"/>. Notice
+            <c>searchFrom</c>. The code is shown in <xref ref="lst-mazesearch-cpp"/>. Notice
             that this function takes three parameters: a maze object, the starting
             row, and the starting column. This is important because as a recursive
             function the search logically starts again with each recursive call.</p>
-        
-        <listing xml:id="lst-mazesearch">
-            <caption><c>searchFrom</c> Function</caption>
-            <program language="python"><input>
+
+        <exploration xml:id="expl-mazesearch">
+            <title><c>searchFrom</c> function</title>
+            <task xml:id="lst-mazesearch-cpp" label="lst-mazesearch-cpp">
+                <title>C++ Implementation</title>
+                <statement><program language="cpp"><input>
+bool searchMaze(vector&lt;vector&lt;char&gt;&gt; &amp;maze, int startRow, int startColumn) {
+    //  Check for base cases:
+    //  1. We have run into an obstacle, return false
+    if (maze[startRow][startColumn] == MAZE_OBSTACLE)
+        return false;
+
+    // 2. We have found a square that has already been explored
+    if (maze[startRow][startColumn] == MAZE_TRIED)
+        return false;
+
+    // 3. Success, an outside edge not occupied by an obstacle
+    if (onEdge(maze, startRow, startColumn)) {
+        maze[startRow][startColumn] = 'O';
+        return true;
+    }
+
+    maze[startRow][startColumn] = MAZE_TRIED;
+
+    // Otherwise, check each cardinal direction (North, south, east, and west).
+    // We are checking one space in each direction, thus the plus or minus one below.
+    bool found = searchMaze(maze, startRow - 1, startColumn) ||
+        searchMaze(maze, startRow + 1, startColumn) ||
+        searchMaze(maze, startRow, startColumn - 1) ||
+        searchMaze(maze, startRow, startColumn + 1);
+
+    if (found)
+        maze[startRow][startColumn] = MAZE_PATH;
+    else
+        maze[startRow][startColumn] = MAZE_DEAD_END;
+
+    return found;
+}
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-mazesearch-py" label="lst-mazesearch-py">
+                <title>Python Implementation</title>
+                <statement><program language="python"><input>
 def searchFrom(maze, startRow, startColumn):
     #  Check for base cases (Steps 1, 2, and 3):
 
@@ -148,8 +182,9 @@ def searchFrom(maze, startRow, startColumn):
         maze[startRow][startColumn] = MAZE_DEAD_END
 
     return found
-            </input></program>
-        </listing>
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>As you look through the algorithm you will see that the first thing the
             code does (steps 1 and 2) is determine if the space <em>should be visited</em>.
             This is done by checking if the spot is an obstacle (<c>MAZE_OBSTACLE</c>),
@@ -158,8 +193,8 @@ def searchFrom(maze, startRow, startColumn):
             are true, it continues the search recursively.</p>
         <p>You will notice that in the recursive step there are four recursive
             calls to <c>searchFrom</c>. It is hard to predict how many of these
-            recursive calls will be used since they are all connected by <c>or</c>
-            statements. If the first call to <c>searchFrom</c> returns <c>True</c> then
+            recursive calls will be used since they are all connected by <q>or</q>
+            operators. If the first call to <c>searchFrom</c> returns <c>true</c> then
             none of the last three calls would be needed. You can interpret this as
             meaning that a step to <c>(row-1,column)</c> (or North if you want to think
             geographically) is on the path leading out of the maze. If there is not
@@ -168,30 +203,33 @@ def searchFrom(maze, startRow, startColumn):
             finally East. If all four recursive calls return false then we have
             found a dead end. You should download or type in the whole program and
             experiment with it by changing the order of these calls.</p>
-        <p>The code for the <c>Maze</c> class is shown in <xref ref="lst-maze"/> and <xref ref="completemaze"/>.
-            The <c>__init__</c> method takes the name of a file as its
-            only parameter. This file is a text file that represents a maze by using
+        <p>The code for the maze solver is in <xref ref="expl-maze"/>.
+            <c>readMazeFile</c> takes the name of a file as its only parameter and
+            and it returns a <c>vector</c> of <c>string</c>.
+            The file represents a maze by using
             <q>+</q> characters for walls, spaces for open squares, and the letter <q>S</q> to
             indicate the starting position. <xref ref="fig-exmaze"/> is an example of a
-            maze data file. The internal representation of the maze is a list of
-            lists. Each row of the <c>mazeList</c> instance variable is also a list.
-            This secondary list contains one character per square using the
-            characters described above. For the data file in <xref ref="lst-exmaze"/> the
+            maze data file. The internal representation of the maze is a vector of
+            strings. Each entry in the vector represents one row from the file and
+            consists of the characters described above.
+            For the data file in <xref ref="lst-exmaze"/> the
             internal representation looks like the following:</p>
         <listing xml:id="lst-exmaze">
             <caption>Example Maze</caption>
-            <program language="python"><input>
-[['+','+','+','+',...,'+','+','+','+','+','+','+'],
- ['+',' ',' ',' ',...,' ',' ',' ','+',' ',' ',' '],
- ['+',' ','+',' ',...,'+','+',' ','+',' ','+','+'],
- ['+',' ','+',' ',...,' ',' ',' ','+',' ','+','+'],
- ['+','+','+',' ',...,'+','+',' ','+',' ',' ','+'],
- ['+',' ',' ',' ',...,'+','+',' ',' ',' ',' ','+'],
- ['+','+','+','+',...,'+','+','+','+','+',' ','+'],
- ['+',' ',' ',' ',...,'+','+',' ',' ','+',' ','+'],
- ['+',' ','+','+',...,' ',' ','+',' ',' ',' ','+'],
- ['+',' ',' ',' ',...,' ',' ','+',' ','+','+','+'],
- ['+','+','+','+',...,'+','+','+',' ','+','+','+']]
+            <program language="cpp"><input>
+{
+    "++++++++++++++++++++++",
+    "+   +   ++ ++     +   ",
+    "+ +   +       +++ + ++",
+    "+ + +  ++  ++++   + ++",
+    "+++ ++++++    +++ +  +",
+    "+          ++  ++    +",
+    "+++++ ++++++   +++++ +",
+    "+     +   +++++++  + +",
+    "+ +++++++      S +   +",
+    "+                + +++",
+    "++++++++++++++++++ +++"
+};
             </input></program>
         </listing>
         <p>The <c>searchFrom</c> method uses this internal representation to traverse
@@ -199,7 +237,6 @@ def searchFrom(maze, startRow, startColumn):
         
         <data xml:id="fig-exmaze">
             <title>Example Maze File</title>
-            <p>Some data about this data</p>
             <datafile label="file-maze1" filename="maze1.txt" editable="no" cols="22" rows="11"><pre>
 ++++++++++++++++++++++
 +   +   ++ ++     +   
@@ -214,87 +251,124 @@ def searchFrom(maze, startRow, startColumn):
 ++++++++++++++++++ +++
             </pre></datafile>
         </data>
+        <data xml:id="fig-exmaze2">
+            <title>Additional Example Maze File</title>
+            <datafile label="file-maze2" filename="maze2.txt" editable="no" cols="7" rows="5"><pre>
++++++++
++  + S+
++  +  +
+     ++
++++++++
+            </pre></datafile>
+        </data>
+        
         <p>Finally, the <c>isOnEdge</c> method uses our current position
             to test for an exit condition. An exit condition occurs whenever we
             have navigated to the edge of the maze, either row zero or column zero,
             or the far right column or the bottom row.</p>
-        <listing xml:id="lst-maze">
-            <caption><c>Maze</c> Class</caption>
-            <program language="python"><input>
-MAZE_OBSTACLE = '+'
-MAZE_START = 'S'
-MAZE_PATH = 'O'
-MAZE_DEAD_END = '-'
-MAZE_TRIED = '.'
-
-class Maze:
-    def __init__(self, mazeFileName):
-        # Initialize all of our default variables.
-        self.mazeList = []
-        self.totalRows = 0
-        self.totalColumns = 0
-
-        self.startRow = 0
-        self.startColumn = 0
-
-        # And read the maze file.
-        self.readMazeFile(mazeFileName)
-
-    def readMazeFile(self, mazeFileName):
-        # The maze list is a list of strings.
-        # Components of the maze are indicated by specific characters.
-        # These characters are listed at the top of the file.
-
-        # The line below says the following:
-        # For every line of text in our maze text file, add every single character to a list.
-        # The final result is a list of lists, where each element is a single character.
-        self.mazeList = [[char for char in line] for line in open(mazeFileName).read().split("\n")]
-
-        # The total number of rows is the total number of strings in the list.
-        self.totalRows = len(self.mazeList)
-
-        # The total number of columns is the length of a single line.
-        # We can assume all lines of text for the maze are the same length.
-        self.totalColumns = len(self.mazeList[0])
-
-        # Lastly, find the start position.
-        self.findStartPosition()
-
-    def findStartPosition(self):
-        # Iterate through every individual character in the maze list.
-        # If we come across the MAZE_START character ('S'),
-        # we save the row and column of where it was found, and stop looking.
-
-        # enumerate(...) is very much like using a typical list,
-        # except it gives you two pieces of information instead of one.
-        # It assumes the format of (index_of_item, item).
-        for (row, text) in enumerate(self.mazeList):
-            for(column, component) in enumerate(text):
-                if component == MAZE_START:
-                    self.startRow = row
-                    self.startColumn = column
-                    return
-
-    def isOnEdge(self, row, column):
-        return (row == 0 or
-                row == self.totalRows - 1 or
-                column == 0 or
-                column == self.totalColumns - 1)
-
-    # This allows us to use the Maze class like a list, e.g, maze[index]
-    def __getitem__(self, index):
-        return self.mazeList[index]
-        </input></program></listing>
         
-        <p>The complete program is shown in <xref ref="completemaze"/>.  This program uses the data file <c>maze1.txt</c> shown above.
-            Feel free to also attempt to use <c>maze2.txt</c> from up above.
-            Note that it is a much more simple example file in that the exit is very close to the starting position.</p>
-        <DataFileNode line="306" runestone_options="{'subchapter': 'ExploringaMaze', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'divid': 'maze2.txt', 'qnumber': 'Q-3', 'cols': 31, 'rows': 20, 'filecontent': '++++++++++++++++++++++\n+   +   ++ ++        +\n+     ++++++++++      \u200f\u200f\u200e \u200e\u200e\u200f\u200f\u200e\n+ +    ++  ++++ +++ ++\n+ +   + + ++    +++  +\n+          ++  ++  + +\n+++++ + +      ++  + +\n+++++ +++  + +  ++   +\n+          + + S+ +  +\n+++++ +  + + +       +\n++++++++++++++++++++++\n', 'hidden': '', 'edit': 'false', 'question_label': '5.11.2'}" source="/srv/web2py/applications/runestone/books/cppds/_sources/Recursion/ExploringaMaze.rst">
-        </DataFileNode>
+            <p>The complete program is shown in <xref ref="expl-maze"/>.
+            This program uses the data file <c>maze1.txt</c> shown above.
+            You can also try <c>maze2.txt</c> also shown above.
+            Note that it is a much more simple example file in that the
+            exit is very close to the starting position.</p>
+        <exploration xml:id="expl-maze">
+            <title>Maze search code</title>
+            <task xml:id="maze-complete-cpp" label="maze-complete-cpp">
+                <title>C++ Implementation</title>
+                <statement><program language="cpp" interactive="activecode"><input>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
 
-    <listing xml:id="completemaze">
-        <caption>Complete <c>Maze</c> Code</caption>
-        <program interactive="activecode" language="python"><input>
+using namespace std;
+
+const char MAZE_OBSTACLE = '+';
+const char MAZE_START = 'S';
+const char MAZE_PATH = 'O';
+const char MAZE_DEAD_END = '-';
+const char MAZE_TRIED = '.';
+
+void findStart(const vector&lt;string&gt; &amp;maze, int &amp;startRow, int &amp;startColumn) {
+    for (size_t i = 0; i &lt; maze.size(); i++) {
+        for (size_t j = 0; j &lt; maze[i].size(); j++) {
+            if (maze[i][j] == MAZE_START) {
+                startRow = i;
+                startColumn = j;
+            }
+        }
+    }
+}
+
+vector&lt;string&gt; readMazeFile(string filename) {
+    vector&lt;string&gt; maze;
+    ifstream is(filename);
+    string line;
+    while (getline(is, line))
+        maze.push_back(line);
+    return maze;
+}
+
+void printMaze(const vector&lt;string&gt; &amp;maze) {
+    for (string line: maze)
+        cout &lt;&lt; line &lt;&lt; endl;
+}
+
+bool onEdge(const vector&lt;string&gt; &amp;maze, int startRow, int startColumn) {
+    return startColumn == 0 || startRow == 0 ||
+        startRow == maze.size() - 1 ||
+        startColumn == maze[startRow].size() - 1;
+}
+
+bool searchMaze(vector&lt;string&gt; &amp;maze, int startRow, int startColumn) {
+    //  Check for base cases:
+    //  1. We have run into an obstacle, return false
+    if (maze[startRow][startColumn] == MAZE_OBSTACLE)
+        return false;
+
+    // 2. We have found a square that has already been explored
+    if (maze[startRow][startColumn] == MAZE_TRIED)
+        return false;
+
+    // 3. Success, an outside edge not occupied by an obstacle
+    if (onEdge(maze, startRow, startColumn)) {
+        maze[startRow][startColumn] = 'O';
+        return true;
+    }
+
+    maze[startRow][startColumn] = MAZE_TRIED;
+
+    // Otherwise, check each cardinal direction (North, south, east, and west).
+    // We are checking one space in each direction, thus the plus or minus one below.
+    bool found = searchMaze(maze, startRow - 1, startColumn) ||
+        searchMaze(maze, startRow + 1, startColumn) ||
+        searchMaze(maze, startRow, startColumn - 1) ||
+        searchMaze(maze, startRow, startColumn + 1);
+
+    if (found)
+        maze[startRow][startColumn] = MAZE_PATH;
+    else
+        maze[startRow][startColumn] = MAZE_DEAD_END;
+
+    return found;
+}
+
+int main() {
+    int row, column;
+    vector&lt;string&gt; m = readMazeFile("maze1.txt");
+    printMaze(m);
+    findStart(m, row, column);
+    searchMaze(m, row, column);
+    printMaze(m);
+
+    return 0;
+}
+                </input></program></statement>
+            </task>
+            <task xml:id="maze-complete-py" label="maze-complete-py">
+                <title>Python Implementation</title>
+                <statement><program language="python" interactive="activecode"><input>
 MAZE_OBSTACLE = '+'
 MAZE_START = 'S'
 MAZE_PATH = 'O'
@@ -404,21 +478,15 @@ def main():
     maze.print()
 
 main()
-    </input></program></listing>
-    <note>
-            <title>Self Check</title>
-            <p>Now that you're familiar with this simple maze exploring algorithm, use what you've learned about file handling, classes, and IO to implement this in C++!
-                To visualize the exploration, print out the characters using <c>cout</c> to create an ASCII representation of your cave. For example, your program should be able to read and operate from a file formatted as follows:
-                You can also use CTurtle to visualize the traversal throughout the maze.</p>
-    </note>
-    <program><input>
-7 5
+                </input></program></statement>
+            </task>
+        </exploration>
 
-+++++++
-+  + S+
-+  +  +
-     ++
-+++++++
-    </input></program>
+    <note>
+        <title>Self Check</title>
+        <p>Now that you're familiar with this simple maze exploring algorithm, use what you've learned about file handling, classes, and IO to implement this in C++!
+        To visualize the exploration, print out the characters using <c>cout</c> to create an ASCII representation of your cave.
+        You can also use CTurtle to visualize the traversal throughout the maze.</p>
+    </note>
 </section>
 
