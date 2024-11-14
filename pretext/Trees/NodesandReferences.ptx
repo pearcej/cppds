@@ -26,7 +26,7 @@
             <title>Nodes and References <c>BinaryTree</c></title>
             <task xml:id="lst-nar-cpp" label="lst-nar-cpp">
                 <title>C++ Implementation</title>
-                <statement><progam xml:id="prog-nar-cpp" language="cpp"><input>
+                <statement><program xml:id="prog-nar-cpp" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;cstdlib&gt;
 using namespace std;
@@ -44,17 +44,17 @@ public:
         this-&gt;rightChild = NULL;
     }
 };
-                </input></progam></statement>
+                </input></program></statement>
             </task>
             <task xml:id="lst-nar-py" label="lst-nar-py">
                 <title>Python Implementation</title>
-                <statement><progam xml:id="prog-nar-py" language="cpp"><input>
+                <statement><program xml:id="prog-nar-py" language="cpp"><input>
 class BinaryTree:
     def __init__(self,rootObj):
         self.key = rootObj
         self.leftChild = None
         self.rightChild = None
-                </input></progam></statement>
+                </input></program></statement>
             </task>
         </exploration>
         <p>Notice that in <xref ref="lst-nar-cpp"/>, the constructor function expects to
@@ -171,7 +171,7 @@ char getRootVal(){
             <task xml:id="lst-naracc-py" label="lst-naracc-py">
                 <title>Python Implementation</title>
                 <statement><program language="python"><input>
-ef getRightChild(self):
+def getRightChild(self):
     return self.rightChild
 
 def getLeftChild(self):
