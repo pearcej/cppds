@@ -7,13 +7,13 @@ Exploring a Maze
 
 In this section we will look at a problem that has relevance to the
 expanding world of robotics: How do you find your way out of a maze? If you have
-a Roomba vacuum cleaner for your dorm room (don’t all college students?)
+a Roomba vacuum cleaner for your dorm room, (don’t all college students?)
 you will wish that you could reprogram it using what you have learned in
 this section. The problem we want to solve is to find an exit to a virtual maze
 when starting at a pre-defined location. The maze problem has roots as deep as the
 Greek myth about Theseus who was sent into a maze to kill the minotaur.
 Theseus used a ball of thread to help him find his way back out again
-once he had finished off the beast. In our problem we will assume that
+once he had finished off the beast. In our problem, we will assume that
 our starting position is dropped down somewhere into the middle of the maze,
 a fair distance from any exit. Look at :ref:`Figure 2 <fig_mazescreen>` to get an idea of
 where we are going in this section.
@@ -54,13 +54,13 @@ Now, that sounds pretty easy, but there are a couple of details to talk
 about first. Suppose we take our first recursive step by going North. By
 following our procedure our next step would also be to the North. But if
 the North is blocked by a wall we must look at the next step of the
-procedure and try going to the South. Unfortunately that step to the
+procedure and try going to the South. Unfortunately, that step to the
 south brings us right back to our original starting place. If we apply
 the recursive procedure from there we will just go back one step to the
 North and be in an infinite loop. So, we must have a strategy to
-remember where we have been. In this case we will assume that we have a
+remember where we have been. In this case, we will assume that we have a
 bag of bread crumbs we can drop along our way. If we take a step in a
-certain direction and find that there is a bread crumb already on that
+certain direction and find that there is a breadcrumb already on that
 square, we know that we should immediately back up and try the next
 direction in our procedure. As we will see when we look at the code for
 this algorithm, backing up is as simple as returning from a recursive
@@ -86,7 +86,7 @@ consider:
 For our program to work we will need to have a way to represent the
 maze. In this instance, we will stick to a text-only representation (ASCII). 
 
--  ``readMazeFile`` Reads a maze file and returns a ``vector`` of ``string`` representing the maze.
+-  ``readMazeFile`` Reads a maze file and returns a ``vector`` of ``string``s representing the maze.
 
 -  ``findStartPosition`` Finds the row and column of the starting position.
 
@@ -96,10 +96,10 @@ maze. In this instance, we will stick to a text-only representation (ASCII).
 
 Let’s examine the code for the search function which we call
 ``searchFrom``. The code is shown in :ref:`Listing 3 <lst_mazesearch>`. Notice
-that this function takes three parameters: a maze object (vector of strings),
+that this function takes three parameters: a maze object (a vector of strings),
 the starting
 row, and the starting column. This is important because as a recursive
-function the search logically starts again with each recursive call.
+function, the search logically starts again with each recursive call.
 
 .. _lst_mazesearch:
 
@@ -133,7 +133,7 @@ function the search logically starts again with each recursive call.
 
 	    maze[startRow][startColumn] = MAZE_TRIED;
 
-	    // Otherwise, check each cardinal direction (North, south, east, and west).
+	    // Otherwise, check each cardinal direction (north, south, east, and west).
 	    // We are checking one space in each direction, thus the plus or minus one below.
 	    bool found = searchFrom(maze, startRow - 1, startColumn) ||
 		searchFrom(maze, startRow + 1, startColumn) ||
@@ -175,7 +175,7 @@ function the search logically starts again with each recursive call.
 	     # Refer to step two.
 	     maze[startRow][startColumn] = MAZE_TRIED
 
-	     # 5. Otherwise, check each cardinal direction (North, south, east, and west).
+	     # 5. Otherwise, check each cardinal direction (north, south, east, and west).
 	     # We are checking one space in each direction, thus the plus or minus one below.
 	     found = searchFrom(maze, startRow - 1, startColumn) or \
 		     searchFrom(maze, startRow + 1, startColumn) or \
@@ -361,7 +361,7 @@ Note that it is a much more simple example file in that the exit is very close t
 
 	    maze[startRow][startColumn] = MAZE_TRIED;
 
-	    // Otherwise, check each cardinal direction (North, south, east, and west).
+	    // Otherwise, check each cardinal direction (north, south, east, and west).
 	    // We are checking one space in each direction, thus the plus or minus one below.
 	    bool found = searchFrom(maze, startRow - 1, startColumn) ||
 		searchFrom(maze, startRow + 1, startColumn) ||
@@ -482,7 +482,7 @@ Note that it is a much more simple example file in that the exit is very close t
 
 	     maze[startRow][startColumn] = MAZE_TRIED
 
-	     # Otherwise, check each cardinal direction (North, south, east, and west).
+	     # Otherwise, check each cardinal direction (north, south, east, and west).
 	     # We are checking one space in each direction, thus the plus or minus one below.
 	     found = searchFrom(maze, startRow - 1, startColumn) or \
 		     searchFrom(maze, startRow + 1, startColumn) or \
@@ -508,7 +508,7 @@ Note that it is a much more simple example file in that the exit is very close t
 
 .. admonition:: Self Check
 
-    Now that you're familiar with this simple maze exploring algorithm, use what you've learned about file handling, classes, and IO to implement this in C++!
+    Now that you're familiar with this simple maze-exploring algorithm, use what you've learned about file handling, classes, and IO to implement this in C++!
     To visualize the exploration, print out the characters using ``cout`` to create an ASCII representation of your cave. For example, your program should be able to read and operate from a file formatted as follows:
     You can also use CTurtle to visualize the traversal throughout the maze.
 
