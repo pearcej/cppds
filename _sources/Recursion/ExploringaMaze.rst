@@ -296,7 +296,7 @@ Note that it is a much more simple example file in that the exit is very close t
     .. activecode:: completemazecpp
         :caption: Solving A Maze Recursively C++
 	:language: cpp
-	:datafile: maze1.txt
+	:datafile: maze1.txt, maze2.txt
 
 	#include <iostream>
 	#include <fstream>
