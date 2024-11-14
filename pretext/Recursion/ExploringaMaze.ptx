@@ -88,7 +88,7 @@
             maze. In this instance, we will stick to a text-only representation (ASCII).</p>
         <p><ul>
             <li>
-                <p><c>readMazeFile</c> reads a maze file and returns a <c>vector</c> of <c>vector</c> of <c>char</c> representing the maze.</p>
+                <p><c>readMazeFile</c> Reads a maze file and returns a <c>vector</c> of <c>vector</c> of <c>char</c> representing the maze.</p>
             </li>
             <li>
                 <p><c>findStartPosition</c> Finds the row and column of the starting position.</p>
@@ -111,7 +111,7 @@
             <task xml:id="lst-mazesearch-cpp" label="lst-mazesearch-cpp">
                 <title>C++ Implementation</title>
                 <statement><program language="cpp"><input>
-bool searchMaze(vector&lt;vector&lt;char&gt;&gt; &amp;maze, int startRow, int startColumn) {
+bool searchFrom(vector&lt;string&gt; &amp;maze, size_t startRow, size_t startColumn) {
     //  Check for base cases:
     //  1. We have run into an obstacle, return false
     if (maze[startRow][startColumn] == MAZE_OBSTACLE)
@@ -131,17 +131,17 @@ bool searchMaze(vector&lt;vector&lt;char&gt;&gt; &amp;maze, int startRow, int st
 
     // Otherwise, check each cardinal direction (North, south, east, and west).
     // We are checking one space in each direction, thus the plus or minus one below.
-    bool found = searchMaze(maze, startRow - 1, startColumn) ||
-        searchMaze(maze, startRow + 1, startColumn) ||
-        searchMaze(maze, startRow, startColumn - 1) ||
-        searchMaze(maze, startRow, startColumn + 1);
+    bool found = searchFrom(maze, startRow - 1, startColumn) ||
+	    searchFrom(maze, startRow + 1, startColumn) ||
+        searchFrom(maze, startRow, startColumn - 1) ||
+        searchFrom(maze, startRow, startColumn + 1);
 
-    if (found)
-        maze[startRow][startColumn] = MAZE_PATH;
-    else
-        maze[startRow][startColumn] = MAZE_DEAD_END;
+        if (found)
+            maze[startRow][startColumn] = MAZE_PATH;
+        else
+            maze[startRow][startColumn] = MAZE_DEAD_END;
 
-    return found;
+	    return found;
 }
                 </input></program></statement>
             </task>
@@ -254,11 +254,17 @@ def searchFrom(maze, startRow, startColumn):
         <data xml:id="fig-exmaze2">
             <title>Additional Example Maze File</title>
             <datafile label="file-maze2" filename="maze2.txt" editable="no" cols="7" rows="5"><pre>
-+++++++
-+  + S+
-+  +  +
-     ++
-+++++++
+++++++++++++++++++++++
++   +   ++ ++        +
++     ++++++++++      
++ +    ++  ++++ +++ ++
++ +   + + ++    +++  +
++          ++  ++  + +
++++++ + +      ++  + +
++++++ +++  + +  ++   +
++          + + S+ +  +
++++++ +  + + +       +
+++++++++++++++++++++++
             </pre></datafile>
         </data>
         
@@ -289,10 +295,24 @@ const char MAZE_START = 'S';
 const char MAZE_PATH = 'O';
 const char MAZE_DEAD_END = '-';
 const char MAZE_TRIED = '.';
+const char MAZE_EXIT = 'X';
 
-void findStart(const vector&lt;string&gt; &amp;maze, int &amp;startRow, int &amp;startColumn) {
+vector&lt;string&gt; theMaze =
+    {"++++++++++++++++++++++",
+     "+   +   ++ ++     +  X",
+     "+ +   +       +++ + ++",
+     "+ + +  ++  ++++   + ++",
+     "+++ ++++++    +++ +  +",
+     "+          ++  ++    +",
+     "+++++ ++++++   +++++ +",
+     "+     +   +++++++  + +",
+     "+ +++++++      S +   +",
+     "+                + +++",
+     "++++++++++++++++++X+++"};
+	     
+void findStart(const vector&lt;string&gt; &amp;maze, size_t &amp;startRow, size_t &amp;startColumn) {
     for (size_t i = 0; i &lt; maze.size(); i++) {
-        for (size_t j = 0; j &lt; maze[i].size(); j++) {
+	    for (size_t j = 0; j &lt; maze[i].size(); j++) {
             if (maze[i][j] == MAZE_START) {
                 startRow = i;
                 startColumn = j;
@@ -315,13 +335,13 @@ void printMaze(const vector&lt;string&gt; &amp;maze) {
         cout &lt;&lt; line &lt;&lt; endl;
 }
 
-bool onEdge(const vector&lt;string&gt; &amp;maze, int startRow, int startColumn) {
+bool onEdge(const vector&lt;string&gt; &amp;maze, size_t startRow, size_t startColumn) {
     return startColumn == 0 || startRow == 0 ||
         startRow == maze.size() - 1 ||
         startColumn == maze[startRow].size() - 1;
 }
 
-bool searchMaze(vector&lt;string&gt; &amp;maze, int startRow, int startColumn) {
+bool searchFrom(vector&lt;string&gt; &amp;maze, size_t startRow, size_t startColumn) {
     //  Check for base cases:
     //  1. We have run into an obstacle, return false
     if (maze[startRow][startColumn] == MAZE_OBSTACLE)
@@ -341,27 +361,27 @@ bool searchMaze(vector&lt;string&gt; &amp;maze, int startRow, int startColumn) {
 
     // Otherwise, check each cardinal direction (North, south, east, and west).
     // We are checking one space in each direction, thus the plus or minus one below.
-    bool found = searchMaze(maze, startRow - 1, startColumn) ||
-        searchMaze(maze, startRow + 1, startColumn) ||
-        searchMaze(maze, startRow, startColumn - 1) ||
-        searchMaze(maze, startRow, startColumn + 1);
+    bool found = searchFrom(maze, startRow - 1, startColumn) ||
+	    searchFrom(maze, startRow + 1, startColumn) ||
+        searchFrom(maze, startRow, startColumn - 1) ||
+        searchFrom(maze, startRow, startColumn + 1);
 
-    if (found)
-        maze[startRow][startColumn] = MAZE_PATH;
-    else
-        maze[startRow][startColumn] = MAZE_DEAD_END;
+        if (found)
+            maze[startRow][startColumn] = MAZE_PATH;
+        else
+            maze[startRow][startColumn] = MAZE_DEAD_END;
 
-    return found;
+	    return found;
 }
 
 int main() {
-    int row, column;
-    vector&lt;string&gt; m = readMazeFile("maze1.txt");
-    printMaze(m);
-    findStart(m, row, column);
-    searchMaze(m, row, column);
-    printMaze(m);
-
+    size_t row, column;
+    cout &lt;&lt; "Before:" &lt;&lt; endl;
+    printMaze(theMaze);
+    findStart(theMaze, row, column);
+    searchFrom(theMaze, row, column);
+    cout &lt;&lt; endl &lt;&lt; "After:" &lt;&lt; endl;
+    printMaze(theMaze);
     return 0;
 }
                 </input></program></statement>
@@ -488,5 +508,11 @@ main()
         To visualize the exploration, print out the characters using <c>cout</c> to create an ASCII representation of your cave.
         You can also use CTurtle to visualize the traversal throughout the maze.</p>
     </note>
+    <program><input>
++++++++
++  + S+
++  +  +
+     ++
++++++++
+    </input></program>
 </section>
-
