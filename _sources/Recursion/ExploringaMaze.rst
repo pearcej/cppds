@@ -296,6 +296,7 @@ Note that it is a much more simple example file in that the exit is very close t
     .. activecode:: completemazecpp
         :caption: Solving A Maze Recursively C++
 	:language: cpp
+	:datafile: maze1.txt
 
 	#include <iostream>
 	#include <fstream>
@@ -311,19 +312,6 @@ Note that it is a much more simple example file in that the exit is very close t
 	const char MAZE_TRIED = '.';
 	const char MAZE_EXIT = 'X';
 
-	vector<string> theMaze =
-	    {"++++++++++++++++++++++",
-	     "+   +   ++ ++     +  X",
-             "+ +   +       +++ + ++",
-	     "+ + +  ++  ++++   + ++",
-	     "+++ ++++++    +++ +  +",
-	     "+          ++  ++    +",
-	     "+++++ ++++++   +++++ +",
-	     "+     +   +++++++  + +",
-	     "+ +++++++      S +   +",
-	     "+                + +++",
-	     "++++++++++++++++++X+++"};
-	     
 	void findStart(const vector<string> &maze, size_t &startRow, size_t &startColumn) {
 	    for (size_t i = 0; i < maze.size(); i++) {
 		for (size_t j = 0; j < maze[i].size(); j++) {
@@ -391,6 +379,7 @@ Note that it is a much more simple example file in that the exit is very close t
 	int main() {
 	    size_t row, column;
 	    cout << "Before:" << endl;
+	    vector<string> theMaze = readMazeFile("maze1.txt");
 	    printMaze(theMaze);
 	    findStart(theMaze, row, column);
 	    searchFrom(theMaze, row, column);
