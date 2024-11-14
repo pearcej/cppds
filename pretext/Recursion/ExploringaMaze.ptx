@@ -239,7 +239,7 @@ def searchFrom(maze, startRow, startColumn):
             <title>Example Maze File</title>
             <datafile label="file-maze1" filename="maze1.txt" editable="no" cols="22" rows="11"><pre>
 ++++++++++++++++++++++
-+   +   ++ ++     +   
++   +   ++ ++     +  X
 + +   +       +++ + ++
 + + +  ++  ++++   + ++
 +++ ++++++    +++ +  +
@@ -248,7 +248,7 @@ def searchFrom(maze, startRow, startColumn):
 +     +   +++++++  + +
 + +++++++      S +   +
 +                + +++
-++++++++++++++++++ +++
+++++++++++++++++++X+++
             </pre></datafile>
         </data>
         <data xml:id="fig-exmaze2">
@@ -256,7 +256,7 @@ def searchFrom(maze, startRow, startColumn):
             <datafile label="file-maze2" filename="maze2.txt" editable="no" cols="7" rows="5"><pre>
 ++++++++++++++++++++++
 +   +   ++ ++        +
-+     ++++++++++      
++     ++++++++++     X
 + +    ++  ++++ +++ ++
 + +   + + ++    +++  +
 +          ++  ++  + +
@@ -500,7 +500,7 @@ main()
 +++++++
 +  + S+
 +  +  +
-     ++
+X    ++
 +++++++
     </input></program>
 </section>
