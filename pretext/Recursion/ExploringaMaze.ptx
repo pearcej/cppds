@@ -239,7 +239,7 @@ def searchFrom(maze, startRow, startColumn):
             <title>Example Maze File</title>
             <datafile label="file-maze1" filename="maze1.txt" editable="no" cols="22" rows="11"><pre>
 ++++++++++++++++++++++
-+   +   ++ ++     +   
++   +   ++ ++     +  X
 + +   +       +++ + ++
 + + +  ++  ++++   + ++
 +++ ++++++    +++ +  +
@@ -248,7 +248,7 @@ def searchFrom(maze, startRow, startColumn):
 +     +   +++++++  + +
 + +++++++      S +   +
 +                + +++
-++++++++++++++++++ +++
+++++++++++++++++++X+++
             </pre></datafile>
         </data>
         <data xml:id="fig-exmaze2">
@@ -256,7 +256,7 @@ def searchFrom(maze, startRow, startColumn):
             <datafile label="file-maze2" filename="maze2.txt" editable="no" cols="7" rows="5"><pre>
 ++++++++++++++++++++++
 +   +   ++ ++        +
-+     ++++++++++      
++     ++++++++++     X
 + +    ++  ++++ +++ ++
 + +   + + ++    +++  +
 +          ++  ++  + +
@@ -282,7 +282,7 @@ def searchFrom(maze, startRow, startColumn):
             <title>Maze search code</title>
             <task xml:id="maze-complete-cpp" label="maze-complete-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp" interactive="activecode"><input>
+                <statement><program language="cpp" interactive="activecode" datafile="maze1.txt,maze2.txt"><input>
 #include &lt;iostream&gt;
 #include &lt;fstream&gt;
 #include &lt;vector&gt;
@@ -297,19 +297,6 @@ const char MAZE_DEAD_END = '-';
 const char MAZE_TRIED = '.';
 const char MAZE_EXIT = 'X';
 
-vector&lt;string&gt; theMaze =
-    {"++++++++++++++++++++++",
-     "+   +   ++ ++     +  X",
-     "+ +   +       +++ + ++",
-     "+ + +  ++  ++++   + ++",
-     "+++ ++++++    +++ +  +",
-     "+          ++  ++    +",
-     "+++++ ++++++   +++++ +",
-     "+     +   +++++++  + +",
-     "+ +++++++      S +   +",
-     "+                + +++",
-     "++++++++++++++++++X+++"};
-	     
 void findStart(const vector&lt;string&gt; &amp;maze, size_t &amp;startRow, size_t &amp;startColumn) {
     for (size_t i = 0; i &lt; maze.size(); i++) {
 	    for (size_t j = 0; j &lt; maze[i].size(); j++) {
@@ -366,16 +353,17 @@ bool searchFrom(vector&lt;string&gt; &amp;maze, size_t startRow, size_t startCol
         searchFrom(maze, startRow, startColumn - 1) ||
         searchFrom(maze, startRow, startColumn + 1);
 
-        if (found)
-            maze[startRow][startColumn] = MAZE_PATH;
-        else
-            maze[startRow][startColumn] = MAZE_DEAD_END;
+    if (found)
+        maze[startRow][startColumn] = MAZE_PATH;
+    else
+        maze[startRow][startColumn] = MAZE_DEAD_END;
 
-	    return found;
+    return found;
 }
 
 int main() {
     size_t row, column;
+    vector&lt;string&gt; theMaze = readMazeFile("maze1.txt");
     cout &lt;&lt; "Before:" &lt;&lt; endl;
     printMaze(theMaze);
     findStart(theMaze, row, column);
@@ -512,7 +500,7 @@ main()
 +++++++
 +  + S+
 +  +  +
-     ++
+X    ++
 +++++++
     </input></program>
 </section>
