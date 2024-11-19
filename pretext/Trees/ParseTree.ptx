@@ -244,7 +244,7 @@ class BinaryTree {
         }
 };
         
-BinaryTree *buildParseTree(const stringamp; expr){
+BinaryTree *buildParseTree(const string&amp; expr){
     string buf;
 
     // build vector from space delimited tokens
