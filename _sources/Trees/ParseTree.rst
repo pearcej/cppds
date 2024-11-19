@@ -153,35 +153,35 @@ step:
 
 a) Create an empty tree.
 
-b) Read ( as the first token. By rule 1, create a new node as the left
+b) Read ``(`` as the first token. By rule 1, create a new node as the left
    child of the root. Make the current node this new child.
 
-c) Read 3 as the next token. By rule 3, set the root value of the
-   current node to 3 and go back up the tree to the parent.
+c) Read ``3`` as the next token. By rule 3, set the root value of the
+   current node to ``3`` and go back up the tree to the parent.
 
-d) Read + as the next token. By rule 2, set the root value of the
-   current node to + and add a new node as the right child. The new
+d) Read ``+`` as the next token. By rule 2, set the root value of the
+   current node to ``+`` and add a new node as the right child. The new
    right child becomes the current node.
 
-e) Read ( as the next token. By rule 1, create a new node as the left
+e) Read ``(`` as the next token. By rule 1, create a new node as the left
    child of the current node. The new left child becomes the current
    node.
 
-f) Read 4 as the next token. By rule 3, set the value of the current
-   node to 4. Make the parent of 4 the current node.
+f) Read ``4`` as the next token. By rule 3, set the value of the current
+   node to ``4``. Make the parent of ``4`` the current node.
 
-g) Read \* as the next token. By rule 2, set the root value of the
-   current node to \* and create a new right child. The new right child
+g) Read ``*`` as the next token. By rule 2, set the root value of the
+   current node to ``*`` and create a new right child. The new right child
    becomes the current node.
 
-h) Read 5 as the next token. By rule 3, set the root value of the
-   current node to 5. Make the parent of 5 the current node.
+h) Read ``5`` as the next token. By rule 3, set the root value of the
+   current node to ``5``. Make the parent of ``5`` the current node.
 
-i) Read ) as the next token. By rule 4 we make the parent of \* the
+i) Read ``)`` as the next token. By rule 4 we make the parent of ``*`` the
    current node.
 
-j) Read ) as the next token. By rule 4 we make the parent of + the
-   current node. At this point there is no parent for + so we are done.
+j) Read ``)`` as the next token. By rule 4 we make the parent of + the
+   current node. At this point there is no parent for ``+`` so we are done.
 
 From the example above, it is clear that we need to keep track of the
 current node as well as the parent of the current node. The tree

@@ -124,43 +124,43 @@
                 <p>Create an empty tree.</p>
             </li>
             <li>
-                <p>Read ( as the first token. By rule 1, create a new node as the left
+                <p>Read <c>(</c> as the first token. By rule<nbsp/>1, create a new node as the left
                     child of the root. Make the current node this new child.</p>
             </li>
             <li>
-                <p>Read 3 as the next token. By rule 3, set the root value of the
-                    current node to 3 and go back up the tree to the parent.</p>
+                <p>Read <c>3</c> as the next token. By rule<nbsp/>3, set the root value of the
+                    current node to <c>3</c> and go back up the tree to the parent.</p>
             </li>
             <li>
-                <p>Read + as the next token. By rule 2, set the root value of the
-                    current node to + and add a new node as the right child. The new
+                <p>Read <c>+</c> as the next token. By rule<nbsp/>2, set the root value of the
+                    current node to <c>+</c> and add a new node as the right child. The new
                     right child becomes the current node.</p>
             </li>
             <li>
-                <p>Read ( as the next token. By rule 1, create a new node as the left
+                <p>Read <c>(</c> as the next token. By rule<nbsp/>1, create a new node as the left
                     child of the current node. The new left child becomes the current
                     node.</p>
             </li>
             <li>
-                <p>Read 4 as the next token. By rule 3, set the value of the current
-                    node to 4. Make the parent of 4 the current node.</p>
+                <p>Read <c>4</c> as the next token. By rule<nbsp/>3, set the value of the current
+                    node to <c>4</c>. Make the parent of 4 the current node.</p>
             </li>
             <li>
-                <p>Read * as the next token. By rule 2, set the root value of the
-                    current node to * and create a new right child. The new right child
+                <p>Read <c>*</c> as the next token. By rule<nbsp/>2, set the root value of the
+                    current node to <c>*</c> and create a new right child. The new right child
                     becomes the current node.</p>
             </li>
             <li>
-                <p>Read 5 as the next token. By rule 3, set the root value of the
-                    current node to 5. Make the parent of 5 the current node.</p>
+                <p>Read <c>5</c> as the next token. By rule<nbsp/>3, set the root value of the
+                    current node to <c>5</c>. Make the parent of 5 the current node.</p>
             </li>
             <li>
-                <p>Read ) as the next token. By rule 4 we make the parent of * the
+                <p>Read <c>)</c> as the next token. By rule<nbsp/>4 we make the parent of <c>*</c> the
                     current node.</p>
             </li>
             <li>
-                <p>Read ) as the next token. By rule 4 we make the parent of + the
-                    current node. At this point there is no parent for + so we are done.</p>
+                <p>Read <c>)</c> as the next token. By rule<nbsp/>4 we make the parent of <c>+</c> the
+                    current node. At this point there is no parent for <c>+</c> so we are done.</p>
             </li>
         </ol></p>
         <p>From the example above, it is clear that we need to keep track of the
