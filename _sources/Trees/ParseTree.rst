@@ -270,59 +270,48 @@ in :ref:`ActiveCode 1 <lst_buildparse>`.
                 }
         };
 
-        BinaryTree *buildParseTree(string fpexp){
-            string buf;
-            stringstream ss(fpexp);
-            vector<string> fplist;
-            while (ss >> buf){
-                fplist.push_back(buf);
-            }
-            stack<BinaryTree*> pStack;
-            BinaryTree *eTree = new BinaryTree("");
-            pStack.push(eTree);
-            BinaryTree *currentTree = eTree;
+	BinaryTree *buildParseTree(const string& expr){
+	    string buf;
 
-            string arr[] = {"+", "-", "*", "/"};
-            vector<string> vect(arr,arr+(sizeof(arr)/ sizeof(arr[0])));
+	    // build vector from space delimited tokens
+	    stringstream ss(expr);
+	    vector<string> tokenlist;
+	    while (ss >> buf)
+		tokenlist.push_back(buf);
 
-            string arr2[] = {"+", "-", "*", "/", ")"};
-            vector<string> vect2(arr2,arr2+(sizeof(arr2)/ sizeof(arr2[0])));
+	    BinaryTree *root = new BinaryTree("");
+	    stack<BinaryTree*> parentStack;
+	    parentStack.push(root);
+	    BinaryTree *currentTree = root;
 
-            for (unsigned int i = 0; i<fplist.size(); i++){
+	    for (size_t i = 0; i < tokenlist.size(); i++){
+		if (tokenlist[i] == "("){
+		    // rule 1: open parenthesis
+		    currentTree->insertLeft("");
+		    parentStack.push(currentTree);
+		    currentTree = currentTree->getLeftChild();
+		} else if (tokenlist[i] == "+" || tokenlist[i] == "-" ||
+			   tokenlist[i] == "/" || tokenlist[i] == "*"){
+		    // rule 2: operator
+		    currentTree->setRootVal(tokenlist[i]);
+		    currentTree->insertRight("");
+		    parentStack.push(currentTree);
+		    currentTree = currentTree->getRightChild();
+		} else if (tokenlist[i] == ")") {
+		    // rule 4: closing parenthesis
+		    currentTree = parentStack.top();
+		    parentStack.pop();
+		} else {
+		    // rule 3: number
+		    currentTree->setRootVal(tokenlist[i]);
+		    BinaryTree *parent = parentStack.top();
+		    parentStack.pop();
+		    currentTree = parent;
+		}
+	    }
 
-                if (fplist[i] == "("){ 
-                    currentTree->insertLeft("");
-                    pStack.push(currentTree);
-                    currentTree = currentTree->getLeftChild();
-                }
-
-                else if (find(vect.begin(), vect.end(), fplist[i]) != vect.end()){ 
-                    currentTree->setRootVal(fplist[i]);
-                    currentTree->insertRight("");
-                    pStack.push(currentTree);
-                    currentTree = currentTree->getRightChild();
-                }
-
-                else if (fplist[i] == ")"){ 
-                    currentTree = pStack.top();
-                    pStack.pop();
-                }
-
-                else if (find(vect2.begin(), vect2.end(), fplist[i]) == vect2.end()) {
-                    try {
-                        currentTree->setRootVal(fplist[i]); 
-                        BinaryTree *parent = pStack.top();
-                        pStack.pop();
-                        currentTree = parent;
-                    }
-
-                    catch (string ValueError ){
-                        cerr <<"token " << fplist[i] << " is not a valid integer"<<endl;
-                    }
-                }
-            }
-            return eTree;
-        }
+	    return root;
+	}
 
         void postorder(BinaryTree *tree){ 
             if (tree != NULL){
