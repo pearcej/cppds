@@ -8,7 +8,7 @@
         <figure align="center" xml:id="fig-nlparse">
             <caption>A Parse Tree for a Simple Sentence.</caption>
                 <image source="Trees/nlParse.png" width="50%">
-                <description>Diagram of a parse tree for linguistic analysis. The root of the tree is labeled 'Sentence' which splits into two branches: 'Noun Phrase' and 'Verb Phrase'. The 'Noun Phrase' branch further breaks down into 'Proper Noun', which leads to the word 'Homer'. The 'Verb Phrase' branch divides into 'Verb', leading to the word 'Hit', and another 'Noun Phrase', which further breaks down into 'Proper Noun', leading to the word 'Bart'. The structure illustrates the grammatical relationships in a simple sentence. </description>
+                <description><p>Diagram of a parse tree for linguistic analysis. The root of the tree is labeled 'Sentence' which splits into two branches: 'Noun Phrase' and 'Verb Phrase'. The 'Noun Phrase' branch further breaks down into 'Proper Noun', which leads to the word 'Homer'. The 'Verb Phrase' branch divides into 'Verb', leading to the word 'Hit', and another 'Noun Phrase', which further breaks down into 'Proper Noun', leading to the word 'Bart'. The structure illustrates the grammatical relationships in a simple sentence.</p></description>
                 </image>
             </figure>
         <p><xref ref="fig-nlparse"/> shows the hierarchical structure of a simple
@@ -18,7 +18,7 @@
         <figure align="center" xml:id="fig-meparse">
             <caption>Parse Tree for <m>((7+3)*(5-2))</m>.</caption>
                 <image source="Trees/meParse.png" width="50%">
-                <description>Diagram of a parse tree for an arithmetic expression. The root node is an asterisk '*', indicating multiplication. It has two child nodes: on the left, a plus sign '+' connects the numbers 7 and 3, and on the right, a minus sign '-' connects the numbers 5 and 2. This tree represents the mathematical expression ((7 + 3) * (5 - 2)). The image is labeled 'Figure 2: Parse Tree for ((7 + 3) * (5 - 2)). </description>
+                <description><p>Diagram of a parse tree for an arithmetic expression. The root node is an asterisk '*', indicating multiplication. It has two child nodes: on the left, a plus sign '+' connects the numbers 7 and 3, and on the right, a minus sign '-' connects the numbers 5 and 2. This tree represents the mathematical expression ((7 + 3) * (5 - 2)). The image is labeled 'Figure 2: Parse Tree for ((7 + 3) * (5 - 2)).</p></description>
                 </image>
             </figure>
 
@@ -44,7 +44,7 @@
         <figure align="center" xml:id="fig-mesimple">
             <caption>A Simplified Parse Tree for <m>((7+3)*(5-2))</m>.</caption>
                 <image source="Trees/meSimple.png" width="50%">
-                <description>Diagram of a simplified parse tree for an arithmetic expression after evaluation. The root node is an asterisk '*', indicating multiplication. It has two child nodes, which are the results of the arithmetic operations: the number 10 on the left, which is the sum of 7 and 3, and the number 3 on the right, which is the result of subtracting 2 from 5. This tree represents the evaluated mathematical expression ((7 + 3) * (5 - 2)). The image is labeled 'Figure 3: A Simplified Parse Tree for ((7 + 3) * (5 - 2)). </description>
+                <description><p>Diagram of a simplified parse tree for an arithmetic expression after evaluation. The root node is an asterisk '*', indicating multiplication. It has two child nodes, which are the results of the arithmetic operations: the number 10 on the left, which is the sum of 7 and 3, and the number 3 on the right, which is the result of subtracting 2 from 5. This tree represents the evaluated mathematical expression ((7 + 3) * (5 - 2)). The image is labeled 'Figure 3: A Simplified Parse Tree for ((7 + 3) * (5 - 2)).</p></description>
                 </image>
             </figure>
 
@@ -112,7 +112,7 @@
                 <image source="Trees/buildExp6.png" width="25%"/>
                 <image source="Trees/buildExp7.png" width="50%"/>
                 <image source="Trees/buildExp8.png" width="50%">
-                <description>A vertical sequence of diagrams illustrating the construction of a binary search tree with numerical values. At the top, there is a single node. As the sequence progresses downwards, nodes are added one by one in binary search tree order, with some nodes shaded to indicate the most recently added node. Each node contains a number, and they are linked by lines representing the tree structure. The numbers in the nodes are not visible, so their specific values are not identifiable in this description. </description>
+                <description><p>A vertical sequence of diagrams illustrating the construction of a binary search tree with numerical values. At the top, there is a single node. As the sequence progresses downwards, nodes are added one by one in binary search tree order, with some nodes shaded to indicate the most recently added node. Each node contains a number, and they are linked by lines representing the tree structure. The numbers in the nodes are not visible, so their specific values are not identifiable in this description.</p></description>
                 </image>
             </figure>
 

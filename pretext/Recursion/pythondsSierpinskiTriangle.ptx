@@ -16,11 +16,11 @@
         <figure align="center" xml:id="fig-sierpinski">
             <caption>The Sierpinski Triangle.</caption>
                 <image source="Recursion/sierpinski.png" width="50%">
-                <description>Image of the Sierpinski Triangle, a fractal composed of colored triangles. 
+                <description><p>Image of the Sierpinski Triangle, a fractal composed of colored triangles. 
                     The main triangle is outlined with progressively smaller triangles in
                     alternating colors of red, green, and white, forming a pattern that repeats at smaller scales.
                     The center of the triangle features a large inverted blue triangle, emphasizing the fractal's
-                    characteristic self-similarity.</description>
+                    characteristic self-similarity.</p></description>
                 </image>
             </figure>
 
@@ -163,7 +163,7 @@ main()
         <figure align="center" xml:id="fig-stcalltree">
             <caption>Building a Sierpinski Triangle.</caption>
                 <image source="Recursion/stCallTree.png" width="50%">
-                <description>Diagram showing the recursive construction of a Sierpinski Triangle using a tree structure. The diagram starts with a single top circle labeled 'top', branching out into three interconnected circles labeled 'left', 'top', and 'right'. Each of these circles further branches out in a similar pattern, with the process repeating for several iterations. The circles decrease in size from top to bottom, representing the fractal's recursive nature. The grayscale shading of the circles suggests depth or iteration levels.</description>
+                <description><p>Diagram showing the recursive construction of a Sierpinski Triangle using a tree structure. The diagram starts with a single top circle labeled 'top', branching out into three interconnected circles labeled 'left', 'top', and 'right'. Each of these circles further branches out in a similar pattern, with the process repeating for several iterations. The circles decrease in size from top to bottom, representing the fractal's recursive nature. The grayscale shading of the circles suggests depth or iteration levels.</p></description>
                 </image>
             </figure>
 

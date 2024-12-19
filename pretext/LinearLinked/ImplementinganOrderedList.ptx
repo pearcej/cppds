@@ -19,7 +19,7 @@
         <figure align="center" xml:id="fig-orderlinked">
             <caption>An Ordered Linked List.</caption>
                 <image source="LinearLinked/orderlinkedlist.png" width="80%">
-                <description>Image of an ordered linked list with rectangular nodes connected by arrows. The list begins with a node labeled 'head' pointing to '17', followed by sequential nodes labeled '26', '31', '54', '77', and '93', with arrows indicating the direction of linkage from left to right. The structure represents a series of linked elements in ascending order.</description>
+                <description><p>Image of an ordered linked list with rectangular nodes connected by arrows. The list begins with a node labeled 'head' pointing to '17', followed by sequential nodes labeled '26', '31', '54', '77', and '93', with arrows indicating the direction of linkage from left to right. The structure represents a series of linked elements in ascending order.</p></description>
                 </image>
             </figure>
         
@@ -65,7 +65,7 @@ class OrderedList {
         <figure align="center" xml:id="fig-stopearly">
             <caption>Searching an Ordered Linked List.</caption>
                 <image source="LinearLinked/orderedsearch.png" width="80%">
-                <description>Diagram showing the process of searching an ordered linked list. The list includes rectangular nodes with numbers '17', '26', '31', '54', '77', and '93' connected by arrows from a 'head' node. Above each node except 'head' and '93', a dashed arrow points down, labeled 'current', indicating the position being checked. Over the '54' node, there is a magnifying glass symbol, suggesting it is the current focus of the search. The list is terminated by a vertical bar symbol.</description>
+                <description><p>Diagram showing the process of searching an ordered linked list. The list includes rectangular nodes with numbers '17', '26', '31', '54', '77', and '93' connected by arrows from a 'head' node. Above each node except 'head' and '93', a dashed arrow points down, labeled 'current', indicating the position being checked. Over the '54' node, there is a magnifying glass symbol, suggesting it is the current focus of the search. The list is terminated by a vertical bar symbol.</p></description>
                 </image>
             </figure>
 
@@ -120,7 +120,7 @@ bool search(int item) {
         <figure align="center" xml:id="fig-orderinsert">
             <caption>Adding an Item to an Ordered Linked List.</caption>
                 <image source="LinearLinked/linkedlistinsert.png" width="80%">
-                <description>Diagram of an ordered linked list illustrating the addition of a new item. The list starts with 'head' pointing to '17', then '26', followed by '54', '77', and '93', ending with a vertical bar symbol. A separate node labeled '31' with an arrow pointing right is positioned below, with a label 'temp'. Dashed arrows labeled 'Step 1' and 'Step 2' show the process of inserting '31' between '26' and '54'. Arrows from above point to '26' and '54' labeled 'previous' and 'current' respectively, indicating their positions relative to the insertion. </description>
+                <description><p>Diagram of an ordered linked list illustrating the addition of a new item. The list starts with 'head' pointing to '17', then '26', followed by '54', '77', and '93', ending with a vertical bar symbol. A separate node labeled '31' with an arrow pointing right is positioned below, with a label 'temp'. Dashed arrows labeled 'Step 1' and 'Step 2' show the process of inserting '31' between '26' and '54'. Arrows from above point to '26' and '54' labeled 'previous' and 'current' respectively, indicating their positions relative to the insertion.</p></description>
                 </image>
             </figure>
 

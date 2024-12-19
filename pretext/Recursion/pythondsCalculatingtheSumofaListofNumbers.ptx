@@ -149,7 +149,7 @@ main()
         <figure align="center" xml:id="fig-recsumin">
             <caption>Series of Recursive Calls Adding a List of Numbers.</caption>
                 <image source="Recursion/sumlistIn.png" width="50%">
-                <description>Stacked visualization of recursive function calls to sum a list of numbers. The top box shows 'sum(1,3,5,7,9)' with an arrow pointing to '1 +'. The next box down shows 'sum(3,5,7,9)' with an arrow pointing to '3 +', followed by boxes for 'sum(5,7,9)' with '5 +', 'sum(7,9)' with '7 +', and the last box 'sum(9)' with just '9'. Each box is connected to the next, representing the recursive nature of the calls.</description>
+                <description><p>Stacked visualization of recursive function calls to sum a list of numbers. The top box shows 'sum(1,3,5,7,9)' with an arrow pointing to '1 +'. The next box down shows 'sum(3,5,7,9)' with an arrow pointing to '3 +', followed by boxes for 'sum(5,7,9)' with '5 +', 'sum(7,9)' with '7 +', and the last box 'sum(9)' with just '9'. Each box is connected to the next, representing the recursive nature of the calls.</p></description>
                 </image>
             </figure>
 
@@ -164,7 +164,7 @@ main()
         <figure align="center" xml:id="fig-recsumout">
             <caption>Series of Recursive Returns from Adding a List of Numbers.</caption>
                 <image source="Recursion/sumlistOut.png" width="50%">
-                <description>Diagram illustrating the resolution of recursive function calls summing a list of numbers. The bottom box shows 'sum(9)' equaling '9', with an arrow pointing left to the next box 'sum(7,9)' showing '7 + 9'. Above that, 'sum(5,7,9)' equals '5 + 16', then 'sum(3,5,7,9)' with '3 + 21', and at the top, 'sum(1,3,5,7,9)' resulting in '1 + 24'. Each function call resolves to a value that is used in the computation of the previous call, with the final sum at the top being '25'.</description>
+                <description><p>Diagram illustrating the resolution of recursive function calls summing a list of numbers. The bottom box shows 'sum(9)' equaling '9', with an arrow pointing left to the next box 'sum(7,9)' showing '7 + 9'. Above that, 'sum(5,7,9)' equals '5 + 16', then 'sum(3,5,7,9)' with '3 + 21', and at the top, 'sum(1,3,5,7,9)' resulting in '1 + 24'. Each function call resolves to a value that is used in the computation of the previous call, with the final sum at the top being '25'.</p></description>
                 </image>
             </figure>
     </section>

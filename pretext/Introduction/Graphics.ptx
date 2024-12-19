@@ -493,7 +493,7 @@ turtle.shape("square");
             <figure align="center" xml:id="ccpolygon">
                 <caption>Indented Triangle Definition</caption>
                     <image source="Introduction/cc_polygon.png" width="50%">
-                    <description>Graphic illustrating an indented triangle with coordinate points. At the top vertex, the point is labeled '0, 0'. The bottom left vertex is labeled '-5, 10', and the bottom right vertex is labeled '5, 10'. An arrow curves above the triangle, indicating rotation or flipping. Each vertex is marked with a green circle. The image defines the shape and position of an indented triangle in a coordinate system</description>
+                    <description><p>Graphic illustrating an indented triangle with coordinate points. At the top vertex, the point is labeled '0, 0'. The bottom left vertex is labeled '-5, 10', and the bottom right vertex is labeled '5, 10'. An arrow curves above the triangle, indicating rotation or flipping. Each vertex is marked with a green circle. The image defines the shape and position of an indented triangle in a coordinate system.</p></description>
                     </image>
                 </figure>
 

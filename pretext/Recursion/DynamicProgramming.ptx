@@ -146,12 +146,12 @@ main()
         <figure align="center" xml:id="fig-c1ctcpp">
             <caption>Call Tree for <xref ref="lst-change1-cpp"/></caption>
                 <image source="Recursion/callTree.png" width="80%">
-                <description>Diagram of a call tree for a recursive process, as seen in <xref ref="lst-change1-cpp"/>.
+                <description><p>Diagram of a call tree for a recursive process, as seen in <xref ref="lst-change1-cpp"/>.
                     The tree starts at the top with the root node labeled '26', branching down to nodes labeled '25' and '1'.
                     Each node further branches out, with the left branch subtracting '1' and the right branch subtracting '5'.
                     The pattern continues until reaching the leaf nodes, which are either '1' or a number that can no longer
                     be reduced by five. Arrows indicate the direction of the call flow, starting from '26' and moving down
-                    through the levels of the tree. </description>
+                    through the levels of the tree.</p></description>
                 </image>
             </figure>
 
@@ -296,14 +296,14 @@ main()
         <figure align="center" xml:id="fig-dpcoins">
             <caption>Minimum Number of Coins Needed to Make.</caption>
                 <image source="Recursion/changeTable.png" width="80%">
-                <description>Image of a table representing the minimum number of coins needed to make change. The columns are labeled with the 'Change to Make' values from 1 to 11. The rows correspond to 'Steps of the Algorithm', with each cell filled with the minimum number of coins needed at that step for the corresponding amount of change. Initial rows are partially filled with increasing sequences of numbers, indicating the progression of the algorithm. The bottom rows are blurred and continue with an ellipsis, suggesting the continuation of the process beyond what is shown.  </description>
+                <description><p>Image of a table representing the minimum number of coins needed to make change. The columns are labeled with the 'Change to Make' values from 1 to 11. The rows correspond to 'Steps of the Algorithm', with each cell filled with the minimum number of coins needed at that step for the corresponding amount of change. Initial rows are partially filled with increasing sequences of numbers, indicating the progression of the algorithm. The bottom rows are blurred and continue with an ellipsis, suggesting the continuation of the process beyond what is shown. </p></description>
                 </image>
             </figure>
         
         <figure align="center" xml:id="fig-eleven">
             <caption>Three Options to Consider for the Minimum Number of Coins for Eleven Cents.</caption>
                 <image source="Recursion/elevenCents.png" width="80%">
-                <description>Image of a curved numerical table representing three options to calculate the minimum number of coins for eleven cents. The table is labeled with numbers from 1 to 5 corresponding to the counts of coins used. Below the table, there are three curved arrows pointing to the number '11' from '11-1', '11-5', and '11-10', indicating the subtraction of 1, 5, and 10 cents from 11 cents to determine the next step in the calculation. The last cell under '11' is labeled with '??' to indicate the unknown minimum number of coins needed.  </description>
+                <description><p>Image of a curved numerical table representing three options to calculate the minimum number of coins for eleven cents. The table is labeled with numbers from 1 to 5 corresponding to the counts of coins used. Below the table, there are three curved arrows pointing to the number '11' from '11-1', '11-5', and '11-10', indicating the subtraction of 1, 5, and 10 cents from 11 cents to determine the next step in the calculation. The last cell under '11' is labeled with '??' to indicate the unknown minimum number of coins needed.</p></description>
                 </image>
             </figure>
 

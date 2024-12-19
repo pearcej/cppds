@@ -24,7 +24,7 @@
         <figure align="center" xml:id="fig-binsearch">
             <caption>Binary Search of an Ordered vector of Integers.</caption>
                 <image source="SearchHash/binsearch.png" width="80%">
-                <description>Diagram of an ordered sequence of boxes containing integers, indicative of a binary search algorithm. The numbers in the boxes are '17', '20', '26', '31', '44', '54', '55', '65', '77', and '93', arranged in ascending order. An arrow labeled 'Start' splits into two, pointing to the middle of the sequence, suggesting the initial step in binary search where the middle element is first compared with the target value.</description>
+                <description><p>Diagram of an ordered sequence of boxes containing integers, indicative of a binary search algorithm. The numbers in the boxes are '17', '20', '26', '31', '44', '54', '55', '65', '77', and '93', arranged in ascending order. An arrow labeled 'Start' splits into two, pointing to the middle of the sequence, suggesting the initial step in binary search where the middle element is first compared with the target value.</p></description>
                 </image>
             </figure>
 

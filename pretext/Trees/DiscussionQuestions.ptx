@@ -67,9 +67,9 @@
                 <figure align="center" xml:id="exertree">
                     <caption>Tree of Programming Languages</caption>
                     <image source="Trees/exerTree.png" width="50%">
-                        <description>A tree whose root node is language. The language node has two children: compiled and interpreted.
+                        <description><p>A tree whose root node is language. The language node has two children: compiled and interpreted.
                             The compiled node has two children: C and Java. The interpreted node has two children: Python and Scheme.
-                        </description>
+                        </p></description>
                     </image>
                 </figure>
             </li>
@@ -78,11 +78,11 @@
                 <figure align="center" xml:id="rotexer1">
                     <caption>Out of Balance Tree</caption>
                     <image source="Trees/rotexer1.png" width="20%">
-                        <description>
+                        <description><p>
                             A tree whose root node is B with a balance factor of -2. B has two children: A with a balance factor of 0 and
                             E with a balanace factor of 1. A has no children. E has two children: D with a balance factor of 1 and F with
                             a balance factor of 0. D has only a left child: C with balance factor 0. F has no children.
-                        </description>
+                        </p></description>
                     </image>
                 </figure>
             </li>

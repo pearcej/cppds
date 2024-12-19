@@ -20,7 +20,7 @@
         <figure align="center" xml:id="fig-inherit1">
                 <caption>An Inheritance Hierarchy for C++ Collections</caption>
                     <image source="Introduction/inheritance1.png" width="70%">
-                    <description>Hierarchy chart showing the classification of C++ containers. The top of the hierarchy is labeled 'C++ Containers', branching into 'Sequence Containers' on the left and 'Associative Containers' on the right. Under 'Sequence Containers', there are three sub-categories: 'Arrays', 'Vectors', and 'Strings'. 'Associative Containers' has a single sub-category labeled 'Unordered Maps'. The layout suggests an inheritance structure where sequence and associative containers are types of C++ containers.</description>
+                    <description><p>Hierarchy chart showing the classification of C++ containers. The top of the hierarchy is labeled 'C++ Containers', branching into 'Sequence Containers' on the left and 'Associative Containers' on the right. Under 'Sequence Containers', there are three sub-categories: 'Arrays', 'Vectors', and 'Strings'. 'Associative Containers' has a single sub-category labeled 'Unordered Maps'. The layout suggests an inheritance structure where sequence and associative containers are types of C++ containers.</p></description>
                     </image>
                 </figure>
 
@@ -114,7 +114,7 @@ int main() {
             <figure align="center" xml:id="ooderive_fig-truthtable">
                 <caption>Three Types of Logic Gates</caption>
                     <image source="Introduction/truthtable.png" width="50%">
-                    <description>Image depicting three types of logic gates and their corresponding truth tables. On the left is the 'AND' gate symbol with a two-input truth table below it, showing outputs of '0' for all inputs except '1' and '1'. The center shows the 'OR' gate symbol with a truth table, displaying '1' when at least one input is '1'. On the right, the 'NOT' gate symbol is presented with a single-input truth table, showing an output inverse to the input.</description>
+                    <description><p>Image depicting three types of logic gates and their corresponding truth tables. On the left is the 'AND' gate symbol with a two-input truth table below it, showing outputs of '0' for all inputs except '1' and '1'. The center shows the 'OR' gate symbol with a truth table, displaying '1' when at least one input is '1'. On the right, the 'NOT' gate symbol is presented with a single-input truth table, showing an output inverse to the input.</p></description>
                     </image>
                 </figure>
             <p>By combining these gates in various patterns and then applying a set of
@@ -130,7 +130,7 @@ int main() {
             <figure align="center" xml:id="ooderive_fig-circuit1">
                 <caption>Circuit</caption>
                     <image source="Introduction/circuit1.png" width="50%">
-                    <description>Diagram of a logic circuit with labeled gates and sample inputs/outputs. The top part shows two 'AND' gates labeled 'g1' and 'g2' feeding into an 'OR' gate labeled 'g3', which in turn feeds into a 'NOT' gate labeled 'g4'. Below, the same circuit is shown with binary inputs and the resulting outputs: 'AND' gates receiving '0, 1' and '1, 1' inputs with '0' and '1' outputs respectively; the 'OR' gate then combines the two to output '1', which is inverted to '0' by the 'NOT' gate.</description>
+                    <description><p>Diagram of a logic circuit with labeled gates and sample inputs/outputs. The top part shows two 'AND' gates labeled 'g1' and 'g2' feeding into an 'OR' gate labeled 'g3', which in turn feeds into a 'NOT' gate labeled 'g4'. Below, the same circuit is shown with binary inputs and the resulting outputs: 'AND' gates receiving '0, 1' and '1, 1' inputs with '0' and '1' outputs respectively; the 'OR' gate then combines the two to output '1', which is inverted to '0' by the 'NOT' gate.</p></description>
                     </image>
                 </figure>
 
@@ -148,10 +148,10 @@ int main() {
             <figure align="center" xml:id="ooderive_fig-circuit0">
                 <caption>Example Logic Circuit</caption>
                 <image source="Introduction/logicquestion.png" width="50%">
-                        <description>
+                        <description><p>
                                 Circuit diagram showing a two-input AND gate and a two-input OR gate.
                                 The output of these two gates are the inputs to another two-input AND gate
-                        </description>
+                        </p></description>
                 </image>
             </figure>
 
@@ -160,7 +160,7 @@ int main() {
     <figure align="center" xml:id="ooderive_fig-gates">
         <caption>An Inheritance Hierarchy for Logic Gates</caption>
             <image source="Introduction/gates.png" width="50%">
-            <description>Flowchart representing an inheritance hierarchy for logic gates. The topmost block is labeled 'Logic Gate', which branches down into two categories: 'Binary Gate' and 'Unary Gate'. Under 'Binary Gate', two further blocks represent 'AND' and 'OR' gates, each accompanied by their respective symbols. To the right, under 'Unary Gate', there's a block for the 'NOT' gate with its symbol. The structure implies that 'AND' and 'OR' gates inherit from 'Binary Gate', which along with 'Unary Gate' inherits from 'Logic Gate'. </description>
+            <description><p>Flowchart representing an inheritance hierarchy for logic gates. The topmost block is labeled 'Logic Gate', which branches down into two categories: 'Binary Gate' and 'Unary Gate'. Under 'Binary Gate', two further blocks represent 'AND' and 'OR' gates, each accompanied by their respective symbols. To the right, under 'Unary Gate', there's a block for the 'NOT' gate with its symbol. The structure implies that 'AND' and 'OR' gates inherit from 'Binary Gate', which along with 'Unary Gate' inherits from 'Logic Gate'.</p></description>
             </image>
         </figure>        
 
@@ -471,7 +471,7 @@ Enter Pin input for gate G3-&gt;0
         <figure align="center" xml:id="ooderive_fig-connector">
                 <caption>A Connector Connects the Output of One Gate to the Input of Another</caption>
                 <image source="Introduction/connector.png" width="50%">
-                <description>Diagram showing two logic gate symbols, 'AND' and 'OR', connected by a line labeled 'connector'. The 'AND' gate is on the left with an arrow pointing from its output to the 'connector'. Another arrow extends from the 'connector' to the input of the 'OR' gate on the right. This illustrates how the output of one gate serves as the input to another.</description>
+                <description><p>Diagram showing two logic gate symbols, 'AND' and 'OR', connected by a line labeled 'connector'. The 'AND' gate is on the left with an arrow pointing from its output to the 'connector'. Another arrow extends from the 'connector' to the input of the 'OR' gate on the right. This illustrates how the output of one gate serves as the input to another.</p></description>
                 </image>
         </figure>
 
@@ -494,7 +494,7 @@ Enter Pin input for gate G3-&gt;0
             <figure align="center" xml:id="ooderive_fig-desired-circuit">
                 <caption>Circit of NOT(AND(ganda,gnadb)OR AND(gandc,gandd))</caption>
                     <image source="Introduction/desired_circuit.png" width="80%">
-                    <description>Circuit diagram illustrating a logical expression with labeled components. Two 'AND' gates, labeled 'gand1' and 'gand2', are connected to an 'OR' gate labeled 'gor3' via lines labeled 'connector'. The output of 'gor3' is then fed into a 'NOT' gate labeled 'gnot4'. The connections suggest the logical operation NOT(AND(a,b)) OR AND(c,d). </description>
+                    <description><p>Circuit diagram illustrating a logical expression with labeled components. Two 'AND' gates, labeled 'gand1' and 'gand2', are connected to an 'OR' gate labeled 'gor3' via lines labeled 'connector'. The output of 'gor3' is then fed into a 'NOT' gate labeled 'gnot4'. The connections suggest the logical operation NOT(AND(a,b)) OR AND(c,d).</p></description>
                     </image>
                 </figure>
 
