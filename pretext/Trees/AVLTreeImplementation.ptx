@@ -28,13 +28,15 @@
         <p>We will implement the AVL tree as a subclass of <c>BinarySearchTree</c>. To
             begin, we will override the <c>_put</c> method and write a new
             <c>updateBalance</c> helper method. These methods are shown in
-            <xref ref="trees_lst-updbal"/>. You will notice that the definition for <c>_put</c> is
+            <xref ref="lst-avlupdbal-cpp"/>. You will notice that the definition for <c>_put</c> is
             exactly the same as in simple binary search trees except for the additions of
             the calls to <c>updateBalance</c> on lines<nbsp/>8 and<nbsp/>17.</p>
 
-        <listing xml:id="trees_lst-updbal">
-            <caption>Implementation of <c>_put</c> and <c>updateBalance</c></caption>
-            <program line-numbers="yes" language="cpp"><input>
+<exploration xml:id="expl-avlupdbal">
+    <title>AVL Tree: _put and updateBalance</title>
+    <task xml:id="lst-avlupdbal-cpp" label="lst-avlupdbal-cpp">
+        <title>C++ Implementation</title>
+        <statement><program xml:id="avlupdbalcodecpp" interactive="activecode" language="cpp"><input>
 void _put(int key, string val, TreeNode *currentNode){
     if (key &lt; currentNode-&gt;key){
         if (currentNode-&gt;hasLeftChild()){
@@ -74,8 +76,137 @@ int updateBalance(TreeNode *node){
     }
     return 0;
 }
-            </input></program>
-        </listing>
+        </input></program></statement>
+    </task>
+    <task xml:id="lst-avlupdbal-py" label="lst-avlupdbal-py">
+        <title>Python Implementation</title>
+        <statement><program xml:id="avlupdbalcodepy" interactive="activecode" language="python"><input>
+class TreeNode:
+    def __init__(self, key, val, parent=None, left=None, right=None):
+        self.key = key
+        self.payload = val
+        self.leftChild = left
+        self.rightChild = right
+        self.parent = parent
+        self.balanceFactor = 0  # balance factor initialization
+
+    def hasLeftChild(self):
+        return self.leftChild
+
+    def hasRightChild(self):
+        return self.rightChild
+
+    def isLeftChild(self):
+        return self.parent and self.parent.leftChild == self
+
+    def isRightChild(self):
+        return self.parent and self.parent.rightChild == self
+
+
+class AVLTree:
+    def __init__(self):
+        self.root = None
+
+    def _put(self, key, val, currentNode):
+        if currentNode is None:
+            return TreeNode(key, val)
+        
+        if key &lt; currentNode.key:
+            currentNode.leftChild = self._put(key, val, currentNode.leftChild)
+        else:
+            currentNode.rightChild = self._put(key, val, currentNode.rightChild)
+        
+        self.updateBalance(currentNode)
+        return currentNode
+
+    def updateBalance(self, node):
+        if node.balanceFactor &gt; 1 or node.balanceFactor &lt; -1:
+            self.rebalance(node)
+            return
+        if node.parent is not None:
+            if node.isLeftChild():
+                node.parent.balanceFactor += 1
+            elif node.isRightChild():
+                node.parent.balanceFactor -= 1
+            if node.parent.balanceFactor != 0:
+                self.updateBalance(node.parent)
+
+    def rebalance(self, node):
+        if node.balanceFactor > 1:  # Left-heavy
+            if node.leftChild.balanceFactor &lt; 0:  # Left-Right case
+                self.leftRotate(node.leftChild)
+            self.rightRotate(node)
+        elif node.balanceFactor &lt; -1:  # Right-heavy
+            if node.rightChild.balanceFactor > 0:  # Right-Left case
+                self.rightRotate(node.rightChild)
+            self.leftRotate(node)
+
+    def leftRotate(self, node):
+        newRoot = node.rightChild
+        node.rightChild = newRoot.leftChild
+        
+        if newRoot.leftChild:
+            newRoot.leftChild.parent = node
+        
+        newRoot.parent = node.parent
+        if node.isLeftChild():
+            node.parent.leftChild = newRoot
+        elif node.isRightChild():
+            node.parent.rightChild = newRoot
+        else:
+            self.root = newRoot
+        
+        newRoot.leftChild = node
+        node.parent = newRoot
+
+        # Update balance factors
+        node.balanceFactor = node.balanceFactor + 1 - min(newRoot.balanceFactor, 0)
+        newRoot.balanceFactor = newRoot.balanceFactor + 1 + max(node.balanceFactor, 0)
+
+    def rightRotate(self, node):
+        newRoot = node.leftChild
+        node.leftChild = newRoot.rightChild
+        
+        if newRoot.rightChild:
+            newRoot.rightChild.parent = node
+        
+        newRoot.parent = node.parent
+        if node.isLeftChild():
+            node.parent.leftChild = newRoot
+        elif node.isRightChild():
+            node.parent.rightChild = newRoot
+        else:
+            self.root = newRoot
+        
+        newRoot.rightChild = node
+        node.parent = newRoot
+
+        # Update balance factors
+        node.balanceFactor = node.balanceFactor - 1 - max(newRoot.balanceFactor, 0)
+        newRoot.balanceFactor = newRoot.balanceFactor - 1 + min(node.balanceFactor, 0)
+
+    def put(self, key, val):
+        if self.root is None:
+            self.root = TreeNode(key, val)
+        else:
+            self.root = self._put(key, val, self.root)
+
+# Example Usage
+avltree = AVLTree()
+avltree.put(10, "A")
+avltree.put(20, "B")
+avltree.put(5, "C")
+avltree.put(4, "D")  # This should trigger a right rotation
+
+# Printing the keys of the nodes in the tree
+print(f"Root: {avltree.root.key}")
+print(f"Left Child of Root: {avltree.root.leftChild.key}")  
+print(f"Right Child of Root: {avltree.root.rightChild.key}")  
+ 
+        </input></program></statement>
+    </task>
+</exploration>
+
         
         <p>The new <c>updateBalance</c> method is where most of the work is done. The
             <c>updateBalance</c> method first checks to see if the current node is out
