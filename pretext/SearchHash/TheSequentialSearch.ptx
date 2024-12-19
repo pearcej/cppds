@@ -20,7 +20,7 @@
         <figure align="center" xml:id="fig-seqsearch">
             <caption>Sequential Search of a List of Integers.</caption>
                 <image source="SearchHash/seqsearch.png" width="80%">
-                <description>Diagram showing a horizontal sequence of connected boxes containing integers, illustrating a sequential search algorithm. Each box contains a unique number, with values visible in the image including '54', '26', '93', '17', '77', '31', '44', '55', '20', and '65'. A curved arrow labeled 'Start' points to the first box '54', indicating the beginning of the search process. The arrangement suggests that the search will proceed through the list of numbers from left to right. </description>
+                <description><p>Diagram showing a horizontal sequence of connected boxes containing integers, illustrating a sequential search algorithm. Each box contains a unique number, with values visible in the image including '54', '26', '93', '17', '77', '31', '44', '55', '20', and '65'. A curved arrow labeled 'Start' points to the first box '54', indicating the beginning of the search process. The arrangement suggests that the search will proceed through the list of numbers from left to right.</p></description>
                 </image>
             </figure>
 
@@ -189,7 +189,7 @@
             <figure align="center" xml:id="fig-seqsearch2">
                 <caption>Sequential Search of an Ordered List of Integers.</caption>
                     <image source="SearchHash/seqsearch2.png" width="80%">
-                    <description>Image of a sequence of connected boxes in a horizontal line, each containing a number, representing a sequential search on an ordered list of integers. The numbers, displayed in ascending order, are '17', '20', '26', '31', '44', '54', '55', '65', '77', and '93'. A curved arrow labeled 'Start' points to the first box with '17', indicating the point where the search begins. The sequence suggests a methodical approach to searching, where each element is checked in order until the desired number is found. </description>
+                    <description><p>Image of a sequence of connected boxes in a horizontal line, each containing a number, representing a sequential search on an ordered list of integers. The numbers, displayed in ascending order, are '17', '20', '26', '31', '44', '54', '55', '65', '77', and '93'. A curved arrow labeled 'Start' points to the first box with '17', indicating the point where the search begins. The sequence suggests a methodical approach to searching, where each element is checked in order until the desired number is found.</p></description>
                     </image>
                 </figure>
             

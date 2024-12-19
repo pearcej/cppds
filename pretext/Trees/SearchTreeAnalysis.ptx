@@ -36,13 +36,13 @@
         <figure align="center" xml:id="fig-skewedtree-analysis">
             <caption>A skewed binary search tree would give poor performance.</caption>
             <image source="Trees/skewedTree.png" width="50%">
-                <description>
+                <description><p>
                     A tree with a root node of 10 which only has a right child: 20.
                     The node 20 only has a right child: 30. The node 30 only has a
                     right child: 40. The node 40 only has a right child: 50.
                     The node 50 has no children. This is equivalent to a linked list:
                     10, 20, 30, 40, 50.
-                </description>
+                </p></description>
             </image>
         </figure>
         <p>Now that you understand that the performance of

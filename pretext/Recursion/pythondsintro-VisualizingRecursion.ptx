@@ -224,14 +224,14 @@ main()
         <figure align="center" xml:id="fig-tree1">
             <caption>The Beginning of a Fractal Tree.</caption>
                 <image source="Recursion/tree1.png" width="50%">
-                <description>Screenshot of a computer window titled 'Python Turtle Graphics' showing the initial stage of a fractal tree drawing. The window displays a simple black curve on a white background, representing the trunk of the tree starting to branch off. This image captures the first step in a programming exercise to draw a complex fractal tree using recursive functions.</description>
+                <description><p>Screenshot of a computer window titled 'Python Turtle Graphics' showing the initial stage of a fractal tree drawing. The window displays a simple black curve on a white background, representing the trunk of the tree starting to branch off. This image captures the first step in a programming exercise to draw a complex fractal tree using recursive functions.</p></description>
                 </image>
             </figure>
 
         <figure align="center" xml:id="fig-tree2">
             <caption>The First Half of the Tree.</caption>
                 <image source="Recursion/tree2.png" width="50%">
-                <description>Screenshot of a computer window with the title 'Python Turtle Graphics', depicting a partially completed fractal tree drawing. The graphic shows a black tree with a simple trunk that splits into several branching limbs and smaller branches, all rendered on a white background. The image visually represents the midpoint of a recursive drawing process in programming, with the tree structure becoming increasingly complex towards the top.</description>
+                <description><p>Screenshot of a computer window with the title 'Python Turtle Graphics', depicting a partially completed fractal tree drawing. The graphic shows a black tree with a simple trunk that splits into several branching limbs and smaller branches, all rendered on a white background. The image visually represents the midpoint of a recursive drawing process in programming, with the tree structure becoming increasingly complex towards the top.</p></description>
                 </image>
             </figure>
 

@@ -123,7 +123,7 @@ def bfs(g,start):
         <figure align="center" xml:id="fig-bfs1">
             <caption>The First Step in the Breadth First Search.</caption>
                 <image source="Graphs/bfs1.png" width="80%">
-                <description>Image of a graph and a queue representing the first step in the breadth-first search algorithm. The graph has a central node labeled 'fool', with arrows pointing to four connected nodes: 'pool', 'foil', a second 'foul', and 'cool', each marked with the number '1' to indicate a step or level. Below the graph, there's a depiction of a queue with the words 'pool', 'foil', 'foul', and 'cool' enqueued in that order. This illustrates how the algorithm explores the neighbors of the starting node 'fool' and adds them to the queue for further exploration.</description>
+                <description><p>Image of a graph and a queue representing the first step in the breadth-first search algorithm. The graph has a central node labeled 'fool', with arrows pointing to four connected nodes: 'pool', 'foil', a second 'foul', and 'cool', each marked with the number '1' to indicate a step or level. Below the graph, there's a depiction of a queue with the words 'pool', 'foil', 'foul', and 'cool' enqueued in that order. This illustrates how the algorithm explores the neighbors of the starting node 'fool' and adds them to the queue for further exploration.</p></description>
                 </image>
             </figure>
         <p>In the next step <c>bfs</c> removes the next node (pool) from the front of
@@ -137,7 +137,7 @@ def bfs(g,start):
         <figure align="center" xml:id="fig-bfs2">
             <caption>The Second Step in the Breadth First Search.</caption>
                 <image source="Graphs/bfs2.png" width="80%">
-                <description>Image showing the second step in a breadth-first search algorithm on a word graph. The central node is labeled 'fool', with connections to four adjacent nodes: 'pool', 'foil', 'foul', and 'cool', each marked with a '1' indicating they were reached in the first step of the search. 'Pool' is further connected to a node labeled 'poll', marked with a '2' indicating it is reached in the second step. Below the graph, a queue is shown containing 'foil', 'foul', 'cool', and 'poll', reflecting the order in which they are visited. This demonstrates the process of exploring each node's neighbors and tracking the search progression through levels or layers. </description>
+                <description><p>Image showing the second step in a breadth-first search algorithm on a word graph. The central node is labeled 'fool', with connections to four adjacent nodes: 'pool', 'foil', 'foul', and 'cool', each marked with a '1' indicating they were reached in the first step of the search. 'Pool' is further connected to a node labeled 'poll', marked with a '2' indicating it is reached in the second step. Below the graph, a queue is shown containing 'foil', 'foul', 'cool', and 'poll', reflecting the order in which they are visited. This demonstrates the process of exploring each node's neighbors and tracking the search progression through levels or layers.</p></description>
                 </image>
             </figure>
         <p>The next vertex on the queue is foil. The only new node that foil can
@@ -149,14 +149,14 @@ def bfs(g,start):
         <figure align="center" xml:id="fig-bfs3">
             <caption>Breadth First Search Tree After Completing One Level.</caption>
                 <image source="Graphs/bfs3.png" width="80%">
-                <description>Image of a breadth-first search tree after completing one level. The tree starts at the top with the word 'fool'. Below 'fool', there are four nodes labeled 'pool', 'foil', 'foul', and 'cool', each marked with the number '1'. From 'foil', there is an additional node labeled 'fail', marked with the number '2'. Similarly, 'pool' connects to 'poll', also marked with '2'. The diagram indicates the sequence of words explored from the starting word 'fool' by changing one letter at a time. Below the tree, there is a queue with the words 'pole' and 'pall', representing the next words to be visited in the search.</description>
+                <description><p>Image of a breadth-first search tree after completing one level. The tree starts at the top with the word 'fool'. Below 'fool', there are four nodes labeled 'pool', 'foil', 'foul', and 'cool', each marked with the number '1'. From 'foil', there is an additional node labeled 'fail', marked with the number '2'. Similarly, 'pool' connects to 'poll', also marked with '2'. The diagram indicates the sequence of words explored from the starting word 'fool' by changing one letter at a time. Below the tree, there is a queue with the words 'pole' and 'pall', representing the next words to be visited in the search.</p></description>
                 </image>
             </figure>
         
         <figure align="center" xml:id="fig-bfsDone">
             <caption>Final Breadth First Search Tree.</caption>
                 <image source="Graphs/bfsDone.png" width="80%">
-                <description>Image showing the final breadth-first search tree. The root of the tree is the word 'fool' with four branches leading to the words 'pool', 'foil', 'foul', and 'cool', each marked with a '1' indicating the first level of connections. 'Pool' connects to 'poll' (level 2), which further connects to 'pole' (level 3), leading to 'pope' (level 4), then to 'page' (level 5), and finally to 'sage' (level 6). Similarly, 'foil' connects to 'fail' (level 2), and 'poll' also connects to 'pall' (level 3), leading to 'pale' (level 4) and 'sale' (level 5). The levels indicate the number of steps taken from the root word to reach each subsequent word by changing one letter at a time. An empty queue box is shown to the side, suggesting that the search has been completed.</description>
+                <description><p>Image showing the final breadth-first search tree. The root of the tree is the word 'fool' with four branches leading to the words 'pool', 'foil', 'foul', and 'cool', each marked with a '1' indicating the first level of connections. 'Pool' connects to 'poll' (level 2), which further connects to 'pole' (level 3), leading to 'pope' (level 4), then to 'page' (level 5), and finally to 'sage' (level 6). Similarly, 'foil' connects to 'fail' (level 2), and 'poll' also connects to 'pall' (level 3), leading to 'pale' (level 4) and 'sale' (level 5). The levels indicate the number of steps taken from the root word to reach each subsequent word by changing one letter at a time. An empty queue box is shown to the side, suggesting that the search has been completed.</p></description>
                 </image>
             </figure>
         <p>You should continue to work through the algorithm on your own so that

@@ -161,10 +161,10 @@
     <figure align="center" xml:id="fig-graphfigurecpp">
         <caption>Common Big-O Functions</caption>
             <image source="AlgorithmAnalysis/newplot.png" width="50%">
-                <description>This figure shows graphs of the common functions from <xref ref="algorithm-analysis_algorithm-analysis_tbl-fntablecpp"/>.
+                <description><p>This figure shows graphs of the common functions from <xref ref="algorithm-analysis_algorithm-analysis_tbl-fntablecpp"/>.
                     When n is small, the functions are not very well defined with respect to one another. It is hard to tell which is
                     dominant. However, as n grows, there is a definite relationship and it is easy to see how they compare with one another.
-                </description>
+                </p></description>
             </image>
     </figure>
 
@@ -238,7 +238,7 @@ main()
     <figure align="center" xml:id="fig_graphfigure2cpp">
         <caption>Comparing <m>T(n)</m> with Big-O Functions</caption>
             <image source="AlgorithmAnalysis/newplot2.png" width="50%">
-                <description>This figure shows a few of the common Big-O functions as they compare with the T(n) function discussed above. Note that T(n) is initially larger than the cubic function. However, as n grows, the cubic function quickly overtakes T(n). It is easy to see that T(n) then follows the quadratic function as n continues to grow.</description>
+                <description><p>This figure shows a few of the common Big-O functions as they compare with the T(n) function discussed above. Note that T(n) is initially larger than the cubic function. However, as n grows, the cubic function quickly overtakes T(n). It is easy to see that T(n) then follows the quadratic function as n continues to grow.</p></description>
             </image>
     </figure>
 
