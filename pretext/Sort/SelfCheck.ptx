@@ -4,21 +4,21 @@
     <exercise label="question_sort_9">
         <statement><p>Which of the following sort algorithms are guaranteed to be <m>O(n \log n)</m> even in the worst case?</p></statement>
         <choices>
-            <choice correct="false">
+            <choice>
                 <statement>Shell Sort</statement>
-                <feedback>Shell sort is between <m>O(n)</m> and <m>O(n^2)</m></feedback>
+                <feedback>Incorrect! Shell sort is between <m>O(n)</m> and <m>O(n^2)</m></feedback>
             </choice>
-            <choice correct="false">
+            <choice>
                 <statement>Quick Sort</statement>
-                <feedback>Quick sort can be <m>O(n \log n)</m>, but if the pivot points are not well chosen and the list is just so, it can be <m>O(n^2)</m>.</feedback>
+                <feedback>Incorrect! Quick sort can be <m>O(n \log n)</m>, but if the pivot points are not well chosen and the list is just so, it can be <m>O(n^2)</m>.</feedback>
             </choice>
-            <choice correct="true">
+            <choice correct="yes">
                 <statement>Merge Sort</statement>
                 <feedback>Correct! Merge Sort is the only guaranteed <m>O(n \log n)</m> even in the worst case. The cost is that merge sort uses more memory.</feedback>
             </choice>
-            <choice correct="false">
+            <choice>
                 <statement>Insertion Sort</statement>
-                <feedback>Insertion sort is <m>O(n^2)</m></feedback>
+                <feedback>Incorrect! Insertion sort is <m>O(n^2)</m></feedback>
             </choice>
         </choices>
     </exercise>
@@ -37,21 +37,21 @@
     <exercise label="sortefficiencyrandom">
         <statement><p>Which sort should you use for best efficiency If you need to sort through 100,000 random items in a list?</p></statement>
         <choices>
-            <choice correct="true">
+            <choice correct="yes">
                 <statement>Merge</statement>
                 <feedback>Correct!</feedback>
             </choice>
-            <choice correct="false">
+            <choice correct= "no">
                 <statement>Selection</statement>
-                <feedback>Selection sort is inefficient in large lists.</feedback>
+                <feedback>Incorrect! Selection sort is inefficient in large lists.</feedback>
             </choice>
-            <choice correct="false">
+            <choice correct="no">
                 <statement>Bubble</statement>
-                <feedback>Bubble sort works best with mostly sorted lists.</feedback>
+                <feedback>Incorrect! Bubble sort works best with mostly sorted lists.</feedback>
             </choice>
-            <choice correct="false">
+            <choice correct="no">
                 <statement>Insertion</statement>
-                <feedback>Insertion sort works best with either small or mostly sorted lists.</feedback>
+                <feedback>Incorrect! Insertion sort works best with either small or mostly sorted lists.</feedback>
             </choice>
         </choices>
     </exercise>
