@@ -885,30 +885,7 @@ print(x == y)
         </exploration>>
         </subsection>
         <subsection xml:id="introduction_self-check">
-            <!--OOP class example:-->
-            <p><term>Question example</term></p>
-            <program language="cpp"><input>
-#include&lt;iostream&gt;
-using namespace std;
-
-class Vehicle
-{
-
-    protected:
-        int wheels;
-        int windows;
-        int engine;
-};
-
-class Airplane: public Vehicle
-{
-    protected:
-        // wheels
-        // windows
-        // engine
-        int wings;
-};
-</input></program>
+            <title>Self-Check</title>
             <p>To make sure you understand how operators are implemented in C++ classes, and how to properly write methods, write some methods to implement
                 <c>*</c>, <c>/</c>, and <c>-</c>.  Also implement comparison operators <c>&gt;</c> and <c>&lt;</c>.</p>
 
@@ -1006,52 +983,6 @@ int main(){
     <cline>      <area>int den; // den attribute</area>:</cline>
     <cline><area correct="yes">}</area>:</cline>
     </areas></exercise>
-    <exercise label="OOPclassquestion">
-        <statement>
-
-            <p>Which OOP principle is the above code an example of?</p>
-
-        </statement>
-<choices>
-
-            <choice correct="yes">
-                <statement>
-                    <p>Inheritance</p>
-                </statement>
-                <feedback>
-                    <p>Correct! Airplane inherits many things from Vehicle</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>Encapsulation</p>
-                </statement>
-                <feedback>
-                    <p>Encapsulation is the principle of hiding the contents of a class except when absolutely necessary. Wings is not hidden from Vehicle, it simply does not exist in the Vehicle class.</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>Polymorphism</p>
-                </statement>
-                <feedback>
-                    <p>Polymorphism is the ability to process objects or methods differently depending on their data type, class, number of arguments, etc. A subclass using parts of a pre-existing class is not an example of polymorphism because they are used in the same way.</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>Abstraction</p>
-                </statement>
-                <feedback>
-                    <p>Abstraction is the principle of focusing on desired behaviors and properties while disregarding what is irrelevant/unimportant. Take another look at what the two classes have in common.</p>
-                </feedback>
-            </choice>
-</choices>
-
-    </exercise>
 
     
 
