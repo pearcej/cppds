@@ -242,14 +242,64 @@ main()
                 Reading Questions
             </title>
         <exercise label="convert-base-1">
+    <statement>
+        <p>What is value of 25 expressed as an octal (base 8) number? <var/></p>
+    </statement>
+    <setup>
+        <var>
+            <condition number="[31]">
+                <feedback>
+                    <p>Correct because 25 = 3×8 + 1.</p>
+                </feedback>
+            </condition>
+            <condition string="^\s*.*\s*$">
+                <feedback>
+                    <p>That is not correct, please try again.</p>
+                </feedback>
+            </condition>
+        </var>
+    </setup>
+</exercise>
+
+     <exercise label="convert-base-2">
             <statement>
-    <p>What is value of 25 expressed as an octal (base 8) number? <var/>  </p></statement><setup><var><p><BlankNode/></p><condition number="[31, 31]"><feedback><p>Correct because 25 = 3x8 + 1.</p></feedback></condition></var></setup></exercise>
-        <exercise label="convert-base-2">
-            <statement>
-    <p>What is value of 256 expressed as a hexadecimal (base 16) number? <var/>  </p></statement><setup><var><p><BlankNode/></p><condition number="[100, 100]"><feedback><p>Correct because 256 = 1x16^2.</p></feedback></condition></var></setup></exercise>
+                <p>What is value of 256 expressed as a hexadecimal (base 16) number? <var/>  </p>
+            </statement>
+            <setup>
+                <var>
+                    <condition number="[100]">
+                        <feedback>
+                            <p>Correct because 256 = 1x16^2.</p>
+                        </feedback>
+                    </condition>
+                    <condition string="^\s*.*\s*$">
+                        <feedback>
+                            <p>That is not correct, please try again.</p>
+                        </feedback>
+                    </condition>
+                </var>
+            </setup>
+    </exercise>
+
         <exercise label="convert-base-3">
             <statement>
-    <p>What is value of 26 expressed in base 26? <var/>  </p></statement><setup><var><p><BlankNode/></p><condition number="[10, 10]"><feedback><p>Correct because 26 = 1x26^1.</p></feedback></condition></var></setup></exercise>  
+                <p>What is value of 26 expressed in base 26? <var/>  </p>
+            </statement>
+            <setup>
+                <var>
+                    <condition number="[10]">
+                        <feedback>
+                            <p>Correct because 26 = 1x26^1.</p>
+                        </feedback>
+                    </condition>
+                    <condition string="^\s*.*\s*$">
+                        <feedback>
+                            <p>That is not correct, please try again.</p>
+                        </feedback>
+                    </condition>
+                </var>
+            </setup>
+        </exercise>  
 </reading-questions>   
 <p>
     <!-- extra space before the progress bar -->
