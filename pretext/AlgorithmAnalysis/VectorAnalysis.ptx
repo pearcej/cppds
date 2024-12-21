@@ -362,7 +362,7 @@ int main(){
     
 <exercise label="matching_VectorBO">
     <statement><p>Drag the operation(s) on the left to their corresponding Big(O)</p></statement>
-    <feedback><p>Review operations and thier Big(O)</p></feedback>
+    <feedback><p>Review operations and their Big(O)</p></feedback>
 <matches><match order="1"><premise>begin(), end(), size(), index [], index assignment = ,push_back(), pop_back()</premise><response> O(1)</response></match><match order="2"><premise>reserve(), erase(i), insert(i, item),find(srt, stp, item)</premise><response>O(n)</response></match><match order="3"><premise>find(srt, stp, item)</premise><response>O(log n)</response></match></matches></exercise>    
 </reading-questions>
 <p>
