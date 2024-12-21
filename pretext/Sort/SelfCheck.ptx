@@ -41,15 +41,15 @@
                 <statement>Merge</statement>
                 <feedback>Correct!</feedback>
             </choice>
-            <choice correct= "no">
+            <choice>
                 <statement>Selection</statement>
                 <feedback>Incorrect! Selection sort is inefficient in large lists.</feedback>
             </choice>
-            <choice correct="no">
+            <choice>
                 <statement>Bubble</statement>
                 <feedback>Incorrect! Bubble sort works best with mostly sorted lists.</feedback>
             </choice>
-            <choice correct="no">
+            <choice>
                 <statement>Insertion</statement>
                 <feedback>Incorrect! Insertion sort works best with either small or mostly sorted lists.</feedback>
             </choice>
