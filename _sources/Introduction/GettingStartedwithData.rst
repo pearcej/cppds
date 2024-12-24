@@ -17,7 +17,7 @@ is an instance of a class.
 
 
 Built-in Atomic Data Types
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 
 C++ requires users to specify the data type of each variable before it is used.
 The primary C++ built-in atomic data types are: integer (``int``),
@@ -481,7 +481,7 @@ If in C++, we want to create a reference to a memory location in C++,
 we must use a special syntax called a **pointer**.
 
 Pointer Syntax
---------------
+``````````````
 
 When declaring a pointer in C++ that will "point" to the memory address of some
 data type,
@@ -508,7 +508,7 @@ programmer that the variable is in fact a pointer because the asterisk is closer
 to the variable name.
 
 The address-of operator, ``&``
-------------------------------
+``````````````````````````````
 
 Now that we know how to declare pointers, how do we give them the address of
 where the value is going to be stored? One way to do this is to have a pointer
@@ -547,7 +547,7 @@ The results of running this C++ code will look like the diagram below.
    Figure 5: View into memory with pointers
 
 Accessing Values from Pointers
-------------------------------
+``````````````````````````````
 
 So, once you have a C++ pointer, how do you access the values associated with that location?
 You use the asterisk before the pointer variable, which
@@ -666,7 +666,7 @@ errors, the reason is fairly localized.
 
 
 The NULL pointer
-----------------
+````````````````
 
 The ``NULL`` pointer in C++ points to
 nothing and is often denoted by the keyword ``NULL`` (all caps) or by 0.
