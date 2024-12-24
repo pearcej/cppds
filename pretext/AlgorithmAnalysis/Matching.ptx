@@ -27,7 +27,7 @@
       </match>
       <match order="6">
         <premise>linear</premise>
-        <response>Function that grows in a one to one relationship with its input.</response>
+        <response>Function that grows in a one-to-one relationship with its input.</response>
       </match>
       <match order="3">
         <premise>logarithmic</premise>
@@ -60,11 +60,11 @@
       </match>
       <match order="1">
         <premise>quadratic</premise>
-        <response>Function describing a relationship who's highest order is a number squared</response>
+        <response>Function describing a relationship whose highest order is a number squared</response>
       </match>
       <match order="2">
         <premise>best case</premise>
-        <response>When an algorithm performs especially good given a certain data set or circumstance</response>
+        <response>When an algorithm performs especially well given a certain data set or circumstance</response>
       </match>
       <match order="6">
         <premise>Big-O notation</premise>
