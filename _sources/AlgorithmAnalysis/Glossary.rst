@@ -42,7 +42,7 @@ Glossary
         a collection consisting of key-value pairs with an associated hash function that maps the key to the associated value.
 
     linear
-        function that grows in a one to one relationship with its input like :math:`f(n) = n`
+        function that grows in a one-to-one relationship with its input like :math:`f(n) = n`
 
     logarithmic
         functions that are the inverse of exponential functions usually presented as :math:`f(n) = logn`
@@ -75,8 +75,8 @@ Matching
     :match_2: average case|||When an algorithm performs between its worst and best case given a certain data set or circumstance.
     :match_3: vector|||Sequence container storing data of a single type in a dynamically allocated array.
     :match_4: worst case|||When an algorithm performs especially poorly given a certain data set or circumstance.
-    :match_5: quadratic|||Function describing a relationship who's highest order is a number squared
-    :match_6: best case|||When an algorithm performs especially good given a certain data set or circumstanc
+    :match_5: quadratic|||Function describing a relationship whose highest order is a number squared
+    :match_6: best case|||When an algorithm performs especially well given a certain data set or circumstance
 
     Drag the word on the left to its corresponding definition
 
@@ -88,7 +88,7 @@ Matching
     :match_4: dynamic size|||Able to change size automatically
     :match_5: exponential|||Function represented as a number being raised to a power that increases.
     :match_6: hash table|||A collection consisting of key-value pairs with an associated hash function that maps the key to the associated value.
-    :match_7: linear|||Function that grows in a one to one relationship with its input.
+    :match_7: linear|||Function that grows in a one-to-one relationship with its input.
     :match_8: logarithmic|||functions that are the inverse of exponential functions
     
     Drag the word on the left to its corresponding definition
