@@ -972,17 +972,17 @@ int main(){
     <statement><p>Click on the line where there is a syntax error when defining the following class</p></statement>
     <feedback><p>C++ class definitions end with a certain symbol</p></feedback>
     <areas>
-        <cline><area correct="no">class Fraction {</area>:</cline>
-        <cline>  <area correct="no">public:</area>:</cline>
-        <cline>      <area correct="no">Fraction(int top, int bottom) {</area>:</cline>
-        <cline>          <area correct="no">/** Fraction contructor method */</area>:</cline>
-        <cline>          <area correct="no">num = top;     // setting num's value</area>:</cline>
-        <cline>          <area correct="no">den = bottom;  // setting den's value</area>:</cline>
-        <cline>      <area correct="no">}</area>:</cline>
-        <cline>  <area correct="no">private:</area>:</cline>
-        <cline>      <area correct="no">int num; // num atribute</area>:</cline>
-        <cline>      <area correct="no">int den; // den attribute</area>:</cline>
-        <cline><area correct="yes">}</area>:</cline> <!-- Correct line -->
+        <cline><area correct="no">class Fraction {</area></cline>
+        <cline>  <area correct="no">public:</area></cline>
+        <cline>      <area correct="no">Fraction(int top, int bottom) {</area></cline>
+        <cline>          <area correct="no">/** Fraction constructor method */</area></cline>
+        <cline>          <area correct="no">num = top;     // setting num's value</area></cline>
+        <cline>          <area correct="no">den = bottom;  // setting den's value</area></cline>
+        <cline>      <area correct="no">}</area></cline>
+        <cline>  <area correct="no">private:</area></cline>
+        <cline>      <area correct="no">int num; // num atribute</area></cline>
+        <cline>      <area correct="no">int den; // den attribute</area></cline>
+        <cline><area correct="yes">}</area></cline> <!-- line with syntax error-->
     </areas>
 </exercise>
 
