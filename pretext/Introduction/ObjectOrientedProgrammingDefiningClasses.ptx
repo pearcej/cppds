@@ -967,22 +967,25 @@ int main(){
         <statement><p>Match the corresponding key word to the appropriate scenario.</p></statement>
         <feedback><p>Review the definitions of the key words.</p></feedback>
     <matches><match order="1"><premise>Encapsulation</premise><response>A situation where bank software programmers want to protect users' personal information.</response></match><match order="2"><premise>Abstraction</premise><response>A situation where software programmers want to develop similar objects without having to redefine the most similar properties.</response></match></matches></exercise>
+    
     <exercise label="class_syntax">
-        <statement><p>Click on the line where there is a syntax error when defining the following class</p></statement>
+    <statement><p>Click on the line where there is a syntax error when defining the following class</p></statement>
     <feedback><p>C++ class definitions end with a certain symbol</p></feedback>
     <areas>
-    <cline><area>class Fraction {</area>:</cline>
-    <cline>  <area>public:</area>:</cline>
-    <cline>      <area>Fraction(int top, int bottom) {</area>:</cline>
-    <cline>          <area>/** Fraction contructor method */</area>:</cline>
-    <cline>          <area>num = top;     // setting num's value</area>:</cline>
-    <cline>          <area>den = bottom;  // setting den's value</area>:</cline>
-    <cline>      <area>}</area>:</cline>
-    <cline>  <area>private:</area>:</cline>
-    <cline>      <area>int num; // num atribute</area>:</cline>
-    <cline>      <area>int den; // den attribute</area>:</cline>
-    <cline><area correct="yes">}</area>:</cline>
-    </areas></exercise>
+        <cline><area correct="no">class Fraction {</area>:</cline>
+        <cline>  <area correct="no">public:</area>:</cline>
+        <cline>      <area correct="no">Fraction(int top, int bottom) {</area>:</cline>
+        <cline>          <area correct="no">/** Fraction contructor method */</area>:</cline>
+        <cline>          <area correct="no">num = top;     // setting num's value</area>:</cline>
+        <cline>          <area correct="no">den = bottom;  // setting den's value</area>:</cline>
+        <cline>      <area correct="no">}</area>:</cline>
+        <cline>  <area correct="no">private:</area>:</cline>
+        <cline>      <area correct="no">int num; // num atribute</area>:</cline>
+        <cline>      <area correct="no">int den; // den attribute</area>:</cline>
+        <cline><area correct="yes">}</area>:</cline> <!-- Correct line -->
+    </areas>
+</exercise>
+
 
     
 
