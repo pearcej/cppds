@@ -975,7 +975,7 @@ int main(){
         <cline><area correct="no">class Fraction {</area></cline>
         <cline>  <area correct="no">public:</area></cline>
         <cline>      <area correct="no">Fraction(int top, int bottom) {</area></cline>
-        <cline>          <area correct="no">/** Fraction contructor method */</area>:</cline>
+        <cline>          <area correct="no">/** Fraction contructor method */</area></cline>
         <cline>          <area correct="no">num = top;     // setting num's value</area></cline>
         <cline>          <area correct="no">den = bottom;  // setting den's value</area></cline>
         <cline>      <area correct="no">}</area></cline>
