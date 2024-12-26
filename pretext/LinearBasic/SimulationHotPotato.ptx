@@ -11,7 +11,17 @@
         
         <figure align="center" xml:id="fig-quhotpotato">
             <caption>A Six Person Game of Hot Potato</caption>
-            <image source="LinearBasic/hotpotato.png" width="50%"/>
+            <image source="LinearBasic/hotpotato.png" width="50%"> 
+                <description>
+                    <p>
+                        The image illustrates a simulation of the children's game "Hot Potato" using a queue. 
+                        Six participants—Bill, David, Susan, Jane, Kent, and Brad—are arranged in a circular pattern. 
+                        An item (the "potato") is passed from one person to the next in clockwise order. 
+                        After a predefined number of passes (five in this case), Brad, who is holding the potato, is eliminated and removed from the circle. 
+                        The process repeats until only one participant remains. Arrows indicate the direction of the potato being passed between participants.
+                    </p>
+                </description>
+            </image>
         </figure>
         <p>This game is a modern-day equivalent of the famous Josephus problem.
             Based on a legend about the famous first-century historian Flavius
@@ -42,7 +52,17 @@
         
         <figure align="center" xml:id="fig-qupotatoqueue">
             <caption>A Queue Implementation of Hot Potato</caption>
-            <image source="LinearBasic/namequeue.png" width="50%"/>
+            <image source="LinearBasic/namequeue.png" width="50%"> 
+                <description>
+                    <p>
+                        The image illustrates a queue implementation of the "Hot Potato" game. 
+                        The top diagram shows the queue in its initial state, with participants Brad, Kent, Jane, Susan, David, and Bill arranged from rear to front. 
+                        Arrows indicate the process of dequeueing the person at the front (Bill) and enqueuing them at the rear to simulate the potato being passed. 
+                        The bottom diagram shows the updated queue after one cycle of passing, where the order now starts with Brad at the rear and ends with David at the front. 
+                        The diagrams visually represent the enqueue and dequeue operations in the queue-based simulation of the game.
+                    </p>
+                </description>
+            </image>
         </figure>
         <p>The program is shown in <xref ref="lst-josephussim-cpp"/>. A call to the
             <c>hotPotato</c> function using 7 as the counting constant returns <c>Susan</c>.</p>
