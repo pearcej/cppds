@@ -173,10 +173,10 @@ main()
                           (Hint, try implementing a counter to return the correct number.)<var/>  </p>
                     </statement>
                     <setup><var>
-                        <condition number="[63, 63]">
+                        <condition number="[63]">
                             <feedback><p>Correct, you can make a global counter at line 3, and then cout the increasing total under line 11.</p></feedback>
                         </condition>
-                        <condition number="[62, 62]">
+                        <condition number="[62]">
                             <feedback><p>Technically you are correct but, you are off by one.</p></feedback>
                         </condition>
                         <condition string="^\s*.*\s*$">
