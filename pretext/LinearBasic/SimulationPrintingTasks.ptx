@@ -29,7 +29,19 @@
         
         <figure align="center" xml:id="fig-qulabsim">
             <caption>Computer Science Laboratory Printing Queue</caption>
-            <image source="LinearBasic/simulationsetup.png" width="50%"/>
+            <image source="LinearBasic/simulationsetup.png" width="50%"> 
+                <description>
+                    <p>
+                        This image represents a print queue system in a computer lab. 
+                        On the left side, multiple lab computers are shown, each capable of sending print tasks to a shared queue. 
+                        The print tasks are represented as sequential blocks labeled "task" in the middle of the image, forming a linear queue. 
+                        The queue processes these tasks in a First-In-First-Out (FIFO) order, with tasks being sent to the printer on the right. 
+                        The printer processes the tasks in the order they are received from the queue, 
+                        ensuring fairness and efficiency in handling multiple print requests from the lab computers. 
+                        This setup illustrates the concept of a queue data structure in practical use.
+                    </p>
+                </description>
+            </image>
         </figure>
         <p>To model this situation we need to use some probabilities. For example,
             students may print a paper from 1 to 20 pages in length. If each length
