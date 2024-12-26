@@ -269,7 +269,14 @@
             
             <figure align="center" xml:id="xfix_fig-moveright">
                 <caption>Moving Operators to the Right for Postfix Notation</caption>
-                <image source="LinearBasic/moveright.png" width="50%"/>
+                <image source="LinearBasic/moveright.png" width="50%"> 
+                    <description>
+                         <p>
+                            The image shows an annotated mathematical expression illustrating the conversion of an infix expression A + (B * C) to postfix notation. 
+                            Arrows indicate the movement of operators + and * to the right, near their corresponding right parentheses, resulting in B C * A +.
+                        </p>
+                    </description>                
+                </image>
             </figure>
             <p>If we do the same thing but instead of moving the symbol to the position
                 of the right parenthesis, we move it to the left, we get prefix notation
@@ -278,7 +285,14 @@
             
             <figure align="center" xml:id="xfix_fig-moveleft">
                 <caption>Moving Operators to the Left for Prefix Notation</caption>
-                <image source="LinearBasic/moveleft.png" width="50%"/>
+                <image source="LinearBasic/moveleft.png" width="50%"> 
+                    <description>
+                        <p>
+                            The image shows an annotated mathematical expression illustrating the conversion of an infix expression A + (B * C) to prefix notation. 
+                            Arrows indicate the movement of operators + and * to the left, near their corresponding left parentheses, resulting in + A * B C.
+                        </p>
+                    </description>
+                </image>
             </figure>
             <p>So in order to convert an expression, no matter how complex, to either
                 prefix or postfix notation, fully parenthesize the expression using the
@@ -291,7 +305,21 @@
             
             <figure align="center" xml:id="xfix_fig-complexmove">
                 <caption>Converting a Complex Expression to Prefix and Postfix Notations</caption>
-                <image source="LinearBasic/complexmove.png" width="50%"/>
+                <image source="LinearBasic/complexmove.png" width="50%">
+                    <description>
+                    <p>
+                        The image illustrates the conversion of a complex infix expression (A + B) * C - (D - E) * (F + G) into both prefix and postfix notations. 
+                        At the center, the fully parenthesized infix expression is displayed: (((A + B) * C) - ((D - E) * (F + G))). 
+                        Two arrows branch out from the central expression. The first arrow points to the prefix notation, 
+                        where the operators are moved to the left of their operands, resulting in:
+                        <math display="inline">-*+A B C *-D E +F G</math>. 
+                        The second arrow points to the postfix notation, where the operators are moved to the right of their operands, resulting in:
+                        <math display="inline">A B + C * D E - F G + * -</math>. 
+                        This image demonstrates how to systematically rearrange operators based on the desired notation by using the position of parentheses as a guide.
+ 
+                    </p>
+                    </description>
+                </image>
             </figure>
    </subsection>
         <subsection xml:id="linear-basic_general-infix-to-postfix-conversion">
@@ -395,7 +423,17 @@
             
             <figure align="center" xml:id="xfix_fig-intopost">
                 <caption>Converting A * B + C * D to Postfix Notation</caption>
-                <image source="LinearBasic/intopost.png" width="50%"/>
+                <image source="LinearBasic/intopost.png" width="50%">
+                    <description>
+                        <p>
+                            The image visually represents the step-by-step conversion of the infix expression A * B + C * D into postfix notation. 
+                            It shows the operands A, B, C, D being added directly to the output, while the operators * and + are temporarily stored in a stack. 
+                            The process demonstrates how * is removed from the stack upon encountering +, due to operator precedence. 
+                            Later, both * operators are popped, followed by +, resulting in the final postfix expression A B * C D * +. 
+                            The diagram uses arrows to indicate the movement of operands and operators between the input, stack, and output.
+                        </p>
+                    </description>
+                </image>
             </figure>
             <p>In order to code the algorithm in C++, we will use a hash map
                 called <c>prec</c> to hold the precedence values for the operators
@@ -572,7 +610,18 @@ main()
             
             <figure align="center" xml:id="xfix_fig-evalpost1">
                 <caption>Stack Contents During Evaluation</caption>
-                <image source="LinearBasic/evalpostfix1.png" width="50%"/>
+                <image source="LinearBasic/evalpostfix1.png" width="50%"> 
+                    <description>
+                        <p>
+                            The image illustrates the step-by-step evaluation of the postfix expression 4 5 6 * + using a stack. 
+                            The evaluation is performed from left to right. Initially, the operands 4, 5, and 6 are pushed onto the stack in sequence. 
+                            When the multiplication operator (*) is encountered, the two most recent operands (5 and 6) are popped from the stack, 
+                            multiplied to produce 30, and the result is pushed back onto the stack. Next, the addition operator (+) is processed. 
+                            The two most recent values (4 and 30) are popped, added to produce 34, and the result is pushed back onto the stack. 
+                            The diagram uses arrows and labeled stack snapshots to show the changes at each step, culminating in the final result of 34.
+                        </p>
+                    </description>
+                </image>
             </figure>
             <p><xref ref="xfix_fig-evalpost2"/> shows a slightly more complex example, 7 8 + 3 2
                 + /. There are two things to note in this example. First, the stack size
@@ -587,7 +636,18 @@ main()
             
             <figure align="center" xml:id="xfix_fig-evalpost2">
                 <caption>A More Complex Example of Evaluation</caption>
-                <image source="LinearBasic/evalpostfix2.png" width="50%"/>
+                <image source="LinearBasic/evalpostfix2.png" width="50%"> 
+                    <description>
+                        <p>
+                            The image demonstrates the evaluation of a more complex postfix expression 7 8 + 3 2 + / using a stack.
+                            It shows the operands and operators being processed step by step. Initially, 7 and 8 are pushed onto the stack. 
+                            When the addition operator (+) is encountered, 7 and 8 are popped, added to produce 15, and the result is pushed back onto the stack. 
+                            Next, 3 and 2 are pushed onto the stack, and when the addition operator (+) is encountered, 3 and 2 are popped, added to produce 5, 
+                            and the result is pushed back onto the stack. Finally, the division operator (/) is encountered, and the two values 15 and 5 are popped, divided as 15 / 5 to produce 3, 
+                            which is pushed back onto the stack as the final result. The image uses arrows and stack snapshots to illustrate the growth and reduction of the stack at each step of the evaluation.
+                        </p>
+                    </description>
+                </image>
             </figure>
             <p>Assume the postfix expression is a string of tokens delimited by spaces.
                 The operators are *, /, +, and - and the operands are assumed to be
