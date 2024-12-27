@@ -169,7 +169,15 @@ myfraction = Fraction(3, 5)
             <p>Another way to think about fractions is as <q>parts of a whole</q> as shown in the
                 following figure:</p>
             <blockquote>
-                <image source="Introduction/fractions_partsofwhole.png" width="50%"/>
+                <image source="Introduction/fractions_partsofwhole.png" width="50%"> 
+                    <description>
+                    <p>
+                        Image showing a visual representation of fractions as "parts of a whole." The diagram begins with a full circle labeled "1," 
+                        followed by a circle divided into two equal parts labeled "1/2," then into four parts labeled "1/4," and finally into 
+                        eight parts labeled "1/8." The sequence visually illustrates how a whole can be divided into progressively smaller fractions.
+                    </p>
+                    </description>
+                </image>
             </blockquote>
             <p><idx>abstraction</idx>Because we are using classes to create abstract data types, we should probably
                 define the term <q>abstract</q> in this context. In object-oriented programming,
