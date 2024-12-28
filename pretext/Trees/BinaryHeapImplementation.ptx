@@ -15,7 +15,16 @@
             <figure align="center" xml:id="binheap_fig-comptree">
                 <caption>A Complete Binary Tree.</caption>
                     <image source="Trees/compTree.png" width="80%">
-                    <description>Diagram of a complete binary tree. The top node, or the root, is labeled '5'. This root node has two child nodes: '9' to the left and '11' to the right. Each of these child nodes further branches out into two more nodes. The left child '9' has nodes '14' and '18' as children. '14' has a single left child labeled '33', while '18' has two children labeled '17' and '27'. On the right side, the child '11' has two children labeled '19' and '21'. The tree is balanced and each level is fully filled except for the last level, which is filled from the left. The image is labeled 'Figure 1: A Complete Binary Tree'.</description>
+                    <description>
+                    <p>
+                    Diagram of a complete binary tree. The top node, or the root, is labeled '5'. This root node has two child nodes: 
+                    '9' to the left and '11' to the right. Each of these child nodes further branches out into two more nodes. 
+                    The left child '9' has nodes '14' and '18' as children. '14' has a single left child labeled '33', while '18' has two children labeled '17' and '27'. 
+                    On the right side, the child '11' has two children labeled '19' and '21'. 
+                    The tree is balanced and each level is fully filled except for the last level, which is filled from the left. 
+                    The image is labeled 'Figure 1: A Complete Binary Tree'.
+                    </p>
+                    </description>
                     </image>
                 </figure>
 
@@ -93,7 +102,21 @@ class BinHeap{
             
             <figure align="center" xml:id="binheap_fig-percup">
                 <caption>Percolate the New Node up to Its Proper Position.</caption>
-                <image source="Trees/percUp.png" width="50%" alt="image"/>
+                <image source="Trees/percUp.png" width="50%" alt="image"> 
+                <description>
+                <p>
+                    Image showing the process of percolating a newly added node to its proper position in a binary heap. The diagram consists of 
+                    three stages illustrating how the heap structure property is restored through swaps.
+                    In the first stage, a new item labeled "7" is appended as a leaf node under the node "18" in the binary tree, which initially 
+                    violates the heap structure property. The parent-child relationship is unbalanced because "7" is smaller than its parent "18."
+                    In the second stage (swap 1), the new item "7" is swapped with its parent "18," moving up the tree. The new structure partially 
+                    restores the heap property, but "7" is now a child of node "9," still violating the heap structure.
+                    In the third stage (swap 2), "7" is swapped with its new parent "9," percolating up to its proper position. At this point, the 
+                    heap structure property is fully restored, and the tree satisfies the complete binary heap requirements.
+                    Arrows and dashed lines in the diagram highlight the movement of nodes during each swap.
+                </p>
+                </description>
+                </image>
             </figure>
             
             <p>Notice that as we percolate an item up the tree, the heap property is restored
@@ -152,7 +175,28 @@ void insert(int k){
             
             <figure align="center" xml:id="binheap_fig-percdown">
                 <caption>Percolating the Root Node down the Tree.</caption>
-                <image source="Trees/percDown.png" width="50%" alt="image"/>
+                <image source="Trees/percDown.png" width="50%" alt="image"> 
+                <description>
+                <p>
+                Image showing the process of percolating the root node down the tree in a binary heap after removing the minimum (root) value. 
+                The diagram consists of four stages illustrating how the heap structure property is restored.
+
+                In the first stage, the root node "5" is removed, leaving an empty root. The last node in the heap, "27," is moved to the root, 
+                creating a temporary imbalance in the heap structure. Arrows indicate the initial swap process.
+
+                In the second stage (swap 1), the new root "27" is swapped with the smaller of its two children, "9," moving "27" down the tree 
+                and partially restoring the heap structure.
+
+                In the third stage (swap 2), "27" is swapped with its smaller child "14," further percolating it down the tree and improving 
+                the heap structure.
+
+                In the fourth stage (swap 3), "27" is swapped with its child "17," reaching its proper position. The heap structure is now 
+                fully restored, maintaining the binary heap properties.
+
+                Each stage is annotated with arrows and labels indicating the swaps, clearly demonstrating the percolation process.
+                </p>
+                </description>
+                </image>
             </figure>
             <p>In order to maintain the heap order property, all we need to do is swap
                 the root with its smallest child less than the root. After the initial
@@ -250,7 +294,22 @@ void buildheap(vector&lt;int&gt; avector){
             </listing>
             <figure align="center" xml:id="binheap_fig-buildheap">
                 <caption>Building a Heap from the vector [9, 6, 5, 2, 3].</caption>
-                <image source="Trees/buildheap.png" width="50%" alt="image"/>
+                <image source="Trees/buildheap.png" width="50%" alt="image"> 
+                <description>
+                  <p>
+                    Image showing the process of building a binary heap from the vector [9, 6, 5, 2, 3] using the `buildHeap` algorithm. 
+                    The diagram consists of four stages that represent the percolation process as elements are rearranged to satisfy the heap properties.
+                    In the first stage, the initial heap is shown as an unstructured tree with the vector elements arranged in their input order. 
+                    In the second stage (i = 2), the element at index 2, "5," is percolated down as needed to maintain the heap property, 
+                    though no swaps are required at this step.
+                    In the third stage (i = 1), the element at index 1, "6," is percolated down and swapped with its smaller child, "2," to restore 
+                    the heap property. 
+                    In the fourth stage (i = 0), the element at the root, "9," is percolated down through successive swaps with its smaller children 
+                    ("2" and "3") to reach its proper position in the heap.
+                    Each stage is annotated with arrows and labels, illustrating the transformations at each step of the heap-building process.
+                </p>
+                </description>
+                </image>
             </figure>
             <p><xref ref="binheap_fig-buildheap"/> shows the swaps that the <c>buildHeap</c> method
                 makes as it moves the nodes in an initial tree of [9, 6, 5, 2, 3] into
