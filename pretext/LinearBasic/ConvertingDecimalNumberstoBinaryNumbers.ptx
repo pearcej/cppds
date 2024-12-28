@@ -33,7 +33,19 @@
         
         <figure align="center" xml:id="fig-decbin">
             <caption>Decimal-to-Binary Conversion</caption>
-            <image source="LinearBasic/dectobin.png" width="50%"/>
+            <image source="LinearBasic/dectobin.png" width="50%"> 
+                <description>
+                    <p>
+                        The image illustrates the process of converting a decimal number to binary using the Divide by 2 algorithm, 
+                        leveraging a stack for intermediate storage. The left side shows the sequence of integer division by 2, starting with the number 233, 
+                        along with the remainders computed at each step. Each remainder is pushed onto the stack. 
+                        The stack grows as remainders are added, representing the binary digits in reverse order. 
+                        On the right side, the binary number is constructed by popping values from the stack, producing the binary equivalent of 233 as 11101001. 
+                        This demonstrates the reversal property of stacks in solving this problem.
+
+                    </p>
+                </description>
+            </image>
         </figure>
         <p>The code in <xref ref="lst-binconverter-cpp"/>
             implements the Divide by 2
