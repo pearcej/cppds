@@ -686,7 +686,15 @@ ptrN = &amp;varN;</pre>
       <p>The results of running this C++ code will look like the diagram below.</p>
       <figure align="center" xml:id="id3-fig-point2">
         <caption>View into memory with pointers</caption>
-        <image source="Introduction/new_point2.png" width="50%"/>
+        <image source="Introduction/new_point2.png" width="50%"> 
+        <description>
+          <p>
+            Image illustrating the memory representation of two variables in C++, showing how a pointer and its associated value are stored in memory. 
+            The table is divided into three rows: Variable Names, Stored Values, and Memory Address. The variable "varN" is shown with its value of 100, 
+            stored at memory address 0x60. The pointer variable "ptrN" stores the memory address of "varN" (0x60), and its stored value is displayed as 0x80.
+          </p>
+        </description>
+        </image>
       </figure>
     </subsubsection>
     <subsubsection xml:id="introduction_accessing-values-from-pointers">
@@ -807,7 +815,17 @@ int main() {
       </p>
       <figure align="center" xml:id="id4-fig-point3">
         <caption>Dangling pointer reference</caption>
-        <image source="Introduction/new_point_broken.png" width="50%"/>
+        <image source="Introduction/new_point_broken.png" width="50%"> 
+        <description>
+        <p>
+          Image illustrating the concept of a dangling pointer reference in C++ due to incorrect pointer assignment. The diagram shows a pointer 
+          variable "ptrN" pointing to memory address 100. However, the value at this memory address is undefined or unknown (represented by a "?" in 
+          the memory box). At the same time, the variable "varN" correctly stores the value 100 in its allocated memory. This mismatch occurs because 
+          the pointer "ptrN" was assigned the value of "varN" directly, without using the address-of operator (&amp;). As a result, "ptrN" does not point 
+          to the actual memory location of "varN" but instead refers to an unintended location, which may lead to undefined behavior.
+        </p>
+      </description>
+        </image>
       </figure>
       <p>If your compiler does not catch that error (the one for this class may),
                     the first <c>cout</c> instruction outputs:</p>
