@@ -152,7 +152,7 @@ stacks and queues. In the STL, the deque gives O(1) performance for
 adding and removing items from both the front and back of the queue. In the
 Python implementation,
 adding and removing items from the back is O(1) whereas
-adding and removing from the front is O(n). This is to be expected given
+adding and removing from the front depends on the implementation and could be O(n). This is to be expected given
 the common operations that appear for adding and removing items to lists. Again,
 the important thing is to be certain that we know where the front and
 rear are assigned in the implementation.
