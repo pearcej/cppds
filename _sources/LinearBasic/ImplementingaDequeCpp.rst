@@ -148,9 +148,11 @@ the front of the deque is at position 0 in the array.
        main()
 
 You can see many similarities to C++ code already used for
-stacks and queues. You are also likely to observe that in this
-implementation adding and removing items from the back is O(1) whereas
+stacks and queues. In the STL, the deque gives O(1) performance for
+adding and removing items from both the front and back of the queue. In the
+Python implementation,
+adding and removing items from the back is O(1) whereas
 adding and removing from the front is O(n). This is to be expected given
-the common operations that appear for adding and removing items. Again,
+the common operations that appear for adding and removing items to lists. Again,
 the important thing is to be certain that we know where the front and
 rear are assigned in the implementation.
