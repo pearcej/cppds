@@ -90,7 +90,19 @@
                 <p>Using <xref ref="bfderive"/> as a starting point, derive the equation that gives the updated balance factor for node D.</p>
                 <figure align="center" xml:id="bfderive">
                     <caption>Compute Updated Balance Factor</caption>
-                    <image source="Trees/bfderive.png" width="50%"/>
+                    <image source="Trees/bfderive.png" width="50%"> 
+                    <description>
+                        <p>
+                            Image illustrating a left rotation in a binary tree. The diagram consists of two stages: the initial tree structure and the 
+                            resulting tree after the rotation.
+                            In the initial tree, node "B" is the root, with node "A" as its left child and node "D" as its right child. Node "D" has two 
+                            subtrees, "C" as its left child and "E" as its right child.
+                            After the left rotation, node "D" becomes the new root, with node "B" as its left child and node "E" as its right child. Node "B" 
+                            retains "A" as its left child and "C" as its right child. The arrow between the two stages indicates the direction of the rotation.
+                            This figure demonstrates the rebalancing operation in a binary tree by performing a left rotation.
+                        </p>
+                        </description>
+                    </image>
                 </figure>
             </li>
         </ol></p>
