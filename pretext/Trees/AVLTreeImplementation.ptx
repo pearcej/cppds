@@ -228,7 +228,19 @@ void rotateLeft(TreeNode *rotRoot){
         
         <figure align="center" xml:id="trees-avl-fig-bfderive">
             <caption>A Left Rotation.</caption>
-            <image source="Trees/bfderive.png" width="70%"/>
+            <image source="Trees/bfderive.png" width="70%"> 
+            <description>
+                <p>
+                    Image illustrating a left rotation in a binary tree. The diagram consists of two stages: the initial tree structure and the 
+                    resulting tree after the rotation.
+                    In the initial tree, node "B" is the root, with node "A" as its left child and node "D" as its right child. Node "D" has two 
+                    subtrees, "C" as its left child and "E" as its right child.
+                    After the left rotation, node "D" becomes the new root, with node "B" as its left child and node "E" as its right child. Node "B" 
+                    retains "A" as its left child and "C" as its right child. The arrow between the two stages indicates the direction of the rotation.
+                    This figure demonstrates the rebalancing operation in a binary tree by performing a left rotation.
+                </p>
+                </description>
+            </image>
         </figure>
         <p><xref ref="trees-avl-fig-bfderive"/> shows a left rotation. B and D are the pivotal
             nodes and A, C, E are their subtrees. Let <m>h_x</m> denote the
@@ -276,7 +288,17 @@ rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(0,newRoot.balanceFactor)
         
         <figure align="center" xml:id="avlimpl_fig-hardrotate">
             <caption>An Unbalanced Tree that is More Difficult to Balance.</caption>
-            <image source="Trees/hardunbalanced.png" width="20%"/>
+            <image source="Trees/hardunbalanced.png" width="20%"> 
+            <description>
+                <p>
+                    Image showing an unbalanced binary tree with three nodes labeled "A," "C," and "B." Node "A" is the root, with a balance factor 
+                    of -2, indicating that its right subtree is significantly taller than its left subtree. Node "C" is the right child of "A," 
+                    with a balance factor of 1, meaning its left subtree is taller than its right subtree. Node "B" is the left child of "C," with 
+                    a balance factor of 0, indicating it is balanced. The structure of the tree demonstrates a more complex scenario for balancing 
+                    due to conflicting balance factors at different levels.
+                </p>
+            </description>
+            </image>
         </figure>
         <p><xref ref="avlimpl_fig-badrotate"/> shows us that after the left rotation we are now
             out of balance the other way. If we do a right rotation to correct the
@@ -284,7 +306,17 @@ rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(0,newRoot.balanceFactor)
         
         <figure align="center" xml:id="avlimpl_fig-badrotate">
             <caption>After a Left Rotation the Tree is Out of Balance in the Other Direction.</caption>
-            <image source="Trees/badrotate.png" width="20%"/>
+            <image source="Trees/badrotate.png" width="20%"> 
+            <description>
+                <p>
+                    Image showing the state of a binary tree after a left rotation around node "A." Node "C" becomes the new root with a balance factor 
+                    of 2, indicating that its left subtree is much taller than its right subtree. Node "A" becomes the left child of "C," with a balance 
+                    factor of -1, meaning its right subtree is taller than its left subtree. Node "B" remains the left child of "A," with a balance 
+                    factor of 0, indicating it is balanced. This new configuration highlights that the tree is now out of balance in the opposite 
+                    direction, necessitating further adjustments.
+                </p>
+            </description>
+            </image>
         </figure>
         <p>To correct this problem we must use the following set of rules:</p>
         <p><ul>
@@ -308,7 +340,22 @@ rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(0,newRoot.balanceFactor)
         
         <figure align="center" xml:id="avlimpl_fig-rotatelr">
             <caption>A Right Rotation Followed by a Left Rotation.</caption>
-            <image source="Trees/rotatelr.png" width="80%"/>
+            <image source="Trees/rotatelr.png" width="80%"> 
+            <description>
+                <p>
+                    Image showing the process of rebalancing a binary tree using a right rotation followed by a left rotation. 
+                    The diagram consists of three stages.
+                    In the first stage, the unbalanced tree has node "A" as the root with a balance factor of -2. Node "C" is the right child of 
+                    "A," with a balance factor of 1, and "B" is the left child of "C." This configuration necessitates rebalancing.
+                    In the second stage, a right rotation is performed around node "C." Node "B" becomes the right child of "A," and "C" becomes 
+                    the right child of "B." This step resolves the imbalance between nodes "C" and "B."
+                    In the third stage, a left rotation is performed around node "A." Node "B" becomes the new root, with "A" as its left child 
+                    and "C" as its right child. The tree is now fully balanced, with all nodes having a balance factor of 0.
+                    Arrows between the stages indicate the direction of the rotations, and balance factors are displayed to emphasize the changes 
+                    during the process.
+                </p>
+            </description>
+            </image>
         </figure>
         <p>The code that implements these rules can be found in our <c>rebalance</c>
             method, which is shown in <xref ref="avlimpl_lst-rebalance"/>. Rule number 1 from
