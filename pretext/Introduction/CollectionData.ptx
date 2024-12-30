@@ -693,6 +693,8 @@ int main() {
     cout &lt;&lt; spnumbers["one"] &lt;&lt; endl;
 
     cout &lt;&lt; spnumbers.size() &lt;&lt; endl;
+
+    return 0;
 }
                     </input></program></statement>
                 </task>
@@ -745,6 +747,8 @@ int main() {
         cout &lt;&lt; i-&gt;first &lt;&lt; ":";
         cout &lt;&lt; i-&gt;second &lt;&lt; endl;
     }
+
+    return 0;
 }
                     </input></program></statement>
                 </task>
