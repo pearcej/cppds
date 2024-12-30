@@ -696,6 +696,8 @@ thereby ending the loop:
             }
 
             cout << "Pointer ptrx points to nothing!" <<endl;
+            
+            return 0;
         }
 
 Helpful Tip: The NULL pointer becomes very useful when you must test
