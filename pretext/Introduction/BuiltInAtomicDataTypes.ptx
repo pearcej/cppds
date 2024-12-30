@@ -493,7 +493,7 @@ int main(){
       <title>Printing Characters</title>
       <task label="logical-printchar">
         <title>C++ Implementation</title>
-        <statement><program xml:id="charpy" interactive="activecode" language="python"><input>
+        <statement><program xml:id="charpy" interactive="activecode" language="cpp"><input>
 //outputs the boolean results to show how strings and chars differ in C++
 #include &lt;iostream&gt;
 #include &lt;string&gt;
