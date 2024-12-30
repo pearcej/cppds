@@ -871,6 +871,8 @@ int main( ) {
     }
 
     cout &lt;&lt; "Pointer ptrx points to nothing!" &lt;&lt;endl;
+
+    return 0;
 }
         </input></program>
       </listing>

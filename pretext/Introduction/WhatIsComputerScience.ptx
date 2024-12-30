@@ -88,6 +88,7 @@ using namespace std;
 
 int main() {
     cout &lt;&lt; sqrt(16);
+    return 0;
 }
                 </input></program></statement>
             </task>
