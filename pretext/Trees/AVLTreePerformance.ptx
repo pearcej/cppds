@@ -12,7 +12,25 @@
         
         <figure align="center" xml:id="fig-worstavl">
           <caption>Worst-Case Left-Heavy AVL Trees.</caption>
-          <image source="Trees/worstAVL.png" width="50%"/>
+          <image source="Trees/worstAVL.png" width="50%"> 
+            <description>
+            <p>
+                Image showing the most unbalanced left-heavy AVL trees for heights 0, 1, 2, and 3, adhering to the AVL balance factor rules. 
+                Each tree is labeled with nodes and balance factors:
+                - For height 0, the tree contains a single node "A" with a balance factor of 0.
+                - For height 1, the tree has "B" as the root with a balance factor of 1 and "A" as its left child with a balance factor of 0.
+                - For height 2, the tree has "C" as the root with a balance factor of 1. "B" is the left child of "C" with a balance factor of 1, 
+                and "A" is the left child of "B" with a balance factor of 0. "D" is the right child of "C" with a balance factor of 0.
+                - For height 3, the tree has "E" as the root with a balance factor of 1. "C" is the left child of "E" with a balance factor of 1. 
+                "B" is the left child of "C" with a balance factor of 1, and "A" is the left child of "B" with a balance factor of 0. "D" is the 
+                right child of "C" with a balance factor of 0. "G" is the right child of "E" with a balance factor of 1, and "F" is the left 
+                child of "G" with a balance factor of 0.
+                This sequence demonstrates the maximum permissible left-heavy configurations in AVL trees while maintaining balance factors 
+                of -1, 0, or 1 at all nodes.
+            </p>
+            </description>
+
+          </image>
         </figure>
         <p>Looking at the total number of nodes in the tree we see that for a tree
             of height 0 there is 1 node, for a tree of height 1 there is <m>1+1
