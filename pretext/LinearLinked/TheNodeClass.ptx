@@ -62,11 +62,27 @@ class Node {
   </blockquote>
   <figure align="center" xml:id="id1-fig-node">
     <caption>A Node Object Contains the Item and a Reference to the Next Node</caption>
-    <image source="LinearLinked/node.png" width="50%"/>
+    <image source="LinearLinked/node.png" width="50%">
+    <description>
+        <p>
+            An illustration of a node object in a linked list. The node contains two components: a "data" field holding the value "93" 
+            and a "next" field representing a reference to the next node in the list. A variable named "temp" points to this node, 
+            and an arrow originating from the "next" field extends to indicate a link to the subsequent node in the list.
+        </p>
+    </description>
+    </image>
   </figure>
   <figure align="center" xml:id="id2-fig-node2">
     <caption>A Typical Representation for a Node</caption>
-    <image source="LinearLinked/node2.png" width="50%"/>
+    <image source="LinearLinked/node2.png" width="50%">
+    <description>
+        <p>
+            A simplified representation of a node in a linked list. The node is depicted as a rectangular block containing the value "93." 
+            A variable named "temp" points to this block. An arrow extends from the right side of the block to represent the reference 
+            to the next node in the list, maintaining the linked list structure.
+        </p>
+    </description>
+    </image>
   </figure>
   <p>
     <!-- extra space before the progress bar -->
