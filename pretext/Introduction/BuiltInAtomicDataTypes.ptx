@@ -783,9 +783,7 @@ int main( ) {
                     memory location.</p>
       <p>The second output sentence is the address of varN, which would most likely be
                     different if you run the program on your machine.</p>
-      <p>WARNING: What happens if you forget the asterisk
-                    when assigning a value to a pointer
-                    and had the following instructions instead?</p>
+      <p>WARNING: What happens if you forget the ampersand (&amp;) and accidentally assign a raw integer value to a pointer instead of a valid address?</p>
       <blockquote>
         <program xml:id="cpp_address_error1" interactive="activecode" language="cpp">
           <input>
@@ -795,10 +793,10 @@ using namespace std;
 
 int main() {
     int varN = 100;
-    int *ptrN = varN; // Note: no asterisk,
-        // ptrN now refers to memory position 100,
-        // whatever happens to be there!
-        // You might get an error or you might not!
+    int *ptrN = varN; // Note: MISSING AMPERSAND (&amp;)!
+                     // Because we used varN instead of &amp;varN,
+                    // ptrN now holds the integer value 100 as if it were a memory address.
+                   // You might get an error or you might not!
 
      cout &lt;&lt; "varN value: " &lt;&lt; varN &lt;&lt; endl;
      cout &lt;&lt; "varN location: " &lt;&lt; ptrN &lt;&lt; endl;
