@@ -460,11 +460,16 @@ void remove(int item) {
         situation where the item to be removed is in the last node of the linked
         list. We leave that for you to consider.</p>
 
-    <p>You can try out the <c>UnorderedList</c> class in <xref ref="lst-unordered"/>.</p>
+    <p>You can try out the <c>UnorderedList</c> class in <xref ref="lst-unordered-cpp"/>.</p>
             
-    <listing xml:id="lst-unordered">
-        <caption>Complete <c>UnorderList</c> Implementation</caption>
-        <program language="cpp" interactive="activecode"><input>
+    <exploration xml:id="expl-lst-unordered">
+    <title>Unordered List Implementations</title>
+
+    <task xml:id="lst-unordered-cpp" label="lst-unordered-cpp">
+        <title>C++ Implementation</title>
+        <statement>
+            <program xml:id="lst_unordered_cpp" interactive="activecode" language="cpp">
+                <input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -606,8 +611,85 @@ int main() {
     cout&lt;&lt;"MY LIST: "&lt;&lt;endl&lt;&lt;mylist;
         return 0;
 }
-        </input></program>
-    </listing>
+                </input>
+            </program>
+        </statement>
+    </task>
+
+
+    <task xml:id="lst-unordered-py" label="lst-unordered-py">
+        <title>Python Implementation</title>
+        <statement>
+            <program xml:id="lst_unordered_py" interactive="activecode" language="python">
+                <input>
+class Node:
+    def __init__(self, initdata):
+        self.data = initdata
+        self.next = None
+
+    def get_data(self):
+        return self.data
+
+    def get_next(self):
+        return self.next
+
+    def set_next(self, new_next):
+        self.next = new_next
+
+class UnorderedList:
+    def __init__(self):
+        self.head = None
+
+    def is_empty(self):
+        return self.head is None
+
+    def add(self, item):
+        temp = Node(item)
+        temp.set_next(self.head)
+        self.head = temp
+
+    def search(self, item):
+        current = self.head
+        while current is not None:
+            if current.get_data() == item:
+                return True
+            current = current.get_next()
+        return False
+
+    def remove(self, item):
+        current = self.head
+        previous = None
+        while current is not None:
+            if current.get_data() == item:
+                if previous is None:
+                    self.head = current.get_next()
+                else:
+                    previous.set_next(current.get_next())
+                return
+            previous = current
+            current = current.get_next()
+
+# Example usage
+mylist = UnorderedList()
+mylist.add(31)
+mylist.add(77)
+mylist.add(17)
+mylist.add(93)
+mylist.add(26)
+mylist.add(54)
+
+print("Search for 93:", mylist.search(93))
+print("Search for 100:", mylist.search(100))
+
+mylist.remove(54)
+print("Search for 54 after removal:", mylist.search(54))
+                </input>
+            </program>
+        </statement>
+    </task>
+
+</exploration>
+
 
     <p>The remaining methods <c>append</c>, <c>insert</c>, <c>index</c>, and <c>pop</c> are
         left as exercises. Remember that each of these must take into account
