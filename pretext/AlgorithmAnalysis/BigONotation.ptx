@@ -263,34 +263,34 @@ Reading Questions
     
             <choice>
                 <statement>
-                    <p>O(2n)</p>
+                    <p>O(<m>2n</m>)</p>
                 </statement>
                 <feedback>
-                    <p>No, 3n<sup>2</sup> dominates 2n. Try again.</p>
+                    <p>No, <m>3n^{2}</m> dominates 2n. Try again.</p>
                 </feedback>
             </choice>
     
             <choice>
                 <statement>
-                    <p>O(n)</p>
+                    <p>O(<m>n</m>)</p>
                 </statement>
                 <feedback>
-                    <p>No, n<sup>2</sup> dominates n. Try again.</p>
+                    <p>No, <m>n^{2}</m> dominates n. Try again.</p>
                 </feedback>
             </choice>
     
             <choice>
                 <statement>
-                    <p>O(3n<sup>2</sup>)</p>
+                    <p>O(<m>3n^{2}</m>)</p>
                 </statement>
                 <feedback>
-                    <p>No, the 3 should be omitted because n<sup>2</sup> dominates.</p>
+                    <p>No, the 3 should be omitted because <m>n^{2}</m> dominates.</p>
                 </feedback>
             </choice>
     
             <choice correct="yes">
                 <statement>
-                    <p>O(n<sup>2</sup>)</p>
+                    <p>O(<m>n^{2}</m>)</p>
                 </statement>
                 <feedback>
                     <p>Right!</p>
