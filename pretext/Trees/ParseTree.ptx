@@ -104,15 +104,52 @@
     
         <figure align="center" xml:id="parse_fig-bldexpstep">
             <caption>Tracing Parse Tree Construction.</caption>
-                <image source="Trees/buildExp1.png" width="15%"/>
-                <image source="Trees/buildExp2.png" width="25%"/>
-                <image source="Trees/buildExp3.png" width="25%"/>
-                <image source="Trees/buildExp4.png" width="25%"/>
-                <image source="Trees/buildExp5.png" width="25%"/>
-                <image source="Trees/buildExp6.png" width="25%"/>
-                <image source="Trees/buildExp7.png" width="50%"/>
+                <image source="Trees/buildExp1.png" width="15%">
+                <shortdescription>
+                First image of a vertical sequence of diagrams illustrating the construction of a binary search tree with numerical values. 
+                It shows a single circular node, shaded, representing the starting point of the tree.
+                </shortdescription>
+                </image>
+                <image source="Trees/buildExp2.png" width="25%">
+                <shortdescription>
+                    Second image showing the addition of a new node below the initial node.
+                </shortdescription>
+                </image>
+                <image source="Trees/buildExp3.png" width="25%">
+                <shortdescription>
+                    Third image showing the tree with an additional node labeled "3".
+                </shortdescription>
+                </image>
+                <image source="Trees/buildExp4.png" width="25%">
+                <shortdescription>
+                    Fourth image showing the partially constructed binary parse tree with a root node labeled "+," two child nodes: the left child labeled "3" and a newly added right child, which is shaded to indicate it is the most recently added node.
+                </shortdescription>
+                </image>
+                <image source="Trees/buildExp5.png" width="25%">
+                <shortdescription>
+                    Fifth image showing a binary parse tree with a root node labeled "+." The left child is labeled "3," the right child is connected to a newly added shaded node, which has a single child below it.
+                </shortdescription>
+                </image>
+                <image source="Trees/buildExp6.png" width="25%">
+                <shortdescription>
+                    Sixth image showing the binary parse tree with a root node labeled "+." The left child remains labeled "3," while the right child is connected to a node that now has a newly added shaded child labeled "4."
+                </shortdescription>
+                </image>
+                <image source="Trees/buildExp7.png" width="50%">
+                <shortdescription>
+                    Seventh image showing a binary parse tree with a root node labeled "+." The left child is labeled "3," and the right child is labeled "*." The node labeled "*" has two children: the left child labeled "4" and a newly added shaded right child.
+                </shortdescription>
+                </image>
                 <image source="Trees/buildExp8.png" width="50%">
-                <description><p>A vertical sequence of diagrams illustrating the construction of a binary search tree with numerical values. At the top, there is a single node. As the sequence progresses downwards, nodes are added one by one in binary search tree order, with some nodes shaded to indicate the most recently added node. Each node contains a number, and they are linked by lines representing the tree structure. The numbers in the nodes are not visible, so their specific values are not identifiable in this description.</p></description>
+                <description>
+                    <p>
+                        A sequence of images showing the steps of completing a binary parse tree representing the construction of a mathematical expression. 
+                        The final tree begins with a root node labeled "+," which has two child nodes. The left child is labeled "3," 
+                        and the right child is labeled "*." The node labeled "*" has two children: the left child labeled "4" 
+                        and the right child labeled "5." The structure illustrates the hierarchical organization of the expression, 
+                        with all nodes properly positioned.
+                    </p>
+                </description>
                 </image>
             </figure>
 
