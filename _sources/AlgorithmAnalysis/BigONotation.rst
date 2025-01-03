@@ -254,13 +254,13 @@ to see that :math:`T(n)` then follows the quadratic function as
     .. mchoice:: BIGO1
         :answer_a: 3.444
         :answer_b: 2.53
-        :answer_c: 2
+        :answer_c: 2.04
         :answer_d: 4
         :answer_e: More than one of the above
-        :correct: b
+        :correct: c
         :feedback_a: Incorrect. Try again.
-        :feedback_b: Correct!
-        :feedback_c: Incorrect. Try again.
+        :feedback_b: Incorrect. Try again.
+        :feedback_c: Correct!
         :feedback_d:  Incorrect. Try again.
         :feedback_e: No, only one of them is correct. Try again.
 
