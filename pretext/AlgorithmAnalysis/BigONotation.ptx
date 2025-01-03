@@ -391,21 +391,21 @@ Reading Questions
                 </feedback>
             </choice>
     
-            <choice correct="yes">
+            <choice>
                 <statement>
                     <p>2.53</p>
                 </statement>
                 <feedback>
-                    <p>Correct!</p>
+                    <p>Incorrect. Try again.</p>
                 </feedback>
             </choice>
     
-            <choice>
+            <choice correct="yes">
                 <statement>
-                    <p>2</p>
+                    <p>2.04</p>
                 </statement>
                 <feedback>
-                    <p>Incorrect. Try again.</p>
+                    <p>Correct!</p>
                 </feedback>
             </choice>
     
