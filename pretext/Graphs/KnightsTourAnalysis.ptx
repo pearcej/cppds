@@ -27,14 +27,14 @@
         <figure align="center" xml:id="fig-8array">
             <caption>A Search Tree for the Knight's Tour.</caption>
                 <image source="Graphs/8arrayTree.png" width="80%">
-                <description>Image of a search tree representing the possible sequences of moves for a Knight's Tour on a chessboard. The tree structure fans out from a single root node at the top, branching out to successive levels that represent each move of the knight. Each node represents a position on the chessboard, with the links between them representing legal moves of the knight. The breadth of the tree at each level indicates the growing complexity of the tour as more moves are made. The tree is a visual representation of the decision process in computing the tour, with the expansive spread of nodes illustrating the many possible paths the knight can take.</description>
+                <description><p>Image of a search tree representing the possible sequences of moves for a Knight's Tour on a chessboard. The tree structure fans out from a single root node at the top, branching out to successive levels that represent each move of the knight. Each node represents a position on the chessboard, with the links between them representing legal moves of the knight. The breadth of the tree at each level indicates the growing complexity of the tour as more moves are made. The tree is a visual representation of the decision process in computing the tour, with the expansive spread of nodes illustrating the many possible paths the knight can take.</p></description>
                 </image>
             </figure>
         
         <figure align="center" xml:id="fig-nummoves">
             <caption>Number of Possible Moves for Each Square.</caption>
                 <image source="Graphs/moveCount.png" width="80%">
-                <description>Diagram showing an 8x8 chessboard grid, each square labeled with a number indicating the total possible moves a knight can make from that position. The numbers range from '2' on the corners, up to '8' in the central squares, with varying numbers like '3', '4', and '6' on other squares based on their position. The layout demonstrates the accessibility of each square for a knight, with central squares being the most accessible. This visualization aids in understanding the knight's range of movement on a standard chessboard.</description>
+                <description><p>Diagram showing an 8x8 chessboard grid, each square labeled with a number indicating the total possible moves a knight can make from that position. The numbers range from '2' on the corners, up to '8' in the central squares, with varying numbers like '3', '4', and '6' on other squares based on their position. The layout demonstrates the accessibility of each square for a knight, with central squares being the most accessible. This visualization aids in understanding the knight's range of movement on a standard chessboard.</p></description>
                 </image>
             </figure>
         <p>We have already seen that the number of nodes in a binary tree of height
@@ -114,10 +114,10 @@
             <caption>Knights tour visualization</caption>
             <video label="graphs_knighttour-video" source="Graphs/knights_tour_vis.webm" width="80%" preview="Graphs/kt_vis_thumb.png" />
         </figure>
-        
-<term>Listing 4</term>
-<listing xml:id="graphs_lst-avail" names="lst_avail"><term>Listing 4</term>
-        <program language="python"><input>
+
+        <listing xml:id="graphs_lst-avail" names="lst_avail">
+            <caption>Implementation of <c>orderByAvail</c></caption>
+            <program language="python"><input>
 def orderByAvail(n):
     resList = []
     for v in n.getConnections():
@@ -129,8 +129,8 @@ def orderByAvail(n):
             resList.append((c,v))
     resList.sort(key=lambda x: x[0])
     return [y[1] for y in resList]
-</input></program>
-</listing>
+            </input></program>
+        </listing>
         <reading-questions xml:id="rq-knights-tour-impl">
            <title>Reading Question</title>
            
@@ -147,7 +147,7 @@ def orderByAvail(n):
 
             <choice correct="yes">
                 <statement>
-                    <p>O(k^n)</p>
+                    <p><m>O(k^n)</m></p>
                 </statement>
                 <feedback>
                     <p>You are correct! K is a small constant, and N is the total number of vertices (or spaces on a chessboard).</p>
@@ -156,7 +156,7 @@ def orderByAvail(n):
 
             <choice>
                 <statement>
-                    <p>O(n)</p>
+                    <p><m>O(n)</m></p>
                 </statement>
                 <feedback>
                     <p>No, the Knight's Tour is not linear.</p>
@@ -165,7 +165,7 @@ def orderByAvail(n):
 
             <choice>
                 <statement>
-                    <p>O(n^2)</p>
+                    <p><m>O(n^2)</m></p>
                 </statement>
                 <feedback>
                     <p>No, the Knight's Tour does not have a nested loop that iterates through all values twice.</p>
@@ -174,7 +174,7 @@ def orderByAvail(n):
 
             <choice>
                 <statement>
-                    <p>O(n!)</p>
+                    <p><m>O(n!)</m></p>
                 </statement>
                 <feedback>
                     <p>No, the input is not processed in a fashion indicative of a factorial.</p>

@@ -7,6 +7,7 @@ output
 
 # don't track assets generated from source
 generated-assets
+**/*.pkl
 
 # don't track the executables.ptx file
 executables.ptx
@@ -128,3 +129,6 @@ pavement.py
 
 # Don't track codechat config (will be generated automatically)
 codechat_config.yaml
+
+# This temporary: pretext insists on adding stuff here
+.github/workflows

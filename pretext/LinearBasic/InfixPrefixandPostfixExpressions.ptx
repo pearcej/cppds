@@ -1,6 +1,6 @@
 <section xml:id="linear-basic_infix-prefix-and-postfix-expressions">
         <title>Infix, Prefix and Postfix Expressions</title>
-
+    <introduction>
     <definition xml:id="def-infix-expression">
     <idx>infix expression</idx>
       <statement>
@@ -58,7 +58,7 @@
             Prefix expression notation requires that all operators precede the two
             operands that they work on. Postfix, on the other hand, requires that
             its operators come after the corresponding operands. A few more examples
-            should help to make this a bit clearer (see <xref ref="linear-basic_tbl-example1"/>).</p>
+            should help to make this a bit clearer (see <xref ref="linear-basic_xfix_examples"/>).</p>
         <p>In prefix, A + B * C would be written as + A * B C . The multiplication
             operator comes immediately before the operands B and C, denoting that *
             has precedence over +. The addition operator then appears before the A
@@ -70,13 +70,9 @@
             respective operands, the order of the operands stayed exactly the same
             relative to one another.</p>
         
-        <table xml:id="linear-basic_id1"><tabular>
-            <title><term>Table 2: Examples of Infix, Prefix, and Postfix</term></title>
-            
-                
-                
-                
-                
+        <table xml:id="linear-basic_xfix_examples">
+            <title>Examples of Infix, Prefix, and Postfix</title>
+            <tabular>
                     <row header="yes">
                         <cell>
                             <term>Infix Expression</term>
@@ -134,13 +130,9 @@
             determined by the position of the operator and nothing else. In many
             ways, this makes infix the least desirable notation to use.</p>
         
-        <table xml:id="linear-basic_id2"><tabular>
-            <title><term>Table 3: An Expression with Parentheses</term></title>
-            
-                
-                
-                
-                
+        <table xml:id="linear-basic_tbl-parexample">
+            <title>An Expression with Parentheses</title>
+            <tabular>
                     <row header="yes">
                         <cell>
                             <term>Infix Expression</term>
@@ -173,8 +165,9 @@
             understand how they are equivalent in terms of the order of the
             operations being performed.</p>
         
-        <table xml:id="linear-basic_id3"><tabular>
-            <title><term>Table 4: Additional Examples of Infix, Prefix, and Postfix</term></title>
+        <table xml:id="linear-basic_tbl-example3">
+            <title>Additional Examples of Infix, Prefix, and Postfix</title>
+            <tabular>
             
                 
                 
@@ -240,6 +233,7 @@
                 
             
         </tabular></table>
+    </introduction>
         <subsection xml:id="linear-basic_conversion-of-infix-expressions-to-prefix-and-postfix">
             <title>Conversion of Infix Expressions to Prefix and Postfix</title>
             <definition xml:id="def-prefix-expression">
@@ -271,25 +265,62 @@
                 converted the subexpression to postfix notation. If the addition
                 operator were also moved to its corresponding right parenthesis position
                 and the matching left parenthesis were removed, the complete postfix
-                expression would result (see <xref ref="fig-moveright"/>).</p>
+                expression would result (see <xref ref="xfix_fig-moveright"/>).</p>
             
-            <figure align="center" xml:id="id4"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 6: Moving Operators to the Right for Postfix Notation</caption><image source="LinearBasic/moveright.png" width="50%"/></figure>
+            <figure align="center" xml:id="xfix_fig-moveright">
+                <caption>Moving Operators to the Right for Postfix Notation</caption>
+                <image source="LinearBasic/moveright.png" width="50%"> 
+                    <description>
+                         <p>
+                            The image shows an annotated mathematical expression illustrating the conversion of an infix expression A + (B * C) to postfix notation. 
+                            Arrows indicate the movement of operators + and * to the right, near their corresponding right parentheses, resulting in B C * A +.
+                        </p>
+                    </description>                
+                </image>
+            </figure>
             <p>If we do the same thing but instead of moving the symbol to the position
                 of the right parenthesis, we move it to the left, we get prefix notation
-                (see <xref ref="fig-moveleft"/>). The position of the parenthesis pair is
+                (see <xref ref="xfix_fig-moveleft"/>). The position of the parenthesis pair is
                 actually a clue to the final position of the enclosed operator.</p>
             
-            <figure align="center" xml:id="id5"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 7: Moving Operators to the Left for Prefix Notation</caption><image source="LinearBasic/moveleft.png" width="50%"/></figure>
+            <figure align="center" xml:id="xfix_fig-moveleft">
+                <caption>Moving Operators to the Left for Prefix Notation</caption>
+                <image source="LinearBasic/moveleft.png" width="50%"> 
+                    <description>
+                        <p>
+                            The image shows an annotated mathematical expression illustrating the conversion of an infix expression A + (B * C) to prefix notation. 
+                            Arrows indicate the movement of operators + and * to the left, near their corresponding left parentheses, resulting in + A * B C.
+                        </p>
+                    </description>
+                </image>
+            </figure>
             <p>So in order to convert an expression, no matter how complex, to either
                 prefix or postfix notation, fully parenthesize the expression using the
                 order of operations. Then move the enclosed operator to the position of
                 either the left or the right parenthesis depending on whether you want
                 prefix or postfix notation.</p>
             <p>Here is a more complex expression: (A + B) * C - (D - E) * (F + G).
-                <xref ref="fig-complexmove"/> shows the conversion to postfix and prefix
+                <xref ref="xfix_fig-complexmove"/> shows the conversion to postfix and prefix
                 notations.</p>
             
-            <figure align="center" xml:id="id6"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 8: Converting a Complex Expression to Prefix and Postfix Notations</caption><image source="LinearBasic/complexmove.png" width="50%"/></figure>
+            <figure align="center" xml:id="xfix_fig-complexmove">
+                <caption>Converting a Complex Expression to Prefix and Postfix Notations</caption>
+                <image source="LinearBasic/complexmove.png" width="50%">
+                    <description>
+                    <p>
+                        The image illustrates the conversion of a complex infix expression (A + B) * C - (D - E) * (F + G) into both prefix and postfix notations. 
+                        At the center, the fully parenthesized infix expression is displayed: (((A + B) * C) - ((D - E) * (F + G))). 
+                        Two arrows branch out from the central expression. The first arrow points to the prefix notation, 
+                        where the operators are moved to the left of their operands, resulting in:
+                        <math display="inline">-*+A B C *-D E +F G</math>. 
+                        The second arrow points to the postfix notation, where the operators are moved to the right of their operands, resulting in:
+                        <math display="inline">A B + C * D E - F G + * -</math>. 
+                        This image demonstrates how to systematically rearrange operators based on the desired notation by using the position of parentheses as a guide.
+ 
+                    </p>
+                    </description>
+                </image>
+            </figure>
    </subsection>
         <subsection xml:id="linear-basic_general-infix-to-postfix-conversion">
             <title>General Infix-to-Postfix Conversion</title>
@@ -319,9 +350,9 @@
                 in the original expression is reversed in the resulting postfix
                 expression.</p>
             <p>As we process the expression, the operators have to be saved somewhere
-                since their corresponding right operands are not seen yet. Also, the
-                order of these saved operators may need to be reversed due to their
-                precedence. This is the case with the addition and the multiplication in
+                since their corresponding right operands have not yet been seen. Additionally,
+                because of their priority, the order of these saved operators might need
+                to be changed, which is the case for the multiplication and addition in
                 this example. Since the addition operator comes before the
                 multiplication operator and has lower precedence, it needs to appear
                 after the multiplication operator is used. Because of this reversal of
@@ -383,14 +414,27 @@
                         appended to the end of the output vector.</p>
                 </li>
             </ol></p>
-            <p><xref ref="fig-intopost"/> shows the conversion algorithm working on the
+            <p><xref ref="xfix_fig-intopost"/> shows the conversion algorithm working on the
                 expression A * B + C * D. Note that the first * operator is removed
                 upon seeing the + operator. Also, + stays on the stack when the second
                 * occurs, since multiplication has precedence over addition. At the end
                 of the infix expression the stack is popped twice, removing both
                 operators and placing + as the last operator in the postfix expression.</p>
             
-            <figure align="center" xml:id="id7"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 9: Converting A * B + C * D to Postfix Notation</caption><image source="LinearBasic/intopost.png" width="50%"/></figure>
+            <figure align="center" xml:id="xfix_fig-intopost">
+                <caption>Converting A * B + C * D to Postfix Notation</caption>
+                <image source="LinearBasic/intopost.png" width="50%">
+                    <description>
+                        <p>
+                            The image visually represents the step-by-step conversion of the infix expression A * B + C * D into postfix notation. 
+                            It shows the operands A, B, C, D being added directly to the output, while the operators * and + are temporarily stored in a stack. 
+                            The process demonstrates how * is removed from the stack upon encountering +, due to operator precedence. 
+                            Later, both * operators are popped, followed by +, resulting in the final postfix expression A B * C D * +. 
+                            The diagram uses arrows to indicate the movement of operands and operators between the input, stack, and output.
+                        </p>
+                    </description>
+                </image>
+            </figure>
             <p>In order to code the algorithm in C++, we will use a hash map
                 called <c>prec</c> to hold the precedence values for the operators
                 which will be implemented with an unordered map.
@@ -401,12 +445,13 @@
                 will have higher precedence and will be placed on top of it.
                 Line 18 defines the operands to be any upper-case character or digit.
                 The complete conversion function is
-                shown in <xref ref="lst-intopost"/>.</p>
+                shown in <xref ref="lst-intopost-cpp"/>.</p>
             
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'InfixPrefixandPostfixExpressions', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="intpost_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="expl-lst-intopost-cpp">
+                <title>Infix to Postfix Conversion</title>
+                <task xml:id="lst-intopost-cpp" label="lst-intopost-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program xml:id="intpost_cpp" interactive="activecode" language="cpp"><input>
 //Converts an infix expression to a postfix expression.
 
 #include &lt;iostream&gt;
@@ -476,12 +521,11 @@ int main() {
 
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'InfixPrefixandPostfixExpressions', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="intopost" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="lst-intopost-py" label="lst-intopost-py">
+                    <title>Python Implementation</title>
+                    <statement><program xml:id="intopost" interactive="activecode" language="python"><input>
 #Converts an infix expression to a postfix expression.
 
 from pythonds.basic.stack import Stack
@@ -524,9 +568,9 @@ def main():
     print(infixToPostfix("A * B + C * D"))
     print(infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )"))
 main()
-        </input>
-    </program>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <transition/>
             <p>A few more results of execution are shown below.</p>
             <pre>&gt;&gt;&gt; infixtopostfix("( A + B ) * ( C + D )")
@@ -561,11 +605,25 @@ main()
                 can be used as an operand for the later operators in the expression.
                 When the final operator is processed, there will be only one value left
                 on the stack. Pop and return it as the result of the expression.
-                <xref ref="fig-evalpost1"/> shows the stack contents as this entire example
+                <xref ref="xfix_fig-evalpost1"/> shows the stack contents as this entire example
                 expression is being processed.</p>
             
-            <figure align="center" xml:id="id8"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 10: Stack Contents During Evaluation</caption><image source="LinearBasic/evalpostfix1.png" width="50%"/></figure>
-            <p><xref ref="fig-evalpost2"/> shows a slightly more complex example, 7 8 + 3 2
+            <figure align="center" xml:id="xfix_fig-evalpost1">
+                <caption>Stack Contents During Evaluation</caption>
+                <image source="LinearBasic/evalpostfix1.png" width="50%"> 
+                    <description>
+                        <p>
+                            The image illustrates the step-by-step evaluation of the postfix expression 4 5 6 * + using a stack. 
+                            The evaluation is performed from left to right. Initially, the operands 4, 5, and 6 are pushed onto the stack in sequence. 
+                            When the multiplication operator (*) is encountered, the two most recent operands (5 and 6) are popped from the stack, 
+                            multiplied to produce 30, and the result is pushed back onto the stack. Next, the addition operator (+) is processed. 
+                            The two most recent values (4 and 30) are popped, added to produce 34, and the result is pushed back onto the stack. 
+                            The diagram uses arrows and labeled stack snapshots to show the changes at each step, culminating in the final result of 34.
+                        </p>
+                    </description>
+                </image>
+            </figure>
+            <p><xref ref="xfix_fig-evalpost2"/> shows a slightly more complex example, 7 8 + 3 2
                 + /. There are two things to note in this example. First, the stack size
                 grows, shrinks, and then grows again as the subexpressions are
                 evaluated. Second, the division operation needs to be handled carefully.
@@ -576,7 +634,21 @@ main()
                 <m>15/5</m> is not the same as <m>5/15</m>, we must be sure that
                 the order of the operands is not switched.</p>
             
-            <figure align="center" xml:id="id9"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 11: A More Complex Example of Evaluation</caption><image source="LinearBasic/evalpostfix2.png" width="50%"/></figure>
+            <figure align="center" xml:id="xfix_fig-evalpost2">
+                <caption>A More Complex Example of Evaluation</caption>
+                <image source="LinearBasic/evalpostfix2.png" width="50%"> 
+                    <description>
+                        <p>
+                            The image demonstrates the evaluation of a more complex postfix expression 7 8 + 3 2 + / using a stack.
+                            It shows the operands and operators being processed step by step. Initially, 7 and 8 are pushed onto the stack. 
+                            When the addition operator (+) is encountered, 7 and 8 are popped, added to produce 15, and the result is pushed back onto the stack. 
+                            Next, 3 and 2 are pushed onto the stack, and when the addition operator (+) is encountered, 3 and 2 are popped, added to produce 5, 
+                            and the result is pushed back onto the stack. Finally, the division operator (/) is encountered, and the two values 15 and 5 are popped, divided as 15 / 5 to produce 3, 
+                            which is pushed back onto the stack as the final result. The image uses arrows and stack snapshots to illustrate the growth and reduction of the stack at each step of the evaluation.
+                        </p>
+                    </description>
+                </image>
+            </figure>
             <p>Assume the postfix expression is a string of tokens delimited by spaces.
                 The operators are *, /, +, and - and the operands are assumed to be
                 single-digit integer values. The output will be an integer result.</p>
@@ -609,14 +681,15 @@ main()
                 </li>
             </ol></p>
             <p>The complete function for the evaluation of postfix expressions is shown
-                in <xref ref="lst-postfixeval"/>. To assist with the arithmetic, a helper
+                in <xref ref="lst-postfixeval-cpp"/>. To assist with the arithmetic, a helper
                 function <c>doMath</c> is defined that will take two operands and an
                 operator and then perform the proper arithmetic operation.</p>
-            
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'InfixPrefixandPostfixExpressions', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-    <program xml:id="postfixeval_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="expl-lst-postfixeval-cpp">
+                <title>Postfix Expression Evaluator</title>
+                <task xml:id="lst-postfixeval-cpp" label="lst-postfixeval-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program xml:id="postfixeval_cpp" interactive="activecode" language="cpp"><input>
 //Solves a postfix math problem.
 
 #include &lt;iostream&gt;
@@ -664,12 +737,11 @@ int main() {
 
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'InfixPrefixandPostfixExpressions', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="postfixeval" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="lst-postfixeval-py" label="lst-postfixeval-py">
+                    <title>Python Implementation</title>
+                    <statement><program xml:id="postfixeval" interactive="activecode" language="python"><input>
 #Solves a postfix math problem.
 
 from pythonds.basic.stack import Stack
@@ -702,9 +774,9 @@ def doMath(op, op1, op2):
 def main():
     print(postfixEval('7 8 + 3 2 + /'))
 main()
-        </input>
-    </program>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>It is important to note that in both the postfix conversion and the
                 postfix evaluation programs we assumed that there were no errors in the
                 input expression. Using these programs as a starting point, you can
@@ -729,18 +801,44 @@ main()
         <cline>+</cline>
         <cline>*</cline>
         </block></blocks></exercise>     
-        <exercise>
+        <exercise label="infix-1">
             <statement>
-    <p>Without using the activecode infixToPostfix function, convert the following expression to postfix  <c>10 + 3 * 5 / (16 - 4)</c> . <var/>  </p></statement><setup><var><p><BlankNode/></p><condition string="^\s*10\s+3\s+5\s*\*\s*16\s+4\s*-\s*/\s*\+\s*$"><feedback><p>Correct.</p></feedback></condition><condition string="^\s*10.*3.*5.*16.*4\s+[\s+/+*-]*\s*$"><feedback><p>The numbers appear to be in the correct order check your operators</p></feedback></condition></var></setup></exercise>
-        <exercise>
+    <p>Without using the activecode infixToPostfix function, convert the following expression to postfix  <c>10 + 3 * 5 / (16 - 4)</c> . <var/>  </p></statement><setup><var><p><BlankNode/></p><condition string="^\s*10\s+3\s+5\s*\*\s*16\s+4\s*-\s*/\s*\+\s*$"><feedback><p>Correct.</p></feedback></condition><condition string="^\s*10.*3.*5.*16.*4\s+[\s+/+*-]*\s*$"><feedback><p>The numbers appear to be in the correct order check your operators</p></feedback></condition>
+        <condition string="^\s*.*\s*$">
+                        <feedback>
+                            <p>Remember the numbers will be in the same order as the original equation</p>
+                        </feedback>
+                    </condition></var></setup></exercise>
+        <exercise label="infix-2">
             <statement>
-    <p>What is the result of evaluating the following: <c>17 10 + 3 * 9 / =</c> <var/>  </p></statement><setup><var><p><BlankNode/></p><condition number="[9, 9]"><feedback><p>Correct.</p></feedback></condition></var></setup></exercise>
-        <exercise>
+            <p>What is the result of evaluating the following: <c>17 10 + 3 * 9 / =</c> <var/>  </p>
+            </statement>
+            <setup>
+                <var>
+                    <condition number="[9]">
+                        <feedback>
+                            <p>Correct.</p>
+                        </feedback>
+                    </condition>
+                    <condition string="^\s*.*\s*$">
+                        <feedback>
+                            <p>Remember to push each intermediate result back on the stack</p>
+                        </feedback>
+                    </condition>
+                </var>
+            </setup></exercise>
+        <exercise label="infix-3">
             <statement>
-    <p>Modify the infixToPostfix function above so that it can convert the following expression. Once you have the answer from the code put it in the blank below:  <c>5 * 3 /(4 - 2)</c>. <var/>  </p></statement><setup><var><p><BlankNode/></p><condition string="^\s*5\s+3\s*\*\s*4\s+2\s*\-\s*\/\s*$"><feedback><p>Correct.</p></feedback></condition><condition string="^\s*5.*3.*5.*4.*2\s+[-/*]*\s*$"><feedback><p>The numbers appear to be in the correct order check your operators</p></feedback></condition></var></setup></exercise> 
+    <p>Modify the infixToPostfix function above so that it can convert the following expression. Once you have the answer from the code put it in the blank below:  <c>5 * 3 /(4 - 2)</c>. <var/>  </p></statement><setup><var><p><BlankNode/></p><condition string="^\s*5\s+3\s*\*\s*4\s+2\s*\-\s*\/\s*$"><feedback><p>Correct.</p></feedback></condition><condition string="^\s*5.*3.*5.*4.*2\s+[-/*]*\s*$"><feedback><p>The numbers appear to be in the correct order check your operators</p></feedback></condition>
+    <condition string="^\s*.*\s*$">
+        <feedback>
+            <p>Hint: You just need to change one line of code</p>
+        </feedback>
+    </condition>
+        </var></setup></exercise> 
 </reading-questions>           
         </subsection>
-<p>
+<conclusion><p>
     <!-- extra space before the progress bar -->
-</p>
+</p></conclusion>
 </section>

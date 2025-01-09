@@ -5,9 +5,9 @@
         <statement><p>Match the method of finding data to its corresponding Big O.</p></statement>
         <feedback><p>Review the analysis of each technique</p></feedback>
         <matches>
-            <match order="1"><premise>Linear Search</premise><response>O(n)</response></match>
-            <match order="2"><premise>Binary Search</premise><response>O(log n)</response></match>
-            <match order="3"><premise>Hashing</premise><response>O(1)</response></match>
+            <match order="1"><premise>Linear Search</premise><response><m>O(n)</m></response></match>
+            <match order="2"><premise>Binary Search</premise><response><m>O(\log n)</m></response></match>
+            <match order="3"><premise>Hashing</premise><response><m>O(1)</m></response></match>
         </matches>
     </exercise>
     
@@ -22,25 +22,28 @@
     
     <exercise label="hashcollisions">
         <statement><p>What creates hash collisions?</p></statement>
-        <mchoices>
-            <mchoice correct="false" label="a">
+        <choices>
+            <choice correct="no" label="a">
                 <statement>when pairs of different hash values are mapped to the same key.</statement>
                 <feedback>Think about what keys refer to and what hash values refer to</feedback>
-            </mchoice>
-            <mchoice correct="false" label="b">
+            </choice>
+            <choice correct="no" label="b">
                 <statement>when pairs of different hash values do not share the same key.</statement>
                 <feedback>Think about what keys refer to and what hash values refer to</feedback>
-            </mchoice>
-            <mchoice correct="true" label="c">
+            </choice>
+            <choice correct="yes" label="c">
                 <statement>when pairs of different keys are mapped to the same hash value.</statement>
                 <feedback>Correct!</feedback>
-            </mchoice>
-            <mchoice correct="false" label="d">
+            </choice>
+            <choice correct="no" label="d">
                 <statement>when pairs of different keys do not share the same hash value.</statement>
                 <feedback>Think about what keys refer to and what hash values refer to</feedback>
-            </mchoice>
-        </mchoices>
+            </choice>
+        </choices>
     </exercise>
     
+    <p>
+      <!-- extra space before the progress bar -->
+    </p>
     
 </section>

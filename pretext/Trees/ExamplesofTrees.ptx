@@ -11,7 +11,7 @@
             structure has its root at the top and its leaves on the bottom.</p>
         <p>Before we begin our study of tree data structures, let's look at a few
             common examples. Our first example of a tree is a classification tree
-            from biology. <xref ref="fig-biotree"/> shows an example of the biological
+            from biology. <xref ref="trees_examples-biotree"/> shows an example of the biological
             classification of some animals. From this simple example, we can learn
             about several properties of trees. The first property this example
             demonstrates is that trees are hierarchical. By hierarchical, we mean
@@ -23,10 +23,10 @@
             still animals.</p>
         
     
-        <figure align="center" xml:id="fig-biotree">
+        <figure align="center" xml:id="trees_examples-biotree">
             <caption>Taxonomy of Some Common Animals Shown as a Tree.</caption>
                 <image source="Trees/biology.png" width="80%">
-                <description>The image displays a taxonomy tree diagram of some common animals, illustrating their scientific classification from kingdom to species. At the top, 'Animalia' branches into 'Chordate' and 'Arthropoda', leading down to classifications such as 'Mammal' and 'Insect'. Specific branches detail the classification of humans, chimpanzees, house cats, lions, and houseflies, listing their respective taxonomic ranks from 'Kingdom' down to 'Species'. Each species is paired with its common name, like 'Homo sapiens' for human, 'Pan troglodytes' for chimpanzee, 'Felis domestica' for house cat, 'Panthera leo' for lion, and 'Musca domestica' for housefly. </description>
+                <description><p>The image displays a taxonomy tree diagram of some common animals, illustrating their scientific classification from kingdom to species. At the top, 'Animalia' branches into 'Chordate' and 'Arthropoda', leading down to classifications such as 'Mammal' and 'Insect'. Specific branches detail the classification of humans, chimpanzees, house cats, lions, and houseflies, listing their respective taxonomic ranks from 'Kingdom' down to 'Species'. Each species is paired with its common name, like 'Homo sapiens' for human, 'Pan troglodytes' for chimpanzee, 'Felis domestica' for house cat, 'Panthera leo' for lion, and 'Musca domestica' for housefly.</p></description>
                 </image>
             </figure>
 
@@ -54,14 +54,14 @@
             <m>\rightarrow</m> Felis <m>\rightarrow</m> Domestica.</p>
         <p>Another example of a tree structure that you probably use every day is a
             file system. In a file system, directories, or folders, are structured
-            as a tree. <xref ref="fig-filetree"/> illustrates a small part of a Unix file
+            as a tree. <xref ref="trees_examples-filetree"/> illustrates a small part of a Unix file
             system hierarchy.</p>
         
 
-        <figure align="center" xml:id="fig-filetree">
+        <figure align="center" xml:id="trees_examples-filetree">
             <caption>A Small Part of the Unix File System Hierarchy.</caption>
                 <image source="Trees/directory.png" width="90%">
-                <description>The image shows a hierarchical diagram representing a small part of the Unix file system structure. It starts from a single root node that branches out to various directories such as '/dev/', '/etc/', '/sbin/', '/tmp/', '/Users/', '/usr/', and '/var/'. Each of these main directories further branches into subdirectories like '/cups/' and '/httpd/' under '/dev/', or '/bin/', '/lib/', and '/local/' under '/usr/'. The diagram visually organizes the structure and relationships of these directories in a tree-like format, indicating how files and subdirectories are organized within a Unix-based operating system.  </description>
+                <description><p>The image shows a hierarchical diagram representing a small part of the Unix file system structure. It starts from a single root node that branches out to various directories such as '/dev/', '/etc/', '/sbin/', '/tmp/', '/Users/', '/usr/', and '/var/'. Each of these main directories further branches into subdirectories like '/cups/' and '/httpd/' under '/dev/', or '/bin/', '/lib/', and '/local/' under '/usr/'. The diagram visually organizes the structure and relationships of these directories in a tree-like format, indicating how files and subdirectories are organized within a Unix-based operating system.</p></description>
                 </image>
             </figure>
         <p>The file system tree has much in common with the biological
@@ -76,7 +76,7 @@
             from /etc/httpd to /usr/etc/httpd, but would not affect the contents or
             any children of the httpd directory.</p>
         <p>A final example of a tree is a web page. The following is an example of
-            a simple web page written using HTML. <xref ref="fig-html"/> shows the tree
+            a simple web page written using HTML. <xref ref="trees_examples-htmltree"/> shows the tree
             that corresponds to each of the HTML tags used to create the page.</p>
         <pre>&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
     &lt;head&gt;
@@ -96,10 +96,10 @@
 &lt;/html&gt;</pre>
         
 
-        <figure align="center" xml:id="fig-htmltree">
+        <figure align="center" xml:id="trees_examples-htmltree">
             <caption>A Tree Corresponding to the Markup Elements of a Web Page.</caption>
                 <image source="Trees/htmltree.png" width="80%">
-                <description>A diagrammatic representation of a web page's Document Object Model (DOM) tree. The tree has 'html' as the root node, which branches off into 'head' and 'body' nodes. The 'head' node further branches into 'meta' and 'title', while the 'body' node extends into 'ul', 'h1', and 'h2' nodes. The 'ul' (unordered list) node has two 'li' (list item) child nodes, and the 'h2' node has an 'a' (anchor) child node, representing a hyperlink. This tree structure visually maps out the hierarchy and relationships of markup elements within a web page.   </description>
+                <description><p>A diagrammatic representation of a web page's Document Object Model (DOM) tree. The tree has 'html' as the root node, which branches off into 'head' and 'body' nodes. The 'head' node further branches into 'meta' and 'title', while the 'body' node extends into 'ul', 'h1', and 'h2' nodes. The 'ul' (unordered list) node has two 'li' (list item) child nodes, and the 'h2' node has an 'a' (anchor) child node, representing a hyperlink. This tree structure visually maps out the hierarchy and relationships of markup elements within a web page.</p></description>
                 </image>
             </figure>
 

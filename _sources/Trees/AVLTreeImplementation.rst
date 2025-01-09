@@ -95,8 +95,7 @@ the calls to ``updateBalance`` on lines 8 and 17.
 
 
 
-The new ``updateBalance`` method is where most of the work is done. This
-implements the recursive procedure we just described. The
+The new ``updateBalance`` method is where most of the work is done. The
 ``updateBalance`` method first checks to see if the current node is out
 of balance enough to require rebalancing (line 16). If that
 is the case then the rebalancing is done and no further updating to
@@ -112,7 +111,7 @@ sacrificing performance. In order to bring an AVL Tree back into balance
 we will perform one or more **rotations** on the tree.
 
 To understand what a rotation is let us look at a very simple example.
-Consider the tree in the left half of :ref:`Figure 3 <fig_unbalsimple>`. This tree
+Consider the tree in the left half of :ref:`Figure 1 <fig_unbalsimple>`. This tree
 is out of balance with a balance factor of -2. To bring this tree into
 balance we will use a left rotation around the subtree rooted at node A.
 
@@ -121,7 +120,7 @@ balance we will use a left rotation around the subtree rooted at node A.
 .. figure:: Figures/simpleunbalanced.png
    :align: center
 
-   Figure 3: Transforming an Unbalanced Tree Using a Left Rotation
+   Figure 1: Transforming an Unbalanced Tree Using a Left Rotation
 
 
 To perform a left rotation we essentially do the following:
@@ -143,7 +142,7 @@ Furthermore we need to make sure to update all of the parent pointers
 appropriately.
 
 Let's look at a slightly more complicated tree to illustrate the right
-rotation. The left side of :ref:`Figure 4 <fig_rightrot1>` shows a tree that is
+rotation. The left side of :ref:`Figure 2 <fig_rightrot1>` shows a tree that is
 left-heavy and with a balance factor of 2 at the root. To perform a
 right rotation we essentially do the following:
 
@@ -162,7 +161,7 @@ right rotation we essentially do the following:
 .. figure:: Figures/rightrotate1.png
   :align: center
 
-  Figure 4: Transforming an Unbalanced Tree Using a Right Rotation
+  Figure 2: Transforming an Unbalanced Tree Using a Right Rotation
 
 Now that you have seen the rotations and have the basic idea of how a
 rotation works let us look at the code. :ref:`Listing 2 <lst_bothrotations>` shows the
@@ -183,7 +182,7 @@ to point to the new root; otherwise we change the parent of the right
 child to point to the new root. (lines 10-13).
 Finally we set the parent of the old root to be the new root. This is a
 lot of complicated bookkeeping, so we encourage you to trace through
-this function while looking at :ref:`Figure 3 <fig_unbalsimple>`. The
+this function while looking at :ref:`Figure 1 <fig_unbalsimple>`. The
 ``rotateRight`` method is symmetrical to ``rotateLeft`` so we will leave
 it to you to study the code for ``rotateRight``.
 
@@ -192,6 +191,9 @@ it to you to study the code for ``rotateRight``.
 **Listing 2**
 
 **C++ Implementation**
+
+.. highlight:: cpp
+    :linenothreshold: 5
 
 ::
 
@@ -220,9 +222,11 @@ it to you to study the code for ``rotateRight``.
     }
 
 
+.. highlight:: cpp
+    :linenothreshold: 500
 
 
-Finally, lines 16-17 require some explanation. In
+Finally, lines 21-22 require some explanation. In
 these two lines we update the balance factors of the old and the new
 root. Since all the other moves are moving entire subtrees around the
 balance factors of all other nodes are unaffected by the rotation. But
@@ -235,10 +239,10 @@ convince you that these lines are correct.
 .. figure:: Figures/bfderive.png
    :align: center
 
-   Figure 5: A Left Rotation
+   Figure 3: A Left Rotation
 
 
-:ref:`Figure 5 <fig_bfderive>` shows a left rotation. B and D are the pivotal
+:ref:`Figure 3 <fig_bfderive>` shows a left rotation. B and D are the pivotal
 nodes and A, C, E are their subtrees. Let :math:`h_x` denote the
 height of a particular subtree rooted at node :math:`x`. By definition
 we know the following:
@@ -291,7 +295,7 @@ steps:
 
 Now we have all of the parts in terms that we readily know. If we
 remember that B is ``rotRoot`` and D is ``newRoot`` then we can see this
-corresponds exactly to the statement on line 16, or:
+corresponds exactly to the statement on line 21, or:
 
 ::
 
@@ -303,7 +307,7 @@ exercises for you.
 
 Now you might think that we are done. We know how to do our left and
 right rotations, and we know when we should do a left or right rotation,
-but take a look at :ref:`Figure 6 <fig_hardrotate>`. Since node A has a balance
+but take a look at :ref:`Figure 4 <fig_hardrotate>`. Since node A has a balance
 factor of -2 we should do a left rotation. But, what happens when we do
 the left rotation around A?
 
@@ -312,10 +316,10 @@ the left rotation around A?
 .. figure:: Figures/hardunbalanced.png
    :align: center
 
-   Figure 6: An Unbalanced Tree that is More Difficult to Balance
+   Figure 4: An Unbalanced Tree that is More Difficult to Balance
 
 
-:ref:`Figure 7 <fig_badrotate>` shows us that after the left rotation we are now
+:ref:`Figure 5 <fig_badrotate>` shows us that after the left rotation we are now
 out of balance the other way. If we do a right rotation to correct the
 situation we are right back where we started.
 
@@ -324,7 +328,7 @@ situation we are right back where we started.
 .. figure:: Figures/badrotate.png
    :align: center
 
-   Figure 7: After a Left Rotation the Tree is Out of Balance in the Other Direction
+   Figure 5: After a Left Rotation the Tree is Out of Balance in the Other Direction
 
 
 To correct this problem we must use the following set of rules:
@@ -339,8 +343,8 @@ To correct this problem we must use the following set of rules:
    right heavy then do a left rotation on the left child, followed by
    the original right rotation.
 
-:ref:`Figure 8 <fig_rotatelr>` shows how these rules solve the dilemma we
-encountered in :ref:`Figure 6 <fig_hardrotate>` and :ref:`Figure 7 <fig_badrotate>`. Starting
+:ref:`Figure 6 <fig_rotatelr>` shows how these rules solve the dilemma we
+encountered in :ref:`Figure 4 <fig_hardrotate>` and :ref:`Figure 5 <fig_badrotate>`. Starting
 with a right rotation around node C puts the tree in a position where
 the left rotation around A brings the entire subtree back into balance.
 
@@ -349,14 +353,14 @@ the left rotation around A brings the entire subtree back into balance.
 .. figure:: Figures/rotatelr.png
    :align: center
 
-   Figure 8: A Right Rotation Followed by a Left Rotation
+   Figure 6: A Right Rotation Followed by a Left Rotation
 
 
 The code that implements these rules can be found in our ``rebalance``
 method, which is shown in :ref:`Listing 3 <lst_rebalance>`. Rule number 1 from
 above is implemented by the ``if`` statement starting on line 2.
-Rule number 2 is implemented by the ``elif`` statement starting on
-line 8.
+Rule number 2 is implemented by the ``else if`` statement starting on
+line 11.
 
 .. _lst_rebalance:
 
@@ -400,7 +404,7 @@ The :ref:`discussion questions <tree_discuss>` provide you the opportunity to re
 that requires a left rotation followed by a right. In addition the
 discussion questions provide you with the opportunity to rebalance some
 trees that are a little more complex than the tree in
-:ref:`Figure 8 <fig_rotatelr>`.
+:ref:`Figure 6 <fig_rotatelr>`.
 
 By keeping the tree in balance at all times, we can ensure that the
 ``get`` method will run in order :math:`O(log_2(n))` time. But the

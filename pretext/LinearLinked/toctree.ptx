@@ -5,6 +5,7 @@
         <xi:include href='./WhatAreLinkedStructures.ptx' />
         <xi:include href='./ImplementinganUnorderedListLinkedLists.ptx' />
         <xi:include href='./TheNodeClass.ptx' />
+        <xi:include href='./UnorderedListClass.ptx' />
         <xi:include href='./ImplementinganOrderedList.ptx' />
         <xi:include href='./TheOrderedListAbstractDataType.ptx' />
         <xi:include href='./Summary.ptx' />

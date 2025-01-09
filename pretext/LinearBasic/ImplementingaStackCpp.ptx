@@ -4,20 +4,21 @@
             will turn our attention to using a stack with the help of the Standard Template Library (STL) in C++. Recall
             that when we give an abstract data type a physical implementation we
             refer to the implementation as a data structure.</p>
-        <p>As we described in Chapter 1, in C++, as in any object-oriented
+        <p>As we described in <xref ref="ch-intro"/>, in C++, as in any object-oriented
             programming language, the implementation of choice for an abstract data
             type such as a stack is the creation of a new class. The stack
             operations are implemented as methods. However, the STL already has a well
             written implementation of the Stack class.</p>
-        <p>The following stack implementation (<xref ref="lst-stackcode1"/>) assumes that
+        <p>The following stack implementation (<xref ref="stack-code1"/>) assumes that
             the end of the array will hold the top element of the stack. As the stack
             grows (as <c>push</c> operations occur), new items will be added on the end
             of the array. <c>pop</c> operations will manipulate that same end.</p>
-        
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'ImplementingaStackCpp', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-    <program xml:id="stack_1ac_cpp" interactive="activecode" language="cpp">
-        <input>
+        <exploration xml:id="expl-stack-code1">
+            <title>Stack Implementation</title>
+            <task xml:id="stack-code1" label="stack-code1">
+                <title>C++ Implementation</title>
+                <statement><program interactive="activecode" language="cpp"><input>
 //Tests the push, empty, size, pop, and top methods of the stack library.
 
 #include &lt;iostream&gt;
@@ -50,12 +51,11 @@ int main() {
 
     return 0;
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ImplementingaStackCpp', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="stack_1ac_py" interactive="activecode" language="python">
-        <input>
+                </input></program></statement>
+            </task>
+            <task xml:id="stack_1ac_py" label="stack_1ac_py">
+                <title>Python Implementation</title>
+                <statement><program interactive="activecode" language="python"><input>
 #Tests the push, empty, size, pop, and top methods of the stack library.
 
 class Stack:
@@ -93,9 +93,9 @@ def main():
 
     print("Top Element of the Stack: ", newStack.top())
 main()
-        </input>
-    </program>
-            </TabNode>
+                </input></program></statement>
+            </task>
+        </exploration>
 
 <reading-questions xml:id="rq-stack-implementation">
                 <title>Reading Questions</title>

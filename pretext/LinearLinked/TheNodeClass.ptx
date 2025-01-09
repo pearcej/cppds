@@ -5,18 +5,17 @@
             <term>node</term>. Each node object must hold at least two pieces of information.
             First, the node must contain the list item itself. We will call this the
             <term>data field</term> of the node. In addition, each node must hold a reference
-            to the next node. <xref ref="lst-nodeclass"/> shows the C++
+            to the next node. <xref ref="linear-linked_lst-nodeclass"/> shows the C++
             implementation. To construct a node, you need to supply the initial data
             value for the node. Evaluating the assignment statement below will yield
-            a node object containing the value 93 (see <xref ref="fig-node"/>). You
+            a node object containing the value 93 (see <xref ref="id1-fig-node"/>). You
             should note that we will typically represent a node object as shown in
-            <xref ref="fig-node2"/>. The <c>Node</c> class also includes the usual methods
+            <xref ref="id2-fig-node2"/>. The <c>Node</c> class also includes the usual methods
             to access and modify the data and the next reference.</p>
-  <p xml:id="linear-linked_lst-nodeclass" names="lst_nodeclass">
-    <term>Listing 1</term>
-  </p>
-  <program language="cpp">
-    <input>
+
+  <listing xml:id="linear-linked_lst-nodeclass" names="lst_nodeclass">
+    <caption><c>Node</c> Class</caption>
+    <program language="cpp"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -47,8 +46,7 @@ class Node {
                     next = newnext;
             }
 };
-</input>
-  </program>
+    </input></program></listing>
   <pre>&gt;&gt;&gt; temp = Node(93) //sets the nodes data to the integer 93
 &gt;&gt;&gt; temp.getData() // calls the getData() function.
 93</pre>
@@ -58,17 +56,33 @@ class Node {
   <p>Note:</p>
   <blockquote>
     <p>in the constructor that a node is initially created with <c>next</c> and a pointer to
-                <c>NULL</c>. Since this is sometimes referred to as &#x201C;grounding the node,&#x201D;
+                <c>NULL</c>. Since this is sometimes referred to as <q>grounding the node,</q>
                 we will use the standard ground symbol to denote a reference that is
                 referring to <c>NULL</c>.</p>
   </blockquote>
   <figure align="center" xml:id="id1-fig-node">
-    <caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 3: A Node Object Contains the Item and a Reference to the Next Node</caption>
-    <image source="LinearLinked/node.png" width="50%"/>
+    <caption>A Node Object Contains the Item and a Reference to the Next Node</caption>
+    <image source="LinearLinked/node.png" width="50%">
+    <description>
+        <p>
+            An illustration of a node object in a linked list. The node contains two components: a "data" field holding the value "93" 
+            and a "next" field representing a reference to the next node in the list. A variable named "temp" points to this node, 
+            and an arrow originating from the "next" field extends to indicate a link to the subsequent node in the list.
+        </p>
+    </description>
+    </image>
   </figure>
   <figure align="center" xml:id="id2-fig-node2">
-    <caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: A Typical Representation for a Node</caption>
-    <image source="LinearLinked/node2.png" width="50%"/>
+    <caption>A Typical Representation for a Node</caption>
+    <image source="LinearLinked/node2.png" width="50%">
+    <description>
+        <p>
+            A simplified representation of a node in a linked list. The node is depicted as a rectangular block containing the value "93." 
+            A variable named "temp" points to this block. An arrow extends from the right side of the block to represent the reference 
+            to the next node in the list, maintaining the linked list structure.
+        </p>
+    </description>
+    </image>
   </figure>
   <p>
     <!-- extra space before the progress bar -->

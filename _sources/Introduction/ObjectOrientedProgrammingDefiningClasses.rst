@@ -117,12 +117,12 @@ and is shown in :ref:`Listing 2 <lst_constructor>`.
         class Fraction {
             public:
               Fraction(int top, int bottom) {
-                 /** Fraction contructor method */
+                 /** Fraction constructor method */
                   num = top;     // setting num's value
                   den = bottom;  // setting den's value
                 }
              private:
-               int num; // num atribute
+               int num; // num attribute
                int den; // den attribute
         };
 
@@ -194,18 +194,9 @@ following figure:
 
     .. image:: Figures/fractions_partsofwhole.png
 
-Since we are using classes to create abstract data types, we should probably discuss the meaning of
-the word "abstract" in this context.
-**Abstraction** in object-oriented programming requires you to focus only on the desired properties
-and behaviors of the objects
-and discard what is unimportant or irrelevant. Hence, if we do not need to think about
-the "parts of a whole" metaphor, then we will not include it in the class. If that metaphor
-is important, then we will include it. For our purposes, we want to think of
-fractions as numbers, so we will not use the "parts of a whole" visual metaphor.
+Because we are using classes to create abstract data types, we should probably define the term “abstract” in this context. In object-oriented programming, **abstraction** requires you to focus solely on the desired properties and behaviors of the objects, discarding everything else that is unimportant or irrelevant. As a result, if we don’t need to consider the “parts of a whole” visual metaphor of a fraction, we won’t include it in the Fraction class. If a given metaphor is important, we will include it. For our purposes, we want to think of fractions as numbers, so we will avoid using the “parts of a whole” visual metaphor.
 
-The object-oriented principle of **encapsulation** is the notion that we should
-hide the contents of a class, except what is
-absolutely necessary to expose.
+The object-oriented principle of **encapsulation** refers to the practice of grouping or encapsulating related data and the methods that operate on that data into a single unit, typically a class, and we should hide most of the internal contents of that class, except what is absolutely necessary to expose.
 Hence, we will restrict the access to our class as much
 as we can, so that a user can change the class properties and behaviors only from methods
 provided by the class.  C++ allows us to control access with the **access keywords** ``public`` and ``private``.
@@ -411,7 +402,7 @@ stream is changed by the stream operator.
 
             int main() {
                 Fraction myfraction(3, 5);
-                cout << myfraction;
+                cout << myfraction << " is my fraction" << endl;
 
                 return 0;
             }
@@ -578,14 +569,14 @@ addition, and then printing our result.
             print(f3)
 
 The addition method works as we desire, but a couple of things
-can be improved. When we use a binary operator like ``+`` we
+can be improved. When we use a binary operator like ``+``, we
 like more symmetry.
 Binary operators can either be members of their
 left-hand argument's class or friend functions.
 Since the stream operators' left-hand argument is a stream,
-stream operators either have to be members of the stream class
-or friend functions.
-However, that is not true for ``+``.
+stream operators (such as ``<<`` and ``>>``) must be either member functions of the stream class
+or friend functions of the class they are used with.
+However, that is not true for the ``+`` operator.
 Let's rewrite the addition operator as a friend function.
 
 **Listing 6**
@@ -596,10 +587,9 @@ Let's rewrite the addition operator as a friend function.
 
         .. code-block:: C++
 
-                Fraction operator +(const &Fraction otherFrac){
-                    //Note the return type is a Fraction
-                    int newnum = num*otherFrac.den + den*otherFrac.num;
-                    int newden = den*otherFrac.den;
+                Fraction operator +(const Fraction &frac1, const Fraction &frac2) {
+                    int newnum = frac1.num * frac2.den + frac1.den * frac2.num;
+                    int newden = frac1.den * frac2.den;
                     return Fraction(newnum, newden);
                 }
 
@@ -631,7 +621,7 @@ Let's rewrite the addition operator as a friend function.
           }
 
       friend ostream &operator << (ostream &stream, const Fraction &frac);
-  		friend Fraction operator +(const Fraction &frac1, const Fraction &frac2);
+      friend Fraction operator +(const Fraction &frac1, const Fraction &frac2);
 
       private:
           int num, den;
@@ -782,7 +772,7 @@ the bottom by 2 creates a new fraction, :math:`3/4` (see
               num = 1;
               den = 1;
           }
-          Fraction operator +(Fraction otherFrac) {
+          Fraction operator +(const Fraction &otherFrac) {
               int newnum = num*otherFrac.den + den*otherFrac.num;
               int newden = den*otherFrac.den;
               int common = gcd(newnum, newden);
@@ -842,7 +832,7 @@ Of course there are other relational operators that can be overridden. For examp
 
         .. code-block:: C++
 
-            bool operator ==(Fraction &otherFrac) {
+            bool operator ==(const Fraction &otherFrac) {
                 int firstnum = num*otherFrac.den;
                 int secondnum = otherFrac.num*den;
 
@@ -901,14 +891,14 @@ methods as exercises.
                         num = 1;
                         den = 1;
                     }
-                    Fraction operator +(Fraction otherFrac) {
+                    Fraction operator +(const Fraction &otherFrac) {
                         int newnum = num*otherFrac.den + den*otherFrac.num;
                         int newden = den*otherFrac.den;
                         int common = gcd(newnum, newden);
 
                         return Fraction(newnum/common,newden/common);
                     }
-                    bool operator ==(Fraction &otherFrac) {
+                    bool operator ==(const Fraction &otherFrac) {
                         int firstnum = num*otherFrac.den;
                         int secondnum = otherFrac.num*den;
                         return firstnum==secondnum;
@@ -1003,50 +993,6 @@ Self Check
           :click-incorrect:int den; // den attribute:endclick:
     :click-correct:}:endclick:
 
-.. OOP class example:
-
-**Question example**
-
-.. highlight:: cpp
-    :linenothreshold: 5
-
-::
-
-    #include<iostream>
-    using namespace std;
-
-    class Vehicle
-    {
-
-        protected:
-            int wheels;
-            int windows;
-            int engine;
-    };
-
-    class Airplane: public Vehicle
-    {
-        protected:
-            // wheels
-            // windows
-            // engine
-            int wings;
-    };
-
-.. mchoice:: OOPclassquestion
-    :answer_a: Inheritance
-    :answer_b: Encapsulation
-    :answer_c: Polymorphism
-    :answer_d: Abstraction
-    :correct: a
-    :feedback_a: Correct! Airplane inherits many things from Vehicle
-    :feedback_b: Encapsulation is the principle of hiding the contents of a class except when absolutely necessary. Wings is not hidden from Vehicle, it simply does not exist in the Vehicle class.
-    :feedback_c: Polymorphism is the ability to process objects or methods differently depending on their data type, class, number of arguments, etc. A subclass using parts of a pre-existing class is not an example of polymorphism because they are used in the same way.
-    :feedback_d: Abstraction is the principle of focusing on desired behaviors and properties while disregarding what is irrelevant/unimportant. Take another look at what the two classes have in common.
-
-    Which OOP principle is the above code an example of?
-
-
 
 .. dragndrop:: elements_of_OOP
     :feedback: Review the elements of object oriented programming
@@ -1100,14 +1046,14 @@ To make sure you understand how operators are implemented in C++ classes, and ho
                 num = 1;
                 den = 1;
             }
-            Fraction operator +(Fraction otherFrac) {
+            Fraction operator +(const Fraction &otherFrac) {
                 int newnum = num*otherFrac.den + den*otherFrac.num;
                 int newden = den*otherFrac.den;
                 int common = gcd(newnum, newden);
 
                 return Fraction(newnum/common,newden/common);
             }
-            bool operator ==(Fraction &otherFrac) {
+            bool operator ==(const Fraction &otherFrac) {
                 int firstnum = num*otherFrac.den;
                 int secondnum = otherFrac.num*den;
 

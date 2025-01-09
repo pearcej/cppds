@@ -34,79 +34,85 @@
             the two symbols do not match, the string is not balanced. Once again, if
             the entire string is processed and nothing is left on the stack, the
             string is correctly balanced.</p>
-        <p>Implementations of this are shown in <xref ref="lst-parcheck2"/>.
-            The key C++ feature appears in line 16 where we call a helper function, <c>matches</c>, to
+        <p>Implementations of this are shown in <xref ref="lst-parcheck2-cpp"/>.
+            The key C++ feature appears in line 38 where we call a helper function, <c>matches</c>, to
             assist with symbol-matching. Each symbol that is removed from the stack
             must be checked to see that it matches the current closing symbol. If a
             mismatch occurs, the Boolean variable <c>balanced</c> is set to <c>false</c>.</p>
         
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'BalancedSymbolsGeneralCase', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="parcheck2_cpp" interactive="activecode" language="cpp">
-        <input>
+        <exploration xml:id="expl-lst-parcheck2">
+            <title>Generalized Balance Symbol Checking</title>
+            <task xml:id="lst-parcheck2-cpp" label="lst-parcheck2-cpp">
+                <title>C++ Implementation</title>
+                <statement><program xml:id="parcheck2_cpp" interactive="activecode" language="cpp" line-numbers="yes"><input>
 //program that returns whether a string is balanced or not
-  #include &lt;iostream&gt;
-  #include &lt;string&gt;
-  #include &lt;stack&gt;
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;stack&gt;
 
-  using namespace std;
-  //checks if a symbol is in the string of "{[("
-  bool inString(string symbol, string symbols){
-      return symbols.find(symbol) != string::npos;
-  }
-  //function that returns a boolean value based on whether the strings match
-  bool matches(string open, string close){
-      string opens = "({[";
-      string closers = ")]}";
-      bool val = inString(open, opens) == inString(close, closers);
-      return val;
-  }
+using namespace std;
 
-  bool parChecker(string symbolString){
-      stack&lt;string&gt; s;
-      bool balanced = true;
-      int index = 0;
-      int symbolLength = symbolString.length();
+//returns true of symbol is in symbols
+bool inString(string symbol, string symbols){
+    return symbols.find(symbol) != string::npos;
+}
 
-      while(index &lt; symbolLength &amp;&amp; balanced){
-          string symbol;
-          symbol = symbolString[index];
-          string opens = "([{";
-          string closes = "}])";
-          if (inString(symbol, opens)){
-              s.push(symbol);
-          } else if(inString(symbol, closes)){
-              if (s.empty()){
-                  balanced = false;
-              } else {
-                  string top = s.top();
-                  s.pop();
-                  if (!matches(top, symbol)){
-                      balanced = false;
-                      break;
-                  }
-              }
-          }
-          index = index + 1;
-      }
-      if(balanced &amp;&amp; s.empty()){
-          return true;
-      } else {
-          return false;
-      }
-  }
+//returns true if the symbol in "open"
+//matches the symbol in "close"
+bool matches(string open, string close){
+    string opens = "({[";
+    string closers = ")]}";
+    bool val = inString(open, opens) == inString(close, closers);
+    return val;
+}
 
-  int main() {
-      cout &lt;&lt; parChecker("{}") &lt;&lt; endl;
-      cout &lt;&lt; parChecker("[{()}]") &lt;&lt; endl;
-      return 0;
-  }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'BalancedSymbolsGeneralCase', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+// Go through the string pushing opening symbols
+// and popping/matching when a closing symbol is
+// encountered
+bool parChecker(string symbolString){
+    stack&lt;string&gt; s;
+    bool balanced = true;
+    int index = 0;
+    int symbolLength = symbolString.length();
 
-    <program xml:id="parcheck2_py" interactive="activecode" language="python">
-        <input>
+    while(index &lt; symbolLength &amp;&amp; balanced){
+        string symbol;
+        symbol = symbolString[index];
+        string opens = "([{";
+        string closes = "}])";
+        if (inString(symbol, opens)){
+            s.push(symbol);
+        } else if(inString(symbol, closes)){
+            if (s.empty()){
+                balanced = false;
+            } else {
+                string top = s.top();
+                s.pop();
+                if (!matches(top, symbol)){
+                    balanced = false;
+                    break;
+                }
+            }
+        }
+        index = index + 1;
+    }
+    if(balanced &amp;&amp; s.empty()){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+int main() {
+    cout &lt;&lt; parChecker("{}") &lt;&lt; endl;
+    cout &lt;&lt; parChecker("[{()}]") &lt;&lt; endl;
+    return 0;
+}
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-parcheck2-py" label="lst-parcheck2-py">
+                <title>Python Implementation</title>
+                <statement><program xml:id="parcheck2_py" interactive="activecode" language="python"><input>
 #Program does the same as before, except with 2 extra symbols.
 
 from pythonds.basic.stack import Stack
@@ -147,9 +153,9 @@ def main():
     print(parChecker('{[([][])]()}'))
     print(parChecker('[{()]'))
 main()
-        </input>
-    </program>
-            </TabNode>
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>These two examples show that stacks are very important data structures
             for the processing of language constructs in computer science. Almost
             any notation you can think of has some type of nested symbols that must
@@ -157,50 +163,48 @@ main()
             uses for stacks exist in computer science. We will continue to explore them
             in the next sections.</p>
 <reading-questions xml:id="rq-balanced-sybols">
-    <title>
-        <p>
-            Reading Question
-        </p>
-    </title>
-    
-    
-                <exercise label="stackclick">
-                    <statement><p>Using the program below, click on the line of code that adds an open parenthesis to the stack.</p></statement>
-                <feedback><p>Remember that the function to do this would be the push function.</p></feedback>
-                <areas>
-                <cline><area>bool parChecker(string symbolString){</area>:</cline>
-                <cline>      <area>stack&lt;string&gt; s;</area>:</cline>
-                <cline>      <area>bool balanced = true;</area>:</cline>
-                <cline>      <area>int index = 0;</area>:</cline>
-                <cline>      <area>int symbolLength = symbolString.length();</area>:</cline>
-                <cline/>
-                <cline>      while(index &lt; symbolLength &amp;&amp; balanced){</cline>
-                <cline>          <area>string symbol;</area>:</cline>
-                <cline>          <area>symbol = symbolString[index];</area>:</cline>
-                <cline>          <area>string opens = "({[";</area>:</cline>
-                <cline>          <area>if (inString(symbol, opens)){</area>:</cline>
-                <cline>              <area correct="yes">s.push(symbol);</area>:</cline>
-                <cline>          } else {</cline>
-                <cline>              if (s.empty()){</cline>
-                <cline>                  <area>balanced = false;</area>:</cline>
-                <cline>              } else {</cline>
-                <cline>                  <area>string top = s.top();</area>:</cline>
-                <cline>                  <area>s.pop();</area>:</cline>
-                <cline>                  <area>if (!matches(top, symbol)){</area>:</cline>
-                <cline>                      <area>balanced = false;</area>:</cline>
-                <cline>                  }</cline>
-                <cline>              }</cline>
-                <cline>          }</cline>
-                <cline>          <area>index = index + 1;</area>:</cline>
-                <cline>      }</cline>
-                <cline>      <area>if(balanced &amp;&amp; s.empty()){</area>:</cline>
-                <cline>          <area>return true;</area>:</cline>
-                <cline>      } else {</cline>
-                <cline>          <area>return false;</area>:</cline>
-                <cline>      }</cline>
-                <cline>}</cline>
-                </areas></exercise>
-            </reading-questions>
+  <title>
+    <p>Reading Question</p>
+  </title>
+  <exercise label="stackclick">
+    <statement><p>Using the program below, click on the line of code that adds an open parenthesis to the stack.</p></statement>
+    <feedback><p>Remember that the function to do this would be the push function.</p></feedback>
+    <areas>
+      <cline><area correct="no">bool parChecker(string symbolString){</area>:</cline>
+      <cline>      <area correct="no">stack&lt;string&gt; s;</area>:</cline>
+      <cline>      <area correct="no">bool balanced = true;</area>:</cline>
+      <cline>      <area correct="no">int index = 0;</area>:</cline>
+      <cline>      <area correct="no">int symbolLength = symbolString.length();</area>:</cline>
+      <cline/>
+      <cline>      <area correct="no">while(index &lt; symbolLength &amp;&amp; balanced){</area>:</cline>
+      <cline>          <area correct="no">string symbol;</area>:</cline>
+      <cline>          <area correct="no">symbol = symbolString[index];</area>:</cline>
+      <cline>          <area correct="no">string opens = "({[";</area>:</cline>
+      <cline>          <area correct="no">if (inString(symbol, opens)){</area>:</cline>
+      <cline>              <area correct="yes">s.push(symbol);</area>:</cline> <!-- Correct line -->
+      <cline>          } else {</cline>
+      <cline>              <area correct="no">if (s.empty()){</area>:</cline>
+      <cline>                  <area correct="no">balanced = false;</area>:</cline>
+      <cline>              } else {</cline>
+      <cline>                  <area correct="no">string top = s.top();</area>:</cline>
+      <cline>                  <area correct="no">s.pop();</area>:</cline>
+      <cline>                  <area correct="no">if (!matches(top, symbol)){</area>:</cline>
+      <cline>                      <area correct="no">balanced = false;</area>:</cline>
+      <cline>                  }</cline>
+      <cline>              }</cline>
+      <cline>          }</cline>
+      <cline>          <area correct="no">index = index + 1;</area>:</cline>
+      <cline>      }</cline>
+      <cline>      <area correct="no">if(balanced &amp;&amp; s.empty()){</area>:</cline>
+      <cline>          <area correct="no">return true;</area>:</cline>
+      <cline>      } else {</cline>
+      <cline>          <area correct="no">return false;</area>:</cline>
+      <cline>      }</cline>
+      <cline>  <area correct="no">}</area></cline>
+    </areas>
+  </exercise>
+</reading-questions>
+
             <p>
                 <!-- extra space before the progress bar -->
             </p>

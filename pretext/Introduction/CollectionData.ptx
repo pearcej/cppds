@@ -1,12 +1,14 @@
 <section xml:id="introduction_collections">
         <title>Collections</title>
-        <p>In addition to the numeric, Boolean, and character types,
-            C++ also offers built-in collection types.
-            A <term>collection</term> data type is a grouping of some number of other data items
-            (possibly only zero or one) that have some shared significance
-            or need to be operated upon together.</p>
-        <p>Arrays, vectors, strings, sets, and hash tables are among these useful
-            C++ collection types.</p>
+        <introduction>
+            <p>In addition to the numeric, Boolean, and character types,
+                C++ also offers built-in collection types.
+                A <term>collection</term> data type is a grouping of some number of other data items
+                (possibly only zero or one) that have some shared significance
+                or need to be operated upon together.</p>
+            <p>Arrays, vectors, strings, sets, and hash tables are among these useful
+                C++ collection types.</p>
+        </introduction>
         <subsection xml:id="introduction_arrays">
             <title>Arrays</title>
             <p><term>What is an Array?</term>
@@ -43,8 +45,8 @@
                 memory locations making look-up via index very, very fast.
                 In computing, a <term>word</term> is the unit of data used by a particular processor design,
                 such as 32 or 64 bits. For example, an array of 100 integer variables, with indices 0 through 99,
-                might be stored as 100 words at memory addresses 20000, 20004, 20008, &#8230; 20396.
-                The element with index i would be located at the address 20000 + 4 &#215; i.</p>
+                might be stored as 100 words at memory addresses 20000, 20004, 20008, <ellipsis/> 20396.
+                The element with index i would be located at the address 20000 + 4 <times/> i.</p>
             <p>Statically allocated C++ arrays must be declared with both a type and a size at compile-time.</p>
             <pre>double darray[4];
 int iarray[10];
@@ -60,14 +62,15 @@ string arr3[] = {"this", "is", "an", "array"}; // This is size 4.</pre>
 double ddouble = 1.2;     // can't use index to access value</pre>
             <p><term>Be Cautious with Arrays</term></p>
             <p>The speed and low-level control that arrays offer us
-                as programmers is powerful&#8230; and dangerous.
+                as programmers is powerful<ellipsis/> and dangerous.
                 C++ is designed for speed, and using a C++ array will
                 help you better understand the trade-offs inherent in this.</p>
             <p>Here are examples of iteration.</p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="listarray_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="expl-listarray">
+                <title>Iteration Examples</title>
+                <task xml:id="listarray_cpp" label="listarray_cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program interactive="activecode" language="cpp"><input>
 //showcases an iteration through an array in C++
 #include &lt;iostream&gt;
 using namespace std;
@@ -79,12 +82,11 @@ int main(){
     }
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="listarray_py" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="listarray_py" label="listarray_py">
+                    <title>Python Implementation</title>
+                    <statement><program interactive="activecode" language="python"><input>
 #showcases an iteration through an array in Python
 def main():
     mylist = [2, 4, 6, 8]
@@ -92,9 +94,9 @@ def main():
         print(mylist[i])
 
 main()
-        </input>
-    </program>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>C++ is designed for speed.
                 C++ will not only let you iterate beyond either
                 end of an array, but it will let you change the values
@@ -103,10 +105,12 @@ main()
             <p>The phrase, <q>be careful what you wish for</q> is a great one
                 to remember when programming in C++. Because C++ will
                 generally try to do everything you ask for.</p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-    <program xml:id="array_error_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="expl-array_error">
+                <title>Accessing Elements Outside the Array</title>
+                <task label="array_error_cpp">
+                    <title>C++ Implemenetation</title>
+                    <statement><program xml:id="array_error_cpp" interactive="activecode" language="cpp"><input>
 //outputs the result of trying to access a value outside of an array
 #include &lt;iostream&gt;
 using namespace std;
@@ -119,12 +123,11 @@ int main(){
     }
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="array_error_py" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task label="array_error_py">
+                    <title>Python Implementation</title>
+                    <statement><program xml:id="array_error_py" interactive="activecode" language="python"><input>
 #outputs the result of trying to access a value outside of an array
 def main():
     mylist = [2,4,6,8]
@@ -134,19 +137,21 @@ def main():
         print("id: "+str(id(mylist[i])))
 
 main()
-        </input>
-    </program>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>The speed of C++ comes at the cost of minimal to no error checking.
                 Sometimes this can have perplexing results such as in the next example.</p>
             <p>You should use an array when you have a need for speed
                 or you need to work with hardware constraints.
                 Otherwise, you may want to consider using another collection data type,
                 the <em>vector</em>.</p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-    <program xml:id="array_werror_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="expl-arrayoflow">
+                <title>Array Overflow</title>
+                <task label="array_werror_cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program interactive="activecode" language="cpp"><input>
 /*shows how C++ allows you to easily overwrite values in memory even when
 you don't mean to. */
 #include &lt;iostream&gt;
@@ -170,12 +175,11 @@ int main(){
 
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="array_werror_py" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task label="array_werror_py">
+                    <title>Python Implementation</title>
+                    <statement><program interactive="activecode" language="python"><input>
 """shows how C++ allows you to easily
 overwrite values in memory even when
 you dont mean to."""
@@ -191,13 +195,9 @@ def main():
           print("id: "+str(id(otherdata[i])))
 
 main()
-        </input>
-    </program>
-                </TabNode>
-
-    
-
-    
+                    </input></program></statement>
+                </task>
+            </exploration>
         </subsection>
         <subsection xml:id="introduction_vectors">
             <title>Vectors</title>
@@ -215,13 +215,9 @@ main()
                 needs to include the vector library.</p>
             <pre>#include &lt;vector&gt;</pre>
             
-            <table xml:id="introduction_id4"><tabular>
-                <title><term>Common C++ Vector Operators</term></title>
-                
-                    
-                    
-                    
-                    
+            <table xml:id="introduction_id4">
+                <title>Common C++ Vector Operators</title>
+                <tabular>
                         <row header="yes">
                             <cell>
                                 <term>Vector Operation</term>
@@ -341,15 +337,12 @@ main()
                 as we see in the next example.
                 Because vectors can change size, vectors typically allocate some extra storage to accommodate for possible growth.
                 Thus the vector typically has an actual <em>capacity</em> greater than the storage <em>size</em> strictly needed to contain its elements.</p>
-            <subsubsection xml:id="introduction_matching">
-                <title>Matching</title>
 
-
-
- <TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="introvector_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="expl-introvector">
+                <title>Using <c>reserve</c></title>
+                <task label="introvector_cpp" xml:id="introvector_cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program interactive="activecode" language="cpp"><input>
 /*shows the use of the reserve member, and how it
 can be effective in saving time with a growing vector.*/
 #include &lt;iostream&gt;
@@ -367,12 +360,11 @@ int main(){
     }
     return 0;
 }
-        </input>
-    </program>
-                    </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="introvector_py" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="introvector_py" label="introvector_py">
+                    <title>Python Implementation</title>
+                    <statement><program interactive="activecode" language="python"><input>
 #Python doesn't have vectors, simply stating the limit is enough
 def main():
     intlist=[]
@@ -381,19 +373,21 @@ def main():
         print(intlist[i])
 
 main()
-        </input>
-    </program>
-                    </TabNode>
-                <p>In the above example, the use of <c>reserve</c> was optional. However, it is a good
-                    idea to use it before growing a vector in this way because it will save time.
-                    Because vectors are stored in underlying arrays which require contiguous memory,
-                    every time the vector's size gets too large for the capacity, the entire vector must
-                    be moved to a larger location in memory, and all that copying takes time.
-                    In a typical implementation, the capacity is doubled each time. as in the
-                    example that follows.</p>
+                    </input></program></statement>
+                </task>
+            </exploration>
 
-    <program xml:id="vector_no_reserve_cpp" interactive="activecode" language="cpp">
-        <input>
+            <p>In the above example, the use of <c>reserve</c> was optional. However, it is a good
+            idea to use it before growing a vector in this way because it will save time.
+            Because vectors are stored in underlying arrays which require contiguous memory,
+            every time the vector's size gets too large for the capacity, the entire vector must
+            be moved to a larger location in memory, and all that copying takes time.
+            In a typical implementation, the capacity is doubled each time. as in
+            <xref ref="vector_no_reserve_cpp"/>.</p>
+
+            <listing xml:id="vector_no_reserve_cpp">
+                <caption><c>reserve</c> is optional</caption>
+                <program interactive="activecode" language="cpp"><input>
 //code from above but without the reserve
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
@@ -411,14 +405,17 @@ int main(){
     }
     return 0;
 }
-        </input>
-    </program>
-                <p>Remembering that C++ is designed for speed, not protection,
-                    we will likely not be surprised by the following:</p>
-                <TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+                </input></program>
+            </listing>
 
-    <program xml:id="vector_errors_cpp" interactive="activecode" language="cpp">
-        <input>
+            <p>Remembering that C++ is designed for speed, not protection,
+                    we will likely not be surprised by the following:</p>
+
+            <exploration xml:id="vector_errors">
+                <title>Vector Error</title>
+                <task xml:id="vector_errors_cpp" label="vector_errors_cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program interactive="activecode" language="cpp"><input>
 //shows errors when a vector goes out of bounds
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
@@ -439,12 +436,11 @@ int main(){
 
     return 0;
 }
-        </input>
-    </program>
-                    </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="vector_errors_py" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="vector_errors_py" label="vector_errors_py">
+                    <title>Python Implementation</title>
+                    <statement><program interactive="activecode" language="python"><input>
 #shows errors when a vector goes out of bounds
 def main():
     intlist=[]
@@ -455,14 +451,9 @@ def main():
         print("intlist[" + str(i) + "]=" + str(intlist[i]))
 
 main()
-        </input>
-    </program>
-                    </TabNode>
-
-    
-
-    
-            </subsubsection>
+                    </input></program></statement>
+                </task>
+            </exploration>
         </subsection>
         <subsection xml:id="introduction_strings">
             <title>Strings</title>
@@ -480,16 +471,9 @@ char cstring[] = {"Hello World!"};    // C-string or char array uses double quot
             <p>Because strings are sequences, all of the typical sequence operations work as you would expect.
                 In addition, the string library offers a huge number of
                 methods, some of the most useful of which are shown in <xref ref="introduction_tab-stringmethods"/>.</p>
-
-    
-            
-            <table xml:id="introduction_id5"><tabular>
-                <title><term>Table 4: String Methods Provided in C++</term></title>
-                
-                    
-                    
-                    
-                    
+            <table xml:id="introduction_tab-stringmethods">
+                <title>String Methods Provided in C++</title>
+                <tabular>
                         <row header="yes">
                             <cell>
                                 <term>Method Name</term>
@@ -613,16 +597,13 @@ char cstring[] = {"Hello World!"};    // C-string or char array uses double quot
                                 Returns the size of the string
                             </cell>
                         </row>
-                    
-                
             </tabular></table>
-            <subsubsection xml:id="introduction_id1">
-                <title>Matching</title>
 
-<TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="introstring_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="introstring">
+                <title><c>string</c> introduction</title>
+                <task xml:id="introstring_cpp" label="introstring_cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program interactive="activecode" language="cpp"><input>
 //shows basic string usage in C++
 #include &lt;iostream&gt;
 #include &lt;string&gt;
@@ -642,12 +623,11 @@ int main(){
 
     return 0;
 }
-        </input>
-    </program>
-                    </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="introstring_py" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="introstring_py" label="introstring_py">
+                    <title>Python Implementation</title>
+                    <statement><program interactive="activecode" language="python"><input>
 #shows basic string usage in Python
 def main():
     mystring1 = "Hello"
@@ -661,12 +641,12 @@ def main():
     print(str(mystring3.find(mystring2)))
 
 main()
-        </input>
-    </program>
-                    </TabNode>
-                <p>Check your understanding by completing the following question.</p>
+                    </input></program></statement>
+                </task>
+            </exploration>
 
-            </subsubsection>
+            <p>Check your understanding by completing the following question.</p>
+
         </subsection>
         <subsection xml:id="introduction_hash-tables">
             <title>Hash Tables</title>
@@ -689,10 +669,12 @@ main()
                 key-value pairs can also be added later as we see in the following example.
                 In C++, the keyword <c>first</c> is used for the key, and <c>second</c> is used for the
                 associated value.</p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-    <program xml:id="hashtable1_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="hashtable1">
+                <title>Hash Table Introduction</title>
+                <task xml:id="hashtable1_cpp" label="hashtable1_cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program interactive="activecode" language="cpp"><input>
 //shows how hash tables can be used in C++
 #include &lt;iostream&gt;
 #include &lt;unordered_map&gt;
@@ -711,13 +693,14 @@ int main() {
     cout &lt;&lt; spnumbers["one"] &lt;&lt; endl;
 
     cout &lt;&lt; spnumbers.size() &lt;&lt; endl;
-}
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
 
-    <program xml:id="hashtable1_py" interactive="activecode" language="python">
-        <input>
+    return 0;
+}
+                    </input></program></statement>
+                </task>
+                <task xml:id="hashtable1_py" label="hashtable1_py">
+                    <title>Python Implementation</title>
+                    <statement><program interactive="activecode" language="python"><input>
 #shows how hash tables can be used in python
 def main():
     spnumbers = {"one":"uno","two":"dos"}
@@ -730,9 +713,10 @@ def main():
 
     print(len(spnumbers))
 main()
-        </input>
-    </program>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
+
             <p>It is important to note that hash tables are organized by the location given
                 by the hash function rather than being in any
                 particular order with respect to the keys. This makes look-up extremely fast.
@@ -742,10 +726,12 @@ main()
                 Iterators of an <c>unordered_map</c> are
                 implemented using pointers to point to elements of the value type as we see in
                 the following example.</p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-    <program xml:id="hashtable2_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="hashtable2">
+                <title>Iterating Over a Hash Table</title>
+                <task xml:id="hashtable2_cpp" label="hashtable2_cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program interactive="activecode" language="cpp"><input>
 //shows how to iterate through a hash table in C++
 #include &lt;iostream&gt;
 #include &lt;unordered_map&gt;
@@ -761,13 +747,14 @@ int main() {
         cout &lt;&lt; i-&gt;first &lt;&lt; ":";
         cout &lt;&lt; i-&gt;second &lt;&lt; endl;
     }
-}
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'CollectionData', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
 
-    <program xml:id="hashtable2_py" interactive="activecode" language="python">
-        <input>
+    return 0;
+}
+                    </input></program></statement>
+                </task>
+                <task xml:id="hashtable2_py" label="hashtable2_py">
+                    <title>Python Implementation</title>
+                    <statement><program interactive="activecode" language="python"><input>
 #shows how to iterate through a hash table in python
 def main():
     spnumbers = {"one":"uno","two":"dos","three":"tres","four":"cuatro","five":"cinco" }
@@ -777,19 +764,15 @@ def main():
         print(spnumbers[key])
 
 main()
-        </input>
-    </program>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>Hash Tables have both methods and operators. <xref ref="introduction_tab-hashopers"/>
                 describes them, and the session shows them in action.</p>
             
-            <table xml:id="introduction_id6"><tabular>
-                <title><term>Table 7: Important Hash Table Operators Provided in C++</term></title>
-                
-                    
-                    
-                    
-                    
+            <table xml:id="introduction_tab-hashopers">
+                <title>Important Hash Table Operators Provided in C++</title>
+                <tabular>
                         <row header="yes">
                             <cell>
                                 <term>Operator</term>
@@ -861,10 +844,6 @@ main()
                     
                 
             </tabular></table>
-            <subsubsection xml:id="introduction_id2">
-                <title>Matching</title>
-
-            </subsubsection>
         </subsection>
         <subsection xml:id="introduction_unordered-sets">
             <title>Unordered Sets</title>
@@ -884,13 +863,9 @@ main()
                 have worked with sets in a mathematics setting. <xref ref="introduction_tab-setmethods"/>
                 provides a summary. Examples of their use follow.</p>
             
-            <table xml:id="introduction_id7"><tabular>
-                <title><term>Table 6: Methods Provided by Sets in C++</term></title>
-                
-                    
-                    
-                    
-                    
+            <table xml:id="introduction_tab-setmethods">
+                <title>Methods Provided by Sets in C++</title>
+                <tabular>
                         <row header="yes">
                             <cell>
                                 <term>Method Name</term>
@@ -1012,6 +987,36 @@ int main(){
 <reading-questions xml:id="rq-collection-data">
                     <title>Reading Questions</title>
 
+    <exercise label="matching_ht">
+        <statement><p> Match the Hash Table operations with their corresponding explination.</p></statement>
+        <feedback><p>Feedback shows incorrect matches.</p></feedback>
+        <matches>
+            <match order="1">
+                <premise>begin</premise>
+                <response>An iterator to the first element in the hash table.</response>
+            </match>
+            <match order="2">
+                <premise>[ ]</premise>
+                <response>Returns the value associated with the key, creating a default entry if necessary.</response>
+            </match>
+            <match order="3">
+                <premise>erase</premise>
+                <response>Deletes the entry from the hash table.</response>
+            </match>
+            <match order="4">
+                <premise>at</premise>
+                <response>Returns the value associated with the key, otherwise throws error.</response>
+            </match>
+            <match order="5">
+                <premise>end</premise>
+                <response>An iterator pointing to past-the-end element of the hash table.</response>
+            </match>
+            <match order="6">
+                <premise>count</premise>
+                <response>Returns true if key is in the hash table, and false otherwise.</response>
+            </match>
+        </matches>
+    </exercise>
 
 <exercise label="matching_us">
     <statement><p> Match the Unordered Sets operations with their corresponding explanation.</p></statement>
@@ -1369,7 +1374,7 @@ int main(){
 </reading-questions>
 
         </subsection>
-        <p>
+        <conclusion><p>
             <!-- extra space before the progress bar -->
-        </p>
+        </p></conclusion>
     </section>

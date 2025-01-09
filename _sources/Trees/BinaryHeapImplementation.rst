@@ -101,7 +101,7 @@ appending is that we will very likely violate the heap structure
 property. However, it is possible to write a method that will allow us
 to regain the heap structure property by comparing the newly added item
 with its parent. If the newly added item is less than its parent, then
-we can swap the item with its parent. :ref:`Figure 2 <fig_percUp>` shows the
+we can swap the item with its parent. :ref:`Figure 3 <fig_percUp>` shows the
 series of swaps needed to percolate the newly added item up to its
 proper position in the tree.
 
@@ -113,17 +113,17 @@ proper position in the tree.
 
    Figure 2: Percolate the New Node up to Its Proper Position
 
-Notice that when we percolate an item up, we are restoring the heap
-property between the newly added item and the parent. We are also
-preserving the heap property for any siblings. Of course, if the newly
-added item is very small, we may still need to swap it up another level.
-In fact, we may need to keep swapping until we get to the top of the
-tree. :ref:`Listing 2 <lst_heap2>` shows the ``percUp`` method, which
-percolates a new item as far up in the tree as it needs to go to
-maintain the heap property. Here is where our wasted element in
-``heapvector`` is important. Notice that we can compute the parent of any
-node by using simple integer division. The parent of the current node
-can be computed by dividing the index of the current node by 2.
+Notice that as we percolate an item up the tree, the heap property
+is restored between the newly added item and the parent.
+We also preserve the heap property for any siblings.
+If an item is very small, we will need to swap it up another level.
+In fact, we may need to keep swapping until we get to the top of the tree.
+:ref:`Listing 2 <lst_heap2>` shows the ``percUp`` method,
+which percolates a new item as far up the tree as it needs
+to go to maintain the heap property. Here is where our wasted element in
+``heapvector`` is important. Notice that we can compute the parent of
+any node by using simple integer division because the parent of a node
+is computed by dividing the index of the current node by 2.
 
 We are now ready to write the ``insert`` method (see :ref:`Listing 3 <lst_heap3>`). Most of the work in the
 ``insert`` method is really done by ``percUp``. Once a new item is

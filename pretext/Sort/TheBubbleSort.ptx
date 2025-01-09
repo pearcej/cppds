@@ -14,7 +14,7 @@
         <figure align="center" xml:id="fig-bubblepass">
             <caption><c>BubbleSort</c> The First Pass.</caption>
                 <image source="Sort/bubblepass.png" width="50%">
-                <description>Illustration of bubble sort algorithm during the first pass. A series of arrays showing the step-by-step process of sorting numbers in ascending order. Starting with the array [54, 26, 93, 17, 77, 31, 44, 55, 20], subsequent arrays demonstrate swapping of elements, marked as 'Exchange', or retention of position, marked as 'No Exchange', to progressively move the highest number, 93, to the correct position at the end of the array after the first pass. The final array in the sequence is [26, 54, 17, 77, 31, 44, 55, 20, 93], with the note '93 in place after first pass' indicating the completion of this sorting stage.</description>
+                <description><p>Illustration of bubble sort algorithm during the first pass. A series of arrays showing the step-by-step process of sorting numbers in ascending order. Starting with the array [54, 26, 93, 17, 77, 31, 44, 55, 20], subsequent arrays demonstrate swapping of elements, marked as 'Exchange', or retention of position, marked as 'No Exchange', to progressively move the highest number, 93, to the correct position at the end of the array after the first pass. The final array in the sequence is [26, 54, 17, 77, 31, 44, 55, 20, 93], with the note '93 in place after first pass' indicating the completion of this sorting stage.</p></description>
                 </image>
             </figure>
 
@@ -34,14 +34,19 @@ alist[j] = temp;</pre>
         <p>will exchange the <title_reference>ith</title_reference> and <title_reference>jth</title_reference> items in the array. Without the
             temporary storage, one of the values would be overwritten.</p>
         <p>Lines 5-7 in <xref ref="lst-bubble-cpp"/> perform the exchange of the <m>i</m> and
-            <m>(i+1)th</m> items using the three&#8211;step procedure described
+            <m>(i+1)th</m> items using the three<ndash/>step procedure described
             earlier. Note that we could also have used the simultaneous assignment
             to swap the items.</p>
         
         <figure align="center" xml:id="fig-pythonswap">
             <caption>Exchanging Two Values in Python.</caption>
                 <image source="Sort/swap.png" width="50%">
-                <description>A diagram explaining the process of exchanging two values in a programming language with an extra storage location, compared to Python where exchange can be done with two simultaneous assignments. The upper part of the image shows two array elements labeled 'i' and 'j' with values 93 and 44, and a 'temp' variable used for the 3-step swap process. The lower part shows the simplified Python method where the values 93 and 44 are swapped in place without needing a temporary storage variable.</description>
+                <description><p>A diagram explaining the process of exchanging two values in a programming language with an
+                    extra storage location, compared to Python where exchange can be done with two simultaneous
+                    assignments. The upper part of the image shows two array elements labeled 'i' and 'j'
+                    with values 93 and 44, and a 'temp' variable used for the 3-step swap process.
+                    The lower part shows the simplified Python method where the values 93 and 44 are swapped
+                    in place without needing a temporary storage variable.</p></description>
                 </image>
             </figure>
 
@@ -49,10 +54,11 @@ alist[j] = temp;</pre>
 
         <p>The following activecode example shows the complete <c>bubbleSort</c> function working on the array
             shown above.</p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="lst_bubble_cpp" interactive="activecode" language="cpp">
-        <input>
+        <exploration xml:id="expl-lst-bubble">
+            <title>Bubble Sort Implementation</title>
+            <task xml:id="lst-bubble-cpp" label="lst-bubble-cpp">
+                <title>C++ Implementation</title>
+                <statement><program xml:id="prog-bubble-cpp" interactive="activecode" language="cpp" line-numbers="yes"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -83,12 +89,11 @@ int main() {
     }
     return 0;
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="lst_bubble_py" interactive="activecode" language="python">
-        <input>
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-bubble-py" label="lst-bubble-py">
+                <title>Python Implementation</title>
+                <statement><program xml:id="prog-bubble-py" interactive="activecode" language="python"><input>
 """function goes through list sorting adjacent values as it bubbles
 the largest value to the top."""
 def bubbleSort(alist):
@@ -105,9 +110,9 @@ def main():
     print(alist)
 
 main()
-        </input>
-    </program>
-            </TabNode>
+                </input></program></statement>
+            </task>
+        </exploration>
 
     <p>The visualization in <xref ref="sort_bubblesort-animation"/> allows you to step through the algorithm. Red bars represent
             the elements being looked at.</p>
@@ -165,11 +170,15 @@ main()
         </interactive>
     </figure>
 
-        <p>The following video shows <c>bubbleSort</c> in action. The sort compares two
+        <p>The video in <xref ref="sort_bubble-video"/> shows <c>bubbleSort</c> in action. The sort compares two
             items at a time (shown in blue). Once it finds two out of place blocks it will find the correct place
             for the smaller block and then reset for another pass.</p>
 
-        <video label="sort_bubble_sort-video" source="Sort/vis_bubble_sort.webm" width="80%" preview="Sort/vis_bubble_sort_thumb.png" />
+        <figure xml:id="sort_bubble-video">
+            <caption>Video of <c>insertionSort</c> in action.</caption>
+            <video label="sort_bubble_sort-video" source="Sort/vis_bubble_sort.webm" width="80%" preview="Sort/vis_bubble_sort_thumb.png" />
+        </figure>
+        
 
         <p>To analyze the bubble sort, we should note that regardless of how the
             items are arranged in the initial array, <m>n-1</m> passes will be
@@ -185,12 +194,9 @@ main()
             comparison will cause an exchange. On average, we exchange half of the
             time.</p>
         
-        <table xml:id="sort_id3"><tabular>
-            <title><term>Table 1: Comparisons for Each Pass of Bubble Sort</term></title>
-            
-                
-                
-                
+        <table xml:id="sort_tbl-bubbleanalysis">
+            <title>Comparisons for Each Pass of Bubble Sort</title>
+            <tabular>
                     <row header="yes">
                         <cell>
                             <term>Pass</term>
@@ -227,10 +233,10 @@ main()
                     </row>
                     <row>
                         <cell>
-                            &#8230;
+                            <ellipsis/>
                         </cell>
                         <cell>
-                            &#8230;
+                            <ellipsis/>
                         </cell>
                     </row>
                     <row>
@@ -256,10 +262,12 @@ main()
             advantage in that it will recognize the sorted array and stop.
             <xref ref="lst-shortbubbles-cpp"/> shows this modification, which is often referred
             to as the <term>short bubble</term>.</p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-    <program xml:id="lst_shortbubbles_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="expl-shortbubbles">
+                <title>Short Bubbles Implementation</title>
+                <task xml:id="lst-shortbubbles-cpp" label="lst-shortbubbles-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program xml:id="prog-shortbubbles-cpp" interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 
@@ -299,12 +307,11 @@ int main() {
     }
     return 0;
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheBubbleSort', 'chapter': 'Sort', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="lst_shortbubble_py" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="lst-shotbubbles-py" label="lst-shotbubbles-py">
+                    <title>Python Implementation</title>
+                    <statement><program xml:id="prog-shortbubbles-py" interactive="activecode" language="python"><input>
 def shortBubbleSort(alist):
     exchanges = True
     passnum = len(alist)-1
@@ -323,9 +330,9 @@ def shortBubbleSort(alist):
 alist=[20,30,40,90,50,60,70,80,100,110]
 shortBubbleSort(alist)
 print(alist)
-        </input>
-    </program>
-            </TabNode>
+               </input></program></statement>
+            </task>
+        </exploration>
         <!--Finally, here is ``shortBubbleSort`` in CodeLens (CodeLens 2)..-->
         <!---->
         <!--.. codelens:: shortbubbletrace-->
@@ -352,7 +359,7 @@ print(alist)
         <statement>
 
             <p>Suppose you have the following array of numbers to sort:
-                [19, 1, 9, 7, 3, 10, 13, 15, 8, 12] which array represents the partially sorted list after three complete passes of bubble sort?</p>
+                [19, 1, 9, 7, 3, 10, 13, 15, 8, 12]. Which array represents the partially sorted list after three complete passes of bubble sort?</p>
 
         </statement>
 <choices>

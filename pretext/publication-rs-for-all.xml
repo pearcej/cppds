@@ -8,7 +8,8 @@
     <html>
         <platform host="web" />
         <!-- knowled checkpoints interfere with ActiveCode problems -->
-        <knowl exercise-inline="no" example="no" listing="yes" />
+        <knowl exercise-inline="no" example="no" listing="no" />
+        <exercises tabbed-tasks="inline project"/>
     </html>
 
     <stringparam key="debug.rs.services.file" value="/home/campbelle2/RunestoneComponents/runestone/dist/webpack_static_imports.xml" />

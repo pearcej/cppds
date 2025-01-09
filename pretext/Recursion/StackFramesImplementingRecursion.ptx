@@ -4,11 +4,12 @@
             to <c>toStr</c> with the string from <c>convertString</c>, we modified our
             algorithm to push the strings onto a stack instead of making the recursive
             call. The code for this modified algorithm is shown in
-            <xref ref="lst-recstackcpp"/>.</p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'StackFramesImplementingRecursion', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="lst_recstackcpp" interactive="activecode" language="cpp">
-        <input>
+            <xref ref="lst-recstack-cpp"/>.</p>
+        <exploration xml:id="expl-lst-recstack-cpp">
+            <title>Using Stack Instead of Recursion</title>
+            <task xml:id="lst-recstack-cpp" label="lst-recstack-cpp">
+                <title>C++ Implementation</title>
+                <statement><program xml:id="lst_recstackcpp" interactive="activecode" language="cpp"><input>
 //Example of the toStr function using a stack instead of recursion.
 
 #include &lt;iostream&gt;
@@ -40,12 +41,11 @@ string toStr(int n, int base) {
 int main() {
   cout &lt;&lt; toStr(1453, 16);
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'StackFramesImplementingRecursion', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="lst_recstackpy" interactive="activecode" language="python">
-        <input>
+            </input></program></statement>
+        </task>
+        <task xml:id="lst-recstack-py" label="lst-recstack-py">
+            <title>Python Implementation</title>
+            <statement><program xml:id="lst_recstackpy" interactive="activecode" language="python"><input>
 #Example of the toStr function using a stack instead of recursion.
 
 from pythonds.basic.stack import Stack
@@ -70,9 +70,9 @@ def main():
     print(toStr(1453,16))
 
 main()
-        </input>
-    </program>
-            </TabNode>
+            </input></program></statement>
+        </task>
+    </exploration>
         <p>Each time we make a call to <c>toStr</c>, we push a character on the stack.
             Returning to the previous example we can see that after the fourth call
             to <c>toStr</c> the stack would look like <xref ref="fig-recstack"/>. Notice
@@ -82,7 +82,7 @@ main()
         <figure align="center" xml:id="fig-recstack">
             <caption>Strings Placed on the Stack During Conversion.</caption>
                 <image source="Recursion/recstack.png" width="50%">
-                <description>Image of a stack with character strings representing the result of a conversion process. The stack shows four blocks, each containing a single character. From top to bottom, the blocks are labeled '1', '0', '1', and '0', aligned vertically above a horizontal line that represents the base of the stack. This illustrates the sequence of characters placed on the stack during a number conversion, presumably from a recursive process.</description>
+                <description><p>Image of a stack with character strings representing the result of a conversion process. The stack shows four blocks, each containing a single character. From top to bottom, the blocks are labeled '1', '0', '1', and '0', aligned vertically above a horizontal line that represents the base of the stack. This illustrates the sequence of characters placed on the stack during a number conversion, presumably from a recursive process.</p></description>
                 </image>
             </figure>
 
@@ -94,9 +94,9 @@ main()
             call stack after the return statement on line 4.</p>
         
         <figure align="center" xml:id="fig-callstack">
-            <caption>Call Stack Generated from <literal>toStr(10,2).</literal></caption>
+            <caption>Call Stack Generated from <c>toStr(10,2).</c></caption>
                 <image source="Recursion/newcallstack.png" width="50%">
-                <description>Diagram illustrating a call stack generated from the function toStr(10,2), which converts the number 10 into a base 2 string. The bottom of the stack shows 'toStr(10/2, 2) + convertString[10%2]', then above it 'toStr(5,2) n = 5 base = 2' with 'toStr(5/2,2) + convertString[5%2]', followed by 'toStr(2,2) n = 2 base = 2' and at the top 'toStr(2/2,2) + convertString[2%2]'. A single character '1' floats above the stack, indicating the start of the conversion process.</description>
+                <description><p>Diagram illustrating a call stack generated from the function toStr(10,2), which converts the number 10 into a base 2 string. The bottom of the stack shows 'toStr(10/2, 2) + convertString[10%2]', then above it 'toStr(5,2) n = 5 base = 2' with 'toStr(5/2,2) + convertString[5%2]', followed by 'toStr(2,2) n = 2 base = 2' and at the top 'toStr(2/2,2) + convertString[2%2]'. A single character '1' floats above the stack, indicating the start of the conversion process.</p></description>
                 </image>
             </figure>
 
@@ -105,7 +105,7 @@ main()
             <c>"1"</c> on the stack. This return value is then used in place of the
             function call (<c>toStr(1,2)</c>) in the expression <c>"1" + convertString[2%2]</c>, which will leave the string <c>"10"</c> on the top of
             the stack. In this way, the C++ call stack takes the place of the
-            stack we used explicitly in <xref ref="lst-recstackcpp"/>. In our list summing
+            stack we used explicitly in <xref ref="lst-recstack-cpp"/>. In our list summing
             example, you can think of the return value on the stack taking the place
             of an accumulator variable.</p>
         <p>The stack frames also provide a scope for the variables used by the

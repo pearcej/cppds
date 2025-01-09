@@ -36,9 +36,10 @@
             <xref ref="ls_mkvectcpp"/> shows the code for
             making our vector.</p>
         
-        <p xml:id="algorithm-analysis_lst-mkvectcpp" names="lst_mkvectcpp"><term>Listing 3</term></p>
         <listing xml:id="ls_mkvectcpp">
-        <pre>#include &lt;iostream&gt;
+            <caption>Using <c>push_back()</c></caption>
+            <program language="cpp"><input>
+#include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
 
@@ -52,8 +53,9 @@ void test1(int num){
 
 int main() {
     test1(1000);
-}</pre>
-</listing>
+}
+            </input></program>
+        </listing>
         <p>To capture the time it takes for each of our functions to execute we
             will use C++'s <c>ctime</c> module. The <c>ctime</c> module is designed
             to allow C++ developers to make cross-platform timing measurements by
@@ -66,8 +68,9 @@ int main() {
             The following session shows how long it takes to run each
             of our test functions 10,000 times within a <c>for</c> loop.</p>
 
-    <program xml:id="vectcpp2" interactive="activecode" language="cpp">
-        <input>
+    <listing xml:id="lst-vectcpp2">
+        <caption>Timing <c>push_back()</c></caption>
+        <program xml:id="vectcpp2" interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -95,7 +98,7 @@ int main(){
     return 0;
 }
         </input>
-    </program>
+    </program></listing>
         <p>In the experiment above the statement that we are timing is the function
             call to <c>test1</c>. From the experiment, we see the amount of time taken by the push_back operation.
             Not only is the <c>push_back()</c> function call duration being measured, but the time to allocate space is being measured.</p>
@@ -103,8 +106,9 @@ int main(){
             in advance. Doing this will keep us from having to move the entire vector to an
             adequately sized space in memory.</p>
 
-    <program xml:id="vectcpp3" interactive="activecode" language="cpp">
-        <input>
+    <listing xml:id="lst-vectcpp3">
+        <caption>Reserved Versus Unreserved <c>push_back()</c></caption>
+        <program xml:id="vectcpp3" interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -151,7 +155,7 @@ int main(){
     return 0;
 }
         </input>
-    </program>
+    </program></listing>
         <p>Now that we have seen how performance can be measured concretely you can
             look at <xref ref="algorithm_analysis_algorithm_analysis_tbl_vectbigocpp"/> to see the Big-O efficiency of all the
             basic vector operations. When <c>pop_back()</c> is called, the element
@@ -166,8 +170,9 @@ int main(){
             <m>O(1)</m>. This is a tradeoff that the C++ implementers thought
             was a good one.</p>
         
-        <table xml:id="algorithm_analysis_algorithm_analysis_tbl_vectbigocpp"><tabular>
-            <title><term>Table 2: Big-O Efficiency of C++ Vector Operators</term></title>
+        <table xml:id="algorithm_analysis_algorithm_analysis_tbl_vectbigocpp">
+            <title>Big-O Efficiency of C++ Vector Operators</title>
+            <tabular>
             
                 
                 
@@ -273,16 +278,16 @@ int main(){
                 
             
         </tabular></table>
-        <p>The <title_reference>push_back()</title_reference> operation is <m>O(1)</m> unless there is inadequate capacity,
+        <p>The <c>push_back()</c> operation is <m>O(1)</m> unless there is inadequate capacity,
             in which case the entire
             vector is moved to a larger contiguous underlying array, which
             is <m>O(n)</m>.</p>
-        <p>Note that the vector class provides a find command which can determine
+        <p>Note that the vector class provides a <c>find</c> operation which can determine
             whether a given item is in the vector. It is <m>O(\log n)</m> if
             the vector is sorted and is <m>O(n)</m> otherwise. We will explain
-            why this is in Chapter 3.</p>
-        <p>As a way of demonstrating the difference in performance between push_back
-            and insert, let's do
+            why this is in <xref ref="ch-linear-basic"/>.</p>
+        <p>As a way of demonstrating the difference in performance between <c>push_back</c>
+            and <c>insert</c>, let's do
             another experiment using the <c>ctime</c> module. Our goal is to be able
             to verify the performance of the <c>pop_back()</c> operation on a vector of a known
             size when the program pops from the end of the vector using <c>pop_back()</c>, and again when the
@@ -299,10 +304,10 @@ int main(){
             Because the timer repeats 10,000 times it is also important to point out
             that the vector is decreasing in size by 1 each time through the loop.</p>
         
-        <p xml:id="algorithm-analysis_lst-popmeascpp" names="lst_popmeascpp"><term>Listing 4</term></p>
     <listing xml:id="lst_popmeascpp">
-    <program xml:id="popbackvserase" interactive="activecode" language="cpp">
-        <input>
+        <caption>Timing of <c>push_back</c> Versus <c>erase</c></caption>
+        <program xml:id="popbackvserase" interactive="activecode" language="cpp">
+            <input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -346,9 +351,9 @@ int main(){
 
     return 0;
 }
-        </input>
-    </program>
-</listing>
+            </input>
+        </program>
+    </listing>
 <reading-questions xml:id="rq-vector-analysis">
     <title>
         Reading Question
@@ -357,7 +362,7 @@ int main(){
     
 <exercise label="matching_VectorBO">
     <statement><p>Drag the operation(s) on the left to their corresponding Big(O)</p></statement>
-    <feedback><p>Review operations and thier Big(O)</p></feedback>
+    <feedback><p>Review operations and their Big(O)</p></feedback>
 <matches><match order="1"><premise>begin(), end(), size(), index [], index assignment = ,push_back(), pop_back()</premise><response> O(1)</response></match><match order="2"><premise>reserve(), erase(i), insert(i, item),find(srt, stp, item)</premise><response>O(n)</response></match><match order="3"><premise>find(srt, stp, item)</premise><response>O(log n)</response></match></matches></exercise>    
 </reading-questions>
 <p>

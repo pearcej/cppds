@@ -1,5 +1,6 @@
 <section xml:id="linear-linked_implementing-an-ordered-linked-list">
         <title>Implementing an Ordered Linked List</title>
+        <introduction>
         <definition xml:id="def-ordered-linked-list">
         <idx>ordered linked list</idx>
             <statement>
@@ -18,19 +19,23 @@
         <figure align="center" xml:id="fig-orderlinked">
             <caption>An Ordered Linked List.</caption>
                 <image source="LinearLinked/orderlinkedlist.png" width="80%">
-                <description>Image of an ordered linked list with rectangular nodes connected by arrows. The list begins with a node labeled 'head' pointing to '17', followed by sequential nodes labeled '26', '31', '54', '77', and '93', with arrows indicating the direction of linkage from left to right. The structure represents a series of linked elements in ascending order.</description>
+                <description><p>Image of an ordered linked list with rectangular nodes connected by arrows. The list begins with a node labeled 'head' pointing to '17', followed by sequential nodes labeled '26', '31', '54', '77', and '93', with arrows indicating the direction of linkage from left to right. The structure represents a series of linked elements in ascending order.</p></description>
                 </image>
             </figure>
         
         <p>To implement the <c>OrderedList</c> class, we will use the same technique
             as seen previously with unordered linked lists. Once again, an empty linked list will
             be denoted by a <c>head</c> reference to <c>NULL</c> (see
-            <xref ref="lst-orderlist"/>).</p>
+            <xref ref="linear-linked_lst-orderlist"/>).</p>
         
-        <p xml:id="linear-linked_lst-orderlist" names="lst_orderlist"><term>Listing 8</term></p>
-        <pre>class OrderedList {
+        <listing xml:id="linear-linked_lst-orderlist">
+            <caption><c>OrderedList</c> Member Variable</caption>
+            <program language="cpp"><input>
+class OrderedList {
     Node* head;
-}</pre>
+}
+            </input></program>
+        </listing>
         <p>As we consider the operations for the ordered linked list, we should note that
             the <c>isEmpty</c> and <c>size</c> methods can be implemented the same as
             with unordered linked lists since they deal only with the number of nodes in
@@ -60,21 +65,23 @@
         <figure align="center" xml:id="fig-stopearly">
             <caption>Searching an Ordered Linked List.</caption>
                 <image source="LinearLinked/orderedsearch.png" width="80%">
-                <description>Diagram showing the process of searching an ordered linked list. The list includes rectangular nodes with numbers '17', '26', '31', '54', '77', and '93' connected by arrows from a 'head' node. Above each node except 'head' and '93', a dashed arrow points down, labeled 'current', indicating the position being checked. Over the '54' node, there is a magnifying glass symbol, suggesting it is the current focus of the search. The list is terminated by a vertical bar symbol.</description>
+                <description><p>Diagram showing the process of searching an ordered linked list. The list includes rectangular nodes with numbers '17', '26', '31', '54', '77', and '93' connected by arrows from a 'head' node. Above each node except 'head' and '93', a dashed arrow points down, labeled 'current', indicating the position being checked. Over the '54' node, there is a magnifying glass symbol, suggesting it is the current focus of the search. The list is terminated by a vertical bar symbol.</p></description>
                 </image>
             </figure>
 
-        <p><xref ref="lst-ordersearch"/> shows the complete <c>search</c> method. It is
+        <p><xref ref="linear-linked_lst-ordersearch"/> shows the complete <c>search</c> method. It is
             easy to incorporate the new condition discussed above by adding another
             boolean variable, <c>stop</c>, and initializing it to <c>False</c> (line 4).
             While <c>stop</c> is <c>False</c> (in other words, while the search is still ongoing) we can continue to look
             forward in the linked list (line 5). If any node is ever discovered that
             contains data greater than the item we are looking for, we will set
-            <c>stop</c> to <c>True</c> (lines 9&#8211;10). The remaining lines are identical to
+            <c>stop</c> to <c>True</c> (lines 9<ndash/>10). The remaining lines are identical to
             the unordered linked list search.</p>
         
-        <p xml:id="linear-linked_lst-ordersearch" names="lst_ordersearch"><term>Listing 9</term></p>
-        <pre>bool search(int item) {
+        <listing xml:id="linear-linked_lst-ordersearch">
+            <caption><c>search</c> Method</caption>
+            <program language="cpp"><input>
+bool search(int item) {
     Node *current = head;
     bool found = false;
     bool stop = false;
@@ -91,7 +98,9 @@
     }
 
     return found;
-}</pre>
+}
+            </input></program>
+        </listing>
         <p>The most significant method modification will take place in <c>add</c>.
             Recall that for unordered linked lists, the <c>add</c> method could simply place a
             new node at the head of the linked list. It was the easiest point of access.
@@ -111,15 +120,15 @@
         <figure align="center" xml:id="fig-orderinsert">
             <caption>Adding an Item to an Ordered Linked List.</caption>
                 <image source="LinearLinked/linkedlistinsert.png" width="80%">
-                <description>Diagram of an ordered linked list illustrating the addition of a new item. The list starts with 'head' pointing to '17', then '26', followed by '54', '77', and '93', ending with a vertical bar symbol. A separate node labeled '31' with an arrow pointing right is positioned below, with a label 'temp'. Dashed arrows labeled 'Step 1' and 'Step 2' show the process of inserting '31' between '26' and '54'. Arrows from above point to '26' and '54' labeled 'previous' and 'current' respectively, indicating their positions relative to the insertion. </description>
+                <description><p>Diagram of an ordered linked list illustrating the addition of a new item. The list starts with 'head' pointing to '17', then '26', followed by '54', '77', and '93', ending with a vertical bar symbol. A separate node labeled '31' with an arrow pointing right is positioned below, with a label 'temp'. Dashed arrows labeled 'Step 1' and 'Step 2' show the process of inserting '31' between '26' and '54'. Arrows from above point to '26' and '54' labeled 'previous' and 'current' respectively, indicating their positions relative to the insertion.</p></description>
                 </image>
             </figure>
 
         <p>As we saw with unordered linked lists, it is necessary to have an additional
             reference, again called <c>previous</c>, since <c>current</c> will not provide
-            access to the node that must be modified. <xref ref="lst-orderadd"/> shows
-            the complete <c>add</c> method. Lines 2&#8211;3 set up the two external
-            references and lines 9&#8211;10 again allow <c>previous</c> to follow one node
+            access to the node that must be modified. <xref ref="linear-linked_lst-orderadd"/> shows
+            the complete <c>add</c> method. Lines 2<ndash/>3 set up the two external
+            references and lines 9<ndash/>10 again allow <c>previous</c> to follow one node
             behind <c>current</c> every time through the iteration. The condition (line
             5) allows the iteration to continue as long as there are more nodes and
             the value in the current node is not larger than the item. In either
@@ -131,8 +140,10 @@
             beginning of the linked list or some place in the middle. Again,
             <c>previous == NULL</c> (line 13) can be used to provide the answer.</p>
         
-        <p xml:id="linear-linked_lst-orderadd" names="lst_orderadd"><term>Listing 10</term></p>
-        <pre>void add(int item) {
+        <listing xml:id="linear-linked_lst-orderadd">
+            <caption><c>add</c> Method</caption>
+            <program language="cpp"><input>
+void add(int item) {
     if (head == NULL) {
         Node *newNode = new Node(item);
         head = newNode;
@@ -157,7 +168,9 @@
             previous-&gt;setNext(temp);
         }
     }
-}</pre>
+}
+            </input></program>
+        </listing>
         <p>The <c>OrderedList</c> class with methods discussed thus far can be found
             in ActiveCode 1.
             We leave the remaining methods as exercises. You should carefully
@@ -311,6 +324,7 @@ int main() {
 }
         </input>
     </program>
+    </introduction>
         <subsection xml:id="linear-linked_analysis-of-linked-lists">
             <title>Analysis of Linked Lists</title>
             <p>To analyze the complexity of the linked list operations, we need to
@@ -378,7 +392,7 @@ int main() {
 
     </exercise>
         </subsection>
-        <p>
+        <conclusion><p>
             <!-- extra space before the progress bar -->            
-        </p>
+        </p></conclusion>
 </section>

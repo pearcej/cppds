@@ -21,12 +21,12 @@
             rules specify, the disks on each peg are stacked so that smaller disks
             are always on top of the larger disks. If you have not tried to solve
             this puzzle before, you should try it now. You do not need fancy disks
-            and poles&#8211;a pile of books or pieces of paper will work.</p>
+            and poles<ndash/>a pile of books or pieces of paper will work.</p>
         
         <figure align="center" xml:id="fig-hanoicpp">
             <caption>An Example Arrangement of Disks for the Tower of Hanoi.</caption>
                 <image source="Recursion/hanoi.png" width="80%">
-                <description>Image depicting the initial setup of the Tower of Hanoi puzzle. It shows three vertical poles labeled 'fromPole', 'withPole', and 'toPole' on a horizontal base. The 'fromPole' has three disks stacked on it, with the largest at the bottom and the smallest at the top, while the other two poles are empty. This is a classic configuration for the start of the puzzle, which involves moving the disks to another pole under certain rules. </description>
+                <description><p>Image depicting the initial setup of the Tower of Hanoi puzzle. It shows three vertical poles labeled 'fromPole', 'withPole', and 'toPole' on a horizontal base. The 'fromPole' has three disks stacked on it, with the largest at the bottom and the smallest at the top, while the other two poles are empty. This is a classic configuration for the start of the puzzle, which involves moving the disks to another pole under certain rules.</p></description>
                 </image>
             </figure>
 
@@ -69,11 +69,12 @@
             this case, we need move only a single disk to its final destination. A
             tower of one disk will be our base case. In addition, the steps outlined
             above move us toward the base case by reducing the height of the tower
-            in steps 1 and 3. <xref ref="lst-hanoicpp"/> shows the Python code to solve the
+            in steps<nbsp/>1 and<nbsp/>3. <xref ref="lst-movetower"/> shows the code to solve the
             Tower of Hanoi puzzle.</p>
         
-        <p xml:id="recursion_lst-hanoicpp" names="lst_hanoicpp"><term>Listing 1</term></p>
-        <program language="cpp"><input>
+        <listing xml:id="lst-movetower">
+            <caption><c>moveTower</c> Function</caption>
+            <program language="cpp"><input>
 int moveTower(int height, char fromPole, char toPole, char withPole){
     if (height &gt;= 1){
         moveTower(height-1, fromPole, withPole, toPole);
@@ -81,14 +82,15 @@ int moveTower(int height, char fromPole, char toPole, char withPole){
         moveTower(height-1, withPole, toPole, fromPole);
     }
 }
-</input></program>
-        <p>Notice that the code in <xref ref="lst-hanoicpp"/> is almost identical to the
+            </input></program>
+        </listing>
+        <p>Notice that the code in <xref ref="lst-movetower"/> is almost identical to the
             English description. The key to the simplicity of the algorithm is that
-            we make two different recursive calls, one on line 3 and a
-            second on line 5. On line 3 we move all but the bottom
+            we make two different recursive calls, one on line<nbsp/>3 and a
+            second on line<nbsp/>5. On line<nbsp/>3 we move all but the bottom
             disk on the initial tower to an intermediate pole. The next line simply
-            moves the bottom disk to its final resting place. Then on line
-            5 we move the tower from the intermediate pole to the top of
+            moves the bottom disk to its final resting place. Then on
+            line<nbsp/>5 we move the tower from the intermediate pole to the top of
             the largest disk. The base case is detected when the tower height is 0;
             in this case there is nothing to do, so the <c>moveTower</c> function
             simply returns. The important thing to remember about handling the base
@@ -96,20 +98,23 @@ int moveTower(int height, char fromPole, char toPole, char withPole){
             finally allows the <c>moveDisk</c> function to be called.</p>
         <p>The function <c>moveDisk</c>, shown in <xref ref="lst-movediskcpp"/>, is very
             simple. All it does is print out that it is moving a disk from one pole
-            to another. If you type in and run the <c>moveTower</c> program you can see
+            to another. If you type in and run the <c>moveTower</c> program
+            (in <xref ref="lst-hanoi-whole"/>) you can see
             that it gives you a very efficient solution to the puzzle.</p>
-        
-        <p xml:id="recursion_lst-movediskcpp" names="lst_movediskcpp"><term>Listing 2</term></p>
-        <program language="cpp"><input>
+
+        <exploration xml:id="expl-hanoi">
+            <title>Towers of Hanoi</title>
+            <task xml:id="lst-movediskcpp" label="lst-movediskcpp">
+                <title>C++ Implementation of <c>moveDisk</c></title>
+                <statement><program language="cpp"><input>
 int moveDisk(char fp, char tp){
     cout &lt;&lt; "moving disk from " &lt;&lt; fp &lt;&lt; " to " &lt;&lt; tp &lt;&lt; endl;
 }
-</input></program>
-        <p>The program in ActiveCode 1 provides the entire solution for three disks.</p>
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'TowerofHanoi', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="hanoicpp" interactive="activecode" language="cpp">
-        <input>
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-hanoi-whole" label="lst-hanoi-whole">
+                <title>C++ Solution to Towers of Hanoi</title>
+                <statement><program xml:id="hanoicpp" interactive="activecode" language="cpp" line-numbers="yes"><input>
 //Simulation of the tower of hanoi.
 
 #include &lt;iostream&gt;
@@ -130,12 +135,11 @@ void moveTower(int height, char fromPole, char toPole, char withPole){
 int main() {
     moveTower(3, 'A', 'B', 'C');
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TowerofHanoi', 'chapter': 'Recursion', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="hanoipy" interactive="activecode" language="python">
-        <input>
+                </input></program></statement>
+            </task>
+            <task xml:id="lst_movediskpy" label="lst_movediskpy">
+                <title>Python Solution to Towers of Hanoi</title>
+                <statement><program xml:id="hanoipy" interactive="activecode" language="python"><input>
 #Simulation of the tower of hanoi.
 
 def moveTower(height,fromPole, toPole, withPole):
@@ -151,20 +155,35 @@ def main():
     moveTower(3,"A","B","C")
 
 main()
-        </input>
-    </program>
-            </TabNode>
- <p>Now that you have seen the code for both <c>moveTower</c> and <c>moveDisk</c>,
+                </input></program></statement>
+            </task>
+        </exploration>
+        <p>Now that you have seen the code for both <c>moveTower</c> and <c>moveDisk</c>,
             you may be wondering why we do not have a data structure that explicitly
             keeps track of what disks are on what poles. Here is a hint: if you were
             going to explicitly keep track of the disks, you would probably use
             three <c>Stack</c> objects, one for each pole. The answer is that C++
             provides the stacks that we need implicitly through the call stack.</p>
 
-            <reading-questions xml:id="rq-tower-hanoi">
-
-                <exercise>
+        <reading-questions xml:id="rq-tower-hanoi">
+            <exercise label="ex-hanoi">
                     <statement>
-            <p>If you change the tower height in Line 17 from 3 to 6, how many moves must you make to complete the Hanoi tower? (Hint, try implementing a counter to return the correct number.) <var/>  </p></statement><setup><var><condition number="[63, 63]"><feedback><p>Correct, you can make a global counter at line 3, and then cout the increasing total under line 11.</p></feedback></condition><condition number="[62, 62]"><feedback><p>Technically you are correct but, you are off by one.</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>Please try again you need to add a statement at line 3, and under line 11.</p></feedback></condition></var></setup></exercise>    </reading-questions>   
+                      <p>If you change the tower height in line<nbsp/>19 in <xref ref="lst-hanoi-whole"/>
+                          from 3 to 6, how many moves must you make to complete the Hanoi tower?
+                          (Hint, try implementing a counter to return the correct number.)<var/>  </p>
+                    </statement>
+                    <setup><var>
+                        <condition number="[63]">
+                            <feedback><p>Correct, you can make a global counter at line 3, and then cout the increasing total under line 11.</p></feedback>
+                        </condition>
+                        <condition number="[62]">
+                            <feedback><p>Technically you are correct but, you are off by one.</p></feedback>
+                        </condition>
+                        <condition string="^\s*.*\s*$">
+                            <feedback><p>Please try again you need to add a statement at line 3, and under line 11.</p></feedback>
+                        </condition>
+                    </var></setup>
+                </exercise>
+            </reading-questions>   
     </section>
 

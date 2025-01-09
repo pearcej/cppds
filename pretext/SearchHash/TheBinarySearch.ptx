@@ -1,5 +1,6 @@
 <section xml:id="search-hash_the-binary-search">
         <title>The Binary Search</title>
+        <introduction>
         <p>It is possible to take greater advantage of the ordered vector if we are
             clever with our comparisons. In the sequential search, when we compare
             against the first item, there are at most <m>n-1</m> more items to
@@ -23,13 +24,14 @@
         <figure align="center" xml:id="fig-binsearch">
             <caption>Binary Search of an Ordered vector of Integers.</caption>
                 <image source="SearchHash/binsearch.png" width="80%">
-                <description>Diagram of an ordered sequence of boxes containing integers, indicative of a binary search algorithm. The numbers in the boxes are '17', '20', '26', '31', '44', '54', '55', '65', '77', and '93', arranged in ascending order. An arrow labeled 'Start' splits into two, pointing to the middle of the sequence, suggesting the initial step in binary search where the middle element is first compared with the target value.</description>
+                <description><p>Diagram of an ordered sequence of boxes containing integers, indicative of a binary search algorithm. The numbers in the boxes are '17', '20', '26', '31', '44', '54', '55', '65', '77', and '93', arranged in ascending order. An arrow labeled 'Start' splits into two, pointing to the middle of the sequence, suggesting the initial step in binary search where the middle element is first compared with the target value.</p></description>
                 </image>
             </figure>
 
         <p>A similar implementation can be carried out using vectors in C++.</p>
 
     <listing xml:id="lst-binary_search_cpp">
+        <caption>Binary Search of a vector</caption>
     <program xml:id="binary_search_cpp" interactive="activecode" language="cpp">
         <input>
 #include &lt;iostream&gt;
@@ -37,7 +39,7 @@
 using namespace std;
 
 // Checks to see if item is in a vector
-// retruns true or false (1 or 0)
+// returns true or false (1 or 0)
 // using binary Search
 bool binarySearch(vector&lt;int&gt; avector, int item) {
     int first = 0;
@@ -88,6 +90,7 @@ int main() {
             however this can only be used when new vectors are created.</p>
 
     <listing xml:id="binarysearch-1">
+        <caption>Recursive Binary Search</caption>
     <program xml:id="binary_search_cpp_recursive" interactive="activecode" language="cpp">
         <input>
 #include &lt;iostream&gt;
@@ -95,7 +98,7 @@ int main() {
 using namespace std;
 
  // Checks to see if item is in a vector
- // retruns true or false (1 or 0)
+ // returns true or false (1 or 0)
  // using binary Search and
  // seperating the vector in halves
 
@@ -132,6 +135,7 @@ int main() {
         </input>
     </program>
     </listing>
+    </introduction>
         <subsection xml:id="search-hash_analysis-of-binary-search">
             <title>Analysis of Binary Search</title>
             <p>To analyze the binary search algorithm, we need to recall that each
@@ -144,8 +148,9 @@ int main() {
                 times can we split the list? <xref ref="search-hash_tbl-binaryanalysis"/> helps us to see the
                 answer.</p>
             
-            <table xml:id="search-hash_id2"><tabular>
-                <title><term>Table 3: Tabular Analysis for a Binary Search</term></title>
+            <table xml:id="search-hash_tbl-binaryanalysis">
+                <title>Tabular Analysis for a Binary Search</title>
+                <tabular>
                 
                     
                     
@@ -186,7 +191,7 @@ int main() {
                         </row>
                         <row>
                             <cell>
-                                &#8230;
+                                <ellipsis/>
                             </cell>
                             <cell>
                             </cell>
@@ -218,17 +223,21 @@ int main() {
                 constant time. This means that the binary search using slice will not
                 perform in strict logarithmic time. Luckily this can be remedied by
                 passing the list along with the starting and ending indices. The indices
-                can be calculated as we did in <xref ref="lst-binarysearchpy"/>. This is especially relevant in C++, where we are initializing a new vector for each split of our list. To truly optimize this algorithm, we could use an array and manually keep track of start and end indices of our array. Below is an example of such an implementation.</p>
-    <listing xml:id="binary_search_cpp-py_array">
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'TheBinarySearch', 'chapter': 'SearchHash', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="binary_search_cpp_array" interactive="activecode" language="cpp">
-        <input>
+                can be calculated as we did in <xref ref="binarysearch-1"/>.
+                This is especially relevant in C++, where we are initializing a new vector
+                for each split of our list. To truly optimize this algorithm, we could use
+                an array and manually keep track of start and end indices of our array.
+                <xref ref="tsk-binsearch-array-cpp"/> shows such an implementation.</p>
+            <exploration xml:id="expl-binary_search_cpp_array">
+                <title>Binary Search Using Array Optimization</title>
+                <task xml:id="tsk-binsearch-array-cpp" label="tsk-binsearch-array-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program xml:id="binary_search_cpp_array" interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
 //Checks to see if item is in a vector
-//retruns true or false (1 or 0)
+//returns true or false (1 or 0)
 //using binary Search and
 //uses start and end indices
 bool binarySearch(int arr[], int item, int start, int end) {
@@ -247,7 +256,7 @@ bool binarySearch(int arr[], int item, int start, int end) {
 }
 
 bool binarySearchHelper(int arr[], int size, int item) {
-    return binarySearch(arr, item, 0, size);
+    return binarySearch(arr, item, 0, size - 1);
 }
 
 int main(void) {
@@ -259,21 +268,18 @@ int main(void) {
 
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'TheBinarySearch', 'chapter': 'SearchHash', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="binary_search_python_array" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="tsk-binsearch-array-py" label="tsk-binsearch-array-py">
+                    <title>Python Implementation</title>
+                    <statement><program xml:id="binary_search_python_array" interactive="activecode" language="python"><input>
 '''Checks to see if item is in a list
-retruns true or false (1 or 0)
+returns true or false (1 or 0)
 using binary Search and
 uses start and end indices'''
 
 def binarySearch(array, item, start, end):
 
-    if end == start:
-        return False
     if end &gt;= start:
         mid = start + (end - start) // 2
         if array[mid] == item:
@@ -288,15 +294,14 @@ def binarySearch(array, item, start, end):
 def main():
     array = [0, 1, 2, 8, 13, 17, 19, 32, 42]
 
-    a = binarySearch(array, 17, 0 , len(array))
+    a = binarySearch(array, 17, 0 , len(array)-1)
     print("answer is ", a)
-    b = binarySearch(array, 99, 0, len(array))
+    b = binarySearch(array, 99, 0, len(array)-1)
     print("answer is", b)
 main()
-        </input>
-    </program>
-                </TabNode>
-                </listing>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>Even though a binary search is generally better than a sequential
                 search, it is important to note that for small values of <em>n</em>, the
                 additional cost of sorting is probably not worth it. In fact, we should
@@ -325,7 +330,7 @@ main()
 
             <choice correct="yes">
                 <statement>
-                    <p>12, 6, 8</p>
+                    <p>11, 5, 6, 8</p>
                 </statement>
                 <feedback>
                     <p>Binary search starts at the midpoint and halves the list each time.</p>
@@ -334,7 +339,7 @@ main()
 
             <choice>
                 <statement>
-                    <p>3, 5, 8</p>
+                    <p>3, 5, 6, 8</p>
                 </statement>
                 <feedback>
                     <p>Binary search does not start at the beginning and search sequentially, its starts in the middle and halves the list after each compare.</p>
@@ -363,7 +368,7 @@ main()
 
             <choice>
                 <statement>
-                    <p>11, 17, 14, 15</p>
+                    <p>12, 15, 17</p>
                 </statement>
                 <feedback>
                     <p>Looks like you might be guilty of an off-by-one error.  Remember the first position is index 0.</p>
@@ -372,7 +377,7 @@ main()
 
             <choice>
                 <statement>
-                    <p>18, 17, 14, 15</p>
+                    <p>18, 17, 14</p>
                 </statement>
                 <feedback>
                     <p>Remember binary search starts in the middle and halves the list.</p>
@@ -381,19 +386,19 @@ main()
 
             <choice>
                 <statement>
-                    <p>14, 12, 17, 15</p>
+                    <p>14, 12, 17</p>
                 </statement>
                 <feedback>
-                    <p>Looks like you might be off by one, be careful that you are calculating the midpont using integer arithmetic.</p>
+                    <p>Looks like you might be off by one, be careful that you are calculating the midpoint using integer arithmetic.</p>
                 </feedback>
             </choice>
 
             <choice correct="yes">
                 <statement>
-                    <p>12, 17, 14, 15</p>
+                    <p>11, 15, 17</p>
                 </statement>
                 <feedback>
-                    <p>Binary search starts at the midpoint and halves the list each time. It is done when the list is empty.</p>
+                    <p>Binary search starts at the midpoint and halves the list each time. It is done when the start index is greater than the end index.</p>
                 </feedback>
             </choice>
 </choices>
@@ -401,5 +406,8 @@ main()
     </exercise>
 </reading-questions>            
         </subsection>
-    </section>
+        <conclusion><p>
+          <!-- extra space before the progress bar -->
+        </p></conclusion>
+</section>
 

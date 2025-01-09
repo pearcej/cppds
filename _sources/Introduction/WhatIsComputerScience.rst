@@ -98,6 +98,8 @@ perform computations such as
 
       int main() {
           cout << sqrt(16);
+
+          return 0;
       }
 
   .. tab:: Python

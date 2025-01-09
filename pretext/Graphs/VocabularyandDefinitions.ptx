@@ -48,16 +48,16 @@
         <p><xref ref="fig-dgsimple"/> shows another example of a simple weighted
             digraph. Formally we can represent this graph as the set of six
             vertices:</p>
-        <m docname="Graphs/VocabularyandDefinitions" nowrap="False" number="True" xml:space="preserve">V = \left\{ V0,V1,V2,V3,V4,V5 \right\}</m>
+        <me>V = \left\{ V0,V1,V2,V3,V4,V5 \right\}</me>
         <p>and the set of nine edges:</p>
-        <m docname="Graphs/VocabularyandDefinitions" nowrap="False" number="True" xml:space="preserve">E = \left\{ \begin{array}{l}(v0,v1,5), (v1,v2,4), (v2,v3,9), (v3,v4,7), (v4,v0,1), \\
+        <me>E = \left\{ \begin{array}{l}(v0,v1,5), (v1,v2,4), (v2,v3,9), (v3,v4,7), (v4,v0,1), \\
              (v0,v5,2),(v5,v4,8),(v3,v5,3),(v5,v2,1)
-             \end{array} \right\}</m>
+             \end{array} \right\}</me>
         
         <figure align="center" xml:id="fig-dgsimple">
             <caption>A Simple Example of a Directed Graph.</caption>
                 <image source="Graphs/digraph.png" width="80%">
-                <description>Diagram representing a simple directed graph with vertices labeled V0 to V5. Arrows indicating direction connect the vertices, with weights on each edge. V0 connects to V4 and V1 with weights 1 and 5, respectively. V1 is connected from V0 and to V5 with weights 5 and 4, respectively. V2 connects from V3 and V5 with weights 9 and 1, respectively. V3 connects to V2 and V5 with weights 9 and 3, respectively, and also to V4 with a weight of 7. V4 connects from V0 and V5 with weights 1 and 8, respectively, and to V3 with a weight of 7. V5, at the center, has incoming edges from V1, V3, and V4 with weights 4, 3, and 8, respectively, and outgoing edges to V2 with a weight of 1. </description>
+                <description><p>Diagram representing a simple directed graph with vertices labeled V0 to V5. Arrows indicating direction connect the vertices, with weights on each edge. V0 connects to V4 and V1 with weights 1 and 5, respectively. V1 is connected from V0 and to V5 with weights 5 and 4, respectively. V2 connects from V3 and V5 with weights 9 and 1, respectively. V3 connects to V2 and V5 with weights 9 and 3, respectively, and also to V4 with a weight of 7. V4 connects from V0 and V5 with weights 1 and 8, respectively, and to V3 with a weight of 7. V5, at the center, has incoming edges from V1, V3, and V4 with weights 4, 3, and 8, respectively, and outgoing edges to V2 with a weight of 1.</p></description>
                 </image>
             </figure>
 

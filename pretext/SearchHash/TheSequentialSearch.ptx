@@ -1,5 +1,6 @@
 <section xml:id="search-hash_the-sequential-search">
         <title>The Sequential Search</title> 
+        <introduction>
         <p>
             When data items are stored in a container type such as a Python list or a C++
             array/vector, we say that they have a linear or sequential relationship. Each data
@@ -19,7 +20,7 @@
         <figure align="center" xml:id="fig-seqsearch">
             <caption>Sequential Search of a List of Integers.</caption>
                 <image source="SearchHash/seqsearch.png" width="80%">
-                <description>Diagram showing a horizontal sequence of connected boxes containing integers, illustrating a sequential search algorithm. Each box contains a unique number, with values visible in the image including '54', '26', '93', '17', '77', '31', '44', '55', '20', and '65'. A curved arrow labeled 'Start' points to the first box '54', indicating the beginning of the search process. The arrangement suggests that the search will proceed through the list of numbers from left to right. </description>
+                <description><p>Diagram showing a horizontal sequence of connected boxes containing integers, illustrating a sequential search algorithm. Each box contains a unique number, with values visible in the image including '54', '26', '93', '17', '77', '31', '44', '55', '20', and '65'. A curved arrow labeled 'Start' points to the first box '54', indicating the beginning of the search process. The arrangement suggests that the search will proceed through the list of numbers from left to right.</p></description>
                 </image>
             </figure>
 
@@ -30,6 +31,7 @@
                 assigned the value <c>True</c> if we discover the item in the list (or vector, in the case of C++).</p>
 
             <listing xml:id="seqsearchonepy">
+                <caption>Python Implementation</caption>
                 <program interactive="activecode" language="python">
                     <input>
                     # Python implementation of sequential search
@@ -55,6 +57,7 @@
 
 
             <listing xml:id="seqsearchonecpp" >
+                <caption>C++ Implementation</caption>
 
                 <program xml:id="lst-seqsearchcpp" interactive="activecode" language="cpp">
                     <input>
@@ -93,7 +96,7 @@
                 </input>
             </program>
         </listing>
-            
+        </introduction>
         <subsection xml:id="search-hash_analysis-of-sequential-search">
             <title>Analysis of Sequential Search</title>
             <p>To analyze searching algorithms, we need to decide on a basic unit of
@@ -121,27 +124,14 @@
                 approximation, so the complexity of the sequential search, is
                 <m>O(n)</m>. <xref ref="search-hash_tbl-seqsearchtable"/> summarizes these results.</p>
             
-            <table xml:id="search-hash_id2"><tabular>
-                <title><term>Table 1: Comparisons Used in a Sequential Search of an Unordered List</term></title>
-                
-                    
-                    
-                    
-                    
-                    
-                        <row header="yes">
-                            <cell>
-                                <term>Case</term>
-                            </cell>
-                            <cell>
-                                <term>Best Case</term>
-                            </cell>
-                            <cell>
-                                <term>Worst Case</term>
-                            </cell>
-                            <cell>
-                                <term>Average Case</term>
-                            </cell>
+            <table xml:id="search-hash_tbl-seqsearchtable">
+                <title>Comparisons Used in a Sequential Search of an Unordered List</title>
+                <tabular>
+                    <row header="yes">
+                            <cell>Case</cell>
+                            <cell>Best Case</cell>
+                            <cell>Worst Case</cell>
+                            <cell>Average Case</cell>
                         </row>
                     
                     
@@ -192,26 +182,27 @@
                 other elements beyond 54 can work either since the list is sorted. In
                 this case, the algorithm does not have to continue looking through all
                 of the items to report that the item was not found. It can stop
-                immediately. <xref ref="lst-seqsearchpython2"/> shows this variation of the
+                immediately. <xref ref="lst-orderedseq"/> shows this variation of the
                 sequential search function.</p>
 
           
             <figure align="center" xml:id="fig-seqsearch2">
                 <caption>Sequential Search of an Ordered List of Integers.</caption>
                     <image source="SearchHash/seqsearch2.png" width="80%">
-                    <description>Image of a sequence of connected boxes in a horizontal line, each containing a number, representing a sequential search on an ordered list of integers. The numbers, displayed in ascending order, are '17', '20', '26', '31', '44', '54', '55', '65', '77', and '93'. A curved arrow labeled 'Start' points to the first box with '17', indicating the point where the search begins. The sequence suggests a methodical approach to searching, where each element is checked in order until the desired number is found. </description>
+                    <description><p>Image of a sequence of connected boxes in a horizontal line, each containing a number, representing a sequential search on an ordered list of integers. The numbers, displayed in ascending order, are '17', '20', '26', '31', '44', '54', '55', '65', '77', and '93'. A curved arrow labeled 'Start' points to the first box with '17', indicating the point where the search begins. The sequence suggests a methodical approach to searching, where each element is checked in order until the desired number is found.</p></description>
                     </image>
                 </figure>
             
 
-    <program xml:id="search2_cpp" interactive="activecode" language="cpp">
-        <input>
+            <listing xml:id="lst-orderedseq">
+                <caption>Ordered Sequential Search</caption>
+                <program xml:id="search2_cpp" interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
 
 // Checks to see if item is in a vector
-// retruns true or false (1 or 0)
+// returns true or false (1 or 0)
 // using ordered sequential Search
 bool orderedSequentialSearch(vector&lt;int&gt; avector, int item) {
     unsigned int pos = 0;
@@ -242,8 +233,8 @@ int main() {
 
     return 0;
 }
-        </input>
-    </program>
+                </input></program>
+            </listing>
             <p><xref ref="search-hash_search-hash_tbl-seqsearchtable2"/> summarizes these results. Note that in the best
                 case we might discover that the item is not in the vector by looking at
                 only one item. On average, we will know after looking through only
@@ -251,26 +242,15 @@ int main() {
                 <m>O(n)</m>. In summary, a sequential search is improved by ordering
                 the vector only in the case where we do not find the item.</p>
             
-            <table xml:id="search-hash_id4"><tabular>
-                <title><term>Table 2: Comparisons Used in Sequential Search of an Ordered List</term></title>
-                
-                    
-                    
-                    
-                    
-                    
-                        <row header="yes">
-                            <cell>
-                            </cell>
-                            <cell>
-                            </cell>
-                            <cell>
-                            </cell>
-                            <cell>
-                            </cell>
-                        </row>
-                    
-                    
+            <table xml:id="search-hash_search-hash_tbl-seqsearchtable2">
+                <title>Comparisons Used in Sequential Search of an Ordered List</title>
+                <tabular>
+                    <row header="yes">
+                        <cell>Case</cell>
+                        <cell>Best Case</cell>
+                        <cell>Worst Case</cell>
+                        <cell>Average Case</cell>
+                    </row>
                         <row>
                             <cell>
                                 item is present
@@ -305,9 +285,9 @@ int main() {
 
 <reading-questions xml:id="rq-squential-search">
 
-            <exercise>
+            <exercise label="question_SRCH_0">
                 <statement>
-        <p>For the following unordered sequential list: {0, 1, 2, 13, 8, 19, 17, 32, 42}, searching for <BlankNode/> <var/> would produce the best case scenario, and searching for <BlankNode/> <var/> would produce the worst case scenario.    </p></statement><setup><var><condition number="[0]"><feedback><p>Correct! 0 is at the beginning of the list wich would provide the best case of O(1)</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>No! try again, only one value place in this list will produce the best case.</p></feedback></condition></var><var><condition number="[42]"><feedback><p>Correct! 42 is at the end of the list wich would provide the worst case of O(n)</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>No! try again, only one value in this list will produce the worst case.</p></feedback></condition></var></setup></exercise>   
+        <p>For the following unordered sequential list: {0, 1, 2, 13, 8, 19, 17, 32, 42}, searching for <BlankNode/> <var/> would produce the best case scenario, and searching for <BlankNode/> <var/> would produce the worst case scenario.    </p></statement><setup><var><condition number="[0]"><feedback><p>Correct! 0 is at the beginning of the list which would provide the best case of O(1)</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>No! try again, only one value place in this list will produce the best case.</p></feedback></condition></var><var><condition number="[42]"><feedback><p>Correct! 42 is at the end of the list which would provide the worst case of O(n)</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>No! try again, only one value in this list will produce the worst case.</p></feedback></condition></var></setup></exercise>   
     <exercise label="question_SRCH_1">
         <statement>
 
@@ -404,5 +384,7 @@ int main() {
 </reading-questions>
             
         </subsection>
-    </section>
-
+        <conclusion><p>
+          <!-- extra space before the progress bar -->
+        </p></conclusion>
+</section>

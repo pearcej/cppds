@@ -75,8 +75,9 @@
         <m>T(n)</m> function, we must see how they compare with one another
         as <em>n</em> gets large.</p>
     
-    <table xml:id="algorithm-analysis_algorithm-analysis_tbl-fntablecpp"><tabular>
-        <title><term>Table 1: Common Big-O Functions</term></title>
+    <table xml:id="algorithm-analysis_algorithm-analysis_tbl-fntablecpp">
+        <title>Common Big-O Functions</title>
+        <tabular>
         
             
             
@@ -160,7 +161,10 @@
     <figure align="center" xml:id="fig-graphfigurecpp">
         <caption>Common Big-O Functions</caption>
             <image source="AlgorithmAnalysis/newplot.png" width="50%">
-                <description>Figure 1 shows graphs of the common functions from Table 1. Notice that when n is small, the functions are not very well defined with respect to one another. It is hard to tell which is dominant. However, as n grows, there is a definite relationship and it is easy to see how they compare with one another.</description>
+                <description><p>This figure shows graphs of the common functions from <xref ref="algorithm-analysis_algorithm-analysis_tbl-fntablecpp"/>.
+                    When n is small, the functions are not very well defined with respect to one another. It is hard to tell which is
+                    dominant. However, as n grows, there is a definite relationship and it is easy to see how they compare with one another.
+                </p></description>
             </image>
     </figure>
 
@@ -169,47 +173,55 @@
         anything, it is instructive to see how we can take actual code and
         analyze performance.</p>
     
-<listing xml:id="algo_analysis_dummycode_1">
-    <p xml:id="algorithm-analysis_lst-dummycode" names="lst_dummycode"><term>Listing 2</term></p>
-    <p><term>C++ Implementation</term></p>
-    <pre>#include &lt;iostream&gt;
+    <exploration xml:id="expl-dummycode_1">
+        <title>Analysis Example</title>
+        <task label="algo_analysis_dummycode_1" xml:id="algo_analysis_dummycode_1">
+            <title>C++ Implementation</title>
+            <statement><program language="cpp"><input>
+#include &lt;iostream&gt;
 using namespace std;
 
 int main(){
-int a=5;
-int b=6;
-int c=10;
-for (int i=0; i&lt;n; i++){
-    for (int j=0; j&lt;n; j++){
-        int x = i * i;
-        int y = j * j;
-        int z = i * j;
+    int a=5;
+    int b=6;
+    int c=10;
+    for (int i=0; i&lt;n; i++){
+        for (int j=0; j&lt;n; j++){
+            int x = i * i;
+            int y = j * j;
+            int z = i * j;
+        }
     }
-}
 
-for (int k = 0; k &lt; n; k++){
-    int w = a*k + 45;
-    int v = b*b;
+    for (int k = 0; k &lt; n; k++){
+        int w = a*k + 45;
+        int v = b*b;
+    }
+    int d = 33;
+    return 0;
 }
-int d = 33;
-return 0;
-}</pre>
-    <p><term>Python Implementation</term></p>
-    <pre>def main():
-a=5
-b=6
-c=10
-for i in range(n):
-    for j in range(n):
-       x = i * i
-       y = j * j
-       z = i * j
-for k in range(n):
-    w = a*k + 45
-    v = b*b
-d = 33
-main()</pre>
-</listing>
+            </input></program></statement>
+        </task>
+        <task xml:id="algo_analysis_dummycode_1_py" label="algo_analysis_dummycode_1_py">
+            <title>Python Implementation</title>
+            <statement><program language="python"><input>
+def main():
+    a=5
+    b=6
+    c=10
+    for i in range(n):
+        for j in range(n):
+            x = i * i
+            y = j * j
+            z = i * j
+    for k in range(n):
+        w = a*k + 45
+        v = b*b
+    d = 33
+main()
+            </input></program></statement>
+        </task>
+    </exploration>
     <p>The number of assignment operations is the sum of four terms. The first
         term is the constant 3, representing the three assignment statements at
         the start of the fragment. The second term is <m>3n^{2}</m>, since
@@ -226,7 +238,7 @@ main()</pre>
     <figure align="center" xml:id="fig_graphfigure2cpp">
         <caption>Comparing <m>T(n)</m> with Big-O Functions</caption>
             <image source="AlgorithmAnalysis/newplot2.png" width="50%">
-                <description>This figure shows a few of the common Big-O functions as they compare with the T(n) function discussed above. Note that T(n) is initially larger than the cubic function. However, as n grows, the cubic function quickly overtakes T(n). It is easy to see that T(n) then follows the quadratic function as n continues to grow.</description>
+                <description><p>This figure shows a few of the common Big-O functions as they compare with the T(n) function discussed above. Note that T(n) is initially larger than the cubic function. However, as n grows, the cubic function quickly overtakes T(n). It is easy to see that T(n) then follows the quadratic function as n continues to grow.</p></description>
             </image>
     </figure>
 
@@ -241,11 +253,6 @@ main()</pre>
     <title>
 Reading Questions
     </title>
-    <exercise>
-
-            <p>Write two C++ functions to find the minimum number in an array.  The first function should compare each number to every other number on the array. <m>O(n^2)</m>.  The second function should be linear <m>O(n)</m>.</p>
-        
-    </exercise>
     <exercise label="bigo3">
         <statement>
     
@@ -256,34 +263,34 @@ Reading Questions
     
             <choice>
                 <statement>
-                    <p>O(2n)</p>
+                    <p>O(<m>2n</m>)</p>
                 </statement>
                 <feedback>
-                    <p>No, 3n<sup>2</sup> dominates 2n. Try again.</p>
+                    <p>No, <m>3n^{2}</m> dominates 2n. Try again.</p>
                 </feedback>
             </choice>
     
             <choice>
                 <statement>
-                    <p>O(n)</p>
+                    <p>O(<m>n</m>)</p>
                 </statement>
                 <feedback>
-                    <p>No, n<sup>2</sup> dominates n. Try again.</p>
+                    <p>No, <m>n^{2}</m> dominates n. Try again.</p>
                 </feedback>
             </choice>
     
             <choice>
                 <statement>
-                    <p>O(3n<sup>2</sup>)</p>
+                    <p>O(<m>3n^{2}</m>)</p>
                 </statement>
                 <feedback>
-                    <p>No, the 3 should be omitted because n<sup>2</sup> dominates.</p>
+                    <p>No, the 3 should be omitted because <m>n^{2}</m> dominates.</p>
                 </feedback>
             </choice>
     
             <choice correct="yes">
                 <statement>
-                    <p>O(n<sup>2</sup>)</p>
+                    <p>O(<m>n^{2}</m>)</p>
                 </statement>
                 <feedback>
                     <p>Right!</p>

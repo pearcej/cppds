@@ -13,30 +13,6 @@
         <premise>algorithm</premise>
         <response>Generic step-by-step list of instructions for solving a problem</response>
       </match>
-      <match order="10">
-        <premise>queue</premise>
-        <response>Ordered collection of items where the addition of new items happens at one end and the removal of existing items occurs at the other end</response>
-      </match>
-      <match order="11">
-        <premise>last-in first-out (LIFO)</premise>
-        <response>Last item added is also the first removed</response>
-      </match>
-      <match order="12">
-        <premise>simulation</premise>
-        <response>Replica of a process or operations</response>
-      </match>
-      <match order="13">
-        <premise>stack</premise>
-        <response>Ordered collection of items where the addition of new items and the removal of existing items always takes place at the same end</response>
-      </match>
-      <match order="14">
-        <premise>fully parenthesized</premise>
-        <response>Usage of one pair of parentheses for each operator</response>
-      </match>
-      <match order="15">
-        <premise>infix</premise>
-        <response>Expression notation in which the operator is in between the two operands that it is working on</response>
-      </match>
       <match order="2">
         <premise>balanced parentheses</premise>
         <response>Each opening symbol has a corresponding closing symbol and the pairs of parentheses are properly nested</response>
@@ -58,16 +34,51 @@
         <response>String that reads the same forward and backward</response>
       </match>
       <match order="7">
-        <premise>postfix</premise>
-        <response>Expression notation in which all operators come after the two operands that they work on</response>
+        <premise>simulation</premise>
+        <response>Replica of a process or operations</response>
       </match>
       <match order="8">
         <premise>precedence</premise>
         <response>Hierarchy on the order things occur</response>
       </match>
-      <match order="9">
+    </matches>
+  </exercise>
+
+  <exercise label="Match_chap3_2">
+    <statement>
+      <p>Match the term with their corresponding definition</p>
+    </statement>
+    <feedback>
+      <p>Incorrect</p>
+    </feedback>
+    <matches>
+      <match order="1">
+        <premise>postfix</premise>
+        <response>Expression notation in which all operators come after the two operands that they work on</response>
+      </match>
+      <match order="2">
         <premise>prefix</premise>
         <response>Expression notation in which all operators precede the two operands that they work on</response>
+      </match>
+      <match order="3">
+        <premise>queue</premise>
+        <response>Ordered collection of items where the addition of new items happens at one end and the removal of existing items occurs at the other end</response>
+      </match>
+      <match order="4">
+        <premise>last-in first-out (LIFO)</premise>
+        <response>Last item added is also the first removed</response>
+      </match>
+      <match order="5">
+        <premise>stack</premise>
+        <response>Ordered collection of items where the addition of new items and the removal of existing items always takes place at the same end</response>
+      </match>
+      <match order="6">
+        <premise>fully parenthesized</premise>
+        <response>Usage of one pair of parentheses for each operator</response>
+      </match>
+      <match order="7">
+        <premise>infix</premise>
+        <response>Expression notation in which the operator is in between the two operands that it is working on</response>
       </match>
     </matches>
   </exercise>

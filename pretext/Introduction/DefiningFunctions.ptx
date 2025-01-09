@@ -1,15 +1,15 @@
 <section xml:id="introduction_defining-c-functions">
         <title>Defining C++ Functions</title>
+        <introduction>
         <p>In general, we can hide the details of any computation by defining
             a function. A function definition requires a name, a group of
             parameters, a return type, and a body. It may either return a variable, value, or nothing (specified by the keyword void). For
-            example, the simple function defined below returns an integer which is the double of the
+            example, the simple function defined in <xref ref="timesTwo"/> returns an integer which is the double of the
             value you pass into it.</p>
         
-        <blockquote>
-
-    <program xml:id="timesTwo" interactive="activecode" language="cpp">
-        <input>
+        <listing xml:id="timesTwo">
+            <caption><c>timesTwo</c> Function</caption>
+            <program interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -26,9 +26,9 @@ int main() {
 
     return 0;
 }
-        </input>
-    </program>
-        </blockquote>
+            </input></program>
+        </listing>
+
         <p>The syntax for this function definition includes the name, <c>timesTwo</c>,
             and a parenthesized list of formal parameters and their types. For this function an <c>int</c> named <c>num</c>
             is the only formal parameter, which suggests that <c>timesTwo</c> needs only
@@ -38,12 +38,11 @@ int main() {
             evaluate it, passing an actual parameter value, in this case, <c>3</c>.
             Note that the call to <c>timesTwo</c> returns an integer that can in turn be
             passed to another invocation.</p>
-        <p>Let us look at a similar function.</p>
-        
-        <blockquote>
+        <p>Let us look at a similar function in <xref ref="timesTwoVoid"/>.</p>
 
-    <program xml:id="timesTwoVoid" interactive="activecode" language="cpp">
-        <input>
+        <listing xml:id="timesTwoVoid">
+            <caption><c>timesTwoVoid</c> Function Returns Nothing.</caption>
+            <program interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -60,10 +59,9 @@ int main() {
 
     return 0;
 }
-        </input>
-    </program>
-        </blockquote>
-        <p><c>timesTwoVoid</c> behave very similarly to <c>timesTwo</c>. However, there is one key
+            </input></program>
+        </listing>
+        <p><c>timesTwoVoid</c> behaves very similarly to <c>timesTwo</c>. However, there is one key
             difference between them. Instead of the <c>int</c> in <c>timesTwo</c>, <c>timesTwoVoid</c> has a
             <c>void</c> in front of its function definition. Unlike <c>timesTwo</c>, <c>timesTwoVoid</c> is a non-fruitful
             function meaning it does not return a value even though it can still print something out.</p>
@@ -75,16 +73,16 @@ int main() {
             takes a value <m>n</m> and repeatedly guesses the square root by
             making each <m>newguess</m> the <m>oldguess</m> in the subsequent
             iteration. The initial guess used here is <m>\frac {n}{2}</m>.
-            <xref ref="lst-root"/> shows a function definition that accepts a value
+            <xref ref="introduction_lst-root"/> shows a function definition that accepts a value
             <m>n</m> and returns the square root of <m>n</m> after making 20
             guesses. Again, the details of Newton's Method are hidden inside the
             function definition and the user does not have to know anything about
             the implementation to use the function for its intended purpose.
-            <xref ref="lst-root"/> also shows the use of the // characters as a comment
+            <xref ref="introduction_lst-root"/> also shows the use of the // characters as a comment
             marker. Any characters that follow the // on a line are ignored.</p>
         
-        <p xml:id="introduction_lst-root" names="lst_root"><term>Listing 1</term></p>
-
+    <listing xml:id="introduction_lst-root" names="lst_root">
+        <caption>Newton's Method for Calculating Square Roots.</caption>
     <program xml:id="newtonsmethod" interactive="activecode" language="cpp">
         <input>
 #include &lt;iostream&gt;
@@ -108,8 +106,8 @@ int main() {
       return 0;
 }
         </input>
-    </program>
-            
+    </program></listing>
+    </introduction>        
         <subsection xml:id="introduction_parameter-passing-by-value-versus-by-reference">
             <title>Parameter Passing: by Value versus by Reference</title>
             <p><idx>pass-by-value</idx>In all of the functions we have written thus far, we have used a function calling
@@ -163,9 +161,9 @@ void callingFunction() { /*return type int which indicates
                 called <c>swap_values(...)</c> that swaps its two inputs and the <c>main()</c> function
                 that calls <c>swap_values(...)</c>.</p>
             
-            <blockquote>
-
-    <program xml:id="activepassrefcpp" interactive="activecode" language="cpp">
+    <listing xml:id="activepassrefcpp">
+        <caption>Pass By Reference Example</caption>
+    <program interactive="activecode" language="cpp">
         <input>
 #include &lt;iostream&gt;
 using namespace std;
@@ -194,9 +192,8 @@ int main( ) {
     return 0;
 }
         </input>
-    </program>
-            </blockquote>
-            <p>For this program <xref ref="lst-swap-inputs"/> to reverse the order of the integers the users types in, the function <c>swap_values(...)</c> must be able to change the values of the arguments. Try removing one or both of the <q>&amp;</q> &#8216;s in this code to see what happens.</p>
+    </program></listing>
+            <p>For the program in <xref ref="activepassrefcpp"/> to reverse the order of the integers the users types in, the function <c>swap_values(...)</c> must be able to change the values of the arguments. Try removing one or both of the <c>&amp;</c><rsq/>s in this code to see what happens.</p>
         </subsection>
         <transition/>
         <subsection xml:id="introduction_arrays-as-parameters-in-functions">
@@ -247,22 +244,25 @@ int main( ) {
                 name when they can be distinguished by the parameters.
                 Hence, C++  allows function overloading when either the data types of the parameters differ
                 or the number of parameters differ.</p>
-            <p>Overloading is a nice feature of the C++ language.</p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'DefiningFunctions', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            <p>Overloading is a nice feature of the C++ language. See <xref ref="expl-overloading"/> for an example
+                of overloading in C++ and Python</p>
 
-    <program xml:id="foverload_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="expl-overloading">
+                <title>Example of Overloading</title>
+                <task label="foverload_cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program xml:id="foverload_cpp" interactive="activecode" language="cpp"><input>
 //showcases function overloading in C++
 #include &lt;iostream&gt;
 using namespace std;
 
 void myfunct(int n) {
-     cout &lt;&lt; "1 parameter: " &lt;&lt; n &lt;&lt;endl;
+        cout &lt;&lt; "1 parameter: " &lt;&lt; n &lt;&lt;endl;
 }
 
 void myfunct(int n, int m) {
-     cout &lt;&lt; "2 parameters: " &lt;&lt; n;
-     cout &lt;&lt; " and " &lt;&lt; m &lt;&lt;endl;
+        cout &lt;&lt; "2 parameters: " &lt;&lt; n;
+        cout &lt;&lt; " and " &lt;&lt; m &lt;&lt;endl;
 }
 
 int main() {
@@ -273,12 +273,11 @@ int main() {
 
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'DefiningFunctions', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="foverload_py" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task label="foverload_py">
+                    <title>Python Implementation</title>
+                    <statement><program xml:id="foverload_py" interactive="activecode" language="python"><input>
 #showcases function overloading in Python
 def myfunct(n, m=None):
     if m is None:
@@ -293,12 +292,10 @@ def main():
     myfunct(100);
 
 main()
-        </input>
-    </program>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
 
-    
-            
             <reading-questions xml:id="rq-defining-function">
                 <title>
                     Reading Questions
@@ -326,7 +323,7 @@ int main() {
     <exercise label="dog_walker">
         <statement>
 
-        <p>What is the correct return type of the function above <term>int main()</term>?</p>
+        <p>What is the return type of the first function defined in this code?</p>
 
         </statement>
 <choices>
@@ -443,13 +440,13 @@ int main() {
         <title>Self Check Challenge</title>
         <p>See if you can improve upon the program in the self check by keeping letters
             that are correct and only modifying one character in the best string so far.
-            This is a type of algorithm in the class of &#8216;hill climbing' algorithms, that
+            This is a type of algorithm in the class of <q>hill climbing</q> algorithms, that
             is we only keep the result if it is better than the previous one.</p>
     </note>       
                 
             </reading-questions>
         </subsection>
-        <p>
+        <conclusion><p>
             <!-- extra space before the progress bar -->
-        </p>
+        </p></conclusion>
     </section>

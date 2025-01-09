@@ -3,28 +3,28 @@
   <title>Self Check</title>
   <exercise label="bigOefficiency">
     <statement>
-      <p>Q-1: Which of the following algorithms has the least efficient big O complexity?</p>
+      <p>Which of the following algorithms has the least efficient big O complexity?</p>
     </statement>
     <choices>
       <choice>
         <statement>
-          <p>10000(n<sup>3</sup> + n<sup>2</sup>)</p>
+          <p><m>10000(n^3 + n^2)</m></p>
         </statement>
         <feedback>
-          <p>Incorrect, even though n<sup>3</sup> is the most significant part for all of these formulas, the way it interacts with the rest of the equation is also important to note.</p>
+          <p>Incorrect, even though <m>n^3</m> is the most significant part for all of these formulas, the way it interacts with the rest of the equation is also important to note.</p>
         </feedback>
       </choice>
       <choice>
         <statement>
-          <p>45n<sup>3</sup> + 1710n<sup>2</sup> + 16n + 5</p>
+          <p><m>45 n^3 + 1710 n^2 + 16 n + 5</m></p>
         </statement>
         <feedback>
-          <p>Incorrect, even though n<sup>3</sup> is the most significant part for all of these formulas, the way it interacts with the rest of the equation is also important to note.</p>
+          <p>Incorrect, even though <m>n^3</m> is the most significant part for all of these formulas, the way it interacts with the rest of the equation is also important to note.</p>
         </feedback>
       </choice>
       <choice correct="yes">
         <statement>
-          <p>(n<sup>3</sup> + n) (n<sup>2</sup> + 1)</p>
+          <p><m>(n^3 + n) (n^2 + 1)</m></p>
         </statement>
         <feedback>
           <p>Correct!</p>
@@ -49,26 +49,26 @@
     </feedback>
     <matches>
       <match order="1">
-        <premise>2<sup>n</sup></premise>
+        <premise><m>2^n</m></premise>
         <response>1st</response>
       </match>
       <match order="2">
-        <premise>n<sup>2</sup></premise>
+        <premise><m>n^2</m></premise>
         <response>2nd</response>
       </match>
       <match order="3">
-        <premise>nlogn</premise>
+        <premise><m>n \log n</m></premise>
         <response>3rd</response>
       </match>
       <match order="4">
-        <premise>logn</premise>
+        <premise><m>\log n</m></premise>
         <response>4th</response>
       </match>
     </matches>
   </exercise>
   <exercise label="resources">
     <statement>
-      <p>Q-3: When considering computer resources, what factors do we have in mind? Select all that apply.</p>
+      <p>When considering computer resources, what factors do we have in mind? Select all that apply.</p>
     </statement>
     <choices>
       <choice>
@@ -107,7 +107,7 @@
   </exercise>
   <exercise label="bigO">
     <statement>
-      <p>Q-4: When considering the Big O of an algorithm, what do we use to quantify our description of an algorithm.</p>
+      <p>When considering the Big O of an algorithm, what do we use to quantify our description of an algorithm.</p>
     </statement>
     <choices>
       <choice>

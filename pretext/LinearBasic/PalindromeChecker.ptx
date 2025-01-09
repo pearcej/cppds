@@ -13,7 +13,17 @@
             the first character of the string and the rear of the deque will hold
             the last character (see <xref ref="fig-palindrome"/>).</p>
         
-        <figure align="center" xml:id="fig-palindrome"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 2: A Deque</caption><image source="LinearBasic/palindromesetup.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-palindrome">
+            <caption>A Deque</caption>
+            <image source="LinearBasic/palindromesetup.png" width="50%">
+                <description><p>
+                    The image depicts adding the word "radar" to a dequeue. Each character is added to
+                    the rear of the queue during initialization, when all the characters have been added
+                    character afters are removed from each end of the queue: R is removed from the rear
+                    and another R is removed from the head of the queue.
+                </p></description>
+            </image>
+        </figure>
         <p>Since we can remove both of them directly, we can compare them and
             continue only if they match. If we can keep matching first and the last
             items, we will eventually either run out of characters or be left with a
@@ -22,10 +32,11 @@
             complete function for palindrome-checking appears in
             <xref ref="linear-basic_palinedrome-cpp"/>.</p>
         
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'PalindromeChecker', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="palinedrome_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="expl-linear-basic_palinedrome">
+                <title>Basic Palindrome Checker</title>
+                <task xml:id="linear-basic_palinedrome-cpp" label="linear-basic_palinedrome-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program xml:id="palinedrome_cpp" interactive="activecode" language="cpp"><input>
 //program that detects palindromes.
 
 #include &lt;deque&gt;
@@ -62,12 +73,12 @@ int main() {
     cout &lt;&lt; palchecker("lsdkjfskf") &lt;&lt; endl;
     cout &lt;&lt; palchecker("radar") &lt;&lt; endl;
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'PalindromeChecker', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
 
-    <program xml:id="palchecker" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="linear-basic_palinedrome-py" label="linear-basic_palinedrome-py">
+                    <title>Python Implementation</title>
+                    <statement><program xml:id="palchecker" interactive="activecode" language="python"><input>
 #Program that detects palindromes.
 
 from pythonds.basic.deque import Deque
@@ -95,19 +106,18 @@ def main():
     print(palchecker("lsdkjfskf"))
     print(palchecker("radar"))
 main()
-        </input>
-    </program>
-            </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
+
         <p>Below we can see an upgraded code for checking palindromes, which
             is able to handle strings with capital letters, spaces, and special
             characters.</p>
         <p><xref ref="advanced-linear-basic_palinedrome-cpp"/>.</p>
         
-        <blockquote>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'PalindromeChecker', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="advanced_palinedrome_cpp" interactive="activecode" language="cpp">
-        <input>
+        <listing xml:id="advanced-linear-basic_palinedrome-cpp">
+            <caption>Advanced Palindrome Checker</caption>
+            <program xml:id="advanced_palinedrome_cpp" interactive="activecode" language="cpp"><input>
 //program that detects palindromes.
 
 /*
@@ -183,10 +193,9 @@ int main() {
     cout &lt;&lt; palchecker("Barge in! Relate mere war of 1991 for a were-metal Ernie grab!") &lt;&lt; endl;
     cout &lt;&lt; palchecker("not a palindrome") &lt;&lt; endl;
 }
-        </input>
-    </program>
-                </TabNode>
-        </blockquote>
+            </input></program>
+        </listing>
+
 <reading-questions xml:id="rqs-">
     <title>
         Reading Questions

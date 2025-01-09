@@ -37,8 +37,9 @@
             stack operations. Under stack contents, the top item is listed at the
             far right.</p>
         
-        <table xml:id="linear-basic_tbl-stackops"><tabular>
-            <title><term>Table 1: Sample Stack Operations</term></title>
+        <table xml:id="linear-basic_tbl-stackops">
+            <title>Sample Stack Operations</title>
+            <tabular>
                     <row header="yes">
                         <cell>
                             <term>Stack Operation</term>

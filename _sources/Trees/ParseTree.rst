@@ -153,35 +153,35 @@ step:
 
 a) Create an empty tree.
 
-b) Read ( as the first token. By rule 1, create a new node as the left
+b) Read ``(`` as the first token. By rule 1, create a new node as the left
    child of the root. Make the current node this new child.
 
-c) Read 3 as the next token. By rule 3, set the root value of the
-   current node to 3 and go back up the tree to the parent.
+c) Read ``3`` as the next token. By rule 3, set the root value of the
+   current node to ``3`` and go back up the tree to the parent.
 
-d) Read + as the next token. By rule 2, set the root value of the
-   current node to + and add a new node as the right child. The new
+d) Read ``+`` as the next token. By rule 2, set the root value of the
+   current node to ``+`` and add a new node as the right child. The new
    right child becomes the current node.
 
-e) Read ( as the next token. By rule 1, create a new node as the left
+e) Read ``(`` as the next token. By rule 1, create a new node as the left
    child of the current node. The new left child becomes the current
    node.
 
-f) Read 4 as the next token. By rule 3, set the value of the current
-   node to 4. Make the parent of 4 the current node.
+f) Read ``4`` as the next token. By rule 3, set the value of the current
+   node to ``4``. Make the parent of ``4`` the current node.
 
-g) Read \* as the next token. By rule 2, set the root value of the
-   current node to \* and create a new right child. The new right child
+g) Read ``*`` as the next token. By rule 2, set the root value of the
+   current node to ``*`` and create a new right child. The new right child
    becomes the current node.
 
-h) Read 5 as the next token. By rule 3, set the root value of the
-   current node to 5. Make the parent of 5 the current node.
+h) Read ``5`` as the next token. By rule 3, set the root value of the
+   current node to ``5``. Make the parent of ``5`` the current node.
 
-i) Read ) as the next token. By rule 4 we make the parent of \* the
+i) Read ``)`` as the next token. By rule 4 we make the parent of ``*`` the
    current node.
 
-j) Read ) as the next token. By rule 4 we make the parent of + the
-   current node. At this point there is no parent for + so we are done.
+j) Read ``)`` as the next token. By rule 4 we make the parent of + the
+   current node. At this point there is no parent for ``+`` so we are done.
 
 From the example above, it is clear that we need to keep track of the
 current node as well as the parent of the current node. The tree
@@ -270,59 +270,48 @@ in :ref:`ActiveCode 1 <lst_buildparse>`.
                 }
         };
 
-        BinaryTree *buildParseTree(string fpexp){
-            string buf;
-            stringstream ss(fpexp);
-            vector<string> fplist;
-            while (ss >> buf){
-                fplist.push_back(buf);
-            }
-            stack<BinaryTree*> pStack;
-            BinaryTree *eTree = new BinaryTree("");
-            pStack.push(eTree);
-            BinaryTree *currentTree = eTree;
+	BinaryTree *buildParseTree(const string& expr){
+	    string buf;
 
-            string arr[] = {"+", "-", "*", "/"};
-            vector<string> vect(arr,arr+(sizeof(arr)/ sizeof(arr[0])));
+	    // build vector from space delimited tokens
+	    stringstream ss(expr);
+	    vector<string> tokenlist;
+	    while (ss >> buf)
+		tokenlist.push_back(buf);
 
-            string arr2[] = {"+", "-", "*", "/", ")"};
-            vector<string> vect2(arr2,arr2+(sizeof(arr2)/ sizeof(arr2[0])));
+	    BinaryTree *root = new BinaryTree("");
+	    stack<BinaryTree*> parentStack;
+	    parentStack.push(root);
+	    BinaryTree *currentTree = root;
 
-            for (unsigned int i = 0; i<fplist.size(); i++){
+	    for (size_t i = 0; i < tokenlist.size(); i++){
+		if (tokenlist[i] == "("){
+		    // rule 1: open parenthesis
+		    currentTree->insertLeft("");
+		    parentStack.push(currentTree);
+		    currentTree = currentTree->getLeftChild();
+		} else if (tokenlist[i] == "+" || tokenlist[i] == "-" ||
+			   tokenlist[i] == "/" || tokenlist[i] == "*"){
+		    // rule 2: operator
+		    currentTree->setRootVal(tokenlist[i]);
+		    currentTree->insertRight("");
+		    parentStack.push(currentTree);
+		    currentTree = currentTree->getRightChild();
+		} else if (tokenlist[i] == ")") {
+		    // rule 4: closing parenthesis
+		    currentTree = parentStack.top();
+		    parentStack.pop();
+		} else {
+		    // rule 3: number
+		    currentTree->setRootVal(tokenlist[i]);
+		    BinaryTree *parent = parentStack.top();
+		    parentStack.pop();
+		    currentTree = parent;
+		}
+	    }
 
-                if (fplist[i] == "("){ 
-                    currentTree->insertLeft("");
-                    pStack.push(currentTree);
-                    currentTree = currentTree->getLeftChild();
-                }
-
-                else if (find(vect.begin(), vect.end(), fplist[i]) != vect.end()){ 
-                    currentTree->setRootVal(fplist[i]);
-                    currentTree->insertRight("");
-                    pStack.push(currentTree);
-                    currentTree = currentTree->getRightChild();
-                }
-
-                else if (fplist[i] == ")"){ 
-                    currentTree = pStack.top();
-                    pStack.pop();
-                }
-
-                else if (find(vect2.begin(), vect2.end(), fplist[i]) == vect2.end()) {
-                    try {
-                        currentTree->setRootVal(fplist[i]); 
-                        BinaryTree *parent = pStack.top();
-                        pStack.pop();
-                        currentTree = parent;
-                    }
-
-                    catch (string ValueError ){
-                        cerr <<"token " << fplist[i] << " is not a valid integer"<<endl;
-                    }
-                }
-            }
-            return eTree;
-        }
+	    return root;
+	}
 
         void postorder(BinaryTree *tree){ 
             if (tree != NULL){

@@ -52,5 +52,7 @@ int main() {
             It turns out that there are multiple different
             ways to search for the item. What we are interested in here is how these
             algorithms work and how they compare to one another.</p>
-    </section>
-
+        <p>
+          <!-- extra space before the progress bar -->
+        </p>
+</section>

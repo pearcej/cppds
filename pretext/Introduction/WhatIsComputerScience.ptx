@@ -5,7 +5,7 @@
             the unfortunate use of the word <q>computer</q> in the name. As you are
             perhaps aware, computer science is not simply the study of computers.
             Although computers play an important supporting role as a tool in the
-            discipline, they are just that&#8211;tools.</p>
+            discipline, they are just that<ndash/>tools.</p>
         <p>
             <idx>algorithm</idx>
             Computer science is the study of problems, problem-solving, and the
@@ -76,10 +76,11 @@
             consider the C++ <c>cmath</c> module. Once we import the module, we can
             perform computations as in the following example:</p>
 
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'WhatIsComputerScience', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="cPlusPlus" interactive="activecode" language="cpp">
-        <input>
+        <exploration xml:id="expl-cplusplus">
+            <title>Example using <c>&lt;cmath&gt;</c></title>
+            <task label="cPlusPlus" xml:id="cPlusPlus">
+                <title>C++ Implementation</title>
+                <statement><program interactive="activecode" language="cpp"><input>
 //Outputs the square root of a given number.
 #include &lt;iostream&gt;
 #include &lt;cmath&gt;
@@ -87,20 +88,20 @@ using namespace std;
 
 int main() {
     cout &lt;&lt; sqrt(16);
+    return 0;
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'WhatIsComputerScience', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="Python" interactive="activecode" language="python">
-        <input>
+                </input></program></statement>
+            </task>
+            <task label="mathpy" xml:id="mathpy">
+                <title>Python Implementation</title>
+                <statement><program interactive="activecode" language="python"><input>
 #Outputs the square root of a given number.
 import math
 
 print(math.sqrt(16))
-        </input>
-    </program>
-            </TabNode>
+                </input></program></statement>
+            </task>
+        </exploration>
         <p> <idx>procedural abstraction</idx>
             This is an example of <term>procedural abstraction</term>. We do not necessarily
             know how the square root is being calculated, but we know what the
@@ -117,7 +118,7 @@ print(math.sqrt(16))
         <figure align="center" xml:id="fig-procabstraction">
             <caption>Procedural Abstraction</caption>
                 <image source="Introduction/blackbox.png" width="50%">
-                <description>Diagram illustrating the concept of procedural abstraction with a central box labeled 'sqrt()' representing a function. An arrow labeled 'n' points to the box, indicating the input, and another arrow points away from the box, labeled 'square root of n', indicating the output.</description>
+                <description><p>Diagram illustrating the concept of procedural abstraction with a central box labeled 'sqrt()' representing a function. An arrow labeled 'n' points to the box, indicating the input, and another arrow points away from the box, labeled 'square root of n', indicating the output.</p></description>
                 </image>
             </figure>
             <p>

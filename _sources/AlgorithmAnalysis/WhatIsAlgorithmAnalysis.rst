@@ -366,7 +366,7 @@ taking advantage of the formula we just developed.
         :caption: Summation Without Iteration C++
         :language: cpp
 
-        //Performs same function as listing one, and also list the time it takes to perfrom 
+        //Performs same function as listing one, and also list the time it takes to perform 
         //the function, and it performs better with larger inputs or (n)
 
         #include <iostream>
@@ -401,7 +401,7 @@ taking advantage of the formula we just developed.
         main()
 
 
-If we do the same benchmark measurement for ``sumOfN3`` for differnet values of ``n``, we get the following results:
+If we do the same benchmark measurement for ``sumOfN3`` for different values of ``n``, we get the following results:
 
 When the value of ``n`` is 10:
 

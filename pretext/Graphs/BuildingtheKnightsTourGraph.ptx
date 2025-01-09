@@ -9,7 +9,7 @@
         <figure align="center" xml:id="fig-knightmoves">
             <caption>Legal Moves for a Knight on Square 12, and the Corresponding Graph.</caption>
                 <image source="Graphs/knightmoves.png" width="80%">
-                <description>Image depicting the legal moves for a knight on a chessboard and the corresponding graph. On the left, there is a 5x5 section of a chessboard with numbered squares from 1 to 25. The knight is placed on square 12, with its legal moves indicated by gray dots on squares 5, 9, 15, 19, 21, and 23. On the right, a graph illustrates the knight's moves as a network of connected nodes. The central node, labeled '12', represents the knight's position, and it is connected to nodes labeled '5', '9', '15', '19', '21', and '23', which correspond to the potential moves available to the knight from its current position. </description>
+                <description><p>Image depicting the legal moves for a knight on a chessboard and the corresponding graph. On the left, there is a 5x5 section of a chessboard with numbered squares from 1 to 25. The knight is placed on square 12, with its legal moves indicated by gray dots on squares 5, 9, 15, 19, 21, and 23. On the right, a graph illustrates the knight's moves as a network of connected nodes. The central node, labeled '12', represents the knight's position, and it is connected to nodes labeled '5', '9', '15', '19', '21', and '23', which correspond to the potential moves available to the knight from its current position.</p></description>
                 </image>
             </figure>
 
@@ -23,9 +23,10 @@
             column into a linear vertex number similar to the vertex numbers shown
             in <xref ref="fig-knightmoves"/>.</p>
         
-        <term>Listing 1</term>
-        <listing xml:id="graphs_lst-knighttour1" names="lst_knighttour1"><term>Listing 1</term>
-        <pre>Graph knightGraph(int bdSize) {
+        <listing xml:id="graphs_lst-knighttour1" names="lst_knighttour1">
+            <caption>Building The Full Knights Tour Graph.</caption>
+            <program language="cpp"><input>
+Graph knightGraph(int bdSize) {
     Graph ktGraph(false);
 
     for (int row = 0; row &lt; bdSize; row++) {
@@ -40,16 +41,18 @@
     }
 
     return ktGraph;
-}</pre>
-</listing>
+}
+            </input></program>
+        </listing>
         <p>The <c>genLegalMoves</c> function (<xref ref="graphs_lst-knighttour2"/>) takes the position of the knight on the
             board and generates each of the eight possible moves. The <c>legalCoord</c>
             helper function (<xref ref="graphs_lst-knighttour2"/>) makes sure that a particular move that is generated is
             still on the board.</p>
     
-            <term>Listing 2</term>
-        <listing xml:id="graphs_lst-knighttour2" names="lst_knighttour2"><term>Listing 2</term>
-        <pre>int coordToNum(int x, int y, int bdSize) {
+        <listing xml:id="graphs_lst-knighttour2" names="lst_knighttour2">
+            <caption>Generating Legal Moves</caption>
+            <program language="cpp"><input>
+int coordToNum(int x, int y, int bdSize) {
     // Takes the x y position and returns the id from 0 to (bdSize*2)-1
     int id = 0;
     id += y * bdSize;
@@ -92,8 +95,9 @@ vector&lt;int&gt; genLegalMoves(int id, int bdSize) {
     }
 
     return newMoves;
-}</pre>
-</listing>
+}
+            </input></program>
+        </listing>
         <p><xref ref="fig-bigknight"/> shows the complete graph of possible moves on an
             eight-by-eight board. There are exactly 336 edges in the graph. Notice
             that the vertices corresponding to the edges of the board have fewer
@@ -105,15 +109,18 @@ vector&lt;int&gt; genLegalMoves(int id, int bdSize) {
         <figure align="center" xml:id="fig-bigknight">
             <caption>All Legal Moves for a Knight on an <m>8 \times 8</m> Chessboard.</caption>
                 <image source="Graphs/bigknight.png" width="80%">
-                <description>Complex graph showing all legal moves for a knight on an 8 x 8 chessboard, visualized as a network. The nodes are arranged in a grid pattern, numbered from 0 to 63, corresponding to the squares of a chessboard. The lines connecting the nodes represent the knight's potential moves, with each node being connected to others that a knight could reach in a single move based on the rules of chess. The myriad of crisscrossing lines create an intricate web, illustrating the complexity of the knight's movement possibilities across the entire board. </description>
+                <description><p>Complex graph showing all legal moves for a knight on an 8 x 8 chessboard, visualized as a network. The nodes are arranged in a grid pattern, numbered from 0 to 63, corresponding to the squares of a chessboard. The lines connecting the nodes represent the knight's potential moves, with each node being connected to others that a knight could reach in a single move based on the rules of chess. The myriad of crisscrossing lines create an intricate web, illustrating the complexity of the knight's movement possibilities across the entire board.</p></description>
                 </image>
             </figure>
-        <p>The full implementation of this is shown below, however the code must be ran in C++11
-            due to differences in Vector Initialization between C++ versions. In the below code,
-            in the main function, we traverse using our previously created breadth-first search between
+        <p>The full implementation of this is shown in <xref ref="knight-full"/>.
+            In the main function, we traverse using our previously created breadth-first search between
             two locations. In the next chapter, we will implement a different algorithm called a
             <c>depth first search (DFS)</c> to solve our knight's tour problem.</p>
-<pre>#include &lt;fstream&gt;
+
+        <listing xml:id="knight-full">
+            <caption>Full Implementation of Generating the Knight Moves</caption>
+            <program interactive="activecode" language="cpp"><input>
+#include &lt;fstream&gt;
 #include &lt;iostream&gt;
 #include &lt;map&gt;
 #include &lt;queue&gt;
@@ -359,6 +366,8 @@ int main() {
     traverse(kt.getVertex(0));
 
     return 0;
-}</pre>
-    </section>
+}
+            </input></program>
+        </listing>
+</section>
 

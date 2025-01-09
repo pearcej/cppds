@@ -31,7 +31,7 @@
       </match>
       <match order="2">
         <premise>vertex</premise>
-        <response>Also called a &#x201C;node&#x201D; this is a fundamental part of a graph. It can have a  &#x201C;key.&#x201D; This may also have additional information. We will call this additional information the &#x201C;payload.&#x201D;</response>
+        <response>Also called a <q>node</q> this is a fundamental part of a graph. It can have a  <q>key</q>. This may also have additional information. We will call this additional information the <q>payload</q>.</response>
       </match>
       <match order="3">
         <premise>spanning tree</premise>
@@ -51,7 +51,7 @@
       </match>
       <match order="7">
         <premise>edge</premise>
-        <response>An  &#x201C;arc&#x201D; connects two vertices to show that there is a relationship between them and it  may be one-way or two-way.</response>
+        <response>An  <q>arc</q> connects two vertices to show that there is a relationship between them and it  may be one-way or two-way.</response>
       </match>
       <match order="8">
         <premise>directed graph</premise>

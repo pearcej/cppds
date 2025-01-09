@@ -1,5 +1,6 @@
 <section xml:id="introduction_object-oriented-programming-in-c-defining-classes">
         <title>Object-Oriented Programming in C++: Defining Classes</title>
+        <introduction>
         <p><idx>object-oriented programming</idx>We stated earlier that C++ is an <term>object-oriented programming
             language</term>. Object-oriented programming is a programming technique based on
             real world things such as turtles, airplanes, customers, etc.
@@ -39,6 +40,7 @@
             </ol></p>
         </blockquote>
         <p>We will highlight each principle via examples.</p>
+        </introduction>
         <subsection xml:id="introduction_a-fraction-class">
             <title>A <c>Fraction</c> Class</title>
             <p>A very common example to show the details of implementing a user-defined
@@ -63,22 +65,27 @@
                 terms so that no matter what computation is performed, we always end up
                 with the most common form.</p>
             <p>In C++, we define a new class by providing a name and a set of method
-                definitions that are syntactically similar to function definitions. For example:</p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-                    <program language="C++"><input>
+                definitions that are syntactically similar to function definitions.
+                For example, see <xref ref="defn-classes"/>.</p>
+            <exploration xml:id="defn-classes">
+                <title>Defining Classes</title>
+                <task xml:id="defn-classes-cpp" label="defn-classes-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program language="cpp"><input>
 class Fraction {
     // The class methods and class variables go here
 };  // The ";" is required by C++ to end a class definition
-</input></program>
-                    <p>Creating a class in C++</p>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="defn-classes-py" label="defn-classes-py">
+                    <title>Python Implementation</title>
+                    <statement><program language="python"><input>
 class Fraction:
 
 #the methods go here
-</input></program>
-                    <p>Creating a class in Python</p>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p><idx>constructor</idx>provides the framework for us to define the methods. The first method
                 that all classes should provide is the <term>constructor</term>.
                 The constructor
@@ -89,35 +96,36 @@ class Fraction:
                 <c>Fraction</c> object, we will need to initialize two pieces of data, the
                 numerator and the denominator. In C++, the constructor method is
                 always named with the same name as the class it creates
-                and is shown in <xref ref="lst-constructor"/>.</p>
-            
-            <p xml:id="introduction_lst-constructor" names="lst_constructor"><term>Listing 2</term></p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-                    <program language="C++"><input>
+                and is shown in <xref ref="introduction_lst-constructor-cpp"/>.</p>
+
+            <exploration xml:id="introduction_lst-constructor">
+                <title>Constructor for <c>Fraction</c> class</title>
+                <task xml:id="introduction_lst-constructor-cpp" label="introduction_lst-constructor-cpp">
+                    <title>C++</title>
+                    <statement><program language="cpp"><input>
 class Fraction {
     public:
       Fraction(int top, int bottom) {
-         /** Fraction contructor method */
+         /** Fraction constructor method */
           num = top;     // setting num's value
           den = bottom;  // setting den's value
         }
      private:
-       int num; // num atribute
+       int num; // num attribute
        int den; // den attribute
 };
-</input></program>
-                    <p>Creating a constructor in C++</p>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                </input></program></statement></task>
+                <task xml:id="introduction_lst-constructor-py" label="introduction_lst-constructor-py">
+                    <title>Python</title>
+                    <statement><program language="Python"><input>
 class Fraction:
 
     def __init__(self,top,bottom):
 
         self.num = top
         self.den = bottom
-</input></program>
-                    <p>Creating a constructor in Python</p>
-                </TabNode>
+            </input></program></statement></task></exploration>
+
             <p>As described earlier, fractions require
                 two pieces of state data, the numerator and the denominator. The
                 notation <c>int num</c> outside the constructor defines the <c>fraction</c> object
@@ -127,26 +135,31 @@ class Fraction:
                 <c>fraction</c> object to know its starting values.</p>
             <p>To create an object or instance of the <c>Fraction</c> class, we must invoke the
                 constructor. This happens by using the name of the class and passing
-                actual values for the necessary state after the variable name. For example,</p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-                    <program language="C++"><input>
+                actual values for the necessary state after the variable name.
+                For example, see <xref ref="invoking-constructor"/>.</p>
+            <exploration xml:id="invoking-constructor">
+                <title>Invoking Constructor</title>
+                <task xml:id="invoking-constructor-cpp" label="invoking-constructor-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program language="cpp"><input>
 Fraction myfraction(3, 5);
-</input></program>
-                    <p>Invoking constructor in C++</p>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="invoking-constructor-py" label="invoking-constructor-py">
+                    <title>Python Implementation</title>
+                    <statement><program language="python"><input>
 myfraction = Fraction(3, 5)
-</input></program>
-                    <p>Invoking constructor in Python</p>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>creates an object called <c>myfraction</c> representing the fraction
                 <m>\frac {3}{5}</m> (three-fifths). <xref ref="fig-fraction1cpp"/> shows this
                 object as it is now implemented.</p>
             
             <figure align="center" xml:id="fig-fraction1cpp">
-                <caption>An instance of the <literal>Fraction</literal> Class</caption>
+                <caption>An instance of the <c>Fraction</c> Class</caption>
                     <image source="Introduction/fraction1cpp.png" width="50%">
-                    <description>Diagram showing an instance of the Fraction class. The instance is named 'myfraction' and is depicted as a set of concentric circles. The innermost circle is labeled 'State' and contains two segments: 'num' with the number 3 above 'den' with the number 5, representing the numerator and denominator of a fraction. The middle circle is labeled 'Methods', indicating the functionality associated with the fraction instance.</description>
+                    <description><p>Diagram showing an instance of the Fraction class. The instance is named 'myfraction' and is depicted as a set of concentric circles. The innermost circle is labeled 'State' and contains two segments: 'num' with the number 3 above 'den' with the number 5, representing the numerator and denominator of a fraction. The middle circle is labeled 'Methods', indicating the functionality associated with the fraction instance.</p></description>
                     </image>
                 </figure>
 
@@ -156,18 +169,26 @@ myfraction = Fraction(3, 5)
             <p>Another way to think about fractions is as <q>parts of a whole</q> as shown in the
                 following figure:</p>
             <blockquote>
-                <image source="Introduction/fractions_partsofwhole.png" width="50%"/>
+                <image source="Introduction/fractions_partsofwhole.png" width="50%"> 
+                    <description>
+                    <p>
+                        Image showing a visual representation of fractions as "parts of a whole." The diagram begins with a full circle labeled "1," 
+                        followed by a circle divided into two equal parts labeled "1/2," then into four parts labeled "1/4," and finally into 
+                        eight parts labeled "1/8." The sequence visually illustrates how a whole can be divided into progressively smaller fractions.
+                    </p>
+                    </description>
+                </image>
             </blockquote>
-            <p><idx>abstraction</idx>Since we are using classes to create abstract data types, we should probably discuss the meaning of
-                the word <q>abstract</q> in this context.
-                <term>Abstraction</term> in object-oriented programming requires you to focus only on the desired properties
-                and behaviors of the objects
-                and discard what is unimportant or irrelevant. Hence, if we do not need to think about
-                the <q>parts of a whole</q> metaphor, then we will not include it in the class. If that metaphor
-                is important, then we will include it. For our purposes, we want to think of
-                fractions as numbers, so we will not use the <q>parts of a whole</q> visual metaphor.</p>
-            <p><idx>access keywords</idx><idx>encapsulation</idx>The object-oriented principle of <term>encapsulation</term> is the notion that we should
-                hide the contents of a class, except what is
+            <p><idx>abstraction</idx>Because we are using classes to create abstract data types, we should probably
+                define the term <q>abstract</q> in this context. In object-oriented programming,
+                <term>abstraction</term> requires you to focus solely on the desired properties and behaviors of
+                the objects, discarding everything else that is unimportant or irrelevant. As a result,
+                if we don't need to consider the <q>parts of a whole</q> visual metaphor of a fraction, we won't include it in the
+                <c>Fraction</c> class. If a given metaphor is important, we will include it. For our purposes, we want to
+                think of fractions as numbers, so we will avoid using the <q>parts of a whole</q> visual
+                metaphor.</p>
+            <p><idx>access keywords</idx><idx>encapsulation</idx>The object-oriented principle of <term>encapsulation</term> 
+                refers to the practice of grouping or encapsulating related data and the methods that operate on that data into a single unit, typically a class. Encapsulation also requires we hide most of the internal contents of that class, except what is
                 absolutely necessary to expose.
                 Hence, we will restrict the access to our class as much
                 as we can, so that a user can change the class properties and behaviors only from methods
@@ -175,7 +196,7 @@ myfraction = Fraction(3, 5)
                 It is typical in C++ to make all data attributes <c>private</c> and most methods <c>public</c>.
                 All attribute variables under the <c>private</c>
                 keyword will only be able to be accessed by the object's class methods, not by the user.
-                Only C++'s &#8216;<c>public</c> methods can be accessed and used by the user. Because we
+                Only C++<rsq/>s <c>public</c> methods can be accessed and used by the user. Because we
                 want our user to be able to call every constructor directly, we always place the
                 constructor under <c>public</c>. A third access keyword, <c>protected</c> will be discussed later.</p>
 
@@ -186,10 +207,11 @@ myfraction = Fraction(3, 5)
                 <term>polymorphism</term> refers to the ability to handle objects or methods differently depending
                 on their data type, class, number of arguments, etc.
                 For example, we can overload a constructor with different numbers and types of arguments
-                to give us multiple ways to instantiate an object of a class as shown in the next listing for
+                to give us multiple ways to instantiate an object of a class as shown in <xref ref="frac-poly"/> for
                 the <c>Fraction</c> class.</p>
-
-<program language="cpp"><input>
+            <listing xml:id="frac-poly">
+                <caption>Example of Polymorphism</caption>
+                <program language="cpp"><input>
 Fraction(int top, int bottom){
     num = top;
     den = bottom;
@@ -202,7 +224,7 @@ Fraction (){
     num = 0;
     den = 1;
 }
-</input></program>
+            </input></program></listing>
 
             <p>Calling the constructor with two arguments will invoke the first method,
                 calling it with a single argument will invoke the second method, and calling
@@ -218,14 +240,14 @@ Fraction (){
             <p>The next thing we need to do is implement some behaviors that the abstract
                 data type requires. To begin, let's consider what happens when we try to print
                 a <c>Fraction</c> object.</p>
-            <pre>int main() {
+            <program language="cpp">int main() {
     Fraction myfraction(3, 5);
 
     // Throws an error
     cout &lt;&lt; myfraction &lt;&lt; endl;
 
     return 0;
-}</pre>
+}</program>
             <p>The <c>fraction</c> object, <c>myfraction</c>, does not know how to respond to this
                 request to print to the console. The <c>cout</c> function requires that the object
                 knows how to interact with the <c>&lt;&lt;</c> operator so that the string can be sent to the
@@ -234,14 +256,15 @@ Fraction (){
             <p>There are two ways we can solve this problem. One is to define a method
                 called something like <c>show</c> that will allow the <c>Fraction</c> object to print itself
                 as a string. We can implement this method as shown in
-                <inline classes="xref std std-ref">Listing 3</inline>. If we create a <c>Fraction</c> object as before, we
+                <xref ref="showmethod-cpp"/>. If we create a <c>Fraction</c> object as before, we
                 can ask it to show itself, in other words, print itself in the proper
                 format by invoking the show method on our fractions.</p>
-            <p><term>Listing 3</term></p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-    <program xml:id="showmethod_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration>
+                <title>Implementing a <c>show</c> method</title>
+                <task xml:id="showmethod-cpp" label="showmethod-cpp">
+                    <title>C++</title>
+                    <statement><program interactive="activecode" language="cpp"><input>
 //using functions to print fractions to the command line.
 #include &lt;iostream&gt;
 using namespace std;
@@ -270,14 +293,17 @@ int main() {
     fracc.show();
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="showmethod-py" label="showmethod_py">
+                    <title>Python</title>
+                    <statement><program xml:id="showmethod_cpp" interactive="activecode" language="cpp"><input>
 def show(self):
-    print(self.num,"/",self.den)
-</input></program>
-                </TabNode>
+  print(self.num,"/",self.den)
+                    </input></program></statement>
+                </task>
+            </exploration>
+
             <p>The downside of this approach is that it is not how we expect to print to the console.
                 In C++, there are many operators that are provided for atomic and STL data types
                 that may not work as expected with a user defined class until you <term>overload</term> them.
@@ -301,16 +327,16 @@ def show(self):
                 all private and protected members of the class.
                 In C++, we overload an operator by declaring it a <term>friend</term>
                 function in the class definition and giving it a new implementation.
-                <inline classes="xref std std-ref">Listing 4</inline> shows an example of the <c>&lt;&lt;</c> operator being overloaded
+                <xref ref="expl-overload"/> shows an example of the <c>&lt;&lt;</c> operator being overloaded
                 in the <c>Fraction</c> class.
                 Note that stream operators
                 need to return the address of the stream because of the fact that the
                 stream is changed by the stream operator.</p>
-            <p><term>Listing 4</term></p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="overloaded_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="expl-overload">
+                <title>Operator Overloading Example</title>
+                <task xml:id="overloaded-cpp" label="overloaded-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program xml:id="overloaded_cpp" interactive="activecode" language="cpp"><input>
 /*overloading functions to take in different
 inputs and output the correct results*/
 #include &lt;iostream&gt;
@@ -338,60 +364,72 @@ ostream &amp;operator &lt;&lt; (ostream &amp;stream, const Fraction &amp;frac) {
 
 int main() {
     Fraction myfraction(3, 5);
-    cout &lt;&lt; myfraction;
+    cout &lt;&lt; myfraction &lt;&lt; " is my fraction" &lt;&lt; endl;
 
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="overloaded-py" label="overloaded-py">
+                    <title>Python Implementation</title>
+                    <statement><program language="python"><input>
 def __str__(self):
     return str(self.num)+"/"+str(self.den)
 
     myf = Fraction(3,5)
     print(myf)
     print("I ate", myf, "of the pizza")
-</input></program>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>We can overload many other operators for our new <c>Fraction</c> class. Some
                 of the most important of these are the basic arithmetic operations. We
                 would like to be able to create two <c>Fraction</c> objects and then be able to add
                 them together using the standard <q>+</q> notation. At this point, if we try
                 to add two fractions using <q>+</q>, we get the following:</p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-                    <program language="C++"><input>
+            <exploration xml:id="expl-adderror">
+                <title>Error Before Overloading Addition</title>
+                <task xml:id="adderror-cpp" label="adderror-cpp">
+                    <title>C++ Addition Error</title>
+                    <statement><console><input prompt="">
 Fraction f1(1, 4);
 Fraction f2(1, 2);
 Fraction f3 = f1 + f2;
-
-// &gt;&gt; error: no match for &#8216;operator+' (operand types are &#8216;Fraction' and &#8216;Fraction'))
-</input></program>
-                    <p>An error received before overloading</p>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                    </input><output>
+&gt;&gt; error: no match for `operator+' (operand types are `Fraction' and `Fraction'))
+                    </output></console></statement>
+                </task>
+                <task xml:id="adderror-py" label="adderror-py">
+                    <title>Python Addition Error</title>
+                    <statement><console><input prompt="">
 f1 = Fraction(1,4)
 f2 = Fraction(1,2)
 f1+f2
-
+                    </input><output>
 Traceback (most recent call last):
 File "&lt;pyshell#173&gt;", line 1, in -toplevel- f1+f2
 TypeError: unsupported operand type(s) for +: 'instance' and 'instance'
-</input></program>
-                    <p>An error received before overloading</p>
-                </TabNode>
+                    </output></console></statement>
+                </task>
+            </exploration>
             <p>If you look closely at the error, you see that the problem is that the
                 <q>+</q> operator does not understand the <c>Fraction</c> operands.</p>
-            <p>We can, of course create something like:</p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-                    <program language="C++"><input>
+            <p>We can, of course create something like <xref ref="expl-addmodel"/>.</p>
+            <exploration xml:id="expl-addmodel">
+                <title>Function for Addition</title>
+                <task xml:id="addmodel-cpp" label="addmodel-cpp">
+                    <title>C++</title>
+                    <statement><program language="cpp"><input>
 f1.add(f2)
-</input></program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="addmodel-py" label="addmodel-py">
+                    <title>Python</title>
+                    <statement><program language="python"><input>
 f1.__add__(f2)
-</input></program>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>which would ask the <c>Fraction</c> object <c>f1</c> to add the <c>Fraction</c> object
                 <c>f2</c> to itself. It would be much better to be written in the standard notation,
                 <c>f1 + f2</c>. We can fix this by providing the <c>Fraction</c> class with a friend that
@@ -400,36 +438,39 @@ f1.__add__(f2)
                 way to make sure they have the same denominator is to simply use the
                 product of the two denominators as a common denominator so that
                 <m>\frac {a}{b} + \frac {c}{d} = \frac {ad}{bd} + \frac {cb}{bd} = \frac{ad+cb}{bd}</m>
-                The implementation is shown in <xref ref="lst-addmethod"/>. The addition
+                The implementation is shown in <xref ref="introduction_lst-addmethod-cpp"/>. The addition
                 function returns a new <c>Fraction</c> object with the numerator and
                 denominator of the sum. We can use this method by writing a standard
                 arithmetic expression involving fractions, assigning the result of the
                 addition, and then printing our result.</p>
             
-            <p xml:id="introduction_lst-addmethod" names="lst_addmethod"><term>Listing 5</term></p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-                    <program language="C++"><input>
+            <exploration xml:id="expl-lst-addmethod">
+                <title>Adding an addition method</title>
+                <task xml:id="introduction_lst-addmethod-cpp" label="introduction_lst-addmethod-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program language="cpp"><input>
 Fraction operator +(const Fraction &amp;otherFrac){
     //Note the return type is a Fraction
     int newnum = num*otherFrac.den + den*otherFrac.num;
     int newden = den*otherFrac.den;
     return Fraction(newnum, newden);
 }
-</input></program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="introduction_lst-addmethod-py" label="introduction_lst-addmethod-py">
+                    <title>Python Implementation</title>
+                    <statement><program language="python"><input>
 def __add__(self, otherfraction):
 
-    newnum = self.num*otherfraction.den + self.den*otherfraction.num
-    newden = self.den * otherfraction.den
+  newnum = self.num*otherfraction.den + self.den*otherfraction.num
+  newden = self.den * otherfraction.den
 
-    return Fraction(newnum,newden)
-</input></program>
-                </TabNode>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="addfrac_cpp" interactive="activecode" language="cpp">
-        <input>
+  return Fraction(newnum,newden)
+                    </input></program></statement>
+                </task>
+                <task xml:id="introduction_lst-addmethod-cpp-usage" label="introduction_lst-addmethod-cpp-usage">
+                    <title>C++ Usage Example</title>
+                    <statement><program xml:id="addfrac_cpp" label="addfrac_cpp" language="cpp" interactive="activecode"><input>
 //using functions to abstract the idea of a fraction
 #include &lt;iostream&gt;
 using namespace std;
@@ -464,48 +505,52 @@ int main(){
     cout &lt;&lt; f3 &lt;&lt; " is "&lt;&lt; f1 &lt;&lt; " + " &lt;&lt; f2 &lt;&lt; endl;
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="introduction_lst-addmethod-py-usage" label="introduction_lst-addmethod-py-usage">
+                    <title>Python Usage Example</title>
+                    <statement><program xml:id="addfrac_py" label="addfrac_py" language="python" interactive="activecode"><input>
 f1=Fraction(1,4)
 f2=Fraction(1,2)
 f3=f1+f2
 print(f3)
-</input></program>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>The addition method works as we desire, but a couple of things
-                can be improved. When we use a binary operator like <c>+</c> we
+                can be improved. When we use a binary operator like <c>+</c>, we
                 like more symmetry.
                 Binary operators can either be members of their
                 left-hand argument's class or friend functions.
                 Since the stream operators' left-hand argument is a stream,
-                stream operators either have to be members of the stream class
-                or friend functions.
-                However, that is not true for <c>+</c>.
+                stream operators (such as <c>&lt;&lt;</c> and <c>&gt;&gt;</c>) must be either member functions of the stream class
+                or friend functions of the class they are used with.
+                However, that is not true for the <c>+</c> operator.
                 Let's rewrite the addition operator as a friend function.</p>
-            <p><term>Listing 6</term></p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-                    <program language="C++"><input>
-Fraction operator +(const &amp;Fraction otherFrac){
-    //Note the return type is a Fraction
-    int newnum = num*otherFrac.den + den*otherFrac.num;
-    int newden = den*otherFrac.den;
+            <exploration xml:id="expl-addoverload">
+                <title>Overloading Addition</title>
+                <task xml:id="addoverload-cpp" label="addoverload-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program language="cpp"><input>
+Fraction operator +(const Fraction &amp;frac1, const Fraction &amp;frac2) {
+    int newnum = frac1.num * frac2.den + frac1.den * frac2.num;
+    int newden = frac1.den * frac2.den;
     return Fraction(newnum, newden);
 }
-</input></program>
-                    <p>Rewriting addition operator as a friend function</p>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="addoverload-py" label="addoverload-py">
+                    <title>Python Implementation</title>
+                    <statement><program language="python"><input>
 def __add__(self,otherfraction):
     newnum = self.num*otherfraction.den + self.den*otherfraction.num
     newden = self.den * otherfraction.den
     return Fraction(newnum,newden)
-</input></program>
-                </TabNode>
-
-    <program xml:id="addfrac" interactive="activecode" language="cpp">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="addoverload-usage" label="addoverload-usage">
+                    <title>C++ Usage</title>
+                    <statement><program interactive="activecode" language="cpp"><input>
 //overloading the addition operator to create clearer syntax
 #include &lt;iostream&gt;
 using namespace std;
@@ -518,7 +563,7 @@ class Fraction {
         }
 
     friend ostream &amp;operator &lt;&lt; (ostream &amp;stream, const Fraction &amp;frac);
-              friend Fraction operator +(const Fraction &amp;frac1, const Fraction &amp;frac2);
+    friend Fraction operator +(const Fraction &amp;frac1, const Fraction &amp;frac2);
 
     private:
         int num, den;
@@ -530,9 +575,9 @@ ostream &amp;operator &lt;&lt; (ostream &amp;stream, const Fraction &amp;frac) {
 }
 
 Fraction operator +(const Fraction &amp;frac1, const Fraction &amp;frac2) {
-      int newnum = frac1.num * frac2.den + frac1.den * frac2.num;
-      int newden = frac1.den * frac2.den;
-      return Fraction(newnum, newden);
+    int newnum = frac1.num * frac2.den + frac1.den * frac2.num;
+    int newden = frac1.den * frac2.den;
+    return Fraction(newnum, newden);
 }
 
 
@@ -543,8 +588,9 @@ int main(){
     cout &lt;&lt; f3 &lt;&lt; " is "&lt;&lt; f1 &lt;&lt; " + " &lt;&lt; f2 &lt;&lt; endl;
     return 0;
 }
-        </input>
-    </program>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>How you choose to overload operators  like <c>+</c> is a design choice
                 since both methods will work perfectly well. This is another
                 example of encapsulation; your user does not need to know
@@ -559,7 +605,7 @@ int main(){
                 divisor, or GCD. We can then divide the numerator and the denominator by
                 the GCD and the result will be reduced to lowest terms.</p>
             <p>The best-known algorithm for finding a greatest common divisor is
-                Euclid's Algorithm, which will be discussed in detail in Chapter 8.
+                Euclid's Algorithm, which will be discussed in detail in <xref ref="ch-trees"/>.
                 Euclid's Algorithm states that the greatest common divisor of two
                 integers <m>m</m> and <m>n</m> is <m>n</m> if <m>n</m>
                 divides <m>m</m> evenly. However, if <m>n</m> does not divide
@@ -571,10 +617,11 @@ int main(){
                 fraction class because we have said that a negative fraction will be
                 represented by a negative numerator.</p>
             
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-
-    <program xml:id="gcd_cpp" interactive="activecode" language="cpp">
-        <input>
+            <exploration xml:id="gcdalg">
+                <title>Greatest Common Divisor</title>
+                <task xml:id="gcd-cpp" label="gcd-cpp">
+                    <title>C++ Implementation</title>
+                    <statement><program interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -594,12 +641,11 @@ int main() {
     cout &lt;&lt; gcd(20, 10) &lt;&lt; endl;
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="gcd_py" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+                <task xml:id="gcd-py" label="gcd-py">
+                    <title>Python Implementation</title>
+                    <statement><program interactive="activecode" language="python"><input>
 def gcd(m,n):
     while m%n != 0:
         oldm = m
@@ -610,20 +656,19 @@ def gcd(m,n):
     return n
 
 print(gcd(20,10))
-        </input>
-    </program>
-                </TabNode>
+                    </input></program></statement>
+                </task>
+            </exploration>
             <p>Now we can use this function to help reduce any fraction. To put a
                 fraction in lowest terms, we will divide the numerator and the
                 denominator by their greatest common divisor. So, for the fraction
                 <m>6/8</m>, the greatest common divisor is 2. Dividing the top and
                 the bottom by 2 creates a new fraction, <m>3/4</m> (see
-                <xref ref="lst-newaddmethod"/>).</p>
+                <xref ref="introduction_lst-newaddmethod"/>).</p>
             
-            <p xml:id="introduction_lst-newaddmethod" names="lst_newaddmethod"><term>Listing 6</term></p>
-
-    <program xml:id="gcdadd" interactive="activecode" language="cpp">
-        <input>
+    <listing xml:id="introduction_lst-newaddmethod">
+        <caption>New addition implementation using <c>gcd</c></caption>
+        <program xml:id="gcdadd" label="gcdadd" interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -653,7 +698,7 @@ class Fraction {
             num = 1;
             den = 1;
         }
-        Fraction operator +(Fraction otherFrac) {
+        Fraction operator +(const Fraction &amp;otherFrac) {
             int newnum = num*otherFrac.den + den*otherFrac.num;
             int newden = den*otherFrac.den;
             int common = gcd(newnum, newden);
@@ -678,12 +723,12 @@ int main(){
     cout &lt;&lt; f3 &lt;&lt; " is "&lt;&lt; f1 &lt;&lt; " + " &lt;&lt; f2 &lt;&lt; endl;
     return 0;
 }
-        </input>
-    </program>
+        </input></program>
+    </listing>
             <figure align="center" xml:id="fig-fraction2cpp">
-                <caption>An Instance of the <literal>Fraction</literal> Class with Two Methods</caption>
+                <caption>An Instance of the <c>Fraction</c> Class with Two Methods</caption>
                     <image source="Introduction/fraction2cpp.png" width="50%">
-                    <description>Visual representation of a Fraction class instance called 'myfraction'. It features concentric circles with the innermost labeled 'State' showcasing 'num' with a value of 3 above 'den' with a value of 5, indicating the fraction's numerator and denominator. The outer circle is labeled 'Methods', suggesting the object's functionality. Two symbols, '&lt;&lt;' and '+', are shown outside the Methods circle, implying additional methods. </description>
+                    <description><p>Visual representation of a Fraction class instance called 'myfraction'. It features concentric circles with the innermost labeled 'State' showcasing 'num' with a value of 3 above 'den' with a value of 5, indicating the fraction's numerator and denominator. The outer circle is labeled 'Methods', suggesting the object's functionality. Two symbols, '&lt;&lt;' and '+', are shown outside the Methods circle, implying additional methods.</p></description>
                     </image>
                 </figure>
 
@@ -696,37 +741,46 @@ int main(){
                 This is a design choice because we want <m>\frac {1}{2}</m> to be considered
                 equal to <m>\frac {2}{4}</m> as well as <m>\frac {3}{6}</m>, etc.
                 Hence, in the <c>Fraction</c> class, we can implement the <c>==</c> method by
-                cross-multiplying (see <xref ref="lst-cmpmethod"/>) rather than
+                cross-multiplying (see <xref ref="introduction_lst-cmpmethod-cpp"/>) rather than
                 by just comparing numerators and denominators.</p>
             <p>Of course there are other relational operators that can be overridden. For example, the
                 <c>&lt;=</c> operator could be overridden to provide the less than or equal functionality.</p>
             
-            <p xml:id="introduction_lst-cmpmethod" names="lst_cmpmethod"><term>Listing 7</term></p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
-                    <program language="C++"><input>
-bool operator ==(Fraction &amp;otherFrac) {
+            <exploration xml:id="introduction_lst-cmpmethod">
+                <title>Overloading the comparison operator</title>
+                <task xml:id="introduction_lst-cmpmethod-cpp" label="introduction_lst-cmpmethod-cpp">
+                    <title>C++</title>
+                    <statement><program language="cpp"><input>
+bool operator ==(const Fraction &amp;otherFrac) {
     int firstnum = num*otherFrac.den;
     int secondnum = otherFrac.num*den;
 
     return firstnum==secondnum;
 }
-</input></program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-                    <program language="Python"><input>
+                    </input></program></statement>
+                </task>
+                <task label="introduction_lst-cmpmethod-py">
+                    <title>Python</title>
+                    <statement><program language="python"><input>
 def __eq__(self, other):
     firstnum = self.num * other.den
     secondnum = other.num * self.den
 
     return firstnum == secondnum
-</input></program>
-                </TabNode>
-            <p>The complete <c>Fraction</c> class, up to this point, is shown in
-                <inline classes="xref std std-ref">ActiveCode 6</inline>. We leave the remaining arithmetic and relational
-                methods as exercises.</p>
-            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+                    </input></program></statement>
+                </task>
+            </exploration>
 
-    <program xml:id="fraction_class_cpp" interactive="activecode" language="cpp">
-        <input>
+            <p>The complete <c>Fraction</c> class, up to this point, is shown in
+                <xref ref="fraction_class_cpp"/>. We leave the remaining arithmetic and relational
+                methods as exercises.</p>
+
+
+            <exploration xml:id="fraction_class">
+                <title>Complete <c>Fraction</c> class</title>
+                <task xml:id="fraction_class_cpp" label="fraction_class_cpp">
+                    <title>C++</title>
+                    <statement><program interactive="activecode" language="cpp"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -755,14 +809,14 @@ class Fraction {
             num = 1;
             den = 1;
         }
-        Fraction operator +(Fraction otherFrac) {
+        Fraction operator +(const Fraction &amp;otherFrac) {
             int newnum = num*otherFrac.den + den*otherFrac.num;
             int newden = den*otherFrac.den;
             int common = gcd(newnum, newden);
 
             return Fraction(newnum/common,newden/common);
         }
-        bool operator ==(Fraction &amp;otherFrac) {
+        bool operator ==(const Fraction &amp;otherFrac) {
             int firstnum = num*otherFrac.den;
             int secondnum = otherFrac.num*den;
             return firstnum==secondnum;
@@ -793,12 +847,11 @@ int main(){
     }
     return 0;
 }
-        </input>
-    </program>
-                </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ObjectOrientedProgrammingDefiningClasses', 'chapter': 'Introduction', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="fraction_class_py" interactive="activecode" language="python">
-        <input>
+                    </input></program></statement>
+                </task>
+            <task label="fraction_class_py">
+                <title>Python</title>
+                <statement><program xml:id="fraction_class_py" interactive="activecode" language="python"><input>
 def gcd(m,n):
     while m%n != 0:
         oldm = m
@@ -836,37 +889,13 @@ x = Fraction(1,2)
 y = Fraction(2,3)
 print(x + y)
 print(x == y)
-        </input>
-    </program>
-                </TabNode>
+            </input></program></statement></task>
+        </exploration>>
         </subsection>
         <subsection xml:id="introduction_self-check">
-            <!--OOP class example:-->
-            <p><term>Question example</term></p>
-            <program language="cpp"><input>
-#include&lt;iostream&gt;
-using namespace std;
-
-class Vehicle
-{
-
-    protected:
-        int wheels;
-        int windows;
-        int engine;
-};
-
-class Airplane: public Vehicle
-{
-    protected:
-        // wheels
-        // windows
-        // engine
-        int wings;
-};
-</input></program>
+            <title>Self-Check</title>
             <p>To make sure you understand how operators are implemented in C++ classes, and how to properly write methods, write some methods to implement
-                <c classes="code">*</c>, <c classes="code">/</c>, and <c classes="code">-</c>.  Also implement comparison operators <c classes="code">&gt;</c> and <c classes="code">&lt;</c>.</p>
+                <c>*</c>, <c>/</c>, and <c>-</c>.  Also implement comparison operators <c>&gt;</c> and <c>&lt;</c>.</p>
 
     <program xml:id="self_check_4cpp" interactive="activecode" language="cpp">
         <input>
@@ -898,14 +927,14 @@ class Fraction {
             num = 1;
             den = 1;
         }
-        Fraction operator +(Fraction otherFrac) {
+        Fraction operator +(const Fraction &amp;otherFrac) {
             int newnum = num*otherFrac.den + den*otherFrac.num;
             int newden = den*otherFrac.den;
             int common = gcd(newnum, newden);
 
             return Fraction(newnum/common,newden/common);
         }
-        bool operator ==(Fraction &amp;otherFrac) {
+        bool operator ==(const Fraction &amp;otherFrac) {
             int firstnum = num*otherFrac.den;
             int secondnum = otherFrac.num*den;
 
@@ -946,68 +975,25 @@ int main(){
         <statement><p>Match the corresponding key word to the appropriate scenario.</p></statement>
         <feedback><p>Review the definitions of the key words.</p></feedback>
     <matches><match order="1"><premise>Encapsulation</premise><response>A situation where bank software programmers want to protect users' personal information.</response></match><match order="2"><premise>Abstraction</premise><response>A situation where software programmers want to develop similar objects without having to redefine the most similar properties.</response></match></matches></exercise>
+    
     <exercise label="class_syntax">
-        <statement><p>Click on the line where there is a syntax error when defining the following class</p></statement>
+    <statement><p>Click on the line where there is a syntax error when defining the following class</p></statement>
     <feedback><p>C++ class definitions end with a certain symbol</p></feedback>
     <areas>
-    <cline><area>class Fraction {</area>:</cline>
-    <cline>  <area>public:</area>:</cline>
-    <cline>      <area>Fraction(int top, int bottom) {</area>:</cline>
-    <cline>          <area>/** Fraction contructor method */</area>:</cline>
-    <cline>          <area>num = top;     // setting num's value</area>:</cline>
-    <cline>          <area>den = bottom;  // setting den's value</area>:</cline>
-    <cline>      <area>}</area>:</cline>
-    <cline>  <area>private:</area>:</cline>
-    <cline>      <area>int num; // num atribute</area>:</cline>
-    <cline>      <area>int den; // den attribute</area>:</cline>
-    <cline><area correct="yes">}</area>:</cline>
-    </areas></exercise>
-    <exercise label="OOPclassquestion">
-        <statement>
+        <cline><area correct="no">class Fraction {</area></cline>
+        <cline>  <area correct="no">public:</area></cline>
+        <cline>      <area correct="no">Fraction(int top, int bottom) {</area></cline>
+        <cline>          <area correct="no">/** Fraction constructor method */</area></cline>
+        <cline>          <area correct="no">num = top;     // setting num's value</area></cline>
+        <cline>          <area correct="no">den = bottom;  // setting den's value</area></cline>
+        <cline>      <area correct="no">}</area></cline>
+        <cline>  <area correct="no">private:</area></cline>
+        <cline>      <area correct="no">int num; // num atribute</area></cline>
+        <cline>      <area correct="no">int den; // den attribute</area></cline>
+        <cline><area correct="yes">}</area></cline> <!-- line with syntax error-->
+    </areas>
+</exercise>
 
-            <p>Which OOP principle is the above code an example of?</p>
-
-        </statement>
-<choices>
-
-            <choice correct="yes">
-                <statement>
-                    <p>Inheritance</p>
-                </statement>
-                <feedback>
-                    <p>Correct! Airplane inherits many things from Vehicle</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>Encapsulation</p>
-                </statement>
-                <feedback>
-                    <p>Encapsulation is the principle of hiding the contents of a class except when absolutely necessary. Wings is not hidden from Vehicle, it simply does not exist in the Vehicle class.</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>Polymorphism</p>
-                </statement>
-                <feedback>
-                    <p>Polymorphism is the ability to process objects or methods differently depending on their data type, class, number of arguments, etc. A subclass using parts of a pre-existing class is not an example of polymorphism because they are used in the same way.</p>
-                </feedback>
-            </choice>
-
-            <choice>
-                <statement>
-                    <p>Abstraction</p>
-                </statement>
-                <feedback>
-                    <p>Abstraction is the principle of focusing on desired behaviors and properties while disregarding what is irrelevant/unimportant. Take another look at what the two classes have in common.</p>
-                </feedback>
-            </choice>
-</choices>
-
-    </exercise>
 
     
 
@@ -1023,7 +1009,7 @@ int main(){
 
 
         </subsection>
-        <p>
+        <conclusion><p>
             <!-- extra space before the progress bar -->
-        </p>
+        </p></conclusion>
     </section>

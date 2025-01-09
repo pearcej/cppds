@@ -10,22 +10,47 @@
             illustrates the most unbalanced left-heavy tree possible under the new
             rules.</p>
         
-        <figure align="center" xml:id="fig-worstavl"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Worst-Case Left-Heavy AVL Trees.</caption><image source="Trees/worstAVL.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-worstavl">
+          <caption>Worst-Case Left-Heavy AVL Trees.</caption>
+          <image source="Trees/worstAVL.png" width="50%"> 
+            <description>
+            <p>
+                Image showing the most unbalanced left-heavy AVL trees for heights 0, 1, 2, and 3, adhering to the AVL balance factor rules. 
+                Each tree is labeled with nodes and balance factors:
+                - For height 0, the tree contains a single node "A" with a balance factor of 0.
+                - For height 1, the tree has "B" as the root with a balance factor of 1 and "A" as its left child with a balance factor of 0.
+                - For height 2, the tree has "C" as the root with a balance factor of 1. "B" is the left child of "C" with a balance factor of 1, 
+                and "A" is the left child of "B" with a balance factor of 0. "D" is the right child of "C" with a balance factor of 0.
+                - For height 3, the tree has "E" as the root with a balance factor of 1. "C" is the left child of "E" with a balance factor of 1. 
+                "B" is the left child of "C" with a balance factor of 1, and "A" is the left child of "B" with a balance factor of 0. "D" is the 
+                right child of "C" with a balance factor of 0. "G" is the right child of "E" with a balance factor of 1, and "F" is the left 
+                child of "G" with a balance factor of 0.
+                This sequence demonstrates the maximum permissible left-heavy configurations in AVL trees while maintaining balance factors 
+                of -1, 0, or 1 at all nodes.
+            </p>
+            </description>
+
+          </image>
+        </figure>
         <p>Looking at the total number of nodes in the tree we see that for a tree
             of height 0 there is 1 node, for a tree of height 1 there is <m>1+1
                 = 2</m> nodes, for a tree of height 2 there are <m>1+1+2 = 4</m> and
             for a tree of height 3 there are <m>1 + 2 + 4 = 7</m>. More generally
             the pattern we see for the number of nodes in a tree of height h
             (<m>N_h</m>) is:</p>
-        <m docname="Trees/AVLTreePerformance" nowrap="False" number="True" xml:space="preserve">N_h = 1 + N_{h-1} + N_{h-2}</m>
+        <me>N_h = 1 + N_{h-1} + N_{h-2}</me>
         <p>This recurrence may look familiar to you because it is very similar to
             the Fibonacci sequence. We can use this fact to derive a formula for the
             height of an AVL tree given the number of nodes in the tree. Recall that
             for the Fibonacci sequence the <m>i_{th}</m> Fibonacci number is
             given by:</p>
-        <m docname="Trees/AVLTreePerformance" nowrap="False" number="True" xml:space="preserve">F_0 = 0 \\
-F_1 = 1 \\
-F_i = F_{i-1} + F_{i-2}  \text{ for all } i \ge 2</m>
+        <me>\begin{split}
+            F_0 &amp;= 0 \\
+            F_1 &amp;= 1 \\
+              &amp;\vdots \\
+            F_i &amp;= F_{i-1} + F_{i-2}  \text{ for all } i \ge 2
+            \end{split}
+        </me>
         <p>An important mathematical result is that as the numbers of the Fibonacci
             sequence get larger and larger the ratio of <m>F_i / F_{i-1}</m>
             becomes closer and closer to approximating the golden ratio
@@ -35,15 +60,18 @@ F_i = F_{i-1} + F_{i-2}  \text{ for all } i \ge 2</m>
             use this equation to approximate <m>F_i</m> as <m>F_i =
                 \Phi^i/\sqrt{5}</m>. If we make use of this approximation we can rewrite
             the equation for <m>N_h</m> as:</p>
-        <m docname="Trees/AVLTreePerformance" nowrap="False" number="True" xml:space="preserve">N_h = F_{h+1} - 1, h \ge 1</m>
+        <me>N_h = F_{h+1} - 1, h \ge 1</me>
         <p>By replacing the Fibonacci reference with its golden ratio approximation
             we get:</p>
-        <m docname="Trees/AVLTreePerformance" nowrap="False" number="True" xml:space="preserve">N_h = \frac{\Phi^{h+2}}{\sqrt{5}} - 1</m>
+        <me>N_h = \frac{\Phi^{h+2}}{\sqrt{5}} - 1</me>
         <p>If we rearrange the terms, and take the base 2 log of both sides and
             then solve for <m>h</m> we get the following derivation:</p>
-        <m docname="Trees/AVLTreePerformance" nowrap="False" number="True" xml:space="preserve">\log{N_h+1} = (h+2)\log{\Phi} - \frac{1}{2} \log{5} \\
-h = \frac{\log{N_h+1} - 2 \log{\Phi} + \frac{1}{2} \log{5}}{\log{\Phi}} \\
-h = 1.44 \log{N_h}</m>
+        <me>\begin{split}
+            \log{N_h+1} &amp;= (h+2)\log{\Phi} - \frac{1}{2} \log{5} \\
+            h &amp;= \frac{\log{N_h+1} - 2 \log{\Phi} + \frac{1}{2} \log{5}}{\log{\Phi}} \\
+            h &amp;= 1.44 \log{N_h}
+            \end{split}
+        </me>
         <p>This derivation shows us that at any time the height of our AVL tree is
             equal to a constant(1.44) times the log of the number of nodes in the tree. This
             is great news for searching our AVL tree because it limits the search to

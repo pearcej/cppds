@@ -9,7 +9,20 @@
             (the potato) is removed from the circle. Play continues until only one
             child is left.</p>
         
-        <figure align="center" xml:id="fig-quhotpotato"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 2: A Six Person Game of Hot Potato</caption><image source="LinearBasic/hotpotato.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-quhotpotato">
+            <caption>A Six Person Game of Hot Potato</caption>
+            <image source="LinearBasic/hotpotato.png" width="50%"> 
+                <description>
+                    <p>
+                        The image illustrates a simulation of the children's game "Hot Potato" using a queue. 
+                        Six participants—Bill, David, Susan, Jane, Kent, and Brad—are arranged in a circular pattern. 
+                        An item (the "potato") is passed from one person to the next in clockwise order. 
+                        After a predefined number of passes (five in this case), Brad, who is holding the potato, is eliminated and removed from the circle. 
+                        The process repeats until only one participant remains. Arrows indicate the direction of the potato being passed between participants.
+                    </p>
+                </description>
+            </image>
+        </figure>
         <p>This game is a modern-day equivalent of the famous Josephus problem.
             Based on a legend about the famous first-century historian Flavius
             Josephus, the story is told that in the Jewish revolt against Rome,
@@ -37,14 +50,28 @@
             permanently and another cycle will begin. This process will continue
             until only one name remains (the size of the queue is 1).</p>
         
-        <figure align="center" xml:id="fig-qupotatoqueue"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 3: A Queue Implementation of Hot Potato</caption><image source="LinearBasic/namequeue.png" width="50%"/></figure>
-        <p>The program is shown in <xref ref="lst-josephussim"/>. A call to the
+        <figure align="center" xml:id="fig-qupotatoqueue">
+            <caption>A Queue Implementation of Hot Potato</caption>
+            <image source="LinearBasic/namequeue.png" width="50%"> 
+                <description>
+                    <p>
+                        The image illustrates a queue implementation of the "Hot Potato" game. 
+                        The top diagram shows the queue in its initial state, with participants Brad, Kent, Jane, Susan, David, and Bill arranged from rear to front. 
+                        Arrows indicate the process of dequeueing the person at the front (Bill) and enqueuing them at the rear to simulate the potato being passed. 
+                        The bottom diagram shows the updated queue after one cycle of passing, where the order now starts with Brad at the rear and ends with David at the front. 
+                        The diagrams visually represent the enqueue and dequeue operations in the queue-based simulation of the game.
+                    </p>
+                </description>
+            </image>
+        </figure>
+        <p>The program is shown in <xref ref="lst-josephussim-cpp"/>. A call to the
             <c>hotPotato</c> function using 7 as the counting constant returns <c>Susan</c>.</p>
-        
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'SimulationHotPotato', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
 
-    <program xml:id="hot_potato_cpp" interactive="activecode" language="cpp">
-        <input>
+        <exploration xml:id="expl-lst-josephussim-cpp">
+            <title>Hot Potato Simulator</title>
+            <task xml:id="lst-josephussim-cpp" label="lst-josephussim-cpp">
+                <title>C++ Implementation</title>
+                <statement><program xml:id="hot_potato_cpp" interactive="activecode" language="cpp"><input>
 //This program creates a simulation of hot potato.
 
 #include &lt;iostream&gt;
@@ -79,12 +106,11 @@ int main() {
 
     return 0;
 }
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'SimulationHotPotato', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="hot_potato_py" interactive="activecode" language="python">
-        <input>
+                </input></program></statement>
+            </task>
+            <task xml:id="lst-josephussim-py" label="lst-josephussim-py">
+                <title>Python Implementation</title>
+                <statement><program xml:id="hot_potato_py" interactive="activecode" language="python"><input>
 #This program creates a simulation of hot potato.
 
 from pythonds.basic.queue import Queue
@@ -106,9 +132,9 @@ def hotPotato(namelist, num):
 def main():
     print(hotPotato(["Bill","David","Susan","Jane","Kent","Brad"],7))
 main()
-        </input>
-    </program>
-            </TabNode>
+                </input></program></statement>
+            </task>
+        </exploration>
         <p>Note that in this example the value of the counting constant is greater
             than the number of names in the array. This is not a problem since the
             queue acts like a circle and counting continues back at the beginning
