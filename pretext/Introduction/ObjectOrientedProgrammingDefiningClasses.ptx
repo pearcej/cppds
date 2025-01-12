@@ -297,7 +297,7 @@ int main() {
                 </task>
                 <task xml:id="showmethod-py" label="showmethod_py">
                     <title>Python</title>
-                    <statement><program xml:id="showmethod_cpp" interactive="activecode" language="cpp" label="showmethod_cpp-prog"><input>
+                    <statement><program interactive="activecode" language="python" label="showmethod_py-prog"><input>
 def show(self):
   print(self.num,"/",self.den)
                     </input></program></statement>
