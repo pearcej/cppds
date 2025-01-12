@@ -117,7 +117,7 @@
 
         <listing xml:id="graphs_lst-avail" names="lst_avail">
             <caption>Implementation of <c>orderByAvail</c></caption>
-            <program language="python"><input>
+            <program language="python" label="graphs_lst-avail-prog"><input>
 def orderByAvail(n):
     resList = []
     for v in n.getConnections():

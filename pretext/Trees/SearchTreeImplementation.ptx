@@ -59,7 +59,7 @@
         
         <listing xml:id="bst_lst-bst1">
             <caption><c>BinarySearchTree</c> Class and Constructor</caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="bst_lst-bst1-prog"><input>
 class BinarySearchTree{
     private:
         TreeNode *root;
@@ -100,7 +100,7 @@ class BinarySearchTree{
         
         <listing xml:id="bst_lst-bst2">
             <caption><c>TreeNode</c> Class</caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="bst_lst-bst2-prog"><input>
 class TreeNode{
     public:
         int key;
@@ -204,7 +204,7 @@ class TreeNode{
         
         <listing xml:id="bst_lst-bst3" names="lst_bst3">
             <caption><c>put</c> and <c>_put</c> Methods</caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="bst_lst-bst3-prog"><input>
 void put(int key, string val){
     if (this-&gt;root){
         this-&gt;_put(key, val, this-&gt;root);
@@ -274,7 +274,7 @@ void _put(int key, string val, TreeNode *currentNode){
         
         <listing xml:id="bst_lst-bst4" names="bst_lst-bst4">
             <caption><c>get</c> and <c>_get</c> Methods</caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="bst_lst-bst4-prog"><input>
 string get(int key){
     if (this-&gt;root){
         TreeNode *res = this-&gt;_get(key, this-&gt;root);
@@ -317,7 +317,7 @@ TreeNode  *_get(int key, TreeNode *currentNode){
         
         <listing xml:id="bst_lst-bst5" names="lst_bst5">
             <caption><c>del</c> Method</caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="bst_lst-bst5-prog"><input>
 void del(int key){
     if (this-&gt;size &gt; 1){
         TreeNode *nodeToRemove = this-&gt;_get(key, this-&gt;root);
@@ -358,7 +358,7 @@ void del(int key){
         
         <listing xml:id="bst_lst-bst6">
             <caption>Deleting a Node With No Children</caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="bst_lst-bst6-prog"><input>
 if (currentNode-&gt;isLeaf()){ //leaf
     if (currentNode == currentNode-&gt;parent-&gt;leftChild){
         currentNode-&gt;parent-&gt;leftChild = NULL;
@@ -412,7 +412,7 @@ if (currentNode-&gt;isLeaf()){ //leaf
 
         <listing xml:id="bst_lst-bst7">
             <caption>Handling One Child Node</caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="bst_lst-bst7-prog"><input>
 else{ // this node has one child
     if (currentNode-&gt;hasLeftChild()){
         if (currentNode-&gt;isLeftChild()){
@@ -505,7 +505,7 @@ else{ // this node has one child
         
         <listing xml:id="bst_lst-bst8" names="lst_bst8">
             <caption>Deleting a Node With Two Children</caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="bst_lst-bst8-prog"><input>
 else if (currentNode-&gt;hasBothChildren()){ //interior
     TreeNode *succ = currentNode-&gt;findSuccessor();
     succ-&gt;spliceOut();
@@ -546,7 +546,7 @@ else if (currentNode-&gt;hasBothChildren()){ //interior
         
         <listing xml:id="bst_lst-bst9" names="lst_bst9">
             <caption><c>findSuccessor</c>, <c>findMin</c>, and <c>spliceOut</c> Methods</caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="bst_lst-bst9-prog"><input>
 TreeNode *findSuccessor(){
     TreeNode *succ = NULL;
     if (this-&gt;hasRightChild()){
@@ -630,7 +630,7 @@ void spliceOut(){
 
         <listing xml:id="lst-bst-pyiter">
             <caption><c>__iter__</c> Method for <c>TreeNode</c> Class</caption>
-            <program language="python"><input>
+            <program language="python" label="lst-bst-pyiter-prog"><input>
 def __iter__(self):
     if self:
         if self.hasLeftChild():
@@ -651,7 +651,7 @@ def __iter__(self):
             <title>Complete Binary Search Tree</title>
             <task xml:id="lst-bstwhole-cpp" label="lst-bstwhole-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="completebstcodecpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="completebstcodecpp" interactive="activecode" language="cpp" label="completebstcodecpp-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;cstdlib&gt;
 #include &lt;cstddef&gt;
@@ -988,7 +988,7 @@ int main(){
             </task>
             <task xml:id="lst-bstwhole-py" label="lst-bstwhole-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="completebstcodepy" interactive="activecode" language="python"><input>
+                <statement><program xml:id="completebstcodepy" interactive="activecode" language="python" label="completebstcodepy-prog"><input>
 #The TreeNode class represents a node, or vertex, in a tree heirarchy.
 class TreeNode:
     def __init__(self,key,val,left=None,right=None,parent=None):

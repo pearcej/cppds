@@ -18,7 +18,7 @@
             <title>Stack Implementation</title>
             <task xml:id="stack-code1" label="stack-code1">
                 <title>C++ Implementation</title>
-                <statement><program interactive="activecode" language="cpp"><input>
+                <statement><program interactive="activecode" language="cpp" label="stack-code1-prog"><input>
 //Tests the push, empty, size, pop, and top methods of the stack library.
 
 #include &lt;iostream&gt;
@@ -55,7 +55,7 @@ int main() {
             </task>
             <task xml:id="stack_1ac_py" label="stack_1ac_py">
                 <title>Python Implementation</title>
-                <statement><program interactive="activecode" language="python"><input>
+                <statement><program interactive="activecode" language="python" label="stack_1ac_py-prog"><input>
 #Tests the push, empty, size, pop, and top methods of the stack library.
 
 class Stack:
@@ -103,7 +103,7 @@ main()
         <statement>
 
             <p>Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?</p>
-            <program language="cpp"><input>
+            <program language="cpp" label="ImplementingaStackCpp-prog"><input>
 stack&lt;int&gt; m;
 m.push(5);
 m.push(12);
@@ -158,7 +158,7 @@ cout &lt;&lt; m.top();
         <statement>
 
             <p>Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?</p>
-            <program language="cpp"><input>
+            <program language="cpp" label="ImplementingaStackCpp-prog-2"><input>
 stack&lt;int&gt; m;
 m.push(37);
 m.push(56);

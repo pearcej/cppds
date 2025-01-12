@@ -48,7 +48,7 @@
 
         <listing xml:id="virtualfunction">
             <caption>Virtual function example</caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="virtualfunction-prog"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -179,7 +179,7 @@ int main() {
                 <title>Complete <c>LogicGate</c> class</title>
                 <task xml:id="introduction_lst-logicgateclass" label="introduction_lst-logicgateclass">
                         <title>C++ implementation</title>
-                        <statement><program language="cpp"><input>
+                        <statement><program language="cpp" label="introduction_lst-logicgateclass-prog"><input>
 class LogicGate {
 public:
         LogicGate(string n) {
@@ -199,7 +199,7 @@ protected:
                 </input></program></statement></task>
                 <task xml:id="introduction_lst-logicgateclass-py" label="introduction_lst-logicgateclass-py">
                         <title>Python implementation</title>
-                        <statement><program language="python"><input>
+                        <statement><program language="python" label="introduction_lst-logicgateclass-py-prog"><input>
 class LogicGate:
         def __init__(self,n):
                 self.label = n
@@ -244,7 +244,7 @@ class LogicGate:
                         <title>Implementation of <c>BinaryGate</c></title>
                         <task xml:id="introduction_lst-binarygateclass" label="introduction_lst-binarygateclass">
                                 <title>C++ implementation</title>
-                                <statement><program language="cpp"><input>
+                                <statement><program language="cpp" label="introduction_lst-binarygateclass-prog"><input>
 class BinaryGate : public LogicGate {
 public:
         BinaryGate(string n) : LogicGate(n) { // When we create an instance of
@@ -280,7 +280,7 @@ protected:
                         </input></program></statement></task>
                         <task xml:id="introduction_lst-binarygateclass-py" label="introduction_lst-binarygateclass-py">
                                 <title>Python implementation</title>
-                                <statement><program language="python"><input>
+                                <statement><program language="python" label="introduction_lst-binarygateclass-py-prog"><input>
 class BinaryGate(LogicGate):
 
         def __init__(self,n):
@@ -302,7 +302,7 @@ class BinaryGate(LogicGate):
                         <title>Implementation of <c>UnaryGate</c></title>
                         <task xml:id="introduction_lst-unarygateclass" label="introduction_lst-unarygateclass">
                                 <title>C++ implementation</title>
-                                <statement><program language="cpp"><input>
+                                <statement><program language="cpp" label="introduction_lst-unarygateclass-prog"><input>
 class UnaryGate : public LogicGate {
 public:
         UnaryGate(string n) : LogicGate(n) {
@@ -323,7 +323,7 @@ protected:
                         </input></program></statement></task>
                         <task xml:id="introduction_lst-unarygateclass-py" label="introduction_lst-unarygateclass-py">
                                 <title>Python implementation</title>
-                                <statement><program language="python"><input>
+                                <statement><program language="python" label="introduction_lst-unarygateclass-py-prog"><input>
 class UnaryGate(LogicGate):
 
         def __init__(self,n):
@@ -369,7 +369,7 @@ class UnaryGate(LogicGate):
                 <title>Implementation of <c>AndGate</c></title>
                 <task xml:id="introduction_lst-andgateclass" label="introduction_lst-andgateclass">
                         <title>C++ implementation</title>
-                        <statement><program language="cpp"><input>
+                        <statement><program language="cpp" label="introduction_lst-andgateclass-prog"><input>
 class AndGate : public BinaryGate {
 public:
         AndGate(string n) : BinaryGate(n) {};
@@ -388,7 +388,7 @@ public:
                 </input></program></statement></task>
                 <task xml:id="introduction_lst-andgateclass-py" label="introduction_lst-andgateclass-py">
                         <title>Python implementation</title>
-                        <statement><program language="python"><input>
+                        <statement><program language="python" label="introduction_lst-andgateclass-py-prog"><input>
 class AndGate(BinaryGate):
 
         def __init__(self,n):
@@ -413,7 +413,7 @@ class AndGate(BinaryGate):
 
         <listing xml:id="introduction_fig-andusage">
             <caption><c>AndGate</c> Usage</caption>
-            <program><input>
+            <program label="introduction_fig-andusage-prog"><input>
                 &gt;&gt;&gt; AndGate gand2("gand2")
                 &gt;&gt;&gt; gand2.getOutput()
                 Enter Pin A input for gate gand2: 1
@@ -437,7 +437,7 @@ class AndGate(BinaryGate):
 
             <listing xml:id="introduction_fig-ornotusage">
                 <caption>Usage of <c>OrGate</c> and <c>NotGate</c></caption>
-                <program><input>
+                <program label="introduction_fig-ornotusage-prog"><input>
 &gt;&gt;&gt; g2 = OrGate("G2")
 &gt;&gt;&gt; g2.getOutput()
 Enter Pin A input for gate G2-&gt;1
@@ -500,7 +500,7 @@ Enter Pin input for gate G3-&gt;0
 
             <listing xml:id="ooderive_program">
                 <caption>Using the <c>Connector</c> Class</caption>
-                <program interactive="activecode" language="cpp"><input>
+                <program interactive="activecode" language="cpp" label="ooderive_program-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -763,7 +763,7 @@ int main() {
 
             <!--OOP class example:-->
             <p><term>Question example</term></p>
-            <program language="cpp"><input>
+            <program language="cpp" label="ObjectOrientedProgrammingDerivedClasses-prog"><input>
 #include&lt;iostream&gt;
 using namespace std;
 

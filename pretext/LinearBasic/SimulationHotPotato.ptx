@@ -71,7 +71,7 @@
             <title>Hot Potato Simulator</title>
             <task xml:id="lst-josephussim-cpp" label="lst-josephussim-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="hot_potato_cpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="hot_potato_cpp" interactive="activecode" language="cpp" label="hot_potato_cpp-prog"><input>
 //This program creates a simulation of hot potato.
 
 #include &lt;iostream&gt;
@@ -110,7 +110,7 @@ int main() {
             </task>
             <task xml:id="lst-josephussim-py" label="lst-josephussim-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="hot_potato_py" interactive="activecode" language="python"><input>
+                <statement><program xml:id="hot_potato_py" interactive="activecode" language="python" label="hot_potato_py-prog"><input>
 #This program creates a simulation of hot potato.
 
 from pythonds.basic.queue import Queue

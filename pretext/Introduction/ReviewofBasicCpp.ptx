@@ -15,7 +15,7 @@
             when run, are translated to <term>machine code</term> by a program called the <term>compiler</term>.</p>
         <p>The following is an example of C++ code that writes to the console:</p>
 
-    <program xml:id="cpp" interactive="activecode" language="cpp">
+    <program xml:id="cpp" interactive="activecode" language="cpp" label="cpp-prog">
         <input>
 //Outputs strings to command line.
 #include &lt;iostream&gt;

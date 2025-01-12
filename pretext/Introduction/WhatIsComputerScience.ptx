@@ -80,7 +80,7 @@
             <title>Example using <c>&lt;cmath&gt;</c></title>
             <task label="cPlusPlus" xml:id="cPlusPlus">
                 <title>C++ Implementation</title>
-                <statement><program interactive="activecode" language="cpp"><input>
+                <statement><program interactive="activecode" language="cpp" label="cPlusPlus-prog"><input>
 //Outputs the square root of a given number.
 #include &lt;iostream&gt;
 #include &lt;cmath&gt;
@@ -94,7 +94,7 @@ int main() {
             </task>
             <task label="mathpy" xml:id="mathpy">
                 <title>Python Implementation</title>
-                <statement><program interactive="activecode" language="python"><input>
+                <statement><program interactive="activecode" language="python" label="mathpy-prog"><input>
 #Outputs the square root of a given number.
 import math
 

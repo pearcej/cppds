@@ -73,7 +73,7 @@
             <title>Recursive Change Calculator</title>
             <task xml:id="lst-change1-cpp" label="lst-change1-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-change1-cpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="prog-change1-cpp" interactive="activecode" language="cpp" label="prog-change1-cpp-prog"><input>
 //Recursive example of trying to get the least amount of coins to make up an amount of change.
 
 #include &lt;iostream&gt;
@@ -104,7 +104,7 @@ int main() {
             </task>
             <task xml:id="lst-change1-py" label="lst-change1-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-change1-py" interactive="activecode" language="python"><input>
+                <statement><program xml:id="prog-change1-py" interactive="activecode" language="python" label="prog-change1-py-prog"><input>
 #Recursive example of trying to get the least amount of coins to make up an amount of change.
 
 def recMC_greedy(coinValueList,change):
@@ -170,7 +170,7 @@ main()
             <title>Change Calculation With Memoization</title>
             <task xml:id="lst-change2-cpp" label="lst-change2-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-change2-cpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="prog-change2-cpp" interactive="activecode" language="cpp" label="prog-change2-cpp-prog"><input>
 //A different attempt at making the change algorithm.
 
 #include &lt;iostream&gt;
@@ -215,7 +215,7 @@ int main(){
             </task>
             <task xml:id="lst-change2-py" label="lst-change2-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-change2-py" interactive="activecode" language="python"><input>
+                <statement><program xml:id="prog-change2-py" interactive="activecode" language="python" label="prog-change2-py-prog"><input>
 #A different attempt at making the change algorithm.
 
 def recDC(coinValueList, change, knownResults):
@@ -318,7 +318,7 @@ main()
             <title>Change Calculator Using Dynamic Programming</title>
             <task xml:id="lst-dpchange-cpp" label="lst-dpchange-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-dpchange-cpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="prog-dpchange-cpp" interactive="activecode" language="cpp" label="prog-dpchange-cpp-prog"><input>
  //Program that stores the solution for all possible amounts of change up to a given integer.
 
  #include &lt;iostream&gt;
@@ -351,7 +351,7 @@ main()
             </task>
             <task xml:id="lst-dpchange-py" label="lst-dpchange-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="lst_change100cpp" interactive="activecode" language="python"><input>
+                <statement><program xml:id="lst_change100cpp" interactive="activecode" language="python" label="lst_change100cpp-prog"><input>
 #Program that stores the solution for all possible amounts of change up to a given integer.
 
 def dpMakeChange(coinValueList,change,minCoins):
@@ -409,7 +409,7 @@ main()
             <title>Dynamic Programming With Coin Tracking</title>
             <task xml:id="lst-dpremember-cpp" label="lst-dpremember-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-dpremember-cpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="prog-dpremember-cpp" interactive="activecode" language="cpp" label="prog-dpremember-cpp-prog"><input>
 //Addition to the precious program that finds the types of coins used and the process of doing it.
 
 #include &lt;iostream&gt;
@@ -495,7 +495,7 @@ int main(){
             </task>
             <task xml:id="lst-dpremember-py" label="lst-dpremember-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-dpremember-py" interactive="activecode" language="python"><input>
+                <statement><program xml:id="prog-dpremember-py" interactive="activecode" language="python" label="prog-dpremember-py-prog"><input>
 #Addition to the precious program that finds the types of coins used and the process of doing it.
 
 def dpMakeChange(coinValueList,change,minCoins,coinsUsed):

@@ -35,7 +35,7 @@
             is more than a binary tree, another subtree is just another list.</p>
         
 
-    <program xml:id="tree_list1" interactive="activecode" language="python">
+    <program xml:id="tree_list1" interactive="activecode" language="python" label="tree_list1-prog">
         <input>
 myTree = ['a', ['b', ['d',[],[]], ['e',[],[]] ], ['c', ['f',[],[]], []] ]
 print(myTree)
@@ -104,7 +104,7 @@ def getRightChild(root):
             structure resulting from this set of calls.</p>
         
 
-    <program xml:id="bin_tree" interactive="activecode" language="python">
+    <program xml:id="bin_tree" interactive="activecode" language="python" label="bin_tree-prog">
         <input>
 def BinaryTree(r):
     return [r, [], []]
@@ -161,7 +161,7 @@ main()
         <statement>
 
             <p>Q-3: Given the following statements:</p>
-            <program language="python"><input>
+            <program language="python" label="ListofListsRepresentation-prog"><input>
 x = BinaryTree('a')
 insertLeft(x,'b')
 insertRight(x,'c')
@@ -218,7 +218,7 @@ insertLeft(getRightChild(getRightChild(x)),'e')
             <image source="Trees/Figures/tree_ex.png" width="50%"/>
 
     </statement>
-    <program xml:id="mctree_2_editor" interactive="activecode" language="python">
+    <program xml:id="mctree_2_editor" interactive="activecode" language="python" label="mctree_2_editor-prog">
         <input>
 from test import testEqual
 

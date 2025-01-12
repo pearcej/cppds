@@ -11,7 +11,7 @@
             <title>Iterative Sum of Vector</title>
             <task xml:id="lst-itsum-cpp" label="lst-itsum-cpp">
                 <title>C++ Implementation</title>
-                <statement><program interactive="activecode" language="cpp"><input>
+                <statement><program interactive="activecode" language="cpp" label="lst-itsum-cpp-prog"><input>
 //Example of summing up a vector without using recursion.
 
 #include &lt;iostream&gt;
@@ -35,7 +35,7 @@ int main() {
             </task>
             <task xml:id="lst-itsum-py" label="lst-itsum-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="lst_itsumpy" interactive="activecode" language="python"><input>
+                <statement><program xml:id="lst_itsumpy" interactive="activecode" language="python" label="lst_itsumpy-prog"><input>
 #Example of summing up a list without using recursion.
 
 def listsum(numList):
@@ -88,7 +88,7 @@ main()
             <title>Recursive Sum of Vector</title>
             <task xml:id="lst-recsum-cpp" label="lst-recsum-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="lst_recsumcpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="lst_recsumcpp" interactive="activecode" language="cpp" label="lst_recsumcpp-prog"><input>
 //Example of summing a vector by using recursion.
 
 #include &lt;iostream&gt;
@@ -116,7 +116,7 @@ int main() {
             </task>
             <task xml:id="lst-recsum-py" label="lst-recsum-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="lst_recsumpy" interactive="activecode" language="python"><input>
+                <statement><program xml:id="lst_recsumpy" interactive="activecode" language="python" label="lst_recsumpy-prog"><input>
 #Example of summing a list using recurison.
 
 def listsum(numList):

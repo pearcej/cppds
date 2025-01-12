@@ -71,7 +71,7 @@
                 <title>Defining Classes</title>
                 <task xml:id="defn-classes-cpp" label="defn-classes-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program language="cpp"><input>
+                    <statement><program language="cpp" label="defn-classes-cpp-prog"><input>
 class Fraction {
     // The class methods and class variables go here
 };  // The ";" is required by C++ to end a class definition
@@ -79,7 +79,7 @@ class Fraction {
                 </task>
                 <task xml:id="defn-classes-py" label="defn-classes-py">
                     <title>Python Implementation</title>
-                    <statement><program language="python"><input>
+                    <statement><program language="python" label="defn-classes-py-prog"><input>
 class Fraction:
 
 #the methods go here
@@ -102,7 +102,7 @@ class Fraction:
                 <title>Constructor for <c>Fraction</c> class</title>
                 <task xml:id="introduction_lst-constructor-cpp" label="introduction_lst-constructor-cpp">
                     <title>C++</title>
-                    <statement><program language="cpp"><input>
+                    <statement><program language="cpp" label="introduction_lst-constructor-cpp-prog"><input>
 class Fraction {
     public:
       Fraction(int top, int bottom) {
@@ -117,7 +117,7 @@ class Fraction {
                 </input></program></statement></task>
                 <task xml:id="introduction_lst-constructor-py" label="introduction_lst-constructor-py">
                     <title>Python</title>
-                    <statement><program language="Python"><input>
+                    <statement><program language="Python" label="introduction_lst-constructor-py-prog"><input>
 class Fraction:
 
     def __init__(self,top,bottom):
@@ -141,13 +141,13 @@ class Fraction:
                 <title>Invoking Constructor</title>
                 <task xml:id="invoking-constructor-cpp" label="invoking-constructor-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program language="cpp"><input>
+                    <statement><program language="cpp" label="invoking-constructor-cpp-prog"><input>
 Fraction myfraction(3, 5);
                     </input></program></statement>
                 </task>
                 <task xml:id="invoking-constructor-py" label="invoking-constructor-py">
                     <title>Python Implementation</title>
-                    <statement><program language="python"><input>
+                    <statement><program language="python" label="invoking-constructor-py-prog"><input>
 myfraction = Fraction(3, 5)
                     </input></program></statement>
                 </task>
@@ -211,7 +211,7 @@ myfraction = Fraction(3, 5)
                 the <c>Fraction</c> class.</p>
             <listing xml:id="frac-poly">
                 <caption>Example of Polymorphism</caption>
-                <program language="cpp"><input>
+                <program language="cpp" label="frac-poly-prog"><input>
 Fraction(int top, int bottom){
     num = top;
     den = bottom;
@@ -240,7 +240,7 @@ Fraction (){
             <p>The next thing we need to do is implement some behaviors that the abstract
                 data type requires. To begin, let's consider what happens when we try to print
                 a <c>Fraction</c> object.</p>
-            <program language="cpp">int main() {
+            <program language="cpp" label="ObjectOrientedProgrammingDefiningClasses-prog">int main() {
     Fraction myfraction(3, 5);
 
     // Throws an error
@@ -264,7 +264,7 @@ Fraction (){
                 <title>Implementing a <c>show</c> method</title>
                 <task xml:id="showmethod-cpp" label="showmethod-cpp">
                     <title>C++</title>
-                    <statement><program interactive="activecode" language="cpp"><input>
+                    <statement><program interactive="activecode" language="cpp" label="showmethod-cpp-prog"><input>
 //using functions to print fractions to the command line.
 #include &lt;iostream&gt;
 using namespace std;
@@ -297,7 +297,7 @@ int main() {
                 </task>
                 <task xml:id="showmethod-py" label="showmethod_py">
                     <title>Python</title>
-                    <statement><program xml:id="showmethod_cpp" interactive="activecode" language="cpp"><input>
+                    <statement><program interactive="activecode" language="python" label="showmethod_py-prog"><input>
 def show(self):
   print(self.num,"/",self.den)
                     </input></program></statement>
@@ -336,7 +336,7 @@ def show(self):
                 <title>Operator Overloading Example</title>
                 <task xml:id="overloaded-cpp" label="overloaded-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="overloaded_cpp" interactive="activecode" language="cpp"><input>
+                    <statement><program xml:id="overloaded_cpp" interactive="activecode" language="cpp" label="overloaded_cpp-prog"><input>
 /*overloading functions to take in different
 inputs and output the correct results*/
 #include &lt;iostream&gt;
@@ -372,7 +372,7 @@ int main() {
                 </task>
                 <task xml:id="overloaded-py" label="overloaded-py">
                     <title>Python Implementation</title>
-                    <statement><program language="python"><input>
+                    <statement><program language="python" label="overloaded-py-prog"><input>
 def __str__(self):
     return str(self.num)+"/"+str(self.den)
 
@@ -419,13 +419,13 @@ TypeError: unsupported operand type(s) for +: 'instance' and 'instance'
                 <title>Function for Addition</title>
                 <task xml:id="addmodel-cpp" label="addmodel-cpp">
                     <title>C++</title>
-                    <statement><program language="cpp"><input>
+                    <statement><program language="cpp" label="addmodel-cpp-prog"><input>
 f1.add(f2)
                     </input></program></statement>
                 </task>
                 <task xml:id="addmodel-py" label="addmodel-py">
                     <title>Python</title>
-                    <statement><program language="python"><input>
+                    <statement><program language="python" label="addmodel-py-prog"><input>
 f1.__add__(f2)
                     </input></program></statement>
                 </task>
@@ -448,7 +448,7 @@ f1.__add__(f2)
                 <title>Adding an addition method</title>
                 <task xml:id="introduction_lst-addmethod-cpp" label="introduction_lst-addmethod-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program language="cpp"><input>
+                    <statement><program language="cpp" label="introduction_lst-addmethod-cpp-prog"><input>
 Fraction operator +(const Fraction &amp;otherFrac){
     //Note the return type is a Fraction
     int newnum = num*otherFrac.den + den*otherFrac.num;
@@ -459,7 +459,7 @@ Fraction operator +(const Fraction &amp;otherFrac){
                 </task>
                 <task xml:id="introduction_lst-addmethod-py" label="introduction_lst-addmethod-py">
                     <title>Python Implementation</title>
-                    <statement><program language="python"><input>
+                    <statement><program language="python" label="introduction_lst-addmethod-py-prog"><input>
 def __add__(self, otherfraction):
 
   newnum = self.num*otherfraction.den + self.den*otherfraction.num
@@ -531,7 +531,7 @@ print(f3)
                 <title>Overloading Addition</title>
                 <task xml:id="addoverload-cpp" label="addoverload-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program language="cpp"><input>
+                    <statement><program language="cpp" label="addoverload-cpp-prog"><input>
 Fraction operator +(const Fraction &amp;frac1, const Fraction &amp;frac2) {
     int newnum = frac1.num * frac2.den + frac1.den * frac2.num;
     int newden = frac1.den * frac2.den;
@@ -541,7 +541,7 @@ Fraction operator +(const Fraction &amp;frac1, const Fraction &amp;frac2) {
                 </task>
                 <task xml:id="addoverload-py" label="addoverload-py">
                     <title>Python Implementation</title>
-                    <statement><program language="python"><input>
+                    <statement><program language="python" label="addoverload-py-prog"><input>
 def __add__(self,otherfraction):
     newnum = self.num*otherfraction.den + self.den*otherfraction.num
     newden = self.den * otherfraction.den
@@ -550,7 +550,7 @@ def __add__(self,otherfraction):
                 </task>
                 <task xml:id="addoverload-usage" label="addoverload-usage">
                     <title>C++ Usage</title>
-                    <statement><program interactive="activecode" language="cpp"><input>
+                    <statement><program interactive="activecode" language="cpp" label="addoverload-usage-prog"><input>
 //overloading the addition operator to create clearer syntax
 #include &lt;iostream&gt;
 using namespace std;
@@ -621,7 +621,7 @@ int main(){
                 <title>Greatest Common Divisor</title>
                 <task xml:id="gcd-cpp" label="gcd-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program interactive="activecode" language="cpp"><input>
+                    <statement><program interactive="activecode" language="cpp" label="gcd-cpp-prog"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -645,7 +645,7 @@ int main() {
                 </task>
                 <task xml:id="gcd-py" label="gcd-py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python"><input>
+                    <statement><program interactive="activecode" language="python" label="gcd-py-prog"><input>
 def gcd(m,n):
     while m%n != 0:
         oldm = m
@@ -750,7 +750,7 @@ int main(){
                 <title>Overloading the comparison operator</title>
                 <task xml:id="introduction_lst-cmpmethod-cpp" label="introduction_lst-cmpmethod-cpp">
                     <title>C++</title>
-                    <statement><program language="cpp"><input>
+                    <statement><program language="cpp" label="introduction_lst-cmpmethod-cpp-prog"><input>
 bool operator ==(const Fraction &amp;otherFrac) {
     int firstnum = num*otherFrac.den;
     int secondnum = otherFrac.num*den;
@@ -761,7 +761,7 @@ bool operator ==(const Fraction &amp;otherFrac) {
                 </task>
                 <task label="introduction_lst-cmpmethod-py">
                     <title>Python</title>
-                    <statement><program language="python"><input>
+                    <statement><program language="python" label="introduction_lst-cmpmethod-py-prog"><input>
 def __eq__(self, other):
     firstnum = self.num * other.den
     secondnum = other.num * self.den
@@ -780,7 +780,7 @@ def __eq__(self, other):
                 <title>Complete <c>Fraction</c> class</title>
                 <task xml:id="fraction_class_cpp" label="fraction_class_cpp">
                     <title>C++</title>
-                    <statement><program interactive="activecode" language="cpp"><input>
+                    <statement><program interactive="activecode" language="cpp" label="fraction_class_cpp-prog"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -851,7 +851,7 @@ int main(){
                 </task>
             <task label="fraction_class_py">
                 <title>Python</title>
-                <statement><program xml:id="fraction_class_py" interactive="activecode" language="python"><input>
+                <statement><program xml:id="fraction_class_py" interactive="activecode" language="python" label="fraction_class_py-prog"><input>
 def gcd(m,n):
     while m%n != 0:
         oldm = m
@@ -897,7 +897,7 @@ print(x == y)
             <p>To make sure you understand how operators are implemented in C++ classes, and how to properly write methods, write some methods to implement
                 <c>*</c>, <c>/</c>, and <c>-</c>.  Also implement comparison operators <c>&gt;</c> and <c>&lt;</c>.</p>
 
-    <program xml:id="self_check_4cpp" interactive="activecode" language="cpp">
+    <program xml:id="self_check_4cpp" interactive="activecode" language="cpp" label="self_check_4cpp-prog">
         <input>
 #include &lt;iostream&gt;
 using namespace std;

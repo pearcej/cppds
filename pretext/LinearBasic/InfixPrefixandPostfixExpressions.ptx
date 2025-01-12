@@ -451,7 +451,7 @@
                 <title>Infix to Postfix Conversion</title>
                 <task xml:id="lst-intopost-cpp" label="lst-intopost-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="intpost_cpp" interactive="activecode" language="cpp"><input>
+                    <statement><program xml:id="intpost_cpp" interactive="activecode" language="cpp" label="intpost_cpp-prog"><input>
 //Converts an infix expression to a postfix expression.
 
 #include &lt;iostream&gt;
@@ -525,7 +525,7 @@ int main() {
                 </task>
                 <task xml:id="lst-intopost-py" label="lst-intopost-py">
                     <title>Python Implementation</title>
-                    <statement><program xml:id="intopost" interactive="activecode" language="python"><input>
+                    <statement><program xml:id="intopost" interactive="activecode" language="python" label="intopost-prog"><input>
 #Converts an infix expression to a postfix expression.
 
 from pythonds.basic.stack import Stack
@@ -689,7 +689,7 @@ main()
                 <title>Postfix Expression Evaluator</title>
                 <task xml:id="lst-postfixeval-cpp" label="lst-postfixeval-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="postfixeval_cpp" interactive="activecode" language="cpp"><input>
+                    <statement><program xml:id="postfixeval_cpp" interactive="activecode" language="cpp" label="postfixeval_cpp-prog"><input>
 //Solves a postfix math problem.
 
 #include &lt;iostream&gt;
@@ -741,7 +741,7 @@ int main() {
                 </task>
                 <task xml:id="lst-postfixeval-py" label="lst-postfixeval-py">
                     <title>Python Implementation</title>
-                    <statement><program xml:id="postfixeval" interactive="activecode" language="python"><input>
+                    <statement><program xml:id="postfixeval" interactive="activecode" language="python" label="postfixeval-prog"><input>
 #Solves a postfix math problem.
 
 from pythonds.basic.stack import Stack

@@ -74,7 +74,7 @@
         
         <listing xml:id="lst-movetower">
             <caption><c>moveTower</c> Function</caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="lst-movetower-prog"><input>
 int moveTower(int height, char fromPole, char toPole, char withPole){
     if (height &gt;= 1){
         moveTower(height-1, fromPole, withPole, toPole);
@@ -106,7 +106,7 @@ int moveTower(int height, char fromPole, char toPole, char withPole){
             <title>Towers of Hanoi</title>
             <task xml:id="lst-movediskcpp" label="lst-movediskcpp">
                 <title>C++ Implementation of <c>moveDisk</c></title>
-                <statement><program language="cpp"><input>
+                <statement><program language="cpp" label="lst-movediskcpp-prog"><input>
 int moveDisk(char fp, char tp){
     cout &lt;&lt; "moving disk from " &lt;&lt; fp &lt;&lt; " to " &lt;&lt; tp &lt;&lt; endl;
 }
@@ -114,7 +114,7 @@ int moveDisk(char fp, char tp){
             </task>
             <task xml:id="lst-hanoi-whole" label="lst-hanoi-whole">
                 <title>C++ Solution to Towers of Hanoi</title>
-                <statement><program xml:id="hanoicpp" interactive="activecode" language="cpp" line-numbers="yes"><input>
+                <statement><program xml:id="hanoicpp" interactive="activecode" language="cpp" line-numbers="yes" label="hanoicpp-prog"><input>
 //Simulation of the tower of hanoi.
 
 #include &lt;iostream&gt;
@@ -139,7 +139,7 @@ int main() {
             </task>
             <task xml:id="lst_movediskpy" label="lst_movediskpy">
                 <title>Python Solution to Towers of Hanoi</title>
-                <statement><program xml:id="hanoipy" interactive="activecode" language="python"><input>
+                <statement><program xml:id="hanoipy" interactive="activecode" language="python" label="hanoipy-prog"><input>
 #Simulation of the tower of hanoi.
 
 def moveTower(height,fromPole, toPole, withPole):

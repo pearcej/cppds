@@ -39,7 +39,7 @@
             <title>Generalized Depth First Search</title>
             <task xml:id="lst-dfsgeneral" label="lst-dfsgeneral">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="cppdfs0" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="cppdfs0" interactive="activecode" language="cpp" label="cppdfs0-prog"><input>
 #include &lt;list&gt;         //std::list
 #include &lt;utility&gt;      //std::pair
 #include &lt;algorithm&gt;    //std::find
@@ -134,7 +134,7 @@ int main(int argc, char** argv){
             </task>
             <task xml:id="pythondfs0" label="pythondfs0">
                 <title>Python Implementation</title>
-                <statement><program interactive="activecode" language="python3"><input>
+                <statement><program interactive="activecode" language="python3" label="pythondfs0-prog"><input>
 from pythonds.graphs import Graph
 
 class DFSGraph(Graph):

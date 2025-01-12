@@ -19,7 +19,7 @@
         
         <listing xml:id="lst_vertex" names="graphs_lst-vertex">
                 <caption><c>Vertex</c> Class</caption>
-                <program language="cpp"><input>
+                <program language="cpp" label="lst_vertex-prog"><input>
 class Vertex {
     public:
         int id;
@@ -77,7 +77,7 @@ ostream &amp;operator&lt;&lt;(ostream &amp;stream, Vertex &amp;vert) {
         
         <listing xml:id="lst_graph" names="graphs_lst-graph">
                 <caption><c>Graph</c> Class</caption>
-                <program language="cpp"><input>
+                <program language="cpp" label="lst_graph-prog"><input>
 class Graph {
     public:
         map&lt;int, Vertex&gt; vertList;
@@ -160,7 +160,7 @@ ostream &amp;operator&lt;&lt;(ostream &amp;stream, Graph &amp;grph) {
                 <title>Directed Graph Implementation</title>
                 <task xml:id="graph_implementation_cpp" label="graph_implementation_cpp">
                         <title>C++ Implementation</title>
-                        <statement><program interactive="activecode" language="cpp"><input>
+                        <statement><program interactive="activecode" language="cpp" label="graph_implementation_cpp-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;map&gt;
 #include &lt;vector&gt;
@@ -325,7 +325,7 @@ int main() {
                 </task>
                 <task xml:id="graph_implementation_py" label="graph_implementation_py">
                         <title>Python Implementation</title>
-                        <statement><program interactive="activecode" language="python"><input>
+                        <statement><program interactive="activecode" language="python" label="graph_implementation_py-prog"><input>
 class Vertex:
         # Contructor that specifies the key of the vertex.
         def __init__(self, key):

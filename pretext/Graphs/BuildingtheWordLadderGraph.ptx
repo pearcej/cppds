@@ -54,7 +54,7 @@
             code required to build the graph.</p>
 <listing xml:id="graphs_wordbucket_cpp">
     <caption>Building the Word Bucket Graph</caption>
-    <program xml:id="wordbucket_cpp" interactive="activecode" language="cpp">
+    <program xml:id="wordbucket_cpp" interactive="activecode" language="cpp" label="wordbucket_cpp-prog">
         <input>
 #include &lt;fstream&gt;
 #include &lt;iostream&gt;

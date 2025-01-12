@@ -70,7 +70,7 @@ double ddouble = 1.2;     // can't use index to access value</pre>
                 <title>Iteration Examples</title>
                 <task xml:id="listarray_cpp" label="listarray_cpp">
                     <title>C++ Implementation</title>
-                    <statement><program interactive="activecode" language="cpp"><input>
+                    <statement><program interactive="activecode" language="cpp" label="listarray_cpp-prog"><input>
 //showcases an iteration through an array in C++
 #include &lt;iostream&gt;
 using namespace std;
@@ -86,7 +86,7 @@ int main(){
                 </task>
                 <task xml:id="listarray_py" label="listarray_py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python"><input>
+                    <statement><program interactive="activecode" language="python" label="listarray_py-prog"><input>
 #showcases an iteration through an array in Python
 def main():
     mylist = [2, 4, 6, 8]
@@ -110,7 +110,7 @@ main()
                 <title>Accessing Elements Outside the Array</title>
                 <task label="array_error_cpp">
                     <title>C++ Implemenetation</title>
-                    <statement><program xml:id="array_error_cpp" interactive="activecode" language="cpp"><input>
+                    <statement><program xml:id="array_error_cpp" interactive="activecode" language="cpp" label="array_error_cpp-prog"><input>
 //outputs the result of trying to access a value outside of an array
 #include &lt;iostream&gt;
 using namespace std;
@@ -127,7 +127,7 @@ int main(){
                 </task>
                 <task label="array_error_py">
                     <title>Python Implementation</title>
-                    <statement><program xml:id="array_error_py" interactive="activecode" language="python"><input>
+                    <statement><program xml:id="array_error_py" interactive="activecode" language="python" label="array_error_py-prog"><input>
 #outputs the result of trying to access a value outside of an array
 def main():
     mylist = [2,4,6,8]
@@ -151,7 +151,7 @@ main()
                 <title>Array Overflow</title>
                 <task label="array_werror_cpp">
                     <title>C++ Implementation</title>
-                    <statement><program interactive="activecode" language="cpp"><input>
+                    <statement><program interactive="activecode" language="cpp" label="array_werror_cpp-prog"><input>
 /*shows how C++ allows you to easily overwrite values in memory even when
 you don't mean to. */
 #include &lt;iostream&gt;
@@ -179,7 +179,7 @@ int main(){
                 </task>
                 <task label="array_werror_py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python"><input>
+                    <statement><program interactive="activecode" language="python" label="array_werror_py-prog"><input>
 """shows how C++ allows you to easily
 overwrite values in memory even when
 you dont mean to."""
@@ -342,7 +342,7 @@ main()
                 <title>Using <c>reserve</c></title>
                 <task label="introvector_cpp" xml:id="introvector_cpp">
                     <title>C++ Implementation</title>
-                    <statement><program interactive="activecode" language="cpp"><input>
+                    <statement><program interactive="activecode" language="cpp" label="introvector_cpp-prog"><input>
 /*shows the use of the reserve member, and how it
 can be effective in saving time with a growing vector.*/
 #include &lt;iostream&gt;
@@ -364,7 +364,7 @@ int main(){
                 </task>
                 <task xml:id="introvector_py" label="introvector_py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python"><input>
+                    <statement><program interactive="activecode" language="python" label="introvector_py-prog"><input>
 #Python doesn't have vectors, simply stating the limit is enough
 def main():
     intlist=[]
@@ -387,7 +387,7 @@ main()
 
             <listing xml:id="vector_no_reserve_cpp">
                 <caption><c>reserve</c> is optional</caption>
-                <program interactive="activecode" language="cpp"><input>
+                <program interactive="activecode" language="cpp" label="vector_no_reserve_cpp-prog"><input>
 //code from above but without the reserve
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
@@ -415,7 +415,7 @@ int main(){
                 <title>Vector Error</title>
                 <task xml:id="vector_errors_cpp" label="vector_errors_cpp">
                     <title>C++ Implementation</title>
-                    <statement><program interactive="activecode" language="cpp"><input>
+                    <statement><program interactive="activecode" language="cpp" label="vector_errors_cpp-prog"><input>
 //shows errors when a vector goes out of bounds
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
@@ -440,7 +440,7 @@ int main(){
                 </task>
                 <task xml:id="vector_errors_py" label="vector_errors_py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python"><input>
+                    <statement><program interactive="activecode" language="python" label="vector_errors_py-prog"><input>
 #shows errors when a vector goes out of bounds
 def main():
     intlist=[]
@@ -603,7 +603,7 @@ char cstring[] = {"Hello World!"};    // C-string or char array uses double quot
                 <title><c>string</c> introduction</title>
                 <task xml:id="introstring_cpp" label="introstring_cpp">
                     <title>C++ Implementation</title>
-                    <statement><program interactive="activecode" language="cpp"><input>
+                    <statement><program interactive="activecode" language="cpp" label="introstring_cpp-prog"><input>
 //shows basic string usage in C++
 #include &lt;iostream&gt;
 #include &lt;string&gt;
@@ -627,7 +627,7 @@ int main(){
                 </task>
                 <task xml:id="introstring_py" label="introstring_py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python"><input>
+                    <statement><program interactive="activecode" language="python" label="introstring_py-prog"><input>
 #shows basic string usage in Python
 def main():
     mystring1 = "Hello"
@@ -674,7 +674,7 @@ main()
                 <title>Hash Table Introduction</title>
                 <task xml:id="hashtable1_cpp" label="hashtable1_cpp">
                     <title>C++ Implementation</title>
-                    <statement><program interactive="activecode" language="cpp"><input>
+                    <statement><program interactive="activecode" language="cpp" label="hashtable1_cpp-prog"><input>
 //shows how hash tables can be used in C++
 #include &lt;iostream&gt;
 #include &lt;unordered_map&gt;
@@ -700,7 +700,7 @@ int main() {
                 </task>
                 <task xml:id="hashtable1_py" label="hashtable1_py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python"><input>
+                    <statement><program interactive="activecode" language="python" label="hashtable1_py-prog"><input>
 #shows how hash tables can be used in python
 def main():
     spnumbers = {"one":"uno","two":"dos"}
@@ -731,7 +731,7 @@ main()
                 <title>Iterating Over a Hash Table</title>
                 <task xml:id="hashtable2_cpp" label="hashtable2_cpp">
                     <title>C++ Implementation</title>
-                    <statement><program interactive="activecode" language="cpp"><input>
+                    <statement><program interactive="activecode" language="cpp" label="hashtable2_cpp-prog"><input>
 //shows how to iterate through a hash table in C++
 #include &lt;iostream&gt;
 #include &lt;unordered_map&gt;
@@ -754,7 +754,7 @@ int main() {
                 </task>
                 <task xml:id="hashtable2_py" label="hashtable2_py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python"><input>
+                    <statement><program interactive="activecode" language="python" label="hashtable2_py-prog"><input>
 #shows how to iterate through a hash table in python
 def main():
     spnumbers = {"one":"uno","two":"dos","three":"tres","four":"cuatro","five":"cinco" }
@@ -950,7 +950,7 @@ main()
             </tabular></table>
             <p>The code below is an example of a program that can detect if a specific char is in an unordered set.</p>
 
-    <program xml:id="UnorderedSetExample" interactive="activecode" language="cpp">
+    <program xml:id="UnorderedSetExample" interactive="activecode" language="cpp" label="UnorderedSetExample-prog">
         <input>
 //code detects if a specific char is in an unordered set.
 #include &lt;iostream&gt;

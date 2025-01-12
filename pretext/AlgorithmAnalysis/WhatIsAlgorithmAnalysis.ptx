@@ -28,7 +28,7 @@
         <title>Sum of First <em>n</em> Integers</title>
         <task label="lst_sum0" xml:id="lst_sum0">
             <title>C++ Implementation</title>
-            <statement><program interactive="activecode" language="cpp"><input>
+            <statement><program interactive="activecode" language="cpp" label="lst_sum0-prog"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -51,7 +51,7 @@ int main(){
         </task>
         <task label="ec1_py" xml:id="ec1_py">
             <title>Python Implementation</title>
-            <statement><program interactive="activecode" language="python"><input>
+            <statement><program interactive="activecode" language="python" label="ec1_py-prog"><input>
 # adds the sum of (n + n-1 + n-2 ...)
 
 def sumOfN(n):
@@ -79,7 +79,7 @@ main()
         <title>Sum of First <em>n</em> Integers</title>
         <task label="lst_sum2" xml:id="lst_sum2">
             <title>C++ Implementation</title>
-            <statement><program interactive="activecode" language="cpp"><input>
+            <statement><program interactive="activecode" language="cpp" label="lst_sum2-prog"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -103,7 +103,7 @@ int main(){
         </task>
         <task label="ec2_py" xml:id="ec2_py">
             <title>Python Implementation</title>
-            <statement><program interactive="activecode" language="python"><input>
+            <statement><program interactive="activecode" language="python" label="ec2_py-prog"><input>
 #Performs same function as listing 1, but is less descriptive
 #This is not good practice
 
@@ -164,7 +164,7 @@ main()
         <title>Sum of First <em>n</em> Integers (With Timing)</title>
         <task label="lst_sum1" xml:id="lst_sum1">
             <title>C++ Implementation</title>
-            <statement><program interactive="activecode" language="cpp"><input>
+            <statement><program interactive="activecode" language="cpp" label="lst_sum1-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;ctime&gt;
 using namespace std;
@@ -195,7 +195,7 @@ int main(){
         </task>
         <task xml:id="ec2py" label="ec2py">
             <title>Python Implementation</title>
-            <statement><program interactive="activecode" language="python"><input>
+            <statement><program interactive="activecode" language="python" label="ec2py-prog"><input>
 import time
 
 """ Performs same function as listing one, and also list the time it takes to perform
@@ -228,7 +228,7 @@ main()
     <p>Consider the following code block:</p>
     <listing xml:id="n1000-how-many">
         <caption>How many times?</caption>
-        <program language="cpp"><input>
+        <program language="cpp" label="n1000-how-many-prog"><input>
 int n = 1000;
 int theSum = 0;
 for (int i=0; i&lt;n+1; i++){
@@ -283,7 +283,7 @@ for (int i=0; i&lt;n+1; i++){
         <p>Consider the function in <xref ref="sum-of-n3"/>.</p>
         <listing xml:id="sum-of-n3">
             <caption><c>sumOfN3</c></caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="sum-of-n3-prog"><input>
 int sumOfN3(int n){
   int sum_n = (n*(n+1))/2; // how many times?
   return sum_n;
@@ -299,7 +299,7 @@ int sumOfN3(int n){
             <title>Algorithm to analyze</title>
             <task xml:id="algorithm-analysis_active3cpp" label="algorithm-analysis_active3cpp">
                 <title>C++ implementation</title>
-                <statement><program interactive="activecode" language="cpp"><input>
+                <statement><program interactive="activecode" language="cpp" label="algorithm-analysis_active3cpp-prog"><input>
 //Performs same function as listing one, and also list the time it takes to perform
 //the function, and it performs better with larger inputs or (n)
 
@@ -319,7 +319,7 @@ int main(){
             </input></program></statement></task>
             <task xml:id="active3_py" label="active3_py">
                 <title>Python implementation</title>
-                <statement><program interactive="activecode" language="python"><input>
+                <statement><program interactive="activecode" language="python" label="active3_py-prog"><input>
 """ Performs same function as listing one, and also list the time it takes to perform
 the function, and it performs better with larger inputs or (n) """
 

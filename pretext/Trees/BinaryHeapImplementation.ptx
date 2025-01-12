@@ -74,7 +74,7 @@
             
             <listing xml:id="binheap_lst-heap1a">
                 <caption><c>BinHeap</c> Class and Constructor</caption>
-                <program language="cpp"><input>
+                <program language="cpp" label="binheap_lst-heap1a-prog"><input>
 class BinHeap{
     private:
         vector&lt;int&gt; heapvector;
@@ -135,7 +135,7 @@ class BinHeap{
             
             <listing xml:id="binheap_lst-heap2">
                 <caption><c>percUp</c> Method</caption>
-                <program language="cpp"><input>
+                <program language="cpp" label="binheap_lst-heap2-prog"><input>
 void percUp(int i){
     while ((i / 2) &gt; 0){
         if (this-&gt;heapvector[i] &lt; this-&gt;heapvector[i/2]){
@@ -151,7 +151,7 @@ void percUp(int i){
 
             <listing xml:id="binheap_lst-heap3" names="lst_heap3">
                 <caption><c>insert</c> Method</caption>
-                <program language="cpp"><input>
+                <program language="cpp" label="binheap_lst-heap3-prog"><input>
 void insert(int k){
     this-&gt;heapvector.push_back(k);
     this-&gt;currentSize = this-&gt;currentSize + 1;
@@ -208,7 +208,7 @@ void insert(int k){
             
             <listing xml:id="binheap_lst-heap4">
                 <caption><c>percDown</c> and <c>minChild</c> Methods</caption>
-                <program language="cpp"><input>
+                <program language="cpp" label="binheap_lst-heap4-prog"><input>
 void percDown(int i){
     while ((i*2) &lt;= this-&gt;currentSize){
         int mc = this-&gt;minChild(i);
@@ -242,7 +242,7 @@ int minChild(int i){
             
             <listing xml:id="binheap_lst-heap5" names="lst_heap5">
                 <caption><c>delMin</c> Implementation</caption>
-                <program language="cpp"><input>
+                <program language="cpp" label="binheap_lst-heap5-prog"><input>
 int delMin(){
     if (this-&gt;currentSize &gt; 1){
         int retval = this-&gt;heapvector[1];
@@ -280,7 +280,7 @@ int delMin(){
             
             <listing xml:id="binheap_lst-heap6">
                 <caption><c>buildHeap</c> Implementation</caption>
-                <program language="cpp"><input>
+                <program language="cpp" label="binheap_lst-heap6-prog"><input>
 void buildheap(vector&lt;int&gt; avector){
     int i = avector.size() / 2;
     this-&gt;currentSize = avector.size();
@@ -336,7 +336,7 @@ i = 0  [0, 2, 3, 6, 5, 9]</pre>
                 <title>Complete Heap Implementation</title>
                 <task xml:id="lst-heapwhole-cpp" label="lst-heapwhole-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="completeheapcpp" interactive="activecode" language="cpp"><input>
+                    <statement><program xml:id="completeheapcpp" interactive="activecode" language="cpp" label="completeheapcpp-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -465,7 +465,7 @@ int main(){
                 </task>
                 <task xml:id="lst-heapwhole-py" label="lst-heapwhole-py">
                     <title>Python Implementation</title>
-                    <statement><program xml:id="prog-heapwhole-py" interactive="activecode" language="python"><input>
+                    <statement><program xml:id="prog-heapwhole-py" interactive="activecode" language="python" label="prog-heapwhole-py-prog"><input>
 # uses a vector to create a Binary Heap
 class BinHeap:
     """initializes the vector and an attribute currentSize

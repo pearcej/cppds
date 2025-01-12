@@ -1,4 +1,3 @@
-
 """This script checks a bunch of informal rules for PreTeXt/Runestone.
 It recurses from the current directory looking for ".ptx" files and
 parses each passing the parsed XML representation to a bunch of tests.

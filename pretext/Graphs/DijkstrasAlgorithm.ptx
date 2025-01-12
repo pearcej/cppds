@@ -23,7 +23,7 @@
         
         <listing xml:id="graphs_lst-shortpath">
             <caption>Dijkstra's Algorithm</caption>
-            <program language="python"><input>
+            <program language="python" label="graphs_lst-shortpath-prog"><input>
 from pythonds.graphs import PriorityQueue, Graph, Vertex
 
 def dijkstra(aGraph,start):

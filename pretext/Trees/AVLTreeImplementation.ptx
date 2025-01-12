@@ -34,7 +34,7 @@
 
         <listing xml:id="trees_lst-updbal">
             <caption>Implementation of <c>_put</c> and <c>updateBalance</c></caption>
-            <program line-numbers="yes" language="cpp"><input>
+            <program line-numbers="yes" language="cpp" label="trees_lst-updbal-prog"><input>
 void _put(int key, string val, TreeNode *currentNode){
     if (key &lt; currentNode-&gt;key){
         if (currentNode-&gt;hasLeftChild()){
@@ -191,7 +191,7 @@ int updateBalance(TreeNode *node){
 
         <listing xml:id="trees_lst-bothrotations">
             <caption>Implementation of <c>rotateLeft</c> and <c>rotateRight</c></caption>
-            <program language="cpp" line-numbers="yes" open="yes"><input>
+            <program language="cpp" line-numbers="yes" open="yes" label="trees_lst-bothrotations-prog"><input>
 void rotateLeft(TreeNode *rotRoot){
     TreeNode *newRoot = rotRoot-&gt;rightChild;
     rotRoot-&gt;rightChild = newRoot-&gt;leftChild;
@@ -274,7 +274,7 @@ newBal(B) = oldBal(B) + 1 - min(0 , oldBal(D)) \\</m>
         <p>Now we have all of the parts in terms that we readily know. If we
             remember that B is <c>rotRoot</c> and D is <c>newRoot</c> then we can see this
             corresponds exactly to the statement on line<nbsp/>21, or:</p>
-        <program language="cpp"><input>
+        <program language="cpp" label="AVLTreeImplementation-prog"><input>
 rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(0,newRoot.balanceFactor)
 </input></program>
         <p>A similar derivation gives us the equation for the updated node D, as
@@ -365,7 +365,7 @@ rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(0,newRoot.balanceFactor)
         
         <listing xml:id="avlimpl_lst-rebalance">
             <caption>Implementation of <c>rebalance</c></caption>
-            <program language="cpp" line-numbers="yes"><input>
+            <program language="cpp" line-numbers="yes" label="avlimpl_lst-rebalance-prog"><input>
 void rebalance(TreeNode *node){
     if (node-&gt;balanceFactor &lt; 0){
         if (node-&gt;rightChild-&gt;balanceFactor &gt; 0){

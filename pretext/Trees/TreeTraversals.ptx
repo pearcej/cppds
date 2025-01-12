@@ -124,7 +124,7 @@
             <title>Preorder Traversal</title>
             <task xml:id="lst-preorder1-cpp" label="lst-preorder1-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp">C++ Implementation<input>
+                <statement><program language="cpp" label="lst-preorder1-cpp-prog">C++ Implementation<input>
 void preorder(BinaryTree *tree){
     if (tree){
         cout &lt;&lt; tree-&gt;getRootVal() &lt;&lt; endl;
@@ -136,7 +136,7 @@ void preorder(BinaryTree *tree){
             </task>
             <task xml:id="lst-preorder1-py" label="lst-preorder1-py">
                 <title>Python Implementation</title>
-                <statement><program language="python"><input>
+                <statement><program language="python" label="lst-preorder1-py-prog"><input>
 def preorder(tree):
     if tree:
         print(tree.getRootVal())
@@ -157,7 +157,7 @@ def preorder(tree):
             <title>Preorder Traversal as a Method</title>
             <task xml:id="lst-preorder2-cpp" label="lst-preorder2-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp">C++ Implementation<input>
+                <statement><program language="cpp" label="lst-preorder2-cpp-prog">C++ Implementation<input>
 void preorder(){
     cout &lt;&lt; this-&gt;key &lt;&lt; endl;
     if (this-&gt;leftChild){
@@ -171,7 +171,7 @@ void preorder(){
             </task>
             <task xml:id="lst-preorder2-py" label="lst-preorder2-py">
                 <title>Python Implementation</title>
-                <statement><program language="python"><input>
+                <statement><program language="python" label="lst-preorder2-py-prog"><input>
 def preorder(self):
     print(self.key)
     if self.leftChild:
@@ -198,7 +198,7 @@ def preorder(self):
             <title>Postorder Traversal</title>
             <task xml:id="lst-postorder1-cpp" label="lst-postorder1-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp">C++ Implementation<input>
+                <statement><program language="cpp" label="lst-postorder1-cpp-prog">C++ Implementation<input>
 void postorder(BinaryTree *tree){
     if (tree != NULL){
         postorder(tree-&gt;getLeftChild());
@@ -210,7 +210,7 @@ void postorder(BinaryTree *tree){
             </task>
             <task xml:id="lst-postorder1-py" label="lst-postorder1-py">
                 <title>Python Implementation</title>
-                <statement><program language="python"><input>
+                <statement><program language="python" label="lst-postorder1-py-prog"><input>
 def postorder(tree):
     if tree != None:
         postorder(tree.getLeftChild())
@@ -231,7 +231,7 @@ def postorder(tree):
             <title>Postorder Evaluation</title>
             <task xml:id="lst-postordereval-cpp" label="lst-postordereval-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp"><input>
+                <statement><program language="cpp" label="lst-postordereval-cpp-prog"><input>
 class Operator {
     public:
         int add(int x, int y){
@@ -295,7 +295,7 @@ int main(){
             </task>
             <task xml:id="lst-postordereval-py" label="lst-postordereval-py">
                 <title>Python Implementation</title>
-                <statement><program language="python"><input>
+                <statement><program language="python" label="lst-postordereval-py-prog"><input>
 def postordereval(tree):
     opers = {'+':operator.add, '-':operator.sub, '*':operator.mul, '/':operator.truediv}
     res1 = None
@@ -326,7 +326,7 @@ def postordereval(tree):
             <title>Inorder Traversal</title>
             <task xml:id="lst-inorder1-cpp" label="lst-inorder1-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp"><input>
+                <statement><program language="cpp" label="lst-inorder1-cpp-prog"><input>
 void inorder(BinaryTree *tree){
     if (tree != NULL){
         inorder(tree-&gt;getLeftChild());
@@ -338,7 +338,7 @@ void inorder(BinaryTree *tree){
             </task>
             <task xml:id="lst-inorder1-py" label="lst-inorder1-py">
                 <title>Python Implementation</title>
-                <statement><program language="python"><input>
+                <statement><program language="python" label="lst-inorder1-py-prog"><input>
 def inorder(tree):
   if tree != None:
       inorder(tree.getLeftChild())
@@ -360,7 +360,7 @@ def inorder(tree):
             <title>Inorder Traversal</title>
             <task xml:id="lst-printexp-cpp" label="lst-printexp-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp"><input>
+                <statement><program language="cpp" label="lst-printexp-cpp-prog"><input>
 string printexp(BinaryTree *tree){
     string sVal;
     if (tree){
@@ -374,7 +374,7 @@ string printexp(BinaryTree *tree){
             </task>
             <task xml:id="lst-printexp-py" label="lst-printexp-py">
                 <title>Python Implementation</title>
-                <statement><program language="python"><input>
+                <statement><program language="python" label="lst-printexp-py-prog"><input>
 def printexp(tree):
   sVal = ""
   if tree:

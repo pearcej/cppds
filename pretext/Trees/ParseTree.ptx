@@ -218,7 +218,7 @@
             <title>Building A Parse Tree</title>
             <task xml:id="lst-buildparse-cpp" label="lst-buildparse-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-buildparse-cpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="prog-buildparse-cpp" interactive="activecode" language="cpp" label="prog-buildparse-cpp-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;cstdlib&gt;
 #include &lt;stack&gt;
@@ -344,7 +344,7 @@ int main() {
             </task>
             <task xml:id="lst-buildparse-py" label="lst-buildparse-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-buildparse-py" interactive="activecode" language="python"><input>
+                <statement><program xml:id="prog-buildparse-py" interactive="activecode" language="python" label="prog-buildparse-py-prog"><input>
 from pythonds.basic.stack import Stack
 from pythonds.trees.binaryTree import BinaryTree
 
@@ -440,7 +440,7 @@ main()
             <title>Evaluating A Parse Tree</title>
             <task xml:id="lst-eval-cpp" label="lst-eval-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-eval-cpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="prog-eval-cpp" interactive="activecode" language="cpp" label="prog-eval-cpp-prog"><input>
 class Operator {
     public:
         int add(int x, int y){
@@ -504,7 +504,7 @@ int main(){
             </task>
             <task xml:id="lst-eval-py" label="lst-eval-py">
                 <title>Python Implementation</title>
-                <statement><program language="Python"><input>
+                <statement><program language="Python" label="lst-eval-py-prog"><input>
 def evaluate(parseTree):
     opers = {'+':operator.add, '-':operator.sub, '*':operator.mul, '/':operator.truediv}
 

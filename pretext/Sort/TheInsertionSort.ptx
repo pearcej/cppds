@@ -56,7 +56,7 @@
             <title>Insertion Sort</title>
             <task xml:id="lst-insertionsort-cpp" label="lst-insertionsort-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-insertionsort-cpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="prog-insertionsort-cpp" interactive="activecode" language="cpp" label="prog-insertionsort-cpp-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -97,7 +97,7 @@ int main() {
             </task>
             <task xml:id="lst-insertionsort-py" label="lst-insertionsort-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-insertionsort-py" interactive="activecode" language="python"><input>
+                <statement><program xml:id="prog-insertionsort-py" interactive="activecode" language="python" label="prog-insertionsort-py-prog"><input>
 def insertionSort(alist): #function that insertsorts through the list
    for index in range(1,len(alist)):
 

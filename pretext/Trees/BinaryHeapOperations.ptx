@@ -35,7 +35,7 @@
             <title>Binary Heap Operations</title>
             <task xml:id="lst-binheapops-cpp" label="lst-binheapops-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-binheapops-cpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="prog-binheapops-cpp" interactive="activecode" language="cpp" label="prog-binheapops-cpp-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -153,7 +153,7 @@ int main(){
             </task>
             <task xml:id="lst-binheapops-py" label="lst-binheapops-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-binheapops-py" interactive="activecode" language="python"><input>
+                <statement><program xml:id="prog-binheapops-py" interactive="activecode" language="python" label="prog-binheapops-py-prog"><input>
 #you can use the command below to import the binheap library:
 #from pythonds.trees.binheap import BinHeap
 
