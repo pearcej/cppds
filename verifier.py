@@ -159,6 +159,22 @@ class TagsNeedLabels(CppsXmlTest):
                     ret = False
         return ret
 
+class ActivecodeProgramsNeedLabels(CppsXmlTest):
+    """program elements which are activecode should have labels"""
+    labeled_items = ('exercise', 'task')
+
+    @classmethod
+    def test_file(cls, fname, doc):
+        ret = True
+
+        for prog in doc.getElementsByTagName("program"):
+            attr = prog.getAttribute("interactive")
+            if attr == "activecode":
+                label = prog.getAttribute("label")
+                if len(label) == 0:
+                    print(f'{fname}: program does not have label')
+                    ret = False
+        return ret
 
 ALL_TESTS = CppsXmlTest.__subclasses__()
 
