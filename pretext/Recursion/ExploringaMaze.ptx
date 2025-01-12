@@ -110,7 +110,7 @@
             <title><c>searchFrom</c> function</title>
             <task xml:id="lst-mazesearch-cpp" label="lst-mazesearch-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp"><input>
+                <statement><program language="cpp" label="lst-mazesearch-cpp-prog"><input>
 bool searchFrom(vector&lt;string&gt; &amp;maze, size_t startRow, size_t startColumn) {
     //  Check for base cases:
     //  1. We have run into an obstacle, return false
@@ -147,7 +147,7 @@ bool searchFrom(vector&lt;string&gt; &amp;maze, size_t startRow, size_t startCol
             </task>
             <task xml:id="lst-mazesearch-py" label="lst-mazesearch-py">
                 <title>Python Implementation</title>
-                <statement><program language="python"><input>
+                <statement><program language="python" label="lst-mazesearch-py-prog"><input>
 def searchFrom(maze, startRow, startColumn):
     #  Check for base cases (Steps 1, 2, and 3):
 
@@ -216,7 +216,7 @@ def searchFrom(maze, startRow, startColumn):
             internal representation looks like the following:</p>
         <listing xml:id="lst-exmaze">
             <caption>Example Maze</caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="lst-exmaze-prog"><input>
 {
     "++++++++++++++++++++++",
     "+   +   ++ ++     +   ",
@@ -282,7 +282,7 @@ def searchFrom(maze, startRow, startColumn):
             <title>Maze search code</title>
             <task xml:id="maze-complete-cpp" label="maze-complete-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp" interactive="activecode" datafile="maze1.txt,maze2.txt"><input>
+                <statement><program language="cpp" interactive="activecode" datafile="maze1.txt,maze2.txt" label="maze-complete-cpp-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;fstream&gt;
 #include &lt;vector&gt;
@@ -376,7 +376,7 @@ int main() {
             </task>
             <task xml:id="maze-complete-py" label="maze-complete-py">
                 <title>Python Implementation</title>
-                <statement><program language="python" interactive="activecode"><input>
+                <statement><program language="python" interactive="activecode" label="maze-complete-py-prog"><input>
 MAZE_OBSTACLE = '+'
 MAZE_START = 'S'
 MAZE_PATH = 'O'
@@ -496,7 +496,7 @@ main()
         To visualize the exploration, print out the characters using <c>cout</c> to create an ASCII representation of your cave.
         You can also use CTurtle to visualize the traversal throughout the maze.</p>
     </note>
-    <program><input>
+    <program label="ExploringaMaze-prog"><input>
 +++++++
 +  + S+
 +  +  +

@@ -9,7 +9,7 @@
             <title>Using Stack Instead of Recursion</title>
             <task xml:id="lst-recstack-cpp" label="lst-recstack-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="lst_recstackcpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="lst_recstackcpp" interactive="activecode" language="cpp" label="lst_recstackcpp-prog"><input>
 //Example of the toStr function using a stack instead of recursion.
 
 #include &lt;iostream&gt;
@@ -45,7 +45,7 @@ int main() {
         </task>
         <task xml:id="lst-recstack-py" label="lst-recstack-py">
             <title>Python Implementation</title>
-            <statement><program xml:id="lst_recstackpy" interactive="activecode" language="python"><input>
+            <statement><program xml:id="lst_recstackpy" interactive="activecode" language="python" label="lst_recstackpy-prog"><input>
 #Example of the toStr function using a stack instead of recursion.
 
 from pythonds.basic.stack import Stack

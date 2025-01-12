@@ -37,7 +37,7 @@
             <title>Darawing the Sierpinski Triangle</title>
             <task xml:id="lst-st-cpp" label="lst-st-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="first_csierpinksi_tri" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="first_csierpinksi_tri" interactive="activecode" language="cpp" label="first_csierpinksi_tri-prog"><input>
 #include &lt;CTurtle.hpp&gt;
 
 namespace ct = cturtle;
@@ -86,7 +86,7 @@ int main() {
             </task>
             <task xml:id="lst-st-py" label="lst-st-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="lst_st" interactive="activecode" language="python"><input>
+                <statement><program xml:id="lst_st" interactive="activecode" language="python" label="lst_st-prog"><input>
 #Recursive example of the Sierpinski Triangle.
 
 import turtle

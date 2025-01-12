@@ -13,7 +13,7 @@
 
     <listing xml:id="unordered-constructor">
         <caption><c>UnorderedList</c> Constructor</caption>
-        <program language="cpp"><input>
+        <program language="cpp" label="unordered-constructor-prog"><input>
 class UnorderedList {
     public:
         Node *head;
@@ -73,7 +73,7 @@ class UnorderedList {
         object. We will use this often in our remaining methods.</p>
     <listing xml:id="unordered-isempty">
         <caption><c>UnorderedList</c> <c>isEmpty()</c> method</caption>
-        <program language="cpp"><input>
+        <program language="cpp" label="unordered-isempty-prog"><input>
 bool isEmpty() {
     return head == NULL;
 }
@@ -100,7 +100,7 @@ bool isEmpty() {
 
     <listing xml:id="unordered-lst-add">
         <caption><c>UnorderedList</c> Adding Elements</caption>
-        <program language="cpp"><input>
+        <program language="cpp" label="unordered-lst-add-prog"><input>
 mylist.add(31);
 mylist.add(77);
 mylist.add(17);
@@ -127,7 +127,7 @@ mylist.add(54);
             
     <listing xml:id="unordered-add">
         <caption><c>UnorderedList</c> <c>add</c> Method</caption>
-        <program language="cpp" line-numbers="yes"><input>
+        <program language="cpp" line-numbers="yes" label="unordered-add-prog"><input>
 void add(int item) {
     Node *temp = new Node(item);
     temp-&gt;setNext(head);
@@ -200,7 +200,7 @@ void add(int item) {
 
     <listing xml:id="unordered-size">
         <caption><c>UnorderedList</c> <c>size</c> Method</caption>
-        <program language="cpp" line-numbers="yes"><input>
+        <program language="cpp" line-numbers="yes" label="unordered-size-prog"><input>
 int size() {
     Node *current = head;
     int count = 0;
@@ -247,7 +247,7 @@ int size() {
 
     <listing xml:id="unordered-search">
         <caption><c>UnorderedList</c> <c>search</c> Method</caption>
-        <program language="cpp" line-numbers="yes"><input>
+        <program language="cpp" line-numbers="yes" label="unordered-search-prog"><input>
 bool search(int item) {
     Node *current = head;
     while (current != NULL) {
@@ -334,7 +334,7 @@ bool search(int item) {
     
     <listing xml:id="unordered-remove">
         <caption><c>UnorderedList</c> <c>remove</c> Method</caption>
-        <program language="cpp" line-numbers="yes"><input>
+        <program language="cpp" line-numbers="yes" label="unordered-remove-prog"><input>
 void remove(int item) {
     Node *current = head;
     Node *previous = NULL;
@@ -468,7 +468,7 @@ void remove(int item) {
     <task xml:id="lst-unordered-cpp" label="lst-unordered-cpp">
         <title>C++ Implementation</title>
         <statement>
-            <program xml:id="lst_unordered_cpp" interactive="activecode" language="cpp">
+            <program xml:id="lst_unordered_cpp" interactive="activecode" language="cpp" label="lst_unordered_cpp-prog">
                 <input>
 #include &lt;iostream&gt;
 using namespace std;
@@ -620,7 +620,7 @@ int main() {
     <task xml:id="lst-unordered-py" label="lst-unordered-py">
         <title>Python Implementation</title>
         <statement>
-            <program xml:id="lst_unordered_py" interactive="activecode" language="python">
+            <program xml:id="lst_unordered_py" interactive="activecode" language="python" label="lst_unordered_py-prog">
                 <input>
 class Node:
     def __init__(self, initdata):

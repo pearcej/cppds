@@ -128,7 +128,7 @@
 
             <listing xml:id="linear-basic_lst-printer">
                 <caption>The <c>Printer</c> class</caption>
-                <program language="cpp"><input>
+                <program language="cpp" label="linear-basic_lst-printer-prog"><input>
 class Printer {
 public:
     Printer(int pagesPerMinute) {
@@ -171,7 +171,7 @@ private:
                 function to provide the random number using the format below. <c>srand()</c> is used
                 to give different random numbers each time the program is executed by setting the random
                 numbers based on the computer's current time.</p>
-            <program language="python"><input>
+            <program language="python" label="SimulationPrintingTasks-prog"><input>
 &gt;&gt; srand(time(NULL));
 &gt;&gt;&gt; rand()%20+1;
 18
@@ -186,7 +186,7 @@ private:
             
             <listing xml:id="linear-basic_lst-task">
                 <caption>The <c>Task</c> class</caption>
-                <program language="cpp"><input>
+                <program language="cpp" label="linear-basic_lst-task-prog"><input>
 class Task {
 public:
     Task(int time) {
@@ -224,7 +224,7 @@ private:
             
             <listing xml:id="linear-basic_lst-qumainsim">
                 <caption>The main simulation function</caption>
-                <program language="cpp"><input>
+                <program language="cpp" label="linear-basic_lst-qumainsim-prog"><input>
 void simulation(int numSeconds, int pagesPerMinute) {
     Printer labprinter(pagesPerMinute);
 
@@ -275,7 +275,7 @@ void simulation(int numSeconds, int pagesPerMinute) {
                 seconds) using a page rate of five pages per minute. In addition, we
                 will run 10 independent trials. Remember that because the simulation
                 works with random numbers each run will return different results.</p>
-            <program language="cpp"><input>
+            <program language="cpp" label="SimulationPrintingTasks-prog-2"><input>
 &gt;&gt;&gt;for (int i=0; i&lt;10; i++) {
   simulation(3600,5);
 }
@@ -299,7 +299,7 @@ Average Wait 376.05 secs 1 tasks remaining.
             <p>Now, we will adjust the page rate to 10 pages per minute, and run the 10
                 trials again, with a faster page rate our hope would be that more tasks
                 would be completed in the one hour time frame.</p>
-            <program language="cpp"><input>
+            <program language="cpp" label="SimulationPrintingTasks-prog-3"><input>
 &gt;&gt;&gt;for (int i=0; i&lt;10; i++) {
   simulation(3600,10);
 }
@@ -317,7 +317,7 @@ Average Wait  18.17 secs 0 tasks remaining.
 </input></program>
             <p>You can run the simulation for yourself in ActiveCode 2.</p>
 
-    <program xml:id="qumainsim" interactive="activecode" language="cpp">
+    <program xml:id="qumainsim" interactive="activecode" language="cpp" label="qumainsim-prog">
         <input>
 //Program that simulates printing task management.
 

@@ -15,7 +15,7 @@
 
   <listing xml:id="linear-linked_lst-nodeclass" names="lst_nodeclass">
     <caption><c>Node</c> Class</caption>
-    <program language="cpp"><input>
+    <program language="cpp" label="linear-linked_lst-nodeclass-prog"><input>
 #include &lt;iostream&gt;
 using namespace std;
 

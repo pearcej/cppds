@@ -19,7 +19,7 @@
             <title>Selection Sort</title>
             <task xml:id="lst-selectionsort-cpp" label="lst-selectionsort-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-selectionsort-cpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="prog-selectionsort-cpp" interactive="activecode" language="cpp" label="prog-selectionsort-cpp-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -60,7 +60,7 @@ int main() {
             </task>
             <task xml:id="lst-selectionsort-py" label="lst-selectionsort-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-selectionsort-py" interactive="activecode" language="python"><input>
+                <statement><program xml:id="prog-selectionsort-py" interactive="activecode" language="python" label="prog-selectionsort-py-prog"><input>
 #function sorts through values in list using selection sort
 def selectionSort(alist):
    for fillslot in range(len(alist)-1,0,-1):

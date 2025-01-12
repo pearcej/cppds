@@ -38,7 +38,7 @@
         
         <listing xml:id="ls_mkvectcpp">
             <caption>Using <c>push_back()</c></caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="ls_mkvectcpp-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -70,7 +70,7 @@ int main() {
 
     <listing xml:id="lst-vectcpp2">
         <caption>Timing <c>push_back()</c></caption>
-        <program xml:id="vectcpp2" interactive="activecode" language="cpp"><input>
+        <program xml:id="vectcpp2" interactive="activecode" language="cpp" label="vectcpp2-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -108,7 +108,7 @@ int main(){
 
     <listing xml:id="lst-vectcpp3">
         <caption>Reserved Versus Unreserved <c>push_back()</c></caption>
-        <program xml:id="vectcpp3" interactive="activecode" language="cpp"><input>
+        <program xml:id="vectcpp3" interactive="activecode" language="cpp" label="vectcpp3-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -306,7 +306,7 @@ int main(){
         
     <listing xml:id="lst_popmeascpp">
         <caption>Timing of <c>push_back</c> Versus <c>erase</c></caption>
-        <program xml:id="popbackvserase" interactive="activecode" language="cpp">
+        <program xml:id="popbackvserase" interactive="activecode" language="cpp" label="popbackvserase-prog">
             <input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;

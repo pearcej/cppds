@@ -67,7 +67,7 @@
             <title>Shell Sort</title>
             <task xml:id="lst-shell-cpp" label="lst-shell-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-shell-cpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="prog-shell-cpp" interactive="activecode" language="cpp" label="prog-shell-cpp-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -127,7 +127,7 @@ int main() {
             </task>
             <task xml:id="lst-shell-py" label="lst-shell-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-shell-py" interactive="activecode" language="python"><input>
+                <statement><program xml:id="prog-shell-py" interactive="activecode" language="python" label="prog-shell-py-prog"><input>
 def shellSort(alist):
     sublistcount = len(alist)//2
     while sublistcount &gt; 0:

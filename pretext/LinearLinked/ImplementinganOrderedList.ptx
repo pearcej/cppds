@@ -30,7 +30,7 @@
         
         <listing xml:id="linear-linked_lst-orderlist">
             <caption><c>OrderedList</c> Member Variable</caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="linear-linked_lst-orderlist-prog"><input>
 class OrderedList {
     Node* head;
 }
@@ -80,7 +80,7 @@ class OrderedList {
         
         <listing xml:id="linear-linked_lst-ordersearch">
             <caption><c>search</c> Method</caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="linear-linked_lst-ordersearch-prog"><input>
 bool search(int item) {
     Node *current = head;
     bool found = false;
@@ -142,7 +142,7 @@ bool search(int item) {
         
         <listing xml:id="linear-linked_lst-orderadd">
             <caption><c>add</c> Method</caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="linear-linked_lst-orderadd-prog"><input>
 void add(int item) {
     if (head == NULL) {
         Node *newNode = new Node(item);
@@ -177,7 +177,7 @@ void add(int item) {
             consider whether the unordered implementations will work given that the
             linked list is now ordered.</p>
 
-    <program xml:id="orderedlistclass_cpp" interactive="activecode" language="cpp">
+    <program xml:id="orderedlistclass_cpp" interactive="activecode" language="cpp" label="orderedlistclass_cpp-prog">
         <input>
 // similar to unordered lists except it orders the data
 

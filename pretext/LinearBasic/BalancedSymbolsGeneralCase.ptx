@@ -44,7 +44,7 @@
             <title>Generalized Balance Symbol Checking</title>
             <task xml:id="lst-parcheck2-cpp" label="lst-parcheck2-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="parcheck2_cpp" interactive="activecode" language="cpp" line-numbers="yes"><input>
+                <statement><program xml:id="parcheck2_cpp" interactive="activecode" language="cpp" line-numbers="yes" label="parcheck2_cpp-prog"><input>
 //program that returns whether a string is balanced or not
 #include &lt;iostream&gt;
 #include &lt;string&gt;
@@ -112,7 +112,7 @@ int main() {
             </task>
             <task xml:id="lst-parcheck2-py" label="lst-parcheck2-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="parcheck2_py" interactive="activecode" language="python"><input>
+                <statement><program xml:id="parcheck2_py" interactive="activecode" language="python" label="parcheck2_py-prog"><input>
 #Program does the same as before, except with 2 extra symbols.
 
 from pythonds.basic.stack import Stack

@@ -279,7 +279,7 @@
                 strings. The word <q>cat</q> can be thought of as a sequence of int
                 values. The corresponding int value can be found by declaring an int and using
                 it to store a char. You can also cast the value as an int using <term>int()</term></p>
-            <program language="cpp"><input>
+            <program language="cpp" label="Hashing-prog"><input>
 string h = "hello";
 char c = h[0];
 int i = c;
@@ -314,7 +314,7 @@ cout&lt;&lt;i&lt;&lt;endl;
 <listing xml:id="search-hash_lst-hashfunction1">
     <caption><c>hash</c> function</caption>
 
-    <program xml:id="simplehash" interactive="activecode" language="cpp"><input>
+    <program xml:id="simplehash" interactive="activecode" language="cpp" label="simplehash-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -635,7 +635,7 @@ int main() {
     
             <listing xml:id="search-hash_lst-hashtablecodeconstructor">
                 <caption><c>HashTable</c> Class</caption>
-                <program language="cpp"><input>
+                <program language="cpp" label="search-hash_lst-hashtablecodeconstructor-prog"><input>
     class HashTable{
     public:
         static const int size=11;
@@ -656,7 +656,7 @@ int main() {
                 <title>Linear Probing with Simple Remainder Method.</title>
                 <task label="search-hash_lst-hashtablecodestore-cpp" xml:id="search-hash_lst-hashtablecodestore-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program language="cpp"><input>
+                    <statement><program language="cpp" label="search-hash_lst-hashtablecodestore-cpp-prog"><input>
 int hashfunction(int key) {
     return key%size;
 }
@@ -700,7 +700,7 @@ void put(int key, string val){
                 </task>
                 <task label="search-hash_lst-hashtablecodestore-py" xml:id="search-hash_lst-hashtablecodestore-py">
                     <title>Python Implementation</title>
-                    <statement><program language="python"><input>
+                    <statement><program language="python" label="search-hash_lst-hashtablecodestore-py-prog"><input>
 def put(self,key,data):
     hashvalue = self.hashfunction(key,len(self.slots))
 
@@ -747,7 +747,7 @@ def rehash(self,oldhash,size):
                 <title>Final Methods of <c>HashTable</c></title>
                 <task xml:id="search-hash_lst-hashtablecodesearch-cpp" label="search-hash_lst-hashtablecodesearch-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program language="cpp"><input>
+                    <statement><program language="cpp" label="search-hash_lst-hashtablecodesearch-cpp-prog"><input>
 string get(int key) {
     int startslot = hashfunction(key);
 
@@ -773,7 +773,7 @@ string get(int key) {
                 </task>
                 <task xml:id="search-hash_lst-hashtablecodesearch-py" label="search-hash_lst-hashtablecodesearch-py">
                     <title>Python Implementation</title>
-                    <statement><program language="python"><input>
+                    <statement><program language="python" label="search-hash_lst-hashtablecodesearch-py-prog"><input>
 def get(self,key):
     startslot = self.hashfunction(key,len(self.slots))
 
@@ -804,7 +804,7 @@ def __setitem__(self,key,data):
                 string data values.</p>
             <listing xml:id="hashtable-output">
                 <caption>Example Use of <c>HashTable</c></caption>
-                <program language="cpp"><input>
+                <program language="cpp" label="hashtable-output-prog"><input>
 int main() {
     HashTable h;
 
@@ -842,7 +842,7 @@ Output:
                 the value for the key 20 is being replaced.</p>
             <listing xml:id="hashtable-output2">
                 <caption>Continued use of <c>HashTable</c></caption>
-                <program language="cpp"><input>
+                <program language="cpp" label="hashtable-output2-prog"><input>
 ...
 h.put(20,"chicken");
 h.put(17,"tiger");
@@ -871,7 +871,7 @@ Output:
                 <title>Complete <c>HashTable</c></title>
                 <task xml:id="complete_hash_cpp" label="complete_hash_cpp">
                     <title>C++ Implementation</title>
-                    <statement><program language="cpp" interactive="activecode"><input>
+                    <statement><program language="cpp" interactive="activecode" label="complete_hash_cpp-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -990,7 +990,7 @@ int main() {
                 </task>
                 <task xml:id="complete_hash_py" label="complete_hash_py">
                     <title>Python Implementation</title>
-                    <statement><program language="python" interactive="activecode"><input>
+                    <statement><program language="python" interactive="activecode" label="complete_hash_py-prog"><input>
 class HashTable:
     def __init__(self):
         self.size = 11 # initial size of hash table is prime to help with collision resolution

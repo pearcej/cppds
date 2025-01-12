@@ -32,7 +32,7 @@
 
             <listing xml:id="seqsearchonepy">
                 <caption>Python Implementation</caption>
-                <program interactive="activecode" language="python">
+                <program interactive="activecode" language="python" label="seqsearchonepy-prog">
                     <input>
                     # Python implementation of sequential search
                     def sequential_search(lst, item):
@@ -59,7 +59,7 @@
             <listing xml:id="seqsearchonecpp" >
                 <caption>C++ Implementation</caption>
 
-                <program xml:id="lst-seqsearchcpp" interactive="activecode" language="cpp">
+                <program xml:id="lst-seqsearchcpp" interactive="activecode" language="cpp" label="lst-seqsearchcpp-prog">
                     <input>
             #include &lt;iostream&gt;
             #include &lt;vector&gt;
@@ -196,7 +196,7 @@
 
             <listing xml:id="lst-orderedseq">
                 <caption>Ordered Sequential Search</caption>
-                <program xml:id="search2_cpp" interactive="activecode" language="cpp"><input>
+                <program xml:id="search2_cpp" interactive="activecode" language="cpp" label="search2_cpp-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;

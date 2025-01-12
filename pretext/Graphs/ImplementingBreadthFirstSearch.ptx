@@ -64,7 +64,7 @@
             <title>Breadth First Search</title>
             <task xml:id="graphs_lst-wordbucket2-cpp" label="graphs_lst-wordbucket2-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp"><input>
+                <statement><program language="cpp" label="graphs_lst-wordbucket2-cpp-prog"><input>
 Graph bfs(Graph g, Vertex *start) {
     start-&gt;dist = 0;
     start-&gt;pred = NULL;
@@ -90,7 +90,7 @@ Graph bfs(Graph g, Vertex *start) {
             </task>
             <task xml:id="graphs_lst-wordbucket2-py" label="graphs_lst-wordbucket2-py">
                 <title>Python Implementation</title>
-                <statement><program language="python"><input>
+                <statement><program language="python" label="graphs_lst-wordbucket2-py-prog"><input>
 from pythonds.graphs import Graph, Vertex
 from pythonds.basic import Queue
 
@@ -172,7 +172,7 @@ def bfs(g,start):
         
         <listing xml:id="graphs_lst-wordbucket3" names="lst_wordbucket3">
             <caption>Printing the Word Bucker</caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="graphs_lst-wordbucket3-prog"><input>
 void traverse(Vertex *y) {
     Vertex *x = y;
 
@@ -190,7 +190,7 @@ traverse(g.getVertex('sage'))
             with an implementation for the breadth-first search shown above.</p>
         <listing xml:id="dfs-full" label="dfs-full">
             <caption>Complete Implementation of Vertex, Graph, and BFS</caption>
-            <program language="cpp" interactive="activecode"><input>
+            <program language="cpp" interactive="activecode" label="dfs-full-prog"><input>
 #include &lt;fstream&gt;
 #include &lt;iostream&gt;
 #include &lt;map&gt;

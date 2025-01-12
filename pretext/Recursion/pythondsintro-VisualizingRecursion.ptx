@@ -32,7 +32,7 @@
             <title>Example of Turtle Graphics</title>
             <task xml:id="lst-turt1-cpp" label="lst-turt1-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="lst_cturt1" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="lst_cturt1" interactive="activecode" language="cpp" label="lst_cturt1-prog"><input>
 #include &lt;CTurtle.hpp&gt;
 namespace ct = cturtle;
 
@@ -57,7 +57,7 @@ int main() {
             </task>
             <task xml:id="lst-turt1-py" label="lst-turt1-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="lst_turt1" interactive="activecode" language="python"><input>
+                <statement><program xml:id="lst_turt1" interactive="activecode" language="python" label="lst_turt1-prog"><input>
 #Creates an inward spiral through recursion.
 
 import turtle
@@ -117,7 +117,7 @@ main()
 
         <listing xml:id="lst-fractree-py" names="lst_fractree">
             <caption>Fractal Tree</caption>
-            <program language="python"><input>
+            <program language="python" label="lst-fractree-py-prog"><input>
 def tree(branchLen,t):
     if branchLen &gt; 5:
         t.forward(branchLen)
@@ -138,7 +138,7 @@ def tree(branchLen,t):
             <title>Complete Tree Code</title>
             <task xml:id="lst-complete-tree-cpp" label="lst-complete-tree-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="lst_complete_ctree" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="lst_complete_ctree" interactive="activecode" language="cpp" label="lst_complete_ctree-prog"><input>
 #include &lt;CTurtle.hpp&gt;
 
 namespace ct = cturtle;
@@ -179,7 +179,7 @@ int main() {
             </task>
             <task xml:id="lst-complete-tree-py" label="lst-complete-tree-py">
                 <title>Python Implementation</title>
-                    <statement><program xml:id="lst_complete_tree" interactive="activecode" language="python"><input>
+                    <statement><program xml:id="lst_complete_tree" interactive="activecode" language="python" label="lst_complete_tree-prog"><input>
 #Creates a tree by using recursion.
 
 import turtle
@@ -266,7 +266,7 @@ main()
                 </li>
             </ul></p>
 
-    <program xml:id="recursion_sc_3" interactive="activecode" language="cpp">
+    <program xml:id="recursion_sc_3" interactive="activecode" language="cpp" label="recursion_sc_3-prog">
         <input>
 
 

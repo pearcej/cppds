@@ -64,7 +64,7 @@
             <title>Convert Integer to String</title>
             <task xml:id="lst-rectostr-cpp" label="lst-rectostr-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="lst_rectostrcpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="lst_rectostrcpp" interactive="activecode" language="cpp" label="lst_rectostrcpp-prog"><input>
 //Recursive example of converting from int to string.
 
 #include &lt;iostream&gt;
@@ -87,7 +87,7 @@ int main() {
             </task>
             <task xml:id="lst-rectostr-py" label="lst-rectostr-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="lst_rectostrpy" interactive="activecode" language="python"><input>
+                <statement><program xml:id="lst_rectostrpy" interactive="activecode" language="python" label="lst_rectostrpy-prog"><input>
 #Recursive example of converting an int to str.
 
 def toStr(n,base):
@@ -162,7 +162,7 @@ main()
             <p>Write a function that takes a string as a parameter and returns a new string that is the reverse of the old string. Hint: using the substr(strIndex1, strIndex2) method for returning specific sections of a string can help.</p>
             <blockquote>
 
-    <program xml:id="recursion_sc_1cpp" interactive="activecode" language="cpp">
+    <program xml:id="recursion_sc_1cpp" interactive="activecode" language="cpp" label="recursion_sc_1cpp-prog">
         <input>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
@@ -222,7 +222,7 @@ int main(){
             </ul></p>
             <blockquote>
 
-    <program xml:id="recursion_sc_2cpp" interactive="activecode" language="cpp">
+    <program xml:id="recursion_sc_2cpp" interactive="activecode" language="cpp" label="recursion_sc_2cpp-prog">
         <input>
 #include &lt;iostream&gt;
 #include &lt;string&gt;

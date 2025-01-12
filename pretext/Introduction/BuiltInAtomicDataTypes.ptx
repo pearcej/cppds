@@ -70,7 +70,7 @@
       <title>Doing Math</title>
       <task xml:id="intro_numeric-ex1-cpp" label="intro_numeric-ex1-cpp">
         <title>C++ Implementation</title>
-        <statement><program xml:id="intro_1cpp" interactive="activecode" language="cpp"><input>
+        <statement><program xml:id="intro_1cpp" interactive="activecode" language="cpp" label="intro_1cpp-prog"><input>
 //outputs results from various math expressions
 #include &lt;iostream&gt;
 #include &lt;cmath&gt;
@@ -96,7 +96,7 @@ int main(){
       </task>
       <task xml:id="intro_numeric-ex1-py" label="intro_numeric-ex1-py">
         <title>Python Implementation</title>
-        <statement><program xml:id="intro_1py" interactive="activecode" language="python"><input>
+        <statement><program xml:id="intro_1py" interactive="activecode" language="python" label="intro_1py-prog"><input>
 #outputs results from various math expressions
 def main():
 
@@ -223,7 +223,7 @@ main()
       <title>Printing <c>bool</c> variables</title>
       <task xml:id="logical-cpp" label="logical-cpp">
         <title>C++ Implementation</title>
-        <statement><program xml:id="logical_1cpp" interactive="activecode" language="cpp"><input>
+        <statement><program xml:id="logical_1cpp" interactive="activecode" language="cpp" label="logical_1cpp-prog"><input>
 //outputs boolean results to the command line
 #include &lt;iostream&gt;
 using namespace std;
@@ -239,7 +239,7 @@ int main() {
       </task>
       <task xml:id="logical_1py" label="logical_1py">
         <title>Python Implementation</title>
-        <statement><program interactive="activecode" language="python"><input>
+        <statement><program interactive="activecode" language="python" label="logical_1py-prog"><input>
 #outputs boolean results to the command line
 def main():
     print(True)
@@ -374,7 +374,7 @@ main()
       <title>Printing Logical Operations</title>
       <task xml:id="intro_logical-printops" label="intro_logical-printops">
         <title>C++ Implementation</title>
-        <statement><program xml:id="locicalcpp" interactive="activecode" language="cpp"><input>
+        <statement><program xml:id="locicalcpp" interactive="activecode" language="cpp" label="locicalcpp-prog"><input>
 //outputs the results from the relational and logical operators
 #include &lt;iostream&gt;
 using namespace std;
@@ -391,7 +391,7 @@ int main(){
       </task>
       <task xml:id="intro_logical-printops-py" label="intro_logical-printops-py">
         <title>Python Implementation</title>
-        <statement><program xml:id="logicalpy" interactive="activecode" language="python"><input>
+        <statement><program xml:id="logicalpy" interactive="activecode" language="python" label="logicalpy-prog"><input>
 #outputs the results from the relational and logical operators
 def main():
 
@@ -408,7 +408,7 @@ main()
                 A C++ variable can optionally be initialized in the declaration by
                 using a combination of a declaration and an assignment statement.</p>
     <p>Consider the following session:</p>
-    <program xml:id="booleanpitfall" interactive="activecode" language="cpp">
+    <program xml:id="booleanpitfall" interactive="activecode" language="cpp" label="booleanpitfall-prog">
       <input>
 //showcases how variables work in C++
 #include &lt;iostream&gt;
@@ -493,7 +493,7 @@ int main(){
       <title>Printing Characters</title>
       <task label="logical-printchar">
         <title>C++ Implementation</title>
-        <statement><program xml:id="charpy" interactive="activecode" language="cpp"><input>
+        <statement><program xml:id="charpy" interactive="activecode" language="cpp" label="charpy-prog"><input>
 //outputs the boolean results to show how strings and chars differ in C++
 #include &lt;iostream&gt;
 #include &lt;string&gt;
@@ -514,7 +514,7 @@ int main(){
       </task>
       <task label="logical-printchar-py">
         <title>Python Implementation</title>
-        <statement><program interactive="activecode" language="python"><input>
+        <statement><program interactive="activecode" language="python" label="logical-printchar-py-prog"><input>
 #outputs the boolean results to show how strings and chars differ in C++
 def main():
 
@@ -621,7 +621,7 @@ int varN = 100;</pre>
       <title>Printing Pointers</title>
       <task label="print-ptr">
         <title>C++ Implementation</title>
-        <statement><program xml:id="address_cpp" interactive="activecode" language="cpp"><input>
+        <statement><program xml:id="address_cpp" interactive="activecode" language="cpp" label="address_cpp-prog"><input>
 //outputs both the value of varN and the location in memory of varN
 #include &lt;iostream&gt;
 using namespace std;
@@ -636,7 +636,7 @@ int main(){
       </task>
       <task label="print-ptr-py">
         <title>Python Implementation</title>
-        <statement><program xml:id="address_py" interactive="activecode" language="python"><input>
+        <statement><program xml:id="address_py" interactive="activecode" language="python" label="address_py-prog"><input>
 #because python is an interpreted language, variables stored at a virtual memory address.
 def main():
     varN = 101;
@@ -709,7 +709,7 @@ ptrN = &amp;varN;</pre>
       <p>Let<rsq/>s extend the example above to output the value of a variable and its address
                     in memory: <ellipsis/> _dereferencing.</p>
       <blockquote>
-        <program xml:id="firstptr" interactive="activecode" language="cpp">
+        <program xml:id="firstptr" interactive="activecode" language="cpp" label="firstptr-prog">
           <input>
 //prints a variable by pointer and value
 #include &lt;iostream&gt;
@@ -785,7 +785,7 @@ int main( ) {
                     different if you run the program on your machine.</p>
       <p>WARNING: What happens if you forget the ampersand (&amp;) and accidentally assign a raw integer value to a pointer instead of a valid address?</p>
       <blockquote>
-        <program xml:id="cpp_address_error1" interactive="activecode" language="cpp">
+        <program xml:id="cpp_address_error1" interactive="activecode" language="cpp" label="cpp_address_error1-prog">
           <input>
 //showcases what happens when reading from unknown memory locations
 #include &lt;iostream&gt;
@@ -854,7 +854,7 @@ int main() {
                     thereby ending the loop:</p>
       <listing xml:id="NULLexamplecpp">
         <caption>Using <c>NULL</c> Pointer</caption>
-        <program interactive="activecode" language="cpp"><input>
+        <program interactive="activecode" language="cpp" label="NULLexamplecpp-prog"><input>
 //showcases how you can use NULL.
 #include &lt;iostream&gt;
 using namespace std;

@@ -10,7 +10,7 @@
             <title>Dequeue Implementation</title>
             <task xml:id="lst-dequecode-cpp" label="lst-dequecode-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="dequecode_cpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="dequecode_cpp" interactive="activecode" language="cpp" label="dequecode_cpp-prog"><input>
 //Example code of a deque.
 
 #include &lt;iostream&gt;
@@ -63,7 +63,7 @@ int main() {
             </task>
             <task xml:id="lst-dequecode-py" label="lst-dequecode-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="dequecode_py" interactive="activecode" language="python"><input>
+                <statement><program xml:id="dequecode_py" interactive="activecode" language="python" label="dequecode_py-prog"><input>
 #Example code of a deque.
 
 class Deque:

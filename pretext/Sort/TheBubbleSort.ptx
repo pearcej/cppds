@@ -58,7 +58,7 @@ alist[j] = temp;</pre>
             <title>Bubble Sort Implementation</title>
             <task xml:id="lst-bubble-cpp" label="lst-bubble-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-bubble-cpp" interactive="activecode" language="cpp" line-numbers="yes"><input>
+                <statement><program xml:id="prog-bubble-cpp" interactive="activecode" language="cpp" line-numbers="yes" label="prog-bubble-cpp-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -93,7 +93,7 @@ int main() {
             </task>
             <task xml:id="lst-bubble-py" label="lst-bubble-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-bubble-py" interactive="activecode" language="python"><input>
+                <statement><program xml:id="prog-bubble-py" interactive="activecode" language="python" label="prog-bubble-py-prog"><input>
 """function goes through list sorting adjacent values as it bubbles
 the largest value to the top."""
 def bubbleSort(alist):
@@ -267,7 +267,7 @@ main()
                 <title>Short Bubbles Implementation</title>
                 <task xml:id="lst-shortbubbles-cpp" label="lst-shortbubbles-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="prog-shortbubbles-cpp" interactive="activecode" language="cpp"><input>
+                    <statement><program xml:id="prog-shortbubbles-cpp" interactive="activecode" language="cpp" label="prog-shortbubbles-cpp-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 
@@ -311,7 +311,7 @@ int main() {
                 </task>
                 <task xml:id="lst-shotbubbles-py" label="lst-shotbubbles-py">
                     <title>Python Implementation</title>
-                    <statement><program xml:id="prog-shortbubbles-py" interactive="activecode" language="python"><input>
+                    <statement><program xml:id="prog-shortbubbles-py" interactive="activecode" language="python" label="prog-shortbubbles-py-prog"><input>
 def shortBubbleSort(alist):
     exchanges = True
     passnum = len(alist)-1

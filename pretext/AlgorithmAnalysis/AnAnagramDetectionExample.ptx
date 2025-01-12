@@ -29,7 +29,7 @@
                 <title>Anagram Solution</title>
                 <task xml:id="lst-anagramsolution" label="lst-anagramsolution">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="active0cpp" interactive="activecode" language="cpp"><input>
+                    <statement><program xml:id="active0cpp" interactive="activecode" language="cpp" label="active0cpp-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -78,7 +78,7 @@ int main(){
                 </task>
                 <task xml:id="active0py" label="active0py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python"><input>
+                    <statement><program interactive="activecode" language="python" label="active0py-prog"><input>
 #checks to see if the anagrams have the same number of characters
 
 def anagramSolution1(s1,s2):
@@ -141,7 +141,7 @@ main()
                 <title>Anagram Solution: Sorting</title>
                 <task xml:id="lst_ana2" label="lst_ana2">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="active6cpp" interactive="activecode" language="cpp"><input>
+                    <statement><program xml:id="active6cpp" interactive="activecode" language="cpp" label="active6cpp-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 #include &lt;algorithm&gt;
@@ -174,7 +174,7 @@ int main(){
                 </task>
                 <task xml:id="active6py" label="active6py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python"><input>
+                    <statement><program interactive="activecode" language="python" label="active6py-prog"><input>
 # sorts anagrams in order from a-z, and then compares them
 def anagramSolution2(s1,s2):
     alist1 = list(s1)
@@ -247,7 +247,7 @@ main()
                 <title>Anagram Solution: Character Frequency</title>
                 <task xml:id="lst_ana4" label="lst_ana4">
                     <title>C++ Implementation</title>
-                    <statement><program interactive="activecode" language="cpp"><input>
+                    <statement><program interactive="activecode" language="cpp" label="lst_ana4-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -296,7 +296,7 @@ int main(){
                 </task>
                 <task xml:id="active7py" label="active7py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python"><input>
+                    <statement><program interactive="activecode" language="python" label="active7py-prog"><input>
 """ uses an array to count the number of a ocurrences of the two inputs
 if the number of occurrences is the same then the input is an anagram """
 
@@ -356,7 +356,7 @@ main()
             <statement>
     
                     <p>Given the following code fragment, what is its Big-O running time?</p>
-                    <program language="cpp"><input>
+                    <program language="cpp" label="AnAnagramDetectionExample-prog"><input>
     int main(){
         int test = 0;
         for (int i = 0; i &lt; n; i++){
@@ -413,7 +413,7 @@ main()
             <statement>
     
                     <p>Given the following code fragment what is its Big-O running time?</p>
-                    <program language="cpp"><input>
+                    <program language="cpp" label="AnAnagramDetectionExample-prog-2"><input>
     int main(){
         int test = 0;
         for (int i = 0; i &lt; n; i++){
@@ -471,7 +471,7 @@ main()
             <statement>
     
                     <p> Given the following code fragment what is its Big-O running time?</p>
-                    <program language="cpp"><input>
+                    <program language="cpp" label="AnAnagramDetectionExample-prog-3"><input>
     int main(){
         int i = n;
         int count = 0;

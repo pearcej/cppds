@@ -177,7 +177,7 @@
         <title>Analysis Example</title>
         <task label="algo_analysis_dummycode_1" xml:id="algo_analysis_dummycode_1">
             <title>C++ Implementation</title>
-            <statement><program language="cpp"><input>
+            <statement><program language="cpp" label="algo_analysis_dummycode_1-prog"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -204,7 +204,7 @@ int main(){
         </task>
         <task xml:id="algo_analysis_dummycode_1_py" label="algo_analysis_dummycode_1_py">
             <title>Python Implementation</title>
-            <statement><program language="python"><input>
+            <statement><program language="python" label="algo_analysis_dummycode_1_py-prog"><input>
 def main():
     a=5
     b=6

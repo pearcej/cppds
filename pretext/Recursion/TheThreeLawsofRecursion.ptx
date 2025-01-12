@@ -53,7 +53,7 @@
 
     <listing xml:id="ackermann">
         <caption>Ackermann Function</caption>
-        <program interactive="activecode" language="cpp"><input>
+        <program interactive="activecode" language="cpp" label="ackermann-prog"><input>
 //ackermann function example
 #include &lt;iostream&gt;
 using namespace std;

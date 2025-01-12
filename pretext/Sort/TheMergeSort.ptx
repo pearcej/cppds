@@ -40,7 +40,7 @@
             <title>Merge Sort</title>
             <task xml:id="lst-mergesort-cpp" label="lst-mergesort-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-mergesort-cpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="prog-mergesort-cpp" interactive="activecode" language="cpp" label="prog-mergesort-cpp-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -112,7 +112,7 @@ int main() {
             </task>
             <task xml:id="lst-mergesort-py" label="lst-mergesort-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-mergesort-py" interactive="activecode" language="python"><input>
+                <statement><program xml:id="prog-mergesort-py" interactive="activecode" language="python" label="prog-mergesort-py-prog"><input>
 def mergeSort(alist):
     print("Splitting ",alist)
     if len(alist)&gt;1:

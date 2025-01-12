@@ -109,7 +109,7 @@
         difference is that on line 7 <c>x</c> is vector, and on line 9 <c>x</c> is a
         hash table.</p>
     <p><term>Listing 6</term></p>
-    <program language="cpp"><input>
+    <program language="cpp" label="HashTableAnalysis-prog"><input>
 #include &lt;iostream&gt;
 #include &lt;ctime&gt;
 #include &lt;vector&gt;
@@ -144,7 +144,7 @@ for(int a = 10000; a &lt; 1000001; a = a + 20000) {
 return 0;
 }
 </input></program>
-    <program language="python"><input>
+    <program language="python" label="HashTableAnalysis-prog-2"><input>
 import timeit
 import random
 

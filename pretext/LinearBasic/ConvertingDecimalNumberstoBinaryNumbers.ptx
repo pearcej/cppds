@@ -61,7 +61,7 @@
             <title>Divide By 2 Algorithm</title>
             <task xml:id="lst-binconverter-cpp" label="lst-binconverter-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="binconvert_1ac_cpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="binconvert_1ac_cpp" interactive="activecode" language="cpp" label="binconvert_1ac_cpp-prog"><input>
 //converts a given decimal number into binary.
 
 #include &lt;iostream&gt;
@@ -101,7 +101,7 @@ int main() {
             </task>
             <task xml:id="lst-binconverter-py" label="lst-binconverter-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="binconvert_py" interactive="activecode" language="python"><input>
+                <statement><program xml:id="binconvert_py" interactive="activecode" language="python" label="binconvert_py-prog"><input>
 #converts a given decimal number into binary.
 
 from pythonds.basic.stack import Stack
@@ -161,7 +161,7 @@ main()
             <title>Implementation of <c>baseConverter</c></title>
             <task xml:id="lst-baseconverter-cpp" label="lst-baseconverter-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="baseconvertcpp" interactive="activecode" language="cpp" line-numbers="yes"><input>
+                <statement><program xml:id="baseconvertcpp" interactive="activecode" language="cpp" line-numbers="yes" label="baseconvertcpp-prog"><input>
 //converts a decimal number into desired base 1-16.
 
 #include &lt;iostream&gt;
@@ -204,7 +204,7 @@ int main() {
                 </task>
             <task xml:id="lst-baseconverter-py" label="lst-baseconverter-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="baseconvert" interactive="activecode" language="python"><input>
+                <statement><program xml:id="baseconvert" interactive="activecode" language="python" label="baseconvert-prog"><input>
 #converts a decimal number into desired base 1-16.
 
 from pythonds.basic.stack import Stack
