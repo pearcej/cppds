@@ -393,7 +393,7 @@ Reading Questions
     
             <choice correct="yes">
                 <statement>
-                    <p>2.53</p>
+                    <p>2.04</p>
                 </statement>
                 <feedback>
                     <p>Correct!</p>
@@ -434,7 +434,7 @@ Reading Questions
     
             <p>The Big O of a particular algorithm is <m>O(\log_{2}n)</m>.
                 Given that it takes 2 seconds to complete the algorithm with 3 million inputs;
-                how long would it take with 10 million inputs?</p>
+                how long would it take with <b>10 million</b> inputs?</p>
     
         </statement>
     <choices>
@@ -448,12 +448,12 @@ Reading Questions
                 </feedback>
             </choice>
     
-            <choice>
+            <choice  correct="yes">
                 <statement>
-                    <p>2.53</p>
+                    <p>2.16</p>
                 </statement>
                 <feedback>
-                    <p>Incorrect. Try again.</p>
+                    <p>Correct!</p>
                 </feedback>
             </choice>
     
@@ -466,12 +466,12 @@ Reading Questions
                 </feedback>
             </choice>
     
-            <choice correct="yes">
+            <choice>
                 <statement>
                     <p>4.2</p>
                 </statement>
                 <feedback>
-                    <p>Right!</p>
+                    <p>Incorrect. Try again</p>
                 </feedback>
             </choice>
     
