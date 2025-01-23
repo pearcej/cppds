@@ -246,31 +246,41 @@ void rotateLeft(TreeNode *rotRoot){
             nodes and A, C, E are their subtrees. Let <m>h_x</m> denote the
             height of a particular subtree rooted at node <m>x</m>. By definition
             we know the following:</p>
-        <m docname="Trees/AVLTreeImplementation" nowrap="False" number="True" xml:space="preserve">newBal(B) = h_A - h_C \\
-oldBal(B) = h_A - h_D</m>
+            <me>
+                \begin{split}
+                newBal(B) &amp; = h_A - h_C \\
+                oldBal(B) &amp;= h_A - h_D
+                \end{split}
+            </me>
         <p>But we know that the old height of D can also be given by <m>1 +
                 max(h_C,h_E)</m>, that is, the height of D is one more than the maximum
             height of its two children. Remember that <m>h_c</m> and
             <m>h_E</m> hav not changed. So, let us substitute that in to the
             second equation, which gives us</p>
-        <p><m>oldBal(B) = h_A - (1 + max(h_C,h_E))</m></p>
+        <p><me>oldBal(B) = h_A - (1 + max(h_C,h_E))</me></p>
         <p>and then subtract the two equations. The following steps
             do the subtraction and use some algebra to simplify the equation for
             <m>newBal(B)</m>.</p>
-        <m docname="Trees/AVLTreeImplementation" nowrap="False" number="True" xml:space="preserve">newBal(B) - oldBal(B) = h_A - h_C - (h_A - (1 + max(h_C,h_E))) \\
-newBal(B) - oldBal(B) = h_A - h_C - h_A + (1 + max(h_C,h_E)) \\
-newBal(B) - oldBal(B) = h_A  - h_A + 1 + max(h_C,h_E) - h_C  \\
-newBal(B) - oldBal(B) =  1 + max(h_C,h_E) - h_C</m>
+            <me>\begin{split}
+            newBal(B) - oldBal(B) &amp;= h_A - h_C - (h_A - (1 + max(h_C,h_E))) \\
+            newBal(B) - oldBal(B) &amp;= h_A - h_C - h_A + (1 + max(h_C,h_E)) \\
+            newBal(B) - oldBal(B) &amp;= h_A  - h_A + 1 + max(h_C,h_E) - h_C  \\
+            newBal(B) - oldBal(B) &amp;=  1 + max(h_C,h_E) - h_C
+            \end{split}</me>
         <p>Next we will move <m>oldBal(B)</m> to the right hand side of the
             equation and make use of the fact that
             <m>max(a,b)-c = max(a-c, b-c)</m>.</p>
-        <m docname="Trees/AVLTreeImplementation" nowrap="False" number="True" xml:space="preserve">newBal(B) = oldBal(B) + 1 + max(h_C - h_C ,h_E - h_C) \\</m>
+        <me>newBal(B) = oldBal(B) + 1 + max(h_C - h_C ,h_E - h_C)</me>
         <p>But, <m>h_E - h_C</m> is the same as <m>-oldBal(D)</m>. So we can
             use another identity that says <m>max(-a,-b) = -min(a,b)</m>. So we
             can finish our derivation of <m>newBal(B)</m> with the following
             steps:</p>
-        <m docname="Trees/AVLTreeImplementation" nowrap="False" number="True" xml:space="preserve">newBal(B) = oldBal(B) + 1 + max(0 , -oldBal(D)) \\
-newBal(B) = oldBal(B) + 1 - min(0 , oldBal(D)) \\</m>
+            <me>
+                \begin{split}
+                newBal(B) &amp; = oldBal(B) + 1 + max(0 , -oldBal(D)) \\
+                newBal(B) &amp; = oldBal(B) + 1 - min(0 , oldBal(D))
+                \end{split}
+            </me>
         <p>Now we have all of the parts in terms that we readily know. If we
             remember that B is <c>rotRoot</c> and D is <c>newRoot</c> then we can see this
             corresponds exactly to the statement on line<nbsp/>21, or:</p>
