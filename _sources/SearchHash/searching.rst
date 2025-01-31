@@ -28,18 +28,35 @@ of items. In Python one uses the ``in`` operator on a list:
     True
     >>>
 
-In C++, the STD vector library provides the ``find`` command
-which works on vectors and even on arrays (although much more
-awkwardly.) Here is an example using a vector:
+In C++, the standard library provides, the ``find`` function
+which works on several C++ data types (e.g. arrays, vector, etc.
+The example below shows how ``find`` can be used
+to search an array or a ``vector``. The first argument to
+``find`` is the base object to search, the second argument
+is the element past the end (this is how find knows where to
+stop), and the third argument value to ``find`` is the item
+to locate. If the item is not found, the second argument
+is returned. If it is found, an iterator is returned.
 
 ::
 
-    >>> #include <vector>
-    >>> int myints<int> = {3, 5, 2, 4, 1};
-    >>> cout << find(myints.begin(), myints.end(), 15);
-    false
-    >>> cout << find(myints.begin(), myints.end(), 3);
-    true
+    #include <vector>
+    #include <iostream>
+    #include <algorithm>
+    #include <vector>
+
+    using namespace std;
+
+    int main() {
+        int myints[] = {3, 5, 2, 4, 1};
+        cout << (find(myints, myints + 5, 15) != myints + 5) << endl;
+        cout << (find(myints, myints + 5, 2) != myints + 5) << endl;
+
+        vector<int> myvec = {3, 5, 2, 4, 1};
+        cout << (find(myvec.begin(), myvec.end(), 15) != myvec.end()) << endl;
+        cout << (find(myvec.begin(), myvec.end(), 2) != myvec.end()) << endl;
+        return 0;
+    }
 
 
 How does this work? Even though this is easy to write, an underlying process

@@ -17,15 +17,31 @@ False
 &gt;&gt;&gt; 3 in [3,5,2,4,1]
 True
 &gt;&gt;&gt;</pre>
-        <p>In C++, the STD vector library provides the <c>find</c> command
-            which works on vectors and even on arrays (although much more
-            awkwardly.) Here is an example using a vector:</p>
-        <pre>&gt;&gt;&gt; #include &lt;vector&gt;
-&gt;&gt;&gt; int myints&lt;int&gt; = {3, 5, 2, 4, 1};
-&gt;&gt;&gt; cout &lt;&lt; find(myints.begin(), myints.end(), 15);
-false
-&gt;&gt;&gt; cout &lt;&lt; find(myints.begin(), myints.end(), 3);
-true</pre>
+        <p>In C++, the standard library provides, the <c>find</c> function
+            which works on several C++ data types (e.g. arrays, vector, etc.
+            <xref ref="find-example"/> shows how <c>find</c> can be used
+            to search an array or a <c>vector</c>. The first argument to
+            <c>find</c> is the base object to search, the second argument
+            is the element past the end (this is how find knows where to
+            stop), and the third argument value to <c>find</c> is the item
+            to locate. If the item is not found, the second argument
+            is returned. If it is found, an iterator is returned.</p>
+        <listing xml:id="find-example"><program language="cpp"><input>
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+
+int main() {
+    int myints[] = {3, 5, 2, 4, 1};
+    cout &lt;&lt; (find(myints, myints + 4, 15) != myints + 4) &lt;&lt; endl;
+    cout &lt;&lt; (find(myints, myints + 4, 5) != myints + 4) &lt;&lt; endl;
+
+    vector&lt;int&gt; myvec = {3, 5, 2, 4, 1};
+    cout &lt;&lt; (find(myvec.begin(), myvec.end(), 15) != myvec.end()) &lt;&lt; endl;
+    cout &lt;&lt; (find(myvec.begin(), myvec.end(), 3) != myvec.end()) &lt;&lt; endl;
+    return 0;
+}
+        </input></program></listing>
         <p>How does this work? Even though this is easy to write, an underlying process
             must be carried out to do the search.</p>
         <p>A function can be created for C++ arrays
