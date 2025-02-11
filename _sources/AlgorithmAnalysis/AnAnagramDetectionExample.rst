@@ -286,32 +286,23 @@ anagrams. :ref:`ActiveCode 3 <lst_ana4>` shows this solution.
             int c1[26] = {0};
             int c2[26] = {0};
 
-            int x;
-            int a = 'a';
-            for (unsigned int i = 0; i < s1.length(); i++){
-                x = s1[i] - a;
-                int pos = x;
-                c1[pos] = c1[pos] + 1;
+            for (unsigned int i = 0; i &lt; s1.length(); i++){
+                int pos = s1[i] - 'a';
+                c1[pos] += 1;
             }
 
-            int y;
-            int b = 'a';
-            for (unsigned int i = 0; i < s2.length(); i++){
-                y = s2[i] - b;
-                int pos = y;
-                c2[pos] = c2[pos] + 1;
+            for (unsigned int i = 0; i &lt; s2.length(); i++){
+                int pos = s2[i] - 'a';
+                c2[pos] += 1;
             }
 
-            int j = 0;
-            bool stillOK = true;
-            while (j < 26 && stillOK){
-                if (c1[j] == c2[j]){
-                    j = j + 1;
-                } else{
-                    stillOK = false;
+            for (unsigned int i = 0; i &lt; 26; i++) {
+                if (c1[i] != c2[i]){
+                    return false;
                 }
             }
-            return stillOK;
+
+            return true;
         }
 
         int main(){
@@ -330,26 +321,22 @@ anagrams. :ref:`ActiveCode 3 <lst_ana4>` shows this solution.
         if the number of occurrences is the same then the input is an anagram """ 
         
         def anagramSolution4(s1,s2):
-            c1 = [0]*26
-            c2 = [0]*26
+           c1 = [0]*26
+           c2 = [0]*26
 
-            for i in range(len(s1)):
-                pos = ord(s1[i])-ord('a')
-                c1[pos] = c1[pos] + 1
+           for i in range(len(s1)):
+               pos = ord(s1[i])-ord('a')
+               c1[pos] += 1
 
-            for i in range(len(s2)):
-                pos = ord(s2[i])-ord('a')
-                c2[pos] = c2[pos] + 1
+           for i in range(len(s2)):
+               pos = ord(s2[i])-ord('a')
+               c2[pos] += 1
 
-            j = 0
-            stillOK = True
-            while j<26 and stillOK:
-                if c1[j]==c2[j]:
-                    j = j + 1
-                else:
-                    stillOK = False
+           for i in range(len(c1)):
+               if c1[i] != c2[i]:
+                   return False
 
-            return stillOK
+           return True
 
         def main():
             print(anagramSolution4('apple','pleap'))
