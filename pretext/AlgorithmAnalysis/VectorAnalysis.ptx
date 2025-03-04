@@ -189,90 +189,82 @@ int main(){
                 
                     <row>
                         <cell>
-                            index []
+                            <c>at</c>, <c>[]</c>
                         </cell>
                         <cell>
-                            O(1)
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            index assignment =
-                        </cell>
-                        <cell>
-                            O(1)
+                            <m>O(1)</m>
                         </cell>
                     </row>
                     <row>
                         <cell>
-                            push_back()
+                            <c>at</c> and <c>[]</c> assignment
                         </cell>
                         <cell>
-                            typically O(1)
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            pop_back()
-                        </cell>
-                        <cell>
-                            O(1)
+                            <m>O(1)</m>
                         </cell>
                     </row>
                     <row>
                         <cell>
-                            erase(i)
+                            <c>push_back()</c>
                         </cell>
                         <cell>
-                            O(n)
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            insert(i, item)
-                        </cell>
-                        <cell>
-                            O(n)
+                            typically <m>O(1)</m>
                         </cell>
                     </row>
                     <row>
                         <cell>
-                            find(srt, stp, item)
+                            <c>pop_back()</c>
                         </cell>
                         <cell>
-                            O(log n) or O(n)
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            reserve()
-                        </cell>
-                        <cell>
-                            O(n)
+                            <m>O(1)</m>
                         </cell>
                     </row>
                     <row>
                         <cell>
-                            begin()
+                            <c>erase(i)</c>
                         </cell>
                         <cell>
-                            O(1)
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            end()
-                        </cell>
-                        <cell>
-                            O(1)
+                            <m>O(n)</m>
                         </cell>
                     </row>
                     <row>
                         <cell>
-                            size()
+                            <c>insert(i, item)</c>
                         </cell>
                         <cell>
-                            O(1)
+                            <m>O(n)</m>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>reserve()</c>
+                        </cell>
+                        <cell>
+                            <m>O(n)</m>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>begin()</c>
+                        </cell>
+                        <cell>
+                            <m>O(1)</m>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>end()</c>
+                        </cell>
+                        <cell>
+                            <m>O(1)</m>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>size()</c>
+                        </cell>
+                        <cell>
+                            <m>O(1)</m>
                         </cell>
                     </row>
                 
@@ -282,10 +274,6 @@ int main(){
             in which case the entire
             vector is moved to a larger contiguous underlying array, which
             is <m>O(n)</m>.</p>
-        <p>Note that the vector class provides a <c>find</c> operation which can determine
-            whether a given item is in the vector. It is <m>O(\log n)</m> if
-            the vector is sorted and is <m>O(n)</m> otherwise. We will explain
-            why this is in <xref ref="ch-linear-basic"/>.</p>
         <p>As a way of demonstrating the difference in performance between <c>push_back</c>
             and <c>insert</c>, let's do
             another experiment using the <c>ctime</c> module. Our goal is to be able
@@ -363,7 +351,7 @@ int main(){
 <exercise label="matching_VectorBO">
     <statement><p>Drag the operation(s) on the left to their corresponding Big(O)</p></statement>
     <feedback><p>Review operations and their Big(O)</p></feedback>
-<matches><match order="1"><premise>begin(), end(), size(), index [], index assignment = ,push_back(), pop_back()</premise><response> O(1)</response></match><match order="2"><premise>reserve(), erase(i), insert(i, item),find(srt, stp, item)</premise><response>O(n)</response></match><match order="3"><premise>find(srt, stp, item)</premise><response>O(log n)</response></match></matches></exercise>    
+<matches><match order="1"><premise>begin(), end(), size(), index [], index assignment = ,push_back(), pop_back()</premise><response> O(1)</response></match><match order="2"><premise>reserve(), erase(i), insert(i, item)</premise><response>O(n)</response></match></matches></exercise>    
 </reading-questions>
 <p>
     <!-- extra space before the progress bar -->         
