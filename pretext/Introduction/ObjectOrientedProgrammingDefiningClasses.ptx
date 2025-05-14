@@ -285,12 +285,16 @@ class Fraction {
 
 int main() {
     Fraction fraca(3, 5);
-    Fraction fracb(3);
-    Fraction fracc; //notice there are no parentheses here.
-    // cout &lt;&lt; fraca &lt;&lt; endl; //uncomment to see error
     fraca.show();
+
+    Fraction fracb(3);
     fracb.show();
+
+    Fraction fracc; //notice there are no parentheses here.
     fracc.show();
+
+    // cout &lt;&lt; fraca &lt;&lt; endl; //uncomment to see error
+
     return 0;
 }
                     </input></program></statement>
@@ -306,14 +310,20 @@ class Fraction:
         self.den = bottom
     def show(self):
         print(self.num,"/",self.den)
-# main code below
-fraca = Fraction(3,5)
-fracb = Fraction(3)
-fracc = Fraction()# notice no parameters are passed
-# notice print(fraca) will give you an unexpected output
-fraca.show()
-fracb.show()
-fracc.show()
+
+def main():
+    fraca = Fraction(3,5)
+    fraca.show()
+
+    fracb = Fraction(3)
+    fracb.show()
+
+    fracc = Fraction()# notice no parameters are passed
+    fracc.show()
+    
+    # notice print(fraca) will give you an unexpected output
+
+main()
                     </input></program></statement>
                 </task>
             </exploration>
