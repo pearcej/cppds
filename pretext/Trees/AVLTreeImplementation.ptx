@@ -30,11 +30,14 @@
             <c>updateBalance</c> helper method. These methods are shown in
             <xref ref="trees_lst-updbal"/>. You will notice that the definition for <c>_put</c> is
             exactly the same as in simple binary search trees except for the additions of
-            the calls to <c>updateBalance</c> on lines<nbsp/>8 and<nbsp/>17.</p>
+            the calls to <c>updateBalance</c> on lines<nbsp/>8 and<nbsp/>17 of the C++ version.</p>
 
-        <listing xml:id="trees_lst-updbal">
-            <caption>Implementation of <c>_put</c> and <c>updateBalance</c></caption>
-            <program line-numbers="yes" language="cpp" label="trees_lst-updbal-prog"><input>
+        <exploration xml:id="trees_lst-updbal">
+            <title>Implementation of <c>_put</c> and <c>updateBalance</c></title>
+            <task>
+                <title>C++ Implementation</title>
+                <statement>
+            <program line-numbers="yes" language="cpp" label="trees_lst-updbal-prog"><code>
 void _put(int key, string val, TreeNode *currentNode){
     if (key &lt; currentNode-&gt;key){
         if (currentNode-&gt;hasLeftChild()){
@@ -74,8 +77,54 @@ int updateBalance(TreeNode *node){
     }
     return 0;
 }
-            </input></program>
-        </listing>
+</code></program>
+            </statement>
+        </task>
+        <task>
+            <title>Python Implementation</title>
+            <statement>
+        <program line-numbers="yes" language="python" label="trees_lst-updbal-prog-py">
+    <code> 
+class AVLTree:
+    # Other method definitions
+    # ... 
+
+    def _put(self, key, value, current_node):
+        if key &lt; current_node.key:
+            if current_node.has_left_child():
+                self._put(key, value, current_node.left_child)
+            else:
+                current_node.left_child= TreeNode(key, value, current_node)
+                self.update_balance(current_node.left_child)
+        else:
+            if current_node.has_right_child():
+                self._put(key, value, current_node.right_child)
+            else:
+                current_node.right_child= TreeNode(key, value, current_node)
+                self.update_balance(current_node.right_child)
+
+    
+    def update_balance(self, node): 
+        if node.balance_factor &gt; 1 or node.balance_factor &lt; -1:
+            self.rebalance(node)
+            return 0
+
+        if node.parent is not None:
+            if node.is_left_child():
+                node.parent.balance_factor += 1
+            elif node.is_right_child():
+                node.parent.balance_factor -= 1
+
+        if node.parent.balance_factor != 0:
+            self.update_balance(node.parent)
+
+    return 0
+
+    </code>
+</program>
+        </statement>
+        </task>
+</exploration>
         
         <p>The new <c>updateBalance</c> method is where most of the work is done. The
             <c>updateBalance</c> method first checks to see if the current node is out
