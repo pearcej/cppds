@@ -298,8 +298,22 @@ int main() {
                 <task xml:id="showmethod-py" label="showmethod_py">
                     <title>Python</title>
                     <statement><program interactive="activecode" language="python" label="showmethod_py-prog"><input>
-def show(self):
-  print(self.num,"/",self.den)
+class Fraction:
+
+    def __init__(self,top = 0,bottom = 1):
+
+        self.num = top
+        self.den = bottom
+    def show(self):
+        print(self.num,"/",self.den)
+# main code below
+fraca = Fraction(3,5)
+fracb = Fraction(3)
+fracc = Fraction()# notice no parameters are passed
+# notice print(fraca) will give you an unexpected output
+fraca.show()
+fracb.show()
+fracc.show()
                     </input></program></statement>
                 </task>
             </exploration>
