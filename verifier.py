@@ -42,6 +42,24 @@ class TabNodeIsNotAThing(CppsXmlTest):
         return n == 0
 
 
+class ProgramInputDeprecated(CppsXmlTest):
+    """TabNode is something the automatic conversion tools emitted.
+    PreTeXt doesn't actually have the concept of a TabNode per se,
+    so everywhere this tag occurs we have to do some manual work.
+    """
+    @classmethod
+    def test_file(cls, fname, doc):
+        ok = True
+        for prog in doc.getElementsByTagName("program"):
+            for child in prog.childNodes:
+                if child.nodeType != xml.dom.Node.ELEMENT_NODE:
+                    continue
+                if child.nodeName == "input":
+                    ok = False
+                    print(f'{fname}: "program" has deprecated "input" tag (should be "code")')
+        return ok
+
+
 class TagsNeedsCaption(CppsXmlTest):
     """The tags below should have a <caption> elements as a child"""
     captioned_things = ('figure', 'listing')

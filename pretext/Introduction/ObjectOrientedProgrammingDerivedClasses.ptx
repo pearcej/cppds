@@ -1,4 +1,4 @@
-<section xml:id="introduction_inheritance-in-c">
+<?xml version="1.0" ?><section xml:id="introduction_inheritance-in-c">
         <title>Inheritance in C++</title>
         <introduction><p>In this section we introduce another important aspect of
             object-oriented programming. <term>Inheritance</term> is the ability for one
@@ -48,7 +48,7 @@
 
         <listing xml:id="virtualfunction">
             <caption>Virtual function example</caption>
-            <program language="cpp" label="virtualfunction-prog"><input>
+            <program language="cpp" label="virtualfunction-prog"><code>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -57,7 +57,7 @@ public:
 
         virtual void printType() { // Creates function called  printType
                 subfunction();
-                cout &lt;&lt; "I'm inherited!" &lt;&lt; endl &lt;&lt; endl;
+                cout &lt;&lt; &quot;I'm inherited!&quot; &lt;&lt; endl &lt;&lt; endl;
         }
 
         virtual void subfunction(){
@@ -67,13 +67,13 @@ public:
 
 class SubFirst : public Base {
 virtual void subfunction() {
-        cout &lt;&lt; "I'm one type of sub-class!" &lt;&lt; endl;
+        cout &lt;&lt; &quot;I'm one type of sub-class!&quot; &lt;&lt; endl;
 }
 };
 
 class SubSecond : public Base {
 virtual void subfunction() {
-        cout &lt;&lt; "I'm another type of sub class!" &lt;&lt; endl;
+        cout &lt;&lt; &quot;I'm another type of sub class!&quot; &lt;&lt; endl;
 }
 };
 
@@ -86,7 +86,7 @@ int main() {
 
         return 0;
 }
-            </input></program>
+            </code></program>
         </listing>
 </introduction>
         <subsection xml:id="introduction_logic-gates-and-circuits">
@@ -179,7 +179,7 @@ int main() {
                 <title>Complete <c>LogicGate</c> class</title>
                 <task xml:id="introduction_lst-logicgateclass" label="introduction_lst-logicgateclass">
                         <title>C++ implementation</title>
-                        <statement><program language="cpp" label="introduction_lst-logicgateclass-prog"><input>
+                        <statement><program language="cpp" label="introduction_lst-logicgateclass-prog"><code>
 class LogicGate {
 public:
         LogicGate(string n) {
@@ -196,10 +196,10 @@ protected:
         string label;
         bool output;
 };
-                </input></program></statement></task>
+                </code></program></statement></task>
                 <task xml:id="introduction_lst-logicgateclass-py" label="introduction_lst-logicgateclass-py">
                         <title>Python implementation</title>
-                        <statement><program language="python" label="introduction_lst-logicgateclass-py-prog"><input>
+                        <statement><program language="python" label="introduction_lst-logicgateclass-py-prog"><code>
 class LogicGate:
         def __init__(self,n):
                 self.label = n
@@ -211,7 +211,7 @@ class LogicGate:
         def getOutput(self):
                 self.output = self.performGateLogic()
                 return self.output                        
-                </input></program></statement></task>
+                </code></program></statement></task>
 
         </exploration>
 
@@ -244,7 +244,7 @@ class LogicGate:
                         <title>Implementation of <c>BinaryGate</c></title>
                         <task xml:id="introduction_lst-binarygateclass" label="introduction_lst-binarygateclass">
                                 <title>C++ implementation</title>
-                                <statement><program language="cpp" label="introduction_lst-binarygateclass-prog"><input>
+                                <statement><program language="cpp" label="introduction_lst-binarygateclass-prog"><code>
 class BinaryGate : public LogicGate {
 public:
         BinaryGate(string n) : LogicGate(n) { // When we create an instance of
@@ -255,7 +255,7 @@ public:
 
         bool getPinA() {
                 if (pinATaken==false) {
-                        cout &lt;&lt; "Enter Pin input for gate " &lt;&lt; getLabel() &lt;&lt; " : ";
+                        cout &lt;&lt; &quot;Enter Pin input for gate &quot; &lt;&lt; getLabel() &lt;&lt; &quot; : &quot;;
                         cin &gt;&gt; pinA;
                         pinATaken = true;
                 }
@@ -264,7 +264,7 @@ public:
 
         bool getPinB() {
                 if (pinBTaken==false ) {
-                        cout &lt;&lt; "Enter Pin input for gate " &lt;&lt; getLabel() &lt;&lt; " : ";
+                        cout &lt;&lt; &quot;Enter Pin input for gate &quot; &lt;&lt; getLabel() &lt;&lt; &quot; : &quot;;
                         cin &gt;&gt; pinB;
                         pinBTaken = true;
                 }
@@ -277,10 +277,10 @@ protected:
         bool pinB;
         bool pinBTaken;
 };
-                        </input></program></statement></task>
+                        </code></program></statement></task>
                         <task xml:id="introduction_lst-binarygateclass-py" label="introduction_lst-binarygateclass-py">
                                 <title>Python implementation</title>
-                                <statement><program language="python" label="introduction_lst-binarygateclass-py-prog"><input>
+                                <statement><program language="python" label="introduction_lst-binarygateclass-py-prog"><code>
 class BinaryGate(LogicGate):
 
         def __init__(self,n):
@@ -290,11 +290,11 @@ class BinaryGate(LogicGate):
                 self.pinB = None
 
         def getPinA(self):
-                return int(input("Enter Pin A input for gate "+ self.getLabel()+"-&gt;"))
+                return int(input(&quot;Enter Pin A input for gate &quot;+ self.getLabel()+&quot;-&gt;&quot;))
 
         def getPinB(self):
-                return int(input("Enter Pin B input for gate "+ self.getLabel()+"-&gt;"))
-                                </input></program></statement>
+                return int(input(&quot;Enter Pin B input for gate &quot;+ self.getLabel()+&quot;-&gt;&quot;))
+                                </code></program></statement>
                         </task>
                 </exploration>
 
@@ -302,7 +302,7 @@ class BinaryGate(LogicGate):
                         <title>Implementation of <c>UnaryGate</c></title>
                         <task xml:id="introduction_lst-unarygateclass" label="introduction_lst-unarygateclass">
                                 <title>C++ implementation</title>
-                                <statement><program language="cpp" label="introduction_lst-unarygateclass-prog"><input>
+                                <statement><program language="cpp" label="introduction_lst-unarygateclass-prog"><code>
 class UnaryGate : public LogicGate {
 public:
         UnaryGate(string n) : LogicGate(n) {
@@ -310,7 +310,7 @@ public:
         }
         bool getPin() {
                 if (pinTaken==false) {
-                        cout &lt;&lt; "Enter Pin input for gate " &lt;&lt; getLabel() &lt;&lt; ": ";
+                        cout &lt;&lt; &quot;Enter Pin input for gate &quot; &lt;&lt; getLabel() &lt;&lt; &quot;: &quot;;
                         cin &gt;&gt; pin;
                         pinTaken = true;
                 }
@@ -320,10 +320,10 @@ protected:
         bool pin;
         bool pinTaken;
 };
-                        </input></program></statement></task>
+                        </code></program></statement></task>
                         <task xml:id="introduction_lst-unarygateclass-py" label="introduction_lst-unarygateclass-py">
                                 <title>Python implementation</title>
-                                <statement><program language="python" label="introduction_lst-unarygateclass-py-prog"><input>
+                                <statement><program language="python" label="introduction_lst-unarygateclass-py-prog"><code>
 class UnaryGate(LogicGate):
 
         def __init__(self,n):
@@ -332,8 +332,8 @@ class UnaryGate(LogicGate):
                 self.pin = None
 
         def getPin(self):
-                return int(input("Enter Pin input for gate "+ self.getLabel()+"-&gt;"))
-                </input></program></statement></task></exploration>
+                return int(input(&quot;Enter Pin input for gate &quot;+ self.getLabel()+&quot;-&gt;&quot;))
+                </code></program></statement></task></exploration>
 
             <p><xref ref="introduction_lst-binarygateclass"/> and <xref ref="introduction_lst-unarygateclass"/> implement these two
                 classes. The constructors in both of these classes start with an
@@ -369,7 +369,7 @@ class UnaryGate(LogicGate):
                 <title>Implementation of <c>AndGate</c></title>
                 <task xml:id="introduction_lst-andgateclass" label="introduction_lst-andgateclass">
                         <title>C++ implementation</title>
-                        <statement><program language="cpp" label="introduction_lst-andgateclass-prog"><input>
+                        <statement><program language="cpp" label="introduction_lst-andgateclass-prog"><code>
 class AndGate : public BinaryGate {
 public:
         AndGate(string n) : BinaryGate(n) {};
@@ -385,10 +385,10 @@ public:
                 }
         }
 };
-                </input></program></statement></task>
+                </code></program></statement></task>
                 <task xml:id="introduction_lst-andgateclass-py" label="introduction_lst-andgateclass-py">
                         <title>Python implementation</title>
-                        <statement><program language="python" label="introduction_lst-andgateclass-py-prog"><input>
+                        <statement><program language="python" label="introduction_lst-andgateclass-py-prog"><code>
 class AndGate(BinaryGate):
 
         def __init__(self,n):
@@ -402,19 +402,19 @@ class AndGate(BinaryGate):
                         return 1
                 else:
                         return 0
-        </input></program></statement></task></exploration>
+        </code></program></statement></task></exploration>
 
             <p>We can show the <c>AndGate</c> class in action by creating an instance and
                 asking it to compute its output. The following session shows an
-                <c>AndGate</c> object, <c>gand1</c>, that has an internal label <c>"gand1"</c>. When we
+                <c>AndGate</c> object, <c>gand1</c>, that has an internal label <c>&quot;gand1&quot;</c>. When we
                 invoke the <c>getOutput</c> method, the object must first call its
                 <c>performGateLogic</c> method which in turn queries the two input lines.
                 Once the values are provided, the correct output is shown.</p>
 
         <listing xml:id="introduction_fig-andusage">
             <caption><c>AndGate</c> Usage</caption>
-            <program label="introduction_fig-andusage-prog"><input>
-                &gt;&gt;&gt; AndGate gand2("gand2")
+            <program label="introduction_fig-andusage-prog"><code>
+                &gt;&gt;&gt; AndGate gand2(&quot;gand2&quot;)
                 &gt;&gt;&gt; gand2.getOutput()
                 Enter Pin A input for gate gand2: 1
                 Enter Pin B input for gate gand2: 1
@@ -423,7 +423,7 @@ class AndGate(BinaryGate):
                 Enter Pin A input for gate gand2: 0
                 Enter Pin B input for gate gand2: 0
                 0
-            </input></program>
+            </code></program>
         </listing>
 .
            <p>The same development can be done for <term>OR</term> gates and <term>NOT</term> gates. The
@@ -437,8 +437,8 @@ class AndGate(BinaryGate):
 
             <listing xml:id="introduction_fig-ornotusage">
                 <caption>Usage of <c>OrGate</c> and <c>NotGate</c></caption>
-                <program label="introduction_fig-ornotusage-prog"><input>
-&gt;&gt;&gt; g2 = OrGate("G2")
+                <program label="introduction_fig-ornotusage-prog"><code>
+&gt;&gt;&gt; g2 = OrGate(&quot;G2&quot;)
 &gt;&gt;&gt; g2.getOutput()
 Enter Pin A input for gate G2-&gt;1
 Enter Pin B input for gate G2-&gt;1
@@ -447,11 +447,11 @@ Enter Pin B input for gate G2-&gt;1
 Enter Pin A input for gate G2-&gt;0
 Enter Pin B input for gate G2-&gt;0
 0
-&gt;&gt;&gt; g3 = NotGate("G3")
+&gt;&gt;&gt; g3 = NotGate(&quot;G3&quot;)
 &gt;&gt;&gt; g3.getOutput()
 Enter Pin input for gate G3-&gt;0
 1
-                </input></program>
+                </code></program>
             </listing>
         </subsection>
         <subsection xml:id="introduction_building-circuits">
@@ -500,7 +500,7 @@ Enter Pin input for gate G3-&gt;0
 
             <listing xml:id="ooderive_program">
                 <caption>Using the <c>Connector</c> Class</caption>
-                <program interactive="activecode" language="cpp" label="ooderive_program-prog"><input>
+                <program interactive="activecode" language="cpp" label="ooderive_program-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -519,12 +519,12 @@ class LogicGate {
                     return output;
             }
             virtual bool performGateLogic(){
-                    cout &lt;&lt; "ERROR! performGateLogic BASE" &lt;&lt; endl;
+                    cout &lt;&lt; &quot;ERROR! performGateLogic BASE&quot; &lt;&lt; endl;
                     return false;
             }
 
             virtual void setNextPin(bool source) {
-                    cout &lt;&lt; "ERROR! setNextPin BASE" &lt;&lt; endl;
+                    cout &lt;&lt; &quot;ERROR! setNextPin BASE&quot; &lt;&lt; endl;
             }
     private:
             string label;
@@ -540,7 +540,7 @@ class BinaryGate : public LogicGate {
             }
             bool getPinA() {
                     if (pinATaken == false) {
-                            cout &lt;&lt; "Enter Pin A input for gate " &lt;&lt; getLabel() &lt;&lt; ": ";
+                            cout &lt;&lt; &quot;Enter Pin A input for gate &quot; &lt;&lt; getLabel() &lt;&lt; &quot;: &quot;;
                             cin &gt;&gt; pinA;
                             pinATaken = true;
                     }
@@ -548,7 +548,7 @@ class BinaryGate : public LogicGate {
             }
             bool getPinB() {
                     if (pinBTaken == false) {
-                            cout &lt;&lt; "Enter Pin B input for gate " &lt;&lt; getLabel() &lt;&lt; ": ";
+                            cout &lt;&lt; &quot;Enter Pin B input for gate &quot; &lt;&lt; getLabel() &lt;&lt; &quot;: &quot;;
                             cin &gt;&gt; pinB;
                             pinBTaken = true;
                     }
@@ -576,7 +576,7 @@ class UnaryGate : public LogicGate {
             }
             bool getPin() {
                     if (pinTaken == false) {
-                            cout &lt;&lt; "Enter Pin input for gate " &lt;&lt; getLabel() &lt;&lt; ": ";
+                            cout &lt;&lt; &quot;Enter Pin input for gate &quot; &lt;&lt; getLabel() &lt;&lt; &quot;: &quot;;
                             cin &gt;&gt; pin;
                             pinTaken = true;
                     }
@@ -595,7 +595,7 @@ class UnaryGate : public LogicGate {
             bool pin, pinTaken;
 };
 
-//Class that sets up the logic for an "and" gate
+//Class that sets up the logic for an &quot;and&quot; gate
 class AndGate : public BinaryGate{
     public:
             AndGate(string n) : BinaryGate(n) {};
@@ -612,7 +612,7 @@ class AndGate : public BinaryGate{
             }
 };
 
-//class that sets up the logic for an "or" gate
+//class that sets up the logic for an &quot;or&quot; gate
 class OrGate : public BinaryGate {
     public:
             OrGate(string n) : BinaryGate(n) {};
@@ -629,7 +629,7 @@ class OrGate : public BinaryGate {
             }
 };
 
-//class that sets up the logic for a "not" gate
+//class that sets up the logic for a &quot;not&quot; gate
 class NotGate : public UnaryGate {
     public:
             NotGate(string n) : UnaryGate(n) {};
@@ -667,10 +667,10 @@ int main() {
     char stopme;
 
     //Setting labels
-    AndGate gand1(" AND1 ");
-    AndGate gand2(" AND2 ");
-    OrGate  gor3(" OR ");
-    NotGate gnot4(" NOT ");
+    AndGate gand1(&quot; AND1 &quot;);
+    AndGate gand2(&quot; AND2 &quot;);
+    OrGate  gor3(&quot; OR &quot;);
+    NotGate gnot4(&quot; NOT &quot;);
 
     // The inputs can be changed here!
     gand1.setNextPin(0);
@@ -684,16 +684,16 @@ int main() {
     Connector c3(&amp;gor3, &amp;gnot4);
 
     // The output shows order of operators
-    cout &lt;&lt; gnot4.getLabel() &lt;&lt; "(";
-    cout &lt;&lt; "(" &lt;&lt; gand1.getPinA() &lt;&lt; gand1.getLabel() &lt;&lt; gand1.getPinB() &lt;&lt; ")";
+    cout &lt;&lt; gnot4.getLabel() &lt;&lt; &quot;(&quot;;
+    cout &lt;&lt; &quot;(&quot; &lt;&lt; gand1.getPinA() &lt;&lt; gand1.getLabel() &lt;&lt; gand1.getPinB() &lt;&lt; &quot;)&quot;;
     cout &lt;&lt; gor3.getLabel();
-    cout &lt;&lt; "(" &lt;&lt; gand2.getPinA() &lt;&lt; gand2.getLabel() &lt;&lt; gand2.getPinB() &lt;&lt; ")";
-    cout &lt;&lt; ") results in " &lt;&lt; gnot4.getOutput() &lt;&lt; endl;
+    cout &lt;&lt; &quot;(&quot; &lt;&lt; gand2.getPinA() &lt;&lt; gand2.getLabel() &lt;&lt; gand2.getPinB() &lt;&lt; &quot;)&quot;;
+    cout &lt;&lt; &quot;) results in &quot; &lt;&lt; gnot4.getOutput() &lt;&lt; endl;
 
     cin &gt;&gt; stopme; //holds open window under some conditions.
     return 0;
 }
-                </input></program>
+                </code></program>
             </listing>
 
     <reading-questions xml:id="rq-oop-derived-classes">
@@ -763,7 +763,7 @@ int main() {
 
             <!--OOP class example:-->
             <p><term>Question example</term></p>
-            <program language="cpp" label="ObjectOrientedProgrammingDerivedClasses-prog"><input>
+            <program language="cpp" label="ObjectOrientedProgrammingDerivedClasses-prog"><code>
 #include&lt;iostream&gt;
 using namespace std;
 
@@ -784,7 +784,7 @@ class Airplane: public Vehicle
         // engine
         int wings;
 };
-</input></program>
+</code></program>
             <p>Which OOP principle is the above code an example of?</p>
 
         </statement>
@@ -833,10 +833,10 @@ class Airplane: public Vehicle
                 <image source="Introduction/flipflop.png" width="50%"> 
                 <description>
                 <p>
-                Image showing a simple flip-flop circuit constructed with two NOR gates. The circuit consists of two inputs labeled "Reset" and "Set," 
+                Image showing a simple flip-flop circuit constructed with two NOR gates. The circuit consists of two inputs labeled &quot;Reset&quot; and &quot;Set,&quot; 
                 which feed into the respective NOR gates. The output of the upper NOR gate loops back as an input to the lower NOR gate, while the output 
                 of the lower NOR gate loops back as an input to the upper NOR gate. This feedback loop creates a stable circuit that can store a single bit 
-                of data based on the states of the "Reset" and "Set" inputs.
+                of data based on the states of the &quot;Reset&quot; and &quot;Set&quot; inputs.
                 </p>
                 </description>
                 </image>
