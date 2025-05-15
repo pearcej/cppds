@@ -1,4 +1,4 @@
-<section xml:id="algorithm-analysis_what-is-algorithm-analysis">
+<?xml version="1.0" ?><section xml:id="algorithm-analysis_what-is-algorithm-analysis">
     <title>What Is Algorithm Analysis?</title>
     <introduction>
     <p>It is very common for beginning computer science students to
@@ -28,7 +28,7 @@
         <title>Sum of First <em>n</em> Integers</title>
         <task label="lst_sum0" xml:id="lst_sum0">
             <title>C++ Implementation</title>
-            <statement><program interactive="activecode" language="cpp" label="lst_sum0-prog"><input>
+            <statement><program interactive="activecode" language="cpp" label="lst_sum0-prog"><code>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -47,11 +47,11 @@ int main(){
   cout &lt;&lt; sumOfN(10);
   return 0;
 }
-            </input></program></statement>
+            </code></program></statement>
         </task>
         <task label="ec1_py" xml:id="ec1_py">
             <title>Python Implementation</title>
-            <statement><program interactive="activecode" language="python" label="ec1_py-prog"><input>
+            <statement><program interactive="activecode" language="python" label="ec1_py-prog"><code>
 # adds the sum of (n + n-1 + n-2 ...)
 
 def sumOfN(n):
@@ -64,7 +64,7 @@ def main():
   print(sumOfN(10)) # n is 10 (10 + 9 + 8 ...)
 
 main()
-            </input></program></statement>
+            </code></program></statement>
         </task>
     </exploration>
     <p>Now look at the function in <xref ref="lst_sum2"/>.
@@ -79,7 +79,7 @@ main()
         <title>Sum of First <em>n</em> Integers</title>
         <task label="lst_sum2" xml:id="lst_sum2">
             <title>C++ Implementation</title>
-            <statement><program interactive="activecode" language="cpp" label="lst_sum2-prog"><input>
+            <statement><program interactive="activecode" language="cpp" label="lst_sum2-prog"><code>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -99,11 +99,11 @@ int main(){
   cout &lt;&lt; foo(10);
   return 0;
 }
-            </input></program></statement>
+            </code></program></statement>
         </task>
         <task label="ec2_py" xml:id="ec2_py">
             <title>Python Implementation</title>
-            <statement><program interactive="activecode" language="python" label="ec2_py-prog"><input>
+            <statement><program interactive="activecode" language="python" label="ec2_py-prog"><code>
 #Performs same function as listing 1, but is less descriptive
 #This is not good practice
 
@@ -118,7 +118,7 @@ def main():
   print(foo(10))
 
 main()
-            </input></program></statement>
+            </code></program></statement>
         </task>
     </exploration>
     <p>The question we raised earlier asked whether one function is better than
@@ -164,7 +164,7 @@ main()
         <title>Sum of First <em>n</em> Integers (With Timing)</title>
         <task label="lst_sum1" xml:id="lst_sum1">
             <title>C++ Implementation</title>
-            <statement><program interactive="activecode" language="cpp" label="lst_sum1-prog"><input>
+            <statement><program interactive="activecode" language="cpp" label="lst_sum1-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;ctime&gt;
 using namespace std;
@@ -181,7 +181,7 @@ int sumofN2(int n) {
   clock_t end = clock();
   double elapsed_secs = double(end - begin) /CLOCKS_PER_SEC;
   cout &lt;&lt; fixed &lt;&lt; endl;
-  cout &lt;&lt; "Sum is " &lt;&lt; theSum &lt;&lt; " required "&lt;&lt;elapsed_secs &lt;&lt; " seconds" &lt;&lt; endl;
+  cout &lt;&lt; &quot;Sum is &quot; &lt;&lt; theSum &lt;&lt; &quot; required &quot;&lt;&lt;elapsed_secs &lt;&lt; &quot; seconds&quot; &lt;&lt; endl;
   return theSum;
 }
 
@@ -191,15 +191,15 @@ int main(){
   }
  return 0;
 }
-            </input></program></statement>
+            </code></program></statement>
         </task>
         <task xml:id="ec2py" label="ec2py">
             <title>Python Implementation</title>
-            <statement><program interactive="activecode" language="python" label="ec2py-prog"><input>
+            <statement><program interactive="activecode" language="python" label="ec2py-prog"><code>
 import time
 
-""" Performs same function as listing one, and also list the time it takes to perform
-the function """
+&quot;&quot;&quot; Performs same function as listing one, and also list the time it takes to perform
+the function &quot;&quot;&quot;
 
 def sumOfN2(n):
   start = time.time()
@@ -210,7 +210,7 @@ def sumOfN2(n):
 
   end = time.time()
   elapsed = end-start
-  print("Sum is", theSum, "required", elapsed, "seconds")
+  print(&quot;Sum is&quot;, theSum, &quot;required&quot;, elapsed, &quot;seconds&quot;)
 
   return elapsed
 
@@ -219,7 +219,7 @@ def main():
     sumOfN2(10000)
 
 main()
-            </input></program></statement>
+            </code></program></statement>
         </task>
     </exploration>
     <p><xref ref="lst_sum1"/> shows the original <c>sumOfN</c> function with the timing
@@ -228,13 +228,13 @@ main()
     <p>Consider the following code block:</p>
     <listing xml:id="n1000-how-many">
         <caption>How many times?</caption>
-        <program language="cpp" label="n1000-how-many-prog"><input>
+        <program language="cpp" label="n1000-how-many-prog"><code>
 int n = 1000;
 int theSum = 0;
 for (int i=0; i&lt;n+1; i++){
   theSum = theSum + 1; //how many times?
 }
-        </input></program>
+        </code></program>
     </listing>
     </introduction>
 
@@ -283,12 +283,12 @@ for (int i=0; i&lt;n+1; i++){
         <p>Consider the function in <xref ref="sum-of-n3"/>.</p>
         <listing xml:id="sum-of-n3">
             <caption><c>sumOfN3</c></caption>
-            <program language="cpp" label="sum-of-n3-prog"><input>
+            <program language="cpp" label="sum-of-n3-prog"><code>
 int sumOfN3(int n){
   int sum_n = (n*(n+1))/2; // how many times?
   return sum_n;
 }
-            </input></program>
+            </code></program>
         </listing>
 
              <p>We see this in <xref ref="algorithm-analysis_active3cpp"/>,
@@ -299,7 +299,7 @@ int sumOfN3(int n){
             <title>Algorithm to analyze</title>
             <task xml:id="algorithm-analysis_active3cpp" label="algorithm-analysis_active3cpp">
                 <title>C++ implementation</title>
-                <statement><program interactive="activecode" language="cpp" label="algorithm-analysis_active3cpp-prog"><input>
+                <statement><program interactive="activecode" language="cpp" label="algorithm-analysis_active3cpp-prog"><code>
 //Performs same function as listing one, and also list the time it takes to perform
 //the function, and it performs better with larger inputs or (n)
 
@@ -316,12 +316,12 @@ int main(){
   cout &lt;&lt; sumOfN3(10);
   return 0;
 }
-            </input></program></statement></task>
+            </code></program></statement></task>
             <task xml:id="active3_py" label="active3_py">
                 <title>Python implementation</title>
-                <statement><program interactive="activecode" language="python" label="active3_py-prog"><input>
-""" Performs same function as listing one, and also list the time it takes to perform
-the function, and it performs better with larger inputs or (n) """
+                <statement><program interactive="activecode" language="python" label="active3_py-prog"><code>
+&quot;&quot;&quot; Performs same function as listing one, and also list the time it takes to perform
+the function, and it performs better with larger inputs or (n) &quot;&quot;&quot;
 
 def sumOfN3(n):
   return (n*(n+1))//2
@@ -330,7 +330,7 @@ def main():
   print(sumOfN3(10))
 
 main()
-        </input></program></statement></task></exploration>
+        </code></program></statement></task></exploration>
 
         <p>If we do the same benchmark measurement for <c>sumOfN3</c> for different values of <c>n</c>, we get the following results:</p>
         <p>When the value of <c>n</c> is 10:</p>
