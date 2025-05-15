@@ -172,5 +172,8 @@ main()
                 <description><p>Diagram illustrating the resolution of recursive function calls summing a list of numbers. The bottom box shows 'sum(9)' equaling '9', with an arrow pointing left to the next box 'sum(7,9)' showing '7 + 9'. Above that, 'sum(5,7,9)' equals '5 + 16', then 'sum(3,5,7,9)' with '3 + 21', and at the top, 'sum(1,3,5,7,9)' resulting in '1 + 24'. Each function call resolves to a value that is used in the computation of the previous call, with the final sum at the top being '25'.</p></description>
                 </image>
             </figure>
+            <conclusion><p>
+                <!-- extra space before the progress bar -->            
+            </p></conclusion>
     </section>
 

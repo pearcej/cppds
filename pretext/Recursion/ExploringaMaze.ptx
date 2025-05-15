@@ -503,4 +503,7 @@ main()
 X    ++
 +++++++
     </input></program>
+    <conclusion><p>
+        <!-- extra space before the progress bar -->            
+    </p></conclusion>
 </section>

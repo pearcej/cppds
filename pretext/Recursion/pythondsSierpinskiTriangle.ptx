@@ -174,5 +174,8 @@ main()
             methods.</p>
         <p>The above sierpinski triangle visualization utilizes C-Turtle, a C++ equivalent of
             Python's <c>turtle</c> library, and can be found on GitHub here: <url href="https://github.com/walkerje/C-Turtle/" visual="https://github.com/walkerje/C-Turtle/">https://github.com/walkerje/C-Turtle/</url></p>
+            <conclusion><p>
+                <!-- extra space before the progress bar -->            
+            </p></conclusion>
     </section>
 
