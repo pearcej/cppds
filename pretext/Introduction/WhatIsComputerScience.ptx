@@ -1,4 +1,4 @@
-<section xml:id="introduction_what-is-computer-science">
+<?xml version="1.0" ?><section xml:id="introduction_what-is-computer-science">
         <title>What Is Computer Science?</title>
         <idx>computer science</idx>
         <p>Computer science can be considered difficult to define. This is probably due to
@@ -80,7 +80,7 @@
             <title>Example using <c>&lt;cmath&gt;</c></title>
             <task label="cPlusPlus" xml:id="cPlusPlus">
                 <title>C++ Implementation</title>
-                <statement><program interactive="activecode" language="cpp" label="cPlusPlus-prog"><input>
+                <statement><program interactive="activecode" language="cpp" label="cPlusPlus-prog"><code>
 //Outputs the square root of a given number.
 #include &lt;iostream&gt;
 #include &lt;cmath&gt;
@@ -90,16 +90,16 @@ int main() {
     cout &lt;&lt; sqrt(16);
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task label="mathpy" xml:id="mathpy">
                 <title>Python Implementation</title>
-                <statement><program interactive="activecode" language="python" label="mathpy-prog"><input>
+                <statement><program interactive="activecode" language="python" label="mathpy-prog"><code>
 #Outputs the square root of a given number.
 import math
 
 print(math.sqrt(16))
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p> <idx>procedural abstraction</idx>

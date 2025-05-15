@@ -1,4 +1,4 @@
-<section xml:id="introduction_defining-c-functions">
+<?xml version="1.0" ?><section xml:id="introduction_defining-c-functions">
         <title>Defining C++ Functions</title>
         <introduction>
         <p>In general, we can hide the details of any computation by defining
@@ -9,7 +9,7 @@
         
         <listing xml:id="timesTwo">
             <caption><c>timesTwo</c> Function</caption>
-            <program interactive="activecode" language="cpp" label="timesTwo-prog"><input>
+            <program interactive="activecode" language="cpp" label="timesTwo-prog"><code>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -26,7 +26,7 @@ int main() {
 
     return 0;
 }
-            </input></program>
+            </code></program>
         </listing>
 
         <p>The syntax for this function definition includes the name, <c>timesTwo</c>,
@@ -42,7 +42,7 @@ int main() {
 
         <listing xml:id="timesTwoVoid">
             <caption><c>timesTwoVoid</c> Function Returns Nothing.</caption>
-            <program interactive="activecode" language="cpp" label="timesTwoVoid-prog"><input>
+            <program interactive="activecode" language="cpp" label="timesTwoVoid-prog"><code>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -59,7 +59,7 @@ int main() {
 
     return 0;
 }
-            </input></program>
+            </code></program>
         </listing>
         <p><c>timesTwoVoid</c> behaves very similarly to <c>timesTwo</c>. However, there is one key
             difference between them. Instead of the <c>int</c> in <c>timesTwo</c>, <c>timesTwoVoid</c> has a
@@ -84,7 +84,7 @@ int main() {
     <listing xml:id="introduction_lst-root" names="lst_root">
         <caption>Newton's Method for Calculating Square Roots.</caption>
     <program xml:id="newtonsmethod" interactive="activecode" language="cpp" label="newtonsmethod-prog">
-        <input>
+        <code>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -105,7 +105,7 @@ int main() {
 
       return 0;
 }
-        </input>
+        </code>
     </program></listing>
     </introduction>        
         <subsection xml:id="introduction_parameter-passing-by-value-versus-by-reference">
@@ -123,7 +123,7 @@ int main() {
     int nextVar = inputVar * 2;
     inputVar = 4;
 
-    cout &lt;&lt; "nextVar = " &lt;&lt; nextVar &lt;&lt; " inputVar = " &lt;&lt; inputVar;
+    cout &lt;&lt; &quot;nextVar = &quot; &lt;&lt; nextVar &lt;&lt; &quot; inputVar = &quot; &lt;&lt; inputVar;
 }
 
 void callingFunction() { /*return type int which indicates
@@ -131,7 +131,7 @@ void callingFunction() { /*return type int which indicates
     int myVar = 10;
 
     functionExample( myVar );
-    cout &lt;&lt; "myVar = " &lt;&lt; myVar;
+    cout &lt;&lt; &quot;myVar = &quot; &lt;&lt; myVar;
 }</pre>
             <p>When the function <c>callingFunction()</c> executes, it calls <c>functionExample(...)</c>
                 with the variable <em>myVar</em> having the value 10. Within <c>functionExample(...)</c>,
@@ -164,7 +164,7 @@ void callingFunction() { /*return type int which indicates
     <listing xml:id="activepassrefcpp">
         <caption>Pass By Reference Example</caption>
     <program interactive="activecode" language="cpp" label="activepassrefcpp-prog">
-        <input>
+        <code>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -185,13 +185,13 @@ int main( ) {
     first_num = 7;
     second_num = 8;
 
-    cout &lt;&lt; "Two numbers before swap function: 1) " &lt;&lt; first_num &lt;&lt; " 2) " &lt;&lt; second_num &lt;&lt; endl;
+    cout &lt;&lt; &quot;Two numbers before swap function: 1) &quot; &lt;&lt; first_num &lt;&lt; &quot; 2) &quot; &lt;&lt; second_num &lt;&lt; endl;
     swap_values(first_num, second_num);
-    cout &lt;&lt; "The numbers after swap function: 1) " &lt;&lt; first_num &lt;&lt; " 2) " &lt;&lt; second_num;
+    cout &lt;&lt; &quot;The numbers after swap function: 1) &quot; &lt;&lt; first_num &lt;&lt; &quot; 2) &quot; &lt;&lt; second_num;
 
     return 0;
 }
-        </input>
+        </code>
     </program></listing>
             <p>For the program in <xref ref="activepassrefcpp"/> to reverse the order of the integers the users types in, the function <c>swap_values(...)</c> must be able to change the values of the arguments. Try removing one or both of the <c>&amp;</c><rsq/>s in this code to see what happens.</p>
         </subsection>
@@ -251,18 +251,18 @@ int main( ) {
                 <title>Example of Overloading</title>
                 <task label="foverload_cpp">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="foverload_cpp" interactive="activecode" language="cpp" label="foverload_cpp-prog"><input>
+                    <statement><program xml:id="foverload_cpp" interactive="activecode" language="cpp" label="foverload_cpp-prog"><code>
 //showcases function overloading in C++
 #include &lt;iostream&gt;
 using namespace std;
 
 void myfunct(int n) {
-        cout &lt;&lt; "1 parameter: " &lt;&lt; n &lt;&lt;endl;
+        cout &lt;&lt; &quot;1 parameter: &quot; &lt;&lt; n &lt;&lt;endl;
 }
 
 void myfunct(int n, int m) {
-        cout &lt;&lt; "2 parameters: " &lt;&lt; n;
-        cout &lt;&lt; " and " &lt;&lt; m &lt;&lt;endl;
+        cout &lt;&lt; &quot;2 parameters: &quot; &lt;&lt; n;
+        cout &lt;&lt; &quot; and &quot; &lt;&lt; m &lt;&lt;endl;
 }
 
 int main() {
@@ -273,18 +273,18 @@ int main() {
 
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task label="foverload_py">
                     <title>Python Implementation</title>
-                    <statement><program xml:id="foverload_py" interactive="activecode" language="python" label="foverload_py-prog"><input>
+                    <statement><program xml:id="foverload_py" interactive="activecode" language="python" label="foverload_py-prog"><code>
 #showcases function overloading in Python
 def myfunct(n, m=None):
     if m is None:
-        print("1 parameter: " + str(n))
+        print(&quot;1 parameter: &quot; + str(n))
     else:
-        print("2 parameters: " + str(n), end="")
-        print(" and ", str(m))
+        print(&quot;2 parameters: &quot; + str(n), end=&quot;&quot;)
+        print(&quot; and &quot;, str(m))
 
 def main():
     myfunct(4);
@@ -292,7 +292,7 @@ def main():
     myfunct(100);
 
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
 
@@ -307,7 +307,7 @@ using namespace std;
 void dogWalk(int steps){
 
     for (int step = 0; step &lt; steps; step++){
-        cout &lt;&lt; "dog walked "&lt;&lt; step &lt;&lt; " steps!"&lt;&lt; endl;
+        cout &lt;&lt; &quot;dog walked &quot;&lt;&lt; step &lt;&lt; &quot; steps!&quot;&lt;&lt; endl;
 
     }
 

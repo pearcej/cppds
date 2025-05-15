@@ -1,4 +1,4 @@
-<section xml:id="introduction_collections">
+<?xml version="1.0" ?><section xml:id="introduction_collections">
         <title>Collections</title>
         <introduction>
             <p>In addition to the numeric, Boolean, and character types,
@@ -55,7 +55,7 @@ char arr2[3000];</pre>
                 in which case the number of items determines the array's size.</p>
             <pre>int arr[] = {1, 2, 3, 4};  // This is size 4.
 char arr2[] = {'a', 'b', 'c'}; // This is size 3.
-string arr3[] = {"this", "is", "an", "array"}; // This is size 4.</pre>
+string arr3[] = {&quot;this&quot;, &quot;is&quot;, &quot;an&quot;, &quot;array&quot;}; // This is size 4.</pre>
             <p>Note that an array with a single element is not the same type as the <term>atomic</term> type,
                 so the following are not the same.</p>
             <pre>double darray[] = {1.2};  // must use index to access value
@@ -70,7 +70,7 @@ double ddouble = 1.2;     // can't use index to access value</pre>
                 <title>Iteration Examples</title>
                 <task xml:id="listarray_cpp" label="listarray_cpp">
                     <title>C++ Implementation</title>
-                    <statement><program interactive="activecode" language="cpp" label="listarray_cpp-prog"><input>
+                    <statement><program interactive="activecode" language="cpp" label="listarray_cpp-prog"><code>
 //showcases an iteration through an array in C++
 #include &lt;iostream&gt;
 using namespace std;
@@ -82,11 +82,11 @@ int main(){
     }
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="listarray_py" label="listarray_py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python" label="listarray_py-prog"><input>
+                    <statement><program interactive="activecode" language="python" label="listarray_py-prog"><code>
 #showcases an iteration through an array in Python
 def main():
     mylist = [2, 4, 6, 8]
@@ -94,7 +94,7 @@ def main():
         print(mylist[i])
 
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
             <p>C++ is designed for speed.
@@ -110,7 +110,7 @@ main()
                 <title>Accessing Elements Outside the Array</title>
                 <task label="array_error_cpp">
                     <title>C++ Implemenetation</title>
-                    <statement><program xml:id="array_error_cpp" interactive="activecode" language="cpp" label="array_error_cpp-prog"><input>
+                    <statement><program xml:id="array_error_cpp" interactive="activecode" language="cpp" label="array_error_cpp-prog"><code>
 //outputs the result of trying to access a value outside of an array
 #include &lt;iostream&gt;
 using namespace std;
@@ -119,25 +119,25 @@ int main(){
     int myarray[] = {2,4,6,8};
     for (int i=0; i&lt;=8; i++){
         cout &lt;&lt; myarray[i] &lt;&lt; endl;
-        cout &lt;&lt; "id: " &lt;&lt; &amp;myarray[i] &lt;&lt; endl;
+        cout &lt;&lt; &quot;id: &quot; &lt;&lt; &amp;myarray[i] &lt;&lt; endl;
     }
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task label="array_error_py">
                     <title>Python Implementation</title>
-                    <statement><program xml:id="array_error_py" interactive="activecode" language="python" label="array_error_py-prog"><input>
+                    <statement><program xml:id="array_error_py" interactive="activecode" language="python" label="array_error_py-prog"><code>
 #outputs the result of trying to access a value outside of an array
 def main():
     mylist = [2,4,6,8]
     print(mylist)
     for i in range(5):
         print(mylist[i])
-        print("id: "+str(id(mylist[i])))
+        print(&quot;id: &quot;+str(id(mylist[i])))
 
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
             <p>The speed of C++ comes at the cost of minimal to no error checking.
@@ -151,7 +151,7 @@ main()
                 <title>Array Overflow</title>
                 <task label="array_werror_cpp">
                     <title>C++ Implementation</title>
-                    <statement><program interactive="activecode" language="cpp" label="array_werror_cpp-prog"><input>
+                    <statement><program interactive="activecode" language="cpp" label="array_werror_cpp-prog"><code>
 /*shows how C++ allows you to easily overwrite values in memory even when
 you don't mean to. */
 #include &lt;iostream&gt;
@@ -162,40 +162,40 @@ int main(){
     int otherdata[]={777, 777};
     for (int i=0; i&lt;4; i++){
         myarray[i]=0;
-        cout &lt;&lt;"myarray[" &lt;&lt; i &lt;&lt; "]=";
+        cout &lt;&lt;&quot;myarray[&quot; &lt;&lt; i &lt;&lt; &quot;]=&quot;;
         cout &lt;&lt; myarray[i] &lt;&lt; endl;
-        cout &lt;&lt; "add:" &lt;&lt; &amp;myarray[i] &lt;&lt; endl;
+        cout &lt;&lt; &quot;add:&quot; &lt;&lt; &amp;myarray[i] &lt;&lt; endl;
     }
 
     for (int i=0; i&lt;2; i++){
-        cout &lt;&lt; "otherdata[" &lt;&lt; i &lt;&lt; "]=";
+        cout &lt;&lt; &quot;otherdata[&quot; &lt;&lt; i &lt;&lt; &quot;]=&quot;;
         cout &lt;&lt; otherdata[i] &lt;&lt; endl;
-        cout &lt;&lt; "add:" &lt;&lt; &amp;otherdata[i] &lt;&lt; endl;
+        cout &lt;&lt; &quot;add:&quot; &lt;&lt; &amp;otherdata[i] &lt;&lt; endl;
     }
 
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task label="array_werror_py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python" label="array_werror_py-prog"><input>
-"""shows how C++ allows you to easily
+                    <statement><program interactive="activecode" language="python" label="array_werror_py-prog"><code>
+&quot;&quot;&quot;shows how C++ allows you to easily
 overwrite values in memory even when
-you dont mean to."""
+you dont mean to.&quot;&quot;&quot;
 def main():
     mylist = [2, 4]
     otherdata = [777, 777]
     for i in range(4):
         print(mylist[i])
-        print("id: "+str(id(mylist[i])))
+        print(&quot;id: &quot;+str(id(mylist[i])))
 
     for j in range(2):
           print(otherdata[i])
-          print("id: "+str(id(otherdata[i])))
+          print(&quot;id: &quot;+str(id(otherdata[i])))
 
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
         </subsection>
@@ -342,7 +342,7 @@ main()
                 <title>Using <c>reserve</c></title>
                 <task label="introvector_cpp" xml:id="introvector_cpp">
                     <title>C++ Implementation</title>
-                    <statement><program interactive="activecode" language="cpp" label="introvector_cpp-prog"><input>
+                    <statement><program interactive="activecode" language="cpp" label="introvector_cpp-prog"><code>
 /*shows the use of the reserve member, and how it
 can be effective in saving time with a growing vector.*/
 #include &lt;iostream&gt;
@@ -360,11 +360,11 @@ int main(){
     }
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="introvector_py" label="introvector_py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python" label="introvector_py-prog"><input>
+                    <statement><program interactive="activecode" language="python" label="introvector_py-prog"><code>
 #Python doesn't have vectors, simply stating the limit is enough
 def main():
     intlist=[]
@@ -373,7 +373,7 @@ def main():
         print(intlist[i])
 
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
 
@@ -387,7 +387,7 @@ main()
 
             <listing xml:id="vector_no_reserve_cpp">
                 <caption><c>reserve</c> is optional</caption>
-                <program interactive="activecode" language="cpp" label="vector_no_reserve_cpp-prog"><input>
+                <program interactive="activecode" language="cpp" label="vector_no_reserve_cpp-prog"><code>
 //code from above but without the reserve
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
@@ -401,11 +401,11 @@ int main(){
     for (int i=0; i&lt;50; i++){
         intvector.push_back(i*i);
         cout &lt;&lt; intvector[i] &lt;&lt; endl;
-        cout &lt;&lt; "capacity: " &lt;&lt; intvector.capacity() &lt;&lt; endl;
+        cout &lt;&lt; &quot;capacity: &quot; &lt;&lt; intvector.capacity() &lt;&lt; endl;
     }
     return 0;
 }
-                </input></program>
+                </code></program>
             </listing>
 
             <p>Remembering that C++ is designed for speed, not protection,
@@ -415,7 +415,7 @@ int main(){
                 <title>Vector Error</title>
                 <task xml:id="vector_errors_cpp" label="vector_errors_cpp">
                     <title>C++ Implementation</title>
-                    <statement><program interactive="activecode" language="cpp" label="vector_errors_cpp-prog"><input>
+                    <statement><program interactive="activecode" language="cpp" label="vector_errors_cpp-prog"><code>
 //shows errors when a vector goes out of bounds
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
@@ -431,16 +431,16 @@ int main(){
     }
 
     for (int i=0; i&lt;=10; i++){
-        cout &lt;&lt; "intvector[" &lt;&lt; i &lt;&lt; "]="&lt;&lt;intvector[i] &lt;&lt; endl;
+        cout &lt;&lt; &quot;intvector[&quot; &lt;&lt; i &lt;&lt; &quot;]=&quot;&lt;&lt;intvector[i] &lt;&lt; endl;
     }
 
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="vector_errors_py" label="vector_errors_py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python" label="vector_errors_py-prog"><input>
+                    <statement><program interactive="activecode" language="python" label="vector_errors_py-prog"><code>
 #shows errors when a vector goes out of bounds
 def main():
     intlist=[]
@@ -448,10 +448,10 @@ def main():
         intlist.append(i)
 
     for i in range(11):
-        print("intlist[" + str(i) + "]=" + str(intlist[i]))
+        print(&quot;intlist[&quot; + str(i) + &quot;]=&quot; + str(intlist[i]))
 
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
         </subsection>
@@ -463,8 +463,8 @@ main()
                 The old style <em>C-string</em> which is essentially
                 an array of <c>char</c> type. The char type itself is actually distinct from both types of strings.</p>
             <pre>char cppchar = 'a';   // char values use single quotes
-string cppstring = "Hello World!";  // C++ strings use double quotes
-char cstring[] = {"Hello World!"};    // C-string or char array uses double quotes</pre>
+string cppstring = &quot;Hello World!&quot;;  // C++ strings use double quotes
+char cstring[] = {&quot;Hello World!&quot;};    // C-string or char array uses double quotes</pre>
             <p>In older versions of C++, you must use a <c>char</c> array to work with filenames. In modern
                 C++ (from C++11 onward), however, you can use a C++ string for everything.
                 Since C++ strings are so much nicer, I would not recommend using C-strings unless you have a reason.</p>
@@ -603,7 +603,7 @@ char cstring[] = {"Hello World!"};    // C-string or char array uses double quot
                 <title><c>string</c> introduction</title>
                 <task xml:id="introstring_cpp" label="introstring_cpp">
                     <title>C++ Implementation</title>
-                    <statement><program interactive="activecode" language="cpp" label="introstring_cpp-prog"><input>
+                    <statement><program interactive="activecode" language="cpp" label="introstring_cpp-prog"><code>
 //shows basic string usage in C++
 #include &lt;iostream&gt;
 #include &lt;string&gt;
@@ -611,37 +611,37 @@ using namespace std;
 
 int main(){
 
-    string mystring1 = "Hello";
-    string mystring2 = "World!";
+    string mystring1 = &quot;Hello&quot;;
+    string mystring2 = &quot;World!&quot;;
     string mystring3;
 
-    mystring3 = mystring1 + " " + mystring2;
+    mystring3 = mystring1 + &quot; &quot; + mystring2;
     cout &lt;&lt; mystring3 &lt;&lt; endl;
 
-    cout &lt;&lt; mystring2 &lt;&lt; " begins at ";
+    cout &lt;&lt; mystring2 &lt;&lt; &quot; begins at &quot;;
     cout &lt;&lt; mystring3.find(mystring2) &lt;&lt; endl;
 
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="introstring_py" label="introstring_py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python" label="introstring_py-prog"><input>
+                    <statement><program interactive="activecode" language="python" label="introstring_py-prog"><code>
 #shows basic string usage in Python
 def main():
-    mystring1 = "Hello"
-    mystring2 = "World!"
+    mystring1 = &quot;Hello&quot;
+    mystring2 = &quot;World!&quot;
 
-    mystring3 = mystring1 + " " + mystring2
+    mystring3 = mystring1 + &quot; &quot; + mystring2
     print(mystring3)
 
-    print(mystring2, end=" ")
-    print("begins at", end=" ")
+    print(mystring2, end=&quot; &quot;)
+    print(&quot;begins at&quot;, end=&quot; &quot;)
     print(str(mystring3.find(mystring2)))
 
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
 
@@ -674,7 +674,7 @@ main()
                 <title>Hash Table Introduction</title>
                 <task xml:id="hashtable1_cpp" label="hashtable1_cpp">
                     <title>C++ Implementation</title>
-                    <statement><program interactive="activecode" language="cpp" label="hashtable1_cpp-prog"><input>
+                    <statement><program interactive="activecode" language="cpp" label="hashtable1_cpp-prog"><code>
 //shows how hash tables can be used in C++
 #include &lt;iostream&gt;
 #include &lt;unordered_map&gt;
@@ -684,36 +684,36 @@ using namespace std;
 int main() {
     unordered_map&lt;string, string&gt; spnumbers;
 
-    spnumbers = { {"one", "uno"}, {"two", "dos"} };
+    spnumbers = { {&quot;one&quot;, &quot;uno&quot;}, {&quot;two&quot;, &quot;dos&quot;} };
 
-    spnumbers["three"] = "tres";
-    spnumbers["four"] = "cuatro";
+    spnumbers[&quot;three&quot;] = &quot;tres&quot;;
+    spnumbers[&quot;four&quot;] = &quot;cuatro&quot;;
 
-    cout &lt;&lt; "one is ";
-    cout &lt;&lt; spnumbers["one"] &lt;&lt; endl;
+    cout &lt;&lt; &quot;one is &quot;;
+    cout &lt;&lt; spnumbers[&quot;one&quot;] &lt;&lt; endl;
 
     cout &lt;&lt; spnumbers.size() &lt;&lt; endl;
 
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="hashtable1_py" label="hashtable1_py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python" label="hashtable1_py-prog"><input>
+                    <statement><program interactive="activecode" language="python" label="hashtable1_py-prog"><code>
 #shows how hash tables can be used in python
 def main():
-    spnumbers = {"one":"uno","two":"dos"}
+    spnumbers = {&quot;one&quot;:&quot;uno&quot;,&quot;two&quot;:&quot;dos&quot;}
 
-    spnumbers["four"]="cuatro"
-    spnumbers["three"]="tres"
+    spnumbers[&quot;four&quot;]=&quot;cuatro&quot;
+    spnumbers[&quot;three&quot;]=&quot;tres&quot;
 
-    print("one is", end=" ")
-    print(spnumbers["one"])
+    print(&quot;one is&quot;, end=&quot; &quot;)
+    print(spnumbers[&quot;one&quot;])
 
     print(len(spnumbers))
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
 
@@ -731,7 +731,7 @@ main()
                 <title>Iterating Over a Hash Table</title>
                 <task xml:id="hashtable2_cpp" label="hashtable2_cpp">
                     <title>C++ Implementation</title>
-                    <statement><program interactive="activecode" language="cpp" label="hashtable2_cpp-prog"><input>
+                    <statement><program interactive="activecode" language="cpp" label="hashtable2_cpp-prog"><code>
 //shows how to iterate through a hash table in C++
 #include &lt;iostream&gt;
 #include &lt;unordered_map&gt;
@@ -741,30 +741,30 @@ using namespace std;
 int main() {
     unordered_map&lt;string, string&gt; spnumbers;
 
-    spnumbers = { {"one","uno"},{"two","dos"},{"three","tres"},{"four","cuatro"},{"five","cinco"} };
+    spnumbers = { {&quot;one&quot;,&quot;uno&quot;},{&quot;two&quot;,&quot;dos&quot;},{&quot;three&quot;,&quot;tres&quot;},{&quot;four&quot;,&quot;cuatro&quot;},{&quot;five&quot;,&quot;cinco&quot;} };
 
     for (auto i=spnumbers.begin(); i!=spnumbers.end(); i++ ){
-        cout &lt;&lt; i-&gt;first &lt;&lt; ":";
+        cout &lt;&lt; i-&gt;first &lt;&lt; &quot;:&quot;;
         cout &lt;&lt; i-&gt;second &lt;&lt; endl;
     }
 
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="hashtable2_py" label="hashtable2_py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python" label="hashtable2_py-prog"><input>
+                    <statement><program interactive="activecode" language="python" label="hashtable2_py-prog"><code>
 #shows how to iterate through a hash table in python
 def main():
-    spnumbers = {"one":"uno","two":"dos","three":"tres","four":"cuatro","five":"cinco" }
+    spnumbers = {&quot;one&quot;:&quot;uno&quot;,&quot;two&quot;:&quot;dos&quot;,&quot;three&quot;:&quot;tres&quot;,&quot;four&quot;:&quot;cuatro&quot;,&quot;five&quot;:&quot;cinco&quot; }
 
     for key in spnumbers:
-        print(key, end=":")
+        print(key, end=&quot;:&quot;)
         print(spnumbers[key])
 
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
             <p>Hash Tables have both methods and operators. <xref ref="introduction_tab-hashopers"/>
@@ -951,7 +951,7 @@ main()
             <p>The code below is an example of a program that can detect if a specific char is in an unordered set.</p>
 
     <program xml:id="UnorderedSetExample" interactive="activecode" language="cpp" label="UnorderedSetExample-prog">
-        <input>
+        <code>
 //code detects if a specific char is in an unordered set.
 #include &lt;iostream&gt;
 #include &lt;unordered_set&gt;
@@ -959,10 +959,10 @@ using namespace std;
 
 void checker(unordered_set&lt;char&gt; set, char letter){
     if(set.find(letter) == set.end()){
-        cout &lt;&lt; "letter " &lt;&lt; letter &lt;&lt; " is not in the set." &lt;&lt; endl;
+        cout &lt;&lt; &quot;letter &quot; &lt;&lt; letter &lt;&lt; &quot; is not in the set.&quot; &lt;&lt; endl;
     }
     else{
-        cout &lt;&lt; "letter " &lt;&lt; letter &lt;&lt; " is in the set." &lt;&lt; endl;
+        cout &lt;&lt; &quot;letter &quot; &lt;&lt; letter &lt;&lt; &quot; is in the set.&quot; &lt;&lt; endl;
     }
 }
 
@@ -975,7 +975,7 @@ int main(){
     checker(charSet, letter);
     return 0;
 }
-        </input>
+        </code>
     </program>
             <p>the <c>find</c> method used for a conditional in <c>Checker</c> compares each item in the set
                 with the given parameter until there is a match. the <c>set.find(letter) == set.end()</c>
@@ -1081,7 +1081,7 @@ int main(){
 <exercise label="collect_data_types">
     <statement><p>Drag each data type to its' corresponding C++ initialization syntax.</p></statement>
     <feedback><p>Feedback shows incorrect matches.</p></feedback>
-<matches><match order="1"><premise>Array</premise><response>{<q>What</q>, <q>am</q>, <q>I</q>, "am"}</response></match><match order="2"><premise>Set</premise><response>{<q>What</q>, <q>am</q>, <q>I</q>}</response></match><match order="3"><premise>String</premise><response><q>What am I</q></response></match><match order="4"><premise>Hash Table</premise><response>{ {<q>What</q>, <q>am I</q>} }</response></match></matches></exercise>            
+<matches><match order="1"><premise>Array</premise><response>{<q>What</q>, <q>am</q>, <q>I</q>, &quot;am&quot;}</response></match><match order="2"><premise>Set</premise><response>{<q>What</q>, <q>am</q>, <q>I</q>}</response></match><match order="3"><premise>String</premise><response><q>What am I</q></response></match><match order="4"><premise>Hash Table</premise><response>{ {<q>What</q>, <q>am I</q>} }</response></match></matches></exercise>            
 <exercise label="mc_werror">
     <statement>
 
@@ -1317,7 +1317,7 @@ int main(){
 
         <choice correct="yes">
             <statement>
-                <p>An array of characters that ends with a terminating null character. For instance, "\0".</p>
+                <p>An array of characters that ends with a terminating null character. For instance, &quot;\0&quot;.</p>
             </statement>
             <feedback>
                 <p>Correct! a c-string is different from a string.</p>
@@ -1366,7 +1366,7 @@ int main(){
 <exercise label="string_types">
     <statement><p>Drag each data type to its' corresponding C++ initialization syntax.</p></statement>
     <feedback><p>Feedback shows incorrect matches.</p></feedback>
-<matches><match order="1"><premise>char</premise><response>'a'</response></match><match order="2"><premise>char array</premise><response>{'a'}</response></match><match order="3"><premise>string</premise><response>"a"</response></match></matches></exercise>
+<matches><match order="1"><premise>char</premise><response>'a'</response></match><match order="2"><premise>char array</premise><response>{'a'}</response></match><match order="3"><premise>string</premise><response>&quot;a&quot;</response></match></matches></exercise>
 <exercise label="matching_HT">
     <statement><p> Match the Hash Table operations with their corresponding explination.</p></statement>
     <feedback><p>Feedback shows incorrect matches.</p></feedback>

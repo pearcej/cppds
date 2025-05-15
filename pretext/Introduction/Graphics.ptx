@@ -1,4 +1,4 @@
-<section xml:id="introduction_optional-graphics-in-c">
+<?xml version="1.0" ?><section xml:id="introduction_optional-graphics-in-c">
         <title><term>Optional</term>: Graphics in C++</title>
         <introduction>
         <p>C++ is designed with the principal that speed is more important than safety and error-checking.
@@ -37,7 +37,7 @@
                 <title>Comapring C++ and Python Usage</title>
                 <task label="cturtle_1">
                     <title>C++</title>
-                    <statement><program xml:id="cturtle_1" interactive="activecode" language="cpp" label="cturtle_1-prog"><input>
+                    <statement><program xml:id="cturtle_1" interactive="activecode" language="cpp" label="cturtle_1-prog"><code>
 #include &lt;CTurtle.hpp&gt;
 namespace ct = cturtle;
 
@@ -45,7 +45,7 @@ int main() {
     ct::TurtleScreen scr;
     ct::Turtle turtle(scr);
     turtle.speed(ct::TS_SLOWEST);
-    turtle.fillcolor({"purple"});
+    turtle.fillcolor({&quot;purple&quot;});
     turtle.begin_fill();
     for (int i = 0; i &lt; 4; i++) {
         turtle.forward(50);
@@ -55,16 +55,16 @@ int main() {
     scr.bye();
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task label="cturtle_python_1">
                     <title>Python</title>
-                    <statement><program xml:id="cturtle_python_1" interactive="activecode" language="python" label="cturtle_python_1-prog"><input>
+                    <statement><program xml:id="cturtle_python_1" interactive="activecode" language="python" label="cturtle_python_1-prog"><code>
 import turtle
 
 turt = turtle.Turtle()
-turt.fillcolor("purple")
-turt.speed("slowest")
+turt.fillcolor(&quot;purple&quot;)
+turt.speed(&quot;slowest&quot;)
 
 turt.begin_fill()
 for i in range(4):
@@ -72,7 +72,7 @@ for i in range(4):
     turt.right(90)
 turt.end_fill()
 turt.bye()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
     
@@ -81,18 +81,18 @@ turt.bye()
             <title>Turtle &amp; TurtleScreen</title>
             <p>Turtles must exist on a <c>TurtleScreen</c> to be used. The <c>TurtleScreen</c> object must
                 be created before you can create a <c>Turtle</c> object for this reason.</p>
-            <program language="cpp" label="Graphics-prog"><input>
+            <program language="cpp" label="Graphics-prog"><code>
 ct::TurtleScreen screen;
 ct::Turtle turtle(screen);
 //Notice how the Screen is given to our Turtle when we create it.
-</input></program>
+</code></program>
             <p>Closing a <c>TurtleScreen</c> when you're done with it is fairly simple to do. For this chapter,
                 only the method <c>bye</c> is used. Calling it is not completely necessary, as it is also called
                 automatically if it, or an equivalent method, hasn't been called. When working outside of the
                 textbook, the <c>exitonclick</c> method is also available.</p>
-            <program language="cpp" label="Graphics-prog-2"><input>
+            <program language="cpp" label="Graphics-prog-2"><code>
 screen.bye();
-</input></program>
+</code></program>
             <p>Turtles are based on the following premise: <q>There is a turtle on a canvas with a colored pen
                 attached to their tail.</q> In this case, the <em>canvas</em> is a <c>TurtleScreen</c>. This Turtle will
                 follow any command you give it, which consist of telling it to go certain directions, what color
@@ -297,7 +297,7 @@ screen.bye();
 
             <listing xml:id="lst-cturtle_4">
                 <caption>Using Turtle Speed Controls</caption>
-                <program xml:id="cturtle_4" interactive="activecode" language="cpp" label="cturtle_4-prog"><input>
+                <program xml:id="cturtle_4" interactive="activecode" language="cpp" label="cturtle_4-prog"><code>
 #include &lt;CTurtle.hpp&gt;
 namespace ct = cturtle;
 
@@ -312,7 +312,7 @@ int main() {
     //turtle.speed(7);
 
     //Sets the turtle's fill color to purple.
-    turtle.fillcolor({"purple"});
+    turtle.fillcolor({&quot;purple&quot;});
 
     //Tells the turtle to begin filling a shape as it moves.
     turtle.begin_fill();
@@ -335,7 +335,7 @@ int main() {
     screen.bye();
     return 0;
 }
-                </input></program>
+                </code></program>
             </listing>
             <p>The order of operations given to a turtle is important, as some actions must be completed
                 one after another. A good example of this is the <c>begin_fill</c> and <c>end_fill</c>
@@ -351,9 +351,9 @@ int main() {
                 one of four default shapes, or a custom shape. CTurtle features four default shapes, <c>triangle</c>,
                 <c>indented_triangle</c>, <c>square</c>, and <c>arrow</c>.</p>
             <p>The following code example shows how to set the shape of a turtle by giving it the name of a shape.</p>
-            <program language="cpp" label="Graphics-prog-3"><input>
-turtle.shape("square");
-</input></program>
+            <program language="cpp" label="Graphics-prog-3"><code>
+turtle.shape(&quot;square&quot;);
+</code></program>
             <p>Given that all primitive shapes are defined as a collection of points, all of the default shapes are also defined this way
                 <xref ref="turtle-shapes"/>.
                 Polygons, for custom and default shapes, must have their points defined in counter-clockwise order to appear correctly.
@@ -502,18 +502,18 @@ turtle.shape("square");
 
             <p>The example code below illustrates how to create your own shape. We use the <c>Polygon</c> class to represent our shape.
                 For this example, we take the <c>triangle</c> default shape and make every Y coordinate negative to make it appear upside-down.</p>
-            <program language="cpp" label="Graphics-prog-4"><input>
+            <program language="cpp" label="Graphics-prog-4"><code>
 ct::Polygon upside_down_triangle = {
   {0, 0},   //First point
   {-5, -5}, //Second point
   {5, -5}  //and so on.
 };
-</input></program>
+</code></program>
             <p>The following code is a full example for setting your turtle to a custom shape. Feel free to mess around with
                 the coordinates of the polygon, you might surprise yourself with what shape you end up with!</p>
 
     <program xml:id="cturtle_geometry_ac_1" interactive="activecode" language="cpp" label="cturtle_geometry_ac_1-prog">
-        <input>
+        <code>
 #include &lt;CTurtle.hpp&gt;
 namespace ct = cturtle;
 
@@ -533,7 +533,7 @@ int main(){
     screen.bye();
     return 0;
 }
-        </input>
+        </code>
     </program>
             <p>Stamps provide a way to make several copies of the shape of the turtle across the screen without having to trace each
                 shape individually with the turtle. This can be used for a variety of visual effects, however it is often used as a
@@ -544,7 +544,7 @@ int main(){
             <p>The following code is a full example showing how to combine custom shapes with stamp placement.</p>
 
     <program xml:id="cturtle_geometry_ac_2" interactive="activecode" language="cpp" label="cturtle_geometry_ac_2-prog">
-        <input>
+        <code>
 #include &lt;CTurtle.hpp&gt;
 namespace ct = cturtle;
 
@@ -579,7 +579,7 @@ int main(){
     screen.bye();
     return 0;
 }
-        </input>
+        </code>
     </program>
         </subsection>
         <subsection xml:id="introduction_advanced-features">
@@ -639,39 +639,39 @@ int main(){
             <p>Regarding angles, Turtles can use both <em>degrees</em> and <em>radians</em> for their rotations. You can choose between the two using the
                 <c>radians</c> and <c>degrees</c> methods for the Turtle object. By default, all angles are measured in <em>degrees</em>. This option
                 only effects methods regarding rotation, such as <c>left</c> and <c>right</c>.</p>
-            <program language="cpp" label="Graphics-prog-5"><input>
+            <program language="cpp" label="Graphics-prog-5"><code>
 turtle.degrees();
 turtle.right(90);//90-degree turn to the right
 turtle.radians();
 turtle.left(1.5708f);//Equivalent rotation in radians to the left.
-</input></program>
+</code></program>
             <p>The <c>tracer(N)</c> method is used to control how many times the Turtle is actually
                 drawn on the screen. This method belongs to the <c>TurtleScreen</c> object, and effects
                 all turtles that are on the screen. The <c>N</c> in the method represents the input,
                 only allowing the <c>TurtleScreen</c> to display one frame out every <c>N</c>.</p>
-            <program language="cpp" label="Graphics-prog-6"><input>
+            <program language="cpp" label="Graphics-prog-6"><code>
 screen.tracer(12);
 //Show one out of every 12 frames of animation.
-</input></program>
+</code></program>
             <p>This can be combined with the <c>speed</c> method available to turtles to achieve <term>very</term> quickly
                 drawn images. The maximum speed a Turtle can have, <c>TS_FASTEST</c>, completely disables animation
                 for Turtles between movements and rotations. This allows the <c>tracer</c> setting to directly relate
                 to the total number of actions the turtle makes. The actions the turtle takes happen regardless
                 of whether or not they are actually shown on the screen.</p>
-            <program language="cpp" label="Graphics-prog-7"><input>
+            <program language="cpp" label="Graphics-prog-7"><code>
 screen.tracer(3); //Show one out of every 3 frames of animation.
 turtle.speed(ct::TS_FASTEST);  //Disables Turtle animation
 
 turtle.forward(50);//This is not shown on-screen...
 turtle.right(90);//Neither is this...
 turtle.forward(50);//But this action is, because it is third out of three.
-</input></program>
+</code></program>
             <p>A frame of animation is added for almost every action a turtle takes, regardless of whether or not
                 the turtle is moving or adding something to the screen. This includes methods like
                 <c>begin_fill</c> and <c>end_fill</c>, which don't do anything visually but do
                 tell the turtle to start or stop tracking its own movements.</p>
             <p>Consider the following example and related questions.</p>
-            <program language="cpp" label="Graphics-prog-8"><input>
+            <program language="cpp" label="Graphics-prog-8"><code>
 #include &lt;CTurtle.hpp&gt;
 namespace ct = cturtle;
 
@@ -691,7 +691,7 @@ int main(){
 
     return 0;
 }
-</input></program>
+</code></program>
 
     
             <p>Similarly to tracer settings, every action a turtle takes is also added to the <em>undo queue</em>. This allows it to keep track
@@ -765,7 +765,7 @@ int main(){
 <cline>    ct::TurtleScreen scr;</cline>
 <cline>    ct::Turtle turtle(scr);</cline>
 </block><block order="3">
-<cline>    turtle.fillcolor({"green"});</cline>
+<cline>    turtle.fillcolor({&quot;green&quot;});</cline>
 </block><block order="5">
 <cline>    turtle.begin_fill();</cline>
 </block><block order="4">
