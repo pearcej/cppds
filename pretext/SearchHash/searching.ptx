@@ -1,4 +1,4 @@
-<section xml:id="search-hash_searching">
+<?xml version="1.0" ?><section xml:id="search-hash_searching">
         <title>Searching</title>
         <p>In the next two chapters we will turn our attention to some of the
             most common problems that arise in computing: searching and sorting.
@@ -26,7 +26,7 @@ True
             stop), and the third argument value to <c>find</c> is the item
             to locate. If the item is not found, the second argument
             is returned. If it is found, an iterator is returned.</p>
-        <listing xml:id="find-example"><program language="cpp"><input>
+        <listing xml:id="find-example"><program language="cpp"><code>
 #include &lt;iostream&gt;
 #include &lt;algorithm&gt;
 #include &lt;vector&gt;
@@ -41,7 +41,7 @@ int main() {
     cout &lt;&lt; (find(myvec.begin(), myvec.end(), 3) != myvec.end()) &lt;&lt; endl;
     return 0;
 }
-        </input></program></listing>
+        </code></program></listing>
         <p>How does this work? Even though this is easy to write, an underlying process
             must be carried out to do the search.</p>
         <p>A function can be created for C++ arrays

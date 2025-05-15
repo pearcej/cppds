@@ -1,4 +1,4 @@
-<section xml:id="search-hash_the-binary-search">
+<?xml version="1.0" ?><section xml:id="search-hash_the-binary-search">
         <title>The Binary Search</title>
         <introduction>
         <p>It is possible to take greater advantage of the ordered vector if we are
@@ -33,7 +33,7 @@
     <listing xml:id="lst-binary_search_cpp">
         <caption>Binary Search of a vector</caption>
     <program xml:id="binary_search_cpp" interactive="activecode" language="cpp" label="binary_search_cpp-prog">
-        <input>
+        <code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -71,7 +71,7 @@ int main() {
 
     return 0;
 }
-        </input>
+        </code>
     </program>
     </listing>
         <p>Before we move on to the analysis, we should note that this algorithm is
@@ -92,7 +92,7 @@ int main() {
     <listing xml:id="binarysearch-1">
         <caption>Recursive Binary Search</caption>
     <program xml:id="binary_search_cpp_recursive" interactive="activecode" language="cpp" label="binary_search_cpp_recursive-prog">
-        <input>
+        <code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -132,7 +132,7 @@ int main() {
 
       return 0;
 }
-        </input>
+        </code>
     </program>
     </listing>
     </introduction>
@@ -232,7 +232,7 @@ int main() {
                 <title>Binary Search Using Array Optimization</title>
                 <task xml:id="tsk-binsearch-array-cpp" label="tsk-binsearch-array-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="binary_search_cpp_array" interactive="activecode" language="cpp" label="binary_search_cpp_array-prog"><input>
+                    <statement><program xml:id="binary_search_cpp_array" interactive="activecode" language="cpp" label="binary_search_cpp_array-prog"><code>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -268,11 +268,11 @@ int main(void) {
 
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="tsk-binsearch-array-py" label="tsk-binsearch-array-py">
                     <title>Python Implementation</title>
-                    <statement><program xml:id="binary_search_python_array" interactive="activecode" language="python" label="binary_search_python_array-prog"><input>
+                    <statement><program xml:id="binary_search_python_array" interactive="activecode" language="python" label="binary_search_python_array-prog"><code>
 '''Checks to see if item is in a list
 returns true or false (1 or 0)
 using binary Search and
@@ -295,11 +295,11 @@ def main():
     array = [0, 1, 2, 8, 13, 17, 19, 32, 42]
 
     a = binarySearch(array, 17, 0 , len(array)-1)
-    print("answer is ", a)
+    print(&quot;answer is &quot;, a)
     b = binarySearch(array, 99, 0, len(array)-1)
-    print("answer is", b)
+    print(&quot;answer is&quot;, b)
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
             <p>Even though a binary search is generally better than a sequential
@@ -410,4 +410,3 @@ main()
           <!-- extra space before the progress bar -->
         </p></conclusion>
 </section>
-

@@ -1,4 +1,4 @@
-<section xml:id="search-hash_hashing">
+<?xml version="1.0" ?><section xml:id="search-hash_hashing">
         <title>Hashing</title>
         <introduction>
         <p>In previous sections we were able to make improvements on our search
@@ -279,8 +279,8 @@
                 strings. The word <q>cat</q> can be thought of as a sequence of int
                 values. The corresponding int value can be found by declaring an int and using
                 it to store a char. You can also cast the value as an int using <term>int()</term></p>
-            <program language="cpp" label="Hashing-prog"><input>
-string h = "hello";
+            <program language="cpp" label="Hashing-prog"><code>
+string h = &quot;hello&quot;;
 char c = h[0];
 int i = c;
 
@@ -291,7 +291,7 @@ cout&lt;&lt;i&lt;&lt;endl;
 &gt;&gt;hello
 &gt;&gt;h
 &gt;&gt;104
-            </input></program>
+            </code></program>
             <p>We can then take these three ordinal values, add them up, and use the
                 remainder method to get a hash value (see <xref ref="fig-stringhash"/>).
                 <xref ref="search-hash_lst-hashfunction1"/> shows a function called <c>hash</c> that takes a
@@ -314,7 +314,7 @@ cout&lt;&lt;i&lt;&lt;endl;
 <listing xml:id="search-hash_lst-hashfunction1">
     <caption><c>hash</c> function</caption>
 
-    <program xml:id="simplehash" interactive="activecode" language="cpp" label="simplehash-prog"><input>
+    <program xml:id="simplehash" interactive="activecode" language="cpp" label="simplehash-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -332,13 +332,13 @@ int hashfunc(string a, int tablesize) {
 }
 
 int main() {
-    cout&lt;&lt;hashfunc("First!" , 10)&lt;&lt;endl;
-    cout&lt;&lt;hashfunc("Second!", 10)&lt;&lt;endl;
-    cout&lt;&lt;hashfunc("Third!" , 10)&lt;&lt;endl;
+    cout&lt;&lt;hashfunc(&quot;First!&quot; , 10)&lt;&lt;endl;
+    cout&lt;&lt;hashfunc(&quot;Second!&quot;, 10)&lt;&lt;endl;
+    cout&lt;&lt;hashfunc(&quot;Third!&quot; , 10)&lt;&lt;endl;
 
     return 0;
 }
-    </input></program>
+    </code></program>
 </listing>
             <p>It is interesting to note that when using this hash function, anagrams
                 will always be given the same hash value. To remedy this, we could use
@@ -635,13 +635,13 @@ int main() {
     
             <listing xml:id="search-hash_lst-hashtablecodeconstructor">
                 <caption><c>HashTable</c> Class</caption>
-                <program language="cpp" label="search-hash_lst-hashtablecodeconstructor-prog"><input>
+                <program language="cpp" label="search-hash_lst-hashtablecodeconstructor-prog"><code>
     class HashTable{
     public:
         static const int size=11;
         int slots[size];
         string data[size];
-                </input></program>
+                </code></program>
             </listing>
             <p>In <xref ref="search-hash_lst-hashtablecodestore-cpp"/>, <c>hashfunction</c> implements the
                 simple remainder method. The collision resolution technique is linear probing
@@ -656,7 +656,7 @@ int main() {
                 <title>Linear Probing with Simple Remainder Method.</title>
                 <task label="search-hash_lst-hashtablecodestore-cpp" xml:id="search-hash_lst-hashtablecodestore-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program language="cpp" label="search-hash_lst-hashtablecodestore-cpp-prog"><input>
+                    <statement><program language="cpp" label="search-hash_lst-hashtablecodestore-cpp-prog"><code>
 int hashfunction(int key) {
     return key%size;
 }
@@ -669,7 +669,7 @@ void put(int key, string val){
     int hashvalue = hashfunction(key);
     int count = 0;
 
-    if (data[hashvalue]=="") {
+    if (data[hashvalue]==&quot;&quot;) {
         slots[hashvalue] = key;
         data[hashvalue] = val;
     } else {
@@ -678,16 +678,16 @@ void put(int key, string val){
         } else {
             int nextslot = rehash(hashvalue);
 
-            while (data[nextslot]!="" &amp;&amp; slots[nextslot] != key) {
+            while (data[nextslot]!=&quot;&quot; &amp;&amp; slots[nextslot] != key) {
                 nextslot = rehash(nextslot);
 
                 count++;
                 if (count&gt;size) {
-                    cout&lt;&lt;"TABLE FULL"&lt;&lt;endl;
+                    cout&lt;&lt;&quot;TABLE FULL&quot;&lt;&lt;endl;
                     return;
                 }
             }
-            if (data[nextslot]=="") {
+            if (data[nextslot]==&quot;&quot;) {
                 slots[nextslot]=key;
                 data[nextslot]=val;
             } else {
@@ -696,11 +696,11 @@ void put(int key, string val){
         }
     }
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task label="search-hash_lst-hashtablecodestore-py" xml:id="search-hash_lst-hashtablecodestore-py">
                     <title>Python Implementation</title>
-                    <statement><program language="python" label="search-hash_lst-hashtablecodestore-py-prog"><input>
+                    <statement><program language="python" label="search-hash_lst-hashtablecodestore-py-prog"><code>
 def put(self,key,data):
     hashvalue = self.hashfunction(key,len(self.slots))
 
@@ -726,7 +726,7 @@ def hashfunction(self,key,size):
 
 def rehash(self,oldhash,size):
     return (oldhash+1)%size
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
                 
@@ -747,7 +747,7 @@ def rehash(self,oldhash,size):
                 <title>Final Methods of <c>HashTable</c></title>
                 <task xml:id="search-hash_lst-hashtablecodesearch-cpp" label="search-hash_lst-hashtablecodesearch-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program language="cpp" label="search-hash_lst-hashtablecodesearch-cpp-prog"><input>
+                    <statement><program language="cpp" label="search-hash_lst-hashtablecodesearch-cpp-prog"><code>
 string get(int key) {
     int startslot = hashfunction(key);
 
@@ -755,7 +755,7 @@ string get(int key) {
     bool stop=false;
     bool found=false;
     int position = startslot;
-    while(data[position]!="" &amp;&amp; !found &amp;&amp; !stop) {
+    while(data[position]!=&quot;&quot; &amp;&amp; !found &amp;&amp; !stop) {
         if (slots[position]==key) {
             found = true;
             val = data[position];
@@ -769,11 +769,11 @@ string get(int key) {
     }
     return val;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="search-hash_lst-hashtablecodesearch-py" label="search-hash_lst-hashtablecodesearch-py">
                     <title>Python Implementation</title>
-                    <statement><program language="python" label="search-hash_lst-hashtablecodesearch-py-prog"><input>
+                    <statement><program language="python" label="search-hash_lst-hashtablecodesearch-py-prog"><code>
 def get(self,key):
     startslot = self.hashfunction(key,len(self.slots))
 
@@ -796,7 +796,7 @@ def __getitem__(self,key):
 
 def __setitem__(self,key,data):
     self.put(key,data)
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
             <p><xref ref="hashtable-output"/> shows the <c>HashTable</c> class in action. First we
@@ -804,24 +804,24 @@ def __setitem__(self,key,data):
                 string data values.</p>
             <listing xml:id="hashtable-output">
                 <caption>Example Use of <c>HashTable</c></caption>
-                <program language="cpp" label="hashtable-output-prog"><input>
+                <program language="cpp" label="hashtable-output-prog"><code>
 int main() {
     HashTable h;
 
-    h.put(54, "cat");
-    h.put(26, "dog");
-    h.put(93, "lion");
-    h.put(17, "tiger");
-    h.put(77, "bird");
-    h.put(31, "cow");
-    h.put(44, "goat");
-    h.put(55, "pig");
-    h.put(20, "chicken");
+    h.put(54, &quot;cat&quot;);
+    h.put(26, &quot;dog&quot;);
+    h.put(93, &quot;lion&quot;);
+    h.put(17, &quot;tiger&quot;);
+    h.put(77, &quot;bird&quot;);
+    h.put(31, &quot;cow&quot;);
+    h.put(44, &quot;goat&quot;);
+    h.put(55, &quot;pig&quot;);
+    h.put(20, &quot;chicken&quot;);
     cout&lt;&lt;h&lt;&lt;endl;
 
     return 0;
 }
-                </input></program>
+                </code></program>
                 <console><output>
 Output:
   77: bird
@@ -842,14 +842,14 @@ Output:
                 the value for the key 20 is being replaced.</p>
             <listing xml:id="hashtable-output2">
                 <caption>Continued use of <c>HashTable</c></caption>
-                <program language="cpp" label="hashtable-output2-prog"><input>
+                <program language="cpp" label="hashtable-output2-prog"><code>
 ...
-h.put(20,"chicken");
-h.put(17,"tiger");
-h.put(20,"duck");
+h.put(20,&quot;chicken&quot;);
+h.put(17,&quot;tiger&quot;);
+h.put(20,&quot;duck&quot;);
 cout&lt;&lt;h&lt;&lt;endl;
 ...
-                </input></program>
+                </code></program>
                 <console><output>
 Output:
   77: bird
@@ -871,7 +871,7 @@ Output:
                 <title>Complete <c>HashTable</c></title>
                 <task xml:id="complete_hash_cpp" label="complete_hash_cpp">
                     <title>C++ Implementation</title>
-                    <statement><program language="cpp" interactive="activecode" label="complete_hash_cpp-prog"><input>
+                    <statement><program language="cpp" interactive="activecode" label="complete_hash_cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -898,7 +898,7 @@ class HashTable{
         int hashvalue = hashfunction(key);
         int count = 0;
 
-        if (data[hashvalue]=="") {
+        if (data[hashvalue]==&quot;&quot;) {
             slots[hashvalue] = key;
             data[hashvalue] = val;
         } else {
@@ -907,16 +907,16 @@ class HashTable{
             } else {
                 int nextslot = rehash(hashvalue);
 
-                while (data[nextslot]!="" &amp;&amp; slots[nextslot] != key) {
+                while (data[nextslot]!=&quot;&quot; &amp;&amp; slots[nextslot] != key) {
                     nextslot = rehash(nextslot);
 
                     count++;
                     if (count&gt;size) {
-                        cout&lt;&lt;"TABLE FULL"&lt;&lt;endl;
+                        cout&lt;&lt;&quot;TABLE FULL&quot;&lt;&lt;endl;
                         return;
                     }
                 }
-                if (data[nextslot]=="") {
+                if (data[nextslot]==&quot;&quot;) {
                     slots[nextslot]=key;
                     data[nextslot]=val;
                 } else {
@@ -936,7 +936,7 @@ class HashTable{
         bool stop=false;
         bool found=false;
         int position = startslot;
-        while(data[position]!="" &amp;&amp; !found &amp;&amp; !stop) {
+        while(data[position]!=&quot;&quot; &amp;&amp; !found &amp;&amp; !stop) {
             if (slots[position]==key) {
                 found = true;
                 val = data[position];
@@ -958,7 +958,7 @@ class HashTable{
 
 ostream&amp; operator&lt;&lt;(ostream&amp; stream, HashTable&amp; hash) {
     for (int i=0; i&lt;hash.size; i++) {
-        stream&lt;&lt;hash.slots[i]&lt;&lt;": "&lt;&lt;hash.data[i]&lt;&lt;endl;
+        stream&lt;&lt;hash.slots[i]&lt;&lt;&quot;: &quot;&lt;&lt;hash.data[i]&lt;&lt;endl;
     }
 
     return stream;
@@ -967,30 +967,30 @@ ostream&amp; operator&lt;&lt;(ostream&amp; stream, HashTable&amp; hash) {
 int main() {
     HashTable h;
 
-    h.put(54, "cat");
-    h.put(26, "dog");
-    h.put(93, "lion");
-    h.put(17, "tiger");
-    h.put(77, "bird");
-    h.put(31, "cow");
-    h.put(44, "goat");
-    h.put(55, "pig");
-    h.put(20, "chicken");
+    h.put(54, &quot;cat&quot;);
+    h.put(26, &quot;dog&quot;);
+    h.put(93, &quot;lion&quot;);
+    h.put(17, &quot;tiger&quot;);
+    h.put(77, &quot;bird&quot;);
+    h.put(31, &quot;cow&quot;);
+    h.put(44, &quot;goat&quot;);
+    h.put(55, &quot;pig&quot;);
+    h.put(20, &quot;chicken&quot;);
     cout&lt;&lt;h&lt;&lt;endl;
 
-    h.put(20,"chicken");
-    h.put(17,"tiger");
-    h.put(20,"duck");
+    h.put(20,&quot;chicken&quot;);
+    h.put(17,&quot;tiger&quot;);
+    h.put(20,&quot;duck&quot;);
     cout&lt;&lt;h.get(20)&lt;&lt;endl;
     cout&lt;&lt;h.get(99)&lt;&lt;endl;
 
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="complete_hash_py" label="complete_hash_py">
                     <title>Python Implementation</title>
-                    <statement><program language="python" interactive="activecode" label="complete_hash_py-prog"><input>
+                    <statement><program language="python" interactive="activecode" label="complete_hash_py-prog"><code>
 class HashTable:
     def __init__(self):
         self.size = 11 # initial size of hash table is prime to help with collision resolution
@@ -1056,15 +1056,15 @@ class HashTable:
         self.put(key,data)
 
 H=HashTable()
-H[54]="cat"
-H[26]="dog"
-H[93]="lion"
-H[17]="tiger"
-H[77]="bird"
-H[31]="cow"
-H[44]="goat"
-H[55]="pig"
-H[20]="chicken"
+H[54]=&quot;cat&quot;
+H[26]=&quot;dog&quot;
+H[93]=&quot;lion&quot;
+H[17]=&quot;tiger&quot;
+H[77]=&quot;bird&quot;
+H[31]=&quot;cow&quot;
+H[44]=&quot;goat&quot;
+H[55]=&quot;pig&quot;
+H[20]=&quot;chicken&quot;
 print(H.slots)
 print(H.data)
 
@@ -1074,7 +1074,7 @@ print(H[17])
 H[20]='duck'
 print(H[20])
 print(H[99])
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
         </subsection>
