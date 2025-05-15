@@ -1,4 +1,4 @@
-<section xml:id="linear-basic_converting-decimal-numbers-to-binary-numbers">
+<?xml version="1.0" ?><section xml:id="linear-basic_converting-decimal-numbers-to-binary-numbers">
         <title>Converting Decimal Numbers to Binary Numbers</title>
         <p>In your study of computer science, you have probably been
             exposed in one way or another to the idea of a binary number. Binary
@@ -61,7 +61,7 @@
             <title>Divide By 2 Algorithm</title>
             <task xml:id="lst-binconverter-cpp" label="lst-binconverter-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="binconvert_1ac_cpp" interactive="activecode" language="cpp" label="binconvert_1ac_cpp-prog"><input>
+                <statement><program xml:id="binconvert_1ac_cpp" interactive="activecode" language="cpp" label="binconvert_1ac_cpp-prog"><code>
 //converts a given decimal number into binary.
 
 #include &lt;iostream&gt;
@@ -82,7 +82,7 @@ string divideBy2(int decNumber) {
           decNumber = decNumber / 2;
   }
 
-  string binString = "";
+  string binString = &quot;&quot;;
   while (!remstack.empty()) {
           //adds the remainder numbers in the stack into a string.
           binString.append(to_string(remstack.top()));
@@ -97,11 +97,11 @@ int main() {
 
   return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-binconverter-py" label="lst-binconverter-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="binconvert_py" interactive="activecode" language="python" label="binconvert_py-prog"><input>
+                <statement><program xml:id="binconvert_py" interactive="activecode" language="python" label="binconvert_py-prog"><code>
 #converts a given decimal number into binary.
 
 from pythonds.basic.stack import Stack
@@ -116,7 +116,7 @@ def divideBy2(decNumber):
         remstack.push(rem)
         decNumber = decNumber // 2
 
-    binString = ""
+    binString = &quot;&quot;
     while not remstack.isEmpty():
         #adds the numbers in the stack to a string.
         binString = binString + str(remstack.pop())
@@ -126,7 +126,7 @@ def divideBy2(decNumber):
 def main():
     print(divideBy2(42))
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>The algorithm for binary conversion can easily be extended to perform
@@ -161,7 +161,7 @@ main()
             <title>Implementation of <c>baseConverter</c></title>
             <task xml:id="lst-baseconverter-cpp" label="lst-baseconverter-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="baseconvertcpp" interactive="activecode" language="cpp" line-numbers="yes" label="baseconvertcpp-prog"><input>
+                <statement><program xml:id="baseconvertcpp" interactive="activecode" language="cpp" line-numbers="yes" label="baseconvertcpp-prog"><code>
 //converts a decimal number into desired base 1-16.
 
 #include &lt;iostream&gt;
@@ -172,7 +172,7 @@ using namespace std;
 
 string baseConverter(int decNumber, int base) {
   //performs the conversion process.
-  string digits[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"};
+  string digits[] = {&quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;};
 
   stack&lt;int&gt; remstack;
 
@@ -183,7 +183,7 @@ string baseConverter(int decNumber, int base) {
           decNumber = decNumber / base;
   }
 
-  string newString = "";
+  string newString = &quot;&quot;;
   while (!remstack.empty()) {
           //makes a string out of all the items in the stack.
           newString.append(digits[remstack.top()]);
@@ -200,18 +200,18 @@ int main() {
 
   return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             <task xml:id="lst-baseconverter-py" label="lst-baseconverter-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="baseconvert" interactive="activecode" language="python" label="baseconvert-prog"><input>
+                <statement><program xml:id="baseconvert" interactive="activecode" language="python" label="baseconvert-prog"><code>
 #converts a decimal number into desired base 1-16.
 
 from pythonds.basic.stack import Stack
 
 def baseConverter(decNumber,base):
     #performs the conversion process.
-    digits = "0123456789ABCDEF"
+    digits = &quot;0123456789ABCDEF&quot;
 
     remstack = Stack()
 
@@ -221,7 +221,7 @@ def baseConverter(decNumber,base):
         remstack.push(rem)
         decNumber = decNumber // base
 
-    newString = ""
+    newString = &quot;&quot;
     while not remstack.isEmpty():
         #makes a string out of all the items in the stack.
         newString = newString + digits[remstack.pop()]
@@ -233,7 +233,7 @@ def main():
     print(baseConverter(imynum, 2))
     print(baseConverter(imynum, 16))
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>A solution to this problem is to extend the digit set to include some

@@ -1,4 +1,4 @@
-<section xml:id="linear-basic_simulation-hot-potato">
+<?xml version="1.0" ?><section xml:id="linear-basic_simulation-hot-potato">
         <title>Simulation: Hot Potato</title>
         <p>One of the typical applications for showing a queue in action is to
             simulate a real situation that requires data to be managed in a FIFO
@@ -14,9 +14,9 @@
             <image source="LinearBasic/hotpotato.png" width="50%"> 
                 <description>
                     <p>
-                        The image illustrates a simulation of the children's game "Hot Potato" using a queue. 
+                        The image illustrates a simulation of the children's game &quot;Hot Potato&quot; using a queue. 
                         Six participants—Bill, David, Susan, Jane, Kent, and Brad—are arranged in a circular pattern. 
-                        An item (the "potato") is passed from one person to the next in clockwise order. 
+                        An item (the &quot;potato&quot;) is passed from one person to the next in clockwise order. 
                         After a predefined number of passes (five in this case), Brad, who is holding the potato, is eliminated and removed from the circle. 
                         The process repeats until only one participant remains. Arrows indicate the direction of the potato being passed between participants.
                     </p>
@@ -55,7 +55,7 @@
             <image source="LinearBasic/namequeue.png" width="50%"> 
                 <description>
                     <p>
-                        The image illustrates a queue implementation of the "Hot Potato" game. 
+                        The image illustrates a queue implementation of the &quot;Hot Potato&quot; game. 
                         The top diagram shows the queue in its initial state, with participants Brad, Kent, Jane, Susan, David, and Bill arranged from rear to front. 
                         Arrows indicate the process of dequeueing the person at the front (Bill) and enqueuing them at the rear to simulate the potato being passed. 
                         The bottom diagram shows the updated queue after one cycle of passing, where the order now starts with Brad at the rear and ends with David at the front. 
@@ -71,7 +71,7 @@
             <title>Hot Potato Simulator</title>
             <task xml:id="lst-josephussim-cpp" label="lst-josephussim-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="hot_potato_cpp" interactive="activecode" language="cpp" label="hot_potato_cpp-prog"><input>
+                <statement><program xml:id="hot_potato_cpp" interactive="activecode" language="cpp" label="hot_potato_cpp-prog"><code>
 //This program creates a simulation of hot potato.
 
 #include &lt;iostream&gt;
@@ -100,17 +100,17 @@ while (simqueue.size() &gt; 1) { //loop continues until there is one remaining i
 }
 
 int main() {
-    string s[] = {"Bill", "David", "Susan", "Jane", "Kent", "Brad"};
+    string s[] = {&quot;Bill&quot;, &quot;David&quot;, &quot;Susan&quot;, &quot;Jane&quot;, &quot;Kent&quot;, &quot;Brad&quot;};
 
     cout &lt;&lt; hotPotato(s, 7) &lt;&lt; endl;
 
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-josephussim-py" label="lst-josephussim-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="hot_potato_py" interactive="activecode" language="python" label="hot_potato_py-prog"><input>
+                <statement><program xml:id="hot_potato_py" interactive="activecode" language="python" label="hot_potato_py-prog"><code>
 #This program creates a simulation of hot potato.
 
 from pythonds.basic.queue import Queue
@@ -130,9 +130,9 @@ def hotPotato(namelist, num):
     return simqueue.dequeue()
 
 def main():
-    print(hotPotato(["Bill","David","Susan","Jane","Kent","Brad"],7))
+    print(hotPotato([&quot;Bill&quot;,&quot;David&quot;,&quot;Susan&quot;,&quot;Jane&quot;,&quot;Kent&quot;,&quot;Brad&quot;],7))
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>Note that in this example the value of the counting constant is greater

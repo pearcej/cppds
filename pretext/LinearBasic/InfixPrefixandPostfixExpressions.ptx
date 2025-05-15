@@ -1,4 +1,4 @@
-<section xml:id="linear-basic_infix-prefix-and-postfix-expressions">
+<?xml version="1.0" ?><section xml:id="linear-basic_infix-prefix-and-postfix-expressions">
         <title>Infix, Prefix and Postfix Expressions</title>
     <introduction>
     <definition xml:id="def-infix-expression">
@@ -451,7 +451,7 @@
                 <title>Infix to Postfix Conversion</title>
                 <task xml:id="lst-intopost-cpp" label="lst-intopost-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="intpost_cpp" interactive="activecode" language="cpp" label="intpost_cpp-prog"><input>
+                    <statement><program xml:id="intpost_cpp" interactive="activecode" language="cpp" label="intpost_cpp-prog"><code>
 //Converts an infix expression to a postfix expression.
 
 #include &lt;iostream&gt;
@@ -472,7 +472,7 @@ string infixToPostfix(string infixexpr) {
     prec['(']=1;
     stack&lt;char&gt; opStack;
     vector&lt;char&gt; postfixVector;
-    string letsnums = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    string letsnums = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&quot;;
 
     for (char token:infixexpr) {
         //for each character in infixexpr
@@ -514,18 +514,18 @@ string infixToPostfix(string infixexpr) {
 }
 
 int main() {
-    cout &lt;&lt;"infix: A * B + C * D\n" &lt;&lt; "postfix: ";
-    cout &lt;&lt; infixToPostfix("A * B + C * D") &lt;&lt; endl;
-    cout &lt;&lt; "infix: ( A + B ) * C - ( D - E ) * ( F + G )\n" &lt;&lt; "postfix: ";
-    cout &lt;&lt; infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )") &lt;&lt; endl;
+    cout &lt;&lt;&quot;infix: A * B + C * D\n&quot; &lt;&lt; &quot;postfix: &quot;;
+    cout &lt;&lt; infixToPostfix(&quot;A * B + C * D&quot;) &lt;&lt; endl;
+    cout &lt;&lt; &quot;infix: ( A + B ) * C - ( D - E ) * ( F + G )\n&quot; &lt;&lt; &quot;postfix: &quot;;
+    cout &lt;&lt; infixToPostfix(&quot;( A + B ) * C - ( D - E ) * ( F + G )&quot;) &lt;&lt; endl;
 
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="lst-intopost-py" label="lst-intopost-py">
                     <title>Python Implementation</title>
-                    <statement><program xml:id="intopost" interactive="activecode" language="python" label="intopost-prog"><input>
+                    <statement><program xml:id="intopost" interactive="activecode" language="python" label="intopost-prog"><code>
 #Converts an infix expression to a postfix expression.
 
 from pythonds.basic.stack import Stack
@@ -533,18 +533,18 @@ from pythonds.basic.stack import Stack
 def infixToPostfix(infixexpr):
     #performs the postfix process.
     prec = {}
-    prec["*"] = 3
-    prec["/"] = 3
-    prec["+"] = 2
-    prec["-"] = 2
-    prec["("] = 1
+    prec[&quot;*&quot;] = 3
+    prec[&quot;/&quot;] = 3
+    prec[&quot;+&quot;] = 2
+    prec[&quot;-&quot;] = 2
+    prec[&quot;(&quot;] = 1
     opStack = Stack()
     postfixList = []
     tokenList = infixexpr.split()
 
     for token in tokenList:
         #for each character in infixexpr
-        if token in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" or token in "0123456789":
+        if token in &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot; or token in &quot;0123456789&quot;:
             postfixList.append(token)
         elif token == '(':
             opStack.push(token)
@@ -562,22 +562,22 @@ def infixToPostfix(infixexpr):
 
     while not opStack.isEmpty():
         postfixList.append(opStack.pop())
-    return " ".join(postfixList)
+    return &quot; &quot;.join(postfixList)
 
 def main():
-    print(infixToPostfix("A * B + C * D"))
-    print(infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )"))
+    print(infixToPostfix(&quot;A * B + C * D&quot;))
+    print(infixToPostfix(&quot;( A + B ) * C - ( D - E ) * ( F + G )&quot;))
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
             <transition/>
             <p>A few more results of execution are shown below.</p>
-            <pre>&gt;&gt;&gt; infixtopostfix("( A + B ) * ( C + D )")
+            <pre>&gt;&gt;&gt; infixtopostfix(&quot;( A + B ) * ( C + D )&quot;)
 'A B + C D + *'
-&gt;&gt;&gt; infixtopostfix("( A + B ) * C")
+&gt;&gt;&gt; infixtopostfix(&quot;( A + B ) * C&quot;)
 'A B + C *'
-&gt;&gt;&gt; infixtopostfix("A + B * C")
+&gt;&gt;&gt; infixtopostfix(&quot;A + B * C&quot;)
 'A B C * +'
 &gt;&gt;&gt;</pre>
         </subsection>
@@ -689,7 +689,7 @@ main()
                 <title>Postfix Expression Evaluator</title>
                 <task xml:id="lst-postfixeval-cpp" label="lst-postfixeval-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="postfixeval_cpp" interactive="activecode" language="cpp" label="postfixeval_cpp-prog"><input>
+                    <statement><program xml:id="postfixeval_cpp" interactive="activecode" language="cpp" label="postfixeval_cpp-prog"><code>
 //Solves a postfix math problem.
 
 #include &lt;iostream&gt;
@@ -713,7 +713,7 @@ int doMath(char op, int op1, int op2) {
 
 int postfixEval(string postfixExpr) {
     stack&lt;int&gt; operandStack;
-    string nums = "0123456789";
+    string nums = &quot;0123456789&quot;;
 
     for (char i : postfixExpr) {
         if ((nums.find(i) &lt;= nums.length())) { // Check if the current char is a number
@@ -732,16 +732,16 @@ int postfixEval(string postfixExpr) {
 }
 
 int main() {
-    cout &lt;&lt; "7 8 + 3 2 + /" &lt;&lt; endl;
-    cout &lt;&lt; postfixEval("7 8 + 3 2 + /") &lt;&lt; endl;
+    cout &lt;&lt; &quot;7 8 + 3 2 + /&quot; &lt;&lt; endl;
+    cout &lt;&lt; postfixEval(&quot;7 8 + 3 2 + /&quot;) &lt;&lt; endl;
 
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="lst-postfixeval-py" label="lst-postfixeval-py">
                     <title>Python Implementation</title>
-                    <statement><program xml:id="postfixeval" interactive="activecode" language="python" label="postfixeval-prog"><input>
+                    <statement><program xml:id="postfixeval" interactive="activecode" language="python" label="postfixeval-prog"><code>
 #Solves a postfix math problem.
 
 from pythonds.basic.stack import Stack
@@ -751,7 +751,7 @@ def postfixEval(postfixExpr):
     tokenList = postfixExpr.split()
 
     for token in tokenList:
-        if token in "0123456789":
+        if token in &quot;0123456789&quot;:
             operandStack.push(int(token))
         else:
             operand2 = operandStack.pop()
@@ -762,11 +762,11 @@ def postfixEval(postfixExpr):
 
 def doMath(op, op1, op2):
     #Does math based on what op is passed as.
-    if op == "*":
+    if op == &quot;*&quot;:
         return op1 * op2
-    elif op == "/":
+    elif op == &quot;/&quot;:
         return op1 / op2
-    elif op == "+":
+    elif op == &quot;+&quot;:
         return op1 + op2
     else:
         return op1 - op2
@@ -774,7 +774,7 @@ def doMath(op, op1, op2):
 def main():
     print(postfixEval('7 8 + 3 2 + /'))
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
             <p>It is important to note that in both the postfix conversion and the

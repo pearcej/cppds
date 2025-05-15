@@ -1,4 +1,4 @@
-<section xml:id="linear-basic_what-is-a-queue">
+<?xml version="1.0" ?><section xml:id="linear-basic_what-is-a-queue">
         <title>What Is a Queue?</title>
         <p>
         <idx>queue</idx>
@@ -26,7 +26,7 @@
             <description>
                 <p>
                     The image shows a simple queue of Python data objects. The queue is represented as a horizontal line with items ordered from rear to front. 
-                    The items in the queue are "8.4", "True", "dog", and "4", listed in sequence. 
+                    The items in the queue are &quot;8.4&quot;, &quot;True&quot;, &quot;dog&quot;, and &quot;4&quot;, listed in sequence. 
                     Arrows indicate the flow of the queue, where new items are added at the rear (left) and items are removed from the front (right). 
                     This visually represents the First-In-First-Out (FIFO) behavior of a queue.
                 </p>
