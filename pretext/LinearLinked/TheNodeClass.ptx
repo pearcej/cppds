@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<section xml:id="linear-linked_the-node-class">
+<?xml version="1.0" ?><section xml:id="linear-linked_the-node-class">
   <title>The <c>Node</c> Class</title>
   <p>The basic building block for the linked list implementation is the
             <term>node</term>. Each node object must hold at least two pieces of information.
@@ -15,7 +14,7 @@
 
   <listing xml:id="linear-linked_lst-nodeclass" names="lst_nodeclass">
     <caption><c>Node</c> Class</caption>
-    <program language="cpp" label="linear-linked_lst-nodeclass-prog"><input>
+    <program language="cpp" label="linear-linked_lst-nodeclass-prog"><code>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -46,7 +45,7 @@ class Node {
                     next = newnext;
             }
 };
-    </input></program></listing>
+    </code></program></listing>
   <pre>&gt;&gt;&gt; temp = Node(93) //sets the nodes data to the integer 93
 &gt;&gt;&gt; temp.getData() // calls the getData() function.
 93</pre>
@@ -65,9 +64,9 @@ class Node {
     <image source="LinearLinked/node.png" width="50%">
     <description>
         <p>
-            An illustration of a node object in a linked list. The node contains two components: a "data" field holding the value "93" 
-            and a "next" field representing a reference to the next node in the list. A variable named "temp" points to this node, 
-            and an arrow originating from the "next" field extends to indicate a link to the subsequent node in the list.
+            An illustration of a node object in a linked list. The node contains two components: a &quot;data&quot; field holding the value &quot;93&quot; 
+            and a &quot;next&quot; field representing a reference to the next node in the list. A variable named &quot;temp&quot; points to this node, 
+            and an arrow originating from the &quot;next&quot; field extends to indicate a link to the subsequent node in the list.
         </p>
     </description>
     </image>
@@ -77,8 +76,8 @@ class Node {
     <image source="LinearLinked/node2.png" width="50%">
     <description>
         <p>
-            A simplified representation of a node in a linked list. The node is depicted as a rectangular block containing the value "93." 
-            A variable named "temp" points to this block. An arrow extends from the right side of the block to represent the reference 
+            A simplified representation of a node in a linked list. The node is depicted as a rectangular block containing the value &quot;93.&quot; 
+            A variable named &quot;temp&quot; points to this block. An arrow extends from the right side of the block to represent the reference 
             to the next node in the list, maintaining the linked list structure.
         </p>
     </description>
