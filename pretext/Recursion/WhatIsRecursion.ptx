@@ -6,5 +6,8 @@
             involves a function calling itself. While it may not seem like much on
             the surface, recursion allows us to write elegant solutions to problems
             that may otherwise be very difficult to program.</p>
+            <conclusion><p>
+                <!-- extra space before the progress bar -->            
+            </p></conclusion>
     </section>
 
