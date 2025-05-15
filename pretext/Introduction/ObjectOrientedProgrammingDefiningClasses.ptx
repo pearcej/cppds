@@ -285,12 +285,16 @@ class Fraction {
 
 int main() {
     Fraction fraca(3, 5);
-    Fraction fracb(3);
-    Fraction fracc; //notice there are no parentheses here.
-    // cout &lt;&lt; fraca &lt;&lt; endl; //uncomment to see error
     fraca.show();
+
+    Fraction fracb(3);
     fracb.show();
+
+    Fraction fracc; //notice there are no parentheses here.
     fracc.show();
+
+    // cout &lt;&lt; fraca &lt;&lt; endl; //uncomment to see error
+
     return 0;
 }
                     </input></program></statement>
@@ -298,8 +302,28 @@ int main() {
                 <task xml:id="showmethod-py" label="showmethod_py">
                     <title>Python</title>
                     <statement><program interactive="activecode" language="python" label="showmethod_py-prog"><input>
-def show(self):
-  print(self.num,"/",self.den)
+class Fraction:
+
+    def __init__(self,top = 0,bottom = 1):
+
+        self.num = top
+        self.den = bottom
+    def show(self):
+        print(self.num,"/",self.den)
+
+def main():
+    fraca = Fraction(3,5)
+    fraca.show()
+
+    fracb = Fraction(3)
+    fracb.show()
+
+    fracc = Fraction()# notice no parameters are passed
+    fracc.show()
+    
+    # notice print(fraca) will give you an unexpected output
+
+main()
                     </input></program></statement>
                 </task>
             </exploration>
