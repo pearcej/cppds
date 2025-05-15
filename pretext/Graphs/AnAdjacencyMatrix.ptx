@@ -30,5 +30,8 @@
             is connected to every other vertex. There are few real problems that
             approach this sort of connectivity. The problems we will look at in this
             chapter all involve graphs that are sparsely connected.</p>
+            <conclusion><p>
+                <!-- extra space before the progress bar -->
+            </p></conclusion>
     </section>
 

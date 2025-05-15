@@ -248,5 +248,8 @@ int main() {
             constructed by the <c>buildGraph</c> function has exactly 53,286 edges, so
             the matrix would have only 0.20% of the cells filled! That is a very
             sparse matrix indeed.</p>
+            <conclusion><p>
+                <!-- extra space before the progress bar -->
+            </p></conclusion>
     </section>
 
