@@ -1,4 +1,4 @@
-<section xml:id="graphs_knights-tour-analysis">
+<?xml version="1.0" ?><section xml:id="graphs_knights-tour-analysis">
         <title>Knight's Tour Analysis</title>
         <p>There is one last interesting topic regarding the knight's tour problem,
             then we will move on to the general version of the depth first search.
@@ -112,12 +112,12 @@
  
         <figure xml:id="graphs_knighttour-figvideo">
             <caption>Knights tour visualization</caption>
-            <video label="graphs_knighttour-video" source="Graphs/knights_tour_vis.webm" width="80%" preview="Graphs/kt_vis_thumb.png" />
+            <video label="graphs_knighttour-video" source="Graphs/knights_tour_vis.webm" width="80%" preview="Graphs/kt_vis_thumb.png"/>
         </figure>
 
         <listing xml:id="graphs_lst-avail" names="lst_avail">
             <caption>Implementation of <c>orderByAvail</c></caption>
-            <program language="python" label="graphs_lst-avail-prog"><input>
+            <program language="python" label="graphs_lst-avail-prog"><code>
 def orderByAvail(n):
     resList = []
     for v in n.getConnections():
@@ -129,7 +129,7 @@ def orderByAvail(n):
             resList.append((c,v))
     resList.sort(key=lambda x: x[0])
     return [y[1] for y in resList]
-            </input></program>
+            </code></program>
         </listing>
         <reading-questions xml:id="rq-knights-tour-impl">
            <title>Reading Question</title>
@@ -185,4 +185,3 @@ def orderByAvail(n):
     </exercise>
 </reading-questions>
     </section>
-

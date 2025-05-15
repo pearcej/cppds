@@ -1,4 +1,4 @@
-<section xml:id="graphs_dijkstras-algorithm">
+<?xml version="1.0" ?><section xml:id="graphs_dijkstras-algorithm">
         <title>Dijkstra's Algorithm</title>
 
         <p><idx>dijkstra's algorithm</idx>
@@ -23,7 +23,7 @@
         
         <listing xml:id="graphs_lst-shortpath">
             <caption>Dijkstra's Algorithm</caption>
-            <program language="python" label="graphs_lst-shortpath-prog"><input>
+            <program language="python" label="graphs_lst-shortpath-prog"><code>
 from pythonds.graphs import PriorityQueue, Graph, Vertex
 
 def dijkstra(aGraph,start):
@@ -39,7 +39,7 @@ def dijkstra(aGraph,start):
                 nextVert.setDistance( newDist )
                 nextVert.setPred(currentVert)
                 pq.decreaseKey(nextVert,newDist)
-            </input></program>
+            </code></program>
         </listing>
         <p>Dijkstra's algorithm uses a priority queue. You may recall that a
             priority queue is based on the heap that we implemented in the Tree Chapter.
@@ -197,4 +197,3 @@ def dijkstra(aGraph,start):
     </exercise>
 </reading-questions>  
   </section>
-

@@ -1,4 +1,4 @@
-<section xml:id="graphs_general-depth-first-search">
+<?xml version="1.0" ?><section xml:id="graphs_general-depth-first-search">
         <title>General Depth First Search</title>
         <p>The knight's tour is a special case of a depth first search where the
             goal is to create the deepest depth first tree, without any branches.
@@ -39,7 +39,7 @@
             <title>Generalized Depth First Search</title>
             <task xml:id="lst-dfsgeneral" label="lst-dfsgeneral">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="cppdfs0" interactive="activecode" language="cpp" label="cppdfs0-prog"><input>
+                <statement><program xml:id="cppdfs0" interactive="activecode" language="cpp" label="cppdfs0-prog"><code>
 #include &lt;list&gt;         //std::list
 #include &lt;utility&gt;      //std::pair
 #include &lt;algorithm&gt;    //std::find
@@ -98,7 +98,7 @@ public:
     void dfsvisit(std::list&lt;int&gt;&amp; visitedList, vertex_t&amp; vertex){
         visitedList.push_back(vertex.first);
 
-        std::cout &lt;&lt; "Visited Vertex With ID#: " &lt;&lt; vertex.first &lt;&lt; std::endl;
+        std::cout &lt;&lt; &quot;Visited Vertex With ID#: &quot; &lt;&lt; vertex.first &lt;&lt; std::endl;
 
         for(int neighborID : vertex.second){
             if(std::find(visitedList.begin(), visitedList.end(), neighborID) != visitedList.end()){
@@ -130,11 +130,11 @@ int main(int argc, char** argv){
 
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="pythondfs0" label="pythondfs0">
                 <title>Python Implementation</title>
-                <statement><program interactive="activecode" language="python3" label="pythondfs0-prog"><input>
+                <statement><program interactive="activecode" language="python3" label="pythondfs0-prog"><code>
 from pythonds.graphs import Graph
 
 class DFSGraph(Graph):
@@ -152,7 +152,7 @@ class DFSGraph(Graph):
 
     def dfsvisit(self,startVertex):
         startVertex.setColor('gray')
-        print("Visiting vertex with ID# " + str(startVertex.id))
+        print(&quot;Visiting vertex with ID# &quot; + str(startVertex.id))
 
         self.time += 1
         startVertex.setDiscovery(self.time)
@@ -183,7 +183,7 @@ def main():
     graph.dfs()
 
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>Although our implementation of <c>bfs</c> was only interested in
@@ -333,7 +333,7 @@ main()
         <figure align="center" xml:id="fig-dfstree">
             <caption> The Resulting Depth First Search Tree.</caption>
                 <image source="Graphs/dfstree.png" width="80%">
-                <description><p>A completed depth first search tree with six nodes labeled A to F. The nodes are interconnected with arrows indicating the path of the search. Each node is annotated with two numbers; the first number represents the order in which the node was first visited, and the second number represents the order in which the final visit occurred, marking the node<rsq/>s completion in the search. Node A is labeled "1/12", B "2/11", C "3/4", D "5/10", E "6/9", and F "7/8". This indicates the starting point of the search at node A, the backtracking steps, and the overall path taken to explore all the nodes.</p></description>
+                <description><p>A completed depth first search tree with six nodes labeled A to F. The nodes are interconnected with arrows indicating the path of the search. Each node is annotated with two numbers; the first number represents the order in which the node was first visited, and the second number represents the order in which the final visit occurred, marking the node<rsq/>s completion in the search. Node A is labeled &quot;1/12&quot;, B &quot;2/11&quot;, C &quot;3/4&quot;, D &quot;5/10&quot;, E &quot;6/9&quot;, and F &quot;7/8&quot;. This indicates the starting point of the search at node A, the backtracking steps, and the overall path taken to explore all the nodes.</p></description>
                 </image>
             </figure>
         <p>The visualization in <xref ref="graphs_general_depth-dfs-vis"/> shows the entire traversal of the example graph shown above.
@@ -342,7 +342,7 @@ main()
 
         <figure xml:id="graphs_general_depth-dfs-vis" align="center">
             <caption>DFS Visualization</caption>
-            <video label="graphs_general_depth-dfs-vis-video" source="Graphs/vis_dfs.mp4" width="80%" preview="Graphs/vis_dfs_thumb.png" />
+            <video label="graphs_general_depth-dfs-vis-video" source="Graphs/vis_dfs.mp4" width="80%" preview="Graphs/vis_dfs_thumb.png"/>
         </figure>
 
 </section>
