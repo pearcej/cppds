@@ -1,4 +1,4 @@
-<section xml:id="sort_the-shell-sort">
+<?xml version="1.0" ?><section xml:id="sort_the-shell-sort">
         <title>The Shell Sort</title>
         <p><idx>shell sort</idx>The <term>shell sort</term>, sometimes called the <q>diminishing increment sort,</q>
             improves on the insertion sort by breaking the original vector into a
@@ -67,7 +67,7 @@
             <title>Shell Sort</title>
             <task xml:id="lst-shell-cpp" label="lst-shell-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-shell-cpp" interactive="activecode" language="cpp" label="prog-shell-cpp-prog"><input>
+                <statement><program xml:id="prog-shell-cpp" interactive="activecode" language="cpp" label="prog-shell-cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -75,7 +75,7 @@ using namespace std;
 // print the sorted vector
 void printl(vector&lt;int&gt; avector) {
     for (unsigned int i=0; i&lt;avector.size(); i++) {
-        cout &lt;&lt; avector[i] &lt;&lt; " ";
+        cout &lt;&lt; avector[i] &lt;&lt; &quot; &quot;;
     }
     cout &lt;&lt; endl;
 }
@@ -104,8 +104,8 @@ vector&lt;int&gt; shellSort(vector&lt;int&gt; avector) {
       runs avector through gapInsertionSort function
        */
         }
-        cout &lt;&lt; "After increments of size " &lt;&lt; subvectorcount
-             &lt;&lt; " The vector is: " &lt;&lt; endl;
+        cout &lt;&lt; &quot;After increments of size &quot; &lt;&lt; subvectorcount
+             &lt;&lt; &quot; The vector is: &quot; &lt;&lt; endl;
         printl(avector);
 
         subvectorcount = subvectorcount / 2; //cuts vector in half
@@ -123,11 +123,11 @@ int main() {
 
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-shell-py" label="lst-shell-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-shell-py" interactive="activecode" language="python" label="prog-shell-py-prog"><input>
+                <statement><program xml:id="prog-shell-py" interactive="activecode" language="python" label="prog-shell-py-prog"><code>
 def shellSort(alist):
     sublistcount = len(alist)//2
     while sublistcount &gt; 0:
@@ -135,7 +135,7 @@ def shellSort(alist):
         for startposition in range(sublistcount):
             gapInsertionSort(alist,startposition,sublistcount)
 
-        print("After increments of size",sublistcount, "The list is",alist)
+        print(&quot;After increments of size&quot;,sublistcount, &quot;The list is&quot;,alist)
 
         sublistcount = sublistcount // 2
 
@@ -157,7 +157,7 @@ def main():
     print(alist)
 
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
     <figure xml:id="sort_shellsort-animation">
@@ -168,27 +168,27 @@ main()
             </sidebyside>
             <sidebyside widths="18% 18% 18% 18% 18%">
                 <slate surface="html">
-                    <input type="button" value="Initialize" onkeypress="shell_anim_anim = shell_anim_init('shell_anim');" onclick="shell_anim_anim = shell_anim_init('shell_anim');" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Initialize" onkeypress="shell_anim_anim = shell_anim_init('shell_anim');" onclick="shell_anim_anim = shell_anim_init('shell_anim');" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="Run" onkeypress="shell_anim_anim.run('shell_anim_anim');" onclick="shell_anim_anim.run('shell_anim_anim');" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Run" onkeypress="shell_anim_anim.run('shell_anim_anim');" onclick="shell_anim_anim.run('shell_anim_anim');" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="Stop" onkeypress="shell_anim_anim.stop();" onclick="shell_anim_anim.stop();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Stop" onkeypress="shell_anim_anim.stop();" onclick="shell_anim_anim.stop();" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="Beginning" onkeypress="shell_anim_anim.begin();" onclick="shell_anim_anim.begin();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Beginning" onkeypress="shell_anim_anim.begin();" onclick="shell_anim_anim.begin();" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="End" onkeypress="shell_anim_anim.end();" onclick="shell_anim_anim.end();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="End" onkeypress="shell_anim_anim.end();" onclick="shell_anim_anim.end();" style="font-size:16px; width:100%"/>
                 </slate>
             </sidebyside>
             <sidebyside widths="30% 30%" margins="20%">
                 <slate surface="html">
-                    <input type="button" value="Step Forward" onkeypress="shell_anim_anim.forward();" onclick="shell_anim_anim.forward();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Step Forward" onkeypress="shell_anim_anim.forward();" onclick="shell_anim_anim.forward();" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="Step Backward" onkeypress="shell_anim_anim.backward();" onclick="shell_anim_anim.backward();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Step Backward" onkeypress="shell_anim_anim.backward();" onclick="shell_anim_anim.backward();" style="font-size:16px; width:100%"/>
                 </slate>
             </sidebyside>
             <script><![CDATA[
@@ -219,7 +219,7 @@ main()
 
     <figure xml:id="sort_shell-video">
         <caption>Video of <c>shellSort</c> in action.</caption>
-        <video label="sort_shell_sort-video" source="Sort/vis_shell_sort.webm" width="80%" preview="Sort/vis_shell_sort_thumb.png" />
+        <video label="sort_shell_sort-video" source="Sort/vis_shell_sort.webm" width="80%" preview="Sort/vis_shell_sort_thumb.png"/>
     </figure>
 
 
@@ -288,4 +288,3 @@ main()
     </exercise>
 </reading-questions>
     </section>
-

@@ -1,4 +1,4 @@
-<section xml:id="sort_the-selection-sort">
+<?xml version="1.0" ?><section xml:id="sort_the-selection-sort">
         <title>The Selection Sort</title>
         <p><idx>selection sort</idx> The <term>selection sort</term> improves on the bubble sort by making only one
             exchange for every pass through the first part of the vector.
@@ -19,7 +19,7 @@
             <title>Selection Sort</title>
             <task xml:id="lst-selectionsort-cpp" label="lst-selectionsort-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-selectionsort-cpp" interactive="activecode" language="cpp" label="prog-selectionsort-cpp-prog"><input>
+                <statement><program xml:id="prog-selectionsort-cpp" interactive="activecode" language="cpp" label="prog-selectionsort-cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -50,17 +50,17 @@ int main() {
 
     // print the vector
     for (unsigned int i = 0; i &lt; updatedAvector.size(); i++) {
-        cout &lt;&lt; updatedAvector[i] &lt;&lt; " ";
+        cout &lt;&lt; updatedAvector[i] &lt;&lt; &quot; &quot;;
     }
     cout &lt;&lt; endl;
 
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-selectionsort-py" label="lst-selectionsort-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-selectionsort-py" interactive="activecode" language="python" label="prog-selectionsort-py-prog"><input>
+                <statement><program xml:id="prog-selectionsort-py" interactive="activecode" language="python" label="prog-selectionsort-py-prog"><code>
 #function sorts through values in list using selection sort
 def selectionSort(alist):
    for fillslot in range(len(alist)-1,0,-1):
@@ -79,7 +79,7 @@ def main():
     print(alist)
 main()
 
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
     <p>The visualization in <xref ref="sort_selectionsort-animation"/> allows you to step through the algorithm. Yellow bars
@@ -94,27 +94,27 @@ main()
             </sidebyside>
             <sidebyside widths="18% 18% 18% 18% 18%">
                 <slate surface="html">
-                    <input type="button" value="Initialize" onkeypress="selection_anim_anim = selection_anim_init('selection_anim');" onclick="selection_anim_anim = selection_anim_init('selection_anim');" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Initialize" onkeypress="selection_anim_anim = selection_anim_init('selection_anim');" onclick="selection_anim_anim = selection_anim_init('selection_anim');" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="Run" onkeypress="selection_anim_anim.run('selection_anim_anim');" onclick="selection_anim_anim.run('selection_anim_anim');" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Run" onkeypress="selection_anim_anim.run('selection_anim_anim');" onclick="selection_anim_anim.run('selection_anim_anim');" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="Stop" onkeypress="selection_anim_anim.stop();" onclick="selection_anim_anim.stop();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Stop" onkeypress="selection_anim_anim.stop();" onclick="selection_anim_anim.stop();" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="Beginning" onkeypress="selection_anim_anim.begin();" onclick="selection_anim_anim.begin();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Beginning" onkeypress="selection_anim_anim.begin();" onclick="selection_anim_anim.begin();" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="End" onkeypress="selection_anim_anim.end();" onclick="selection_anim_anim.end();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="End" onkeypress="selection_anim_anim.end();" onclick="selection_anim_anim.end();" style="font-size:16px; width:100%"/>
                 </slate>
             </sidebyside>
             <sidebyside widths="30% 30%" margins="20%">
                 <slate surface="html">
-                    <input type="button" value="Step Forward" onkeypress="selection_anim_anim.forward();" onclick="selection_anim_anim.forward();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Step Forward" onkeypress="selection_anim_anim.forward();" onclick="selection_anim_anim.forward();" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="Step Backward" onkeypress="selection_anim_anim.backward();" onclick="selection_anim_anim.backward();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Step Backward" onkeypress="selection_anim_anim.backward();" onclick="selection_anim_anim.backward();" style="font-size:16px; width:100%"/>
                 </slate>
             </sidebyside>
             <script><![CDATA[
@@ -148,7 +148,7 @@ main()
 
     <figure xml:id="sort_selection-video">
         <caption>Video of <c>selectionSort</c> in action.</caption>
-        <video label="sort_selection_sort-video" source="Sort/vis_selection_sort.webm" width="80%" preview="Sort/vis_selection_sort_thumb.png" />
+        <video label="sort_selection_sort-video" source="Sort/vis_selection_sort.webm" width="80%" preview="Sort/vis_selection_sort_thumb.png"/>
     </figure>
 
 
@@ -207,4 +207,3 @@ main()
     </exercise>
 </reading-questions>
     </section>
-

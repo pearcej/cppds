@@ -1,4 +1,4 @@
-<section xml:id="sort_the-insertion-sort">
+<?xml version="1.0" ?><section xml:id="sort_the-insertion-sort">
         <title>The Insertion Sort</title>
         <p><idx>insertion sort</idx>The <term>insertion sort</term>, although still <m>O(n^{2})</m>, works in a
             slightly different way. It always maintains a sorted subvector in the
@@ -33,7 +33,7 @@
         <figure align="center" xml:id="fig-insertionpass">
             <caption><c>InsertionSort</c>: Fifth Pass of the Sort.</caption>
                 <image source="Sort/insertionpass.png" width="50%">
-                <description><p>An educational illustration depicting the fifth pass of the insertion sort algorithm. The diagram shows a series of rows with numerical values in boxes, each row representing a step in the sorting process. Arrows indicate the shifting of numbers to make space for the correctly positioned value. Descriptive text accompanies each step explaining the movement required, such as '93>31 so shift it to the right' and 'Need to insert 31 back into the sorted list'. The final row shows the number 31 being inserted into its correct position in the sequence.</p></description>
+                <description><p>An educational illustration depicting the fifth pass of the insertion sort algorithm. The diagram shows a series of rows with numerical values in boxes, each row representing a step in the sorting process. Arrows indicate the shifting of numbers to make space for the correctly positioned value. Descriptive text accompanies each step explaining the movement required, such as '93&gt;31 so shift it to the right' and 'Need to insert 31 back into the sorted list'. The final row shows the number 31 being inserted into its correct position in the sequence.</p></description>
                 </image>
             </figure>
         <p>The implementation of <c>insertionSort</c> (<xref ref="lst-insertionsort-cpp"/>) shows that
@@ -56,7 +56,7 @@
             <title>Insertion Sort</title>
             <task xml:id="lst-insertionsort-cpp" label="lst-insertionsort-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-insertionsort-cpp" interactive="activecode" language="cpp" label="prog-insertionsort-cpp-prog"><input>
+                <statement><program xml:id="prog-insertionsort-cpp" interactive="activecode" language="cpp" label="prog-insertionsort-cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -87,17 +87,17 @@ int main() {
 
     //prints the sorted vector
     for (unsigned int i=0; i&lt;avector.size(); i++) {
-        cout &lt;&lt; avector[i] &lt;&lt; " ";;
+        cout &lt;&lt; avector[i] &lt;&lt; &quot; &quot;;;
     }
     cout &lt;&lt; endl;
 
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-insertionsort-py" label="lst-insertionsort-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-insertionsort-py" interactive="activecode" language="python" label="prog-insertionsort-py-prog"><input>
+                <statement><program xml:id="prog-insertionsort-py" interactive="activecode" language="python" label="prog-insertionsort-py-prog"><code>
 def insertionSort(alist): #function that insertsorts through the list
    for index in range(1,len(alist)):
 
@@ -117,7 +117,7 @@ def main():
     print(alist)
 
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
 
@@ -133,27 +133,27 @@ main()
             </sidebyside>
             <sidebyside widths="18% 18% 18% 18% 18%">
                 <slate surface="html">
-                    <input type="button" value="Initialize" onkeypress="insertion_anim_anim = insertion_anim_init('insertion_anim');" onclick="insertion_anim_anim = insertion_anim_init('insertion_anim');" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Initialize" onkeypress="insertion_anim_anim = insertion_anim_init('insertion_anim');" onclick="insertion_anim_anim = insertion_anim_init('insertion_anim');" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="Run" onkeypress="insertion_anim_anim.run('insertion_anim_anim');" onclick="insertion_anim_anim.run('insertion_anim_anim');" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Run" onkeypress="insertion_anim_anim.run('insertion_anim_anim');" onclick="insertion_anim_anim.run('insertion_anim_anim');" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="Stop" onkeypress="insertion_anim_anim.stop();" onclick="insertion_anim_anim.stop();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Stop" onkeypress="insertion_anim_anim.stop();" onclick="insertion_anim_anim.stop();" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="Beginning" onkeypress="insertion_anim_anim.begin();" onclick="insertion_anim_anim.begin();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Beginning" onkeypress="insertion_anim_anim.begin();" onclick="insertion_anim_anim.begin();" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="End" onkeypress="insertion_anim_anim.end();" onclick="insertion_anim_anim.end();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="End" onkeypress="insertion_anim_anim.end();" onclick="insertion_anim_anim.end();" style="font-size:16px; width:100%"/>
                 </slate>
             </sidebyside>
             <sidebyside widths="30% 30%" margins="20%">
                 <slate surface="html">
-                    <input type="button" value="Step Forward" onkeypress="insertion_anim_anim.forward();" onclick="insertion_anim_anim.forward();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Step Forward" onkeypress="insertion_anim_anim.forward();" onclick="insertion_anim_anim.forward();" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="Step Backward" onkeypress="insertion_anim_anim.backward();" onclick="insertion_anim_anim.backward();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Step Backward" onkeypress="insertion_anim_anim.backward();" onclick="insertion_anim_anim.backward();" style="font-size:16px; width:100%"/>
                 </slate>
             </sidebyside>
             <script><![CDATA[
@@ -184,7 +184,7 @@ main()
 
     <figure xml:id="sort_insertion-video">
         <caption>Video of <c>insertionSort</c> in action.</caption>
-        <video label="sort_insertion_sort-video" source="Sort/vis_insertion_sort.webm" width="80%" preview="Sort/vis_insertion_sort_thumb.png" />
+        <video label="sort_insertion_sort-video" source="Sort/vis_insertion_sort.webm" width="80%" preview="Sort/vis_insertion_sort_thumb.png"/>
     </figure>
 
 <reading-questions xml:id="rq-insertion-sort">
@@ -236,4 +236,3 @@ main()
     </exercise>
 </reading-questions>
     </section>
-

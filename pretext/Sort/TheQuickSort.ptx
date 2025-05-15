@@ -1,4 +1,4 @@
-<section xml:id="sort_the-quick-sort">
+<?xml version="1.0" ?><section xml:id="sort_the-quick-sort">
         <title>The Quick Sort</title>
         <p><idx>quick sort</idx>The <term>quick sort</term> uses divide and conquer to gain the same advantages
             as the merge sort, while not using additional storage. As a trade-off,
@@ -77,14 +77,14 @@
             <title>Quick Sort</title>
             <task xml:id="lst-quicksort-cpp" label="lst-quicksort-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-quicksort-cpp" interactive="activecode" language="cpp" label="prog-quicksort-cpp-prog"><input>
+                <statement><program xml:id="prog-quicksort-cpp" interactive="activecode" language="cpp" label="prog-quicksort-cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
 
 void printl(vector&lt;int&gt; avector) {
   for (unsigned i=0; i&lt;avector.size(); i++) {
-    cout&lt;&lt;avector[i]&lt;&lt;" ";
+    cout&lt;&lt;avector[i]&lt;&lt;&quot; &quot;;
   }
   cout&lt;&lt;endl;
 }
@@ -142,11 +142,11 @@ int main() {
 
   return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-quicksort-py" label="lst-quicksort-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-quicksort-py" interactive="activecode" language="python" label="prog-quicksort-py-prog"><input>
+                <statement><program xml:id="prog-quicksort-py" interactive="activecode" language="python" label="prog-quicksort-py-prog"><code>
 #recursive function that calls itself to quicksort through a given list of values
 def quickSort(alist,first,last):
   if first&lt;last:
@@ -194,7 +194,7 @@ def main():
   print(alist)
 
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
 
@@ -208,27 +208,27 @@ main()
             </sidebyside>
             <sidebyside widths="18% 18% 18% 18% 18%">
                 <slate surface="html">
-                    <input type="button" value="Initialize" onkeypress="quick_anim_anim = quick_anim_init('quick_anim');" onclick="quick_anim_anim = quick_anim_init('quick_anim');" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Initialize" onkeypress="quick_anim_anim = quick_anim_init('quick_anim');" onclick="quick_anim_anim = quick_anim_init('quick_anim');" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="Run" onkeypress="quick_anim_anim.run('quick_anim_anim');" onclick="quick_anim_anim.run('quick_anim_anim');" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Run" onkeypress="quick_anim_anim.run('quick_anim_anim');" onclick="quick_anim_anim.run('quick_anim_anim');" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="Stop" onkeypress="quick_anim_anim.stop();" onclick="quick_anim_anim.stop();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Stop" onkeypress="quick_anim_anim.stop();" onclick="quick_anim_anim.stop();" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="Beginning" onkeypress="quick_anim_anim.begin();" onclick="quick_anim_anim.begin();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Beginning" onkeypress="quick_anim_anim.begin();" onclick="quick_anim_anim.begin();" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="End" onkeypress="quick_anim_anim.end();" onclick="quick_anim_anim.end();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="End" onkeypress="quick_anim_anim.end();" onclick="quick_anim_anim.end();" style="font-size:16px; width:100%"/>
                 </slate>
             </sidebyside>
             <sidebyside widths="30% 30%" margins="20%">
                 <slate surface="html">
-                    <input type="button" value="Step Forward" onkeypress="quick_anim_anim.forward();" onclick="quick_anim_anim.forward();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Step Forward" onkeypress="quick_anim_anim.forward();" onclick="quick_anim_anim.forward();" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="Step Backward" onkeypress="quick_anim_anim.backward();" onclick="quick_anim_anim.backward();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Step Backward" onkeypress="quick_anim_anim.backward();" onclick="quick_anim_anim.backward();" style="font-size:16px; width:100%"/>
                 </slate>
             </sidebyside>
             <script><![CDATA[
@@ -261,7 +261,7 @@ main()
 
         <figure xml:id="sort_quick-video">
             <caption>Video of <c>quickSort</c> in action.</caption>
-            <video label="sort_quick_sort-video" source="Sort/vis_quick_sort.webm" width="80%" preview="Sort/vis_quick_sort_thumb.png" />
+            <video label="sort_quick_sort-video" source="Sort/vis_quick_sort.webm" width="80%" preview="Sort/vis_quick_sort_thumb.png"/>
         </figure>
     
         <p>To analyze the <c>quickSort</c> function, note that for a list of length
@@ -386,4 +386,3 @@ main()
     </exercise>
 </reading-questions>
     </section>
-    
