@@ -1,4 +1,4 @@
-<section xml:id="trees_binary-heap-implementation">
+<?xml version="1.0" ?><section xml:id="trees_binary-heap-implementation">
         <title>Binary Heap Implementation</title>
         <subsection xml:id="trees_the-structure-property">
             <title>The Structure Property</title>
@@ -74,7 +74,7 @@
             
             <listing xml:id="binheap_lst-heap1a">
                 <caption><c>BinHeap</c> Class and Constructor</caption>
-                <program language="cpp" label="binheap_lst-heap1a-prog"><input>
+                <program language="cpp" label="binheap_lst-heap1a-prog"><code>
 class BinHeap{
     private:
         vector&lt;int&gt; heapvector;
@@ -86,7 +86,7 @@ class BinHeap{
             this-&gt;currentSize = 0;
         }
 }
-                </input></program>
+                </code></program>
             </listing>
             <p>The next method we will implement is <c>insert</c>. The easiest, and most
                 efficient, way to add an item to a vector is to simply append the item to
@@ -107,11 +107,11 @@ class BinHeap{
                 <p>
                     Image showing the process of percolating a newly added node to its proper position in a binary heap. The diagram consists of 
                     three stages illustrating how the heap structure property is restored through swaps.
-                    In the first stage, a new item labeled "7" is appended as a leaf node under the node "18" in the binary tree, which initially 
-                    violates the heap structure property. The parent-child relationship is unbalanced because "7" is smaller than its parent "18."
-                    In the second stage (swap 1), the new item "7" is swapped with its parent "18," moving up the tree. The new structure partially 
-                    restores the heap property, but "7" is now a child of node "9," still violating the heap structure.
-                    In the third stage (swap 2), "7" is swapped with its new parent "9," percolating up to its proper position. At this point, the 
+                    In the first stage, a new item labeled &quot;7&quot; is appended as a leaf node under the node &quot;18&quot; in the binary tree, which initially 
+                    violates the heap structure property. The parent-child relationship is unbalanced because &quot;7&quot; is smaller than its parent &quot;18.&quot;
+                    In the second stage (swap 1), the new item &quot;7&quot; is swapped with its parent &quot;18,&quot; moving up the tree. The new structure partially 
+                    restores the heap property, but &quot;7&quot; is now a child of node &quot;9,&quot; still violating the heap structure.
+                    In the third stage (swap 2), &quot;7&quot; is swapped with its new parent &quot;9,&quot; percolating up to its proper position. At this point, the 
                     heap structure property is fully restored, and the tree satisfies the complete binary heap requirements.
                     Arrows and dashed lines in the diagram highlight the movement of nodes during each swap.
                 </p>
@@ -145,7 +145,7 @@ class BinHeap{
             
             <listing xml:id="binheap_lst-heap2">
                 <caption><c>percUp</c> Method</caption>
-                <program language="cpp" label="binheap_lst-heap2-prog"><input>
+                <program language="cpp" label="binheap_lst-heap2-prog"><code>
 void percUp(int i){
     while ((i / 2) &gt; 0){
         if (this-&gt;heapvector[i] &lt; this-&gt;heapvector[i/2]){
@@ -156,18 +156,18 @@ void percUp(int i){
         i = i/2;
     }
 }
-                </input></program>
+                </code></program>
             </listing>
 
             <listing xml:id="binheap_lst-heap3" names="lst_heap3">
                 <caption><c>insert</c> Method</caption>
-                <program language="cpp" label="binheap_lst-heap3-prog"><input>
+                <program language="cpp" label="binheap_lst-heap3-prog"><code>
 void insert(int k){
     this-&gt;heapvector.push_back(k);
     this-&gt;currentSize = this-&gt;currentSize + 1;
     this-&gt;percUp(this-&gt;currentSize);
 }
-                </input></program>
+                </code></program>
             </listing>
             <p>With the <c>insert</c> method properly defined, we can now look at the
                 <c>delMin</c> method. Since the heap property requires that the root of the
@@ -191,16 +191,16 @@ void insert(int k){
                 Image showing the process of percolating the root node down the tree in a binary heap after removing the minimum (root) value. 
                 The diagram consists of four stages illustrating how the heap structure property is restored.
 
-                In the first stage, the root node "5" is removed, leaving an empty root. The last node in the heap, "27," is moved to the root, 
+                In the first stage, the root node &quot;5&quot; is removed, leaving an empty root. The last node in the heap, &quot;27,&quot; is moved to the root, 
                 creating a temporary imbalance in the heap structure. Arrows indicate the initial swap process.
 
-                In the second stage (swap 1), the new root "27" is swapped with the smaller of its two children, "9," moving "27" down the tree 
+                In the second stage (swap 1), the new root &quot;27&quot; is swapped with the smaller of its two children, &quot;9,&quot; moving &quot;27&quot; down the tree 
                 and partially restoring the heap structure.
 
-                In the third stage (swap 2), "27" is swapped with its smaller child "14," further percolating it down the tree and improving 
+                In the third stage (swap 2), &quot;27&quot; is swapped with its smaller child &quot;14,&quot; further percolating it down the tree and improving 
                 the heap structure.
 
-                In the fourth stage (swap 3), "27" is swapped with its child "17," reaching its proper position. The heap structure is now 
+                In the fourth stage (swap 3), &quot;27&quot; is swapped with its child &quot;17,&quot; reaching its proper position. The heap structure is now 
                 fully restored, maintaining the binary heap properties.
 
                 Each stage is annotated with arrows and labels indicating the swaps, clearly demonstrating the percolation process.
@@ -218,7 +218,7 @@ void insert(int k){
             
             <listing xml:id="binheap_lst-heap4">
                 <caption><c>percDown</c> and <c>minChild</c> Methods</caption>
-                <program language="cpp" label="binheap_lst-heap4-prog"><input>
+                <program language="cpp" label="binheap_lst-heap4-prog"><code>
 void percDown(int i){
     while ((i*2) &lt;= this-&gt;currentSize){
         int mc = this-&gt;minChild(i);
@@ -244,7 +244,7 @@ int minChild(int i){
         }
     }
 }
-                </input></program>
+                </code></program>
             </listing>
             <p>The code for the <c>delMin</c> operation is in <xref ref="binheap_lst-heap5"/>. Note
                 that once again the hard work is handled by a helper function, in this
@@ -252,7 +252,7 @@ int minChild(int i){
             
             <listing xml:id="binheap_lst-heap5" names="lst_heap5">
                 <caption><c>delMin</c> Implementation</caption>
-                <program language="cpp" label="binheap_lst-heap5-prog"><input>
+                <program language="cpp" label="binheap_lst-heap5-prog"><code>
 int delMin(){
     if (this-&gt;currentSize &gt; 1){
         int retval = this-&gt;heapvector[1];
@@ -271,7 +271,7 @@ int delMin(){
         return retval;
     }
 }
-                </input></program>
+                </code></program>
             </listing>
            <p>To finish our discussion of binary heaps, we will look at a method to
                 build an entire heap from a vector of keys. The first method you might
@@ -290,7 +290,7 @@ int delMin(){
             
             <listing xml:id="binheap_lst-heap6">
                 <caption><c>buildHeap</c> Implementation</caption>
-                <program language="cpp" label="binheap_lst-heap6-prog"><input>
+                <program language="cpp" label="binheap_lst-heap6-prog"><code>
 void buildheap(vector&lt;int&gt; avector){
     int i = avector.size() / 2;
     this-&gt;currentSize = avector.size();
@@ -300,7 +300,7 @@ void buildheap(vector&lt;int&gt; avector){
         i = i - 1;
     }
 }
-                </input></program>
+                </code></program>
             </listing>
             <figure align="center" xml:id="binheap_fig-buildheap">
                 <caption>Building a Heap from the vector [9, 6, 5, 2, 3].</caption>
@@ -310,12 +310,12 @@ void buildheap(vector&lt;int&gt; avector){
                     Image showing the process of building a binary heap from the vector [9, 6, 5, 2, 3] using the `buildHeap` algorithm. 
                     The diagram consists of four stages that represent the percolation process as elements are rearranged to satisfy the heap properties.
                     In the first stage, the initial heap is shown as an unstructured tree with the vector elements arranged in their input order. 
-                    In the second stage (i = 2), the element at index 2, "5," is percolated down as needed to maintain the heap property, 
+                    In the second stage (i = 2), the element at index 2, &quot;5,&quot; is percolated down as needed to maintain the heap property, 
                     though no swaps are required at this step.
-                    In the third stage (i = 1), the element at index 1, "6," is percolated down and swapped with its smaller child, "2," to restore 
+                    In the third stage (i = 1), the element at index 1, &quot;6,&quot; is percolated down and swapped with its smaller child, &quot;2,&quot; to restore 
                     the heap property. 
-                    In the fourth stage (i = 0), the element at the root, "9," is percolated down through successive swaps with its smaller children 
-                    ("2" and "3") to reach its proper position in the heap.
+                    In the fourth stage (i = 0), the element at the root, &quot;9,&quot; is percolated down through successive swaps with its smaller children 
+                    (&quot;2&quot; and &quot;3&quot;) to reach its proper position in the heap.
                     Each stage is annotated with arrows and labels, illustrating the transformations at each step of the heap-building process.
                 </p>
                 </description>
@@ -346,7 +346,7 @@ i = 0  [0, 2, 3, 6, 5, 9]</pre>
                 <title>Complete Heap Implementation</title>
                 <task xml:id="lst-heapwhole-cpp" label="lst-heapwhole-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="completeheapcpp" interactive="activecode" language="cpp" label="completeheapcpp-prog"><input>
+                    <statement><program xml:id="completeheapcpp" interactive="activecode" language="cpp" label="completeheapcpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -471,23 +471,23 @@ int main(){
 
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="lst-heapwhole-py" label="lst-heapwhole-py">
                     <title>Python Implementation</title>
-                    <statement><program xml:id="prog-heapwhole-py" interactive="activecode" language="python" label="prog-heapwhole-py-prog"><input>
+                    <statement><program xml:id="prog-heapwhole-py" interactive="activecode" language="python" label="prog-heapwhole-py-prog"><code>
 # uses a vector to create a Binary Heap
 class BinHeap:
-    """initializes the vector and an attribute currentSize
-    as 0 to allow for interger division."""
+    &quot;&quot;&quot;initializes the vector and an attribute currentSize
+    as 0 to allow for interger division.&quot;&quot;&quot;
     def __init__(self):
         self.heapList = [0]
         self.currentSize = 0
 
 
-    """ prelocates and item as far up in the
+    &quot;&quot;&quot; prelocates and item as far up in the
     tree as possible to maintain
-    the Heap property """
+    the Heap property &quot;&quot;&quot;
     def percUp(self,i):
         while i // 2 &gt; 0:
             if self.heapList[i] &lt; self.heapList[i // 2]:
@@ -502,9 +502,9 @@ class BinHeap:
         self.currentSize = self.currentSize + 1
         self.percUp(self.currentSize)
 
-    """ prelocates and item as far down in the
+    &quot;&quot;&quot; prelocates and item as far down in the
     tree as possible to maintain
-    the Heap property """
+    the Heap property &quot;&quot;&quot;
     def percDown(self,i):
         while (i * 2) &lt;= self.currentSize:
             mc = self.minChild(i)
@@ -523,10 +523,10 @@ class BinHeap:
             else:
                 return i * 2 + 1
 
-    """ restores full complince with the heap structure
+    &quot;&quot;&quot; restores full complince with the heap structure
     and heap order properties after the root is removed
     by  taking the last item and moving it to the root position
-    and pushing the new root node down the tree to its proper postion."""
+    and pushing the new root node down the tree to its proper postion.&quot;&quot;&quot;
     def delMin(self):
         retval = self.heapList[1]
         self.heapList[1] = self.heapList[self.currentSize]
@@ -555,7 +555,7 @@ def main():
     print(bh.delMin())
 
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
             <p>The assertion that we can build the heap in <m>O(n)</m> may seem a
@@ -578,4 +578,3 @@ main()
     <p>What is the vector used in the binary tree in the first image of <xref ref="binheap_fig-percdown"/>? Exclude any whitespace. <var/>  </p></statement><setup><var><condition string="^\s*0,9,14,11,17,18,19,21,33,27\s*$"><feedback><p>Is the correct answer!</p></feedback></condition><condition string="^\s*.*9,14,11,17,18,19,21,33,27\s*$"><feedback><p>Remember what has to be at the beginning of the vector to accurately traverse through the binary tree. Look back at chp. 8.9.2.</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>Refer to section 8.10.1 and 8.10.2</p></feedback></condition></var></setup></exercise> </reading-questions>
 </subsection>
     </section>
-

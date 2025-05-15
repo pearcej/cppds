@@ -1,4 +1,4 @@
-<section xml:id="trees_binary-heap-operations">
+<?xml version="1.0" ?><section xml:id="trees_binary-heap-operations">
         <title>Binary Heap Operations</title>
         <p>The basic operations we will implement for our binary heap are as
             follows:</p>
@@ -35,7 +35,7 @@
             <title>Binary Heap Operations</title>
             <task xml:id="lst-binheapops-cpp" label="lst-binheapops-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-binheapops-cpp" interactive="activecode" language="cpp" label="prog-binheapops-cpp-prog"><input>
+                <statement><program xml:id="prog-binheapops-cpp" interactive="activecode" language="cpp" label="prog-binheapops-cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -149,11 +149,11 @@ int main(){
 
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-binheapops-py" label="lst-binheapops-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-binheapops-py" interactive="activecode" language="python" label="prog-binheapops-py-prog"><input>
+                <statement><program xml:id="prog-binheapops-py" interactive="activecode" language="python" label="prog-binheapops-py-prog"><code>
 #you can use the command below to import the binheap library:
 #from pythonds.trees.binheap import BinHeap
 
@@ -236,8 +236,7 @@ def main():
     print(bh.delMin())
 
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
 </section>
-
