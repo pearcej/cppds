@@ -263,7 +263,7 @@ we will use that terminology in our implementation.
 
 .. _lst_binarygateclass:
 
-**Listing 9**
+**Listing 9 Binary Gate Class**
 
 .. tabbed:: 1st_binarygateclass
 
@@ -325,7 +325,7 @@ we will use that terminology in our implementation.
 
 .. _lst_unarygateclass:
 
-**Listing 10**
+**Listing 10 Unary Gate Class**
 
 .. tabbed:: 1st_unarygateclass
 
