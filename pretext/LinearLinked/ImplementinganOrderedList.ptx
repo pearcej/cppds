@@ -1,11 +1,11 @@
-<section xml:id="linear-linked_implementing-an-ordered-linked-list">
+<?xml version="1.0" ?><section xml:id="linear-linked_implementing-an-ordered-linked-list">
         <title>Implementing an Ordered Linked List</title>
         <introduction>
         <definition xml:id="def-ordered-linked-list">
         <idx>ordered linked list</idx>
             <statement>
              <p>
-              An <term>ordered linked list</term> is a linear data structure consisting of a collection of nodes, each containing two main components: a data element, often referred to as the "value" or "key", and a "reference" or "link" to the next node in the sequence. These nodes are organized in a specific order based on the values of their data elements, typically in ascending or descending order.
+              An <term>ordered linked list</term> is a linear data structure consisting of a collection of nodes, each containing two main components: a data element, often referred to as the &quot;value&quot; or &quot;key&quot;, and a &quot;reference&quot; or &quot;link&quot; to the next node in the sequence. These nodes are organized in a specific order based on the values of their data elements, typically in ascending or descending order.
              </p>
             </statement>
         </definition>
@@ -30,11 +30,11 @@
         
         <listing xml:id="linear-linked_lst-orderlist">
             <caption><c>OrderedList</c> Member Variable</caption>
-            <program language="cpp" label="linear-linked_lst-orderlist-prog"><input>
+            <program language="cpp" label="linear-linked_lst-orderlist-prog"><code>
 class OrderedList {
     Node* head;
 }
-            </input></program>
+            </code></program>
         </listing>
         <p>As we consider the operations for the ordered linked list, we should note that
             the <c>isEmpty</c> and <c>size</c> methods can be implemented the same as
@@ -80,7 +80,7 @@ class OrderedList {
         
         <listing xml:id="linear-linked_lst-ordersearch">
             <caption><c>search</c> Method</caption>
-            <program language="cpp" label="linear-linked_lst-ordersearch-prog"><input>
+            <program language="cpp" label="linear-linked_lst-ordersearch-prog"><code>
 bool search(int item) {
     Node *current = head;
     bool found = false;
@@ -99,7 +99,7 @@ bool search(int item) {
 
     return found;
 }
-            </input></program>
+            </code></program>
         </listing>
         <p>The most significant method modification will take place in <c>add</c>.
             Recall that for unordered linked lists, the <c>add</c> method could simply place a
@@ -142,7 +142,7 @@ bool search(int item) {
         
         <listing xml:id="linear-linked_lst-orderadd">
             <caption><c>add</c> Method</caption>
-            <program language="cpp" label="linear-linked_lst-orderadd-prog"><input>
+            <program language="cpp" label="linear-linked_lst-orderadd-prog"><code>
 void add(int item) {
     if (head == NULL) {
         Node *newNode = new Node(item);
@@ -169,7 +169,7 @@ void add(int item) {
         }
     }
 }
-            </input></program>
+            </code></program>
         </listing>
         <p>The <c>OrderedList</c> class with methods discussed thus far can be found
             in ActiveCode 1.
@@ -178,7 +178,7 @@ void add(int item) {
             linked list is now ordered.</p>
 
     <program xml:id="orderedlistclass_cpp" interactive="activecode" language="cpp" label="orderedlistclass_cpp-prog">
-        <input>
+        <code>
 // similar to unordered lists except it orders the data
 
 #include &lt;iostream&gt;
@@ -316,13 +316,13 @@ int main() {
     mylist.add(26);
     mylist.add(54);
 
-    cout&lt;&lt;"SIZE: "&lt;&lt;mylist.size()&lt;&lt;endl;
-    cout&lt;&lt;"contains 93?\t"&lt;&lt;mylist.search(93)&lt;&lt;endl;
-    cout&lt;&lt;"contains 100?\t"&lt;&lt;mylist.search(100)&lt;&lt;endl&lt;&lt;endl;
-    cout&lt;&lt;"MY LIST: "&lt;&lt;endl&lt;&lt;mylist;
+    cout&lt;&lt;&quot;SIZE: &quot;&lt;&lt;mylist.size()&lt;&lt;endl;
+    cout&lt;&lt;&quot;contains 93?\t&quot;&lt;&lt;mylist.search(93)&lt;&lt;endl;
+    cout&lt;&lt;&quot;contains 100?\t&quot;&lt;&lt;mylist.search(100)&lt;&lt;endl&lt;&lt;endl;
+    cout&lt;&lt;&quot;MY LIST: &quot;&lt;&lt;endl&lt;&lt;mylist;
     return 0;
 }
-        </input>
+        </code>
     </program>
     </introduction>
         <subsection xml:id="linear-linked_analysis-of-linked-lists">
@@ -367,7 +367,7 @@ int main() {
                     <p>In a circular linked list, the last Node of the linked list contains a pointer to the head node of the list rather than pointing to NULL.</p>
                 </statement>
                 <feedback>
-                    <p>Correct! the final Node of the linked list will contain a pointer to the first node so that it is possible to make "circles" around the list.</p>
+                    <p>Correct! the final Node of the linked list will contain a pointer to the first node so that it is possible to make &quot;circles&quot; around the list.</p>
                 </feedback>
             </choice>
 

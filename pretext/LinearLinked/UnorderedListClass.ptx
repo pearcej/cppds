@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<section xml:id="linear-linked_unordered-linked-list">
+<?xml version="1.0" ?><section xml:id="linear-linked_unordered-linked-list">
     <title>The <c>Unordered Linked List</c> Class</title>
 
     <p>As we suggested above, the <term>unordered linked list</term>
@@ -13,7 +12,7 @@
 
     <listing xml:id="unordered-constructor">
         <caption><c>UnorderedList</c> Constructor</caption>
-        <program language="cpp" label="unordered-constructor-prog"><input>
+        <program language="cpp" label="unordered-constructor-prog"><code>
 class UnorderedList {
     public:
         Node *head;
@@ -22,7 +21,7 @@ class UnorderedList {
                 head = NULL;
         }
 };
-        </input></program>
+        </code></program>
     </listing>
     <p>Initially when we construct a list, there are no items. The assignment and declaration statment</p>
     <pre>UnorderedList myList;</pre>
@@ -40,8 +39,8 @@ class UnorderedList {
         <image source="LinearLinked/initlinkedlist.png" width="50%">
         <description>
             <p>
-                A diagram of a newly constructed, empty linked list. A variable labeled "mylist" points to a circular node labeled "head." 
-                The "head" node contains no data and points to the end of the list, represented by a vertical line. The diagram depicts 
+                A diagram of a newly constructed, empty linked list. A variable labeled &quot;mylist&quot; points to a circular node labeled &quot;head.&quot; 
+                The &quot;head&quot; node contains no data and points to the end of the list, represented by a vertical line. The diagram depicts 
                 the initial state of an empty linked list with no elements inserted.
             </p>
         </description>
@@ -54,8 +53,8 @@ class UnorderedList {
         <image source="LinearLinked/linkedlist.png" width="50%">
         <description>
             <p>
-                A diagram of a linked list with multiple elements inserted. The "mylist" variable points to a circular node labeled "head." 
-                The "head" node links to a sequence of rectangular nodes, each containing a data value: "54," "26," "93," "17," "77," and "31." 
+                A diagram of a linked list with multiple elements inserted. The &quot;mylist&quot; variable points to a circular node labeled &quot;head.&quot; 
+                The &quot;head&quot; node links to a sequence of rectangular nodes, each containing a data value: &quot;54,&quot; &quot;26,&quot; &quot;93,&quot; &quot;17,&quot; &quot;77,&quot; and &quot;31.&quot; 
                 Each node points to the next in sequence, with the final node pointing to the end of the list, represented by a vertical line. 
                 This illustrates the progression of the linked list as data is added.
             </p>
@@ -73,11 +72,11 @@ class UnorderedList {
         object. We will use this often in our remaining methods.</p>
     <listing xml:id="unordered-isempty">
         <caption><c>UnorderedList</c> <c>isEmpty()</c> method</caption>
-        <program language="cpp" label="unordered-isempty-prog"><input>
+        <program language="cpp" label="unordered-isempty-prog"><code>
 bool isEmpty() {
     return head == NULL;
 }
-        </input></program>
+        </code></program>
     </listing>
 
     <p>So, how do we get items into our linked list? We need to implement the <c>add</c> method.
@@ -100,14 +99,14 @@ bool isEmpty() {
 
     <listing xml:id="unordered-lst-add">
         <caption><c>UnorderedList</c> Adding Elements</caption>
-        <program language="cpp" label="unordered-lst-add-prog"><input>
+        <program language="cpp" label="unordered-lst-add-prog"><code>
 mylist.add(31);
 mylist.add(77);
 mylist.add(17);
 mylist.add(93);
 mylist.add(26);
 mylist.add(54);
-        </input></program>
+        </code></program>
     </listing>
 
     <p>Note that since 31 is the first item added to the linked list, it will
@@ -127,13 +126,13 @@ mylist.add(54);
             
     <listing xml:id="unordered-add">
         <caption><c>UnorderedList</c> <c>add</c> Method</caption>
-        <program language="cpp" line-numbers="yes" label="unordered-add-prog"><input>
+        <program language="cpp" line-numbers="yes" label="unordered-add-prog"><code>
 void add(int item) {
     Node *temp = new Node(item);
     temp-&gt;setNext(head);
     head = temp;
 }
-        </input></program>
+        </code></program>
     </listing>
 
     <figure align="center" xml:id="fig-unordered-add-correct">
@@ -141,13 +140,13 @@ void add(int item) {
         <image source="LinearLinked/addtohead.png" width="50%">
         <description>
             <p>
-                A diagram illustrating the process of adding a new node with the value "26" to a linked list. The list initially starts 
-                with a "head" pointer referencing the first node containing "93." This node links to subsequent nodes with values 
-                "17," "77," and "31," ending with a vertical line that marks the end of the list. 
+                A diagram illustrating the process of adding a new node with the value &quot;26&quot; to a linked list. The list initially starts 
+                with a &quot;head&quot; pointer referencing the first node containing &quot;93.&quot; This node links to subsequent nodes with values 
+                &quot;17,&quot; &quot;77,&quot; and &quot;31,&quot; ending with a vertical line that marks the end of the list. 
 
-                The process involves two steps. In Step 1, the "next" field of the new node ("26") is set to point to the node currently 
-                referenced by the "head" (node "93"). In Step 2, the "head" pointer is updated to reference the new node ("26"), 
-                effectively inserting it at the beginning of the list. The "temp" variable temporarily holds the new node during this process.
+                The process involves two steps. In Step 1, the &quot;next&quot; field of the new node (&quot;26&quot;) is set to point to the node currently 
+                referenced by the &quot;head&quot; (node &quot;93&quot;). In Step 2, the &quot;head&quot; pointer is updated to reference the new node (&quot;26&quot;), 
+                effectively inserting it at the beginning of the list. The &quot;temp&quot; variable temporarily holds the new node during this process.
             </p>
         </description>
         </image>
@@ -165,12 +164,12 @@ void add(int item) {
         <image source="LinearLinked/wrongorder.png" width="50%">
         <description>
             <p>
-                A diagram showing an incorrect process for adding a new node ("26") to a linked list, resulting in the loss of the original head node. 
-                The "head" pointer is updated to reference the new node ("26") without first preserving a reference to the original head node ("93"). 
-                The original linked list, consisting of nodes "93," "17," "77," and "31," becomes disconnected, with no external reference to it, 
-                as indicated by the dashed oval labeled "no external reference." 
-                The new node ("26") points to the end of the list, represented by a vertical line, making it the only accessible node in the structure. 
-                The "temp" variable temporarily holds the new node during this process.
+                A diagram showing an incorrect process for adding a new node (&quot;26&quot;) to a linked list, resulting in the loss of the original head node. 
+                The &quot;head&quot; pointer is updated to reference the new node (&quot;26&quot;) without first preserving a reference to the original head node (&quot;93&quot;). 
+                The original linked list, consisting of nodes &quot;93,&quot; &quot;17,&quot; &quot;77,&quot; and &quot;31,&quot; becomes disconnected, with no external reference to it, 
+                as indicated by the dashed oval labeled &quot;no external reference.&quot; 
+                The new node (&quot;26&quot;) points to the end of the list, represented by a vertical line, making it the only accessible node in the structure. 
+                The &quot;temp&quot; variable temporarily holds the new node during this process.
             </p>
         </description>
 
@@ -200,18 +199,18 @@ void add(int item) {
 
     <listing xml:id="unordered-size">
         <caption><c>UnorderedList</c> <c>size</c> Method</caption>
-        <program language="cpp" line-numbers="yes" label="unordered-size-prog"><input>
+        <program language="cpp" line-numbers="yes" label="unordered-size-prog"><code>
 int size() {
     Node *current = head;
     int count = 0;
     while (current != NULL) {
         count++;
-        current = current->getNext();
+        current = current-&gt;getNext();
     }
 
     return count;
 }
-        </input></program>
+        </code></program>
     </listing>
 
     <figure align="center" xml:id="fig-traversal">
@@ -219,11 +218,11 @@ int size() {
         <image source="LinearLinked/traversal.png" width="50%">
         <description>
             <p>
-                A diagram demonstrating the traversal process of a linked list. The list begins with a "head" pointer referencing the first node, which contains the value "54." 
-                Subsequent nodes contain values "26," "93," "17," "77," and "31," in that order, ending with a vertical line that marks the end of the list. 
+                A diagram demonstrating the traversal process of a linked list. The list begins with a &quot;head&quot; pointer referencing the first node, which contains the value &quot;54.&quot; 
+                Subsequent nodes contain values &quot;26,&quot; &quot;93,&quot; &quot;17,&quot; &quot;77,&quot; and &quot;31,&quot; in that order, ending with a vertical line that marks the end of the list. 
 
-                The traversal process is indicated by an arrow labeled "traversal," moving from left to right. A variable labeled "current" sequentially points to each node, 
-                starting at the "head" and progressing through each node in the list until it reaches the end marker. Dashed arrows illustrate the movement of the "current" pointer 
+                The traversal process is indicated by an arrow labeled &quot;traversal,&quot; moving from left to right. A variable labeled &quot;current&quot; sequentially points to each node, 
+                starting at the &quot;head&quot; and progressing through each node in the list until it reaches the end marker. Dashed arrows illustrate the movement of the &quot;current&quot; pointer 
                 as it traverses the list.
             </p>
         </description>
@@ -247,19 +246,19 @@ int size() {
 
     <listing xml:id="unordered-search">
         <caption><c>UnorderedList</c> <c>search</c> Method</caption>
-        <program language="cpp" line-numbers="yes" label="unordered-search-prog"><input>
+        <program language="cpp" line-numbers="yes" label="unordered-search-prog"><code>
 bool search(int item) {
     Node *current = head;
     while (current != NULL) {
-        if (current->getData() == item) {
+        if (current-&gt;getData() == item) {
             return true;
         } else {
-            current = current->getNext();
+            current = current-&gt;getNext();
         }
     }
     return false;
 }
-        </input></program>
+        </code></program>
     </listing>
 
     <p>As an example, consider invoking the <c>search</c> method looking for the
@@ -279,12 +278,12 @@ bool search(int item) {
         <image source="LinearLinked/search.png" width="50%">
     <description>
         <p>
-            A diagram demonstrating the process of searching for a specific value ("17") in a linked list. The list starts with a "head" pointer referencing the first node, 
-            which contains the value "54." Subsequent nodes contain values "26," "93," "17," "77," and "31," in that order, ending with a vertical line marking the end of the list. 
+            A diagram demonstrating the process of searching for a specific value (&quot;17&quot;) in a linked list. The list starts with a &quot;head&quot; pointer referencing the first node, 
+            which contains the value &quot;54.&quot; Subsequent nodes contain values &quot;26,&quot; &quot;93,&quot; &quot;17,&quot; &quot;77,&quot; and &quot;31,&quot; in that order, ending with a vertical line marking the end of the list. 
 
-            The traversal process is indicated by an arrow labeled "traversal," moving from left to right. A variable labeled "current" sequentially points to each node, 
-            beginning at the "head" and progressing through the list. The node with the value "17" is circled to indicate it has been located. Dashed arrows illustrate the movement 
-            of the "current" pointer during the search process.
+            The traversal process is indicated by an arrow labeled &quot;traversal,&quot; moving from left to right. A variable labeled &quot;current&quot; sequentially points to each node, 
+            beginning at the &quot;head&quot; and progressing through the list. The node with the value &quot;17&quot; is circled to indicate it has been located. Dashed arrows illustrate the movement 
+            of the &quot;current&quot; pointer during the search process.
         </p>
     </description>
         </image>
@@ -334,26 +333,26 @@ bool search(int item) {
     
     <listing xml:id="unordered-remove">
         <caption><c>UnorderedList</c> <c>remove</c> Method</caption>
-        <program language="cpp" line-numbers="yes" label="unordered-remove-prog"><input>
+        <program language="cpp" line-numbers="yes" label="unordered-remove-prog"><code>
 void remove(int item) {
     Node *current = head;
     Node *previous = NULL;
     bool found = false;
     while (!found) {
-        if (current->getData() == item) {
+        if (current-&gt;getData() == item) {
             found = true;
         } else {
             previous = current;
-            current = current->getNext();
+            current = current-&gt;getNext();
         }
     }
     if (previous == NULL) {
-        head = current->getNext();
+        head = current-&gt;getNext();
     } else {
-        previous->setNext(current->getNext());
+        previous-&gt;setNext(current-&gt;getNext());
     }
 }
-        </input></program>
+        </code></program>
     </listing>
 
     <figure align="center" xml:id="fig-unordered-removeinit">
@@ -361,11 +360,11 @@ void remove(int item) {
         <image source="LinearLinked/removeinit.png" width="50%">
         <description>
             <p>
-                A diagram showing the initialization process for removing a node from a linked list. The list begins with a "head" pointer referencing the first node, 
-                which contains the value "54." Subsequent nodes contain values "26," "93," "17," "77," and "31," in that order, ending with a vertical line marking the end of the list. 
+                A diagram showing the initialization process for removing a node from a linked list. The list begins with a &quot;head&quot; pointer referencing the first node, 
+                which contains the value &quot;54.&quot; Subsequent nodes contain values &quot;26,&quot; &quot;93,&quot; &quot;17,&quot; &quot;77,&quot; and &quot;31,&quot; in that order, ending with a vertical line marking the end of the list. 
 
-                Two variables, "current" and "previous," are introduced for the removal process. The "current" variable initially points to the "head" node, 
-                while the "previous" variable points to the null marker (indicated by a vertical line before the "head"). These pointers will be used to traverse 
+                Two variables, &quot;current&quot; and &quot;previous,&quot; are introduced for the removal process. The &quot;current&quot; variable initially points to the &quot;head&quot; node, 
+                while the &quot;previous&quot; variable points to the null marker (indicated by a vertical line before the &quot;head&quot;). These pointers will be used to traverse 
                 and modify the linked list during the removal operation.
             </p>
         </description>
@@ -388,14 +387,14 @@ void remove(int item) {
         <image source="LinearLinked/prevcurr.png" width="50%">
 <description>
     <p>
-        A diagram showing the step-by-step process of removing a node ("17") from a linked list. The list begins with a "head" pointer referencing the first node, 
-        which contains the value "54," followed by nodes with values "26," "93," "17," "77," and "31," ending with a vertical line.
+        A diagram showing the step-by-step process of removing a node (&quot;17&quot;) from a linked list. The list begins with a &quot;head&quot; pointer referencing the first node, 
+        which contains the value &quot;54,&quot; followed by nodes with values &quot;26,&quot; &quot;93,&quot; &quot;17,&quot; &quot;77,&quot; and &quot;31,&quot; ending with a vertical line.
 
-        The process is illustrated in four steps, labeled "Step 0" to "Step 3." 
-        - In Step 0, the "current" pointer starts at the "head" node ("54"), and the "previous" pointer is set to null. 
-        - In subsequent steps, both "current" and "previous" pointers traverse the list. The "current" pointer moves to each node sequentially 
-          while the "previous" pointer follows behind. 
-        - By Step 3, "current" points to the target node ("17"), and "previous" points to the preceding node ("93"). 
+        The process is illustrated in four steps, labeled &quot;Step 0&quot; to &quot;Step 3.&quot; 
+        - In Step 0, the &quot;current&quot; pointer starts at the &quot;head&quot; node (&quot;54&quot;), and the &quot;previous&quot; pointer is set to null. 
+        - In subsequent steps, both &quot;current&quot; and &quot;previous&quot; pointers traverse the list. The &quot;current&quot; pointer moves to each node sequentially 
+          while the &quot;previous&quot; pointer follows behind. 
+        - By Step 3, &quot;current&quot; points to the target node (&quot;17&quot;), and &quot;previous&quot; points to the preceding node (&quot;93&quot;). 
           At this step, the traversal stops.
     </p>
 </description>
@@ -419,10 +418,10 @@ void remove(int item) {
         <image source="LinearLinked/remove.png" width="50%">
         <description>
             <p>
-                A diagram showing the actual removal of the node with the value "17" from the middle of a linked list. 
-                The "current" pointer is positioned on the node with the value "17," which is to be removed, while the "previous" pointer points to the preceding node 
-                ("93"). The "next" reference of the "previous" node is updated to skip the "current" node and point directly to the node after ("77"). 
-                This effectively removes the "17" node from the linked list while maintaining the proper structure of the list.
+                A diagram showing the actual removal of the node with the value &quot;17&quot; from the middle of a linked list. 
+                The &quot;current&quot; pointer is positioned on the node with the value &quot;17,&quot; which is to be removed, while the &quot;previous&quot; pointer points to the preceding node 
+                (&quot;93&quot;). The &quot;next&quot; reference of the &quot;previous&quot; node is updated to skip the &quot;current&quot; node and point directly to the node after (&quot;77&quot;). 
+                This effectively removes the &quot;17&quot; node from the linked list while maintaining the proper structure of the list.
             </p>
         </description>
 
@@ -434,11 +433,11 @@ void remove(int item) {
         <image source="LinearLinked/remove2.png" width="50%">
         <description>
             <p>
-                A diagram illustrating the removal of the first node ("head") from a linked list. The list starts with the "head" pointer referencing the first node, 
-                which contains the value "54," followed by nodes with values "26," "93," "17," "77," and "31," ending with a vertical line.
+                A diagram illustrating the removal of the first node (&quot;head&quot;) from a linked list. The list starts with the &quot;head&quot; pointer referencing the first node, 
+                which contains the value &quot;54,&quot; followed by nodes with values &quot;26,&quot; &quot;93,&quot; &quot;17,&quot; &quot;77,&quot; and &quot;31,&quot; ending with a vertical line.
 
-                The "current" pointer is positioned on the first node ("54"), which is to be removed. The "previous" pointer is initially set to a null 
-                reference, indicating the absence of a preceding node. The "head" pointer is updated to reference the next node ("26"), effectively removing 
+                The &quot;current&quot; pointer is positioned on the first node (&quot;54&quot;), which is to be removed. The &quot;previous&quot; pointer is initially set to a null 
+                reference, indicating the absence of a preceding node. The &quot;head&quot; pointer is updated to reference the next node (&quot;26&quot;), effectively removing 
                 the first node from the list while maintaining the integrity of the linked list structure.
             </p>
         </description>
@@ -469,7 +468,7 @@ void remove(int item) {
         <title>C++ Implementation</title>
         <statement>
             <program xml:id="lst_unordered_cpp" interactive="activecode" language="cpp" label="lst_unordered_cpp-prog">
-                <input>
+                <code>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -516,13 +515,13 @@ class UnorderedList {
             return head == NULL;
         }
 
-        void add(int item) { //cerates a "temp" pointer that adds the new node to the head of the list
+        void add(int item) { //cerates a &quot;temp&quot; pointer that adds the new node to the head of the list
             Node *temp = new Node(item);
             temp-&gt;setNext(head);
             head = temp;
         }
 
-        int size() { //cereates a "current" pointer that iterates through the list until it reaches null
+        int size() { //cereates a &quot;current&quot; pointer that iterates through the list until it reaches null
             Node *current = head;
             int count = 0;
             while (current != NULL) {
@@ -533,7 +532,7 @@ class UnorderedList {
             return count;
         }
 
-        // creates "current" pointer that iterates through the list
+        // creates &quot;current&quot; pointer that iterates through the list
         // untli it finds the item being searched for, and returns a boolean value
 
         bool search(int item) {
@@ -592,26 +591,26 @@ int main() {
     mylist.add(26);
     mylist.add(54);
 
-    cout&lt;&lt;"SIZE: "&lt;&lt;mylist.size()&lt;&lt;endl;
-    cout&lt;&lt;"contains 93?\t"&lt;&lt;mylist.search(93)&lt;&lt;endl;
-    cout&lt;&lt;"contains 100?\t"&lt;&lt;mylist.search(100)&lt;&lt;endl&lt;&lt;endl;
+    cout&lt;&lt;&quot;SIZE: &quot;&lt;&lt;mylist.size()&lt;&lt;endl;
+    cout&lt;&lt;&quot;contains 93?\t&quot;&lt;&lt;mylist.search(93)&lt;&lt;endl;
+    cout&lt;&lt;&quot;contains 100?\t&quot;&lt;&lt;mylist.search(100)&lt;&lt;endl&lt;&lt;endl;
 
     mylist.add(100);
-    cout&lt;&lt;"contains 100?\t"&lt;&lt;mylist.search(100)&lt;&lt;endl&lt;&lt;endl;
-    cout&lt;&lt;"SIZE: "&lt;&lt;mylist.size()&lt;&lt;endl;
+    cout&lt;&lt;&quot;contains 100?\t&quot;&lt;&lt;mylist.search(100)&lt;&lt;endl&lt;&lt;endl;
+    cout&lt;&lt;&quot;SIZE: &quot;&lt;&lt;mylist.size()&lt;&lt;endl;
 
     mylist.remove(54);
-    cout&lt;&lt;"SIZE: "&lt;&lt;mylist.size()&lt;&lt;endl;
+    cout&lt;&lt;&quot;SIZE: &quot;&lt;&lt;mylist.size()&lt;&lt;endl;
     mylist.remove(93);
-    cout&lt;&lt;"SIZE: "&lt;&lt;mylist.size()&lt;&lt;endl;
+    cout&lt;&lt;&quot;SIZE: &quot;&lt;&lt;mylist.size()&lt;&lt;endl;
     mylist.remove(31);
-    cout&lt;&lt;"SIZE: "&lt;&lt;mylist.size()&lt;&lt;endl;
+    cout&lt;&lt;&quot;SIZE: &quot;&lt;&lt;mylist.size()&lt;&lt;endl;
     mylist.search(93);
 
-    cout&lt;&lt;"MY LIST: "&lt;&lt;endl&lt;&lt;mylist;
+    cout&lt;&lt;&quot;MY LIST: &quot;&lt;&lt;endl&lt;&lt;mylist;
         return 0;
 }
-                </input>
+                </code>
             </program>
         </statement>
     </task>
@@ -621,7 +620,7 @@ int main() {
         <title>Python Implementation</title>
         <statement>
             <program xml:id="lst_unordered_py" interactive="activecode" language="python" label="lst_unordered_py-prog">
-                <input>
+                <code>
 class Node:
     def __init__(self, initdata):
         self.data = initdata
@@ -678,12 +677,12 @@ mylist.add(93)
 mylist.add(26)
 mylist.add(54)
 
-print("Search for 93:", mylist.search(93))
-print("Search for 100:", mylist.search(100))
+print(&quot;Search for 93:&quot;, mylist.search(93))
+print(&quot;Search for 100:&quot;, mylist.search(100))
 
 mylist.remove(54)
-print("Search for 54 after removal:", mylist.search(54))
-                </input>
+print(&quot;Search for 54 after removal:&quot;, mylist.search(54))
+                </code>
             </program>
         </statement>
     </task>
