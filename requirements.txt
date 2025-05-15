@@ -1,3 +1,4 @@
-pretext>=2.7.0
-runestone>=3.0.0b5
+runestone>=3.2.11
 SQLAlchemy>=1.0.8
+jupyterlite-sphinx
+pretext=2.18.0
