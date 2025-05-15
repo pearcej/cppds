@@ -1,4 +1,4 @@
-<section xml:id="linear-basic_using-a-stack-in-c">
+<?xml version="1.0" ?><section xml:id="linear-basic_using-a-stack-in-c">
         <title>Using a Stack in C++</title>
         <p>Now that we have clearly defined the stack as an abstract data type we
             will turn our attention to using a stack with the help of the Standard Template Library (STL) in C++. Recall
@@ -18,7 +18,7 @@
             <title>Stack Implementation</title>
             <task xml:id="stack-code1" label="stack-code1">
                 <title>C++ Implementation</title>
-                <statement><program interactive="activecode" language="cpp" label="stack-code1-prog"><input>
+                <statement><program interactive="activecode" language="cpp" label="stack-code1-prog"><code>
 //Tests the push, empty, size, pop, and top methods of the stack library.
 
 #include &lt;iostream&gt;
@@ -34,28 +34,28 @@ int main() {
     newStack.push(15);
 
     // returns a boolean response depending on if the stack is empty or not
-    cout &lt;&lt; "Stack Empty? " &lt;&lt; newStack.empty() &lt;&lt; endl;
+    cout &lt;&lt; &quot;Stack Empty? &quot; &lt;&lt; newStack.empty() &lt;&lt; endl;
 
     // returns the size of the stack itself
-    cout &lt;&lt; "Stack Size: " &lt;&lt; newStack.size() &lt;&lt; endl;
+    cout &lt;&lt; &quot;Stack Size: &quot; &lt;&lt; newStack.size() &lt;&lt; endl;
 
     // returns the topmost element of the stack
-    cout &lt;&lt; "Top Element of the Stack: " &lt;&lt; newStack.top() &lt;&lt; endl;
+    cout &lt;&lt; &quot;Top Element of the Stack: &quot; &lt;&lt; newStack.top() &lt;&lt; endl;
 
     // removes the topmost element of the stack
     newStack.pop();
 
-    cout &lt;&lt; "Top Element of the Stack: " &lt;&lt; newStack.top() &lt;&lt; endl;
+    cout &lt;&lt; &quot;Top Element of the Stack: &quot; &lt;&lt; newStack.top() &lt;&lt; endl;
 
-    cout &lt;&lt; "Stack Size: " &lt;&lt; newStack.size() &lt;&lt; endl;
+    cout &lt;&lt; &quot;Stack Size: &quot; &lt;&lt; newStack.size() &lt;&lt; endl;
 
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="stack_1ac_py" label="stack_1ac_py">
                 <title>Python Implementation</title>
-                <statement><program interactive="activecode" language="python" label="stack_1ac_py-prog"><input>
+                <statement><program interactive="activecode" language="python" label="stack_1ac_py-prog"><code>
 #Tests the push, empty, size, pop, and top methods of the stack library.
 
 class Stack:
@@ -83,17 +83,17 @@ def main():
     newStack.push(8)
     newStack.push(15)
 
-    print("Stack Empty? ", newStack.isEmpty())
+    print(&quot;Stack Empty? &quot;, newStack.isEmpty())
 
-    print("Stack Size: ", newStack.size())
+    print(&quot;Stack Size: &quot;, newStack.size())
 
-    print("Top Element of the Stack: ", newStack.top())
+    print(&quot;Top Element of the Stack: &quot;, newStack.top())
 
     newStack.pop();
 
-    print("Top Element of the Stack: ", newStack.top())
+    print(&quot;Top Element of the Stack: &quot;, newStack.top())
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
 
@@ -103,14 +103,14 @@ main()
         <statement>
 
             <p>Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?</p>
-            <program language="cpp" label="ImplementingaStackCpp-prog"><input>
+            <program language="cpp" label="ImplementingaStackCpp-prog"><code>
 stack&lt;int&gt; m;
 m.push(5);
 m.push(12);
 m.pop();
 m.push(27);
 cout &lt;&lt; m.top();
-</input></program>
+</code></program>
 
         </statement>
 <choices>
@@ -158,7 +158,7 @@ cout &lt;&lt; m.top();
         <statement>
 
             <p>Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?</p>
-            <program language="cpp" label="ImplementingaStackCpp-prog-2"><input>
+            <program language="cpp" label="ImplementingaStackCpp-prog-2"><code>
 stack&lt;int&gt; m;
 m.push(37);
 m.push(56);
@@ -167,7 +167,7 @@ while (!m.empty()){
     m.pop();
     m.pop();
 }
-</input></program>
+</code></program>
 
         </statement>
 <choices>

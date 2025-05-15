@@ -1,4 +1,4 @@
-<section xml:id="linear-basic_balanced-symbols-a-general-case">
+<?xml version="1.0" ?><section xml:id="linear-basic_balanced-symbols-a-general-case">
         <title>Balanced Symbols - A General Case</title>
         <p>The balanced parentheses problem shown above is a specific case of a
             more general situation that arises in many programming languages. The
@@ -44,7 +44,7 @@
             <title>Generalized Balance Symbol Checking</title>
             <task xml:id="lst-parcheck2-cpp" label="lst-parcheck2-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="parcheck2_cpp" interactive="activecode" language="cpp" line-numbers="yes" label="parcheck2_cpp-prog"><input>
+                <statement><program xml:id="parcheck2_cpp" interactive="activecode" language="cpp" line-numbers="yes" label="parcheck2_cpp-prog"><code>
 //program that returns whether a string is balanced or not
 #include &lt;iostream&gt;
 #include &lt;string&gt;
@@ -57,11 +57,11 @@ bool inString(string symbol, string symbols){
     return symbols.find(symbol) != string::npos;
 }
 
-//returns true if the symbol in "open"
-//matches the symbol in "close"
+//returns true if the symbol in &quot;open&quot;
+//matches the symbol in &quot;close&quot;
 bool matches(string open, string close){
-    string opens = "({[";
-    string closers = ")]}";
+    string opens = &quot;({[&quot;;
+    string closers = &quot;)]}&quot;;
     bool val = inString(open, opens) == inString(close, closers);
     return val;
 }
@@ -78,8 +78,8 @@ bool parChecker(string symbolString){
     while(index &lt; symbolLength &amp;&amp; balanced){
         string symbol;
         symbol = symbolString[index];
-        string opens = "([{";
-        string closes = "}])";
+        string opens = &quot;([{&quot;;
+        string closes = &quot;}])&quot;;
         if (inString(symbol, opens)){
             s.push(symbol);
         } else if(inString(symbol, closes)){
@@ -104,15 +104,15 @@ bool parChecker(string symbolString){
 }
 
 int main() {
-    cout &lt;&lt; parChecker("{}") &lt;&lt; endl;
-    cout &lt;&lt; parChecker("[{()}]") &lt;&lt; endl;
+    cout &lt;&lt; parChecker(&quot;{}&quot;) &lt;&lt; endl;
+    cout &lt;&lt; parChecker(&quot;[{()}]&quot;) &lt;&lt; endl;
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-parcheck2-py" label="lst-parcheck2-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="parcheck2_py" interactive="activecode" language="python" label="parcheck2_py-prog"><input>
+                <statement><program xml:id="parcheck2_py" interactive="activecode" language="python" label="parcheck2_py-prog"><code>
 #Program does the same as before, except with 2 extra symbols.
 
 from pythonds.basic.stack import Stack
@@ -123,7 +123,7 @@ def parChecker(symbolString):
     index = 0
     while index &lt; len(symbolString) and balanced:
         symbol = symbolString[index]
-        if symbol in "([{": #if the current symbol ==
+        if symbol in &quot;([{&quot;: #if the current symbol ==
                             #an open symbol.
             s.push(symbol)
         else:
@@ -145,15 +145,15 @@ def parChecker(symbolString):
 
 def matches(open,close):
     #Checks if the type of an open and closed symbol are the same.
-    opens = "([{"
-    closers = ")]}"
+    opens = &quot;([{&quot;
+    closers = &quot;)]}&quot;
     return opens.index(open) == closers.index(close)
 
 def main():
     print(parChecker('{[([][])]()}'))
     print(parChecker('[{()]'))
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>These two examples show that stacks are very important data structures
@@ -179,7 +179,7 @@ main()
       <cline>      <area correct="no">while(index &lt; symbolLength &amp;&amp; balanced){</area>:</cline>
       <cline>          <area correct="no">string symbol;</area>:</cline>
       <cline>          <area correct="no">symbol = symbolString[index];</area>:</cline>
-      <cline>          <area correct="no">string opens = "({[";</area>:</cline>
+      <cline>          <area correct="no">string opens = &quot;({[&quot;;</area>:</cline>
       <cline>          <area correct="no">if (inString(symbol, opens)){</area>:</cline>
       <cline>              <area correct="yes">s.push(symbol);</area>:</cline> <!-- Correct line -->
       <cline>          } else {</cline>

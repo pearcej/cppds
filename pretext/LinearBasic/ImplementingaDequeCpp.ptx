@@ -1,4 +1,4 @@
-<section xml:id="linear-basic_using-a-deque-in-c">
+<?xml version="1.0" ?><section xml:id="linear-basic_using-a-deque-in-c">
         <title>Using a Deque in C++</title>
         <p>As we have done in previous sections, we will use the Standard Template Library (STL)
             of C++ to use a Deque. Again, the Deque library from STL
@@ -10,7 +10,7 @@
             <title>Dequeue Implementation</title>
             <task xml:id="lst-dequecode-cpp" label="lst-dequecode-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="dequecode_cpp" interactive="activecode" language="cpp" label="dequecode_cpp-prog"><input>
+                <statement><program xml:id="dequecode_cpp" interactive="activecode" language="cpp" label="dequecode_cpp-prog"><code>
 //Example code of a deque.
 
 #include &lt;iostream&gt;
@@ -21,24 +21,24 @@ using namespace std;
 
 int main() {
     deque&lt;string&gt; d;
-    cout &lt;&lt; "Deque Empty? " &lt;&lt; d.empty() &lt;&lt; endl;
-    d.push_back("Zebra");
-    cout &lt;&lt; "Deque Empty? " &lt;&lt; d.empty() &lt;&lt; endl;
+    cout &lt;&lt; &quot;Deque Empty? &quot; &lt;&lt; d.empty() &lt;&lt; endl;
+    d.push_back(&quot;Zebra&quot;);
+    cout &lt;&lt; &quot;Deque Empty? &quot; &lt;&lt; d.empty() &lt;&lt; endl;
 
-    d.push_front("Turtle"); //pushes to the front of the deque.
-    d.push_front("Panda");
-    d.push_back("Catfish"); //pushes to the back of the deque.
-    d.push_back("Giraffe");
+    d.push_front(&quot;Turtle&quot;); //pushes to the front of the deque.
+    d.push_front(&quot;Panda&quot;);
+    d.push_back(&quot;Catfish&quot;); //pushes to the back of the deque.
+    d.push_back(&quot;Giraffe&quot;);
 
-    cout &lt;&lt; "Deque Size: " &lt;&lt; d.size() &lt;&lt; endl;
-    cout &lt;&lt; "Item at the front: " &lt;&lt; d.front() &lt;&lt; endl;
-    cout &lt;&lt; "Item at the back: " &lt;&lt; d.back() &lt;&lt; endl;
+    cout &lt;&lt; &quot;Deque Size: &quot; &lt;&lt; d.size() &lt;&lt; endl;
+    cout &lt;&lt; &quot;Item at the front: &quot; &lt;&lt; d.front() &lt;&lt; endl;
+    cout &lt;&lt; &quot;Item at the back: &quot; &lt;&lt; d.back() &lt;&lt; endl;
 
-    cout &lt;&lt; endl &lt;&lt; "Items in the Deque: " &lt;&lt; endl;
+    cout &lt;&lt; endl &lt;&lt; &quot;Items in the Deque: &quot; &lt;&lt; endl;
     int dsize = d.size();
     for(int i = 0; i &lt; dsize; i++){
         //prints each item in the deque.
-        cout &lt;&lt; d.at(i) &lt;&lt; " ";
+        cout &lt;&lt; d.at(i) &lt;&lt; &quot; &quot;;
     }
 
     cout &lt;&lt; endl;
@@ -46,24 +46,24 @@ int main() {
     d.pop_back();
     d.pop_front();
 
-    cout &lt;&lt; endl &lt;&lt; "Item at the front: " &lt;&lt; d.front() &lt;&lt; endl;
-    cout &lt;&lt; "Itm at the back: " &lt;&lt; d.back() &lt;&lt; endl;
-    cout &lt;&lt; "Deque Size: " &lt;&lt; d.size() &lt;&lt; endl;
+    cout &lt;&lt; endl &lt;&lt; &quot;Item at the front: &quot; &lt;&lt; d.front() &lt;&lt; endl;
+    cout &lt;&lt; &quot;Itm at the back: &quot; &lt;&lt; d.back() &lt;&lt; endl;
+    cout &lt;&lt; &quot;Deque Size: &quot; &lt;&lt; d.size() &lt;&lt; endl;
 
-    cout &lt;&lt; endl &lt;&lt; "Items in the Deque: " &lt;&lt; endl;
+    cout &lt;&lt; endl &lt;&lt; &quot;Items in the Deque: &quot; &lt;&lt; endl;
     int dsize2 = d.size();
     for(int i = 0; i &lt; dsize2; i++){
         //prints each item in the deque.
-        cout &lt;&lt; d.at(i) &lt;&lt; " ";
+        cout &lt;&lt; d.at(i) &lt;&lt; &quot; &quot;;
 
     return 0;
     }
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-dequecode-py" label="lst-dequecode-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="dequecode_py" interactive="activecode" language="python" label="dequecode_py-prog"><input>
+                <statement><program xml:id="dequecode_py" interactive="activecode" language="python" label="dequecode_py-prog"><code>
 #Example code of a deque.
 
 class Deque:
@@ -100,41 +100,41 @@ class Deque:
 def main():
     d = Deque()
 
-    print("Deque Empty? ", d.empty())
-    d.push_back("Zebra")
-    print("Deque Empty? ", d.empty())
+    print(&quot;Deque Empty? &quot;, d.empty())
+    d.push_back(&quot;Zebra&quot;)
+    print(&quot;Deque Empty? &quot;, d.empty())
 
-    d.push_front("Turtle") #pushes to the front of the deque.
-    d.push_front("Panda")
-    d.push_back("Catfish") #pushes to the back of the deque.
-    d.push_back("Giraffe")
+    d.push_front(&quot;Turtle&quot;) #pushes to the front of the deque.
+    d.push_front(&quot;Panda&quot;)
+    d.push_back(&quot;Catfish&quot;) #pushes to the back of the deque.
+    d.push_back(&quot;Giraffe&quot;)
 
-    print("Deque Size: ", d.size())
-    print("Item at the front: ", d.front())
-    print("Item at the back: ", d.back())
+    print(&quot;Deque Size: &quot;, d.size())
+    print(&quot;Item at the front: &quot;, d.front())
+    print(&quot;Item at the back: &quot;, d.back())
 
-    print("\n")
-    print("Items in the Deque: ")
+    print(&quot;\n&quot;)
+    print(&quot;Items in the Deque: &quot;)
     for i in range(d.size()):
         #prints each item in the deque.
-        print(d.at(i), end=" ")
-    print("\n")
+        print(d.at(i), end=&quot; &quot;)
+    print(&quot;\n&quot;)
 
     d.pop_back()
     d.pop_front()
 
-    print("Item at the front: ", d.front())
-    print("Item at the back: ", d.back())
-    print("Deque Size: ", d.size())
+    print(&quot;Item at the front: &quot;, d.front())
+    print(&quot;Item at the back: &quot;, d.back())
+    print(&quot;Deque Size: &quot;, d.size())
 
-    print("\n")
-    print("Items in the Deque: ")
+    print(&quot;\n&quot;)
+    print(&quot;Items in the Deque: &quot;)
     for i in range(d.size()):
         #prints each item in the deque.
-        print(d.at(i), end=" ")
-    print("\n")
+        print(d.at(i), end=&quot; &quot;)
+    print(&quot;\n&quot;)
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>You can see many similarities to C++ code already used for

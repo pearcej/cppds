@@ -1,4 +1,4 @@
-<section xml:id="linear-basic_what-is-a-deque">
+<?xml version="1.0" ?><section xml:id="linear-basic_what-is-a-deque">
         <title>What Is a Deque?</title>
         <p><idx>deque</idx>A <term>deque</term>, also known as a double-ended queue, is an ordered
             collection of items similar to the queue. It has two ends, a front and a
@@ -19,9 +19,9 @@
             <description>
                 <p>
                     The image illustrates a deque (double-ended queue) of Python data objects. 
-                    The deque is represented as a horizontal line with items "dog", "cat", and "True" arranged from rear to front. 
+                    The deque is represented as a horizontal line with items &quot;dog&quot;, &quot;cat&quot;, and &quot;True&quot; arranged from rear to front. 
                     Arrows indicate the flexibility of the deque, showing that items can be added or removed from both the rear and the front. 
-                    Arrows labeled "add to rear" and "remove from rear" point to the rear, while arrows labeled "add to front" and "remove from front" point to the front. 
+                    Arrows labeled &quot;add to rear&quot; and &quot;remove from rear&quot; point to the rear, while arrows labeled &quot;add to front&quot; and &quot;remove from front&quot; point to the front. 
                     This demonstrates the hybrid behavior of the deque, allowing for operations at both ends without adhering strictly to LIFO or FIFO order.
                 </p>
             </description>

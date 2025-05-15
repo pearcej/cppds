@@ -1,4 +1,4 @@
-<section xml:id="linear-basic_palindrome-checker">
+<?xml version="1.0" ?><section xml:id="linear-basic_palindrome-checker">
         <title>Palindrome-Checker</title>
         <p><idx>palindrome</idx>An interesting problem that can be easily solved using the deque data
             structure is the classic palindrome problem. A <term>palindrome</term> is a
@@ -17,7 +17,7 @@
             <caption>A Deque</caption>
             <image source="LinearBasic/palindromesetup.png" width="50%">
                 <description><p>
-                    The image depicts adding the word "radar" to a dequeue. Each character is added to
+                    The image depicts adding the word &quot;radar&quot; to a dequeue. Each character is added to
                     the rear of the queue during initialization, when all the characters have been added
                     character afters are removed from each end of the queue: R is removed from the rear
                     and another R is removed from the head of the queue.
@@ -36,7 +36,7 @@
                 <title>Basic Palindrome Checker</title>
                 <task xml:id="linear-basic_palinedrome-cpp" label="linear-basic_palinedrome-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="palinedrome_cpp" interactive="activecode" language="cpp" label="palinedrome_cpp-prog"><input>
+                    <statement><program xml:id="palinedrome_cpp" interactive="activecode" language="cpp" label="palinedrome_cpp-prog"><code>
 //program that detects palindromes.
 
 #include &lt;deque&gt;
@@ -70,15 +70,15 @@ bool palchecker(string aString) {
 }
 
 int main() {
-    cout &lt;&lt; palchecker("lsdkjfskf") &lt;&lt; endl;
-    cout &lt;&lt; palchecker("radar") &lt;&lt; endl;
+    cout &lt;&lt; palchecker(&quot;lsdkjfskf&quot;) &lt;&lt; endl;
+    cout &lt;&lt; palchecker(&quot;radar&quot;) &lt;&lt; endl;
 }
 
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="linear-basic_palinedrome-py" label="linear-basic_palinedrome-py">
                     <title>Python Implementation</title>
-                    <statement><program xml:id="palchecker" interactive="activecode" language="python" label="palchecker-prog"><input>
+                    <statement><program xml:id="palchecker" interactive="activecode" language="python" label="palchecker-prog"><code>
 #Program that detects palindromes.
 
 from pythonds.basic.deque import Deque
@@ -103,10 +103,10 @@ def palchecker(aString):
     return stillEqual
 
 def main():
-    print(palchecker("lsdkjfskf"))
-    print(palchecker("radar"))
+    print(palchecker(&quot;lsdkjfskf&quot;))
+    print(palchecker(&quot;radar&quot;))
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
 
@@ -117,7 +117,7 @@ main()
         
         <listing xml:id="advanced-linear-basic_palinedrome-cpp">
             <caption>Advanced Palindrome Checker</caption>
-            <program xml:id="advanced_palinedrome_cpp" interactive="activecode" language="cpp" label="advanced_palinedrome_cpp-prog"><input>
+            <program xml:id="advanced_palinedrome_cpp" interactive="activecode" language="cpp" label="advanced_palinedrome_cpp-prog"><code>
 //program that detects palindromes.
 
 /*
@@ -130,7 +130,7 @@ using namespace std;
 #include &lt;fstream&gt; // for file handling
 #include &lt;iostream&gt;
 #include &lt;string&gt;
-#include "stdlib.h" // for the system command
+#include &quot;stdlib.h&quot; // for the system command
 #include &lt;algorithm&gt; // provides an algorithm for easier removal of characters from a string
 
 string processor(string aString) {
@@ -138,7 +138,7 @@ string processor(string aString) {
     // them to lower case, also finds special characters and gets rid of them
     // ultimately, prepares a string for a correct palindrome evaluation
     int strLen = aString.length();
-    string str = "";
+    string str = &quot;&quot;;
     for (int i = 0; i &lt; strLen; i++) {
         str += tolower(aString[i]);
     }
@@ -150,7 +150,7 @@ string processor(string aString) {
     str.erase(remove(str.begin(), str.end(), ';'), str.end());
     str.erase(remove(str.begin(), str.end(), ':'), str.end());
     str.erase(remove(str.begin(), str.end(), '#'), str.end());
-    str.erase(remove(str.begin(), str.end(), '"'), str.end());
+    str.erase(remove(str.begin(), str.end(), '&quot;'), str.end());
     str.erase(remove(str.begin(), str.end(), '\''), str.end());
     // we had to use a backslash to espace the function of '
     str.erase(remove(str.begin(), str.end(), '-'), str.end());
@@ -188,12 +188,12 @@ bool palchecker(string aString) {
 }
 
 int main() {
-    cout &lt;&lt; palchecker("Radar") &lt;&lt; endl;
-    cout &lt;&lt; palchecker("Are we not pure? 'No sir!' Panama's moody Noriega brags. 'It is garbage!' Irony dooms a man; a prisoner up to new era.") &lt;&lt; endl;
-    cout &lt;&lt; palchecker("Barge in! Relate mere war of 1991 for a were-metal Ernie grab!") &lt;&lt; endl;
-    cout &lt;&lt; palchecker("not a palindrome") &lt;&lt; endl;
+    cout &lt;&lt; palchecker(&quot;Radar&quot;) &lt;&lt; endl;
+    cout &lt;&lt; palchecker(&quot;Are we not pure? 'No sir!' Panama's moody Noriega brags. 'It is garbage!' Irony dooms a man; a prisoner up to new era.&quot;) &lt;&lt; endl;
+    cout &lt;&lt; palchecker(&quot;Barge in! Relate mere war of 1991 for a were-metal Ernie grab!&quot;) &lt;&lt; endl;
+    cout &lt;&lt; palchecker(&quot;not a palindrome&quot;) &lt;&lt; endl;
 }
-            </input></program>
+            </code></program>
         </listing>
 
 <reading-questions xml:id="rqs-">
@@ -211,11 +211,11 @@ int main() {
 <feedback><p>Remember how we declare variables</p></feedback>
 <areas>
 <cline><area correct="yes">deque&lt;int&gt; d;</area>:</cline>
-<cline><area>d.push_back("Zebra");</area>:</cline>
-<cline><area>d.push_front("Turtle");</area>:</cline>
-<cline><area>d.push_front("Panda");</area>:</cline>
-<cline><area>d.push_back("Catfish");</area>:</cline>
-<cline><area>d.push_back("Giraffe");</area>:</cline>
+<cline><area>d.push_back(&quot;Zebra&quot;);</area>:</cline>
+<cline><area>d.push_front(&quot;Turtle&quot;);</area>:</cline>
+<cline><area>d.push_front(&quot;Panda&quot;);</area>:</cline>
+<cline><area>d.push_back(&quot;Catfish&quot;);</area>:</cline>
+<cline><area>d.push_back(&quot;Giraffe&quot;);</area>:</cline>
 </areas></exercise>
 
     <exercise label="structureefficiency">

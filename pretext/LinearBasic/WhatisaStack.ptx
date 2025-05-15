@@ -1,4 +1,4 @@
-<section xml:id="linear-basic_what-is-a-stack">
+<?xml version="1.0" ?><section xml:id="linear-basic_what-is-a-stack">
         <title>What is a Stack?</title>
         <p>
             <idx>stack</idx>
@@ -31,7 +31,7 @@
         
         <figure align="center" xml:id="fig-objectstack"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">A Stack of Primitive Python Objects</caption><image source="LinearBasic/primitive.png" width="50%"> <description>
         <p>
-            This image depicts a stack data structure with labeled "Top" and "Base" sections. The stack contains four elements, each represented as a block with a string value. From bottom (Base) to top, the elements are: "4", "dog", "True", and "8.4". The "Base" of the stack is the bottom-most element ("4"), while the "Top" of the stack is the upper-most element ("8.4"). This structure visually represents how stacks operate in a Last-In-First-Out (LIFO) manner, where the last element added ("8.4") is the first one to be accessed or removed.
+            This image depicts a stack data structure with labeled &quot;Top&quot; and &quot;Base&quot; sections. The stack contains four elements, each represented as a block with a string value. From bottom (Base) to top, the elements are: &quot;4&quot;, &quot;dog&quot;, &quot;True&quot;, and &quot;8.4&quot;. The &quot;Base&quot; of the stack is the bottom-most element (&quot;4&quot;), while the &quot;Top&quot; of the stack is the upper-most element (&quot;8.4&quot;). This structure visually represents how stacks operate in a Last-In-First-Out (LIFO) manner, where the last element added (&quot;8.4&quot;) is the first one to be accessed or removed.
         </p>
         </description></image> </figure>
         <p>One of the most useful ideas related to stacks comes from the simple
@@ -48,7 +48,7 @@
         
         <figure align="center" xml:id="linear-basic-stack-fig-reversal"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">The Reversal Property of Stacks</caption><image source="LinearBasic/simplereversal.png" width="50%"> <description>
               <p>
-                This image illustrates the process of reversing the order of elements in a stack. The stack contains four elements: "8.4", "True", "dog", and "4". The "Original Order" is represented at the bottom of the image, starting with "8.4" (4th element) at the top of the stack and ending with "4" (1st element) at the bottom. The "Reversed Order" is shown on the right side, where the elements have been rearranged such that "4" becomes the first element, "dog" the second, "True" the third, and "8.4" the fourth. The arrows illustrate the flow of elements from their positions in the stack to their corresponding reversed positions, emphasizing how a stack's Last-In-First-Out (LIFO) nature can be used to reverse a sequence of elements.
+                This image illustrates the process of reversing the order of elements in a stack. The stack contains four elements: &quot;8.4&quot;, &quot;True&quot;, &quot;dog&quot;, and &quot;4&quot;. The &quot;Original Order&quot; is represented at the bottom of the image, starting with &quot;8.4&quot; (4th element) at the top of the stack and ending with &quot;4&quot; (1st element) at the bottom. The &quot;Reversed Order&quot; is shown on the right side, where the elements have been rearranged such that &quot;4&quot; becomes the first element, &quot;dog&quot; the second, &quot;True&quot; the third, and &quot;8.4&quot; the fourth. The arrows illustrate the flow of elements from their positions in the stack to their corresponding reversed positions, emphasizing how a stack's Last-In-First-Out (LIFO) nature can be used to reverse a sequence of elements.
             </p>
         </description></image></figure>
     <p>Considering this reversal property, you can perhaps think of examples of
@@ -73,4 +73,3 @@
                     <!-- extra space before the progress bar -->
                 </p>
     </section>
-

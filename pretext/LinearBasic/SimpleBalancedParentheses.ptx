@@ -1,4 +1,4 @@
-<section xml:id="linear-basic_simple-balanced-parentheses">
+<?xml version="1.0" ?><section xml:id="linear-basic_simple-balanced-parentheses">
         <title>Simple Balanced Parentheses</title>
         <p>We now turn our attention to using stacks to solve real computer science
             problems. You have no doubt written arithmetic expressions such as</p>
@@ -13,7 +13,7 @@
             parentheses.</p>
         <p>
             In both of these examples, parentheses must appear in a balanced
-            fashion. "Balanced parentheses" means that each opening symbol has a
+            fashion. &quot;Balanced parentheses&quot; means that each opening symbol has a
             corresponding closing symbol and the pairs of parentheses are properly
             nested. Consider the following correctly balanced strings of
             parentheses:</p>
@@ -73,7 +73,7 @@
             <title>Parenthesis checker</title>
             <task xml:id="task-parcheck1_cpp" label="task-parcheck1_cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="parcheck1_cpp" interactive="activecode" language="cpp" label="parcheck1_cpp-prog"><input>
+                <statement><program xml:id="parcheck1_cpp" interactive="activecode" language="cpp" label="parcheck1_cpp-prog"><code>
 //simple program that checks for missing parentheses
 #include &lt;iostream&gt;
 #include &lt;stack&gt;
@@ -90,7 +90,7 @@ bool parChecker(string symbolString) {
     while (index &lt; str_len &amp;&amp; balanced) {
               string symbol;
               symbol = symbolString[index];
-              if (symbol == "(") {
+              if (symbol == &quot;(&quot;) {
                   s.push(symbol); //pushes the open parentheses to the stack.
               } else {
                   if (s.empty()) { //if there is no open parentheses in the stack,
@@ -113,14 +113,14 @@ bool parChecker(string symbolString) {
 }
 
 int main() {
-    cout &lt;&lt; parChecker("((()))") &lt;&lt; endl;
-    cout &lt;&lt; parChecker("(()") &lt;&lt; endl;
+    cout &lt;&lt; parChecker(&quot;((()))&quot;) &lt;&lt; endl;
+    cout &lt;&lt; parChecker(&quot;(()&quot;) &lt;&lt; endl;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="task-parcheck1_py" label="task-parcheck1_py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="parcheck1_py" interactive="activecode" language="python" label="parcheck1_py-prog"><input>
+                <statement><program xml:id="parcheck1_py" interactive="activecode" language="python" label="parcheck1_py-prog"><code>
 #Program that detects if a set of parentheses is complete.
 
 #simple program that checks for missing parentheses
@@ -133,7 +133,7 @@ def parChecker(symbolString):
     index = 0
     while index &lt; len(symbolString) and balanced:
         symbol = symbolString[index]
-        if symbol == "(":
+        if symbol == &quot;(&quot;:
             s.push(symbol) #pushes the open parentheses to the stack.
         else:
             if s.isEmpty(): #if there is no open parentheses in the stack,
@@ -157,7 +157,7 @@ def main():
     print(parChecker('(()'))
 
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>This function, <c>parChecker</c>, assumes that a <c>Stack</c> class is

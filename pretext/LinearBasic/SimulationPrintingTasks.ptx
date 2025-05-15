@@ -1,4 +1,4 @@
-<section xml:id="linear-basic_simulation-printing-tasks">
+<?xml version="1.0" ?><section xml:id="linear-basic_simulation-printing-tasks">
         <title>Simulation: Printing Tasks</title>
         <introduction>
         <p>A more interesting simulation allows us to study the behavior of the
@@ -34,7 +34,7 @@
                     <p>
                         This image represents a print queue system in a computer lab. 
                         On the left side, multiple lab computers are shown, each capable of sending print tasks to a shared queue. 
-                        The print tasks are represented as sequential blocks labeled "task" in the middle of the image, forming a linear queue. 
+                        The print tasks are represented as sequential blocks labeled &quot;task&quot; in the middle of the image, forming a linear queue. 
                         The queue processes these tasks in a First-In-First-Out (FIFO) order, with tasks being sent to the printer on the right. 
                         The printer processes the tasks in the order they are received from the queue, 
                         ensuring fairness and efficiency in handling multiple print requests from the lab computers. 
@@ -128,7 +128,7 @@
 
             <listing xml:id="linear-basic_lst-printer">
                 <caption>The <c>Printer</c> class</caption>
-                <program language="cpp" label="linear-basic_lst-printer-prog"><input>
+                <program language="cpp" label="linear-basic_lst-printer-prog"><code>
 class Printer {
 public:
     Printer(int pagesPerMinute) {
@@ -161,9 +161,9 @@ private:
     int pagerate; // unit is pages per minute.
     Task currentTask = {0};// Current task. default is a dummy value.
     bool working; // Are we working on the current task?
-    int timeRemaining; // Time remaining, in "seconds".
+    int timeRemaining; // Time remaining, in &quot;seconds&quot;.
 };
-                </input></program>
+                </code></program>
             </listing>
             <p>The Task class (<xref ref="linear-basic_lst-task"/>) will represent a single printing
                 task. When the task is created, a random number generator will provide a
@@ -171,13 +171,13 @@ private:
                 function to provide the random number using the format below. <c>srand()</c> is used
                 to give different random numbers each time the program is executed by setting the random
                 numbers based on the computer's current time.</p>
-            <program language="python" label="SimulationPrintingTasks-prog"><input>
+            <program language="python" label="SimulationPrintingTasks-prog"><code>
 &gt;&gt; srand(time(NULL));
 &gt;&gt;&gt; rand()%20+1;
 18
 &gt;&gt;&gt; rand()%20+1;
 8
-</input></program>
+</code></program>
             <p>Each task will also need to keep a timestamp to be used for computing
                 waiting time. This timestamp will represent the time that the task was
                 created and placed in the printer queue. The <c>waitTime</c> method can
@@ -186,7 +186,7 @@ private:
             
             <listing xml:id="linear-basic_lst-task">
                 <caption>The <c>Task</c> class</caption>
-                <program language="cpp" label="linear-basic_lst-task-prog"><input>
+                <program language="cpp" label="linear-basic_lst-task-prog"><code>
 class Task {
 public:
     Task(int time) {
@@ -209,7 +209,7 @@ private:
     int timestamp;
     int pages;
 };
-                </input></program>
+                </code></program>
             </listing>
             <p>The main simulation (<xref ref="linear-basic_lst-qumainsim"/>) implements the algorithm
                 described above. The <c>printQueue</c> object is an instance of our
@@ -224,7 +224,7 @@ private:
             
             <listing xml:id="linear-basic_lst-qumainsim">
                 <caption>The main simulation function</caption>
-                <program language="cpp" label="linear-basic_lst-qumainsim-prog"><input>
+                <program language="cpp" label="linear-basic_lst-qumainsim-prog"><code>
 void simulation(int numSeconds, int pagesPerMinute) {
     Printer labprinter(pagesPerMinute);
 
@@ -262,9 +262,9 @@ void simulation(int numSeconds, int pagesPerMinute) {
     for (int waitTime : waitingTimes)
         total += waitTime;
 
-    cout &lt;&lt; "Average Wait "&lt;&lt;total/waitingTimes.size()&lt;&lt;" secs "&lt;&lt;printQueue.size()&lt;&lt;" tasks remaining."&lt;&lt;endl;
+    cout &lt;&lt; &quot;Average Wait &quot;&lt;&lt;total/waitingTimes.size()&lt;&lt;&quot; secs &quot;&lt;&lt;printQueue.size()&lt;&lt;&quot; tasks remaining.&quot;&lt;&lt;endl;
 }
-                </input></program>
+                </code></program>
             </listing>
             <p>When we run the simulation, we should not be concerned that the
                 results are different each time. This is due to the probabilistic nature
@@ -275,7 +275,7 @@ void simulation(int numSeconds, int pagesPerMinute) {
                 seconds) using a page rate of five pages per minute. In addition, we
                 will run 10 independent trials. Remember that because the simulation
                 works with random numbers each run will return different results.</p>
-            <program language="cpp" label="SimulationPrintingTasks-prog-2"><input>
+            <program language="cpp" label="SimulationPrintingTasks-prog-2"><code>
 &gt;&gt;&gt;for (int i=0; i&lt;10; i++) {
   simulation(3600,5);
 }
@@ -290,7 +290,7 @@ Average Wait  75.11 secs 1 tasks remaining.
 Average Wait  48.33 secs 0 tasks remaining.
 Average Wait  39.31 secs 3 tasks remaining.
 Average Wait 376.05 secs 1 tasks remaining.
-</input></program>
+</code></program>
             <p>After running our 10 trials we can see that the mean average wait time
                 is 122.09 seconds. You can also see that there is a large variation in
                 the average weight time with a minimum average of 17.27 seconds and a
@@ -299,7 +299,7 @@ Average Wait 376.05 secs 1 tasks remaining.
             <p>Now, we will adjust the page rate to 10 pages per minute, and run the 10
                 trials again, with a faster page rate our hope would be that more tasks
                 would be completed in the one hour time frame.</p>
-            <program language="cpp" label="SimulationPrintingTasks-prog-3"><input>
+            <program language="cpp" label="SimulationPrintingTasks-prog-3"><code>
 &gt;&gt;&gt;for (int i=0; i&lt;10; i++) {
   simulation(3600,10);
 }
@@ -314,11 +314,11 @@ Average Wait  22.33 secs 0 tasks remaining.
 Average Wait  12.39 secs 0 tasks remaining.
 Average Wait   7.27 secs 0 tasks remaining.
 Average Wait  18.17 secs 0 tasks remaining.
-</input></program>
+</code></program>
             <p>You can run the simulation for yourself in ActiveCode 2.</p>
 
     <program xml:id="qumainsim" interactive="activecode" language="cpp" label="qumainsim-prog">
-        <input>
+        <code>
 //Program that simulates printing task management.
 
 #include &lt;iostream&gt;
@@ -382,7 +382,7 @@ private:
     int pagerate; // unit is pages per minute.
     Task currentTask = {0};// Current task. default is a dummy value.
     bool working; // Are we working on the current task?
-    int timeRemaining; // Time remaining, in "seconds".
+    int timeRemaining; // Time remaining, in &quot;seconds&quot;.
 };
 
 bool newPrintTask() {
@@ -429,7 +429,7 @@ void simulation(int numSeconds, int pagesPerMinute) {
     for (int waitTime : waitingTimes)
         total += waitTime;
 
-    cout &lt;&lt; "Average Wait "&lt;&lt;total/waitingTimes.size()&lt;&lt;" secs "&lt;&lt;printQueue.size()&lt;&lt;" tasks remaining."&lt;&lt;endl;
+    cout &lt;&lt; &quot;Average Wait &quot;&lt;&lt;total/waitingTimes.size()&lt;&lt;&quot; secs &quot;&lt;&lt;printQueue.size()&lt;&lt;&quot; tasks remaining.&quot;&lt;&lt;endl;
 }
 
 int main() {
@@ -443,7 +443,7 @@ int main() {
 
     return 0;
 }
-        </input>
+        </code>
     </program>
         </subsection>
         <subsection xml:id="linear-basic_discussion">
@@ -496,4 +496,3 @@ int main() {
             <!-- extra space before the progress bar -->
         </p></conclusion>
 </section>
-
