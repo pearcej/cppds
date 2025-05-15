@@ -1,11 +1,11 @@
-<section xml:id="algorithm-analysis_an-anagram-detection-example">
+<?xml version="1.0" ?><section xml:id="algorithm-analysis_an-anagram-detection-example">
         <title>An Anagram Detection Example</title>
         <introduction>
         <p>A good example problem for showing algorithms with different orders of
             magnitude is the classic anagram detection problem for strings. One
             string is an anagram of another if the second is simply a rearrangement
-            of the first. For example, <c>"heart"</c> and <c>"earth"</c> are anagrams. The
-            strings <c>"python"</c> and <c>"typhon"</c> are anagrams as well. For the sake
+            of the first. For example, <c>&quot;heart&quot;</c> and <c>&quot;earth&quot;</c> are anagrams. The
+            strings <c>&quot;python&quot;</c> and <c>&quot;typhon&quot;</c> are anagrams as well. For the sake
             of simplicity, we will assume that the two strings in question are of
             equal length and that they are made up of symbols from the set of 26
             lowercase alphabetic characters. Our goal is to write a Boolean function
@@ -29,7 +29,7 @@
                 <title>Anagram Solution</title>
                 <task xml:id="lst-anagramsolution" label="lst-anagramsolution">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="active0cpp" interactive="activecode" language="cpp" label="active0cpp-prog"><input>
+                    <statement><program xml:id="active0cpp" interactive="activecode" language="cpp" label="active0cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -70,15 +70,15 @@ bool anagramsolution1(string s1, string s2){
 }
 
 int main(){
-    bool value = anagramsolution1("abcd", "dcab");
+    bool value = anagramsolution1(&quot;abcd&quot;, &quot;dcab&quot;);
     cout &lt;&lt; value &lt;&lt; endl;
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="active0py" label="active0py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python" label="active0py-prog"><input>
+                    <statement><program interactive="activecode" language="python" label="active0py-prog"><code>
 #checks to see if the anagrams have the same number of characters
 
 def anagramSolution1(s1,s2):
@@ -112,7 +112,7 @@ def anagramSolution1(s1,s2):
 def main():
     print(anagramSolution1('abcd','dcba'))
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
             <p>To analyze this algorithm, we need to note that each of the <em>n</em>
@@ -144,7 +144,7 @@ main()
                 <title>Anagram Solution: Sorting</title>
                 <task xml:id="lst_ana2" label="lst_ana2">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="active6cpp" interactive="activecode" language="cpp" label="active6cpp-prog"><input>
+                    <statement><program xml:id="active6cpp" interactive="activecode" language="cpp" label="active6cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 #include &lt;algorithm&gt;
@@ -169,15 +169,15 @@ bool anagramsolution2(string s1, string s2){
 }
 
 int main(){
-    bool value = anagramsolution2("abcde", "edcba");
+    bool value = anagramsolution2(&quot;abcde&quot;, &quot;edcba&quot;);
     cout &lt;&lt; value &lt;&lt; endl;
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="active6py" label="active6py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python" label="active6py-prog"><input>
+                    <statement><program interactive="activecode" language="python" label="active6py-prog"><code>
 # sorts anagrams in order from a-z, and then compares them
 def anagramSolution2(s1,s2):
     alist1 = list(s1)
@@ -200,7 +200,7 @@ def anagramSolution2(s1,s2):
 def main():
     print(anagramSolution2('abcde','edcba'))
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
             <p>At first glance you may be tempted to think that this algorithm is
@@ -250,7 +250,7 @@ main()
                 <title>Anagram Solution: Character Frequency</title>
                 <task xml:id="lst_ana4" label="lst_ana4">
                     <title>C++ Implementation</title>
-                    <statement><program interactive="activecode" language="cpp" label="lst_ana4-prog"><input>
+                    <statement><program interactive="activecode" language="cpp" label="lst_ana4-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -282,17 +282,17 @@ bool anagramSolution4(string s1, string s2){
 }
 
 int main(){
-    bool value = anagramSolution4("apple", "pleap");
+    bool value = anagramSolution4(&quot;apple&quot;, &quot;pleap&quot;);
     cout &lt;&lt; value &lt;&lt; endl;
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="active7py" label="active7py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python" label="active7py-prog"><input>
-""" uses an array to count the number of a ocurrences of the two inputs
-if the number of occurrences is the same then the input is an anagram """
+                    <statement><program interactive="activecode" language="python" label="active7py-prog"><code>
+&quot;&quot;&quot; uses an array to count the number of a ocurrences of the two inputs
+if the number of occurrences is the same then the input is an anagram &quot;&quot;&quot;
 
 def anagramSolution4(s1,s2):
     c1 = [0]*26
@@ -315,7 +315,7 @@ def anagramSolution4(s1,s2):
 def main():
     print(anagramSolution4('apple','pleap'))
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
             <p>Again, the solution has a number of iterations. However, unlike the
@@ -346,7 +346,7 @@ main()
             <statement>
     
                     <p>Given the following code fragment, what is its Big-O running time?</p>
-                    <program language="cpp" label="AnAnagramDetectionExample-prog"><input>
+                    <program language="cpp" label="AnAnagramDetectionExample-prog"><code>
     int main(){
         int test = 0;
         for (int i = 0; i &lt; n; i++){
@@ -356,7 +356,7 @@ main()
         }
         return 0;
     }
-    </input></program>
+    </code></program>
     
             </statement>
     <choices>
@@ -403,7 +403,7 @@ main()
             <statement>
     
                     <p>Given the following code fragment what is its Big-O running time?</p>
-                    <program language="cpp" label="AnAnagramDetectionExample-prog-2"><input>
+                    <program language="cpp" label="AnAnagramDetectionExample-prog-2"><code>
     int main(){
         int test = 0;
         for (int i = 0; i &lt; n; i++){
@@ -414,7 +414,7 @@ main()
         }
         return 0;
     }
-    </input></program>
+    </code></program>
     
             </statement>
     <choices>
@@ -461,7 +461,7 @@ main()
             <statement>
     
                     <p> Given the following code fragment what is its Big-O running time?</p>
-                    <program language="cpp" label="AnAnagramDetectionExample-prog-3"><input>
+                    <program language="cpp" label="AnAnagramDetectionExample-prog-3"><code>
     int main(){
         int i = n;
         int count = 0;
@@ -471,7 +471,7 @@ main()
         }
         return 0;
     }
-    </input></program>
+    </code></program>
     
             </statement>
     <choices>

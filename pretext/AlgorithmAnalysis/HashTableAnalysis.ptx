@@ -1,4 +1,4 @@
-<section xml:id="algorithm-analysis_analysis-of-hash-tables">
+<?xml version="1.0" ?><section xml:id="algorithm-analysis_analysis-of-hash-tables">
     <title>Analysis of Hash Tables</title>
     <p>The second major C++ data structure to analyze is the <idx>hash table</idx><term>hash table</term> or hash map. As you
         may recall, hash tables differ from vectors in that you access
@@ -109,7 +109,7 @@
         difference is that on line 7 <c>x</c> is vector, and on line 9 <c>x</c> is a
         hash table.</p>
     <p><term>Listing 6</term></p>
-    <program language="cpp" label="HashTableAnalysis-prog"><input>
+    <program language="cpp" label="HashTableAnalysis-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;ctime&gt;
 #include &lt;vector&gt;
@@ -138,25 +138,25 @@ for(int a = 10000; a &lt; 1000001; a = a + 20000) {
     double elapsed_secs_ht = double(end_ht - begin_ht) / CLOCKS_PER_SEC;
 
     // Printing final output
-    cout &lt;&lt; a &lt;&lt; "\t" &lt;&lt; elapsed_secs &lt;&lt; "\t" &lt;&lt; elapsed_secs_ht &lt;&lt; endl;
+    cout &lt;&lt; a &lt;&lt; &quot;\t&quot; &lt;&lt; elapsed_secs &lt;&lt; &quot;\t&quot; &lt;&lt; elapsed_secs_ht &lt;&lt; endl;
 }
 
 return 0;
 }
-</input></program>
-    <program language="python" label="HashTableAnalysis-prog-2"><input>
+</code></program>
+    <program language="python" label="HashTableAnalysis-prog-2"><code>
 import timeit
 import random
 
 for i in range(10000,1000001,20000):
-t = timeit.Timer("random.randrange(%d) in x"%i,
-                 "from __main__ import random,x")
+t = timeit.Timer(&quot;random.randrange(%d) in x&quot;%i,
+                 &quot;from __main__ import random,x&quot;)
 x = list(range(i))
 lst_time = t.timeit(number=1000)
 x = {j:None for j in range(i)}
 d_time = t.timeit(number=1000)
-print("%d,%10.3f,%10.3f" % (i, lst_time, d_time))
-</input></program>
+print(&quot;%d,%10.3f,%10.3f&quot; % (i, lst_time, d_time))
+</code></program>
     <p><xref ref="fig-vectvshash-cpp"/> summarizes the results of running
         <inline classes="xref std std-ref">Listing 6</inline>. You can see that the hash table is consistently
         faster. For the smallest vector size of 10,000 elements a hash table is
