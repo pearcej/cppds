@@ -18,12 +18,49 @@
             is set to a very large number. Theoretically you would set <c>dist</c> to
             infinity, but in practice we just set it to a number that is larger than
             any real distance we would have in the problem we are trying to solve.</p>
-        <p>The code for Dijkstra's algorithm is shown in <xref ref="graphs_lst-shortpath"/>. When the algorithm finishes the distances are set
+        <p>The code for Dijkstra's algorithm is shown in <xref ref="graphs_dijkstra-implementation"/>. When the algorithm finishes the distances are set
             correctly as are the predecessor links for each vertex in the graph.</p>
         
-        <listing xml:id="graphs_lst-shortpath">
-            <caption>Dijkstra's Algorithm</caption>
-            <program language="python" label="graphs_lst-shortpath-prog"><input>
+
+        <exploration xml:id="graphs_dijkstra-implementation">
+            <title>Dijkstra's Algorithm Implementation</title>
+            <task xml:id="CPP-implementation" label="dijkstra-implementation-cpp">
+                <title>C++ Implementation</title>
+                <statement><program language="cpp" label="graphs_dijkstra-implementation-prog-cpp"><input>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
+#include &lt;unordered_map&gt;
+#include &lt;climits&gt;
+
+using namespace std;
+
+void dijkstra(int start, const unordered_map&lt;int, vector&lt;pair&lt;int,int&gt;&gt;&gt; &amp;graph, vector&lt;int&gt; &amp;distances) {
+    int n = distances.size();
+    distances[start] = 0;
+    priority_queue&lt;pair&lt;int,int&gt;, vector&lt;pair&lt;int,int&gt;&gt;, greater&lt;pair&lt;int,int&gt;&gt;&gt; pq;
+    pq.push(make_pair(0, start));
+    while (!pq.empty()) {
+        int current = pq.top().second;
+        pq.pop();
+        
+        const vector&lt;pair&lt;int,int&gt;&gt; &amp;neighbors = graph.at(current);
+        for(size_t i = 0; i &lt; neighbors.size(); ++i) {
+            int next = neighbors[i].first;
+    int weight = neighbors[i].second;
+    int newDist = distances[current] + weight;
+    if (newDist &lt; distances[next]) {
+        distances[next] = newDist;
+        pq.push(make_pair(newDist, next));
+            }
+        }
+    }
+}
+                 </input></program></statement>
+            </task>
+            <task xml:id="PYTHON-implementation" label="dijkstra-implementation-py">
+                <title>Python Implementation</title>
+                <statement><program language="python" label="graphs_dijkstra-implementation-prog-py"><input>
 from pythonds.graphs import PriorityQueue, Graph, Vertex
 
 def dijkstra(aGraph,start):
@@ -39,9 +76,13 @@ def dijkstra(aGraph,start):
                 nextVert.setDistance( newDist )
                 nextVert.setPred(currentVert)
                 pq.decreaseKey(nextVert,newDist)
-            </input></program>
-        </listing>
-        <p>Dijkstra's algorithm uses a priority queue. You may recall that a
+                </input></program></statement>
+            </task>
+            
+        </exploration>
+
+        
+            <p>Dijkstra's algorithm uses a priority queue. You may recall that a
             priority queue is based on the heap that we implemented in the Tree Chapter.
             There are a couple of differences between that
             simple implementation and the implementation we
