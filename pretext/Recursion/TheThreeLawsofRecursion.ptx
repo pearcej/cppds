@@ -1,4 +1,4 @@
-<section xml:id="recursion_the-three-laws-of-recursion">
+<?xml version="1.0" ?><section xml:id="recursion_the-three-laws-of-recursion">
         <title>The Three Laws of Recursion</title>
         <p>Like the robots of Asimov, all recursive algorithms must obey three
             important laws:</p>
@@ -53,7 +53,7 @@
 
     <listing xml:id="ackermann">
         <caption>Ackermann Function</caption>
-        <program interactive="activecode" language="cpp" label="ackermann-prog"><input>
+        <program interactive="activecode" language="cpp" label="ackermann-prog"><code>
 //ackermann function example
 #include &lt;iostream&gt;
 using namespace std;
@@ -77,7 +77,7 @@ int main(){
    cout &lt;&lt; ackermann(1,2) &lt;&lt; endl;
    return 0;
 }
-        </input></program>
+        </code></program>
     </listing>
         <p>In the remainder of this chapter we will look at more examples of
             recursion. In each case we will focus on designing a solution to a
@@ -225,4 +225,3 @@ int main(){
     </exercise>
 </reading-questions>   
     </section>
-

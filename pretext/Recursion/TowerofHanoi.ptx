@@ -1,4 +1,4 @@
-<section xml:id="recursion_tower-of-hanoi">
+<?xml version="1.0" ?><section xml:id="recursion_tower-of-hanoi">
         <title>Tower of Hanoi</title>
         <p>The Tower of Hanoi puzzle was invented by the French mathematician
             Edouard Lucas in 1883. He was inspired by a legend that tells of a Hindu
@@ -74,7 +74,7 @@
         
         <listing xml:id="lst-movetower">
             <caption><c>moveTower</c> Function</caption>
-            <program language="cpp" label="lst-movetower-prog"><input>
+            <program language="cpp" label="lst-movetower-prog"><code>
 int moveTower(int height, char fromPole, char toPole, char withPole){
     if (height &gt;= 1){
         moveTower(height-1, fromPole, withPole, toPole);
@@ -82,7 +82,7 @@ int moveTower(int height, char fromPole, char toPole, char withPole){
         moveTower(height-1, withPole, toPole, fromPole);
     }
 }
-            </input></program>
+            </code></program>
         </listing>
         <p>Notice that the code in <xref ref="lst-movetower"/> is almost identical to the
             English description. The key to the simplicity of the algorithm is that
@@ -106,22 +106,22 @@ int moveTower(int height, char fromPole, char toPole, char withPole){
             <title>Towers of Hanoi</title>
             <task xml:id="lst-movediskcpp" label="lst-movediskcpp">
                 <title>C++ Implementation of <c>moveDisk</c></title>
-                <statement><program language="cpp" label="lst-movediskcpp-prog"><input>
+                <statement><program language="cpp" label="lst-movediskcpp-prog"><code>
 int moveDisk(char fp, char tp){
-    cout &lt;&lt; "moving disk from " &lt;&lt; fp &lt;&lt; " to " &lt;&lt; tp &lt;&lt; endl;
+    cout &lt;&lt; &quot;moving disk from &quot; &lt;&lt; fp &lt;&lt; &quot; to &quot; &lt;&lt; tp &lt;&lt; endl;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-hanoi-whole" label="lst-hanoi-whole">
                 <title>C++ Solution to Towers of Hanoi</title>
-                <statement><program xml:id="hanoicpp" interactive="activecode" language="cpp" line-numbers="yes" label="hanoicpp-prog"><input>
+                <statement><program xml:id="hanoicpp" interactive="activecode" language="cpp" line-numbers="yes" label="hanoicpp-prog"><code>
 //Simulation of the tower of hanoi.
 
 #include &lt;iostream&gt;
 using namespace std;
 
 void moveDisk(char fp, char tp){
-    cout &lt;&lt; "moving disk from " &lt;&lt; fp &lt;&lt; " to " &lt;&lt; tp &lt;&lt; endl;
+    cout &lt;&lt; &quot;moving disk from &quot; &lt;&lt; fp &lt;&lt; &quot; to &quot; &lt;&lt; tp &lt;&lt; endl;
 }
 
 void moveTower(int height, char fromPole, char toPole, char withPole){
@@ -135,11 +135,11 @@ void moveTower(int height, char fromPole, char toPole, char withPole){
 int main() {
     moveTower(3, 'A', 'B', 'C');
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst_movediskpy" label="lst_movediskpy">
                 <title>Python Solution to Towers of Hanoi</title>
-                <statement><program xml:id="hanoipy" interactive="activecode" language="python" label="hanoipy-prog"><input>
+                <statement><program xml:id="hanoipy" interactive="activecode" language="python" label="hanoipy-prog"><code>
 #Simulation of the tower of hanoi.
 
 def moveTower(height,fromPole, toPole, withPole):
@@ -149,13 +149,13 @@ def moveTower(height,fromPole, toPole, withPole):
         moveTower(height-1,withPole,toPole,fromPole) #Recursive call
 
 def moveDisk(fp,tp):
-    print("moving disk from",fp,"to",tp)
+    print(&quot;moving disk from&quot;,fp,&quot;to&quot;,tp)
 
 def main():
-    moveTower(3,"A","B","C")
+    moveTower(3,&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)
 
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>Now that you have seen the code for both <c>moveTower</c> and <c>moveDisk</c>,
@@ -186,4 +186,3 @@ main()
                 </exercise>
             </reading-questions>   
     </section>
-

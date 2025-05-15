@@ -1,4 +1,4 @@
-<section xml:id="recursion_calculating-the-sum-of-a-vector-of-numbers">
+<?xml version="1.0" ?><section xml:id="recursion_calculating-the-sum-of-a-vector-of-numbers">
         <title>Calculating the Sum of a Vector of Numbers</title>
         <p>We will begin our investigation with a simple problem that you already
             know how to solve without using recursion. Suppose that you want to
@@ -11,7 +11,7 @@
             <title>Iterative Sum of Vector</title>
             <task xml:id="lst-itsum-cpp" label="lst-itsum-cpp">
                 <title>C++ Implementation</title>
-                <statement><program interactive="activecode" language="cpp" label="lst-itsum-cpp-prog"><input>
+                <statement><program interactive="activecode" language="cpp" label="lst-itsum-cpp-prog"><code>
 //Example of summing up a vector without using recursion.
 
 #include &lt;iostream&gt;
@@ -31,11 +31,11 @@ int main() {
 
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-itsum-py" label="lst-itsum-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="lst_itsumpy" interactive="activecode" language="python" label="lst_itsumpy-prog"><input>
+                <statement><program xml:id="lst_itsumpy" interactive="activecode" language="python" label="lst_itsumpy-prog"><code>
 #Example of summing up a list without using recursion.
 
 def listsum(numList):
@@ -50,7 +50,7 @@ def main():
     print(listsum([1, 3, 5, 7, 9]))
 
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>Pretend for a minute that you do not have <c>while</c> loops or <c>for</c>
@@ -88,7 +88,7 @@ main()
             <title>Recursive Sum of Vector</title>
             <task xml:id="lst-recsum-cpp" label="lst-recsum-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="lst_recsumcpp" interactive="activecode" language="cpp" label="lst_recsumcpp-prog"><input>
+                <statement><program xml:id="lst_recsumcpp" interactive="activecode" language="cpp" label="lst_recsumcpp-prog"><code>
 //Example of summing a vector by using recursion.
 
 #include &lt;iostream&gt;
@@ -114,11 +114,11 @@ int main() {
     cout &lt;&lt; vectsum(numVect) &lt;&lt; endl;
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-recsum-py" label="lst-recsum-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="lst_recsumpy" interactive="activecode" language="python" label="lst_recsumpy-prog"><input>
+                <statement><program xml:id="lst_recsumpy" interactive="activecode" language="python" label="lst_recsumpy-prog"><code>
 #Example of summing a list using recurison.
 
 def listsum(numList):
@@ -134,7 +134,7 @@ def main():
     print(listsum([1, 3, 5, 7, 9]))
 
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>There are a few key ideas while using vector to look at. First, on line 6 we are checking to see if the vector is one element long. This
@@ -173,4 +173,3 @@ main()
                 </image>
             </figure>
     </section>
-

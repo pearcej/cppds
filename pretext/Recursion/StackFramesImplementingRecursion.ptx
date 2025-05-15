@@ -1,4 +1,4 @@
-<section xml:id="recursion_stack-frames-implementing-recursion">
+<?xml version="1.0" ?><section xml:id="recursion_stack-frames-implementing-recursion">
         <title>Stack Frames: Implementing Recursion</title>
         <p>Suppose that instead of concatenating the result of the recursive call
             to <c>toStr</c> with the string from <c>convertString</c>, we modified our
@@ -9,7 +9,7 @@
             <title>Using Stack Instead of Recursion</title>
             <task xml:id="lst-recstack-cpp" label="lst-recstack-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="lst_recstackcpp" interactive="activecode" language="cpp" label="lst_recstackcpp-prog"><input>
+                <statement><program xml:id="lst_recstackcpp" interactive="activecode" language="cpp" label="lst_recstackcpp-prog"><code>
 //Example of the toStr function using a stack instead of recursion.
 
 #include &lt;iostream&gt;
@@ -20,7 +20,7 @@ using namespace std;
 stack&lt;char&gt; rStack;
 
 string toStr(int n, int base) {
-    string convertString = "0123456789ABCDEF";
+    string convertString = &quot;0123456789ABCDEF&quot;;
     while (n &gt; 0) {
         if (n &lt; base) {
             rStack.push(convertString[n]); //pushes string n to the stack
@@ -41,11 +41,11 @@ string toStr(int n, int base) {
 int main() {
   cout &lt;&lt; toStr(1453, 16);
 }
-            </input></program></statement>
+            </code></program></statement>
         </task>
         <task xml:id="lst-recstack-py" label="lst-recstack-py">
             <title>Python Implementation</title>
-            <statement><program xml:id="lst_recstackpy" interactive="activecode" language="python" label="lst_recstackpy-prog"><input>
+            <statement><program xml:id="lst_recstackpy" interactive="activecode" language="python" label="lst_recstackpy-prog"><code>
 #Example of the toStr function using a stack instead of recursion.
 
 from pythonds.basic.stack import Stack
@@ -53,14 +53,14 @@ from pythonds.basic.stack import Stack
 rStack = Stack()
 
 def toStr(n,base):
-    convertString = "0123456789ABCDEF"
+    convertString = &quot;0123456789ABCDEF&quot;
     while n &gt; 0:
         if n &lt; base:
             rStack.push(convertString[n]) #adds string n to the stack.
         else:
             rStack.push(convertString[n % base]) #adds string n modulo base to the stack.
         n = n // base
-    res = ""
+    res = &quot;&quot;
     while not rStack.isEmpty():
         #combines all the items in the stack to make the full string.
         res = res + str(rStack.pop())
@@ -70,14 +70,14 @@ def main():
     print(toStr(1453,16))
 
 main()
-            </input></program></statement>
+            </code></program></statement>
         </task>
     </exploration>
         <p>Each time we make a call to <c>toStr</c>, we push a character on the stack.
             Returning to the previous example we can see that after the fourth call
             to <c>toStr</c> the stack would look like <xref ref="fig-recstack"/>. Notice
             that now we can simply pop the characters off the stack and concatenate
-            them into the final result, <c>"1010"</c>.</p>
+            them into the final result, <c>&quot;1010&quot;</c>.</p>
         
         <figure align="center" xml:id="fig-recstack">
             <caption>Strings Placed on the Stack During Conversion.</caption>
@@ -102,8 +102,8 @@ main()
 
 
         <p>Notice that the call to <c>toStr(2//2,2)</c> leaves a return value of
-            <c>"1"</c> on the stack. This return value is then used in place of the
-            function call (<c>toStr(1,2)</c>) in the expression <c>"1" + convertString[2%2]</c>, which will leave the string <c>"10"</c> on the top of
+            <c>&quot;1&quot;</c> on the stack. This return value is then used in place of the
+            function call (<c>toStr(1,2)</c>) in the expression <c>&quot;1&quot; + convertString[2%2]</c>, which will leave the string <c>&quot;10&quot;</c> on the top of
             the stack. In this way, the C++ call stack takes the place of the
             stack we used explicitly in <xref ref="lst-recstack-cpp"/>. In our list summing
             example, you can think of the return value on the stack taking the place
@@ -113,4 +113,3 @@ main()
             each call creates a new scope for the variables that are local to the
             function.</p>
     </section>
-
