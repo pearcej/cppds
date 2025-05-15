@@ -182,19 +182,26 @@ int main() {
                         <statement><program language="cpp" label="introduction_lst-logicgateclass-prog"><input>
 class LogicGate {
 public:
-        LogicGate(string n) {
-                        label = n;
-        }
-        string getLabel() {
-                        return label;
-        }
-        bool getOutput() {
-                output = performGateLogic();
-                return output;
-        }
+    LogicGate(string n) {
+        label = n;
+    }
+
+    string getLabel() {
+        return label;
+    }
+
+    bool getOutput() {
+        output = performGateLogic();
+        return output;
+    }
+
+    virtual bool performGateLogic() {
+        cout &lt;&lt; "ERROR! performGateLogic BASE" &lt;&lt; endl;
+        return false;
+    }
 protected:
-        string label;
-        bool output;
+    string label;
+    bool output;
 };
                 </input></program></statement></task>
                 <task xml:id="introduction_lst-logicgateclass-py" label="introduction_lst-logicgateclass-py">
@@ -219,14 +226,15 @@ class LogicGate:
                 private member but it has the additional benefit that they
                 can be accessed by derived classes. The access keyword
                 <c>protected</c> is used for this.</p>
-            <p>At this point, we will not implement the <c>performGateLogic</c> function.
-                The reason for this is that we do not know how each gate will perform
-                its own logic operation. Those details will be included by each
-                individual gate that is added to the hierarchy. This is a very powerful
-                idea in object-oriented programming. We are writing a method that will
-                use code that does not exist yet. The parameter <c>virtual</c> is a reference
+            <p>We have also added a virtual function called <c>performGateLogic</c>.
+                We do not yet know how each gate will perform
+                its own logic operation; those details will be included by each
+                gate class that is added to the hierarchy. This is a very powerful
+                idea in object-oriented programming: we are providing a method that we
+                require subclasses to override so that the behavior can be customized.
+                The modifier <c>virtual</c> is a reference
                 to the actual gate object invoking the method. Any new logic gate that
-                gets added to the hierarchy will simply need to implement the
+                gets added to the hierarchy will need to implement the
                 <c>performGateLogic</c> function and it will be used at the appropriate
                 time. Once done, the gate can provide its output value. This ability to
                 extend a hierarchy that currently exists and provide the specific
