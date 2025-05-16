@@ -344,7 +344,18 @@ int main() {
 <exercise label="LinkedlistAnalysis">
     <statement><p>Match the Big O() analysis to their corresponding  opperation.</p></statement>
     <feedback><p>Try again!</p></feedback>
-<matches><match order="1"><premise>O(1)</premise><response>isEmpty, add (unordered linked list)</response></match><match order="2"><premise>O(n)</premise><response>length,add, search, and remove(ordered linked list)</response></match></matches></exercise>
+    <cardsort>
+        <match>
+            <premise order="1"><m>O(1)</m></premise>
+            <response>isEmpty, add (unordered linked list)</response>
+        </match>
+        <match>
+            <premise order="2"><m>O(n)</m></premise>
+            <response>length,add, search, and remove(ordered linked list)</response>
+        </match>
+    </cardsort>
+</exercise>
+
     <exercise label="LinkedListMChoice">
         <statement>
 

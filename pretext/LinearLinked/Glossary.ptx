@@ -69,25 +69,25 @@
     <exercise label="matching_linkedlist0">
         <statement><p>Drag the word on the left to its corresponding definition.</p></statement>
         <feedback><p>Review linked lists and their properties.</p></feedback>
-        <matches>
-            <match order="1"><premise>forward list</premise><response>A list that is a singly-linked (only links to one other element) sequence container.</response></match>
-            <match order="2"><premise>head</premise><response>The first item in a linked list.</response></match>
-            <match order="3"><premise>linked data structure</premise><response>A data structure which consists of a set of data structures called nodes which are linked together and organized by links created via references or pointers.</response></match>
-            <match order="4"><premise>linked list</premise><response>A linear collection of data elements whose order is not determined by the placement in memory.</response></match>
-            <match order="5"><premise>linked list traversal</premise><response>The process of systematically visiting each node in a linked list.</response></match>
-        </matches>
+        <cardsort>
+            <match><premise order="1">forward list</premise><response>A list that is a singly-linked (only links to one other element) sequence container.</response></match>
+            <match><premise order="2">head</premise><response>The first item in a linked list.</response></match>
+            <match><premise order="3">linked data structure</premise><response>A data structure which consists of a set of data structures called nodes which are linked together and organized by links created via references or pointers.</response></match>
+            <match><premise order="4">linked list</premise><response>A linear collection of data elements whose order is not determined by the placement in memory.</response></match>
+            <match><premise order="5">linked list traversal</premise><response>The process of systematically visiting each node in a linked list.</response></match>
+        </cardsort>
     </exercise>
 
     <exercise label="matching_linkedlist1">
         <statement><p>Drag the word on the left to its corresponding definition.</p></statement>
         <feedback><p>Review linked lists and their properties.</p></feedback>
-        <matches>
-            <match order="1"><premise>list</premise><response>A doubly-linked (links to 2 other elements) container.</response></match>
-            <match order="2"><premise>node</premise><response>The element of a linked list.</response></match>
-            <match order="3"><premise>ordered linked list</premise><response>A linked list whose elements are in an order.</response></match>
-            <match order="4"><premise>ordered list</premise><response>A list whose elements are ordered.</response></match>
-            <match order="5"><premise>unordered linked list</premise><response>A linked list whose elements are not in an order.</response></match>
-        </matches>
+        <cardsort>
+            <match><premise order="1">list</premise><response>A doubly-linked (links to 2 other elements) container.</response></match>
+            <match><premise order="2">node</premise><response>The element of a linked list.</response></match>
+            <match><premise order="3">ordered linked list</premise><response>A linked list whose elements are in an order.</response></match>
+            <match><premise order="4">ordered list</premise><response>A list whose elements are ordered.</response></match>
+            <match><premise order="5">unordered linked list</premise><response>A linked list whose elements are not in an order.</response></match>
+        </cardsort>
     </exercise>
     <p>
         <!-- extra space before the progress bar -->            
