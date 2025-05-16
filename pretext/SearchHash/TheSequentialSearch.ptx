@@ -1,4 +1,4 @@
-<section xml:id="search-hash_the-sequential-search">
+<?xml version="1.0" ?><section xml:id="search-hash_the-sequential-search">
         <title>The Sequential Search</title> 
         <introduction>
         <p>
@@ -33,7 +33,7 @@
             <listing xml:id="seqsearchonepy">
                 <caption>Python Implementation</caption>
                 <program interactive="activecode" language="python" label="seqsearchonepy-prog">
-                    <input>
+                    <code>
                     # Python implementation of sequential search
                     def sequential_search(lst, item):
                         found = False
@@ -43,24 +43,24 @@
                                 break
                         return found
                     
-                    if __name__ == "__main__":
+                    if __name__ == &quot;__main__&quot;:
                         lst = [1, 2, 3, 4, 5]
                         item = 3
                         if sequential_search(lst, item):
-                            print("Item found!")
+                            print(&quot;Item found!&quot;)
                         else:
-                            print("Item not found.")
-                    </input>
+                            print(&quot;Item not found.&quot;)
+                    </code>
                 </program>
             </listing>
 
 
 
-            <listing xml:id="seqsearchonecpp" >
+            <listing xml:id="seqsearchonecpp">
                 <caption>C++ Implementation</caption>
 
                 <program xml:id="lst-seqsearchcpp" interactive="activecode" language="cpp" label="lst-seqsearchcpp-prog">
-                    <input>
+                    <code>
             #include &lt;iostream&gt;
             #include &lt;vector&gt;
             using namespace std;
@@ -93,7 +93,7 @@
             
                 return 0;
             }
-                </input>
+                </code>
             </program>
         </listing>
         </introduction>
@@ -196,7 +196,7 @@
 
             <listing xml:id="lst-orderedseq">
                 <caption>Ordered Sequential Search</caption>
-                <program xml:id="search2_cpp" interactive="activecode" language="cpp" label="search2_cpp-prog"><input>
+                <program xml:id="search2_cpp" interactive="activecode" language="cpp" label="search2_cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -233,7 +233,7 @@ int main() {
 
     return 0;
 }
-                </input></program>
+                </code></program>
             </listing>
             <p><xref ref="search-hash_search-hash_tbl-seqsearchtable2"/> summarizes these results. Note that in the best
                 case we might discover that the item is not in the vector by looking at
