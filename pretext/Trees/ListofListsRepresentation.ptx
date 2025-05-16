@@ -1,4 +1,4 @@
-<section xml:id="trees_list-of-lists-representation">
+<?xml version="1.0" ?><section xml:id="trees_list-of-lists-representation">
         <title>List of Lists Representation</title>
         <p>In a tree represented by a list of lists, we will begin
             with Python's list data structure and write the functions defined above.
@@ -36,13 +36,13 @@
         
 
     <program xml:id="tree_list1" interactive="activecode" language="python" label="tree_list1-prog">
-        <input>
+        <code>
 myTree = ['a', ['b', ['d',[],[]], ['e',[],[]] ], ['c', ['f',[],[]], []] ]
 print(myTree)
 print('left subtree = ', myTree[1])
 print('root = ', myTree[0])
 print('right subtree = ', myTree[2])
-        </input>
+        </code>
     </program>
         <p>Let's formalize this definition of the tree data structure by providing
             some functions that make it easy for us to use lists as trees. Note that
@@ -105,7 +105,7 @@ def getRightChild(root):
         
 
     <program xml:id="bin_tree" interactive="activecode" language="python" label="bin_tree-prog">
-        <input>
+        <code>
 def BinaryTree(r):
     return [r, [], []]
 
@@ -152,7 +152,7 @@ def main():
     print(r)
     print(getRightChild(getRightChild(r)))
 main()
-        </input>
+        </code>
     </program>
         <note>
             <title>Self Check</title>
@@ -161,13 +161,13 @@ main()
         <statement>
 
             <p>Q-3: Given the following statements:</p>
-            <program language="python" label="ListofListsRepresentation-prog"><input>
+            <program language="python" label="ListofListsRepresentation-prog"><code>
 x = BinaryTree('a')
 insertLeft(x,'b')
 insertRight(x,'c')
 insertRight(getRightChild(x),'d')
 insertLeft(getRightChild(getRightChild(x)),'e')
-</input></program>
+</code></program>
             <p>Which of the answers is the correct representation of the tree?</p>
 
         </statement>
@@ -219,7 +219,7 @@ insertLeft(getRightChild(getRightChild(x)),'e')
 
     </statement>
     <program xml:id="mctree_2_editor" interactive="activecode" language="python" label="mctree_2_editor-prog">
-        <input>
+        <code>
 from test import testEqual
 
 def buildTree():
@@ -231,9 +231,8 @@ def main():
     testEqual(getRootVal(getRightChild(getLeftChild(ttree))),'d')
     testEqual(getRootVal(getRightChild(getRightChild(ttree))),'f')
 main()
-        </input>
+        </code>
     </program>
 </exercise>
         </note>
     </section>
-
