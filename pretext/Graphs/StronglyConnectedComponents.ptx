@@ -131,5 +131,8 @@
                 <description><p>The diagram shows a directed graph illustrating the concept of strongly connected components within a network of nodes. Each node is labeled with a letter from A to I and a pair of numbers, which could represent the sequence in which a depth-first search algorithm processed them. The graph is organized with directed edges forming paths between the nodes, suggesting the presence of subgraphs where each node is reachable from every other node within the same subgraph. This kind of representation is commonly used in computer science to illustrate algorithms that identify strongly connected components within a graph, which are maximal sets of vertices with a path to every other vertex in the set.</p></description>
                 </image>
             </figure>
+            <conclusion><p>
+                <!-- extra space before the progress bar -->
+            </p></conclusion>
     </section>
 

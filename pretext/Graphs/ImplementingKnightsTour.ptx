@@ -203,6 +203,8 @@ def knightTour(n,path,u,limit):
 <cline>    <area>done = True</area>:</cline>
 <cline><area>return done</area>:</cline>
 </areas></exercise>        </reading-questions>  
-      
+    <conclusion><p>
+        <!-- extra space before the progress bar -->
+    </p></conclusion> 
     </section>
 

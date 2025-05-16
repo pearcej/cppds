@@ -231,5 +231,8 @@ def prim(G,start):
 
     </exercise>
 </reading-questions>
+<conclusion><p>
+    <!-- extra space before the progress bar -->
+</p></conclusion>
 </section>
 
