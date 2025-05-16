@@ -1,4 +1,4 @@
-<section xml:id="recursion_sierpinski-triangle">
+<?xml version="1.0" ?><section xml:id="recursion_sierpinski-triangle">
         <title>Sierpinski Triangle</title>
         <p>Another fractal that exhibits the property of self-similarity is the
             Sierpinski triangle. An example is shown in <xref ref="fig-sierpinski"/>. The
@@ -37,7 +37,7 @@
             <title>Darawing the Sierpinski Triangle</title>
             <task xml:id="lst-st-cpp" label="lst-st-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="first_csierpinksi_tri" interactive="activecode" language="cpp" label="first_csierpinksi_tri-prog"><input>
+                <statement><program xml:id="first_csierpinksi_tri" interactive="activecode" language="cpp" label="first_csierpinksi_tri-prog"><code>
 #include &lt;CTurtle.hpp&gt;
 
 namespace ct = cturtle;
@@ -54,10 +54,10 @@ void draw_triangle(ct::Point a, ct::Point b, ct::Point c, ct::Color color, ct::T
     myTurtle.end_fill();
 }
 
-//getMid already defined as "middle" function in C-Turtle namespace :)
+//getMid already defined as &quot;middle&quot; function in C-Turtle namespace :)
 
 void sierpinski(ct::Point a, ct::Point b, ct::Point c, int degree, ct::Turtle&amp; myTurtle){
-    const std::string colormap[] = {"blue", "red", "green", "white", "yellow", "violet", "orange"};
+    const std::string colormap[] = {&quot;blue&quot;, &quot;red&quot;, &quot;green&quot;, &quot;white&quot;, &quot;yellow&quot;, &quot;violet&quot;, &quot;orange&quot;};
     draw_triangle(a,b,c, {colormap[degree]}, myTurtle);
     if(degree &gt; 0){
         sierpinski(a, ct::middle(a, b), ct::middle(a, c), degree - 1, myTurtle);
@@ -82,11 +82,11 @@ int main() {
     screen.bye();
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-st-py" label="lst-st-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="lst_st" interactive="activecode" language="python" label="lst_st-prog"><input>
+                <statement><program xml:id="lst_st" interactive="activecode" language="python" label="lst_st-prog"><code>
 #Recursive example of the Sierpinski Triangle.
 
 import turtle
@@ -132,7 +132,7 @@ def main():
     myWin.exitonclick()
 
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>The program in <xref ref="lst-st-cpp"/> follows the ideas outlined above. The
@@ -175,4 +175,3 @@ main()
         <p>The above sierpinski triangle visualization utilizes C-Turtle, a C++ equivalent of
             Python's <c>turtle</c> library, and can be found on GitHub here: <url href="https://github.com/walkerje/C-Turtle/" visual="https://github.com/walkerje/C-Turtle/">https://github.com/walkerje/C-Turtle/</url></p>
     </section>
-

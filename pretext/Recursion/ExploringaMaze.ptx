@@ -1,4 +1,4 @@
-<section xml:id="recursion_exploring-a-maze">
+<?xml version="1.0" ?><section xml:id="recursion_exploring-a-maze">
         <title>Exploring a Maze</title>
         <p>In this section we will look at a problem that has relevance to the
             expanding world of robotics: How do you find your way out of a maze? If you have
@@ -110,7 +110,7 @@
             <title><c>searchFrom</c> function</title>
             <task xml:id="lst-mazesearch-cpp" label="lst-mazesearch-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp" label="lst-mazesearch-cpp-prog"><input>
+                <statement><program language="cpp" label="lst-mazesearch-cpp-prog"><code>
 bool searchFrom(vector&lt;string&gt; &amp;maze, size_t startRow, size_t startColumn) {
     //  Check for base cases:
     //  1. We have run into an obstacle, return false
@@ -143,11 +143,11 @@ bool searchFrom(vector&lt;string&gt; &amp;maze, size_t startRow, size_t startCol
 
 	    return found;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-mazesearch-py" label="lst-mazesearch-py">
                 <title>Python Implementation</title>
-                <statement><program language="python" label="lst-mazesearch-py-prog"><input>
+                <statement><program language="python" label="lst-mazesearch-py-prog"><code>
 def searchFrom(maze, startRow, startColumn):
     #  Check for base cases (Steps 1, 2, and 3):
 
@@ -182,7 +182,7 @@ def searchFrom(maze, startRow, startColumn):
         maze[startRow][startColumn] = MAZE_DEAD_END
 
     return found
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>As you look through the algorithm you will see that the first thing the
@@ -216,21 +216,21 @@ def searchFrom(maze, startRow, startColumn):
             internal representation looks like the following:</p>
         <listing xml:id="lst-exmaze">
             <caption>Example Maze</caption>
-            <program language="cpp" label="lst-exmaze-prog"><input>
+            <program language="cpp" label="lst-exmaze-prog"><code>
 {
-    "++++++++++++++++++++++",
-    "+   +   ++ ++     +   ",
-    "+ +   +       +++ + ++",
-    "+ + +  ++  ++++   + ++",
-    "+++ ++++++    +++ +  +",
-    "+          ++  ++    +",
-    "+++++ ++++++   +++++ +",
-    "+     +   +++++++  + +",
-    "+ +++++++      S +   +",
-    "+                + +++",
-    "++++++++++++++++++ +++"
+    &quot;++++++++++++++++++++++&quot;,
+    &quot;+   +   ++ ++     +   &quot;,
+    &quot;+ +   +       +++ + ++&quot;,
+    &quot;+ + +  ++  ++++   + ++&quot;,
+    &quot;+++ ++++++    +++ +  +&quot;,
+    &quot;+          ++  ++    +&quot;,
+    &quot;+++++ ++++++   +++++ +&quot;,
+    &quot;+     +   +++++++  + +&quot;,
+    &quot;+ +++++++      S +   +&quot;,
+    &quot;+                + +++&quot;,
+    &quot;++++++++++++++++++ +++&quot;
 };
-            </input></program>
+            </code></program>
         </listing>
         <p>The <c>searchFrom</c> method uses this internal representation to traverse
             throughout the maze.</p>
@@ -282,7 +282,7 @@ def searchFrom(maze, startRow, startColumn):
             <title>Maze search code</title>
             <task xml:id="maze-complete-cpp" label="maze-complete-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp" interactive="activecode" datafile="maze1.txt,maze2.txt" label="maze-complete-cpp-prog"><input>
+                <statement><program language="cpp" interactive="activecode" datafile="maze1.txt,maze2.txt" label="maze-complete-cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;fstream&gt;
 #include &lt;vector&gt;
@@ -363,20 +363,20 @@ bool searchFrom(vector&lt;string&gt; &amp;maze, size_t startRow, size_t startCol
 
 int main() {
     size_t row, column;
-    vector&lt;string&gt; theMaze = readMazeFile("maze1.txt");
-    cout &lt;&lt; "Before:" &lt;&lt; endl;
+    vector&lt;string&gt; theMaze = readMazeFile(&quot;maze1.txt&quot;);
+    cout &lt;&lt; &quot;Before:&quot; &lt;&lt; endl;
     printMaze(theMaze);
     findStart(theMaze, row, column);
     searchFrom(theMaze, row, column);
-    cout &lt;&lt; endl &lt;&lt; "After:" &lt;&lt; endl;
+    cout &lt;&lt; endl &lt;&lt; &quot;After:&quot; &lt;&lt; endl;
     printMaze(theMaze);
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="maze-complete-py" label="maze-complete-py">
                 <title>Python Implementation</title>
-                <statement><program language="python" interactive="activecode" label="maze-complete-py-prog"><input>
+                <statement><program language="python" interactive="activecode" label="maze-complete-py-prog"><code>
 MAZE_OBSTACLE = '+'
 MAZE_START = 'S'
 MAZE_PATH = 'O'
@@ -404,7 +404,7 @@ class Maze:
         # The line below says the following:
         # For every line of text in our maze text file, add every single character to a list.
         # The final result is a list of lists, where each element is a single character.
-        self.mazeList = [[char for char in line] for line in open(mazeFileName).read().split("\n")]
+        self.mazeList = [[char for char in line] for line in open(mazeFileName).read().split(&quot;\n&quot;)]
 
         # The total number of rows is the total number of strings in the list.
         self.totalRows = len(self.mazeList)
@@ -439,8 +439,8 @@ class Maze:
 
     def print(self):
         for row in self.mazeList:
-            # "join" every character in the row into a single string.
-            rowText = "".join(row)
+            # &quot;join&quot; every character in the row into a single string.
+            rowText = &quot;&quot;.join(row)
             print(rowText)
 
     # This allows us to use the Maze class like a list, e.g, maze[index]
@@ -478,15 +478,15 @@ def searchFrom(maze, startRow, startColumn):
     return found
 
 def main():
-    maze = Maze("maze1.txt")
-    print("Before:")
+    maze = Maze(&quot;maze1.txt&quot;)
+    print(&quot;Before:&quot;)
     maze.print()
     searchFrom(maze, maze.startRow, maze.startColumn)
-    print("After:")
+    print(&quot;After:&quot;)
     maze.print()
 
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
 
@@ -496,11 +496,11 @@ main()
         To visualize the exploration, print out the characters using <c>cout</c> to create an ASCII representation of your cave.
         You can also use CTurtle to visualize the traversal throughout the maze.</p>
     </note>
-    <program label="ExploringaMaze-prog"><input>
+    <program label="ExploringaMaze-prog"><code>
 +++++++
 +  + S+
 +  +  +
 X    ++
 +++++++
-    </input></program>
+    </code></program>
 </section>

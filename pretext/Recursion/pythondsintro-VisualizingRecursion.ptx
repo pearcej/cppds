@@ -1,4 +1,4 @@
-<section xml:id="recursion_introduction-visualizing-recursion">
+<?xml version="1.0" ?><section xml:id="recursion_introduction-visualizing-recursion">
         <title>Introduction: Visualizing Recursion</title>
         <p>In the previous section we looked at some problems that were easy to
             solve using recursion; however, it can still be difficult to find a
@@ -32,7 +32,7 @@
             <title>Example of Turtle Graphics</title>
             <task xml:id="lst-turt1-cpp" label="lst-turt1-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="lst_cturt1" interactive="activecode" language="cpp" label="lst_cturt1-prog"><input>
+                <statement><program xml:id="lst_cturt1" interactive="activecode" language="cpp" label="lst_cturt1-prog"><code>
 #include &lt;CTurtle.hpp&gt;
 namespace ct = cturtle;
 
@@ -53,11 +53,11 @@ int main() {
     screen.bye();
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-turt1-py" label="lst-turt1-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="lst_turt1" interactive="activecode" language="python" label="lst_turt1-prog"><input>
+                <statement><program xml:id="lst_turt1" interactive="activecode" language="python" label="lst_turt1-prog"><code>
 #Creates an inward spiral through recursion.
 
 import turtle
@@ -75,7 +75,7 @@ def main():
     myWin.exitonclick()
 
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>That is really about all the turtle graphics you need to know in order
@@ -117,7 +117,7 @@ main()
 
         <listing xml:id="lst-fractree-py" names="lst_fractree">
             <caption>Fractal Tree</caption>
-            <program language="python" label="lst-fractree-py-prog"><input>
+            <program language="python" label="lst-fractree-py-prog"><code>
 def tree(branchLen,t):
     if branchLen &gt; 5:
         t.forward(branchLen)
@@ -127,7 +127,7 @@ def tree(branchLen,t):
         tree(branchLen-10,t)
         t.right(20)
         t.backward(branchLen)
-            </input></program>
+            </code></program>
         </listing>
         <p>The complete program for this tree example is shown in <xref ref="lst-complete-tree-cpp"/>.  Before you run
             the code think about how you expect to see the tree take shape. Look at
@@ -138,7 +138,7 @@ def tree(branchLen,t):
             <title>Complete Tree Code</title>
             <task xml:id="lst-complete-tree-cpp" label="lst-complete-tree-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="lst_complete_ctree" interactive="activecode" language="cpp" label="lst_complete_ctree-prog"><input>
+                <statement><program xml:id="lst_complete_ctree" interactive="activecode" language="cpp" label="lst_complete_ctree-prog"><code>
 #include &lt;CTurtle.hpp&gt;
 
 namespace ct = cturtle;
@@ -159,9 +159,9 @@ int main() {
     ct::TurtleScreen screen;
     screen.tracer(3);//Draw faster.
     ct::Turtle turtle(screen);
-    turtle.pencolor({"green"});
+    turtle.pencolor({&quot;green&quot;});
 
-    //Make the trees "grow" upwards
+    //Make the trees &quot;grow&quot; upwards
     turtle.left(90);
 
     //Start growing from further down.
@@ -175,11 +175,11 @@ int main() {
     screen.bye();
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-complete-tree-py" label="lst-complete-tree-py">
                 <title>Python Implementation</title>
-                    <statement><program xml:id="lst_complete_tree" interactive="activecode" language="python" label="lst_complete_tree-prog"><input>
+                    <statement><program xml:id="lst_complete_tree" interactive="activecode" language="python" label="lst_complete_tree-prog"><code>
 #Creates a tree by using recursion.
 
 import turtle
@@ -203,12 +203,12 @@ def main():
     t.up()
     t.backward(100)
     t.down()
-    t.color("green")
+    t.color(&quot;green&quot;)
     tree(75,t)
     myWin.exitonclick()
 
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>Notice how each branch point on the tree corresponds to a recursive
@@ -267,11 +267,10 @@ main()
             </ul></p>
 
     <program xml:id="recursion_sc_3" interactive="activecode" language="cpp" label="recursion_sc_3-prog">
-        <input>
+        <code>
 
 
-        </input>
+        </code>
     </program>
 </reading-questions>  
     </section>
-
