@@ -4,6 +4,7 @@
 <book xml:id="cppds2" permid="cppds2">
 <title>Problem Solving with Algorithms and Data Structures using C++</title>
 <subtitle>The PreTeXt Interactive Edition</subtitle>
+<xi:include href="./meta_frontmatter.ptx"/>
 <xi:include href="./Introduction/toctree.ptx"/>
 <xi:include href="./AlgorithmAnalysis/toctree.ptx"/>
 <xi:include href="./LinearBasic/toctree.ptx"/>
