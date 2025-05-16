@@ -205,7 +205,22 @@ int main() {
 <exercise label="orderingPrinciples">
     <statement><p>Drag each data structure to its corresponding ordering principle</p></statement>
     <feedback><p>This is feedback.</p></feedback>
-<matches><match order="1"><premise>Stack</premise><response>last-in first-out</response></match><match order="2"><premise>Deque</premise><response>mixed depending upon input order</response></match><match order="3"><premise>Queue</premise><response>first-in first-out</response></match></matches></exercise>
+    <cardsort>
+        <match>
+            <premise order="1">Stack</premise>
+            <response>last-in first-out</response>
+        </match>
+        <match>
+            <premise order="2">Deque</premise>
+            <response>mixed depending upon input order</response>
+        </match>
+        <match>
+            <premise order="3">Queue</premise>
+            <response>first-in first-out</response>
+        </match>
+    </cardsort>
+</exercise>
+
 <exercise label="Remembertypes">
     <statement><p>Click on the cause of a syntax error in the following code.</p></statement>
 <feedback><p>Remember how we declare variables</p></feedback>

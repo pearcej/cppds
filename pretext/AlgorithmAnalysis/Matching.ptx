@@ -8,38 +8,38 @@
     <feedback>
       <p>Review classes and their properties</p>
     </feedback>
-    <matches>
-      <match order="1">
-        <premise>algorithm</premise>
+    <cardsort>
+      <match>
+        <premise order="1">algorithm</premise>
         <response>Step-by-step list of instructions for solving a problem.</response>
       </match>
-      <match order="7">
-        <premise>dynamic size</premise>
+      <match>
+        <premise order="7">dynamic size</premise>
         <response>Able to change size automatically</response>
       </match>
-      <match order="5">
-        <premise>exponential</premise>
+      <match>
+        <premise order="5">exponential</premise>
         <response>Function represented as a number being raised to a power that increases.</response>
       </match>
-      <match order="2">
-        <premise>hash table</premise>
+      <match>
+        <premise order="2">hash table</premise>
         <response>A collection consisting of key-value pairs with an associated hash function that maps the key to the associated value.</response>
       </match>
-      <match order="6">
-        <premise>linear</premise>
+      <match>
+        <premise order="6">linear</premise>
         <response>Function that grows in a one-to-one relationship with its input.</response>
       </match>
-      <match order="3">
-        <premise>logarithmic</premise>
+      <match>
+        <premise order="3">logarithmic</premise>
         <response>functions that are the inverse of exponential functions</response>
       </match>
-      <match order="4">
-        <premise>average case</premise>
+      <match>
+        <premise order="4">average case</premise>
         <response>When an algorithm performs between its worst and best case given a certain data set or circumstance.</response>
       </match>
-
-    </matches>
+    </cardsort>
   </exercise>
+
   <exercise label="matching_algorithmana_2">
     <statement>
       <p>
@@ -49,38 +49,38 @@
     <feedback>
       <p>Review classes and their properties</p>
     </feedback>
-    <matches>
-      <match order="3">
-        <premise>vector</premise>
+    <cardsort>
+      <match>
+        <premise order="3">vector</premise>
         <response>Sequence container storing data of a single type in a dynamically allocated array.</response>
       </match>
-      <match order="7">
-        <premise>worst case</premise>
+      <match>
+        <premise order="7">worst case</premise>
         <response>When an algorithm performs especially poorly given a certain data set or circumstance.</response>
       </match>
-      <match order="1">
-        <premise>quadratic</premise>
+      <match>
+        <premise order="1">quadratic</premise>
         <response>Function describing a relationship whose highest order is a number squared</response>
       </match>
-      <match order="2">
-        <premise>best case</premise>
+      <match>
+        <premise order="2">best case</premise>
         <response>When an algorithm performs especially well given a certain data set or circumstance</response>
       </match>
-      <match order="6">
-        <premise>Big-O notation</premise>
+      <match>
+        <premise order="6">Big-O notation</premise>
         <response>a function describing an algorithm's steps as the size of the problem increases.</response>
       </match>
-      <match order="5">
-        <premise>brute force</premise>
+      <match>
+        <premise order="5">brute force</premise>
         <response>Technique that tries to exhaust all possibilities of a problem</response>
       </match>
-      <match order="4">
-        <premise>contiguous</premise>
+      <match>
+        <premise order="4">contiguous</premise>
         <response>Adjacent</response>
       </match>
-      
-    </matches>
+    </cardsort>
   </exercise>
+
   <p>
     <!-- extra space before the progress bar -->
   </p>
