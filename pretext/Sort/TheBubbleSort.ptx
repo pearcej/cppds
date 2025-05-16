@@ -1,4 +1,4 @@
-<section xml:id="sort_the-bubble-sort">
+<?xml version="1.0" ?><section xml:id="sort_the-bubble-sort">
         <title>The Bubble Sort</title>
         <p>The <term>bubble sort</term> makes multiple passes through an array. It compares
             adjacent items and exchanges those that are out of order. Each pass
@@ -58,7 +58,7 @@ alist[j] = temp;</pre>
             <title>Bubble Sort Implementation</title>
             <task xml:id="lst-bubble-cpp" label="lst-bubble-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-bubble-cpp" interactive="activecode" language="cpp" line-numbers="yes" label="prog-bubble-cpp-prog"><input>
+                <statement><program xml:id="prog-bubble-cpp" interactive="activecode" language="cpp" line-numbers="yes" label="prog-bubble-cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -85,17 +85,17 @@ int main() {
 
     vector&lt;int&gt; bvector = bubbleSort(avector);
     for (unsigned int i = 0; i &lt; bvector.size(); i++) {
-        cout&lt;&lt;bvector[i]&lt;&lt; " ";
+        cout&lt;&lt;bvector[i]&lt;&lt; &quot; &quot;;
     }
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-bubble-py" label="lst-bubble-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-bubble-py" interactive="activecode" language="python" label="prog-bubble-py-prog"><input>
-"""function goes through list sorting adjacent values as it bubbles
-the largest value to the top."""
+                <statement><program xml:id="prog-bubble-py" interactive="activecode" language="python" label="prog-bubble-py-prog"><code>
+&quot;&quot;&quot;function goes through list sorting adjacent values as it bubbles
+the largest value to the top.&quot;&quot;&quot;
 def bubbleSort(alist):
     for passnum in range(len(alist)-1,0,-1):
         for i in range(passnum):
@@ -110,7 +110,7 @@ def main():
     print(alist)
 
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
 
@@ -125,27 +125,27 @@ main()
             </sidebyside>
             <sidebyside widths="18% 18% 18% 18% 18%">
                 <slate surface="html">
-                    <input type="button" value="Initialize" onkeypress="bubble_anim_anim = bubble_anim_init('bubble_anim');" onclick="bubble_anim_anim = bubble_anim_init('bubble_anim');" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Initialize" onkeypress="bubble_anim_anim = bubble_anim_init('bubble_anim');" onclick="bubble_anim_anim = bubble_anim_init('bubble_anim');" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="Run" onkeypress="bubble_anim_anim.run('bubble_anim_anim');" onclick="bubble_anim_anim.run('bubble_anim_anim');" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Run" onkeypress="bubble_anim_anim.run('bubble_anim_anim');" onclick="bubble_anim_anim.run('bubble_anim_anim');" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="Stop" onkeypress="bubble_anim_anim.stop();" onclick="bubble_anim_anim.stop();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Stop" onkeypress="bubble_anim_anim.stop();" onclick="bubble_anim_anim.stop();" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="Beginning" onkeypress="bubble_anim_anim.begin();" onclick="bubble_anim_anim.begin();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Beginning" onkeypress="bubble_anim_anim.begin();" onclick="bubble_anim_anim.begin();" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="End" onkeypress="bubble_anim_anim.end();" onclick="bubble_anim_anim.end();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="End" onkeypress="bubble_anim_anim.end();" onclick="bubble_anim_anim.end();" style="font-size:16px; width:100%"/>
                 </slate>
             </sidebyside>
             <sidebyside widths="30% 30%" margins="20%">
                 <slate surface="html">
-                    <input type="button" value="Step Forward" onkeypress="bubble_anim_anim.forward();" onclick="bubble_anim_anim.forward();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Step Forward" onkeypress="bubble_anim_anim.forward();" onclick="bubble_anim_anim.forward();" style="font-size:16px; width:100%"/>
                 </slate>
                 <slate surface="html">
-                    <input type="button" value="Step Backward" onkeypress="bubble_anim_anim.backward();" onclick="bubble_anim_anim.backward();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                    <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Step Backward" onkeypress="bubble_anim_anim.backward();" onclick="bubble_anim_anim.backward();" style="font-size:16px; width:100%"/>
                 </slate>
             </sidebyside>
             <script><![CDATA[
@@ -176,7 +176,7 @@ main()
 
         <figure xml:id="sort_bubble-video">
             <caption>Video of <c>insertionSort</c> in action.</caption>
-            <video label="sort_bubble_sort-video" source="Sort/vis_bubble_sort.webm" width="80%" preview="Sort/vis_bubble_sort_thumb.png" />
+            <video label="sort_bubble_sort-video" source="Sort/vis_bubble_sort.webm" width="80%" preview="Sort/vis_bubble_sort_thumb.png"/>
         </figure>
         
 
@@ -267,7 +267,7 @@ main()
                 <title>Short Bubbles Implementation</title>
                 <task xml:id="lst-shortbubbles-cpp" label="lst-shortbubbles-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="prog-shortbubbles-cpp" interactive="activecode" language="cpp" label="prog-shortbubbles-cpp-prog"><input>
+                    <statement><program xml:id="prog-shortbubbles-cpp" interactive="activecode" language="cpp" label="prog-shortbubbles-cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 
@@ -303,15 +303,15 @@ int main() {
     vector&lt;int&gt; bvector = shortBubbleSort(avector);
 
     for(unsigned int i = 0; i &lt; bvector.size(); i++){
-      cout&lt;&lt; bvector[i] &lt;&lt; " ";
+      cout&lt;&lt; bvector[i] &lt;&lt; &quot; &quot;;
     }
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="lst-shotbubbles-py" label="lst-shotbubbles-py">
                     <title>Python Implementation</title>
-                    <statement><program xml:id="prog-shortbubbles-py" interactive="activecode" language="python" label="prog-shortbubbles-py-prog"><input>
+                    <statement><program xml:id="prog-shortbubbles-py" interactive="activecode" language="python" label="prog-shortbubbles-py-prog"><code>
 def shortBubbleSort(alist):
     exchanges = True
     passnum = len(alist)-1
@@ -323,14 +323,14 @@ def shortBubbleSort(alist):
                temp = alist[i]
                alist[i] = alist[i+1]
                alist[i+1] = temp
-       """subtracts from the passnum variable so that the next passthrough is one less
-       than the previous, because the largest value has already 'bubbled' all the way up"""
+       &quot;&quot;&quot;subtracts from the passnum variable so that the next passthrough is one less
+       than the previous, because the largest value has already 'bubbled' all the way up&quot;&quot;&quot;
        passnum = passnum-1
 
 alist=[20,30,40,90,50,60,70,80,100,110]
 shortBubbleSort(alist)
 print(alist)
-               </input></program></statement>
+               </code></program></statement>
             </task>
         </exploration>
         <!--Finally, here is ``shortBubbleSort`` in CodeLens (CodeLens 2)..-->
@@ -404,4 +404,3 @@ print(alist)
     </exercise>
 </reading-questions> 
     </section>
-

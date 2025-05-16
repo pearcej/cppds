@@ -1,4 +1,4 @@
-<section xml:id="sort_the-merge-sort">
+<?xml version="1.0" ?><section xml:id="sort_the-merge-sort">
         <title>The Merge Sort</title>
         <p><idx>merge sort</idx>We now turn our attention to using a divide and conquer strategy as a
             way to improve the performance of sorting algorithms. The first
@@ -40,7 +40,7 @@
             <title>Merge Sort</title>
             <task xml:id="lst-mergesort-cpp" label="lst-mergesort-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-mergesort-cpp" interactive="activecode" language="cpp" label="prog-mergesort-cpp-prog"><input>
+                <statement><program xml:id="prog-mergesort-cpp" interactive="activecode" language="cpp" label="prog-mergesort-cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -48,14 +48,14 @@ using namespace std;
 //function that prints the vector
 void printl(vector&lt;int&gt; avector) {
     for (unsigned int i=0; i&lt;avector.size(); i++) {
-        cout &lt;&lt; avector[i] &lt;&lt; " ";
+        cout &lt;&lt; avector[i] &lt;&lt; &quot; &quot;;
     }
     cout &lt;&lt; endl;
 }
 
 //function sorts using mergesort.
 vector&lt;int&gt; mergeSort(vector&lt;int&gt; avector) {
-    cout&lt;&lt;"Splitting ";
+    cout&lt;&lt;&quot;Splitting &quot;;
     printl(avector);
     if (avector.size()&gt;1) {
         int mid = avector.size()/2;
@@ -93,7 +93,7 @@ vector&lt;int&gt; mergeSort(vector&lt;int&gt; avector) {
         }
 
     }
-    cout&lt;&lt;"Merging ";
+    cout&lt;&lt;&quot;Merging &quot;;
     printl(avector);
 
     return avector;
@@ -108,13 +108,13 @@ int main() {
 
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-mergesort-py" label="lst-mergesort-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-mergesort-py" interactive="activecode" language="python" label="prog-mergesort-py-prog"><input>
+                <statement><program xml:id="prog-mergesort-py" interactive="activecode" language="python" label="prog-mergesort-py-prog"><code>
 def mergeSort(alist):
-    print("Splitting ",alist)
+    print(&quot;Splitting &quot;,alist)
     if len(alist)&gt;1:
         mid = len(alist)//2
         lefthalf = alist[:mid]
@@ -144,14 +144,14 @@ def mergeSort(alist):
             alist[k]=righthalf[j]
             j=j+1
             k=k+1
-    print("Merging ",alist)
+    print(&quot;Merging &quot;,alist)
 
 def main():
     alist = [54,26,93,17,77,31,44,55,20]
     mergeSort(alist)
     print(alist)
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>Once the <c>mergeSort</c> function is invoked on the left half and the
@@ -181,27 +181,27 @@ main()
                 </sidebyside>
                 <sidebyside widths="18% 18% 18% 18% 18%">
                     <slate surface="html">
-                        <input type="button" value="Initialize" onkeypress="merge_anim_anim = merge_anim_init('merge_anim');" onclick="merge_anim_anim = merge_anim_init('merge_anim');" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                        <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Initialize" onkeypress="merge_anim_anim = merge_anim_init('merge_anim');" onclick="merge_anim_anim = merge_anim_init('merge_anim');" style="font-size:16px; width:100%"/>
                     </slate>
                     <slate surface="html">
-                        <input type="button" value="Run" onkeypress="merge_anim_anim.run('merge_anim_anim');" onclick="merge_anim_anim.run('merge_anim_anim');" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                        <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Run" onkeypress="merge_anim_anim.run('merge_anim_anim');" onclick="merge_anim_anim.run('merge_anim_anim');" style="font-size:16px; width:100%"/>
                     </slate>
                     <slate surface="html">
-                        <input type="button" value="Stop" onkeypress="merge_anim_anim.stop();" onclick="merge_anim_anim.stop();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                        <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Stop" onkeypress="merge_anim_anim.stop();" onclick="merge_anim_anim.stop();" style="font-size:16px; width:100%"/>
                     </slate>
                     <slate surface="html">
-                        <input type="button" value="Beginning" onkeypress="merge_anim_anim.begin();" onclick="merge_anim_anim.begin();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                        <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Beginning" onkeypress="merge_anim_anim.begin();" onclick="merge_anim_anim.begin();" style="font-size:16px; width:100%"/>
                     </slate>
                     <slate surface="html">
-                        <input type="button" value="End" onkeypress="merge_anim_anim.end();" onclick="merge_anim_anim.end();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                        <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="End" onkeypress="merge_anim_anim.end();" onclick="merge_anim_anim.end();" style="font-size:16px; width:100%"/>
                     </slate>
                 </sidebyside>
                 <sidebyside widths="30% 30%" margins="20%">
                     <slate surface="html">
-                        <input type="button" value="Step Forward" onkeypress="merge_anim_anim.forward();" onclick="merge_anim_anim.forward();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                        <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Step Forward" onkeypress="merge_anim_anim.forward();" onclick="merge_anim_anim.forward();" style="font-size:16px; width:100%"/>
                     </slate>
                     <slate surface="html">
-                        <input type="button" value="Step Backward" onkeypress="merge_anim_anim.backward();" onclick="merge_anim_anim.backward();" style="font-size:16px; width:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+                        <input xmlns="http://www.w3.org/1999/xhtml" type="button" value="Step Backward" onkeypress="merge_anim_anim.backward();" onclick="merge_anim_anim.backward();" style="font-size:16px; width:100%"/>
                     </slate>
                 </sidebyside>
                 <script><![CDATA[
@@ -235,7 +235,7 @@ main()
 
         <figure xml:id="sort_merge-video">
             <caption>Video of <c>mergeSort</c> in action.</caption>
-            <video label="sort_merge_sort-video" source="Sort/vis_merge_sort.webm" width="80%" preview="Sort/vis_merge_sort_thumb.png" />
+            <video label="sort_merge_sort-video" source="Sort/vis_merge_sort.webm" width="80%" preview="Sort/vis_merge_sort_thumb.png"/>
         </figure>
 
         <p>In order to analyze the <c>mergeSort</c> function, we need to consider the
@@ -356,4 +356,3 @@ main()
     </exercise>
 </reading-questions>
     </section>
-
