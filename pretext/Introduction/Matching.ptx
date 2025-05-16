@@ -8,88 +8,88 @@
     <feedback>
       <p>Try again!</p>
     </feedback>
-    <matches>
-      <match order="1">
-        <premise>abstraction</premise>
+    <cardsort>
+      <match>
+        <premise order="1">abstraction</premise>
         <response>focusing on desired behaviors and properties while disregarding what is irrelevant/unimportant</response>
       </match>
-      <match order="10">
-        <premise>class methods</premise>
+      <match>
+        <premise order="10">class methods</premise>
         <response>the functions that belong to a particular class</response>
       </match>
-      <match order="11">
-        <premise>collection</premise>
+      <match>
+        <premise order="11">collection</premise>
         <response>a grouping of data items that have some shared significance or need to be operated upon together.</response>
       </match>
-      <match order="12">
-        <premise>object-oriented programming language</premise>
+      <match>
+        <premise order="12">object-oriented programming language</premise>
         <response>uses objects to represent data and methods such as C++ and Java</response>
       </match>
-      <match order="13">
-        <premise>constructor</premise>
+      <match>
+        <premise order="13">constructor</premise>
         <response>an class' special function that initializes an object of that class</response>
       </match>
-      <match order="14">
-        <premise>dereference</premise>
+      <match>
+        <premise order="14">dereference</premise>
         <response>follow a pointer to its referenced memory location and read the data there.</response>
       </match>
-      <match order="15">
-        <premise>object attribute</premise>
+      <match>
+        <premise order="15">object attribute</premise>
         <response>a property of an object that describes what it "looks like"</response>
       </match>
-      <match order="16">
-        <premise>encapsulation</premise>
+      <match>
+        <premise order="16">encapsulation</premise>
         <response>hiding the contents of a class except when absolutely necessary</response>
       </match>
-      <match order="17">
-        <premise>parameter</premise>
+      <match>
+        <premise order="17">parameter</premise>
         <response>a variable in a function or method definition that accepts data passed from an argument.</response>
       </match>
-      <match order="18">
-        <premise>friend</premise>
+      <match>
+        <premise order="18">friend</premise>
         <response>an operator or function that can access the private data members of a class</response>
       </match>
-      <match order="19">
-        <premise>friend function</premise>
+      <match>
+        <premise order="19">friend function</premise>
         <response>a function defined outside that class' scope but has access to private and protected members of the class</response>
       </match>
-      <match order="2">
-        <premise>mutability</premise>
+      <match>
+        <premise order="2">mutability</premise>
         <response>able to be modified.</response>
       </match>
-      <match order="20">
-        <premise>function</premise>
+      <match>
+        <premise order="20">function</premise>
         <response>A section of code that performs a procedure and is usually named</response>
       </match>
-      <match order="3">
-        <premise>address-of</premise>
+      <match>
+        <premise order="3">address-of</premise>
         <response>&amp;</response>
       </match>
-      <match order="4">
-        <premise>argument</premise>
+      <match>
+        <premise order="4">argument</premise>
         <response>data passed to a parameter.</response>
       </match>
-      <match order="5">
-        <premise>array</premise>
+      <match>
+        <premise order="5">array</premise>
         <response>a data structure consisting of an ordered collection of data elements of identical type</response>
       </match>
-      <match order="6">
-        <premise>atomic data type</premise>
+      <match>
+        <premise order="6">atomic data type</premise>
         <response>basic data type that cannot be broken down into any simpler data elements.</response>
       </match>
-      <match order="7">
-        <premise>inheritance</premise>
+      <match>
+        <premise order="7">inheritance</premise>
         <response>sharing/gaining the same behavior as another class</response>
       </match>
-      <match order="8">
-        <premise>polymorphism</premise>
+      <match>
+        <premise order="8">polymorphism</premise>
         <response>the ability to process objects or methods differently depending on their data type, class, number of arguments, etc.</response>
       </match>
-      <match order="9">
-        <premise>class</premise>
+      <match>
+        <premise order="9">class</premise>
         <response>a template for creating (instantiating) objects, for providing initial values for state via member variables</response>
       </match>
-    </matches>
+    </cardsort>
   </exercise>
   <p>
     <!-- extra space before the progress bar -->
