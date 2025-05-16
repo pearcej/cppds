@@ -974,7 +974,17 @@ int main(){
     <exercise label="aande">
         <statement><p>Match the corresponding key word to the appropriate scenario.</p></statement>
         <feedback><p>Review the definitions of the key words.</p></feedback>
-    <matches><match order="1"><premise>Encapsulation</premise><response>A situation where bank software programmers want to protect users' personal information.</response></match><match order="2"><premise>Abstraction</premise><response>A situation where software programmers want to develop similar objects without having to redefine the most similar properties.</response></match></matches></exercise>
+        <cardsort>
+            <match>
+                <premise order="1">Encapsulation</premise>
+                <response>A situation where bank software programmers want to protect users' personal information.</response>
+            </match>
+            <match>
+                <premise order="2">Abstraction</premise>
+                <response>A situation where software programmers want to develop similar objects without having to redefine the most similar properties.</response>
+            </match>
+        </cardsort>
+    </exercise>
     
     <exercise label="class_syntax">
     <statement><p>Click on the line where there is a syntax error when defining the following class</p></statement>
@@ -1000,11 +1010,44 @@ int main(){
     <exercise label="elements_of_OOP">
         <statement><p>Drag the word on the left to its corresponding definition</p></statement>
         <feedback><p>Review the elements of object oriented programming</p></feedback>
-    <matches><match order="1"><premise>Encapsulation</premise><response>hiding the contents of a class except when absolutely necessary</response></match><match order="2"><premise>Abstraction</premise><response>focusing on desired behaviors and properties while disregarding what is irrelevant/unimportant</response></match><match order="3"><premise>Polymorphism</premise><response>processing objects or methods differently depending on their data type, class, number of arguments, etc.</response></match></matches></exercise>
+        <cardsort>
+            <match>
+                <premise order="1">Encapsulation</premise>
+                <response>hiding the contents of a class except when absolutely necessary</response>
+            </match>
+            <match>
+                <premise order="2">Abstraction</premise>
+                <response>focusing on desired behaviors and properties while disregarding what is irrelevant/unimportant</response>
+            </match>
+            <match>
+                <premise order="3">Polymorphism</premise>
+                <response>processing objects or methods differently depending on their data type, class, number of arguments, etc.</response>
+            </match>
+        </cardsort>
+    </exercise>
+    
     <exercise label="elements_of_classses">
         <statement><p>Drag the word on the left to its corresponding definition</p></statement>
         <feedback><p>Review classes and their properties</p></feedback>
-    <matches><match order="4"><premise>instance</premise><response>an object of a class</response></match><match order="5"><premise>constructor</premise><response>an special function to initialize</response></match><match order="6"><premise>access keywords</premise><response> private and public</response></match><match order="7"><premise>class</premise><response>a template for creating objects</response></match></matches></exercise>  
+        <cardsort>
+            <match>
+                <premise order="4">instance</premise>
+                <response>an object of a class</response>
+            </match>
+            <match>
+                <premise order="5">constructor</premise>
+                <response>an special function to initialize</response>
+            </match>
+            <match>
+                <premise order="6">access keywords</premise>
+                <response> private and public</response>
+            </match>
+            <match>
+                <premise order="7">class</premise>
+                <response>a template for creating objects</response>
+            </match>
+        </cardsort>
+    </exercise>  
 </reading-questions>
 
 
