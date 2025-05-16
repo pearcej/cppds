@@ -54,107 +54,21 @@
     </p>
   </acknowledgement>
 
-  <preface xml:id="meta_frontmatter-preface">
   <!-- You should be a little careful about what you put here -->
     <!-- Avoid elements that should have a number, for example  -->
-    <p>
-      This textbook is designed for instructors, formal students, and self-learners. It explains what open source software is and teaches the basic skills of open source development incrementally, through real involvement in meaningful projects.
-    </p>
-  </preface>
   <!-- Note: You can have more than one preface. -->
 
-  <preface xml:id="meta_frontmatter-forward">
-    <title>Forward</title>
+  <preface xml:id="meta_frontmatter-preface">
+    <title>Preface</title>
 
-      <paragraphs xml:id="why-necessary">
-        <title>Why is This Book Necessary?</title>
-      <p>
-      <em>Note that other than making minor corrections, this Forward is unchanged from the original forward for <url href="https://quaid.fedorapeople.org/TOS/Practical_Open_Source_Software_Exploration/html/" visual="quaid.fedorapeople.org/TOS/Practical_Open_Source_Software_Exploration/html">Teaching Open Source</url> by Greg DeKoenigsberg, Chris Tyler, Karsten Wade, Max Spevack, Mel Chua, and Jeff Sheltren. These authors have not been involved in the creation of this text, but the stated purpose is exactly the same.</em> 
-      </p>
-      <p>
-
-      </p>
-      <p>
-        In March 2006, David A. Patterson wrote an article entitled “Computer science education in the 21st century.” David A. Patterson was, at the time, the president of the Association for Computer Machinery, the world’s largest educational and scientific computing society. In this article — which, sadly, you cannot read unless you are an ACM member — he advocated for fundamental changes to how computer science is taught. One of the changes to the standard undergraduate computer science curriculum that he advocated for was the inclusion of courses in open source software development.
-      </p>
-      <p>
-        One might think that such a clarion call, made by someone of such obvious influence, would generate a groundswell of enthusiasm. When the president of the ACM proclaims that it is “time to teach open source development,” the world of academia must certainly follow, yes?
-      </p>
-      <p>
-        It's a little more complicated than that.
-      </p>
-      <p>
-        We've spent a lot of time over the past few years talking to computer science professors. Mostly we’ve asked lots of questions — actually, the same ones over and over.
-      </p>
-      <p>
-        <line>Do you use open source software in your classes? (Increasingly.)</line>
-        <line>Are your students interested in open source? (Increasingly.)</line>
-        <line>Do you or your students participate in open source software? (Rarely.)</line>
-        <line>Do you teach open source development practices? (Almost never.)</line>
-        <line>For these last two, the follow-up question is, invariably, “why not?”</line>
+      <paragraphs xml:id="book_purposes">
+        <p>
+          This short ebook is intended to make it easy for anyone with at least some background in Python to transition to programming in C++.
         </p>
-      <p>
-        And the answer is, invariably, “because it’s hard.”
-      </p>
-      <p>
-        There are good reasons why professors don’t teach the practice of open source. It’s easy for open source advocates to explain away these reasons. At a certain point, though, one must accept the idea that most professors are well-intentioned, but bound by circumstances that make it frustratingly difficult to introduce students to open source development.
-      </p>
-      <p>
-        So why bother?
-      </p>
-      <p>
-        The answer is simple: the skills required to succeed in an open source software project are the exact same skills required to succeed in any large software project. The biggest difference is that, with just a bit of guidance, anyone can build their software skills in the open source world.
-      </p>
-      <p>
-        We hope that this textbook helps provide that guidance to a whole generation of students.
-      </p>
-    </paragraphs>
-
-    <paragraphs xml:id="why-ineffective">
-      <title>Why Traditional Student Projects Are Ineffective</title>
-      <p>
-      </p>
-      <p>
-        Almost every modern computer science degree program requires students to complete a big project. Sometimes it’s the “Senior Project,” and sometimes it’s the “Capstone Project.” Whatever it’s called, the purpose of this big project is to expose students to “real” software engineering practices.
-      </p>
-      <p>
-        In other words, this typically translates to “coding with other people.” Unfortunately, up until this point in a student’s education, this has usually been discouraged as “cheating.”
-      </p>
-      <p>
-        The problem is that these big projects actually tend to focus on extremely bounded problems. Most of the time, a small team of students works on a small project for a semester, and the result is, quite naturally, a small project. While good learning can take place in a small project, it actually does very little to prepare students to work on really big projects.
-      </p>
-      <p>
-        To find really big projects, one must venture out into the world, where there are really big problems. The real world is full of gigantic applications that require build systems and revision control and defect tracking and prioritization of work. They are written in languages that one may or may not know, by people one may or may not ever meet. And in order to successfully navigate through these really big projects, the novice developer must possess one skill above all others: the ability, in the words of our colleague David Humphrey, to be “productively lost.”
-      </p>
-      <p>
-        The great advantage of open source, for the learner, is that the really big projects of the open source world provide unparalleled opportunities to be productively lost. Complex code bases are immediately accessible by anyone who wants to participate. This accessibility is crucial to the learner, as participating in an activity is by far the most effective way to learn that activity.
-      </p>
-      <p>
-        Sooner or later, the coder aspirant must work at scale, with teammates. Open source provides that opportunity in a way that nothing else can.
-      </p>
-        
-    </paragraphs>
-
-    <paragraphs xml:id="why-using-this-textbook">
-      <title> Using This Book to Get Started</title>  
-      <p>
-      </p>
-      <p>
-        This book exists because professors asked for it, but this book’s fundamental approach — teaching the basic skills of open source development incrementally, through real involvement in meaningful projects — should make it suitable for self-learners as well. Regardless of whether you are using this text as part of a course or working with it on your own, you should work through it while adhering to the principles of contributing, calling for help, and being bold.
-      </p>
-      <p>
-        First, always be contributing. The majority of exercises in this book are designed to lead to direct and useful contributions to a project, no matter how small. Even a simple act, such as adding comments to a part of the code you don’t understand, can add real value to a project; that’s the great thing about community developed software. Contribution matters, and legitimate contributions, no matter how small, are welcome in many projects.
-      </p>
-      <p>
-        Second, ask for help when you’re stuck. If you have trouble with an exercise — and at some point you will — look to your fellow contributors for help. Your chosen project likely has mechanisms for getting in touch with the more advanced developers: mailing lists, IRC channels, Slack channels, Discord channels, forums, or more than one of the above. Communicating with those around you is not only “not cheating,” it’s key to establishing greater understanding. Keep this in mind, though: in the real world, people are most likely to help those who are trying to help themselves. Before you ask someone a question of more senior developers, ask the same question of Google. A good rule of thumb: if you can’t figure something out in 15 minutes of searching the Internet, it’s reasonable to ask for a bit of help.
-      </p>
-      <p>
-        And third, be bold. Try things. Break stuff. Don’t be afraid to play around with your own copy of the code; it’s only code, after all, and if you break something, you can always revert to the previous version. If you reach a point at which you think you’re ready to make a contribution of some kind, then offer to help on the project's preferred communication channel. The answer will usually be “go ahead, thanks!” Sometimes the offer will be “no thanks, and here’s why,” and you’ll learn something. Occasionally the answer will be “no, go away,” which is also useful, since it tells you to invest your energies into another project. Sometimes the answer may be silence; don’t be afraid to keep asking until you get an answer, or even plunge ahead without one. Learn the rules of the project and follow them; if the rules of the project are vague or confusing, you can help to make them clearer. This alone can be a critical contribution, as it clearly helps those who come along after you.
-      </p>
-      <p>
-        In most educational contexts, you have likely been “trained” to wait for permission before doing anything not previously specified, but you must avoid letting that get in the way of your progress when engaging with an open source project. When the rules are unclear, don’t sit on your hands. Do your best to help the project. It’s better to do something wrong, and learn from it, than to do nothing at all.
-      </p>
-    </paragraphs>
+        <p>
+          Portions of this book began as Java for Python Programmers by Brad Miller. These sections were translated to C++ by Jan Pearce and a team of excellent Berea College students in 2018 and early 2019. Other portions of this book began as web pages written by Jan Pearce as support for a Berea College C++ programming class. Still other sections were newly written by Jan Pearce for this ebook.
+        </p>
+      </paragraphs>
 
   </preface>
 </frontmatter>
