@@ -26,12 +26,12 @@
     <exercise label="question_sort_10">
         <statement><p>Match each sorting method with its appropriate estimated comparisons.</p></statement>
         <feedback><p>Refer to previous sections of the chapter</p></feedback>
-        <matches>
-            <match order="1"><premise>Quick Sort</premise><response><m>O(n \log n)</m> or <m>O(n^2)</m></response></match>
-            <match order="2"><premise>Insertion/Bubble/Merge</premise><response><m>O(n^2)</m></response></match>
-            <match order="3"><premise>Merge Sort</premise><response><m>O(n \log n)</m></response></match>
-            <match order="4"><premise>Shell Sort</premise><response>between <m>O(n)</m> and <m>O(n^2)</m></response></match>
-        </matches>
+        <cardsort>
+            <match><premise order="1">Quick Sort</premise><response><m>O(n \log n)</m> or <m>O(n^2)</m></response></match>
+            <match><premise order="2">Insertion/Bubble/Merge</premise><response><m>O(n^2)</m></response></match>
+            <match><premise order="3">Merge Sort</premise><response><m>O(n \log n)</m></response></match>
+            <match><premise order="4">Shell Sort</premise><response>between <m>O(n)</m> and <m>O(n^2)</m></response></match>
+        </cardsort>
     </exercise>
 
     <exercise label="sortefficiencyrandom">
