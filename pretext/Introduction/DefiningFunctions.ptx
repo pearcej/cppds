@@ -151,7 +151,7 @@ void callingFunction() { /*return type int which indicates
                 The contents of <em>myVar</em> is <term>still the same</term>, as the location for <em>myVar</em> differs from where <em>inputVar</em>
                 is stored. Thus, <em>myVar</em> still has the value 10, and the <c>cout</c> statement after the function call will
                 produce the output:</p>
-            <program language="cpp"><code>>myVar = 10</code></program>
+            <program language="cpp"><code>myVar = 10</code></program>
             <p>In other words, any changes to the variables are local to the function, which is exactly what we want.</p>
 
             <p>However, there is a problem.</p>
