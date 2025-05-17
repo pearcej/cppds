@@ -8,59 +8,59 @@
     <feedback>
       <p>Look at your glossary</p>
     </feedback>
-    <matches>
-      <match order="1">
-        <premise>weight</premise>
+    <cardsort>
+      <match>
+        <premise order="1">weight</premise>
         <response>Shows that there is a cost to go from one vertex to another</response>
       </match>
-      <match order="10">
-        <premise>breadth first search (BFS)</premise>
+      <match>
+        <premise order="10">breadth first search (BFS)</premise>
         <response> A search that proceeds to look through the edges in a graph to find all the vertices in that graph for which there is a path from the starting point.</response>
       </match>
-      <match order="11">
-        <premise>cycle</premise>
+      <match>
+        <premise order="11">cycle</premise>
         <response>In a directed graph, a path that starts and ends at the same vertex.</response>
       </match>
-      <match order="12">
-        <premise>depth first search (DFS)</premise>
+      <match>
+        <premise order="12">depth first search (DFS)</premise>
         <response>A search type where the goal is to create the deepest tree first, without any branches.</response>
       </match>
-      <match order="13">
-        <premise>adjacency matrix</premise>
+      <match>
+        <premise order="13">adjacency matrix</premise>
         <response> A matrix implementation where each of the rows and columns represent a vertex in the graph, and where if two vertices are connected by an edge, they are considered adjacent.</response>
       </match>
-      <match order="2">
-        <premise>vertex</premise>
+      <match>
+        <premise order="2">vertex</premise>
         <response>Also called a <q>node</q> this is a fundamental part of a graph. It can have a  <q>key</q>. This may also have additional information. We will call this additional information the <q>payload</q>.</response>
       </match>
-      <match order="3">
-        <premise>spanning tree</premise>
+      <match>
+        <premise order="3">spanning tree</premise>
         <response>An acyclic subset of edges that connects all the vertices.</response>
       </match>
-      <match order="4">
-        <premise>path</premise>
+      <match>
+        <premise order="4">path</premise>
         <response>A sequence of vertices that are connected by edges.</response>
       </match>
-      <match order="5">
-        <premise>parenthesis property</premise>
+      <match>
+        <premise order="5">parenthesis property</premise>
         <response>All the children of a particular node in the depth first tree have a later discovery time and an earlier finish time than their parent.</response>
       </match>
-      <match order="6">
-        <premise>edge cost</premise>
+      <match>
+        <premise order="6">edge cost</premise>
         <response>The weight associated with an arc in a graph.</response>
       </match>
-      <match order="7">
-        <premise>edge</premise>
+      <match>
+        <premise order="7">edge</premise>
         <response>An  <q>arc</q> connects two vertices to show that there is a relationship between them and it  may be one-way or two-way.</response>
       </match>
-      <match order="8">
-        <premise>directed graph</premise>
+      <match>
+        <premise order="8">directed graph</premise>
         <response>A graph in which all the edges are one-way.</response>
       </match>
-      <match order="9">
-        <premise>adjacency list</premise>
+      <match>
+        <premise order="9">adjacency list</premise>
         <response> A list implementation where we keep a master list of all the vertices in the Graph object and then each vertex object in the graph maintains a list of the other vertices that it is connected to.</response>
       </match>
-    </matches>
+    </cardsort>
   </exercise>
 </section>
