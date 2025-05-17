@@ -39,21 +39,49 @@
     <title>
 Reading Question
     </title>
+
 <exercise label="gadt">
     <statement><p>Drag and drop each graph abstract data type to its corresponding definition.</p></statement>
     <feedback><p>This is feedback.</p></feedback>
-<matches><match order="1"><premise>Graph()</premise><response>creates a new, empty graph.</response></match>
-<match order="2"><premise>addVertex(vert)</premise><response>adds an instance of Vertex to the graph.</response></match>
-<match order="3"><premise>addEdge(fromVert, toVert)</premise><response>Adds a new, directed edge to the graph that connects two vertices.</response></match></matches>
+    <cardsort>
+        <match>
+            <premise order="1">Graph()</premise>
+            <response>creates a new, empty graph.</response>
+        </match>
+        <match>
+            <premise order="2">addVertex(vert)</premise>
+            <response>adds an instance of Vertex to the graph.</response>
+        </match>
+        <match>
+            <premise order="3">addEdge(fromVert, toVert)</premise>
+            <response>Adds a new, directed edge to the graph that connects two vertices.</response>
+        </match>
+    </cardsort>
 </exercise>
 
 <exercise label="gadt1">
     <statement><p>Drag and drop each graph abstract data type to its corresponding definition.</p></statement>
     <feedback><p>This is feedback.</p></feedback>
-<matches><match order="1"><premise>addEdge(fromVert, toVert, weight)</premise><response>Adds a new, weighted, directed edge to the graph that connects two vertices.</response></match>
-    <match order="2"><premise>getVertex(vertKey)</premise><response>finds the vertex in the graph named vertKey.</response></match><match order="6"><premise>getVertices()</premise><response>returns the list of all vertices in the graph.</response></match><match order="3"><premise>in</premise><response>returns True for a statement of the form vertex in graph, if the given vertex is in the graph, False otherwise.</response></match></matches>
-
+    <cardsort>
+        <match>
+            <premise order="1">addEdge(fromVert, toVert, weight)</premise>
+            <response>Adds a new, weighted, directed edge to the graph that connects two vertices.</response>
+        </match>
+        <match>
+            <premise order="2">getVertex(vertKey)</premise>
+            <response>finds the vertex in the graph named vertKey.</response>
+        </match>
+        <match>
+            <premise order="6">getVertices()</premise>
+            <response>returns the list of all vertices in the graph.</response>
+        </match>
+        <match>
+            <premise order="3">in</premise>
+            <response>returns True for a statement of the form vertex in graph, if the given vertex is in the graph, False otherwise.</response>
+        </match>
+    </cardsort>
 </exercise>
+
 </reading-questions>
 </section>
 
