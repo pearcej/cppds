@@ -4,20 +4,20 @@
     <exercise label="bigOSH">
         <statement><p>Match the method of finding data to its corresponding Big O.</p></statement>
         <feedback><p>Review the analysis of each technique</p></feedback>
-        <matches>
-            <match order="1"><premise>Linear Search</premise><response><m>O(n)</m></response></match>
-            <match order="2"><premise>Binary Search</premise><response><m>O(\log n)</m></response></match>
-            <match order="3"><premise>Hashing</premise><response><m>O(1)</m></response></match>
-        </matches>
+        <cardsort>
+            <match><premise order="1">Linear Search</premise><response><m>O(n)</m></response></match>
+            <match><premise order="2">Binary Search</premise><response><m>O(\log n)</m></response></match>
+            <match><premise order="3">Hashing</premise><response><m>O(1)</m></response></match>
+        </cardsort>
     </exercise>
     
     <exercise label="searchBests">
         <statement><p>Drag the search method to the type of data that it is more efficient for compared to the other search method.</p></statement>
         <feedback><p>This is feedback.</p></feedback>
-        <matches>
-            <match order="1"><premise>Binary Search</premise><response>ordered data</response></match>
-            <match order="2"><premise>Linear Search</premise><response>unordered data</response></match>
-        </matches>
+        <cardsort>
+            <match><premise order="1">Binary Search</premise><response>ordered data</response></match>
+            <match><premise order="2">Linear Search</premise><response>unordered data</response></match>
+        </cardsort>
     </exercise>
     
     <exercise label="hashcollisions">
