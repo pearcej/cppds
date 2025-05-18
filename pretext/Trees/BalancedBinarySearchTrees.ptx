@@ -14,7 +14,7 @@
             and right subtrees for each node. More formally, we define the balance
             factor for a node as the difference between the height of the left
             subtree and the height of the right subtree.</p>
-        <m docname="Trees/BalancedBinarySearchTrees" nowrap="False" number="True" xml:space="preserve">balanceFactor = height(leftSubTree) - height(rightSubTree)</m>
+        <me>balanceFactor = height(leftSubTree) - height(rightSubTree)</me>
         <p>Using the definition for balance factor given above we say that a
             subtree is left-heavy if the balance factor is greater than zero. If the
             balance factor is less than zero then the subtree is right heavy. If the
