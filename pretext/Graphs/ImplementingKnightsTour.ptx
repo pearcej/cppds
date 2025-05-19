@@ -188,7 +188,7 @@ def knightTour(n,path,u,limit):
         <cline><area correct="no">def knightTour(n, path, u, limit):</area></cline>
         <cline>     <area correct="no">u.setColor('gray')</area></cline>
         <cline>     <area correct="no">path.append(u)</area></cline>
-        <cline>     <area correct="yes">if n &lt; limit:</area></cline>
+        <cline>     <area correct="no">if n &lt; limit:</area></cline>
         <cline>         <area correct="no">nbrList = list(u.getConnections())</area></cline>
         <cline>         <area correct="no">i = 0</area></cline>
         <cline>         <area correct="no">done = False</area></cline>
@@ -199,8 +199,8 @@ def knightTour(n,path,u,limit):
         <cline>         <area correct="no">if not done:  # prepare to backtrack</area></cline>
         <cline>             <area correct="no">path.pop()</area></cline>
         <cline>             <area correct="no">u.setColor('white')</area></cline>
-        <cline>     <area correct="no">else:</area></cline>
-        <cline>         <area correct="no">done = True</area></cline>
+        <cline>     <area correct="yes">else:</area></cline>
+        <cline>         <area correct="yes">done = True</area></cline>
         <cline>    <area correct="no">return done</area></cline>
     </areas>
 </exercise>
