@@ -990,38 +990,64 @@ int main(){
     <exercise label="matching_ht">
         <statement><p> Match the Hash Table operations with their corresponding explination.</p></statement>
         <feedback><p>Feedback shows incorrect matches.</p></feedback>
-        <matches>
-            <match order="1">
-                <premise>begin</premise>
+        <cardsort>
+            <match>
+                <premise order="1">begin</premise>
                 <response>An iterator to the first element in the hash table.</response>
             </match>
-            <match order="2">
-                <premise>[ ]</premise>
+            <match>
+                <premise order="2">[ ]</premise>
                 <response>Returns the value associated with the key, creating a default entry if necessary.</response>
             </match>
-            <match order="3">
-                <premise>erase</premise>
+            <match>
+                <premise order="3">erase</premise>
                 <response>Deletes the entry from the hash table.</response>
             </match>
-            <match order="4">
-                <premise>at</premise>
+            <match>
+                <premise order="4">at</premise>
                 <response>Returns the value associated with the key, otherwise throws error.</response>
             </match>
-            <match order="5">
-                <premise>end</premise>
+            <match>
+                <premise order="5">end</premise>
                 <response>An iterator pointing to past-the-end element of the hash table.</response>
             </match>
-            <match order="6">
-                <premise>count</premise>
+            <match>
+                <premise order="6">count</premise>
                 <response>Returns true if key is in the hash table, and false otherwise.</response>
             </match>
-        </matches>
+        </cardsort>
     </exercise>
 
 <exercise label="matching_us">
     <statement><p> Match the Unordered Sets operations with their corresponding explanation.</p></statement>
     <feedback><p>Feedback shows incorrect matches.</p></feedback>
-<matches><match order="1"><premise>union</premise><response>Returns a new set with all elements from both sets.</response></match><match order="2"><premise>intersection</premise><response>Returns a new set with only those elements common to both sets.</response></match><match order="3"><premise>difference</premise><response> Returns a new set with all items from first set not in second.</response></match><match order="4"><premise>add</premise><response>Adds item to the set.</response></match><match order="5"><premise>remove</premise><response>erases item from the set.</response></match><match order="6"><premise>clear</premise><response>Removes all elements from the set.</response></match></matches></exercise>
+    <cardsort>
+        <match>
+            <premise order="1">union</premise>
+            <response>Returns a new set with all elements from both sets.</response>
+        </match>
+        <match>
+            <premise order="2">intersection</premise>
+            <response>Returns a new set with only those elements common to both sets.</response>
+        </match>
+        <match>
+            <premise order="3">difference</premise>
+            <response> Returns a new set with all items from first set not in second.</response>
+        </match>
+        <match>
+            <premise order="4">add</premise>
+            <response>Adds item to the set.</response>
+        </match>
+        <match>
+            <premise order="5">remove</premise>
+            <response>erases item from the set.</response>
+        </match>
+        <match>
+            <premise order="6">clear</premise>
+            <response>Removes all elements from the set.</response>
+        </match>
+    </cardsort></exercise>
+
     <exercise label="mc_fixed">
         <statement>
 
@@ -1081,7 +1107,26 @@ int main(){
 <exercise label="collect_data_types">
     <statement><p>Drag each data type to its' corresponding C++ initialization syntax.</p></statement>
     <feedback><p>Feedback shows incorrect matches.</p></feedback>
-<matches><match order="1"><premise>Array</premise><response>{<q>What</q>, <q>am</q>, <q>I</q>, &quot;am&quot;}</response></match><match order="2"><premise>Set</premise><response>{<q>What</q>, <q>am</q>, <q>I</q>}</response></match><match order="3"><premise>String</premise><response><q>What am I</q></response></match><match order="4"><premise>Hash Table</premise><response>{ {<q>What</q>, <q>am I</q>} }</response></match></matches></exercise>            
+    <cardsort>
+        <match>
+            <premise order="1">Array</premise>
+            <response>{<q>What</q>, <q>am</q>, <q>I</q>, &quot;am&quot;}</response>
+        </match>
+        <match>
+            <premise order="2">Set</premise>
+            <response>{<q>What</q>, <q>am</q>, <q>I</q>}</response>
+        </match>
+        <match>
+            <premise order="3">String</premise>
+            <response><q>What am I</q></response>
+        </match>
+        <match>
+            <premise order="4">Hash Table</premise>
+            <response>{ {<q>What</q>, <q>am I</q>} }</response>
+        </match>
+    </cardsort>
+</exercise>
+
 <exercise label="mc_werror">
     <statement>
 
@@ -1187,25 +1232,26 @@ int main(){
 <exercise label="matching_vectors">
     <statement><p> Match the Vector operations with their corresponding explination.</p></statement>
     <feedback><p>Feedback shows incorrect matches.</p></feedback>
-<matches>
-
-<match order="1"><premise>[ ]</premise><response>Accesses value of an element.</response></match>
-<match order="2"><premise>=</premise><response> Assigns value to an element.</response></match>
-<match order="3"><premise>push_back</premise><response>Appends item to the end of the vector.</response></match>
-<match order="4"><premise>pop_back</premise><response> Deletes last item of the vector.</response></match>
-</matches></exercise>               
+    <cardsort>
+    <match><premise order="1">[ ]</premise><response>Accesses value of an element.</response></match>
+    <match><premise order="2">=</premise><response> Assigns value to an element.</response></match>
+    <match><premise order="3">push_back</premise><response>Appends item to the end of the vector.</response></match>
+    <match><premise order="4">pop_back</premise><response> Deletes last item of the vector.</response></match>
+    </cardsort>
+</exercise>               
 
 <exercise label="matching_vectors2">
     <statement><p>Match the Vector operations with their corresponding explination.</p></statement>
     <feedback><p>Feedback shows incorrect matches.</p></feedback>
-<matches>
-<match order="1"><premise>insert</premise><response>Injects an item into the vector.</response></match>
-<match order="2"><premise>erase</premise><response>Deletes an element from the choosen index.</response></match>
-<match order="3"><premise>size</premise><response>Returns the actual capacity used by elements.</response></match>
-<match order="4"><premise>capacity</premise><response>Returns the ammount of allocated storage space.</response></match>
-<match order="5"><premise>reserve</premise><response> Request a change in space to amount.</response></match>
+    <cardsort>
+        <match><premise order="1">insert</premise><response>Injects an item into the vector.</response></match>
+        <match><premise order="2">erase</premise><response>Deletes an element from the choosen index.</response></match>
+        <match><premise order="3">size</premise><response>Returns the actual capacity used by elements.</response></match>
+        <match><premise order="4">capacity</premise><response>Returns the ammount of allocated storage space.</response></match>
+        <match><premise order="5">reserve</premise><response> Request a change in space to amount.</response></match>
+    </cardsort>
+</exercise> 
 
-</matches></exercise> 
 <exercise label="mc_array_vector">
     <statement>
 
@@ -1353,24 +1399,107 @@ int main(){
 </choices>
 
 </exercise>
+
 <exercise label="matching_strings1">
     <statement><p>Match the basic String operations with their corresponding explanation.</p></statement>
     <feedback><p>Feedback shows incorrect matches.</p></feedback>
-<matches><match order="1"><premise>[ ]</premise><response>Accesses value of an element.</response></match><match order="2"><premise>=</premise><response>Assigns value to an element.</response></match><match order="3"><premise>push_back</premise><response>Adjoins a character to the end of the string.</response></match><match order="4"><premise>pop_back</premise><response>Removes the last character from the end of the string.</response></match><match order="5"><premise>+</premise><response>connects strings.</response></match></matches></exercise>
+    <cardsort>
+        <match>
+            <premise order="1">[ ]</premise>
+            <response>Accesses value of an element.</response>
+        </match>
+        <match>
+            <premise order="2">=</premise>
+            <response>Assigns value to an element.</response>
+        </match>
+        <match>
+            <premise order="3">push_back</premise>
+            <response>Adjoins a character to the end of the string.</response>
+        </match>
+        <match>
+            <premise order="4">pop_back</premise>
+            <response>Removes the last character from the end of the string.</response>
+        </match>
+        <match>
+            <premise order="5">+</premise>
+            <response>connects strings.</response>
+        </match>
+    </cardsort>
+</exercise>
 
 <exercise label="matching_strings2">
     <statement><p>Match the additional String operations with their corresponding explanation.</p></statement>
     <feedback><p>Feedback shows incorrect matches.</p></feedback>
-<matches><match order="1"><premise>find</premise><response>Returns the index of the first occurrence of item.</response></match><match order="2"><premise>insert</premise><response>Injects a string at a specific index.</response></match><match order="3"><premise>erase</premise><response>Deletes an element from one index to another.</response></match><match order="4"><premise>size</premise><response>Returns the capacity of the string.</response></match><match order="5"><premise>append</premise><response>Adjoins a string to the end of the string.</response></match></matches></exercise>
+    <cardsort>
+        <match>
+            <premise order="1">find</premise>
+            <response>Returns the index of the first occurrence of item.</response>
+        </match>
+        <match>
+            <premise order="2">insert</premise>
+            <response>Injects a string at a specific index.</response>
+        </match>
+        <match>
+            <premise order="3">erase</premise>
+            <response>Deletes an element from one index to another.</response>
+        </match>
+        <match>
+            <premise order="4">size</premise>
+            <response>Returns the capacity of the string.</response>
+        </match>
+        <match>
+            <premise order="5">append</premise>
+            <response>Adjoins a string to the end of the string.</response>
+        </match>
+    </cardsort>
+</exercise>
 
 <exercise label="string_types">
     <statement><p>Drag each data type to its' corresponding C++ initialization syntax.</p></statement>
     <feedback><p>Feedback shows incorrect matches.</p></feedback>
-<matches><match order="1"><premise>char</premise><response>'a'</response></match><match order="2"><premise>char array</premise><response>{'a'}</response></match><match order="3"><premise>string</premise><response>&quot;a&quot;</response></match></matches></exercise>
+    <cardsort>
+        <match>
+            <premise order="1">char</premise>
+            <response>'a'</response>
+        </match>
+        <match>
+            <premise order="2">char array</premise>
+            <response>{'a'}</response>
+        </match>
+        <match>
+            <premise order="3">string</premise>
+            <response>&quot;a&quot;</response>
+        </match>
+    </cardsort>
+</exercise>
+
 <exercise label="matching_HT">
     <statement><p> Match the Hash Table operations with their corresponding explination.</p></statement>
     <feedback><p>Feedback shows incorrect matches.</p></feedback>
-<matches><match order="1"><premise>[ ]</premise><response>Returns the value associated with the key, otherwise throws error.</response></match><match order="2"><premise>erase</premise><response>Deletes the entry from the hash table.</response></match><match order="3"><premise>count</premise><response>Returns true if key is in the hash table, and false otherwise.</response></match><match order="4"><premise>begin</premise><response>An iterator to the first element in the hash table.</response></match><match order="5"><premise>end</premise><response>An iterator pointing to past-the-end element of the hash table.</response></match></matches></exercise> 
+    <cardsort>
+        <match>
+            <premise order="1">[ ]</premise>
+            <response>Returns the value associated with the key, otherwise throws error.</response>
+        </match>
+        <match>
+            <premise order="2">erase</premise>
+            <response>Deletes the entry from the hash table.</response>
+        </match>
+        <match>
+            <premise order="3">count</premise>
+            <response>Returns true if key is in the hash table, and false otherwise.</response>
+        </match>
+        <match>
+            <premise order="4">begin</premise>
+            <response>An iterator to the first element in the hash table.</response>
+        </match>
+        <match>
+            <premise order="5">end</premise>
+            <response>An iterator pointing to past-the-end element of the hash table.</response>
+        </match>
+    </cardsort>
+</exercise> 
+
 </reading-questions>
 
         </subsection>
