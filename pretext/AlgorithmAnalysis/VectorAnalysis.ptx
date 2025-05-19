@@ -351,7 +351,18 @@ int main(){
 <exercise label="matching_VectorBO">
     <statement><p>Drag the operation(s) on the left to their corresponding Big(O)</p></statement>
     <feedback><p>Review operations and their Big(O)</p></feedback>
-<matches><match order="1"><premise>begin(), end(), size(), index [], index assignment = ,push_back(), pop_back()</premise><response> O(1)</response></match><match order="2"><premise>reserve(), erase(i), insert(i, item)</premise><response>O(n)</response></match></matches></exercise>    
+    <cardsort>
+        <match>
+            <premise order="1">begin(), end(), size(), index [], index assignment = ,push_back(), pop_back()</premise>
+            <response><m>O(1)</m></response>
+        </match>
+        <match>
+            <premise order="2">reserve(), erase(i), insert(i, item)</premise>
+            <response><m>O(n)</m></response>
+        </match>
+    </cardsort>
+</exercise>    
+
 </reading-questions>
 <p>
     <!-- extra space before the progress bar -->         

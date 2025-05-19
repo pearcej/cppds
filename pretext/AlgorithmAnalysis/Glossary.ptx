@@ -122,36 +122,83 @@
     <exercise label="matching_algorithmana0">
         <statement><p>Drag the word on the left to its corresponding definition.</p></statement>
         <feedback><p>Review classes and their properties.</p></feedback>
-    <matches>
-    <match order="1"><premise>algorithm</premise><response>Step-by-step list of instructions for solving a problem.</response></match>
-    <match order="2"><premise>average case</premise><response>When an algorithm performs between its worst and best case given a certain data set or circumstance.</response></match>
-    <match order="3"><premise>vector</premise><response>Sequence container storing data of a single type in a dynamically allocated array.</response></match>
-    <match order="4"><premise>worst case</premise><response>When an algorithm performs especially poorly given a certain data set or circumstance.</response></match>
-    <match order="5"><premise>dynamic size</premise><response>Able to change size automatically.</response></match>
-    </matches></exercise> 
+        <cardsort>
+            <match>
+                <premise order="1">algorithm</premise>
+                <response>Step-by-step list of instructions for solving a problem.</response>
+            </match>
+            <match>
+                <premise order="2">average case</premise>
+                <response>When an algorithm performs between its worst and best case given a certain data set or circumstance.</response>
+            </match>
+            <match>
+                <premise order="3">vector</premise>
+                <response>Sequence container storing data of a single type in a dynamically allocated array.</response>
+            </match>
+            <match>
+                <premise order="4">worst case</premise>
+                <response>When an algorithm performs especially poorly given a certain data set or circumstance.</response>
+            </match>
+            <match>
+                <premise order="5">dynamic size</premise>
+                <response>Able to change size automatically.</response>
+            </match>
+        </cardsort>
+    </exercise> 
 
     <exercise label="matching_algorithmana1">
         <statement><p>Drag the word on the left to its corresponding definition.</p></statement>
         <feedback><p>Review classes and their properties.</p></feedback>
-    <matches>
-    <match order="1"><premise>quadratic</premise><response>Function describing a relationship who's highest order is a number squared.</response></match>
-    <match order="2"><premise>best case</premise><response>When an algorithm performs especially good given a certain data set or circumstance.</response></match>
-    <match order="3"><premise>Big-O notation</premise><response>Another term for order of magnitude.</response></match>
-    <match order="4"><premise>brute force</premise><response>Technique that tries to exhaust all possibilities of a problem.</response></match>
-    <match order="5"><premise>contiguous</premise><response>Adjacent.</response></match>
-    </matches></exercise> 
+        <cardsort>
+            <match>
+                <premise order="1">quadratic</premise>
+                <response>Function describing a relationship who's highest order is a number squared.</response>
+            </match>
+            <match>
+                <premise order="2">best case</premise>
+                <response>When an algorithm performs especially good given a certain data set or circumstance.</response>
+            </match>
+            <match><premise order="3">Big-O notation</premise>
+                <response>Another term for order of magnitude.</response>
+            </match>
+            <match>
+                <premise order="4">brute force</premise>
+                <response>Technique that tries to exhaust all possibilities of a problem.</response>
+            </match>
+            <match>
+                <premise order="5">contiguous</premise>
+                <response>Adjacent.</response>
+            </match>
+        </cardsort>
+    </exercise> 
 
     <exercise label="matching_algorithmana2">
         <statement><p>Drag the word on the left to its corresponding definition.</p></statement>
         <feedback><p>Review classes and their properties.</p></feedback>
-    <matches>
-    
-    <match order="1"><premise>hash table</premise><response>A collection consisting of key-value pairs with an associated hash function that maps the key to the associated value.</response></match>
-    <match order="2"><premise>linear</premise><response>Function that grows in a one to one relationship with its input.</response></match>
-    <match order="3"><premise>logarithmic</premise><response>functions that are the inverse of exponential functions.</response></match>
-    <match order="4"><premise>order of magnitude</premise><response>a function describing an algorithm's steps as the size of the problem increases.</response></match>
-    <match order="5"><premise>exponential</premise><response>Function represented as a number being raised to a power that increases.</response></match>
-    </matches></exercise> 
+        <cardsort>
+            <match>
+                <premise order="1">hash table</premise>
+                <response>A collection consisting of key-value pairs with an associated hash function that maps the key to the associated value.</response>
+            </match>
+            <match>
+                <premise order="2">linear</premise>
+                <response>Function that grows in a one to one relationship with its input.</response>
+            </match>
+            <match>
+                <premise order="3">logarithmic</premise>
+                <response>functions that are the inverse of exponential functions.</response>
+            </match>
+            <match>
+                <premise>order of magnitude</premise>
+                <response>a function describing an algorithm's steps as the size of the problem increases.</response>
+            </match>
+            <match>
+                <premise order="5">exponential</premise>
+                <response>Function represented as a number being raised to a power that increases.</response>
+            </match>
+        </cardsort>
+    </exercise>
+
     <p>
     <!-- extra space before the progress bar -->
     </p>  
