@@ -239,7 +239,7 @@ void _put(int key, string val, TreeNode *currentNode){
         
         <figure align="center" xml:id="bst_fig-bstput">
             <caption>Inserting a Node with Key = 19.</caption>
-            <image source="Trees/bstput.png" width="50%">
+            <image source="Trees/bstput.png" width="80%">
             <description>
                 <p>
                     A binary search tree (BST) illustrating the process of inserting a new node with the key &quot;19.&quot; 
@@ -362,7 +362,7 @@ if (currentNode-&gt;isLeaf()){ //leaf
         </listing>
         <figure align="center" xml:id="bst_fig-bstdel1">
             <caption>Deleting Node 16, a Node without Children.</caption>
-            <image source="Trees/bstdel1.png" width="50%">
+            <image source="Trees/bstdel1.png" width="80%">
             <description>
                 <p>
                     A binary search tree (BST) showcasing the deletion of a leaf node, &quot;16.&quot; The initial tree contains node &quot;16&quot; as 
@@ -444,7 +444,7 @@ else{ // this node has one child
         
         <figure align="center" xml:id="bst_fig-bstdel2">
             <caption>Deleting Node 25, a Node That Has a Single Child.</caption>
-            <image source="Trees/bstdel2.png" width="50%"> 
+            <image source="Trees/bstdel2.png" width="80%"> 
             <description>
                 <p>
                     A binary search tree (BST) illustrating the deletion of node &quot;25,&quot; which has a single child. Initially, 
@@ -471,7 +471,7 @@ else{ // this node has one child
         
         <figure align="center" xml:id="bst_fig-bstdel3">
             <caption>Deleting Node 5, a Node with Two Children.</caption>
-            <image source="Trees/bstdel3.png" width="50%">
+            <image source="Trees/bstdel3.png" width="80%">
             <description>
                 <p>
                     A binary search tree (BST) illustrating the deletion of a node with two children, specifically node &quot;5.&quot; 
