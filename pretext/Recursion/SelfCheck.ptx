@@ -47,16 +47,16 @@
     <feedback>
       <p>Consider what would make you stop the process for each one.</p>
     </feedback>
-    <matches>
-      <match order="1">
-        <premise>Counting the number of items in a list</premise>
+    <cardsort>
+      <match>
+        <premise order="1">Counting the number of items in a list</premise>
         <response>Iteration</response>
       </match>
-      <match order="2">
-        <premise>Going through an entire tree</premise>
+      <match>
+        <premise order="2">Going through an entire tree</premise>
         <response>Recursion</response>
       </match>
-    </matches>
+    </cardsort>
   </exercise>
   <exercise label="recursionefficiencyq">
     <statement>
