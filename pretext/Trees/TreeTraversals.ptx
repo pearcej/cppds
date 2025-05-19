@@ -397,8 +397,23 @@ def printexp(tree):
 <exercise label="treeTraversalTypes">
     <statement><p>Drag the tree traversal to its corresponding pattern.</p></statement>
     <feedback><p>Review the tree traversal patterns.</p></feedback>
-<matches><match order="1"><premise>preorder</premise><response>root, left, right</response></match><match order="2"><premise>inorder</premise><response>left, root, right</response></match><match order="3"><premise>postorder</premise><response>left, right, root</response></match></matches></exercise>
-    <exercise label="question1_1">
+    <cardsort>
+        <match>
+            <premise order="1">preorder</premise>
+            <response>root, left, right</response>
+        </match>
+        <match>
+            <premise order="2">inorder</premise>
+            <response>left, root, right</response>
+        </match>
+        <match>
+            <premise order="3">postorder</premise>
+            <response>left, right, root</response>
+        </match>
+    </cardsort>
+</exercise>
+
+<exercise label="question1_1">
         <statement>
 
         <p>If you print out the data at each node, what would be the result of using
