@@ -1,4 +1,4 @@
-<section xml:id="graphs_implementation">
+<?xml version="1.0" ?><section xml:id="graphs_implementation">
         <title>Implementation</title>
         <p>Using a map, or dictionaries in Python, it is easy to implement the adjacency list. In our implementation of the Graph abstract data type we will
             create two classes (see <xref ref="lst_vertex"/> and <xref ref="lst_graph"/>), <c>Graph</c>, which holds the master list of vertices,
@@ -19,7 +19,7 @@
         
         <listing xml:id="lst_vertex" names="graphs_lst-vertex">
                 <caption><c>Vertex</c> Class</caption>
-                <program language="cpp"><input>
+                <program language="cpp" label="lst_vertex-prog"><code>
 class Vertex {
     public:
         int id;
@@ -61,12 +61,12 @@ class Vertex {
 ostream &amp;operator&lt;&lt;(ostream &amp;stream, Vertex &amp;vert) {
     vector&lt;int&gt; connects = vert.getConnections();
     for (unsigned int i = 0; i &lt; connects.size(); i++) {
-        stream &lt;&lt; "( " &lt;&lt; vert.id &lt;&lt; " , " &lt;&lt; connects[i] &lt;&lt; " ) \n";
+        stream &lt;&lt; &quot;( &quot; &lt;&lt; vert.id &lt;&lt; &quot; , &quot; &lt;&lt; connects[i] &lt;&lt; &quot; ) \n&quot;;
     }
 
     return stream;
 }
-                </input></program>
+                </code></program>
         </listing>
         <p>The <c>Graph</c> class, shown in the next listing, contains a map
             that maps vertex names (int) to vertex objects (Vertex). In <xref ref="graphs_an-adjacency-list"/> this
@@ -77,7 +77,7 @@ ostream &amp;operator&lt;&lt;(ostream &amp;stream, Vertex &amp;vert) {
         
         <listing xml:id="lst_graph" names="graphs_lst-graph">
                 <caption><c>Graph</c> Class</caption>
-                <program language="cpp"><input>
+                <program language="cpp" label="lst_graph-prog"><code>
 class Graph {
     public:
         map&lt;int, Vertex&gt; vertList;
@@ -117,11 +117,11 @@ class Graph {
 
         void addEdge(int f, int t, int cost = 0) {
             if (!this-&gt;contains(f)) {
-                cout &lt;&lt; f &lt;&lt; " was not found, adding!" &lt;&lt; endl;
+                cout &lt;&lt; f &lt;&lt; &quot; was not found, adding!&quot; &lt;&lt; endl;
                 this-&gt;addVertex(f);
             }
             if (!this-&gt;contains(t)) {
-                cout &lt;&lt; t &lt;&lt; " was not found, adding!" &lt;&lt; endl;
+                cout &lt;&lt; t &lt;&lt; &quot; was not found, adding!&quot; &lt;&lt; endl;
             }
             vertList[f].addNeighbor(t, cost);
         }
@@ -145,7 +145,7 @@ ostream &amp;operator&lt;&lt;(ostream &amp;stream, Graph &amp;grph) {
 
     return stream;
 }
-                </input></program>
+                </code></program>
         </listing>
         <p>Using the <c>Graph</c> and <c>Vertex</c> classes just defined, the following
             Python session creates the graph in <xref ref="fig-dgsimple"/>. First we
@@ -160,7 +160,7 @@ ostream &amp;operator&lt;&lt;(ostream &amp;stream, Graph &amp;grph) {
                 <title>Directed Graph Implementation</title>
                 <task xml:id="graph_implementation_cpp" label="graph_implementation_cpp">
                         <title>C++ Implementation</title>
-                        <statement><program interactive="activecode" language="cpp"><input>
+                        <statement><program interactive="activecode" language="cpp" label="graph_implementation_cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;map&gt;
 #include &lt;vector&gt;
@@ -213,7 +213,7 @@ public:
 ostream &amp;operator&lt;&lt;(ostream &amp;stream, Vertex &amp;vert) {
         vector&lt;int&gt; connects = vert.getConnections();
         for (unsigned int i = 0; i &lt; connects.size(); i++) {
-                stream &lt;&lt; "( " &lt;&lt; vert.id &lt;&lt; " , " &lt;&lt; connects[i] &lt;&lt; " ) \n";
+                stream &lt;&lt; &quot;( &quot; &lt;&lt; vert.id &lt;&lt; &quot; , &quot; &lt;&lt; connects[i] &lt;&lt; &quot; ) \n&quot;;
         }
 
         return stream;
@@ -267,11 +267,11 @@ public:
                 //Adds an edge between vertices F and T with a weight equivalent to cost.
         void addEdge(int f, int t, int cost = 0) {
                 if (!this-&gt;contains(f)) {
-                        cout &lt;&lt; f &lt;&lt; " was not found, adding!" &lt;&lt; endl;
+                        cout &lt;&lt; f &lt;&lt; &quot; was not found, adding!&quot; &lt;&lt; endl;
                         this-&gt;addVertex(f);
                 }
                 if (!this-&gt;contains(t)) {
-                        cout &lt;&lt; t &lt;&lt; " was not found, adding!" &lt;&lt; endl;
+                        cout &lt;&lt; t &lt;&lt; &quot; was not found, adding!&quot; &lt;&lt; endl;
                 }
                 vertList[f].addNeighbor(t, cost);
         }
@@ -321,11 +321,11 @@ int main() {
 
         return 0;
 }
-                        </input></program></statement>
+                        </code></program></statement>
                 </task>
                 <task xml:id="graph_implementation_py" label="graph_implementation_py">
                         <title>Python Implementation</title>
-                        <statement><program interactive="activecode" language="python"><input>
+                        <statement><program interactive="activecode" language="python" label="graph_implementation_py-prog"><code>
 class Vertex:
         # Contructor that specifies the key of the vertex.
         def __init__(self, key):
@@ -410,12 +410,11 @@ def main():
         
         for v in g:
                 for w in v.getConnections():
-                        print("( %s , %s )" % (v.getId(), w.getId()))
+                        print(&quot;( %s , %s )&quot; % (v.getId(), w.getId()))
         
         
 main()
-                        </input></program></statement>
+                        </code></program></statement>
                 </task>
         </exploration>
 </section>
-

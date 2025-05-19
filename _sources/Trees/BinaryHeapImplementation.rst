@@ -32,7 +32,7 @@ even vectors of vectors. Because the tree is complete, the left child of a
 parent (at position :math:`p`) is the node that is found in position
 :math:`2p` in the vector. Similarly, the right child of the parent is at
 position :math:`2p + 1` in the vector. To find the parent of any node in
-the tree, we can simply use Python’s integer division. Given that a node
+the tree, we can simply use integer division. Given that a node
 is at position :math:`n` in the vector, the parent is at position
 :math:`n/2`. :ref:`Figure 2 <fig_heapOrder>` shows a complete binary tree
 and also gives the vector representation of the tree.  Note the :math:`2p` and :math:`2p+1` relationship between
@@ -113,17 +113,26 @@ proper position in the tree.
 
    Figure 2: Percolate the New Node up to Its Proper Position
 
-Notice that as we percolate an item up the tree, the heap property
-is restored between the newly added item and the parent.
-We also preserve the heap property for any siblings.
-If an item is very small, we will need to swap it up another level.
-In fact, we may need to keep swapping until we get to the top of the tree.
+Notice that as we percolate an item up the tree, the heap
+property is restored between the newly added item and the
+parent. We also preserve the heap property for any siblings.
+If an item is very small, we will need to swap it up another
+level. In fact, we may need to keep swapping until
+we get to the top of the tree.
 :ref:`Listing 2 <lst_heap2>` shows the ``percUp`` method,
 which percolates a new item as far up the tree as it needs
-to go to maintain the heap property. Here is where our wasted element in
-``heapvector`` is important. Notice that we can compute the parent of
-any node by using simple integer division because the parent of a node
-is computed by dividing the index of the current node by 2.
+to go to maintain the heap property.
+Here is where the unused element at the beginning
+of the ``heapvector`` is important.
+By storing the first node at index 1
+instead of at index 0,
+we can compute the parent of any node by using simple
+integer division because the parent of a node is computed
+by dividing the index of the current node by 2 (the parent of
+node<nbsp/>9 is at index 4, the parent of 4
+is at index 2, and the parent of 2 is at
+index 1).
+
 
 We are now ready to write the ``insert`` method (see :ref:`Listing 3 <lst_heap3>`). Most of the work in the
 ``insert`` method is really done by ``percUp``. Once a new item is

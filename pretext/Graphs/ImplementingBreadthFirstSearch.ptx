@@ -1,4 +1,4 @@
-<section xml:id="graphs_implementing-breadth-first-search">
+<?xml version="1.0" ?><section xml:id="graphs_implementing-breadth-first-search">
         <title>Implementing Breadth First Search</title>
         <p><idx>breadth first search</idx>
            <idx>BFS</idx>
@@ -64,7 +64,7 @@
             <title>Breadth First Search</title>
             <task xml:id="graphs_lst-wordbucket2-cpp" label="graphs_lst-wordbucket2-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp"><input>
+                <statement><program language="cpp" label="graphs_lst-wordbucket2-cpp-prog"><code>
 Graph bfs(Graph g, Vertex *start) {
     start-&gt;dist = 0;
     start-&gt;pred = NULL;
@@ -86,11 +86,11 @@ Graph bfs(Graph g, Vertex *start) {
     }
     return g;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="graphs_lst-wordbucket2-py" label="graphs_lst-wordbucket2-py">
                 <title>Python Implementation</title>
-                <statement><program language="python"><input>
+                <statement><program language="python" label="graphs_lst-wordbucket2-py-prog"><code>
 from pythonds.graphs import Graph, Vertex
 from pythonds.basic import Queue
 
@@ -109,7 +109,7 @@ def bfs(g,start):
                 vertQueue.enqueue(nbr)
         currentVert.setColor('black')
 
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>Let's look at how the <c>bfs</c> function would construct the breadth first
@@ -172,7 +172,7 @@ def bfs(g,start):
         
         <listing xml:id="graphs_lst-wordbucket3" names="lst_wordbucket3">
             <caption>Printing the Word Bucker</caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="graphs_lst-wordbucket3-prog"><code>
 void traverse(Vertex *y) {
     Vertex *x = y;
 
@@ -184,13 +184,13 @@ void traverse(Vertex *y) {
 }
 
 traverse(g.getVertex('sage'))
-            </input></program>
+            </code></program>
         </listing>
         <p><xref ref="dfs-full"/> is a complete implementation of both the Vertex and Graph classes, along
             with an implementation for the breadth-first search shown above.</p>
         <listing xml:id="dfs-full" label="dfs-full">
             <caption>Complete Implementation of Vertex, Graph, and BFS</caption>
-            <program language="cpp" interactive="activecode"><input>
+            <program language="cpp" interactive="activecode" label="dfs-full-prog"><code>
 #include &lt;fstream&gt;
 #include &lt;iostream&gt;
 #include &lt;map&gt;
@@ -250,9 +250,9 @@ public:
 
 ostream &amp;operator&lt;&lt;(ostream &amp;stream, Vertex &amp;vert) {
     vector&lt;string&gt; connects = vert.getConnections();
-    stream &lt;&lt; vert.id &lt;&lt; " -&gt; ";
+    stream &lt;&lt; vert.id &lt;&lt; &quot; -&gt; &quot;;
     for (unsigned int i = 0; i &lt; connects.size(); i++) {
-        stream &lt;&lt; connects[i] &lt;&lt; endl &lt;&lt; "\t";
+        stream &lt;&lt; connects[i] &lt;&lt; endl &lt;&lt; &quot;\t&quot;;
     }
 
     return stream;
@@ -403,21 +403,21 @@ void traverse(Vertex *y) {
 
 int main() {
     // Vector Initialized with an array
-    string arr[] = {"fool",
-                    "cool",
-                    "pool",
-                    "poll",
-                    "pole",
-                    "pall",
-                    "fall",
-                    "fail",
-                    "foil",
-                    "foul",
-                    "pope",
-                    "pale",
-                    "sale",
-                    "sage",
-                    "page"};
+    string arr[] = {&quot;fool&quot;,
+                    &quot;cool&quot;,
+                    &quot;pool&quot;,
+                    &quot;poll&quot;,
+                    &quot;pole&quot;,
+                    &quot;pall&quot;,
+                    &quot;fall&quot;,
+                    &quot;fail&quot;,
+                    &quot;foil&quot;,
+                    &quot;foul&quot;,
+                    &quot;pope&quot;,
+                    &quot;pale&quot;,
+                    &quot;sale&quot;,
+                    &quot;sage&quot;,
+                    &quot;page&quot;};
 
     vector&lt;string&gt; words(arr, arr + (sizeof(arr) / sizeof(arr[0])));
 
@@ -426,12 +426,12 @@ int main() {
 
     g = buildGraph(words);
 
-    g = bfs(g, g.getVertex("fool"));
+    g = bfs(g, g.getVertex(&quot;fool&quot;));
 
-    traverse(g.getVertex("pall"));
+    traverse(g.getVertex(&quot;pall&quot;));
 
     return 0;
 }
-            </input></program>
+            </code></program>
         </listing>
 </section>

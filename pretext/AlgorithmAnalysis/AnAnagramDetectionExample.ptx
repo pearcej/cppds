@@ -1,11 +1,11 @@
-<section xml:id="algorithm-analysis_an-anagram-detection-example">
+<?xml version="1.0" ?><section xml:id="algorithm-analysis_an-anagram-detection-example">
         <title>An Anagram Detection Example</title>
         <introduction>
         <p>A good example problem for showing algorithms with different orders of
             magnitude is the classic anagram detection problem for strings. One
             string is an anagram of another if the second is simply a rearrangement
-            of the first. For example, <c>"heart"</c> and <c>"earth"</c> are anagrams. The
-            strings <c>"python"</c> and <c>"typhon"</c> are anagrams as well. For the sake
+            of the first. For example, <c>&quot;heart&quot;</c> and <c>&quot;earth&quot;</c> are anagrams. The
+            strings <c>&quot;python&quot;</c> and <c>&quot;typhon&quot;</c> are anagrams as well. For the sake
             of simplicity, we will assume that the two strings in question are of
             equal length and that they are made up of symbols from the set of 26
             lowercase alphabetic characters. Our goal is to write a Boolean function
@@ -29,7 +29,7 @@
                 <title>Anagram Solution</title>
                 <task xml:id="lst-anagramsolution" label="lst-anagramsolution">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="active0cpp" interactive="activecode" language="cpp"><input>
+                    <statement><program xml:id="active0cpp" interactive="activecode" language="cpp" label="active0cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -70,15 +70,15 @@ bool anagramsolution1(string s1, string s2){
 }
 
 int main(){
-    bool value = anagramsolution1("abcd", "dcab");
+    bool value = anagramsolution1(&quot;abcd&quot;, &quot;dcab&quot;);
     cout &lt;&lt; value &lt;&lt; endl;
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="active0py" label="active0py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python"><input>
+                    <statement><program interactive="activecode" language="python" label="active0py-prog"><code>
 #checks to see if the anagrams have the same number of characters
 
 def anagramSolution1(s1,s2):
@@ -112,7 +112,7 @@ def anagramSolution1(s1,s2):
 def main():
     print(anagramSolution1('abcd','dcba'))
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
             <p>To analyze this algorithm, we need to note that each of the <em>n</em>
@@ -121,9 +121,12 @@ main()
                 array will be visited once to match a character from <c>s1</c>. The number
                 of visits then becomes the sum of the integers from 1 to <em>n</em>. We stated
                 earlier that this can be written as</p>
-            <m docname="AlgorithmAnalysis/AnAnagramDetectionExample" nowrap="False" number="True" xml:space="preserve">
-            \begin{eqnarray}\sum_{i=1}^{n} i &amp;=&amp; \frac {n(n+1)}{2} \\
-                 &amp; = &amp; \frac {1}{2}n^{2} + \frac {1}{2}n\end{eqnarray}</m>
+            <me>
+                    \begin{split}
+                    \sum_{i=1}^{n} i &amp; = \frac {n(n+1)}{2} \\
+                         &amp; = \frac {1}{2}n^{2} + \frac {1}{2}n
+                    \end{split}
+            </me>
             <p>As <m>n</m> gets large, the <m>n^{2}</m> term will dominate the
                 <m>n</m> term and the <m>\frac {1}{2}</m> can be ignored.
                 Therefore, this solution is <m>O(n^{2})</m>.</p>
@@ -141,7 +144,7 @@ main()
                 <title>Anagram Solution: Sorting</title>
                 <task xml:id="lst_ana2" label="lst_ana2">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="active6cpp" interactive="activecode" language="cpp"><input>
+                    <statement><program xml:id="active6cpp" interactive="activecode" language="cpp" label="active6cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 #include &lt;algorithm&gt;
@@ -166,15 +169,15 @@ bool anagramsolution2(string s1, string s2){
 }
 
 int main(){
-    bool value = anagramsolution2("abcde", "edcba");
+    bool value = anagramsolution2(&quot;abcde&quot;, &quot;edcba&quot;);
     cout &lt;&lt; value &lt;&lt; endl;
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="active6py" label="active6py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python"><input>
+                    <statement><program interactive="activecode" language="python" label="active6py-prog"><code>
 # sorts anagrams in order from a-z, and then compares them
 def anagramSolution2(s1,s2):
     alist1 = list(s1)
@@ -197,7 +200,7 @@ def anagramSolution2(s1,s2):
 def main():
     print(anagramSolution2('abcde','edcba'))
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
             <p>At first glance you may be tempted to think that this algorithm is
@@ -247,7 +250,7 @@ main()
                 <title>Anagram Solution: Character Frequency</title>
                 <task xml:id="lst_ana4" label="lst_ana4">
                     <title>C++ Implementation</title>
-                    <statement><program interactive="activecode" language="cpp"><input>
+                    <statement><program interactive="activecode" language="cpp" label="lst_ana4-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -259,46 +262,37 @@ bool anagramSolution4(string s1, string s2){
     int c1[26] = {0};
     int c2[26] = {0};
 
-    int x;
-    int a = 'a';
     for (unsigned int i = 0; i &lt; s1.length(); i++){
-        x = s1[i] - a;
-        int pos = x;
-        c1[pos] = c1[pos] + 1;
+        int pos = s1[i] - 'a';
+        c1[pos] += 1;
     }
 
-    int y;
-    int b = 'a';
     for (unsigned int i = 0; i &lt; s2.length(); i++){
-        y = s2[i] - b;
-        int pos = y;
-        c2[pos] = c2[pos] + 1;
+        int pos = s2[i] - 'a';
+        c2[pos] += 1;
     }
 
-    int j = 0;
-    bool stillOK = true;
-    while (j &lt; 26 &amp;&amp; stillOK){
-        if (c1[j] == c2[j]){
-            j = j + 1;
-        } else{
-            stillOK = false;
+    for (unsigned int i = 0; i &lt; 26; i++) {
+        if (c1[i] != c2[i]){
+            return false;
         }
     }
-    return stillOK;
+
+    return true;
 }
 
 int main(){
-    bool value = anagramSolution4("apple", "pleap");
+    bool value = anagramSolution4(&quot;apple&quot;, &quot;pleap&quot;);
     cout &lt;&lt; value &lt;&lt; endl;
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="active7py" label="active7py">
                     <title>Python Implementation</title>
-                    <statement><program interactive="activecode" language="python"><input>
-""" uses an array to count the number of a ocurrences of the two inputs
-if the number of occurrences is the same then the input is an anagram """
+                    <statement><program interactive="activecode" language="python" label="active7py-prog"><code>
+&quot;&quot;&quot; uses an array to count the number of a ocurrences of the two inputs
+if the number of occurrences is the same then the input is an anagram &quot;&quot;&quot;
 
 def anagramSolution4(s1,s2):
     c1 = [0]*26
@@ -306,26 +300,22 @@ def anagramSolution4(s1,s2):
 
     for i in range(len(s1)):
         pos = ord(s1[i])-ord('a')
-        c1[pos] = c1[pos] + 1
+        c1[pos] += 1
 
     for i in range(len(s2)):
         pos = ord(s2[i])-ord('a')
-        c2[pos] = c2[pos] + 1
+        c2[pos] += 1
 
-    j = 0
-    stillOK = True
-    while j&lt;26 and stillOK:
-        if c1[j]==c2[j]:
-            j = j + 1
-        else:
-            stillOK = False
+    for i in range(len(c1)):
+        if c1[i] != c2[i]:
+            return False
 
-    return stillOK
+    return True
 
 def main():
     print(anagramSolution4('apple','pleap'))
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
             <p>Again, the solution has a number of iterations. However, unlike the
@@ -356,7 +346,7 @@ main()
             <statement>
     
                     <p>Given the following code fragment, what is its Big-O running time?</p>
-                    <program language="cpp"><input>
+                    <program language="cpp" label="AnAnagramDetectionExample-prog"><code>
     int main(){
         int test = 0;
         for (int i = 0; i &lt; n; i++){
@@ -366,7 +356,7 @@ main()
         }
         return 0;
     }
-    </input></program>
+    </code></program>
     
             </statement>
     <choices>
@@ -413,7 +403,7 @@ main()
             <statement>
     
                     <p>Given the following code fragment what is its Big-O running time?</p>
-                    <program language="cpp"><input>
+                    <program language="cpp" label="AnAnagramDetectionExample-prog-2"><code>
     int main(){
         int test = 0;
         for (int i = 0; i &lt; n; i++){
@@ -424,7 +414,7 @@ main()
         }
         return 0;
     }
-    </input></program>
+    </code></program>
     
             </statement>
     <choices>
@@ -471,17 +461,17 @@ main()
             <statement>
     
                     <p> Given the following code fragment what is its Big-O running time?</p>
-                    <program language="cpp"><input>
+                    <program language="cpp" label="AnAnagramDetectionExample-prog-3"><code>
     int main(){
         int i = n;
         int count = 0;
         while (i &gt; 0){
             count = count + 1;
-            i = i // 2;
+            i = i / 2;
         }
         return 0;
     }
-    </input></program>
+    </code></program>
     
             </statement>
     <choices>

@@ -121,20 +121,21 @@ the first element. This is easily expressed in C++ as shown in
       using namespace std;
 
       int vectsum(vector<int> numVect){
-          if (numVect.size() <= 1){
+          if (numVect.size() == 0)
+              return 0;
+          if (numVect.size() <= 1)
               return numVect[0];
-          }
-          else {
-              vector<int> slice(numVect.begin() + 1, numVect.begin()+numVect.size());
-              return numVect[0] + vectsum(slice); //function makes a recursive call to itself.
-          }
+          
+          // make a copy of the vector without the first element
+          vector<int> remaining(numVect.begin() + 1, numVect.end());
+
+          // function makes a recursive call to itself.
+          return numVect[0] + vectsum(remaining);
       }
 
       int main() {
-          int arr2[] = {1, 3, 5, 7, 9};
-          vector<int> numVect(arr2, arr2 + (sizeof(arr2) / sizeof(arr2[0])));  //Initializes vector with same items as arr2.
+          vector<int> numVect = {1, 3, 5, 7, 9};
           cout << vectsum(numVect) << endl;
-
           return 0;
       }
 
@@ -147,10 +148,13 @@ the first element. This is easily expressed in C++ as shown in
        #Example of summing a list using recurison.
 
        def listsum(numList):
+           if len(numList) == 0:
+               return 0
            if len(numList) == 1:
                return numList[0]
-           else:
-               return numList[0] + listsum(numList[1:]) #function makes a recursive call to itself.
+
+           #function makes a recursive call to itself.
+           return numList[0] + listsum(numList[1:])
 
        def main():
            print(listsum([1, 3, 5, 7, 9]))

@@ -40,6 +40,7 @@
       </choice>
     </choices>
   </exercise>
+
   <exercise label="growth">
     <statement>
       <p>Drag the order of growth rates to their rankings from lowest to highest (the slowest i.e. the highest growth rate should be #1)</p>
@@ -47,25 +48,26 @@
     <feedback>
       <p>Compare the functions at different values to see how they compare</p>
     </feedback>
-    <matches>
-      <match order="1">
-        <premise><m>2^n</m></premise>
+    <cardsort>
+      <match>
+        <premise order="1"><m>2^n</m></premise>
         <response>1st</response>
       </match>
-      <match order="2">
-        <premise><m>n^2</m></premise>
+      <match>
+        <premise order="2"><m>n^2</m></premise>
         <response>2nd</response>
       </match>
-      <match order="3">
-        <premise><m>n \log n</m></premise>
+      <match>
+        <premise order="3"><m>n \log n</m></premise>
         <response>3rd</response>
       </match>
-      <match order="4">
-        <premise><m>\log n</m></premise>
+      <match>
+        <premise order="4"><m>\log n</m></premise>
         <response>4th</response>
       </match>
-    </matches>
+    </cardsort>
   </exercise>
+
   <exercise label="resources">
     <statement>
       <p>When considering computer resources, what factors do we have in mind? Select all that apply.</p>

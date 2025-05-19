@@ -1,4 +1,4 @@
-<section xml:id="algorithm-analysis_big-o-notation">
+<?xml version="1.0" ?><section xml:id="algorithm-analysis_big-o-notation">
     <title>Big-O Notation</title>
     <p>When trying to characterize an algorithm's efficiency in terms of
         execution time, independent of any particular program or computer, it is
@@ -177,7 +177,7 @@
         <title>Analysis Example</title>
         <task label="algo_analysis_dummycode_1" xml:id="algo_analysis_dummycode_1">
             <title>C++ Implementation</title>
-            <statement><program language="cpp"><input>
+            <statement><program language="cpp" label="algo_analysis_dummycode_1-prog"><code>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -200,11 +200,11 @@ int main(){
     int d = 33;
     return 0;
 }
-            </input></program></statement>
+            </code></program></statement>
         </task>
         <task xml:id="algo_analysis_dummycode_1_py" label="algo_analysis_dummycode_1_py">
             <title>Python Implementation</title>
-            <statement><program language="python"><input>
+            <statement><program language="python" label="algo_analysis_dummycode_1_py-prog"><code>
 def main():
     a=5
     b=6
@@ -219,7 +219,7 @@ def main():
         v = b*b
     d = 33
 main()
-            </input></program></statement>
+            </code></program></statement>
         </task>
     </exploration>
     <p>The number of assignment operations is the sum of four terms. The first
@@ -263,34 +263,34 @@ Reading Questions
     
             <choice>
                 <statement>
-                    <p>O(2n)</p>
+                    <p>O(<m>2n</m>)</p>
                 </statement>
                 <feedback>
-                    <p>No, 3n<sup>2</sup> dominates 2n. Try again.</p>
+                    <p>No, <m>3n^{2}</m> dominates 2n. Try again.</p>
                 </feedback>
             </choice>
     
             <choice>
                 <statement>
-                    <p>O(n)</p>
+                    <p>O(<m>n</m>)</p>
                 </statement>
                 <feedback>
-                    <p>No, n<sup>2</sup> dominates n. Try again.</p>
+                    <p>No, <m>n^{2}</m> dominates n. Try again.</p>
                 </feedback>
             </choice>
     
             <choice>
                 <statement>
-                    <p>O(3n<sup>2</sup>)</p>
+                    <p>O(<m>3n^{2}</m>)</p>
                 </statement>
                 <feedback>
-                    <p>No, the 3 should be omitted because n<sup>2</sup> dominates.</p>
+                    <p>No, the 3 should be omitted because <m>n^{2}</m> dominates.</p>
                 </feedback>
             </choice>
     
             <choice correct="yes">
                 <statement>
-                    <p>O(n<sup>2</sup>)</p>
+                    <p>O(<m>n^{2}</m>)</p>
                 </statement>
                 <feedback>
                     <p>Right!</p>
@@ -391,21 +391,21 @@ Reading Questions
                 </feedback>
             </choice>
     
-            <choice correct="yes">
-                <statement>
-                    <p>2.53</p>
-                </statement>
-                <feedback>
-                    <p>Correct!</p>
-                </feedback>
-            </choice>
-    
             <choice>
                 <statement>
-                    <p>2</p>
+                    <p>2.04</p>
                 </statement>
                 <feedback>
                     <p>Incorrect. Try again.</p>
+                </feedback>
+            </choice>
+    
+            <choice correct="yes">
+                <statement>
+                    <p>2.04</p>
+                </statement>
+                <feedback>
+                    <p>Correct!</p>
                 </feedback>
             </choice>
     
@@ -434,7 +434,7 @@ Reading Questions
     
             <p>The Big O of a particular algorithm is <m>O(\log_{2}n)</m>.
                 Given that it takes 2 seconds to complete the algorithm with 3 million inputs;
-                how long would it take with 10 million inputs?</p>
+                how long would it take with <b>10 million</b> inputs?</p>
     
         </statement>
     <choices>
@@ -448,12 +448,12 @@ Reading Questions
                 </feedback>
             </choice>
     
-            <choice>
+            <choice correct="yes">
                 <statement>
-                    <p>2.53</p>
+                    <p>2.16</p>
                 </statement>
                 <feedback>
-                    <p>Incorrect. Try again.</p>
+                    <p>Correct!</p>
                 </feedback>
             </choice>
     
@@ -466,12 +466,12 @@ Reading Questions
                 </feedback>
             </choice>
     
-            <choice correct="yes">
+            <choice>
                 <statement>
                     <p>4.2</p>
                 </statement>
                 <feedback>
-                    <p>Right!</p>
+                    <p>Incorrect. Try again</p>
                 </feedback>
             </choice>
     

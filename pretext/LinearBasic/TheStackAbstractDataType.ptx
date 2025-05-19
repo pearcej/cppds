@@ -1,4 +1,4 @@
-<section xml:id="linear-basic_the-stack-abstract-data-type">
+<?xml version="1.0" ?><section xml:id="linear-basic_the-stack-abstract-data-type">
     <idx>stack abstract data type</idx> <idx>stack ADT</idx>
         <title>The Stack Abstract Data Type</title>
         <p>The <term>stack abstract data type</term> or <term>stack ADT</term> is defined by the following structure and
@@ -193,7 +193,7 @@
 
             <choice>
                 <statement>
-                    <p>"Stacks"</p>
+                    <p>&quot;Stacks&quot;</p>
                 </statement>
                 <feedback>
                     <p>No, a stack can have only one item.</p>
@@ -211,7 +211,7 @@
 
             <choice correct="yes">
                 <statement>
-                    <p>"St", 'a', "ck", 's'</p>
+                    <p>&quot;St&quot;, 'a', &quot;ck&quot;, 's'</p>
                 </statement>
                 <feedback>
                     <p>Yes, stacks should have data of the same type.</p>

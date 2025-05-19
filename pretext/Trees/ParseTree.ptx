@@ -1,4 +1,4 @@
-<section xml:id="trees_parse-tree">
+<?xml version="1.0" ?><section xml:id="trees_parse-tree">
         <title>Parse Tree</title>
         <p>With the implementation of our tree data structure
             complete, we now look at an example of how a tree can be used to solve
@@ -104,15 +104,52 @@
     
         <figure align="center" xml:id="parse_fig-bldexpstep">
             <caption>Tracing Parse Tree Construction.</caption>
-                <image source="Trees/buildExp1.png" width="15%"/>
-                <image source="Trees/buildExp2.png" width="25%"/>
-                <image source="Trees/buildExp3.png" width="25%"/>
-                <image source="Trees/buildExp4.png" width="25%"/>
-                <image source="Trees/buildExp5.png" width="25%"/>
-                <image source="Trees/buildExp6.png" width="25%"/>
-                <image source="Trees/buildExp7.png" width="50%"/>
+                <image source="Trees/buildExp1.png" width="15%">
+                <shortdescription>
+                First image of a vertical sequence of diagrams illustrating the construction of a binary search tree with numerical values. 
+                It shows a single circular node, shaded, representing the starting point of the tree.
+                </shortdescription>
+                </image>
+                <image source="Trees/buildExp2.png" width="25%">
+                <shortdescription>
+                    Second image showing the addition of a new node below the initial node.
+                </shortdescription>
+                </image>
+                <image source="Trees/buildExp3.png" width="25%">
+                <shortdescription>
+                    Third image showing the tree with an additional node labeled &quot;3&quot;.
+                </shortdescription>
+                </image>
+                <image source="Trees/buildExp4.png" width="25%">
+                <shortdescription>
+                    Fourth image showing the partially constructed binary parse tree with a root node labeled &quot;+,&quot; two child nodes: the left child labeled &quot;3&quot; and a newly added right child, which is shaded to indicate it is the most recently added node.
+                </shortdescription>
+                </image>
+                <image source="Trees/buildExp5.png" width="25%">
+                <shortdescription>
+                    Fifth image showing a binary parse tree with a root node labeled &quot;+.&quot; The left child is labeled &quot;3,&quot; the right child is connected to a newly added shaded node, which has a single child below it.
+                </shortdescription>
+                </image>
+                <image source="Trees/buildExp6.png" width="25%">
+                <shortdescription>
+                    Sixth image showing the binary parse tree with a root node labeled &quot;+.&quot; The left child remains labeled &quot;3,&quot; while the right child is connected to a node that now has a newly added shaded child labeled &quot;4.&quot;
+                </shortdescription>
+                </image>
+                <image source="Trees/buildExp7.png" width="50%">
+                <shortdescription>
+                    Seventh image showing a binary parse tree with a root node labeled &quot;+.&quot; The left child is labeled &quot;3,&quot; and the right child is labeled &quot;*.&quot; The node labeled &quot;*&quot; has two children: the left child labeled &quot;4&quot; and a newly added shaded right child.
+                </shortdescription>
+                </image>
                 <image source="Trees/buildExp8.png" width="50%">
-                <description><p>A vertical sequence of diagrams illustrating the construction of a binary search tree with numerical values. At the top, there is a single node. As the sequence progresses downwards, nodes are added one by one in binary search tree order, with some nodes shaded to indicate the most recently added node. Each node contains a number, and they are linked by lines representing the tree structure. The numbers in the nodes are not visible, so their specific values are not identifiable in this description.</p></description>
+                <description>
+                    <p>
+                        A sequence of images showing the steps of completing a binary parse tree representing the construction of a mathematical expression. 
+                        The final tree begins with a root node labeled &quot;+,&quot; which has two child nodes. The left child is labeled &quot;3,&quot; 
+                        and the right child is labeled &quot;*.&quot; The node labeled &quot;*&quot; has two children: the left child labeled &quot;4&quot; 
+                        and the right child labeled &quot;5.&quot; The structure illustrates the hierarchical organization of the expression, 
+                        with all nodes properly positioned.
+                    </p>
+                </description>
                 </image>
             </figure>
 
@@ -181,7 +218,7 @@
             <title>Building A Parse Tree</title>
             <task xml:id="lst-buildparse-cpp" label="lst-buildparse-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-buildparse-cpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="prog-buildparse-cpp" interactive="activecode" language="cpp" label="prog-buildparse-cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;cstdlib&gt;
 #include &lt;stack&gt;
@@ -253,25 +290,25 @@ BinaryTree *buildParseTree(const string&amp; expr){
     while (ss &gt;&gt; buf)
         tokenlist.push_back(buf);
 
-    BinaryTree *root = new BinaryTree("");
+    BinaryTree *root = new BinaryTree(&quot;&quot;);
     stack&lt;BinaryTree*&gt; parentStack;
     parentStack.push(root);
     BinaryTree *currentTree = root;
 
     for (size_t i = 0; i &lt; tokenlist.size(); i++){
-        if (tokenlist[i] == "("){
+        if (tokenlist[i] == &quot;(&quot;){
             // rule 1: open parenthesis
-            currentTree-&gt;insertLeft("");
+            currentTree-&gt;insertLeft(&quot;&quot;);
             parentStack.push(currentTree);
             currentTree = currentTree-&gt;getLeftChild();
-        } else if (tokenlist[i] == "+" || tokenlist[i] == "-" ||
-                   tokenlist[i] == "/" || tokenlist[i] == "*"){
+        } else if (tokenlist[i] == &quot;+&quot; || tokenlist[i] == &quot;-&quot; ||
+                   tokenlist[i] == &quot;/&quot; || tokenlist[i] == &quot;*&quot;){
             // rule 2: operator
             currentTree-&gt;setRootVal(tokenlist[i]);
-            currentTree-&gt;insertRight("");
+            currentTree-&gt;insertRight(&quot;&quot;);
             parentStack.push(currentTree);
             currentTree = currentTree-&gt;getRightChild();
-        } else if (tokenlist[i] == ")") {
+        } else if (tokenlist[i] == &quot;)&quot;) {
             // rule 4: closing parenthesis
             currentTree = parentStack.top();
             parentStack.pop();
@@ -297,17 +334,17 @@ void postorder(BinaryTree *tree){
 
 int main() {
 
-    BinaryTree *pt = buildParseTree("( ( 10 + 5 ) * 3 )");
+    BinaryTree *pt = buildParseTree(&quot;( ( 10 + 5 ) * 3 )&quot;);
 
     postorder(pt);
 
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-buildparse-py" label="lst-buildparse-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-buildparse-py" interactive="activecode" language="python"><input>
+                <statement><program xml:id="prog-buildparse-py" interactive="activecode" language="python" label="prog-buildparse-py-prog"><code>
 from pythonds.basic.stack import Stack
 from pythonds.trees.binaryTree import BinaryTree
 
@@ -340,15 +377,15 @@ def buildParseTree(fpexp):
                 currentTree = parent
 
             except ValueError:
-                raise ValueError("token '{}' is not a valid integer".format(i))
+                raise ValueError(&quot;token '{}' is not a valid integer&quot;.format(i))
 
     return eTree
 
 def main():
-    pt = buildParseTree("( ( 10 + 5 ) * 3 )")
+    pt = buildParseTree(&quot;( ( 10 + 5 ) * 3 )&quot;)
     pt.postorder()  #defined and explained in the next section
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>The four rules for building a parse tree are coded as the first four
@@ -403,7 +440,7 @@ main()
             <title>Evaluating A Parse Tree</title>
             <task xml:id="lst-eval-cpp" label="lst-eval-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-eval-cpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="prog-eval-cpp" interactive="activecode" language="cpp" label="prog-eval-cpp-prog"><code>
 class Operator {
     public:
         int add(int x, int y){
@@ -445,11 +482,11 @@ string evaluate(BinaryTree *parseTree) {
     BinaryTree *rightC = parseTree-&gt;getRightChild();
 
     if (leftC &amp;&amp; rightC) {
-        if (parseTree-&gt;getRootVal() == "+") {
+        if (parseTree-&gt;getRootVal() == &quot;+&quot;) {
             return to_string(Oper.add(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
-        } else if (parseTree-&gt;getRootVal() == "-") {
+        } else if (parseTree-&gt;getRootVal() == &quot;-&quot;) {
             return to_string(Oper.sub(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
-        } else if (parseTree-&gt;getRootVal() == "*") {
+        } else if (parseTree-&gt;getRootVal() == &quot;*&quot;) {
             return to_string(Oper.mul(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
         } else {
             return to_string(Oper.div(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
@@ -463,11 +500,11 @@ int main(){
 
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-eval-py" label="lst-eval-py">
                 <title>Python Implementation</title>
-                <statement><program language="Python"><input>
+                <statement><program language="Python" label="lst-eval-py-prog"><code>
 def evaluate(parseTree):
     opers = {'+':operator.add, '-':operator.sub, '*':operator.mul, '/':operator.truediv}
 
@@ -479,7 +516,7 @@ def evaluate(parseTree):
         return fn(evaluate(leftC),evaluate(rightC))
     else:
         return parseTree.getRootVal()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>Finally, we will trace the <c>evaluate</c> function on the parse tree we
@@ -524,4 +561,3 @@ def evaluate(parseTree):
 </exercise>
 </reading-questions> 
     </section>
-

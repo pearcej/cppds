@@ -1,4 +1,4 @@
-<section xml:id="graphs_building-the-word-ladder-graph">
+<?xml version="1.0" ?><section xml:id="graphs_building-the-word-ladder-graph">
         <title>Building the Word Ladder Graph</title>
         <p>Our first problem is to figure out how to turn a large collection of
             words into a graph. What we would like is to have an edge from one word
@@ -54,8 +54,8 @@
             code required to build the graph.</p>
 <listing xml:id="graphs_wordbucket_cpp">
     <caption>Building the Word Bucket Graph</caption>
-    <program xml:id="wordbucket_cpp" interactive="activecode" language="cpp">
-        <input>
+    <program xml:id="wordbucket_cpp" interactive="activecode" language="cpp" label="wordbucket_cpp-prog">
+        <code>
 #include &lt;fstream&gt;
 #include &lt;iostream&gt;
 #include &lt;map&gt;
@@ -103,9 +103,9 @@ public:
 
 ostream &amp;operator&lt;&lt;(ostream &amp;stream, Vertex &amp;vert) {
       vector&lt;string&gt; connects = vert.getConnections();
-    stream &lt;&lt; vert.id &lt;&lt; " -&gt; ";
+    stream &lt;&lt; vert.id &lt;&lt; &quot; -&gt; &quot;;
       for (unsigned int i = 0; i &lt; connects.size(); i++) {
-              stream &lt;&lt; connects[i] &lt;&lt; endl &lt;&lt; "\t";
+              stream &lt;&lt; connects[i] &lt;&lt; endl &lt;&lt; &quot;\t&quot;;
       }
 
       return stream;
@@ -229,7 +229,7 @@ Graph buildGraph(vector&lt;string&gt; words) {
 
 int main() {
     // Vector Initialized with an array
-    string arr[] = {"fool","cool","pool","poll","pole","pall","fall","fail","foil","foul","pope","pale","sale","sage","page"};
+    string arr[] = {&quot;fool&quot;,&quot;cool&quot;,&quot;pool&quot;,&quot;poll&quot;,&quot;pole&quot;,&quot;pall&quot;,&quot;fall&quot;,&quot;fail&quot;,&quot;foil&quot;,&quot;foul&quot;,&quot;pope&quot;,&quot;pale&quot;,&quot;sale&quot;,&quot;sage&quot;,&quot;page&quot;};
     vector&lt;string&gt; words(arr,arr+(sizeof(arr)/sizeof(arr[0])));
 
       Graph g = buildGraph(words);
@@ -238,7 +238,7 @@ int main() {
 
       return 0;
 }
-        </input>
+        </code>
     </program>
 </listing>
         <p>Since this is our first real-world graph problem, you might be wondering
@@ -249,4 +249,3 @@ int main() {
             the matrix would have only 0.20% of the cells filled! That is a very
             sparse matrix indeed.</p>
     </section>
-

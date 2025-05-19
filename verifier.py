@@ -1,4 +1,3 @@
-
 """This script checks a bunch of informal rules for PreTeXt/Runestone.
 It recurses from the current directory looking for ".ptx" files and
 parses each passing the parsed XML representation to a bunch of tests.
@@ -41,6 +40,24 @@ class TabNodeIsNotAThing(CppsXmlTest):
         if n > 0:
             print(f"{fname} has {n} TabNode tags")
         return n == 0
+
+
+class ProgramInputDeprecated(CppsXmlTest):
+    """TabNode is something the automatic conversion tools emitted.
+    PreTeXt doesn't actually have the concept of a TabNode per se,
+    so everywhere this tag occurs we have to do some manual work.
+    """
+    @classmethod
+    def test_file(cls, fname, doc):
+        ok = True
+        for prog in doc.getElementsByTagName("program"):
+            for child in prog.childNodes:
+                if child.nodeType != xml.dom.Node.ELEMENT_NODE:
+                    continue
+                if child.nodeName == "input":
+                    ok = False
+                    print(f'{fname}: "program" has deprecated "input" tag (should be "code")')
+        return ok
 
 
 class TagsNeedsCaption(CppsXmlTest):
@@ -159,6 +176,22 @@ class TagsNeedLabels(CppsXmlTest):
                     ret = False
         return ret
 
+class ActivecodeProgramsNeedLabels(CppsXmlTest):
+    """program elements which are activecode should have labels"""
+    labeled_items = ('exercise', 'task')
+
+    @classmethod
+    def test_file(cls, fname, doc):
+        ret = True
+
+        for prog in doc.getElementsByTagName("program"):
+            attr = prog.getAttribute("interactive")
+            if attr == "activecode":
+                label = prog.getAttribute("label")
+                if len(label) == 0:
+                    print(f'{fname}: program does not have label')
+                    ret = False
+        return ret
 
 ALL_TESTS = CppsXmlTest.__subclasses__()
 

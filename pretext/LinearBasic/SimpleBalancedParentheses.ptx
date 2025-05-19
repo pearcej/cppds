@@ -1,4 +1,4 @@
-<section xml:id="linear-basic_simple-balanced-parentheses">
+<?xml version="1.0" ?><section xml:id="linear-basic_simple-balanced-parentheses">
         <title>Simple Balanced Parentheses</title>
         <p>We now turn our attention to using stacks to solve real computer science
             problems. You have no doubt written arithmetic expressions such as</p>
@@ -13,7 +13,7 @@
             parentheses.</p>
         <p>
             In both of these examples, parentheses must appear in a balanced
-            fashion. "Balanced parentheses" means that each opening symbol has a
+            fashion. &quot;Balanced parentheses&quot; means that each opening symbol has a
             corresponding closing symbol and the pairs of parentheses are properly
             nested. Consider the following correctly balanced strings of
             parentheses:</p>
@@ -42,7 +42,20 @@
             from the inside out. This is a clue that stacks can be used to solve the
             problem.</p>
         
-        <figure align="center" xml:id="fig-parmatch"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: Matching Parentheses</caption><image source="LinearBasic/simpleparcheck.png" width="50%"/></figure>
+        <figure align="center" xml:id="fig-parmatch"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 4: Matching Parentheses</caption>
+        <image source="LinearBasic/simpleparcheck.png" width="50%"> 
+            <description>
+                <p>
+                    The image illustrates the process of matching parentheses to determine if they are balanced. It shows 
+                    a sequence of parentheses where the most recent open parenthesis matches the first close parenthesis. 
+                    Arrows point to the corresponding pairs to indicate the matching process. The diagram also highlights 
+                    that the first open parenthesis may wait until the very last close parenthesis for its match. This visual 
+                    emphasizes that closing symbols match opening symbols in reverse order of their appearance, matching 
+                    from the inside out. This demonstrates the use of a stack to solve the problem of balancing parentheses.
+
+                </p>
+            </description>
+        </image></figure>
         <p>Once you agree that a stack is the appropriate data structure for
             keeping the parentheses, the statement of the algorithm is
             straightforward. Starting with an empty stack, process the parenthesis
@@ -60,7 +73,7 @@
             <title>Parenthesis checker</title>
             <task xml:id="task-parcheck1_cpp" label="task-parcheck1_cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="parcheck1_cpp" interactive="activecode" language="cpp"><input>
+                <statement><program xml:id="parcheck1_cpp" interactive="activecode" language="cpp" label="parcheck1_cpp-prog"><code>
 //simple program that checks for missing parentheses
 #include &lt;iostream&gt;
 #include &lt;stack&gt;
@@ -77,7 +90,7 @@ bool parChecker(string symbolString) {
     while (index &lt; str_len &amp;&amp; balanced) {
               string symbol;
               symbol = symbolString[index];
-              if (symbol == "(") {
+              if (symbol == &quot;(&quot;) {
                   s.push(symbol); //pushes the open parentheses to the stack.
               } else {
                   if (s.empty()) { //if there is no open parentheses in the stack,
@@ -100,14 +113,14 @@ bool parChecker(string symbolString) {
 }
 
 int main() {
-    cout &lt;&lt; parChecker("((()))") &lt;&lt; endl;
-    cout &lt;&lt; parChecker("(()") &lt;&lt; endl;
+    cout &lt;&lt; parChecker(&quot;((()))&quot;) &lt;&lt; endl;
+    cout &lt;&lt; parChecker(&quot;(()&quot;) &lt;&lt; endl;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="task-parcheck1_py" label="task-parcheck1_py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="parcheck1_py" interactive="activecode" language="python"><input>
+                <statement><program xml:id="parcheck1_py" interactive="activecode" language="python" label="parcheck1_py-prog"><code>
 #Program that detects if a set of parentheses is complete.
 
 #simple program that checks for missing parentheses
@@ -120,7 +133,7 @@ def parChecker(symbolString):
     index = 0
     while index &lt; len(symbolString) and balanced:
         symbol = symbolString[index]
-        if symbol == "(":
+        if symbol == &quot;(&quot;:
             s.push(symbol) #pushes the open parentheses to the stack.
         else:
             if s.isEmpty(): #if there is no open parentheses in the stack,
@@ -144,7 +157,7 @@ def main():
     print(parChecker('(()'))
 
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>This function, <c>parChecker</c>, assumes that a <c>Stack</c> class is

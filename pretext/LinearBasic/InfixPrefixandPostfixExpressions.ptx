@@ -1,4 +1,4 @@
-<section xml:id="linear-basic_infix-prefix-and-postfix-expressions">
+<?xml version="1.0" ?><section xml:id="linear-basic_infix-prefix-and-postfix-expressions">
         <title>Infix, Prefix and Postfix Expressions</title>
     <introduction>
     <definition xml:id="def-infix-expression">
@@ -269,7 +269,14 @@
             
             <figure align="center" xml:id="xfix_fig-moveright">
                 <caption>Moving Operators to the Right for Postfix Notation</caption>
-                <image source="LinearBasic/moveright.png" width="50%"/>
+                <image source="LinearBasic/moveright.png" width="50%"> 
+                    <description>
+                         <p>
+                            The image shows an annotated mathematical expression illustrating the conversion of an infix expression A + (B * C) to postfix notation. 
+                            Arrows indicate the movement of operators + and * to the right, near their corresponding right parentheses, resulting in B C * A +.
+                        </p>
+                    </description>                
+                </image>
             </figure>
             <p>If we do the same thing but instead of moving the symbol to the position
                 of the right parenthesis, we move it to the left, we get prefix notation
@@ -278,7 +285,14 @@
             
             <figure align="center" xml:id="xfix_fig-moveleft">
                 <caption>Moving Operators to the Left for Prefix Notation</caption>
-                <image source="LinearBasic/moveleft.png" width="50%"/>
+                <image source="LinearBasic/moveleft.png" width="50%"> 
+                    <description>
+                        <p>
+                            The image shows an annotated mathematical expression illustrating the conversion of an infix expression A + (B * C) to prefix notation. 
+                            Arrows indicate the movement of operators + and * to the left, near their corresponding left parentheses, resulting in + A * B C.
+                        </p>
+                    </description>
+                </image>
             </figure>
             <p>So in order to convert an expression, no matter how complex, to either
                 prefix or postfix notation, fully parenthesize the expression using the
@@ -291,7 +305,21 @@
             
             <figure align="center" xml:id="xfix_fig-complexmove">
                 <caption>Converting a Complex Expression to Prefix and Postfix Notations</caption>
-                <image source="LinearBasic/complexmove.png" width="50%"/>
+                <image source="LinearBasic/complexmove.png" width="50%">
+                    <description>
+                    <p>
+                        The image illustrates the conversion of a complex infix expression (A + B) * C - (D - E) * (F + G) into both prefix and postfix notations. 
+                        At the center, the fully parenthesized infix expression is displayed: (((A + B) * C) - ((D - E) * (F + G))). 
+                        Two arrows branch out from the central expression. The first arrow points to the prefix notation, 
+                        where the operators are moved to the left of their operands, resulting in:
+                        <math display="inline">-*+A B C *-D E +F G</math>. 
+                        The second arrow points to the postfix notation, where the operators are moved to the right of their operands, resulting in:
+                        <math display="inline">A B + C * D E - F G + * -</math>. 
+                        This image demonstrates how to systematically rearrange operators based on the desired notation by using the position of parentheses as a guide.
+ 
+                    </p>
+                    </description>
+                </image>
             </figure>
    </subsection>
         <subsection xml:id="linear-basic_general-infix-to-postfix-conversion">
@@ -395,7 +423,17 @@
             
             <figure align="center" xml:id="xfix_fig-intopost">
                 <caption>Converting A * B + C * D to Postfix Notation</caption>
-                <image source="LinearBasic/intopost.png" width="50%"/>
+                <image source="LinearBasic/intopost.png" width="50%">
+                    <description>
+                        <p>
+                            The image visually represents the step-by-step conversion of the infix expression A * B + C * D into postfix notation. 
+                            It shows the operands A, B, C, D being added directly to the output, while the operators * and + are temporarily stored in a stack. 
+                            The process demonstrates how * is removed from the stack upon encountering +, due to operator precedence. 
+                            Later, both * operators are popped, followed by +, resulting in the final postfix expression A B * C D * +. 
+                            The diagram uses arrows to indicate the movement of operands and operators between the input, stack, and output.
+                        </p>
+                    </description>
+                </image>
             </figure>
             <p>In order to code the algorithm in C++, we will use a hash map
                 called <c>prec</c> to hold the precedence values for the operators
@@ -413,7 +451,7 @@
                 <title>Infix to Postfix Conversion</title>
                 <task xml:id="lst-intopost-cpp" label="lst-intopost-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="intpost_cpp" interactive="activecode" language="cpp"><input>
+                    <statement><program xml:id="intpost_cpp" interactive="activecode" language="cpp" label="intpost_cpp-prog"><code>
 //Converts an infix expression to a postfix expression.
 
 #include &lt;iostream&gt;
@@ -434,7 +472,7 @@ string infixToPostfix(string infixexpr) {
     prec['(']=1;
     stack&lt;char&gt; opStack;
     vector&lt;char&gt; postfixVector;
-    string letsnums = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    string letsnums = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&quot;;
 
     for (char token:infixexpr) {
         //for each character in infixexpr
@@ -476,18 +514,18 @@ string infixToPostfix(string infixexpr) {
 }
 
 int main() {
-    cout &lt;&lt;"infix: A * B + C * D\n" &lt;&lt; "postfix: ";
-    cout &lt;&lt; infixToPostfix("A * B + C * D") &lt;&lt; endl;
-    cout &lt;&lt; "infix: ( A + B ) * C - ( D - E ) * ( F + G )\n" &lt;&lt; "postfix: ";
-    cout &lt;&lt; infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )") &lt;&lt; endl;
+    cout &lt;&lt;&quot;infix: A * B + C * D\n&quot; &lt;&lt; &quot;postfix: &quot;;
+    cout &lt;&lt; infixToPostfix(&quot;A * B + C * D&quot;) &lt;&lt; endl;
+    cout &lt;&lt; &quot;infix: ( A + B ) * C - ( D - E ) * ( F + G )\n&quot; &lt;&lt; &quot;postfix: &quot;;
+    cout &lt;&lt; infixToPostfix(&quot;( A + B ) * C - ( D - E ) * ( F + G )&quot;) &lt;&lt; endl;
 
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="lst-intopost-py" label="lst-intopost-py">
                     <title>Python Implementation</title>
-                    <statement><program xml:id="intopost" interactive="activecode" language="python"><input>
+                    <statement><program xml:id="intopost" interactive="activecode" language="python" label="intopost-prog"><code>
 #Converts an infix expression to a postfix expression.
 
 from pythonds.basic.stack import Stack
@@ -495,18 +533,18 @@ from pythonds.basic.stack import Stack
 def infixToPostfix(infixexpr):
     #performs the postfix process.
     prec = {}
-    prec["*"] = 3
-    prec["/"] = 3
-    prec["+"] = 2
-    prec["-"] = 2
-    prec["("] = 1
+    prec[&quot;*&quot;] = 3
+    prec[&quot;/&quot;] = 3
+    prec[&quot;+&quot;] = 2
+    prec[&quot;-&quot;] = 2
+    prec[&quot;(&quot;] = 1
     opStack = Stack()
     postfixList = []
     tokenList = infixexpr.split()
 
     for token in tokenList:
         #for each character in infixexpr
-        if token in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" or token in "0123456789":
+        if token in &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot; or token in &quot;0123456789&quot;:
             postfixList.append(token)
         elif token == '(':
             opStack.push(token)
@@ -524,22 +562,22 @@ def infixToPostfix(infixexpr):
 
     while not opStack.isEmpty():
         postfixList.append(opStack.pop())
-    return " ".join(postfixList)
+    return &quot; &quot;.join(postfixList)
 
 def main():
-    print(infixToPostfix("A * B + C * D"))
-    print(infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )"))
+    print(infixToPostfix(&quot;A * B + C * D&quot;))
+    print(infixToPostfix(&quot;( A + B ) * C - ( D - E ) * ( F + G )&quot;))
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
             <transition/>
             <p>A few more results of execution are shown below.</p>
-            <pre>&gt;&gt;&gt; infixtopostfix("( A + B ) * ( C + D )")
+            <pre>&gt;&gt;&gt; infixtopostfix(&quot;( A + B ) * ( C + D )&quot;)
 'A B + C D + *'
-&gt;&gt;&gt; infixtopostfix("( A + B ) * C")
+&gt;&gt;&gt; infixtopostfix(&quot;( A + B ) * C&quot;)
 'A B + C *'
-&gt;&gt;&gt; infixtopostfix("A + B * C")
+&gt;&gt;&gt; infixtopostfix(&quot;A + B * C&quot;)
 'A B C * +'
 &gt;&gt;&gt;</pre>
         </subsection>
@@ -572,7 +610,18 @@ main()
             
             <figure align="center" xml:id="xfix_fig-evalpost1">
                 <caption>Stack Contents During Evaluation</caption>
-                <image source="LinearBasic/evalpostfix1.png" width="50%"/>
+                <image source="LinearBasic/evalpostfix1.png" width="50%"> 
+                    <description>
+                        <p>
+                            The image illustrates the step-by-step evaluation of the postfix expression 4 5 6 * + using a stack. 
+                            The evaluation is performed from left to right. Initially, the operands 4, 5, and 6 are pushed onto the stack in sequence. 
+                            When the multiplication operator (*) is encountered, the two most recent operands (5 and 6) are popped from the stack, 
+                            multiplied to produce 30, and the result is pushed back onto the stack. Next, the addition operator (+) is processed. 
+                            The two most recent values (4 and 30) are popped, added to produce 34, and the result is pushed back onto the stack. 
+                            The diagram uses arrows and labeled stack snapshots to show the changes at each step, culminating in the final result of 34.
+                        </p>
+                    </description>
+                </image>
             </figure>
             <p><xref ref="xfix_fig-evalpost2"/> shows a slightly more complex example, 7 8 + 3 2
                 + /. There are two things to note in this example. First, the stack size
@@ -587,7 +636,18 @@ main()
             
             <figure align="center" xml:id="xfix_fig-evalpost2">
                 <caption>A More Complex Example of Evaluation</caption>
-                <image source="LinearBasic/evalpostfix2.png" width="50%"/>
+                <image source="LinearBasic/evalpostfix2.png" width="50%"> 
+                    <description>
+                        <p>
+                            The image demonstrates the evaluation of a more complex postfix expression 7 8 + 3 2 + / using a stack.
+                            It shows the operands and operators being processed step by step. Initially, 7 and 8 are pushed onto the stack. 
+                            When the addition operator (+) is encountered, 7 and 8 are popped, added to produce 15, and the result is pushed back onto the stack. 
+                            Next, 3 and 2 are pushed onto the stack, and when the addition operator (+) is encountered, 3 and 2 are popped, added to produce 5, 
+                            and the result is pushed back onto the stack. Finally, the division operator (/) is encountered, and the two values 15 and 5 are popped, divided as 15 / 5 to produce 3, 
+                            which is pushed back onto the stack as the final result. The image uses arrows and stack snapshots to illustrate the growth and reduction of the stack at each step of the evaluation.
+                        </p>
+                    </description>
+                </image>
             </figure>
             <p>Assume the postfix expression is a string of tokens delimited by spaces.
                 The operators are *, /, +, and - and the operands are assumed to be
@@ -629,7 +689,7 @@ main()
                 <title>Postfix Expression Evaluator</title>
                 <task xml:id="lst-postfixeval-cpp" label="lst-postfixeval-cpp">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="postfixeval_cpp" interactive="activecode" language="cpp"><input>
+                    <statement><program xml:id="postfixeval_cpp" interactive="activecode" language="cpp" label="postfixeval_cpp-prog"><code>
 //Solves a postfix math problem.
 
 #include &lt;iostream&gt;
@@ -653,7 +713,7 @@ int doMath(char op, int op1, int op2) {
 
 int postfixEval(string postfixExpr) {
     stack&lt;int&gt; operandStack;
-    string nums = "0123456789";
+    string nums = &quot;0123456789&quot;;
 
     for (char i : postfixExpr) {
         if ((nums.find(i) &lt;= nums.length())) { // Check if the current char is a number
@@ -672,16 +732,16 @@ int postfixEval(string postfixExpr) {
 }
 
 int main() {
-    cout &lt;&lt; "7 8 + 3 2 + /" &lt;&lt; endl;
-    cout &lt;&lt; postfixEval("7 8 + 3 2 + /") &lt;&lt; endl;
+    cout &lt;&lt; &quot;7 8 + 3 2 + /&quot; &lt;&lt; endl;
+    cout &lt;&lt; postfixEval(&quot;7 8 + 3 2 + /&quot;) &lt;&lt; endl;
 
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task xml:id="lst-postfixeval-py" label="lst-postfixeval-py">
                     <title>Python Implementation</title>
-                    <statement><program xml:id="postfixeval" interactive="activecode" language="python"><input>
+                    <statement><program xml:id="postfixeval" interactive="activecode" language="python" label="postfixeval-prog"><code>
 #Solves a postfix math problem.
 
 from pythonds.basic.stack import Stack
@@ -691,7 +751,7 @@ def postfixEval(postfixExpr):
     tokenList = postfixExpr.split()
 
     for token in tokenList:
-        if token in "0123456789":
+        if token in &quot;0123456789&quot;:
             operandStack.push(int(token))
         else:
             operand2 = operandStack.pop()
@@ -702,11 +762,11 @@ def postfixEval(postfixExpr):
 
 def doMath(op, op1, op2):
     #Does math based on what op is passed as.
-    if op == "*":
+    if op == &quot;*&quot;:
         return op1 * op2
-    elif op == "/":
+    elif op == &quot;/&quot;:
         return op1 / op2
-    elif op == "+":
+    elif op == &quot;+&quot;:
         return op1 + op2
     else:
         return op1 - op2
@@ -714,7 +774,7 @@ def doMath(op, op1, op2):
 def main():
     print(postfixEval('7 8 + 3 2 + /'))
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
             <p>It is important to note that in both the postfix conversion and the
@@ -743,13 +803,39 @@ main()
         </block></blocks></exercise>     
         <exercise label="infix-1">
             <statement>
-    <p>Without using the activecode infixToPostfix function, convert the following expression to postfix  <c>10 + 3 * 5 / (16 - 4)</c> . <var/>  </p></statement><setup><var><p><BlankNode/></p><condition string="^\s*10\s+3\s+5\s*\*\s*16\s+4\s*-\s*/\s*\+\s*$"><feedback><p>Correct.</p></feedback></condition><condition string="^\s*10.*3.*5.*16.*4\s+[\s+/+*-]*\s*$"><feedback><p>The numbers appear to be in the correct order check your operators</p></feedback></condition></var></setup></exercise>
+    <p>Without using the activecode infixToPostfix function, convert the following expression to postfix  <c>10 + 3 * 5 / (16 - 4)</c> . <var/>  </p></statement><setup><var><p><BlankNode/></p><condition string="^\s*10\s+3\s+5\s*\*\s*16\s+4\s*-\s*/\s*\+\s*$"><feedback><p>Correct.</p></feedback></condition><condition string="^\s*10.*3.*5.*16.*4\s+[\s+/+*-]*\s*$"><feedback><p>The numbers appear to be in the correct order check your operators</p></feedback></condition>
+        <condition string="^\s*.*\s*$">
+                        <feedback>
+                            <p>Remember the numbers will be in the same order as the original equation</p>
+                        </feedback>
+                    </condition></var></setup></exercise>
         <exercise label="infix-2">
             <statement>
-    <p>What is the result of evaluating the following: <c>17 10 + 3 * 9 / =</c> <var/>  </p></statement><setup><var><p><BlankNode/></p><condition number="[9, 9]"><feedback><p>Correct.</p></feedback></condition></var></setup></exercise>
+            <p>What is the result of evaluating the following: <c>17 10 + 3 * 9 / =</c> <var/>  </p>
+            </statement>
+            <setup>
+                <var>
+                    <condition number="[9]">
+                        <feedback>
+                            <p>Correct.</p>
+                        </feedback>
+                    </condition>
+                    <condition string="^\s*.*\s*$">
+                        <feedback>
+                            <p>Remember to push each intermediate result back on the stack</p>
+                        </feedback>
+                    </condition>
+                </var>
+            </setup></exercise>
         <exercise label="infix-3">
             <statement>
-    <p>Modify the infixToPostfix function above so that it can convert the following expression. Once you have the answer from the code put it in the blank below:  <c>5 * 3 /(4 - 2)</c>. <var/>  </p></statement><setup><var><p><BlankNode/></p><condition string="^\s*5\s+3\s*\*\s*4\s+2\s*\-\s*\/\s*$"><feedback><p>Correct.</p></feedback></condition><condition string="^\s*5.*3.*5.*4.*2\s+[-/*]*\s*$"><feedback><p>The numbers appear to be in the correct order check your operators</p></feedback></condition></var></setup></exercise> 
+    <p>Modify the infixToPostfix function above so that it can convert the following expression. Once you have the answer from the code put it in the blank below:  <c>5 * 3 /(4 - 2)</c>. <var/>  </p></statement><setup><var><p><BlankNode/></p><condition string="^\s*5\s+3\s*\*\s*4\s+2\s*\-\s*\/\s*$"><feedback><p>Correct.</p></feedback></condition><condition string="^\s*5.*3.*5.*4.*2\s+[-/*]*\s*$"><feedback><p>The numbers appear to be in the correct order check your operators</p></feedback></condition>
+    <condition string="^\s*.*\s*$">
+        <feedback>
+            <p>Hint: You just need to change one line of code</p>
+        </feedback>
+    </condition>
+        </var></setup></exercise> 
 </reading-questions>           
         </subsection>
 <conclusion><p>

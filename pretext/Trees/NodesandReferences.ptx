@@ -1,4 +1,4 @@
-<section xml:id="trees_nodes-and-references">
+<?xml version="1.0" ?><section xml:id="trees_nodes-and-references">
         <title>Nodes and References</title>
         <p>Our second method to represent a tree uses nodes and references. In this
             case we will define a class that has attributes for the root value, as
@@ -26,7 +26,7 @@
             <title>Nodes and References <c>BinaryTree</c></title>
             <task xml:id="lst-nar-cpp" label="lst-nar-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-nar-cpp" language="cpp"><input>
+                <statement><program xml:id="prog-nar-cpp" language="cpp" label="prog-nar-cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;cstdlib&gt;
 using namespace std;
@@ -44,17 +44,17 @@ public:
         this-&gt;rightChild = NULL;
     }
 };
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-nar-py" label="lst-nar-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-nar-py" language="cpp"><input>
+                <statement><program xml:id="prog-nar-py" language="cpp" label="prog-nar-py-prog"><code>
 class BinaryTree:
     def __init__(self,rootObj):
         self.key = rootObj
         self.leftChild = None
         self.rightChild = None
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>Notice that in <xref ref="lst-nar-cpp"/>, the constructor function expects to
@@ -74,7 +74,7 @@ class BinaryTree:
             <title><c>insertLeft</c></title>
             <task xml:id="lst-insl-cpp" label="lst-insl-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp"><input>
+                <statement><program language="cpp" label="lst-insl-cpp-prog"><code>
 void insertLeft(char newNode){
     if (this-&gt;leftChild == NULL){
         this-&gt;leftChild = new BinaryTree(newNode);
@@ -85,11 +85,11 @@ void insertLeft(char newNode){
         this-&gt;leftChild = t;
     }
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-insl-py" label="lst-insl-py">
                 <title>Python Implementation</title>
-                <statement><program language="cpp"><input>
+                <statement><program language="cpp" label="lst-insl-py-prog"><code>
 def insertLeft(self,newNode):
     if self.leftChild == None:
         self.leftChild = BinaryTree(newNode)
@@ -97,7 +97,7 @@ def insertLeft(self,newNode):
         t = BinaryTree(newNode)
         t.leftChild = self.leftChild
         self.leftChild = t
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>We must consider two cases for insertion. The first case is
@@ -116,7 +116,7 @@ def insertLeft(self,newNode):
             <title><c>insertRight</c></title>
             <task xml:id="lst-insr-cpp" label="lst-insr-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp"><input>
+                <statement><program language="cpp" label="lst-insr-cpp-prog"><code>
 void insertRight(char newNode){
     if (this-&gt;rightChild == NULL){
         this-&gt;rightChild = new BinaryTree(newNode);
@@ -127,11 +127,11 @@ void insertRight(char newNode){
         this-&gt;rightChild = t;
     }
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-insr-py" label="lst-insr-py">
                 <title>Python Implementation</title>
-                <statement><program language="python"><input>
+                <statement><program language="python" label="lst-insr-py-prog"><code>
 def insertRight(self,newNode):
     if self.rightChild == None:
         self.rightChild = BinaryTree(newNode)
@@ -139,7 +139,7 @@ def insertRight(self,newNode):
         t = BinaryTree(newNode)
         t.rightChild = self.rightChild
         self.rightChild = t
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>To round out the definition for a simple binary tree data structure, we
@@ -150,7 +150,7 @@ def insertRight(self,newNode):
             <title>Accessor Methods for <c>BinaryTree</c></title>
             <task xml:id="lst-naracc-cpp" label="lst-naracc-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp"><input>
+                <statement><program language="cpp" label="lst-naracc-cpp-prog"><code>
 BinaryTree *getRightChild(){
     return this-&gt;rightChild;
 }
@@ -166,11 +166,11 @@ void setRootVal(char obj){
 char getRootVal(){
     return this-&gt;key;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-naracc-py" label="lst-naracc-py">
                 <title>Python Implementation</title>
-                <statement><program language="python"><input>
+                <statement><program language="python" label="lst-naracc-py-prog"><code>
 def getRightChild(self):
     return self.rightChild
 
@@ -182,7 +182,7 @@ def setRootVal(self,obj):
 
 def getRootVal(self):
     return self.key
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>Now that we have all the pieces to create and manipulate a binary tree,
@@ -198,7 +198,7 @@ def getRootVal(self):
             <title>Accessor Methods for <c>BinaryTree</c></title>
             <task xml:id="lst-comptest-cpp" label="lst-comptest-cpp">
                 <title>C++ Implementation</title>
-                <statement><program interactive="activecode" language="cpp"><input>
+                <statement><program interactive="activecode" language="cpp" label="lst-comptest-cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;cstdlib&gt;
 using namespace std;
@@ -272,13 +272,13 @@ int main() {
 
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-comptest-py" label="lst-comptest-py">
                 <title>Python Implementation</title>
-                <statement><program interactive="activecode" language="python"><input>
-""" creates a binary tree, allows you to insert nodes
- and access those nodes. """
+                <statement><program interactive="activecode" language="python" label="lst-comptest-py-prog"><code>
+&quot;&quot;&quot; creates a binary tree, allows you to insert nodes
+ and access those nodes. &quot;&quot;&quot;
 class BinaryTree:
     def __init__(self,rootObj): # initializer function expects to get some kind of object to store in the root
         self.key = rootObj
@@ -328,7 +328,7 @@ def main():
     r.getRightChild().setRootVal('d')
     print(r.getRightChild().getRootVal())
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
 <reading-questions xml:id="rq-nodes-and-references">
@@ -381,4 +381,3 @@ main()
     </exercise>
 </reading-questions>
     </section>
-

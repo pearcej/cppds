@@ -16,8 +16,8 @@
                     already in the tree then replace the old value with the new value.</p>
             </li>
             <li>
-                <p><c>get(key)</c> Given a key, return the value stored in the tree or
-                    <c>NULL</c> otherwise.</p>
+                <p><c>get(key)</c> Given a key, return the value stored in the tree
+                    or throw an exception.</p>
             </li>
             <li>
                 <p><c>del(key)</c> Delete the key-value pair from the tree.</p>

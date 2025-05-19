@@ -8,63 +8,63 @@
     <feedback>
       <p>Review classes and their properties</p>
     </feedback>
-    <matches>
-      <match order="1">
-        <premise>bubble sort</premise>
+    <cardsort>
+      <match>
+        <premise order="1">bubble sort</premise>
         <response>Makes multiple passes through a collection, comparing adjacent items, and swaps items that are out of order</response>
       </match>
-      <match order="10">
-        <premise>short bubble</premise>
+      <match>
+        <premise order="10">short bubble</premise>
         <response>Stops if there are no exchanges to do</response>
       </match>
-      <match order="11">
-        <premise>shell sort</premise>
+      <match>
+        <premise order="11">shell sort</premise>
         <response>Divides the collection into subsets, sorts the subsets individually using insertion sort, then also sorts the combination of the sorted subsets using insertion sort</response>
       </match>
-      <match order="12">
-        <premise>sorting</premise>
+      <match>
+        <premise order="12">sorting</premise>
         <response>Process of placing elements from a collection in some kind of order</response>
       </match>
-      <match order="13">
-        <premise>split point</premise>
+      <match>
+        <premise order="13">split point</premise>
         <response>Position of the pivot value in the sorted collection; used to divide the collection for subsequent calls to quick sort</response>
       </match>
-      <match order="14">
-        <premise>quick sort</premise>
+      <match>
+        <premise order="14">quick sort</premise>
         <response>Uses recursion to split a collection in half and places elements on the proper side of the split point</response>
       </match>
-      <match order="2">
-        <premise>gap</premise>
+      <match>
+        <premise order="2">gap</premise>
         <response>Used to divide a collection into subsets without breaking apart the collection during a shell sort</response>
       </match>
-      <match order="3">
-        <premise>insertion sort</premise>
+      <match>
+        <premise order="3">insertion sort</premise>
         <response>Maintains a sorted and unsorted subset of a collection and inserts elements from the unsorted subset into the sorted subset</response>
       </match>
-      <match order="4">
-        <premise>median of three</premise>
+      <match>
+        <premise order="4">median of three</premise>
         <response>Method of choosing the pivot value for a quick sort by taking the median of the first, middle, and last element of a collection</response>
       </match>
-      <match order="5">
-        <premise>merge</premise>
+      <match>
+        <premise order="5">merge</premise>
         <response>Takes two smaller sorted subsets and combines them</response>
       </match>
-      <match order="6">
-        <premise>merge sort</premise>
+      <match>
+        <premise order="6">merge sort</premise>
         <response>Uses recursion to split a collection in half until there is one item and then combines the smaller subsets back into larger sorted subsets</response>
       </match>
-      <match order="7">
-        <premise>partition</premise>
+      <match>
+        <premise order="7">partition</premise>
         <response>Finds the split point and moves items to the appropriate side of the collection, either less than or greater than the pivot value</response>
       </match>
-      <match order="8">
-        <premise>pivot value</premise>
+      <match>
+        <premise order="8">pivot value</premise>
         <response>Value selected in a collection during quick sort in order to split a collection</response>
       </match>
-      <match order="9">
-        <premise>selection sort</premise>
+      <match>
+        <premise order="9">selection sort</premise>
         <response>Makes multiple passes through a collection, taking the largest or lowest unsorted element and places it into its correct place by swapping places with the next largest or lowest element</response>
       </match>
-    </matches>
+    </cardsort>
   </exercise>
 </section>

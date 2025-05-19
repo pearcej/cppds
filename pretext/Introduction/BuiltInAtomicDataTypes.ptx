@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<section xml:id="introduction_built-in-atomic-data-types">
+<?xml version="1.0" ?><section xml:id="introduction_built-in-atomic-data-types">
   <title>Built-in Atomic Data Types</title>
   <introduction>
   <p>C++ requires users to specify the data type of each variable before it is used.
@@ -70,7 +69,7 @@
       <title>Doing Math</title>
       <task xml:id="intro_numeric-ex1-cpp" label="intro_numeric-ex1-cpp">
         <title>C++ Implementation</title>
-        <statement><program xml:id="intro_1cpp" interactive="activecode" language="cpp"><input>
+        <statement><program xml:id="intro_1cpp" interactive="activecode" language="cpp" label="intro_1cpp-prog"><code>
 //outputs results from various math expressions
 #include &lt;iostream&gt;
 #include &lt;cmath&gt;
@@ -92,11 +91,11 @@ int main(){
 
     return 0;
 }
-        </input></program></statement>
+        </code></program></statement>
       </task>
       <task xml:id="intro_numeric-ex1-py" label="intro_numeric-ex1-py">
         <title>Python Implementation</title>
-        <statement><program xml:id="intro_1py" interactive="activecode" language="python"><input>
+        <statement><program xml:id="intro_1py" interactive="activecode" language="python" label="intro_1py-prog"><code>
 #outputs results from various math expressions
 def main():
 
@@ -113,7 +112,7 @@ def main():
     print(2**100)
 
 main()
-        </input></program></statement>
+        </code></program></statement>
       </task>
     </exploration>
     <p>When declaring numeric variables in C++,
@@ -223,7 +222,7 @@ main()
       <title>Printing <c>bool</c> variables</title>
       <task xml:id="logical-cpp" label="logical-cpp">
         <title>C++ Implementation</title>
-        <statement><program xml:id="logical_1cpp" interactive="activecode" language="cpp"><input>
+        <statement><program xml:id="logical_1cpp" interactive="activecode" language="cpp" label="logical_1cpp-prog"><code>
 //outputs boolean results to the command line
 #include &lt;iostream&gt;
 using namespace std;
@@ -235,11 +234,11 @@ int main() {
   cout &lt;&lt; (true &amp;&amp; false) &lt;&lt; endl;
   return 0;
 }
-        </input></program></statement>
+        </code></program></statement>
       </task>
       <task xml:id="logical_1py" label="logical_1py">
         <title>Python Implementation</title>
-        <statement><program interactive="activecode" language="python"><input>
+        <statement><program interactive="activecode" language="python" label="logical_1py-prog"><code>
 #outputs boolean results to the command line
 def main():
     print(True)
@@ -247,7 +246,7 @@ def main():
     print(True or False)
     print(True and False)
 main()
-        </input></program></statement>
+        </code></program></statement>
       </task>
     </exploration>
     <p>Boolean data objects are also used as results for comparison operators
@@ -374,7 +373,7 @@ main()
       <title>Printing Logical Operations</title>
       <task xml:id="intro_logical-printops" label="intro_logical-printops">
         <title>C++ Implementation</title>
-        <statement><program xml:id="locicalcpp" interactive="activecode" language="cpp"><input>
+        <statement><program xml:id="locicalcpp" interactive="activecode" language="cpp" label="locicalcpp-prog"><code>
 //outputs the results from the relational and logical operators
 #include &lt;iostream&gt;
 using namespace std;
@@ -387,11 +386,11 @@ int main(){
 
     return 0;
 }
-        </input></program></statement>
+        </code></program></statement>
       </task>
       <task xml:id="intro_logical-printops-py" label="intro_logical-printops-py">
         <title>Python Implementation</title>
-        <statement><program xml:id="logicalpy" interactive="activecode" language="python"><input>
+        <statement><program xml:id="logicalpy" interactive="activecode" language="python" label="logicalpy-prog"><code>
 #outputs the results from the relational and logical operators
 def main():
 
@@ -400,7 +399,7 @@ def main():
     print((5 &gt;= 1) and (5 &lt;= 10))
 
 main()
-        </input></program></statement>
+        </code></program></statement>
       </task>
     </exploration>
     <p>When a C++ variable is declared space in memory is set aside to hold
@@ -408,8 +407,8 @@ main()
                 A C++ variable can optionally be initialized in the declaration by
                 using a combination of a declaration and an assignment statement.</p>
     <p>Consider the following session:</p>
-    <program xml:id="booleanpitfall" interactive="activecode" language="cpp">
-      <input>
+    <program xml:id="booleanpitfall" interactive="activecode" language="cpp" label="booleanpitfall-prog">
+      <code>
 //showcases how variables work in C++
 #include &lt;iostream&gt;
 using namespace std;
@@ -430,7 +429,7 @@ int main(){
 
     return 0;
 }
-        </input>
+        </code>
     </program>
     <p>The declaration <c>int theSum = 0;</c> creates a variable called
                 <c>theSum</c> and initializes it to hold the data value of <c>0</c>.
@@ -493,7 +492,7 @@ int main(){
       <title>Printing Characters</title>
       <task label="logical-printchar">
         <title>C++ Implementation</title>
-        <statement><program xml:id="charpy" interactive="activecode" language="python"><input>
+        <statement><program xml:id="charpy" interactive="activecode" language="cpp" label="charpy-prog"><code>
 //outputs the boolean results to show how strings and chars differ in C++
 #include &lt;iostream&gt;
 #include &lt;string&gt;
@@ -510,11 +509,11 @@ int main(){
 
     return 0;
 }
-        </input></program></statement>
+        </code></program></statement>
       </task>
       <task label="logical-printchar-py">
         <title>Python Implementation</title>
-        <statement><program interactive="activecode" language="python"><input>
+        <statement><program interactive="activecode" language="python" label="logical-printchar-py-prog"><code>
 #outputs the boolean results to show how strings and chars differ in C++
 def main():
 
@@ -526,7 +525,7 @@ def main():
     print('a' == "a")
 
 main()
-        </input></program></statement>
+        </code></program></statement>
       </task>
     </exploration>
     <p>Try the following question.</p>
@@ -621,7 +620,7 @@ int varN = 100;</pre>
       <title>Printing Pointers</title>
       <task label="print-ptr">
         <title>C++ Implementation</title>
-        <statement><program xml:id="address_cpp" interactive="activecode" language="cpp"><input>
+        <statement><program xml:id="address_cpp" interactive="activecode" language="cpp" label="address_cpp-prog"><code>
 //outputs both the value of varN and the location in memory of varN
 #include &lt;iostream&gt;
 using namespace std;
@@ -632,11 +631,11 @@ int main(){
     cout &lt;&lt; &amp;varN &lt;&lt; endl;
     return 0;
 }
-        </input></program></statement>
+        </code></program></statement>
       </task>
       <task label="print-ptr-py">
         <title>Python Implementation</title>
-        <statement><program xml:id="address_py" interactive="activecode" language="python"><input>
+        <statement><program xml:id="address_py" interactive="activecode" language="python" label="address_py-prog"><code>
 #because python is an interpreted language, variables stored at a virtual memory address.
 def main():
     varN = 101;
@@ -644,7 +643,7 @@ def main():
     print(id(varN))
 
 main()
-        </input></program></statement>
+        </code></program></statement>
       </task>
     </exploration>
     <subsubsection xml:id="introduction_pointer-syntax">
@@ -686,7 +685,15 @@ ptrN = &amp;varN;</pre>
       <p>The results of running this C++ code will look like the diagram below.</p>
       <figure align="center" xml:id="id3-fig-point2">
         <caption>View into memory with pointers</caption>
-        <image source="Introduction/new_point2.png" width="50%"/>
+        <image source="Introduction/new_point2.png" width="50%"> 
+        <description>
+          <p>
+            Image illustrating the memory representation of two variables in C++, showing how a pointer and its associated value are stored in memory. 
+            The table is divided into three rows: Variable Names, Stored Values, and Memory Address. The variable "varN" is shown with its value of 100, 
+            stored at memory address 0x60. The pointer variable "ptrN" stores the memory address of "varN" (0x60), and its stored value is displayed as 0x80.
+          </p>
+        </description>
+        </image>
       </figure>
     </subsubsection>
     <subsubsection xml:id="introduction_accessing-values-from-pointers">
@@ -701,8 +708,8 @@ ptrN = &amp;varN;</pre>
       <p>Let<rsq/>s extend the example above to output the value of a variable and its address
                     in memory: <ellipsis/> _dereferencing.</p>
       <blockquote>
-        <program xml:id="firstptr" interactive="activecode" language="cpp">
-          <input>
+        <program xml:id="firstptr" interactive="activecode" language="cpp" label="firstptr-prog">
+          <code>
 //prints a variable by pointer and value
 #include &lt;iostream&gt;
 using namespace std;
@@ -718,7 +725,7 @@ int main( ) {
 
     return 0;
 }
-        </input>
+        </code>
         </program>
       </blockquote>
       <exercise label="mc_pntrhlp">
@@ -775,22 +782,20 @@ int main( ) {
                     memory location.</p>
       <p>The second output sentence is the address of varN, which would most likely be
                     different if you run the program on your machine.</p>
-      <p>WARNING: What happens if you forget the asterisk
-                    when assigning a value to a pointer
-                    and had the following instructions instead?</p>
+      <p>WARNING: What happens if you forget the ampersand (&amp;) and accidentally assign a raw integer value to a pointer instead of a valid address?</p>
       <blockquote>
-        <program xml:id="cpp_address_error1" interactive="activecode" language="cpp">
-          <input>
+        <program xml:id="cpp_address_error1" interactive="activecode" language="cpp" label="cpp_address_error1-prog">
+          <code>
 //showcases what happens when reading from unknown memory locations
 #include &lt;iostream&gt;
 using namespace std;
 
 int main() {
     int varN = 100;
-    int *ptrN = varN; // Note: no asterisk,
-        // ptrN now refers to memory position 100,
-        // whatever happens to be there!
-        // You might get an error or you might not!
+    int *ptrN = varN; // Note: MISSING AMPERSAND (&amp;)!
+                     // Because we used varN instead of &amp;varN,
+                    // ptrN now holds the integer value 100 as if it were a memory address.
+                   // You might get an error or you might not!
 
      cout &lt;&lt; "varN value: " &lt;&lt; varN &lt;&lt; endl;
      cout &lt;&lt; "varN location: " &lt;&lt; ptrN &lt;&lt; endl;
@@ -799,7 +804,7 @@ int main() {
 
      return 0;
 }
-        </input>
+        </code>
         </program>
       </blockquote>
       <p>
@@ -807,7 +812,17 @@ int main() {
       </p>
       <figure align="center" xml:id="id4-fig-point3">
         <caption>Dangling pointer reference</caption>
-        <image source="Introduction/new_point_broken.png" width="50%"/>
+        <image source="Introduction/new_point_broken.png" width="50%"> 
+        <description>
+        <p>
+          Image illustrating the concept of a dangling pointer reference in C++ due to incorrect pointer assignment. The diagram shows a pointer 
+          variable "ptrN" pointing to memory address 100. However, the value at this memory address is undefined or unknown (represented by a "?" in 
+          the memory box). At the same time, the variable "varN" correctly stores the value 100 in its allocated memory. This mismatch occurs because 
+          the pointer "ptrN" was assigned the value of "varN" directly, without using the address-of operator (&amp;). As a result, "ptrN" does not point 
+          to the actual memory location of "varN" but instead refers to an unintended location, which may lead to undefined behavior.
+        </p>
+      </description>
+        </image>
       </figure>
       <p>If your compiler does not catch that error (the one for this class may),
                     the first <c>cout</c> instruction outputs:</p>
@@ -838,7 +853,7 @@ int main() {
                     thereby ending the loop:</p>
       <listing xml:id="NULLexamplecpp">
         <caption>Using <c>NULL</c> Pointer</caption>
-        <program interactive="activecode" language="cpp"><input>
+        <program interactive="activecode" language="cpp" label="NULLexamplecpp-prog"><code>
 //showcases how you can use NULL.
 #include &lt;iostream&gt;
 using namespace std;
@@ -853,8 +868,10 @@ int main( ) {
     }
 
     cout &lt;&lt; "Pointer ptrx points to nothing!" &lt;&lt;endl;
+
+    return 0;
 }
-        </input></program>
+        </code></program>
       </listing>
       <p>Helpful Tip: The <c>NULL</c> pointer becomes very useful when you must test
                     the state of a pointer, such as whether the assignment to an address

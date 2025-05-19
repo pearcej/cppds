@@ -1,4 +1,4 @@
-<section xml:id="graphs_building-the-knights-tour-graph">
+<?xml version="1.0" ?><section xml:id="graphs_building-the-knights-tour-graph">
         <title>Building the Knight's Tour Graph</title>
         <p>To represent the knight's tour problem as a graph we will use the
             following two ideas: Each square on the chessboard can be represented as
@@ -25,7 +25,7 @@
         
         <listing xml:id="graphs_lst-knighttour1" names="lst_knighttour1">
             <caption>Building The Full Knights Tour Graph.</caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="graphs_lst-knighttour1-prog"><code>
 Graph knightGraph(int bdSize) {
     Graph ktGraph(false);
 
@@ -42,7 +42,7 @@ Graph knightGraph(int bdSize) {
 
     return ktGraph;
 }
-            </input></program>
+            </code></program>
         </listing>
         <p>The <c>genLegalMoves</c> function (<xref ref="graphs_lst-knighttour2"/>) takes the position of the knight on the
             board and generates each of the eight possible moves. The <c>legalCoord</c>
@@ -51,7 +51,7 @@ Graph knightGraph(int bdSize) {
     
         <listing xml:id="graphs_lst-knighttour2" names="lst_knighttour2">
             <caption>Generating Legal Moves</caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="graphs_lst-knighttour2-prog"><code>
 int coordToNum(int x, int y, int bdSize) {
     // Takes the x y position and returns the id from 0 to (bdSize*2)-1
     int id = 0;
@@ -96,7 +96,7 @@ vector&lt;int&gt; genLegalMoves(int id, int bdSize) {
 
     return newMoves;
 }
-            </input></program>
+            </code></program>
         </listing>
         <p><xref ref="fig-bigknight"/> shows the complete graph of possible moves on an
             eight-by-eight board. There are exactly 336 edges in the graph. Notice
@@ -119,7 +119,7 @@ vector&lt;int&gt; genLegalMoves(int id, int bdSize) {
 
         <listing xml:id="knight-full">
             <caption>Full Implementation of Generating the Knight Moves</caption>
-            <program interactive="activecode" language="cpp"><input>
+            <program interactive="activecode" language="cpp" label="knight-full-prog"><code>
 #include &lt;fstream&gt;
 #include &lt;iostream&gt;
 #include &lt;map&gt;
@@ -179,9 +179,9 @@ public:
 
 ostream &amp;operator&lt;&lt;(ostream &amp;stream, Vertex &amp;vert) {
     vector&lt;int&gt; connects = vert.getConnections();
-    stream &lt;&lt; vert.id &lt;&lt; " -&gt; ";
+    stream &lt;&lt; vert.id &lt;&lt; &quot; -&gt; &quot;;
     for (unsigned int i = 0; i &lt; connects.size(); i++) {
-        stream &lt;&lt; connects[i] &lt;&lt; endl &lt;&lt; "\t";
+        stream &lt;&lt; connects[i] &lt;&lt; endl &lt;&lt; &quot;\t&quot;;
     }
 
     return stream;
@@ -290,7 +290,7 @@ void traverse(Vertex *y) {
     int count = 1;
 
     while (x-&gt;pred) {
-        cout &lt;&lt; x-&gt;id &lt;&lt; " to " &lt;&lt; x-&gt;pred-&gt;id &lt;&lt; endl;
+        cout &lt;&lt; x-&gt;id &lt;&lt; &quot; to &quot; &lt;&lt; x-&gt;pred-&gt;id &lt;&lt; endl;
         x = x-&gt;pred;
 
         count++;
@@ -367,7 +367,6 @@ int main() {
 
     return 0;
 }
-            </input></program>
+            </code></program>
         </listing>
 </section>
-

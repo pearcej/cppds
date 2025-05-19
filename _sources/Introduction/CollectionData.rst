@@ -677,6 +677,8 @@ associated value.
                cout << spnumbers["one"] << endl;
 
                cout << spnumbers.size() << endl;
+
+               return 0;
            }
 
    .. tab:: Python
@@ -732,6 +734,8 @@ the following example.
                    cout << i->first << ":";
                    cout << i->second << endl;
                }
+
+               return 0;
            }
 
    .. tab:: Python

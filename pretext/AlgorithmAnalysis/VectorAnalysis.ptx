@@ -1,4 +1,4 @@
-<section xml:id="algorithm-analysis_analysis-of-array-and-vector-operators">
+<?xml version="1.0" ?><section xml:id="algorithm-analysis_analysis-of-array-and-vector-operators">
         <title>Analysis of Array and Vector Operators</title>
         <p>As we know, <idx>vectors</idx><term>vectors</term> use <idx>contiguous</idx><term>contiguous</term> storage locations
             in an underlying (typically larger) array.
@@ -38,7 +38,7 @@
         
         <listing xml:id="ls_mkvectcpp">
             <caption>Using <c>push_back()</c></caption>
-            <program language="cpp"><input>
+            <program language="cpp" label="ls_mkvectcpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -54,7 +54,7 @@ void test1(int num){
 int main() {
     test1(1000);
 }
-            </input></program>
+            </code></program>
         </listing>
         <p>To capture the time it takes for each of our functions to execute we
             will use C++'s <c>ctime</c> module. The <c>ctime</c> module is designed
@@ -70,12 +70,12 @@ int main() {
 
     <listing xml:id="lst-vectcpp2">
         <caption>Timing <c>push_back()</c></caption>
-        <program xml:id="vectcpp2" interactive="activecode" language="cpp"><input>
+        <program xml:id="vectcpp2" interactive="activecode" language="cpp" label="vectcpp2-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
 
-//Tests the time of the vector "push_back()" operation
+//Tests the time of the vector &quot;push_back()&quot; operation
 
 void test1(int num){
     vector&lt;int&gt; vect;
@@ -93,11 +93,11 @@ int main(){
     clock_t end_t1 = clock();
     double elapsed_secs = double(end_t1 - begin_t1) /CLOCKS_PER_SEC;
     cout &lt;&lt; fixed &lt;&lt; endl;
-    cout &lt;&lt; "push_back " &lt;&lt; elapsed_secs &lt;&lt; " milliseconds" &lt;&lt; endl;
+    cout &lt;&lt; &quot;push_back &quot; &lt;&lt; elapsed_secs &lt;&lt; &quot; milliseconds&quot; &lt;&lt; endl;
 
     return 0;
 }
-        </input>
+        </code>
     </program></listing>
         <p>In the experiment above the statement that we are timing is the function
             call to <c>test1</c>. From the experiment, we see the amount of time taken by the push_back operation.
@@ -108,12 +108,12 @@ int main(){
 
     <listing xml:id="lst-vectcpp3">
         <caption>Reserved Versus Unreserved <c>push_back()</c></caption>
-        <program xml:id="vectcpp3" interactive="activecode" language="cpp"><input>
+        <program xml:id="vectcpp3" interactive="activecode" language="cpp" label="vectcpp3-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
 
-//Tests the time of the vector push_back() operation "reserved" versus "unreserved"
+//Tests the time of the vector push_back() operation &quot;reserved&quot; versus &quot;unreserved&quot;
 
 void test1(int num){
     vector&lt;int&gt; vect;
@@ -140,7 +140,7 @@ int main(){
     clock_t end_t1 = clock();
     double elapsed_secs1 = double(end_t1 - begin_t1) /CLOCKS_PER_SEC;
     cout &lt;&lt; fixed &lt;&lt; endl;
-    cout &lt;&lt; "unreserved push_back " &lt;&lt; elapsed_secs1 &lt;&lt; " milliseconds" &lt;&lt; endl;
+    cout &lt;&lt; &quot;unreserved push_back &quot; &lt;&lt; elapsed_secs1 &lt;&lt; &quot; milliseconds&quot; &lt;&lt; endl;
 
     clock_t begin_t2 = clock();
     for (int i = 0; i &lt; numruns; i++){
@@ -149,12 +149,12 @@ int main(){
     clock_t end_t2 = clock();
     double elapsed_secs2 = double(end_t2 - begin_t2) /CLOCKS_PER_SEC;
     cout &lt;&lt; fixed &lt;&lt; endl;
-    cout &lt;&lt; "reserved push_back " &lt;&lt; elapsed_secs2 &lt;&lt; " milliseconds" &lt;&lt; endl;
+    cout &lt;&lt; &quot;reserved push_back &quot; &lt;&lt; elapsed_secs2 &lt;&lt; &quot; milliseconds&quot; &lt;&lt; endl;
 
 
     return 0;
 }
-        </input>
+        </code>
     </program></listing>
         <p>Now that we have seen how performance can be measured concretely you can
             look at <xref ref="algorithm_analysis_algorithm_analysis_tbl_vectbigocpp"/> to see the Big-O efficiency of all the
@@ -189,90 +189,82 @@ int main(){
                 
                     <row>
                         <cell>
-                            index []
+                            <c>at</c>, <c>[]</c>
                         </cell>
                         <cell>
-                            O(1)
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            index assignment =
-                        </cell>
-                        <cell>
-                            O(1)
+                            <m>O(1)</m>
                         </cell>
                     </row>
                     <row>
                         <cell>
-                            push_back()
+                            <c>at</c> and <c>[]</c> assignment
                         </cell>
                         <cell>
-                            typically O(1)
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            pop_back()
-                        </cell>
-                        <cell>
-                            O(1)
+                            <m>O(1)</m>
                         </cell>
                     </row>
                     <row>
                         <cell>
-                            erase(i)
+                            <c>push_back()</c>
                         </cell>
                         <cell>
-                            O(n)
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            insert(i, item)
-                        </cell>
-                        <cell>
-                            O(n)
+                            typically <m>O(1)</m>
                         </cell>
                     </row>
                     <row>
                         <cell>
-                            find(srt, stp, item)
+                            <c>pop_back()</c>
                         </cell>
                         <cell>
-                            O(log n) or O(n)
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            reserve()
-                        </cell>
-                        <cell>
-                            O(n)
+                            <m>O(1)</m>
                         </cell>
                     </row>
                     <row>
                         <cell>
-                            begin()
+                            <c>erase(i)</c>
                         </cell>
                         <cell>
-                            O(1)
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            end()
-                        </cell>
-                        <cell>
-                            O(1)
+                            <m>O(n)</m>
                         </cell>
                     </row>
                     <row>
                         <cell>
-                            size()
+                            <c>insert(i, item)</c>
                         </cell>
                         <cell>
-                            O(1)
+                            <m>O(n)</m>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>reserve()</c>
+                        </cell>
+                        <cell>
+                            <m>O(n)</m>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>begin()</c>
+                        </cell>
+                        <cell>
+                            <m>O(1)</m>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>end()</c>
+                        </cell>
+                        <cell>
+                            <m>O(1)</m>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>size()</c>
+                        </cell>
+                        <cell>
+                            <m>O(1)</m>
                         </cell>
                     </row>
                 
@@ -282,10 +274,6 @@ int main(){
             in which case the entire
             vector is moved to a larger contiguous underlying array, which
             is <m>O(n)</m>.</p>
-        <p>Note that the vector class provides a <c>find</c> operation which can determine
-            whether a given item is in the vector. It is <m>O(\log n)</m> if
-            the vector is sorted and is <m>O(n)</m> otherwise. We will explain
-            why this is in <xref ref="ch-linear-basic"/>.</p>
         <p>As a way of demonstrating the difference in performance between <c>push_back</c>
             and <c>insert</c>, let's do
             another experiment using the <c>ctime</c> module. Our goal is to be able
@@ -306,13 +294,13 @@ int main(){
         
     <listing xml:id="lst_popmeascpp">
         <caption>Timing of <c>push_back</c> Versus <c>erase</c></caption>
-        <program xml:id="popbackvserase" interactive="activecode" language="cpp">
-            <input>
+        <program xml:id="popbackvserase" interactive="activecode" language="cpp" label="popbackvserase-prog">
+            <code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
 
-//Tests the time of the vector "pop_back()" operation versus the vector "erase" operation
+//Tests the time of the vector &quot;pop_back()&quot; operation versus the vector &quot;erase&quot; operation
 
 int main(){
     int num = 10000;
@@ -336,7 +324,7 @@ int main(){
     clock_t end = clock();
     double elapsed_secs = double(end - begin) /CLOCKS_PER_SEC;
     cout &lt;&lt; fixed &lt;&lt; endl;
-    cout &lt;&lt; "popzero = " &lt;&lt; elapsed_secs &lt;&lt; endl;
+    cout &lt;&lt; &quot;popzero = &quot; &lt;&lt; elapsed_secs &lt;&lt; endl;
 
     clock_t begin2 = clock();
     for (int i = 0; i &lt; num; i++){
@@ -345,13 +333,13 @@ int main(){
     clock_t end2 = clock();
     double elapsed_secs2 = double(end2 - begin2) /CLOCKS_PER_SEC;
     cout &lt;&lt; fixed &lt;&lt; endl;
-    cout &lt;&lt; "popend = " &lt;&lt; elapsed_secs2 &lt;&lt; endl;
+    cout &lt;&lt; &quot;popend = &quot; &lt;&lt; elapsed_secs2 &lt;&lt; endl;
 
-    cout &lt;&lt; "\nPopping from the end is " &lt;&lt; elapsed_secs/elapsed_secs2 &lt;&lt;" times faster." &lt;&lt; endl;
+    cout &lt;&lt; &quot;\nPopping from the end is &quot; &lt;&lt; elapsed_secs/elapsed_secs2 &lt;&lt;&quot; times faster.&quot; &lt;&lt; endl;
 
     return 0;
 }
-            </input>
+            </code>
         </program>
     </listing>
 <reading-questions xml:id="rq-vector-analysis">
@@ -363,7 +351,18 @@ int main(){
 <exercise label="matching_VectorBO">
     <statement><p>Drag the operation(s) on the left to their corresponding Big(O)</p></statement>
     <feedback><p>Review operations and their Big(O)</p></feedback>
-<matches><match order="1"><premise>begin(), end(), size(), index [], index assignment = ,push_back(), pop_back()</premise><response> O(1)</response></match><match order="2"><premise>reserve(), erase(i), insert(i, item),find(srt, stp, item)</premise><response>O(n)</response></match><match order="3"><premise>find(srt, stp, item)</premise><response>O(log n)</response></match></matches></exercise>    
+    <cardsort>
+        <match>
+            <premise order="1">begin(), end(), size(), index [], index assignment = ,push_back(), pop_back()</premise>
+            <response><m>O(1)</m></response>
+        </match>
+        <match>
+            <premise order="2">reserve(), erase(i), insert(i, item)</premise>
+            <response><m>O(n)</m></response>
+        </match>
+    </cardsort>
+</exercise>    
+
 </reading-questions>
 <p>
     <!-- extra space before the progress bar -->         
