@@ -843,18 +843,22 @@ int main() {
       </ol>
     </subsubsection>
     <subsubsection xml:id="introduction_the-null-pointer">
-      <title>The NULL pointer</title>
-      <p>The <c>NULL</c> pointer in C++ points to
-                    nothing and is often denoted by the keyword <c>NULL</c> (all caps) or by 0.
-                    The NULL pointer is often used in conditions and/or in logical operations.</p>
-      <p><xref ref="NULLexamplecpp"/> demonstrates how the NULL pointer works.
-                    The variable ptrx initially has the address of x when it is declared.
-                    On the first iteration of the loop, it is assigned the value of <c>NULL</c> (i.e. 0)
-                    thereby ending the loop:</p>
+      <title>The null pointer</title>
+        <idx>null pointer</idx>
+      <p>The null pointer in C++ points to
+         nothing and is often denoted by the value <c>nullptr</c>. In older C
+         code, you will often find the value <c>NULL</c> or even 0 used to
+         represent this concept. Numerically, <c>nullptr</c> has the value of 0.
+         <c>nullptr</c> pointer is often used in conditions and/or in logical operations.</p>
+
+      <p><xref ref="NULLexamplecpp"/> demonstrates how <c>nullptr</c> is used.
+         The variable ptrx initially has the address of x when it is declared.
+         On the first iteration of the loop, it is assigned the value of <c>nullptr</c> (i.e. 0)
+         thereby ending the loop:</p>
       <listing xml:id="NULLexamplecpp">
-        <caption>Using <c>NULL</c> Pointer</caption>
+        <caption>Using the null pointer: <c>nullptr</c></caption>
         <program interactive="activecode" language="cpp" label="NULLexamplecpp-prog"><code>
-//showcases how you can use NULL.
+//showcases how you can use nullptr
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -864,7 +868,7 @@ int main( ) {
 
     while (ptrx) {
         cout &lt;&lt; "Pointer ptrx points to " &lt;&lt; ptrx &lt;&lt; endl;
-        ptrx = NULL;
+        ptrx = nullptr;
     }
 
     cout &lt;&lt; "Pointer ptrx points to nothing!" &lt;&lt;endl;
@@ -873,9 +877,9 @@ int main( ) {
 }
         </code></program>
       </listing>
-      <p>Helpful Tip: The <c>NULL</c> pointer becomes very useful when you must test
-                    the state of a pointer, such as whether the assignment to an address
-                    is valid or not.</p>
+      <p>Helpful Tip: <c>nullptr</c> becomes very useful when you must test
+         the state of a pointer, such as whether the assignment to an address
+         is valid or not.</p>
       <exercise label="mc_characters">
         <statement>
           <p>If I want to use the <c>char</c> type in C++, what set of symbols must be used?</p>

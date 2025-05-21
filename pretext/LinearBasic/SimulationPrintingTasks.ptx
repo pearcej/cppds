@@ -172,7 +172,7 @@ private:
                 to give different random numbers each time the program is executed by setting the random
                 numbers based on the computer's current time.</p>
             <program language="python" label="SimulationPrintingTasks-prog"><code>
-&gt;&gt; srand(time(NULL));
+&gt;&gt; srand(time(nullptr));
 &gt;&gt;&gt; rand()%20+1;
 18
 &gt;&gt;&gt; rand()%20+1;
@@ -435,7 +435,7 @@ void simulation(int numSeconds, int pagesPerMinute) {
 int main() {
     //Seed random number generator with the current time
     //This ensures a unique random simulation every time it's ran.
-    srand(time(NULL));
+    srand(time(nullptr));
 
     for (int i=0; i&lt;10; i++) {
         simulation(3600, 5);
