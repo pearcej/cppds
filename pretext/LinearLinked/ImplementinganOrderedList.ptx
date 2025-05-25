@@ -192,7 +192,7 @@ class Node {
     public:
         Node(int initdata) {
         data = initdata; //the nodes data.
-        next = NULL; //next will become a pointer to another Node object.
+        next = nullptr; //next will become a pointer to another Node object.
     }
 
     int getData() {
@@ -221,7 +221,7 @@ class OrderedList {
             Node *head; //The first Node of the linked list.
 
         OrderedList() {
-                head = NULL;
+                head = nullptr;
         }
 
         bool search(int item) {
@@ -229,7 +229,7 @@ class OrderedList {
             Node *current = head;
             bool found = false;
             bool stop = false;
-            while (current != NULL &amp;&amp; !found &amp;&amp; !stop) {
+            while (current != nullptr &amp;&amp; !found &amp;&amp; !stop) {
                 //iterates through the entire list until item is found.
                 if (current-&gt;getData() == item) {
                     found = true;
@@ -246,14 +246,14 @@ class OrderedList {
         }
 
         void add(int item) {
-            if (head == NULL) {
+            if (head == nullptr) {
                 Node *newNode = new Node(item);
                 head = newNode;
             } else {
                 Node *current = head;
-                Node *previous = NULL;
+                Node *previous = nullptr;
                 bool stop = false;
-                while (current != NULL &amp;&amp; !stop) {
+                while (current != nullptr &amp;&amp; !stop) {
                     if (current-&gt;getData() &gt; item) { //if the data of the current Node is greater than item:
                         stop = true;
                     } else {
@@ -262,7 +262,7 @@ class OrderedList {
                     }
                 }
                 Node *temp = new Node(item);
-                if (previous == NULL) {
+                if (previous == nullptr) {
                     //sets the current head as temp's next item,
                     //sets temp as the new head.
                     temp-&gt;setNext(head);
@@ -277,15 +277,15 @@ class OrderedList {
         }
 
         bool isEmpty() {
-            //Returns true if the head is NULL.
-            return head == NULL;
+            //Returns true if the head is nullptr.
+            return head == nullptr;
         }
 
         int size() {
             //returns the length of the linked list.
             Node *current = head;
             int count = 0;
-            while (current != NULL) {
+            while (current != nullptr) {
                 count++;
                 current = current-&gt;getNext();
             }
@@ -299,7 +299,7 @@ class OrderedList {
 ostream&amp; operator&lt;&lt;(ostream&amp; os, const OrderedList&amp; ol) {
     //operator for printing the data of every Node in the list.
     Node *current = ol.head;
-    while (current != NULL) {
+    while (current != nullptr) {
         os&lt;&lt;current-&gt;getData()&lt;&lt;endl;
         current = current-&gt;getNext();
     }
@@ -330,7 +330,7 @@ int main() {
             <p>To analyze the complexity of the linked list operations, we need to
                 consider whether they require traversal. Consider a linked list that has
                 <em>n</em> nodes. The <c>isEmpty</c> method is <m>O(1)</m> since it requires
-                one step to check the head reference for <c>NULL</c>. <c>size</c>, on the
+                one step to check the head reference for <c>nullptr</c>. <c>size</c>, on the
                 other hand, will always require <em>n</em> steps since there is no way to know
                 how many nodes are in the linked list without traversing from head to
                 end. Therefore, <c>size</c> is <m>O(n)</m>. Adding an item to an
@@ -375,7 +375,7 @@ int main() {
 
             <choice correct="yes">
                 <statement>
-                    <p>In a circular linked list, the last Node of the linked list contains a pointer to the head node of the list rather than pointing to NULL.</p>
+                    <p>In a circular linked list, the last Node of the linked list contains a pointer to the head node of the list rather than pointing to <c>nullptr</c>.</p>
                 </statement>
                 <feedback>
                     <p>Correct! the final Node of the linked list will contain a pointer to the first node so that it is possible to make &quot;circles&quot; around the list.</p>
