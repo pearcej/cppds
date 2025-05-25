@@ -18,7 +18,7 @@ class UnorderedList {
         Node *head;
 
         UnorderedList() {
-                head = NULL;
+                head = nullptr;
         }
 };
         </code></program>
@@ -26,7 +26,7 @@ class UnorderedList {
     <p>Initially when we construct a list, there are no items. The assignment and declaration statment</p>
     <pre>UnorderedList myList;</pre>
     <p>creates the linked list representation shown in <xref ref="fig-unordered-empty"/>.
-        As we discussed in the Node class, the special reference <c>NULL</c> will again be used to state
+        As we discussed in the Node class, the special reference <c>nullptr</c> will again be used to state
         that the head of the list does not refer to anything. Eventually, the example list given earlier
         will be represented by a linked list as shown in <xref ref="fig-unordered-full"/>.
         The head of the list points to the first node which contains the first item of the list.
@@ -63,18 +63,18 @@ class UnorderedList {
     </figure>
 
     <p>The <c>isEmpty</c> method, shown in <xref ref="unordered-isempty"/>, simply checks to
-        see if the head of the list is a reference to <c>NULL</c>. The result of
-        the boolean expression <c>this-&gt;head==NULL</c> will only be true if there
+        see if the head of the list is a reference to <c>nullptr</c>. The result of
+        the boolean expression <c>this-&gt;head==nullptr</c> will only be true if there
         are no nodes in the linked list. Since a new list is empty, the
         constructor and the check for empty must be consistent with one another.
-        This shows the advantage to using the reference <c>NULL</c> to denote the
+        This shows the advantage to using the reference <c>nullptr</c> to denote the
         <q>end</q> of the linked structure. Two references are equal if they both refer to the same
         object. We will use this often in our remaining methods.</p>
     <listing xml:id="unordered-isempty">
         <caption><c>UnorderedList</c> <c>isEmpty()</c> method</caption>
         <program language="cpp" label="unordered-isempty-prog"><code>
 bool isEmpty() {
-    return head == NULL;
+    return head == nullptr;
 }
         </code></program>
     </listing>
@@ -190,9 +190,9 @@ void add(int item) {
         initialized to the head of the linked list in line<nbsp/>2. At the start of the
         process we have not seen any nodes so the count is set to <m>0</m>.
         Lines 4<ndash/>6 actually implement the traversal. As long as the current
-        reference has not seen the end of the linked list (<c>NULL</c>), we move current
+        reference has not seen the end of the linked list (<c>nullptr</c>), we move current
         along to the next node via the assignment statement in line 6. Again,
-        the ability to compare a reference to <c>NULL</c> is very useful. Every
+        the ability to compare a reference to <c>nullptr</c> is very useful. Every
         time current moves to a new node, we add <m>1</m> to <c>count</c>.
         Finally, <c>count</c> gets returned after the iteration stops.
         <xref ref="fig-traversal"/> shows this process as it proceeds down the linked list.</p>
@@ -203,7 +203,7 @@ void add(int item) {
 int size() {
     Node *current = head;
     int count = 0;
-    while (current != NULL) {
+    while (current != nullptr) {
         count++;
         current = current-&gt;getNext();
     }
@@ -249,7 +249,7 @@ int size() {
         <program language="cpp" line-numbers="yes" label="unordered-search-prog"><code>
 bool search(int item) {
     Node *current = head;
-    while (current != NULL) {
+    while (current != nullptr) {
         if (current-&gt;getData() == item) {
             return true;
         } else {
@@ -296,7 +296,7 @@ bool search(int item) {
         reference set to the head of the linked list, we traverse the links until we
         discover the item we are looking for. Since we assume that item is
         present, we know that the iteration will stop before <c>current</c> gets to
-        <c>NULL</c>. This means that we can simply use the boolean <c>found</c> in the
+        <c>nullptr</c>. This means that we can simply use the boolean <c>found</c> in the
         condition.</p>
     
     <p>When <c>found</c> becomes <c>true</c>, <c>current</c> will be a reference to the
@@ -327,7 +327,7 @@ bool search(int item) {
         starts out at the linked list head as in the other traversal examples.
         <c>previous</c>, however, is assumed to always travel one node behind
         current. For this reason, <c>previous</c> starts out with a value of
-        <c>NULL</c> since there is no node before the head (see
+        <c>nullptr</c> since there is no node before the head (see
         <xref ref="fig-unordered-removeinit"/>). The boolean variable <c>found</c> will again be
         used to control the iteration.</p>
     
@@ -336,7 +336,7 @@ bool search(int item) {
         <program language="cpp" line-numbers="yes" label="unordered-remove-prog"><code>
 void remove(int item) {
     Node *current = head;
-    Node *previous = NULL;
+    Node *previous = nullptr;
     bool found = false;
     while (!found) {
         if (current-&gt;getData() == item) {
@@ -346,7 +346,7 @@ void remove(int item) {
             current = current-&gt;getNext();
         }
     }
-    if (previous == NULL) {
+    if (previous == nullptr) {
         head = current-&gt;getNext();
     } else {
         previous-&gt;setNext(current-&gt;getNext());
@@ -407,7 +407,7 @@ void remove(int item) {
         link that must be modified. However, there is a special case that needs
         to be addressed. If the item to be removed happens to be the first item
         in the linked list, then <c>current</c> will reference the first node in the
-        linked list. This also means that <c>previous</c> will be <c>NULL</c>. We said
+        linked list. This also means that <c>previous</c> will be <c>nullptr</c>. We said
         earlier that <c>previous</c> would be referring to the node whose next
         reference needs to be modified in order to complete the remove. In this
         case, it is not <c>previous</c> but rather the head of the linked list that needs
@@ -436,8 +436,8 @@ void remove(int item) {
                 A diagram illustrating the removal of the first node (&quot;head&quot;) from a linked list. The list starts with the &quot;head&quot; pointer referencing the first node, 
                 which contains the value &quot;54,&quot; followed by nodes with values &quot;26,&quot; &quot;93,&quot; &quot;17,&quot; &quot;77,&quot; and &quot;31,&quot; ending with a vertical line.
 
-                The &quot;current&quot; pointer is positioned on the first node (&quot;54&quot;), which is to be removed. The &quot;previous&quot; pointer is initially set to a null 
-                reference, indicating the absence of a preceding node. The &quot;head&quot; pointer is updated to reference the next node (&quot;26&quot;), effectively removing 
+                The &quot;current&quot; pointer is positioned on the first node (&quot;54&quot;), which is to be removed. The &quot;previous&quot; pointer is initially set to <c>nullptr</c>,
+                indicating the absence of a preceding node. The &quot;head&quot; pointer is updated to reference the next node (&quot;26&quot;), effectively removing 
                 the first node from the list while maintaining the integrity of the linked list structure.
             </p>
         </description>
@@ -446,10 +446,10 @@ void remove(int item) {
 
     <p>Line 12 allows us to check whether we are dealing with the special case
         described above. If <c>previous</c> did not move, it will still have the
-        value <c>NULL</c> when the boolean <c>found</c> becomes <c>true</c>. In that case
+        value <c>nullptr</c> when the boolean <c>found</c> becomes <c>true</c>. In that case
         (line 13) the head of the linked list is modified to refer to the node after
         the current node, in effect removing the first node from the linked
-        list. However, if previous is not <c>NULL</c>, the node to be removed is
+        list. However, if previous is not <c>nullptr</c>, the node to be removed is
         somewhere down the linked list structure. In this case the previous
         reference is providing us with the node whose next reference must be
         changed. Line 15 uses the <c>setNext</c> method from <c>previous</c> to
@@ -482,7 +482,7 @@ class Node {
     public:
         Node(int initdata) {
                 data = initdata; //the initialized data is set as the head
-                next = NULL; //the next node is set as NULL, as there is no next node yet.
+                next = nullptr; //the next node is set to nullptr, as there is no next node yet.
         }
 
         int getData() { //function that return data of a given node.
@@ -507,12 +507,12 @@ class UnorderedList {
     public:
             Node *head;
 
-            UnorderedList() { // makes the head node equal to null
-                    head = NULL;
+            UnorderedList() { // makes the head node equal to nullptr
+                    head = nullptr;
             }
 
-        bool isEmpty() { // the head node is empty if it is null
-            return head == NULL;
+        bool isEmpty() { // the head node is empty if it is nullptr
+            return head == nullptr;
         }
 
         void add(int item) { //cerates a &quot;temp&quot; pointer that adds the new node to the head of the list
@@ -521,10 +521,12 @@ class UnorderedList {
             head = temp;
         }
 
-        int size() { //cereates a &quot;current&quot; pointer that iterates through the list until it reaches null
+        int size() {
+            // creates a &quot;current&quot; pointer that iterates through
+            // the list until it reaches nullptr
             Node *current = head;
             int count = 0;
-            while (current != NULL) {
+            while (current != nullptr) {
                 count++;
                 current = current-&gt;getNext();
             }
@@ -537,7 +539,7 @@ class UnorderedList {
 
         bool search(int item) {
             Node *current = head;
-            while (current != NULL) {
+            while (current != nullptr) {
                 if (current-&gt;getData() == item) {
                     return true;
                 } else {
@@ -552,7 +554,7 @@ class UnorderedList {
 
         void remove(int item) {
             Node *current = head;
-            Node *previous = NULL;
+            Node *previous = nullptr;
             bool found = false;
             while (!found) {
                 if (current-&gt;getData() == item) {
@@ -562,7 +564,7 @@ class UnorderedList {
                     current = current-&gt;getNext();
                 }
             }
-            if (previous == NULL) {
+            if (previous == nullptr) {
                 head = current-&gt;getNext();
             } else {
                 previous-&gt;setNext(current-&gt;getNext());
@@ -574,7 +576,7 @@ class UnorderedList {
 
 ostream&amp; operator&lt;&lt;(ostream&amp; os, const UnorderedList&amp; ol) {
     Node *current = ol.head;
-    while (current != NULL) {
+    while (current != nullptr) {
         os&lt;&lt;current-&gt;getData()&lt;&lt;endl;
         current = current-&gt;getNext();
     }

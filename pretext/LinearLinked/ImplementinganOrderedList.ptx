@@ -25,7 +25,7 @@
         
         <p>To implement the <c>OrderedList</c> class, we will use the same technique
             as seen previously with unordered linked lists. Once again, an empty linked list will
-            be denoted by a <c>head</c> reference to <c>NULL</c> (see
+            be denoted by a <c>head</c> equal to <c>nullptr</c> (see
             <xref ref="linear-linked_lst-orderlist"/>).</p>
         
         <listing xml:id="linear-linked_lst-orderlist">
@@ -45,7 +45,7 @@ class OrderedList {
             methods, <c>search</c> and <c>add</c>, will require some modification.</p>
         <p>The search of an unordered linked list required that we traverse the
             nodes one at a time until we either find the item we are looking for or
-            run out of nodes (<c>NULL</c>). It turns out that the same approach would
+            run out of nodes (<c>nullptr</c>). It turns out that the same approach would
             actually work with the ordered linked list and in fact in the case where we
             find the item it is exactly what we need. However, in the case where the
             item is not in the linked list, we can take advantage of the ordering to stop
@@ -85,7 +85,7 @@ bool search(int item) {
     Node *current = head;
     bool found = false;
     bool stop = false;
-    while (current != NULL &amp;&amp; !found &amp;&amp; !stop) {
+    while (current != nullptr &amp;&amp; !found &amp;&amp; !stop) {
         if (current-&gt;getData() == item) {
             found = true;
         } else {
@@ -113,7 +113,7 @@ bool search(int item) {
             that we need. As we explained earlier, we need to traverse the linked
             list looking for the place where the new node will be added. We know we
             have found that place when either we run out of nodes (<c>current</c>
-            becomes <c>NULL</c>) or the value of the current node becomes greater than
+            becomes <c>nullptr</c>) or the value of the current node becomes greater than
             the item we wish to add. In our example, seeing the value 54 causes us
             to stop.</p>
         
@@ -138,20 +138,20 @@ bool search(int item) {
             <xref ref="fig-orderinsert"/>. Once a new node has been created for the item,
             the only remaining question is whether the new node will be added at the
             beginning of the linked list or some place in the middle. Again,
-            <c>previous == NULL</c> (line 13) can be used to provide the answer.</p>
+            <c>previous == nullptr</c> (line 13) can be used to provide the answer.</p>
         
         <listing xml:id="linear-linked_lst-orderadd">
             <caption><c>add</c> Method</caption>
             <program language="cpp" label="linear-linked_lst-orderadd-prog"><code>
 void add(int item) {
-    if (head == NULL) {
+    if (head == nullptr) {
         Node *newNode = new Node(item);
         head = newNode;
     } else {
         Node *current = head;
-        Node *previous = NULL;
+        Node *previous = nullptr;
         bool stop = false;
-        while (current != NULL &amp;&amp; !stop) {
+        while (current != nullptr &amp;&amp; !stop) {
             if (current-&gt;getData() &gt; item) {
                 stop = true;
             } else {
@@ -160,7 +160,7 @@ void add(int item) {
             }
         }
         Node *temp = new Node(item);
-        if (previous == NULL) {
+        if (previous == nullptr) {
             temp-&gt;setNext(head);
             head = temp;
         } else {
