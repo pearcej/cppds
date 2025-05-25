@@ -26,7 +26,7 @@ class Node {
     public:
             Node(int initdata) {
                     data = initdata; //the initialized data is set as the head
-                    next = NULL; //the next node is set as NULL, as there is no next node yet.
+                    next = nullptr;  //the next node is set to nullptr, as there is no next node yet.
             }
 
             int getData() { //function that return data of a given node.
@@ -49,15 +49,15 @@ class Node {
   <pre>&gt;&gt;&gt; temp = Node(93) //sets the nodes data to the integer 93
 &gt;&gt;&gt; temp.getData() // calls the getData() function.
 93</pre>
-  <p>The special C++ reference value <c>NULL</c> will play an important role
+  <p>The special C++ reference value <c>nullptr</c> will play an important role
             in the <c>Node</c> class and later in the linked list itself. A reference
-            to <c>NULL</c> will denote the fact that there is no next node.</p>
+            to <c>nullptr</c> will denote the fact that there is no next node.</p>
   <p>Note:</p>
   <blockquote>
     <p>in the constructor that a node is initially created with <c>next</c> and a pointer to
-                <c>NULL</c>. Since this is sometimes referred to as <q>grounding the node,</q>
+                <c>nullptr</c>. Since this is sometimes referred to as <q>grounding the node,</q>
                 we will use the standard ground symbol to denote a reference that is
-                referring to <c>NULL</c>.</p>
+                referring to <c>nullptr</c>.</p>
   </blockquote>
   <figure align="center" xml:id="id1-fig-node">
     <caption>A Node Object Contains the Item and a Reference to the Next Node</caption>
