@@ -25,7 +25,7 @@
         
         <p>To implement the <c>OrderedList</c> class, we will use the same technique
             as seen previously with unordered linked lists. Once again, an empty linked list will
-            be denoted by a <c>head</c> reference to <c>NULL</c> (see
+            be denoted by a <c>head</c> equal to <c>nullptr</c> (see
             <xref ref="linear-linked_lst-orderlist"/>).</p>
         
         <listing xml:id="linear-linked_lst-orderlist">
@@ -45,7 +45,7 @@ class OrderedList {
             methods, <c>search</c> and <c>add</c>, will require some modification.</p>
         <p>The search of an unordered linked list required that we traverse the
             nodes one at a time until we either find the item we are looking for or
-            run out of nodes (<c>NULL</c>). It turns out that the same approach would
+            run out of nodes (<c>nullptr</c>). It turns out that the same approach would
             actually work with the ordered linked list and in fact in the case where we
             find the item it is exactly what we need. However, in the case where the
             item is not in the linked list, we can take advantage of the ordering to stop
@@ -85,7 +85,7 @@ bool search(int item) {
     Node *current = head;
     bool found = false;
     bool stop = false;
-    while (current != NULL &amp;&amp; !found &amp;&amp; !stop) {
+    while (current != nullptr &amp;&amp; !found &amp;&amp; !stop) {
         if (current-&gt;getData() == item) {
             found = true;
         } else {
@@ -113,7 +113,7 @@ bool search(int item) {
             that we need. As we explained earlier, we need to traverse the linked
             list looking for the place where the new node will be added. We know we
             have found that place when either we run out of nodes (<c>current</c>
-            becomes <c>NULL</c>) or the value of the current node becomes greater than
+            becomes <c>nullptr</c>) or the value of the current node becomes greater than
             the item we wish to add. In our example, seeing the value 54 causes us
             to stop.</p>
         
@@ -138,20 +138,20 @@ bool search(int item) {
             <xref ref="fig-orderinsert"/>. Once a new node has been created for the item,
             the only remaining question is whether the new node will be added at the
             beginning of the linked list or some place in the middle. Again,
-            <c>previous == NULL</c> (line 13) can be used to provide the answer.</p>
+            <c>previous == nullptr</c> (line 13) can be used to provide the answer.</p>
         
         <listing xml:id="linear-linked_lst-orderadd">
             <caption><c>add</c> Method</caption>
             <program language="cpp" label="linear-linked_lst-orderadd-prog"><code>
 void add(int item) {
-    if (head == NULL) {
+    if (head == nullptr) {
         Node *newNode = new Node(item);
         head = newNode;
     } else {
         Node *current = head;
-        Node *previous = NULL;
+        Node *previous = nullptr;
         bool stop = false;
-        while (current != NULL &amp;&amp; !stop) {
+        while (current != nullptr &amp;&amp; !stop) {
             if (current-&gt;getData() &gt; item) {
                 stop = true;
             } else {
@@ -160,7 +160,7 @@ void add(int item) {
             }
         }
         Node *temp = new Node(item);
-        if (previous == NULL) {
+        if (previous == nullptr) {
             temp-&gt;setNext(head);
             head = temp;
         } else {
@@ -192,7 +192,7 @@ class Node {
     public:
         Node(int initdata) {
         data = initdata; //the nodes data.
-        next = NULL; //next will become a pointer to another Node object.
+        next = nullptr; //next will become a pointer to another Node object.
     }
 
     int getData() {
@@ -221,7 +221,7 @@ class OrderedList {
             Node *head; //The first Node of the linked list.
 
         OrderedList() {
-                head = NULL;
+                head = nullptr;
         }
 
         bool search(int item) {
@@ -229,7 +229,7 @@ class OrderedList {
             Node *current = head;
             bool found = false;
             bool stop = false;
-            while (current != NULL &amp;&amp; !found &amp;&amp; !stop) {
+            while (current != nullptr &amp;&amp; !found &amp;&amp; !stop) {
                 //iterates through the entire list until item is found.
                 if (current-&gt;getData() == item) {
                     found = true;
@@ -246,14 +246,14 @@ class OrderedList {
         }
 
         void add(int item) {
-            if (head == NULL) {
+            if (head == nullptr) {
                 Node *newNode = new Node(item);
                 head = newNode;
             } else {
                 Node *current = head;
-                Node *previous = NULL;
+                Node *previous = nullptr;
                 bool stop = false;
-                while (current != NULL &amp;&amp; !stop) {
+                while (current != nullptr &amp;&amp; !stop) {
                     if (current-&gt;getData() &gt; item) { //if the data of the current Node is greater than item:
                         stop = true;
                     } else {
@@ -262,7 +262,7 @@ class OrderedList {
                     }
                 }
                 Node *temp = new Node(item);
-                if (previous == NULL) {
+                if (previous == nullptr) {
                     //sets the current head as temp's next item,
                     //sets temp as the new head.
                     temp-&gt;setNext(head);
@@ -277,15 +277,15 @@ class OrderedList {
         }
 
         bool isEmpty() {
-            //Returns true if the head is NULL.
-            return head == NULL;
+            //Returns true if the head is nullptr.
+            return head == nullptr;
         }
 
         int size() {
             //returns the length of the linked list.
             Node *current = head;
             int count = 0;
-            while (current != NULL) {
+            while (current != nullptr) {
                 count++;
                 current = current-&gt;getNext();
             }
@@ -299,7 +299,7 @@ class OrderedList {
 ostream&amp; operator&lt;&lt;(ostream&amp; os, const OrderedList&amp; ol) {
     //operator for printing the data of every Node in the list.
     Node *current = ol.head;
-    while (current != NULL) {
+    while (current != nullptr) {
         os&lt;&lt;current-&gt;getData()&lt;&lt;endl;
         current = current-&gt;getNext();
     }
@@ -330,7 +330,7 @@ int main() {
             <p>To analyze the complexity of the linked list operations, we need to
                 consider whether they require traversal. Consider a linked list that has
                 <em>n</em> nodes. The <c>isEmpty</c> method is <m>O(1)</m> since it requires
-                one step to check the head reference for <c>NULL</c>. <c>size</c>, on the
+                one step to check the head reference for <c>nullptr</c>. <c>size</c>, on the
                 other hand, will always require <em>n</em> steps since there is no way to know
                 how many nodes are in the linked list without traversing from head to
                 end. Therefore, <c>size</c> is <m>O(n)</m>. Adding an item to an
@@ -375,7 +375,7 @@ int main() {
 
             <choice correct="yes">
                 <statement>
-                    <p>In a circular linked list, the last Node of the linked list contains a pointer to the head node of the list rather than pointing to NULL.</p>
+                    <p>In a circular linked list, the last Node of the linked list contains a pointer to the head node of the list rather than pointing to <c>nullptr</c>.</p>
                 </statement>
                 <feedback>
                     <p>Correct! the final Node of the linked list will contain a pointer to the first node so that it is possible to make &quot;circles&quot; around the list.</p>
