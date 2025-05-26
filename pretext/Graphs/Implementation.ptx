@@ -97,11 +97,11 @@ class Graph {
         Vertex *getVertex(int n) {
             for (map&lt;int, Vertex&gt;::iterator it = vertList.begin(); it != vertList.end(); ++it) {
                 if (it-&gt;first == n) {
-                    // Forced to use pntr due to possibility of returning NULL
+                    // Forced to use pntr due to possibility of returning nullptr
                     Vertex *vpntr = &amp;vertList[n];
                     return vpntr;
                 } else {
-                    return NULL;
+                    return nullptr;
                 }
             }
         }
@@ -238,17 +238,17 @@ public:
         }
 
                 //Returns the vertex with the specified ID.
-                //Will return NULl if the vertex doesn't exist.
+                //Will return nullptr if the vertex doesn't exist.
         Vertex *getVertex(int n) {
                 for (map&lt;int, Vertex&gt;::iterator it = vertList.begin();
                         it != vertList.end();
                         ++it) {
                         if (it-&gt;first == n) {
-                                // Forced to use pntr due to possibility of returning NULL
+                                // Forced to use pntr due to possibility of returning nullptr
                                 Vertex *vpntr = &amp;vertList[n];
                                 return vpntr;
                         } else {
-                                return NULL;
+                                return nullptr;
                         }
                 }
         }

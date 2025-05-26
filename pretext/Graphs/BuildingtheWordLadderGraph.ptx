@@ -134,11 +134,11 @@ public:
                        it != vertList.end();
                        ++it) {
                       if (it-&gt;first == n) {
-                              // Forced to use pntr due to possibility of returning NULL
+                              // Forced to use pntr due to possibility of returning nullptr
                               Vertex *vpntr = &amp;vertList[n];
                               return vpntr;
                       } else {
-                              return NULL;
+                              return nullptr;
                       }
               }
       }

@@ -35,7 +35,7 @@
             distance, predecessor, and color.</p>
         <p>BFS begins at the starting vertex <c>s</c> and colors <c>start</c> gray to
             show that it is currently being explored. Two other values, the distance
-            and the predecessor, are initialized to 0 and <c>NULL</c> respectively for
+            and the predecessor, are initialized to 0 and <c>nullptr</c> respectively for
             the starting vertex. Finally, <c>start</c> is placed on a <c>Queue</c>. The
             next step is to begin to systematically explore vertices at the front of
             the queue. We explore each new node at the front of the queue by
@@ -67,7 +67,7 @@
                 <statement><program language="cpp" label="graphs_lst-wordbucket2-cpp-prog"><code>
 Graph bfs(Graph g, Vertex *start) {
     start-&gt;dist = 0;
-    start-&gt;pred = NULL;
+    start-&gt;pred = nullptr;
     queue&lt;Vertex *&gt; vertQueue;
     vertQueue.push(start);
     while (vertQueue.size() &gt; 0) {
@@ -212,14 +212,14 @@ public:
         // w for white, g for grey, b for black
         color = 'w';
         dist = 0;
-        pred = NULL;
+        pred = nullptr;
     }
 
     Vertex(string key) {
         id = key;
         color = 'w';
         dist = 0;
-        pred = NULL;
+        pred = nullptr;
     }
 
     void addNeighbor(string nbr, float weight = 1) {
@@ -368,7 +368,7 @@ Graph buildGraph(vector&lt;string&gt; words) {
 
 Graph bfs(Graph g, Vertex *start) {
     start-&gt;dist = 0;
-    start-&gt;pred = NULL;
+    start-&gt;pred = nullptr;
     queue&lt;Vertex *&gt; vertQueue;
     vertQueue.push(start);
     while (vertQueue.size() &gt; 0) {
