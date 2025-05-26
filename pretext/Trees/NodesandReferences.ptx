@@ -40,8 +40,8 @@ private:
 public:
     BinaryTree(char rootObj){
         this-&gt;key = rootObj;
-        this-&gt;leftChild = NULL;
-        this-&gt;rightChild = NULL;
+        this-&gt;leftChild = nullptr;
+        this-&gt;rightChild = nullptr;
     }
 };
                 </code></program></statement>
@@ -76,7 +76,7 @@ class BinaryTree:
                 <title>C++ Implementation</title>
                 <statement><program language="cpp" label="lst-insl-cpp-prog"><code>
 void insertLeft(char newNode){
-    if (this-&gt;leftChild == NULL){
+    if (this-&gt;leftChild == nullptr){
         this-&gt;leftChild = new BinaryTree(newNode);
     }
     else {
@@ -118,7 +118,7 @@ def insertLeft(self,newNode):
                 <title>C++ Implementation</title>
                 <statement><program language="cpp" label="lst-insr-cpp-prog"><code>
 void insertRight(char newNode){
-    if (this-&gt;rightChild == NULL){
+    if (this-&gt;rightChild == nullptr){
         this-&gt;rightChild = new BinaryTree(newNode);
     }
     else {
@@ -214,12 +214,12 @@ private:
 public: //constructor function expects to get some kind of object to store in the root
     BinaryTree(char rootObj){
         this-&gt;key = rootObj;
-        this-&gt;leftChild = NULL;
-        this-&gt;rightChild = NULL;
+        this-&gt;leftChild = nullptr;
+        this-&gt;rightChild = nullptr;
     }
 
     void insertLeft(char newNode){ // Handles insertion if there is no left child simply adds a node to the tree.
-        if (this-&gt;leftChild == NULL){
+        if (this-&gt;leftChild == nullptr){
             this-&gt;leftChild = new BinaryTree(newNode);
         }
         else { // handles insertion if there is a left child pushes the existing child down one level in the tree.
@@ -230,7 +230,7 @@ public: //constructor function expects to get some kind of object to store in th
     }
 
     void insertRight(char newNode){
-        if (this-&gt;rightChild == NULL){
+        if (this-&gt;rightChild == nullptr){
             this-&gt;rightChild = new BinaryTree(newNode);
         }
         else {

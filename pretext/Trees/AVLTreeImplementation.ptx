@@ -64,7 +64,7 @@ int updateBalance(TreeNode *node){
         this-&gt;rebalance(node);
         return 0;
     }
-    if (node-&gt;parent != NULL){
+    if (node-&gt;parent != nullptr){
         if (node-&gt;isLeftChild()){
             node-&gt;parent-&gt;balanceFactor += 1;
         }
@@ -244,7 +244,7 @@ class AVLTree:
 void rotateLeft(TreeNode *rotRoot){
     TreeNode *newRoot = rotRoot-&gt;rightChild;
     rotRoot-&gt;rightChild = newRoot-&gt;leftChild;
-    if (newRoot-&gt;leftChild != NULL){
+    if (newRoot-&gt;leftChild != nullptr){
         newRoot-&gt;leftChild-&gt;parent = rotRoot;
     }
     newRoot-&gt;parent = rotRoot-&gt;parent;

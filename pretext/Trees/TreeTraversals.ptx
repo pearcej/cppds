@@ -200,7 +200,7 @@ def preorder(self):
                 <title>C++ Implementation</title>
                 <statement><program language="cpp" label="lst-postorder1-cpp-prog">C++ Implementation<code>
 void postorder(BinaryTree *tree){
-    if (tree != NULL){
+    if (tree != nullptr){
         postorder(tree-&gt;getLeftChild());
         postorder(tree-&gt;getRightChild());
         cout &lt;&lt; tree-&gt;getRootVal() &lt;&lt; endl;
@@ -328,7 +328,7 @@ def postordereval(tree):
                 <title>C++ Implementation</title>
                 <statement><program language="cpp" label="lst-inorder1-cpp-prog"><code>
 void inorder(BinaryTree *tree){
-    if (tree != NULL){
+    if (tree != nullptr){
         inorder(tree-&gt;getLeftChild());
         cout &lt;&lt; tree-&gt;getRootVal();
         inorder(tree-&gt;getRightChild());
