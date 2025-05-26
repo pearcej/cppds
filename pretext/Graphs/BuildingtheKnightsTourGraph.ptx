@@ -141,14 +141,14 @@ public:
         // w for white, g for grey, b for black
         color = 'w';
         dist = 0;
-        pred = NULL;
+        pred = nullptr;
     }
 
     Vertex(int key) {
         id = key;
         color = 'w';
         dist = 0;
-        pred = NULL;
+        pred = nullptr;
     }
 
     void addNeighbor(int nbr, float weight = 1) {
@@ -261,7 +261,7 @@ ostream &amp;operator&lt;&lt;(ostream &amp;stream, Graph &amp;grph) {
 
 Graph bfs(Graph g, Vertex *start) {
     start-&gt;dist = 0;
-    start-&gt;pred = NULL;
+    start-&gt;pred = nullptr;
     queue&lt;Vertex *&gt; vertQueue;
     vertQueue.push(start);
     while (vertQueue.size() &gt; 0) {
