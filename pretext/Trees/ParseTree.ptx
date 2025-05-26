@@ -238,12 +238,12 @@ class BinaryTree {
     public:
         BinaryTree(string rootObj){
             this-&gt;key = rootObj;
-            this-&gt;leftChild = NULL;
-            this-&gt;rightChild = NULL;
+            this-&gt;leftChild = nullptr;
+            this-&gt;rightChild = nullptr;
         }
 
         void insertLeft(string newNode){
-            if (this-&gt;leftChild == NULL){
+            if (this-&gt;leftChild == nullptr){
                 this-&gt;leftChild = new BinaryTree(newNode);
             }
             else {
@@ -254,7 +254,7 @@ class BinaryTree {
         }
 
         void insertRight(string newNode){
-            if (this-&gt;rightChild == NULL){
+            if (this-&gt;rightChild == nullptr){
                 this-&gt;rightChild = new BinaryTree(newNode);
             }
             else {
@@ -325,7 +325,7 @@ BinaryTree *buildParseTree(const string&amp; expr){
 }
 
 void postorder(BinaryTree *tree){
-    if (tree != NULL){
+    if (tree != nullptr){
         postorder(tree-&gt;getLeftChild());
         postorder(tree-&gt;getRightChild());
         cout &lt;&lt; tree-&gt;getRootVal() &lt;&lt; endl;

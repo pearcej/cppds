@@ -65,7 +65,7 @@ class BinarySearchTree{
 
     public:
         BinarySearchTree(){
-            root = NULL;
+            root = nullptr;
             size = 0;
         }
 
@@ -107,7 +107,7 @@ class TreeNode{
         TreeNode *rightChild;
         TreeNode *parent;
 
-        TreeNode(int key, string val, TreeNode *parent = NULL, TreeNode *left = NULL, TreeNode *right = NULL){
+        TreeNode(int key, string val, TreeNode *parent = nullptr, TreeNode *left = nullptr, TreeNode *right = nullptr){
             this-&gt;key = key;
             this-&gt;value = val;
             this-&gt;leftChild = left;
@@ -147,7 +147,7 @@ class TreeNode{
             return rightChild &amp;&amp; leftChild;
         }
 
-        void replaceNodeData(int key, string val, TreeNode *lc = NULL, TreeNode *rc = NULL){
+        void replaceNodeData(int key, string val, TreeNode *lc = nullptr, TreeNode *rc = nullptr){
             this-&gt;key = key;
             this-&gt;value = val;
             this-&gt;leftChild = lc;
@@ -283,7 +283,7 @@ string get(int key){
 
 TreeNode  *_get(int key, TreeNode *currentNode){
     if (!currentNode){
-        return NULL;
+        return nullptr;
     }
     else if (currentNode-&gt;key == key){
         return currentNode;
@@ -321,7 +321,7 @@ void del(int key){
         }
     }
     else if (size == 1 &amp;&amp; root-&gt;key == key){
-        root = NULL;
+        root = nullptr;
         size = size - 1;
     }
     else{
@@ -352,10 +352,10 @@ void del(int key){
             <program language="cpp" label="bst_lst-bst6-prog"><code>
 if (currentNode-&gt;isLeaf()){ //leaf
     if (currentNode == currentNode-&gt;parent-&gt;leftChild){
-        currentNode-&gt;parent-&gt;leftChild = NULL;
+        currentNode-&gt;parent-&gt;leftChild = nullptr;
     }
     else{
-        currentNode-&gt;parent-&gt;rightChild = NULL;
+        currentNode-&gt;parent-&gt;rightChild = nullptr;
     }
 }
             </code></program>
@@ -539,7 +539,7 @@ else if (currentNode-&gt;hasBothChildren()){ //interior
             <caption><c>findSuccessor</c>, <c>findMin</c>, and <c>spliceOut</c> Methods</caption>
             <program language="cpp" label="bst_lst-bst9-prog"><code>
 TreeNode *findSuccessor(){
-    TreeNode *succ = NULL;
+    TreeNode *succ = nullptr;
     if (hasRightChild()){
         succ = rightChild-&gt;findMin();
     }
@@ -549,7 +549,7 @@ TreeNode *findSuccessor(){
                 succ = parent;
             }
             else{
-                parent-&gt;rightChild = NULL;
+                parent-&gt;rightChild = nullptr;
                 succ = parent-&gt;findSuccessor();
                 parent-&gt;rightChild = this;
             }
@@ -569,10 +569,10 @@ TreeNode *findMin(){
 void spliceOut(){
     if (isLeaf()){
         if (isLeftChild()){
-            parent-&gt;leftChild = NULL;
+            parent-&gt;leftChild = nullptr;
         }
         else{
-            parent-&gt;rightChild = NULL;
+            parent-&gt;rightChild = nullptr;
         }
     }
     else if (hasAnyChildren()){
@@ -626,7 +626,7 @@ class TreeNode{
 
         // Using Optional parameters make it
         // easy for us to create a TreeNode under several different circumstances.
-        TreeNode(int key, string val, TreeNode *parent = NULL, TreeNode *left = NULL, TreeNode *right = NULL){
+        TreeNode(int key, string val, TreeNode *parent = nullptr, TreeNode *left = nullptr, TreeNode *right = nullptr){
             this-&gt;key = key;
             this-&gt;value = val;
             this-&gt;leftChild = left;
@@ -640,8 +640,8 @@ class TreeNode{
             return leftChild;
         }
 
-        //Returns a pointer to the right child of this node.
-        //If null, the child doesn't exist.
+        // Returns a pointer to the right child of this node.
+        // If null, the child doesn't exist.
         TreeNode *hasRightChild(){
             return rightChild;
         }
@@ -683,10 +683,10 @@ class TreeNode{
         void spliceOut(){
             if (isLeaf()){
                 if (isLeftChild()){
-                    parent-&gt;leftChild = NULL;
+                    parent-&gt;leftChild = nullptr;
                 }
                 else{
-                    parent-&gt;rightChild = NULL;
+                    parent-&gt;rightChild = nullptr;
                 }
             }
             else if (hasAnyChildren()){
@@ -715,7 +715,7 @@ class TreeNode{
         // that cause an inorder traversal to print out the
         // nodes in the tree from smallest to largest.
         TreeNode *findSuccessor(){
-            TreeNode *succ = NULL;
+            TreeNode *succ = nullptr;
             if (hasRightChild()){
                 succ = rightChild-&gt;findMin();
             }
@@ -725,7 +725,7 @@ class TreeNode{
                         succ = parent;
                     }
                     else{
-                        parent-&gt;rightChild = NULL;
+                        parent-&gt;rightChild = nullptr;
                         succ = parent-&gt;findSuccessor();
                         parent-&gt;rightChild = this;
                     }
@@ -744,7 +744,7 @@ class TreeNode{
         }
 
         //Sets the variables of this node. lc/rc are left child and right child.
-        void replaceNodeData(int key, string value, TreeNode *lc = NULL, TreeNode *rc = NULL){
+        void replaceNodeData(int key, string value, TreeNode *lc = nullptr, TreeNode *rc = nullptr){
             this-&gt;key = key;
             this-&gt;value = value;
             this-&gt;leftChild = lc;
@@ -795,7 +795,7 @@ class BinarySearchTree{
         // a TreeNode to get
         TreeNode  *_get(int key, TreeNode *currentNode){
             if (!currentNode){
-                return NULL;
+                return nullptr;
             }
             else if (currentNode-&gt;key == key){
                 return currentNode;
@@ -810,7 +810,7 @@ class BinarySearchTree{
 
     public:
         BinarySearchTree(){
-            root = NULL;
+            root = nullptr;
             size = 0;
         }
 
@@ -866,7 +866,7 @@ class BinarySearchTree{
                 }
             }
             else if (size == 1 &amp;&amp; root-&gt;key == key){
-                root = NULL;
+                root = nullptr;
                 size = size - 1;
             }
             else{
@@ -877,10 +877,10 @@ class BinarySearchTree{
         void remove(TreeNode *currentNode){
             if (currentNode-&gt;isLeaf()){ //leaf
                 if (currentNode == currentNode-&gt;parent-&gt;leftChild){
-                    currentNode-&gt;parent-&gt;leftChild = NULL;
+                    currentNode-&gt;parent-&gt;leftChild = nullptr;
                 }
                 else{
-                    currentNode-&gt;parent-&gt;rightChild = NULL;
+                    currentNode-&gt;parent-&gt;rightChild = nullptr;
                 }
             }
             else if (currentNode-&gt;hasBothChildren()){ //interior
@@ -955,7 +955,7 @@ class TreeNode:
         self.parent = parent
 
     &quot;&quot;&quot; Returns a pointer to the left child of this node.
-     If null, the child doesn't exist.&quot;&quot;&quot;
+     If None, the child doesn't exist.&quot;&quot;&quot;
     def hasLeftChild(self):
         return self.leftChild
 
