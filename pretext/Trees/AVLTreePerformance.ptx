@@ -4,15 +4,20 @@
             new balance factor requirement. Our claim is that by ensuring that a
             tree always has a balance factor of -1, 0, or 1 we can get better Big-O
             performance of key operations. Let us start by thinking about how this
-            balance condition changes the worst-case tree. There are two
-            possibilities to consider, a left-heavy tree and a right heavy tree. If
-            we consider trees of heights 0, 1, 2, and 3, <xref ref="fig-worstavl"/>
-            illustrates the most unbalanced left-heavy tree possible under the new
-            rules.</p>
-        
+            balance condition changes the worst-case tree. The worse case performance
+            for binary search trees is <m>O(n)</m> because the worst case "tree"
+            equivalent to a singly linked list (see <xref ref="trees_search-tree-analysis"/>).</p>
+        <p>What is the worst case tree which also preserves a balance factor of -1, 0 or 1?
+            Another way of asking that question is: how tall of a tree can we create for a given
+            number of nodes that also preserves the balanace factor requirements? To answer this,
+            we depict the minimum number of nodes to construct trees of height 0, 1, 2, and 3
+            in <xref ref="fig-worstavl"/>. In the diagram, the most left-heavy tree possible is
+            constructed for each height. We could have chosen to create the most right-heavy tree
+            without loss of generalization.</p>
+
         <figure align="center" xml:id="fig-worstavl">
           <caption>Worst-Case Left-Heavy AVL Trees.</caption>
-          <image source="Trees/worstAVL.png" width="50%"> 
+          <image source="Trees/worstAVL.svg"> 
             <description>
             <p>
                 Image showing the most unbalanced left-heavy AVL trees for heights 0, 1, 2, and 3, adhering to the AVL balance factor rules. 
@@ -32,6 +37,10 @@
 
           </image>
         </figure>
+        <p>Going from left to right in <xref ref="fig-worstavl"/>, the tree is constructed by adding a new root node
+        (depicted in green). Then the previous tree (show in red) is added as its left subtree. Finally, tree before
+        that (depicted in blue) is added as the root's right subtree.</p>
+        
         <p>Looking at the total number of nodes in the tree we see that for a tree
             of height 0 there is 1 node, for a tree of height 1 there is <m>1+1
                 = 2</m> nodes, for a tree of height 2 there are <m>1+1+2 = 4</m> and
@@ -52,35 +61,33 @@
             \end{split}
         </me>
         <p>We can express the value of the number of nodes in a tree of height <m>h</m>
-            in terms of its position in the Fibonacci sequence:</p>
-        <me>N_h = F_{h+3} - 1, h \ge 0</me>
+            in terms of its position in the Fibonacci sequence:
+        <me>N_h = F_{h+3} - 1, h \ge 0</me>.</p>
         
         <p>An important mathematical result is that the <m>i^{th}</m> Fibonacci number
-            can be found using Binet's formula:</p>
-        <me>F_i = \frac{\Phi^i - (1 - \Phi)^i}{\sqrt{5}}</me>.
+            can be found using Binet's formula:
+        <me>F_i = \frac{\Phi^i - (1 - \Phi)^i}{\sqrt{5}}</me>.</p>
 
         <p>You can consult a math text if you want to see a derivation of the
-        previous formula. <m>\Phi</m> is the golden ratio and as is defined as:</p>
-        <me>\Phi = \frac{1 + \sqrt{5}}{2} \approx 1.618</me>.
+        previous formula. <m>\Phi</m> is the golden ratio and as is defined as:
+        <me>\Phi = \frac{1 + \sqrt{5}}{2} \approx 1.618</me>.</p>
 
         <p>In Binet's formula, as <m>i</m> grows large, the term <m>(1 - \Phi)^i</m>
             approaches zero, so we can use the following approximation to obtain a
-            value close to the <m>i^{th}</m> Fibonacci number:</p>
-        <me>F_i \approx \frac{\Phi^i}{\sqrt{5}}</me>.
-
-
+            value close to the <m>i^{th}</m> Fibonacci number:
+        <me>F_i \approx \frac{\Phi^i}{\sqrt{5}}</me>.</p>
 
         <p>By replacing the Fibonacci reference with its golden ratio approximation
-            we get:</p>
-        <me>N_h = \frac{\Phi^{h+3}}{\sqrt{5}} - 1</me>
+            we get:
+        <me>N_h = \frac{\Phi^{h+3}}{\sqrt{5}} - 1</me>.</p>
         <p>If we rearrange the terms, and take the base 2 log of both sides and
-            then solve for <m>h</m> we get the following derivation:</p>
+            then solve for <m>h</m> we get the following derivation:
         <me>\begin{split}
             \log_2{(N_h + 1)} &amp;= (h+3)\log_2{\Phi} - \frac{1}{2} \log_2{5} \\
             h &amp;= \frac{\log_2{(N_h + 1)} - 3 \log_2{\Phi} + \frac{1}{2} \log_2{5}}{\log_2{\Phi}} \\
             h &amp;\approx 1.44 \log_2{(N_h + 1) - 2.57}
             \end{split}
-        </me>
+        </me>.</p>
         <p>This derivation shows us that at any time the height of our AVL tree is
             equal to a constant(1.44) times the log of the number of nodes in the tree. This
             is great news for searching our AVL tree because it limits the search to
