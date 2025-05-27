@@ -15,7 +15,7 @@
             constructed for each height. We could have chosen to create the most right-heavy tree
             without loss of generalization.</p>
 
-        <figure align="center" xml:id="fig-worstavl">
+        <figure xml:id="fig-worstavl">
           <caption>Worst-Case Left-Heavy AVL Trees.</caption>
           <image source="Trees/worstAVL.svg"> 
             <description>
@@ -46,20 +46,20 @@
                 = 2</m> nodes, for a tree of height 2 there are <m>1+1+2 = 4</m> and
             for a tree of height 3 there are <m>1 + 2 + 4 = 7</m>. More generally
             the pattern we see for the number of nodes in a tree of height h
-            (<m>N_h</m>) is:</p>
-        <me>N_h = 1 + N_{h-1} + N_{h-2}</me>
+            (<m>N_h</m>) is:
+        <me>N_h = 1 + N_{h-1} + N_{h-2}</me>.</p>
         <p>This recurrence may look familiar to you because it is very similar to
             the Fibonacci sequence. We can use this fact to derive a formula for the
             height of an AVL tree given the number of nodes in the tree. Recall that
             for the Fibonacci sequence the <m>i_{th}</m> Fibonacci number is
-            given by:</p>
+            given by:
         <me>\begin{split}
             F_0 &amp;= 0 \\
             F_1 &amp;= 1 \\
               &amp;\vdots \\
             F_i &amp;= F_{i-1} + F_{i-2}  \text{ for all } i \ge 2
             \end{split}
-        </me>
+        </me>.</p>
         <p>We can express the value of the number of nodes in a tree of height <m>h</m>
             in terms of its position in the Fibonacci sequence:
         <me>N_h = F_{h+3} - 1, h \ge 0</me>.</p>
@@ -93,4 +93,3 @@
             is great news for searching our AVL tree because it limits the search to
             <m>O(\log{N})</m>.</p>
     </section>
-
