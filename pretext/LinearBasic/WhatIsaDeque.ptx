@@ -14,8 +14,9 @@
             and FIFO orderings that are enforced by those data structures. It is up
             to you to make consistent use of the addition and removal operations.</p>
         
-        <figure align="center" xml:id="fig-basicdeque"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 1: A Deque of Python Data Objects</caption>
-        <image source="LinearBasic/basicdeque.png" width="50%"> 
+        <figure xml:id="fig-basicdeque">
+            <caption>A Deque of Python Data Objects</caption>
+            <image source="LinearBasic/basicdeque.png" width="50%"> 
             <description>
                 <p>
                     The image illustrates a deque (double-ended queue) of Python data objects. 
