@@ -296,7 +296,7 @@ screen.bye();
             <p>Consider the example in <xref ref="lst-cturtle_4"/>.</p>
 
             <listing xml:id="lst-cturtle_4">
-                <caption>Using Turtle Speed Controls</caption>
+                <title>Using Turtle Speed Controls</title>
                 <program xml:id="cturtle_4" interactive="activecode" language="cpp" label="cturtle_4-prog"><code>
 #include &lt;CTurtle.hpp&gt;
 namespace ct = cturtle;
@@ -490,7 +490,7 @@ turtle.shape(&quot;square&quot;);
                 
             </tabular></table>
             <p>Using the default <c>indented_triangle</c> shape as an example, <xref ref="ccpolygon"/> shows the nature of the counter-clockwise order.</p>
-            <figure align="center" xml:id="ccpolygon">
+            <figure xml:id="ccpolygon">
                 <caption>Indented Triangle Definition</caption>
                     <image source="Introduction/cc_polygon.png" width="50%">
                     <description><p>Graphic illustrating an indented triangle with coordinate points. At the top vertex, the point is labeled '0, 0'. The bottom left vertex is labeled '-5, 10', and the bottom right vertex is labeled '5, 10'. An arrow curves above the triangle, indicating rotation or flipping. Each vertex is marked with a green circle. The image defines the shape and position of an indented triangle in a coordinate system.</p></description>
@@ -752,7 +752,7 @@ int main(){
     </choices>
     
         </exercise>
-        <exercise label="cturtle_question_3" indent="show" language="python"><statement>
+        <exercise label="cturtle_question_3" language="python"><statement>
             <p>Construct a program that fills a green triangle using begin_fill and end_fill
                 using the example code above as a guide.</p>
 </statement>

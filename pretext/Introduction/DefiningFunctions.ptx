@@ -8,7 +8,7 @@
             value you pass into it.</p>
         
         <listing xml:id="timesTwo">
-            <caption><c>timesTwo</c> Function</caption>
+            <title><c>timesTwo</c> Function</title>
             <program interactive="activecode" language="cpp" label="timesTwo-prog"><code>
 #include &lt;iostream&gt;
 using namespace std;
@@ -41,7 +41,7 @@ int main() {
         <p>Let us look at a similar function in <xref ref="timesTwoVoid"/>.</p>
 
         <listing xml:id="timesTwoVoid">
-            <caption><c>timesTwoVoid</c> Function Returns Nothing.</caption>
+            <title><c>timesTwoVoid</c> Function Returns Nothing.</title>
             <program interactive="activecode" language="cpp" label="timesTwoVoid-prog"><code>
 #include &lt;iostream&gt;
 using namespace std;
@@ -82,7 +82,7 @@ int main() {
             marker. Any characters that follow the // on a line are ignored.</p>
         
     <listing xml:id="introduction_lst-root" names="lst_root">
-        <caption>Newton's Method for Calculating Square Roots.</caption>
+        <title>Newton's Method for Calculating Square Roots.</title>
     <program xml:id="newtonsmethod" interactive="activecode" language="cpp" label="newtonsmethod-prog">
         <code>
 #include &lt;iostream&gt;
@@ -170,7 +170,7 @@ void callingFunction() { /*return type int which indicates
                 that calls <c>swap_values(...)</c>.</p>
             
     <listing xml:id="activepassrefcpp">
-        <caption>Pass By Reference Example</caption>
+        <title>Pass By Reference Example</title>
     <program interactive="activecode" language="cpp" label="activepassrefcpp-prog">
         <code>
 #include &lt;iostream&gt;

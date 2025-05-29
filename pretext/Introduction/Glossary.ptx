@@ -419,7 +419,7 @@
                 </gi>
             
         </glossary>
-        <p>
+        <conclusion><p>
             <!-- extra space before the progress bar -->
-        </p>
-    </section>
+        </p></conclusion>
+</section>

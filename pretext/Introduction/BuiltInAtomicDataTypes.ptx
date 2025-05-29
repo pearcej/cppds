@@ -593,7 +593,7 @@ main()
     <pre>// C++ variable declaration and assignment of an integer value
 int varN = 100;</pre>
     <p>In C++ the results of running this code will look like the diagram below:</p>
-    <figure align="center" xml:id="id2-fig-cpp-reference">
+    <figure xml:id="id2-fig-cpp-reference">
       <caption>C++ variable</caption>
       <image source="Introduction/cpp_var.png" width="50%">
         <description>
@@ -683,7 +683,7 @@ int varN = 100;
 int *ptrN;
 ptrN = &amp;varN;</pre>
       <p>The results of running this C++ code will look like the diagram below.</p>
-      <figure align="center" xml:id="id3-fig-point2">
+      <figure xml:id="id3-fig-point2">
         <caption>View into memory with pointers</caption>
         <image source="Introduction/new_point2.png" width="50%"> 
         <description>
@@ -810,7 +810,7 @@ int main() {
       <p>
         <term>This is BAD, BAD, BAD!</term>
       </p>
-      <figure align="center" xml:id="id4-fig-point3">
+      <figure xml:id="id4-fig-point3">
         <caption>Dangling pointer reference</caption>
         <image source="Introduction/new_point_broken.png" width="50%"> 
         <description>
@@ -856,7 +856,7 @@ int main() {
          On the first iteration of the loop, it is assigned the value of <c>nullptr</c> (i.e. 0)
          thereby ending the loop:</p>
       <listing xml:id="NULLexamplecpp">
-        <caption>Using the null pointer: <c>nullptr</c></caption>
+        <title>Using the null pointer: <c>nullptr</c></title>
         <program interactive="activecode" language="cpp" label="NULLexamplecpp-prog"><code>
 //showcases how you can use nullptr
 #include &lt;iostream&gt;

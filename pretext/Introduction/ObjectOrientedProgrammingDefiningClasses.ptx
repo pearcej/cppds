@@ -156,7 +156,7 @@ myfraction = Fraction(3, 5)
                 <m>\frac {3}{5}</m> (three-fifths). <xref ref="fig-fraction1cpp"/> shows this
                 object as it is now implemented.</p>
             
-            <figure align="center" xml:id="fig-fraction1cpp">
+            <figure xml:id="fig-fraction1cpp">
                 <caption>An instance of the <c>Fraction</c> Class</caption>
                     <image source="Introduction/fraction1cpp.png" width="50%">
                     <description><p>Diagram showing an instance of the Fraction class. The instance is named 'myfraction' and is depicted as a set of concentric circles. The innermost circle is labeled 'State' and contains two segments: 'num' with the number 3 above 'den' with the number 5, representing the numerator and denominator of a fraction. The middle circle is labeled 'Methods', indicating the functionality associated with the fraction instance.</p></description>
@@ -210,7 +210,7 @@ myfraction = Fraction(3, 5)
                 to give us multiple ways to instantiate an object of a class as shown in <xref ref="frac-poly"/> for
                 the <c>Fraction</c> class.</p>
             <listing xml:id="frac-poly">
-                <caption>Example of Polymorphism</caption>
+                <title>Example of Polymorphism</title>
                 <program language="cpp" label="frac-poly-prog"><code>
 Fraction(int top, int bottom){
     num = top;
@@ -612,7 +612,7 @@ int main(){
                 <m>m</m> evenly, then the answer is the greatest common divisor of
                 <m>n</m> and the remainder of <m>m</m> divided by <m>n</m>. We
                 will simply provide an iterative implementation here (see
-                <inline classes="xref std std-ref">ActiveCode 1</inline>). Note that this implementation of the GCD algorithm only
+                <xref ref="gcdalg"/>). Note that this implementation of the GCD algorithm only
                 works when the denominator is positive. This is acceptable for our
                 fraction class because we have said that a negative fraction will be
                 represented by a negative numerator.</p>
@@ -667,7 +667,7 @@ print(gcd(20,10))
                 <xref ref="introduction_lst-newaddmethod"/>).</p>
             
     <listing xml:id="introduction_lst-newaddmethod">
-        <caption>New addition implementation using <c>gcd</c></caption>
+        <title>New addition implementation using <c>gcd</c></title>
         <program xml:id="gcdadd" label="gcdadd" interactive="activecode" language="cpp"><code>
 #include &lt;iostream&gt;
 using namespace std;
@@ -725,7 +725,7 @@ int main(){
 }
         </code></program>
     </listing>
-            <figure align="center" xml:id="fig-fraction2cpp">
+            <figure xml:id="fig-fraction2cpp">
                 <caption>An Instance of the <c>Fraction</c> Class with Two Methods</caption>
                     <image source="Introduction/fraction2cpp.png" width="50%">
                     <description><p>Visual representation of a Fraction class instance called 'myfraction'. It features concentric circles with the innermost labeled 'State' showcasing 'num' with a value of 3 above 'den' with a value of 5, indicating the fraction's numerator and denominator. The outer circle is labeled 'Methods', suggesting the object's functionality. Two symbols, '&lt;&lt;' and '+', are shown outside the Methods circle, implying additional methods.</p></description>
@@ -890,7 +890,7 @@ y = Fraction(2,3)
 print(x + y)
 print(x == y)
             </code></program></statement></task>
-        </exploration>&gt;
+        </exploration>
         </subsection>
         <subsection xml:id="introduction_self-check">
             <title>Self-Check</title>
