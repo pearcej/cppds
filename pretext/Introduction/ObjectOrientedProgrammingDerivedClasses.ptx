@@ -17,7 +17,7 @@
             sequential collection). This implies that strings inherit important
             characteristics from sequences, namely the ordering of the underlying
             data and operations such as concatenation, repetition, and indexing.</p>
-        <figure align="center" xml:id="fig-inherit1">
+        <figure xml:id="fig-inherit1">
                 <caption>An Inheritance Hierarchy for C++ Collections</caption>
                     <image source="Introduction/inheritance1.png" width="70%">
                     <description><p>Hierarchy chart showing the classification of C++ containers. The top of the hierarchy is labeled 'C++ Containers', branching into 'Sequence Containers' on the left and 'Associative Containers' on the right. Under 'Sequence Containers', there are three sub-categories: 'Arrays', 'Vectors', and 'Strings'. 'Associative Containers' has a single sub-category labeled 'Unordered Maps'. The layout suggests an inheritance structure where sequence and associative containers are types of C++ containers.</p></description>
@@ -47,7 +47,7 @@
             method from the Base class.</p>
 
         <listing xml:id="virtualfunction">
-            <caption>Virtual function example</caption>
+            <title>Virtual function example</title>
             <program language="cpp" label="virtualfunction-prog"><code>
 #include &lt;iostream&gt;
 using namespace std;
@@ -111,7 +111,7 @@ int main() {
                 values showing the input-to-output mapping that is performed by the
                 gate.</p>
 
-            <figure align="center" xml:id="ooderive_fig-truthtable">
+            <figure xml:id="ooderive_fig-truthtable">
                 <caption>Three Types of Logic Gates</caption>
                     <image source="Introduction/truthtable.png" width="50%">
                     <description><p>Image depicting three types of logic gates and their corresponding truth tables. On the left is the 'AND' gate symbol with a two-input truth table below it, showing outputs of '0' for all inputs except '1' and '1'. The center shows the 'OR' gate symbol with a truth table, displaying '1' when at least one input is '1'. On the right, the 'NOT' gate symbol is presented with a single-input truth table, showing an output inverse to the input.</p></description>
@@ -127,7 +127,7 @@ int main() {
                 result appears at the output of the <term>NOT</term> gate. <xref ref="ooderive_fig-circuit1"/> also
                 shows an example with values.</p>
 
-            <figure align="center" xml:id="ooderive_fig-circuit1">
+            <figure xml:id="ooderive_fig-circuit1">
                 <caption>Circuit</caption>
                     <image source="Introduction/circuit1.png" width="50%">
                     <description><p>Diagram of a logic circuit with labeled gates and sample inputs/outputs. The top part shows two 'AND' gates labeled 'g1' and 'g2' feeding into an 'OR' gate labeled 'g3', which in turn feeds into a 'NOT' gate labeled 'g4'. Below, the same circuit is shown with binary inputs and the resulting outputs: 'AND' gates receiving '0, 1' and '1, 1' inputs with '0' and '1' outputs respectively; the 'OR' gate then combines the two to output '1', which is inverted to '0' by the 'NOT' gate.</p></description>
@@ -145,7 +145,7 @@ int main() {
                 output line. The next level of subclasses breaks the logic gates into
                 two families, those that have one input line and those that have two.
                 Below that, the specific logic functions of each appear.</p>
-            <figure align="center" xml:id="ooderive_fig-circuit0">
+            <figure xml:id="ooderive_fig-circuit0">
                 <caption>Example Logic Circuit</caption>
                 <image source="Introduction/logicquestion.png" width="50%">
                         <description><p>
@@ -157,7 +157,7 @@ int main() {
 
          
     
-    <figure align="center" xml:id="ooderive_fig-gates">
+    <figure xml:id="ooderive_fig-gates">
         <caption>An Inheritance Hierarchy for Logic Gates</caption>
             <image source="Introduction/gates.png" width="50%">
             <description><p>Flowchart representing an inheritance hierarchy for logic gates. The topmost block is labeled 'Logic Gate', which branches down into two categories: 'Binary Gate' and 'Unary Gate'. Under 'Binary Gate', two further blocks represent 'AND' and 'OR' gates, each accompanied by their respective symbols. To the right, under 'Unary Gate', there's a block for the 'NOT' gate with its symbol. The structure implies that 'AND' and 'OR' gates inherit from 'Binary Gate', which along with 'Unary Gate' inherits from 'Logic Gate'.</p></description>
@@ -420,7 +420,7 @@ class AndGate(BinaryGate):
                 Once the values are provided, the correct output is shown.</p>
 
         <listing xml:id="introduction_fig-andusage">
-            <caption><c>AndGate</c> Usage</caption>
+            <title><c>AndGate</c> Usage</title>
             <program label="introduction_fig-andusage-prog"><code>
                 &gt;&gt;&gt; AndGate gand2(&quot;gand2&quot;)
                 &gt;&gt;&gt; gand2.getOutput()
@@ -433,7 +433,7 @@ class AndGate(BinaryGate):
                 0
             </code></program>
         </listing>
-.
+
            <p>The same development can be done for <term>OR</term> gates and <term>NOT</term> gates. The
                 <c>OrGate</c> class will also be a subclass of <c>BinaryGate</c> and the
                 <c>NotGate</c> class will extend the <c>UnaryGate</c> class. Both of these
@@ -444,7 +444,7 @@ class AndGate(BinaryGate):
                 need inputs to be provided). For example:</p>
 
             <listing xml:id="introduction_fig-ornotusage">
-                <caption>Usage of <c>OrGate</c> and <c>NotGate</c></caption>
+                <title>Usage of <c>OrGate</c> and <c>NotGate</c></title>
                 <program label="introduction_fig-ornotusage-prog"><code>
 &gt;&gt;&gt; g2 = OrGate(&quot;G2&quot;)
 &gt;&gt;&gt; g2.getOutput()
@@ -476,7 +476,7 @@ Enter Pin input for gate G3-&gt;0
                     Relationship</term>. Recall earlier that we used the phrase <q>IS-A
                 Relationship</q> to say that a child class is related to a parent class,
                 for example <c>UnaryGate</c> IS-A <c>LogicGate</c>.</p>
-        <figure align="center" xml:id="ooderive_fig-connector">
+        <figure xml:id="ooderive_fig-connector">
                 <caption>A Connector Connects the Output of One Gate to the Input of Another</caption>
                 <image source="Introduction/connector.png" width="50%">
                 <description><p>Diagram showing two logic gate symbols, 'AND' and 'OR', connected by a line labeled 'connector'. The 'AND' gate is on the left with an arrow pointing from its output to the 'connector'. Another arrow extends from the 'connector' to the input of the 'OR' gate on the right. This illustrates how the output of one gate serves as the input to another.</p></description>
@@ -499,7 +499,7 @@ Enter Pin input for gate G3-&gt;0
                 that each <c>togate</c> can choose the proper input line for the
                 connection.</p>
       
-            <figure align="center" xml:id="ooderive_fig-desired-circuit">
+            <figure xml:id="ooderive_fig-desired-circuit">
                 <caption>Circit of NOT(AND(ganda,gnadb)OR AND(gandc,gandd))</caption>
                     <image source="Introduction/desired_circuit.png" width="80%">
                     <description><p>Circuit diagram illustrating a logical expression with labeled components. Two 'AND' gates, labeled 'gand1' and 'gand2', are connected to an 'OR' gate labeled 'gor3' via lines labeled 'connector'. The output of 'gor3' is then fed into a 'NOT' gate labeled 'gnot4'. The connections suggest the logical operation NOT(AND(a,b)) OR AND(c,d).</p></description>
@@ -507,7 +507,7 @@ Enter Pin input for gate G3-&gt;0
                 </figure>
 
             <listing xml:id="ooderive_program">
-                <caption>Using the <c>Connector</c> Class</caption>
+                <title>Using the <c>Connector</c> Class</title>
                 <program interactive="activecode" language="cpp" label="ooderive_program-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
