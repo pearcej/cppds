@@ -198,6 +198,108 @@ main()
                     </code></program></statement>
                 </task>
             </exploration>
+<exercise label="mc_werror">
+    <statement>
+
+        <p>In the above example, what happened to otherdata[ ] in C++?</p>
+
+    </statement>
+<choices>
+
+        <choice>
+            <statement>
+                <p>Nothing. Everything is fine.</p>
+            </statement>
+            <feedback>
+                <p>Actually, there is a problem. Look carefully.</p>
+            </feedback>
+        </choice>
+
+        <choice>
+            <statement>
+                <p>All data was automatically reinitialized.</p>
+            </statement>
+            <feedback>
+                <p>No. C++ just does what you tell it to do.</p>
+            </feedback>
+        </choice>
+
+        <choice>
+            <statement>
+                <p>I have no idea. Please give me a hint.</p>
+            </statement>
+            <feedback>
+                <p>Try again. One of these is indeed correct. Look at the memory addresses.</p>
+            </feedback>
+        </choice>
+
+        <choice correct="yes">
+            <statement>
+                <p>The first loop went out of bounds and wrote over the values in otherdata.</p>
+            </statement>
+            <feedback>
+                <p>Right!</p>
+            </feedback>
+        </choice>
+
+        <choice>
+            <statement>
+                <p>None of the above.</p>
+            </statement>
+            <feedback>
+                <p>One of the above is indeed correct.</p>
+            </feedback>
+        </choice>
+</choices>
+
+
+</exercise>
+<exercise label="mc_array">
+    <statement>
+
+        <p>What is the correct way to declare an array in C++?</p>
+
+    </statement>
+<choices>
+
+        <choice>
+            <statement>
+                <p>int myarray(5);</p>
+            </statement>
+            <feedback>
+                <p>Check the characters at the end of the array! Right now that is a function!</p>
+            </feedback>
+        </choice>
+
+        <choice>
+            <statement>
+                <p>myarray[5];</p>
+            </statement>
+            <feedback>
+                <p>You are forgetting something important!</p>
+            </feedback>
+        </choice>
+
+        <choice correct="yes">
+            <statement>
+                <p>int myarray[5];</p>
+            </statement>
+            <feedback>
+                <p>Good work!</p>
+            </feedback>
+        </choice>
+
+        <choice>
+            <statement>
+                <p>None of the above.</p>
+            </statement>
+            <feedback>
+                <p>Check the characters at the end of the array!</p>
+            </feedback>
+        </choice>
+</choices>
+
+</exercise>
         </subsection>
         <subsection xml:id="introduction_vectors">
             <title>Vectors</title>
@@ -338,6 +440,29 @@ main()
                 Because vectors can change size, vectors typically allocate some extra storage to accommodate for possible growth.
                 Thus the vector typically has an actual <em>capacity</em> greater than the storage <em>size</em> strictly needed to contain its elements.</p>
 
+                <exercise label="matching_vectors">
+    <statement><p> Match the Vector operations with their corresponding explanation.</p></statement>
+    <feedback><p>Feedback shows incorrect matches.</p></feedback>
+    <cardsort>
+    <match><premise order="1">[ ]</premise><response>Accesses value of an element.</response></match>
+    <match><premise order="2">=</premise><response> Assigns value to an element.</response></match>
+    <match><premise order="3">push_back</premise><response>Appends item to the end of the vector.</response></match>
+    <match><premise order="4">pop_back</premise><response> Deletes last item of the vector.</response></match>
+    </cardsort>
+</exercise>               
+
+<exercise label="matching_vectors2">
+    <statement><p>Match the Vector operations with their corresponding explanation.</p></statement>
+    <feedback><p>Feedback shows incorrect matches.</p></feedback>
+    <cardsort>
+        <match><premise order="1">insert</premise><response>Injects an item into the vector.</response></match>
+        <match><premise order="2">erase</premise><response>Deletes an element from the choosen index.</response></match>
+        <match><premise order="3">size</premise><response>Returns the actual capacity used by elements.</response></match>
+        <match><premise order="4">capacity</premise><response>Returns the ammount of allocated storage space.</response></match>
+        <match><premise order="5">reserve</premise><response> Request a change in space to amount.</response></match>
+    </cardsort>
+</exercise> 
+
             <exploration xml:id="expl-introvector">
                 <title>Using <c>reserve</c></title>
                 <task label="introvector_cpp" xml:id="introvector_cpp">
@@ -454,6 +579,107 @@ main()
                     </code></program></statement>
                 </task>
             </exploration>
+<exercise label="mc_array_vector">
+    <statement>
+
+            <p>Which of the following is the biggest difference between a C++ array and a C++ vector?</p>
+
+    </statement>
+<choices>
+
+        <choice>
+            <statement>
+                <p>Vectors can change size.</p>
+            </statement>
+            <feedback>
+                <p>Yes, however, there are more benefits to using vectors.</p>
+            </feedback>
+        </choice>
+
+        <choice>
+            <statement>
+                <p>Vectors offer many more features and protections than arrays.</p>
+            </statement>
+            <feedback>
+                <p>Not all of the protections of arrays are offered by vectors; one can still iterate off of either end.</p>
+            </feedback>
+        </choice>
+
+        <choice>
+            <statement>
+                <p>Vectors don't use contiguous memory, so elements can be inserted.</p>
+            </statement>
+            <feedback>
+                <p>No. Although elements can be inserted in vectors, they do require contiguous memory.</p>
+            </feedback>
+        </choice>
+
+        <choice correct="yes">
+            <statement>
+                <p>More than one of the above.</p>
+            </statement>
+            <feedback>
+                <p>Right! Good job!</p>
+            </feedback>
+        </choice>
+
+        <choice>
+            <statement>
+                <p>None of the above.</p>
+            </statement>
+            <feedback>
+                <p>One of the above is indeed correct.</p>
+            </feedback>
+        </choice>
+</choices>
+
+</exercise>
+<exercise label="mc_vector1">
+    <statement>
+
+            <p>What good is the <c>reserve</c> method in a vector?</p>
+
+    </statement>
+<choices>
+
+        <choice>
+            <statement>
+                <p>Nothing. It is completely optional.</p>
+            </statement>
+            <feedback>
+                <p>It is optional but it does serve a purpose. Try again.</p>
+            </feedback>
+        </choice>
+
+        <choice correct="yes">
+            <statement>
+                <p>Using it will save time if you know the maximum size needed.</p>
+            </statement>
+            <feedback>
+                <p>Right!</p>
+            </feedback>
+        </choice>
+
+        <choice>
+            <statement>
+                <p>It is required so memory can be allocated.</p>
+            </statement>
+            <feedback>
+                <p>It is not required.</p>
+            </feedback>
+        </choice>
+
+        <choice>
+            <statement>
+                <p>None of the above.</p>
+            </statement>
+            <feedback>
+                <p>One of the above is indeed correct.</p>
+            </feedback>
+        </choice>
+</choices>
+
+</exercise>   
         </subsection>
         <subsection xml:id="introduction_strings">
             <title>Strings</title>
@@ -471,6 +697,53 @@ char cstring[] = {&quot;Hello World!&quot;};    // C-string or char array uses d
             <p>Because strings are sequences, all of the typical sequence operations work as you would expect.
                 In addition, the string library offers a huge number of
                 methods, some of the most useful of which are shown in <xref ref="introduction_tab-stringmethods"/>.</p>
+<exercise label="cstringquestion1_1">
+    <statement>
+
+        <p>What is the correct definition of c-strings?</p>
+
+    </statement>
+<choices>
+
+        <choice correct="yes">
+            <statement>
+                <p>An array of characters that ends with a terminating null character. For instance, &quot;\0&quot;.</p>
+            </statement>
+            <feedback>
+                <p>Correct! a c-string is different from a string.</p>
+            </feedback>
+        </choice>
+
+        <choice>
+            <statement>
+                <p>A sequential data structure consisting of zero or more characters.</p>
+            </statement>
+            <feedback>
+                <p>Close, but that is the definition of a string, not a c-string.</p>
+            </feedback>
+        </choice>
+
+        <choice>
+            <statement>
+                <p>A data structure consisting of an ordered collection of data elements of identical type in which each element can be identified by an array index.</p>
+            </statement>
+            <feedback>
+                <p>Sorry, thats not a string or a c-string.</p>
+            </feedback>
+        </choice>
+
+        <choice>
+            <statement>
+                <p>Sequence container storing data of a single type that is stored in a dynamically allocated array which can change in size.</p>
+            </statement>
+            <feedback>
+                <p>No, that's a vector.</p>
+            </feedback>
+        </choice>
+</choices>
+
+</exercise>
+
             <table xml:id="introduction_tab-stringmethods">
                 <title>String Methods Provided in C++</title>
                 <tabular>
@@ -599,6 +872,60 @@ char cstring[] = {&quot;Hello World!&quot;};    // C-string or char array uses d
                         </row>
             </tabular></table>
 
+<exercise label="matching_strings1">
+    <statement><p>Match the basic String operations with their corresponding explanation.</p></statement>
+    <feedback><p>Feedback shows incorrect matches.</p></feedback>
+    <cardsort>
+        <match>
+            <premise order="1">[ ]</premise>
+            <response>Accesses value of an element.</response>
+        </match>
+        <match>
+            <premise order="2">=</premise>
+            <response>Assigns value to an element.</response>
+        </match>
+        <match>
+            <premise order="3">push_back</premise>
+            <response>Adjoins a character to the end of the string.</response>
+        </match>
+        <match>
+            <premise order="4">pop_back</premise>
+            <response>Removes the last character from the end of the string.</response>
+        </match>
+        <match>
+            <premise order="5">+</premise>
+            <response>connects strings.</response>
+        </match>
+    </cardsort>
+</exercise>
+
+<exercise label="matching_strings2">
+    <statement><p>Match the additional String operations with their corresponding explanation.</p></statement>
+    <feedback><p>Feedback shows incorrect matches.</p></feedback>
+    <cardsort>
+        <match>
+            <premise order="1">find</premise>
+            <response>Returns the index of the first occurrence of item.</response>
+        </match>
+        <match>
+            <premise order="2">insert</premise>
+            <response>Injects a string at a specific index.</response>
+        </match>
+        <match>
+            <premise order="3">erase</premise>
+            <response>Deletes an element from one index to another.</response>
+        </match>
+        <match>
+            <premise order="4">size</premise>
+            <response>Returns the capacity of the string.</response>
+        </match>
+        <match>
+            <premise order="5">append</premise>
+            <response>Adjoins a string to the end of the string.</response>
+        </match>
+    </cardsort>
+</exercise>
+
             <exploration xml:id="introstring">
                 <title><c>string</c> introduction</title>
                 <task xml:id="introstring_cpp" label="introstring_cpp">
@@ -646,6 +973,25 @@ main()
             </exploration>
 
             <p>Check your understanding by completing the following question.</p>
+<exercise label="string_types">
+    <statement><p>Drag each data type to its' corresponding C++ initialization syntax.</p></statement>
+    <feedback><p>Feedback shows incorrect matches.</p></feedback>
+    <cardsort>
+        <match>
+            <premise order="1">char</premise>
+            <response>'a'</response>
+        </match>
+        <match>
+            <premise order="2">char array</premise>
+            <response>{'a'}</response>
+        </match>
+        <match>
+            <premise order="3">string</premise>
+            <response>&quot;a&quot;</response>
+        </match>
+    </cardsort>
+</exercise>
+
 
         </subsection>
         <subsection xml:id="introduction_hash-tables">
@@ -844,6 +1190,36 @@ main()
                     
                 
             </tabular></table>
+    <exercise label="matching_ht">
+        <statement><p> Match the Hash Table operations with their corresponding explanation.</p></statement>
+        <feedback><p>Feedback shows incorrect matches.</p></feedback>
+        <cardsort>
+            <match>
+                <premise order="1">begin</premise>
+                <response>An iterator to the first element in the hash table.</response>
+            </match>
+            <match>
+                <premise order="2">[ ]</premise>
+                <response>Returns the value associated with the key, creating a default entry if necessary.</response>
+            </match>
+            <match>
+                <premise order="3">erase</premise>
+                <response>Deletes the entry from the hash table.</response>
+            </match>
+            <match>
+                <premise order="4">at</premise>
+                <response>Returns the value associated with the key, otherwise throws error.</response>
+            </match>
+            <match>
+                <premise order="5">end</premise>
+                <response>An iterator pointing to past-the-end element of the hash table.</response>
+            </match>
+            <match>
+                <premise order="6">count</premise>
+                <response>Returns true if key is in the hash table, and false otherwise.</response>
+            </match>
+        </cardsort>
+    </exercise>
         </subsection>
         <subsection xml:id="introduction_unordered-sets">
             <title>Unordered Sets</title>
@@ -983,41 +1359,6 @@ int main(){
                 set, then <c>letter</c> is not contained in the set.</p>
                 
 
-
-<reading-questions xml:id="rq-collection-data">
-                    <title>Reading Questions</title>
-
-    <exercise label="matching_ht">
-        <statement><p> Match the Hash Table operations with their corresponding explination.</p></statement>
-        <feedback><p>Feedback shows incorrect matches.</p></feedback>
-        <cardsort>
-            <match>
-                <premise order="1">begin</premise>
-                <response>An iterator to the first element in the hash table.</response>
-            </match>
-            <match>
-                <premise order="2">[ ]</premise>
-                <response>Returns the value associated with the key, creating a default entry if necessary.</response>
-            </match>
-            <match>
-                <premise order="3">erase</premise>
-                <response>Deletes the entry from the hash table.</response>
-            </match>
-            <match>
-                <premise order="4">at</premise>
-                <response>Returns the value associated with the key, otherwise throws error.</response>
-            </match>
-            <match>
-                <premise order="5">end</premise>
-                <response>An iterator pointing to past-the-end element of the hash table.</response>
-            </match>
-            <match>
-                <premise order="6">count</premise>
-                <response>Returns true if key is in the hash table, and false otherwise.</response>
-            </match>
-        </cardsort>
-    </exercise>
-
 <exercise label="matching_us">
     <statement><p> Match the Unordered Sets operations with their corresponding explanation.</p></statement>
     <feedback><p>Feedback shows incorrect matches.</p></feedback>
@@ -1048,6 +1389,8 @@ int main(){
         </match>
     </cardsort></exercise>
 
+    <reading-questions xml:id="rq-collection-data">
+        <title>Reading Questions</title>
     <exercise label="mc_fixed">
         <statement>
 
@@ -1110,396 +1453,22 @@ int main(){
     <cardsort>
         <match>
             <premise order="1">Array</premise>
-            <response>{<q>What</q>, <q>am</q>, <q>I</q>, &quot;am&quot;}</response>
+            <response>{&quot;What&quot;, &quot;am&quot;, &quot;I&quot;, &quot;am&quot;}</response>
         </match>
         <match>
             <premise order="2">Set</premise>
-            <response>{<q>What</q>, <q>am</q>, <q>I</q>}</response>
+            <response>{&quot;What&quot;, &quot;am&quot;, &quot;I&quot;}</response>
         </match>
         <match>
             <premise order="3">String</premise>
-            <response><q>What am I</q></response>
+            <response>&quot;What am I&quot;</response>
         </match>
         <match>
             <premise order="4">Hash Table</premise>
-            <response>{ {<q>What</q>, <q>am I</q>} }</response>
+            <response>{ {&quot;What&quot;, &quot;am I&quot;} }</response>
         </match>
     </cardsort>
 </exercise>
-
-<exercise label="mc_werror">
-    <statement>
-
-        <p>In the above example, what happened to otherdata[ ] in C++?</p>
-
-    </statement>
-<choices>
-
-        <choice>
-            <statement>
-                <p>Nothing. Everything is fine.</p>
-            </statement>
-            <feedback>
-                <p>Actually, there is a problem. Look carefully.</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>All data was automatically reinitialized.</p>
-            </statement>
-            <feedback>
-                <p>No. C++ just does what you tell it to do.</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>I have no idea. Please give me a hint.</p>
-            </statement>
-            <feedback>
-                <p>Try again. One of these is indeed correct. Look at the memory addresses.</p>
-            </feedback>
-        </choice>
-
-        <choice correct="yes">
-            <statement>
-                <p>The first loop went out of bounds and wrote over the values in otherdata.</p>
-            </statement>
-            <feedback>
-                <p>Right!</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>None of the above.</p>
-            </statement>
-            <feedback>
-                <p>One of the above is indeed correct.</p>
-            </feedback>
-        </choice>
-</choices>
-
-
-</exercise>
-<exercise label="mc_array">
-    <statement>
-
-        <p>What is the correct way to declare an array in C++?</p>
-
-    </statement>
-<choices>
-
-        <choice>
-            <statement>
-                <p>int myarray(5);</p>
-            </statement>
-            <feedback>
-                <p>Check the characters at the end of the array! Right now that is a function!</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>myarray[5];</p>
-            </statement>
-            <feedback>
-                <p>You are forgetting something important!</p>
-            </feedback>
-        </choice>
-
-        <choice correct="yes">
-            <statement>
-                <p>int myarray[5];</p>
-            </statement>
-            <feedback>
-                <p>Good work!</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>None of the above.</p>
-            </statement>
-            <feedback>
-                <p>Check the characters at the end of the array!</p>
-            </feedback>
-        </choice>
-</choices>
-
-</exercise>
-<exercise label="matching_vectors">
-    <statement><p> Match the Vector operations with their corresponding explination.</p></statement>
-    <feedback><p>Feedback shows incorrect matches.</p></feedback>
-    <cardsort>
-    <match><premise order="1">[ ]</premise><response>Accesses value of an element.</response></match>
-    <match><premise order="2">=</premise><response> Assigns value to an element.</response></match>
-    <match><premise order="3">push_back</premise><response>Appends item to the end of the vector.</response></match>
-    <match><premise order="4">pop_back</premise><response> Deletes last item of the vector.</response></match>
-    </cardsort>
-</exercise>               
-
-<exercise label="matching_vectors2">
-    <statement><p>Match the Vector operations with their corresponding explination.</p></statement>
-    <feedback><p>Feedback shows incorrect matches.</p></feedback>
-    <cardsort>
-        <match><premise order="1">insert</premise><response>Injects an item into the vector.</response></match>
-        <match><premise order="2">erase</premise><response>Deletes an element from the choosen index.</response></match>
-        <match><premise order="3">size</premise><response>Returns the actual capacity used by elements.</response></match>
-        <match><premise order="4">capacity</premise><response>Returns the ammount of allocated storage space.</response></match>
-        <match><premise order="5">reserve</premise><response> Request a change in space to amount.</response></match>
-    </cardsort>
-</exercise> 
-
-<exercise label="mc_array_vector">
-    <statement>
-
-            <p>Which of the following is the biggest difference between a C++ array and a C++ vector?</p>
-
-    </statement>
-<choices>
-
-        <choice>
-            <statement>
-                <p>Vectors can change size.</p>
-            </statement>
-            <feedback>
-                <p>Yes, however, there are more benefits to using vectors.</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>Vectors offer many more features and protections than arrays.</p>
-            </statement>
-            <feedback>
-                <p>Not all of the protections of arrays are offered by vectors; one can still iterate off of either end.</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>Vectors don't use contiguous memory, so elements can be inserted.</p>
-            </statement>
-            <feedback>
-                <p>No. Although elements can be inserted in vectors, they do require contiguous memory.</p>
-            </feedback>
-        </choice>
-
-        <choice correct="yes">
-            <statement>
-                <p>More than one of the above.</p>
-            </statement>
-            <feedback>
-                <p>Right! Good job!</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>None of the above.</p>
-            </statement>
-            <feedback>
-                <p>One of the above is indeed correct.</p>
-            </feedback>
-        </choice>
-</choices>
-
-</exercise>
-<exercise label="mc_vector1">
-    <statement>
-
-            <p>What good is the <c>reserve</c> method in a vector?</p>
-
-    </statement>
-<choices>
-
-        <choice>
-            <statement>
-                <p>Nothing. It is completely optional.</p>
-            </statement>
-            <feedback>
-                <p>It is optional but it does serve a purpose. Try again.</p>
-            </feedback>
-        </choice>
-
-        <choice correct="yes">
-            <statement>
-                <p>Using it will save time if you know the maximum size needed.</p>
-            </statement>
-            <feedback>
-                <p>Right!</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>It is required so memory can be allocated.</p>
-            </statement>
-            <feedback>
-                <p>It is not required.</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>None of the above.</p>
-            </statement>
-            <feedback>
-                <p>One of the above is indeed correct.</p>
-            </feedback>
-        </choice>
-</choices>
-
-</exercise>   
-<exercise label="cstringquestion1_1">
-    <statement>
-
-        <p>What is the correct definition of c-strings?</p>
-
-    </statement>
-<choices>
-
-        <choice correct="yes">
-            <statement>
-                <p>An array of characters that ends with a terminating null character. For instance, &quot;\0&quot;.</p>
-            </statement>
-            <feedback>
-                <p>Correct! a c-string is different from a string.</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>A sequential data structure consisting of zero or more characters.</p>
-            </statement>
-            <feedback>
-                <p>Close, but that is the definition of a string, not a c-string.</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>A data structure consisting of an ordered collection of data elements of identical type in which each element can be identified by an array index.</p>
-            </statement>
-            <feedback>
-                <p>Sorry, thats not a string or a c-string.</p>
-            </feedback>
-        </choice>
-
-        <choice>
-            <statement>
-                <p>Sequence container storing data of a single type that is stored in a dynamically allocated array which can change in size.</p>
-            </statement>
-            <feedback>
-                <p>No, that's a vector.</p>
-            </feedback>
-        </choice>
-</choices>
-
-</exercise>
-
-<exercise label="matching_strings1">
-    <statement><p>Match the basic String operations with their corresponding explanation.</p></statement>
-    <feedback><p>Feedback shows incorrect matches.</p></feedback>
-    <cardsort>
-        <match>
-            <premise order="1">[ ]</premise>
-            <response>Accesses value of an element.</response>
-        </match>
-        <match>
-            <premise order="2">=</premise>
-            <response>Assigns value to an element.</response>
-        </match>
-        <match>
-            <premise order="3">push_back</premise>
-            <response>Adjoins a character to the end of the string.</response>
-        </match>
-        <match>
-            <premise order="4">pop_back</premise>
-            <response>Removes the last character from the end of the string.</response>
-        </match>
-        <match>
-            <premise order="5">+</premise>
-            <response>connects strings.</response>
-        </match>
-    </cardsort>
-</exercise>
-
-<exercise label="matching_strings2">
-    <statement><p>Match the additional String operations with their corresponding explanation.</p></statement>
-    <feedback><p>Feedback shows incorrect matches.</p></feedback>
-    <cardsort>
-        <match>
-            <premise order="1">find</premise>
-            <response>Returns the index of the first occurrence of item.</response>
-        </match>
-        <match>
-            <premise order="2">insert</premise>
-            <response>Injects a string at a specific index.</response>
-        </match>
-        <match>
-            <premise order="3">erase</premise>
-            <response>Deletes an element from one index to another.</response>
-        </match>
-        <match>
-            <premise order="4">size</premise>
-            <response>Returns the capacity of the string.</response>
-        </match>
-        <match>
-            <premise order="5">append</premise>
-            <response>Adjoins a string to the end of the string.</response>
-        </match>
-    </cardsort>
-</exercise>
-
-<exercise label="string_types">
-    <statement><p>Drag each data type to its' corresponding C++ initialization syntax.</p></statement>
-    <feedback><p>Feedback shows incorrect matches.</p></feedback>
-    <cardsort>
-        <match>
-            <premise order="1">char</premise>
-            <response>'a'</response>
-        </match>
-        <match>
-            <premise order="2">char array</premise>
-            <response>{'a'}</response>
-        </match>
-        <match>
-            <premise order="3">string</premise>
-            <response>&quot;a&quot;</response>
-        </match>
-    </cardsort>
-</exercise>
-
-<exercise label="matching_HT">
-    <statement><p> Match the Hash Table operations with their corresponding explination.</p></statement>
-    <feedback><p>Feedback shows incorrect matches.</p></feedback>
-    <cardsort>
-        <match>
-            <premise order="1">[ ]</premise>
-            <response>Returns the value associated with the key, otherwise throws error.</response>
-        </match>
-        <match>
-            <premise order="2">erase</premise>
-            <response>Deletes the entry from the hash table.</response>
-        </match>
-        <match>
-            <premise order="3">count</premise>
-            <response>Returns true if key is in the hash table, and false otherwise.</response>
-        </match>
-        <match>
-            <premise order="4">begin</premise>
-            <response>An iterator to the first element in the hash table.</response>
-        </match>
-        <match>
-            <premise order="5">end</premise>
-            <response>An iterator pointing to past-the-end element of the hash table.</response>
-        </match>
-    </cardsort>
-</exercise> 
-
 </reading-questions>
 
         </subsection>
