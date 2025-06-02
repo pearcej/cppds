@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
         <title>Sorting</title>
-        <xi:include href='./Objectives.ptx' />
-        <xi:include href='./sorting.ptx' />
-        <xi:include href='./TheBubbleSort.ptx' />
-        <xi:include href='./TheSelectionSort.ptx' />
-        <xi:include href='./TheInsertionSort.ptx' />
-        <xi:include href='./TheShellSort.ptx' />
-        <xi:include href='./TheMergeSort.ptx' />
-        <xi:include href='./TheQuickSort.ptx' />
-        <xi:include href='./SelfCheck.ptx' />
-        <xi:include href='./Summary.ptx' />
-        <xi:include href='./DiscussionQuestions.ptx' />
-        <xi:include href='./ProgrammingExercises.ptx' />
-        <xi:include href='./Glossary.ptx' />
-        <xi:include href='./Matching.ptx' />
+        <xi:include href="./Objectives.ptx" />
+        <xi:include href="./sorting.ptx" />
+        <xi:include href="./TheBubbleSort.ptx" />
+        <xi:include href="./TheSelectionSort.ptx" />
+        <xi:include href="./TheInsertionSort.ptx" />
+        <xi:include href="./TheShellSort.ptx" />
+        <xi:include href="./TheMergeSort.ptx" />
+        <xi:include href="./TheQuickSort.ptx" />
+        <xi:include href="./SelfCheck.ptx" />
+        <xi:include href="./Summary.ptx" />
+        <xi:include href="./DiscussionQuestions.ptx" />
+        <xi:include href="./ProgrammingExercises.ptx" />
+        <xi:include href="./Glossary.ptx" />
+        <xi:include href="./Matching.ptx" />
     </chapter>
