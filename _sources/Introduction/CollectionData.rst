@@ -329,7 +329,7 @@ Matching
    :match_8: capacity|||Returns the ammount of allocated storage space.
    :match_9: reserve||| Request a change in space to amount
 
-    Match the Vector operations with their corresponding explination.
+    Match the Vector operations with their corresponding explanation.
 
 .. tabbed:: intro_vector
 
@@ -558,7 +558,7 @@ Matching
    :match_9: append|||Adjoins a string to the end of the string.
    :match_10: find||| Returns the index of the first occurrence of item.
 
-    Match the String operations with their corresponding explination.
+    Match the String operations with their corresponding explanation.
 
 .. tabbed:: intro_string
 
@@ -785,7 +785,7 @@ Matching
    :match_5: begin|||An iterator to the first element in the hash table.
    :match_6: end|||An iterator pointing to past-the-end element of the hash table.
 
-    Match the Hash Table operations with their corresponding explination.
+    Match the Hash Table operations with their corresponding explanation.
 
 Unordered Sets
 --------------
@@ -875,7 +875,7 @@ Matching
    :match_5: remove|||erases item from the set.
    :match_6: clear|||Removes all elements from the set.
 
-    Match the Unordered Sets operations with their corresponding explination.
+    Match the Unordered Sets operations with their corresponding explanation.
 
 
 .. mchoice:: mc_fixed
