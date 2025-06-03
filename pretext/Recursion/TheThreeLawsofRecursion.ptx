@@ -52,7 +52,7 @@
             of recursive functions are largely dependent on how they're implemented.</p>
 
     <listing xml:id="ackermann">
-        <caption>Ackermann Function</caption>
+        <title>Ackermann Function</title>
         <program interactive="activecode" language="cpp" label="ackermann-prog"><code>
 //ackermann function example
 #include &lt;iostream&gt;

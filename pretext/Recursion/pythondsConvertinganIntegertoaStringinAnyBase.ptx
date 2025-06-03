@@ -51,7 +51,7 @@
             the numbers we want to remember are in the remainder boxes along the
             right side of the diagram.</p>
         
-        <figure align="center" xml:id="fig-tostr">
+        <figure xml:id="fig-tostr">
             <caption>Converting an Integer to a String in Base 10.</caption>
                 <image source="Recursion/toStr.png" width="50%">
                 <description><p>Flowchart demonstrating the conversion of an integer to a string in base 10 using recursion. The process starts with 'toStr(769)', which divides '769' by '10' and adds the remainder 'g'. The result feeds into 'toStr(76)', which again divides by '10' to add the remainder '6'. The final call is 'toStr(7)', which is less than '10' and therefore converts directly to '7'. The remainders at each step are used to build the string representation of the integer.</p></description>
@@ -113,7 +113,7 @@ main()
         <p>Let's trace the algorithm again; this time we will convert the number 10
             to its base 2 string representation (<c>&quot;1010&quot;</c>).</p>
     
-        <figure align="center" xml:id="fig-tostr2">
+        <figure xml:id="fig-tostr2">
             <caption>Converting the Number 10 to its Base 2 String Representation.</caption>
                 <image source="Recursion/toStrBase2.png" width="50%">
                 <description><p>Flowchart depicting the recursive process of converting the number 10 to its binary (base 2) string representation. The topmost operation 'toStr(10)' shows the division '10 / 2' with a remainder '0'. This leads to 'toStr(5)', with division '5 / 2' and remainder '1', followed by 'toStr(2)' with division '2 / 2' and remainder '0', and finally 'toStr(1)' indicating '1 &lt; 2' and yielding a remainder '1'. The remainders collected at each step form the binary representation of the number 10.</p></description>
