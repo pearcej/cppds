@@ -13,7 +13,7 @@
             the first character of the string and the rear of the deque will hold
             the last character (see <xref ref="fig-palindrome"/>).</p>
         
-        <figure align="center" xml:id="fig-palindrome">
+        <figure xml:id="fig-palindrome">
             <caption>A Deque</caption>
             <image source="LinearBasic/palindromesetup.png" width="50%">
                 <description><p>
@@ -116,7 +116,7 @@ main()
         <p><xref ref="advanced-linear-basic_palinedrome-cpp"/>.</p>
         
         <listing xml:id="advanced-linear-basic_palinedrome-cpp">
-            <caption>Advanced Palindrome Checker</caption>
+            <title>Advanced Palindrome Checker</title>
             <program xml:id="advanced_palinedrome_cpp" interactive="activecode" language="cpp" label="advanced_palinedrome_cpp-prog"><code>
 //program that detects palindromes.
 

@@ -267,7 +267,7 @@
                 and the matching left parenthesis were removed, the complete postfix
                 expression would result (see <xref ref="xfix_fig-moveright"/>).</p>
             
-            <figure align="center" xml:id="xfix_fig-moveright">
+            <figure xml:id="xfix_fig-moveright">
                 <caption>Moving Operators to the Right for Postfix Notation</caption>
                 <image source="LinearBasic/moveright.png" width="50%"> 
                     <description>
@@ -283,7 +283,7 @@
                 (see <xref ref="xfix_fig-moveleft"/>). The position of the parenthesis pair is
                 actually a clue to the final position of the enclosed operator.</p>
             
-            <figure align="center" xml:id="xfix_fig-moveleft">
+            <figure xml:id="xfix_fig-moveleft">
                 <caption>Moving Operators to the Left for Prefix Notation</caption>
                 <image source="LinearBasic/moveleft.png" width="50%"> 
                     <description>
@@ -303,7 +303,7 @@
                 <xref ref="xfix_fig-complexmove"/> shows the conversion to postfix and prefix
                 notations.</p>
             
-            <figure align="center" xml:id="xfix_fig-complexmove">
+            <figure xml:id="xfix_fig-complexmove">
                 <caption>Converting a Complex Expression to Prefix and Postfix Notations</caption>
                 <image source="LinearBasic/complexmove.png" width="50%">
                     <description>
@@ -312,9 +312,9 @@
                         At the center, the fully parenthesized infix expression is displayed: (((A + B) * C) - ((D - E) * (F + G))). 
                         Two arrows branch out from the central expression. The first arrow points to the prefix notation, 
                         where the operators are moved to the left of their operands, resulting in:
-                        <math display="inline">-*+A B C *-D E +F G</math>. 
+                        <m>-*+A B C *-D E +F G</m>. 
                         The second arrow points to the postfix notation, where the operators are moved to the right of their operands, resulting in:
-                        <math display="inline">A B + C * D E - F G + * -</math>. 
+                        <m>A B + C * D E - F G + * -</m>. 
                         This image demonstrates how to systematically rearrange operators based on the desired notation by using the position of parentheses as a guide.
  
                     </p>
@@ -421,7 +421,7 @@
                 of the infix expression the stack is popped twice, removing both
                 operators and placing + as the last operator in the postfix expression.</p>
             
-            <figure align="center" xml:id="xfix_fig-intopost">
+            <figure xml:id="xfix_fig-intopost">
                 <caption>Converting A * B + C * D to Postfix Notation</caption>
                 <image source="LinearBasic/intopost.png" width="50%">
                     <description>
@@ -608,7 +608,7 @@ main()
                 <xref ref="xfix_fig-evalpost1"/> shows the stack contents as this entire example
                 expression is being processed.</p>
             
-            <figure align="center" xml:id="xfix_fig-evalpost1">
+            <figure xml:id="xfix_fig-evalpost1">
                 <caption>Stack Contents During Evaluation</caption>
                 <image source="LinearBasic/evalpostfix1.png" width="50%"> 
                     <description>
@@ -634,7 +634,7 @@ main()
                 <m>15/5</m> is not the same as <m>5/15</m>, we must be sure that
                 the order of the operands is not switched.</p>
             
-            <figure align="center" xml:id="xfix_fig-evalpost2">
+            <figure xml:id="xfix_fig-evalpost2">
                 <caption>A More Complex Example of Evaluation</caption>
                 <image source="LinearBasic/evalpostfix2.png" width="50%"> 
                     <description>
@@ -789,7 +789,7 @@ main()
         Reading Questions
     </title>
 
-                <exercise label="question1_100_4" indent="show" language="python"><statement>
+                <exercise label="question1_100_4" language="python"><statement>
                     <p>What does the prefix expression of this infix expression look like: ((A+B)*(C-D)) if this were modeled using a stack with the top being the end of the expression and the bottom being the beginning of the expression?</p>
         </statement>
         <blocks><block order="1">

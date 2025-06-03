@@ -13,7 +13,7 @@
             to access and modify the data and the next reference.</p>
 
   <listing xml:id="linear-linked_lst-nodeclass" names="lst_nodeclass">
-    <caption><c>Node</c> Class</caption>
+    <title><c>Node</c> Class</title>
     <program language="cpp" label="linear-linked_lst-nodeclass-prog"><code>
 #include &lt;iostream&gt;
 using namespace std;
@@ -59,7 +59,7 @@ class Node {
                 we will use the standard ground symbol to denote a reference that is
                 referring to <c>nullptr</c>.</p>
   </blockquote>
-  <figure align="center" xml:id="id1-fig-node">
+  <figure xml:id="id1-fig-node">
     <caption>A Node Object Contains the Item and a Reference to the Next Node</caption>
     <image source="LinearLinked/node.png" width="50%">
     <description>
@@ -71,7 +71,7 @@ class Node {
     </description>
     </image>
   </figure>
-  <figure align="center" xml:id="id2-fig-node2">
+  <figure xml:id="id2-fig-node2">
     <caption>A Typical Representation for a Node</caption>
     <image source="LinearLinked/node2.png" width="50%">
     <description>

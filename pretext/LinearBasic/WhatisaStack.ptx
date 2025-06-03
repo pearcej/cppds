@@ -66,7 +66,7 @@
             Back button, you begin to move in reverse order through the pages.</p>
             <reading-questions xml:id="rq-stack-adt">
                 <title>Reading Question</title>
-                <exercise label="stack_prob" indent="show" language="python"><statement>
+                <exercise label="stack_prob" language="python"><statement>
                         <p>Say we create a stack by pushing numbers 1 to 4 from lowest to highest. What would the stack look like afterwards?</p>
                 </statement>
                 <blocks><block order="1">

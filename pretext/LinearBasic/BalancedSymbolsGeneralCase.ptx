@@ -163,9 +163,7 @@ main()
             uses for stacks exist in computer science. We will continue to explore them
             in the next sections.</p>
 <reading-questions xml:id="rq-balanced-sybols">
-  <title>
-    <p>Reading Question</p>
-  </title>
+  <title>Reading Question</title>
   <exercise label="stackclick">
     <statement><p>Using the program below, click on the line of code that adds an open parenthesis to the stack.</p></statement>
     <feedback><p>Remember that the function to do this would be the push function.</p></feedback>
