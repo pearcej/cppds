@@ -227,7 +227,7 @@ main()
         required for the calculation.</p>
     <p>Consider the following code block:</p>
     <listing xml:id="n1000-how-many">
-        <caption>How many times?</caption>
+        <title>How many times?</title>
         <program language="cpp" label="n1000-how-many-prog"><code>
 int n = 1000;
 int theSum = 0;
@@ -245,13 +245,13 @@ for (int i=0; i&lt;n+1; i++){
             much like a mathematical loop typically with a counter.</p>
         <p>If we have
             <m>\sum_{i=1}^{5}</m>
-            the bottom index <title_reference>i=1</title_reference> tells us that the index <title_reference>i</title_reference> begins at 1
-            and that <title_reference>i</title_reference> will terminate at <title_reference>5</title_reference>.</p>
+            the bottom index <m>i=1</m> tells us that the index <m>i</m> begins at 1
+            and that <m>i</m> will terminate at <m>5</m>.</p>
         <p>What ever comes immediately afterwards is what
             we are summing. So,
             <m>\sum_{i=1}^{5} i</m>
             tells us to add the integers <m>1+2+3+4+5</m>
-            because just like in a <title_reference>for</title_reference> loop, we plug a value for each <title_reference>i</title_reference> value.
+            because just like in a <c>for</c> loop, we plug a value for each <m>i</m> value.
             Similarly, <m>\sum_{i=2}^{4} i^2</m> means <m>2^2+3^2+4^2</m>.</p>
 
 
@@ -262,10 +262,10 @@ for (int i=0; i&lt;n+1; i++){
             Let's consider the blue area in the
             following <m>8 \times 9</m>.rectangle.</p>
 
-        <figure align="center" xml:id="fig-sumof-n-integers">
-            <caption>Sum of <title_reference>n = 8</title_reference> integers</caption>
+        <figure xml:id="fig-sumof-n-integers">
+            <caption>Sum of <m>n = 8</m> integers</caption>
                 <image source="AlgorithmAnalysis/sumof-n-integers.png" width="50%">
-                    <description>This figure illustrates the sum of eight integers (Figure 1). Examining the blue area within the rectangle highlights various problem-solving approaches. The visual representation provides clarity, showcasing the intricacies involved in calculating the sum and emphasizing the value of diverse perspectives in mathematical problem-solving.</description>
+                    <description><p>This figure illustrates the sum of eight integers (Figure 1). Examining the blue area within the rectangle highlights various problem-solving approaches. The visual representation provides clarity, showcasing the intricacies involved in calculating the sum and emphasizing the value of diverse perspectives in mathematical problem-solving.</p></description>
                 </image>
         </figure>
 
@@ -277,12 +277,12 @@ for (int i=0; i&lt;n+1; i++){
             half of the rectangle.
             So, the area with blue squares
             is also just <m>\sum_{i=1}^{8} i = \frac {(8)(8+1)}{2}</m>.</p>
-        <p>Hence, when we have a variable <title_reference>n</title_reference>, we have learned that we can just use the
+        <p>Hence, when we have a variable <m>n</m>, we have learned that we can just use the
             closed equation <m>\sum_{i=1}^{n} i = \frac {(n)(n+1)}{2}</m> to
             compute the sum of the first <c>n</c> integers without iterating.</p>
         <p>Consider the function in <xref ref="sum-of-n3"/>.</p>
         <listing xml:id="sum-of-n3">
-            <caption><c>sumOfN3</c></caption>
+            <title><c>sumOfN3</c></title>
             <program language="cpp" label="sum-of-n3-prog"><code>
 int sumOfN3(int n){
   int sum_n = (n*(n+1))/2; // how many times?

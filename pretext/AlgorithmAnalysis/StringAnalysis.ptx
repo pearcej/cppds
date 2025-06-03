@@ -126,7 +126,7 @@
                 
             
         </tabular></table>
-        <p>Just like vectors, the <title_reference>push_back()</title_reference> operation is <m>O(1)</m> unless there is inadequate capacity,
+        <p>Just like vectors, the <c>push_back()</c> operation is <m>O(1)</m> unless there is inadequate capacity,
             in which case the entire
             string is moved to a larger contiguous underlying array, which
             is <m>O(n)</m>.</p>
