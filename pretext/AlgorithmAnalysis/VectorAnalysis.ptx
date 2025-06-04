@@ -37,7 +37,7 @@
             making our vector.</p>
         
         <listing xml:id="ls_mkvectcpp">
-            <caption>Using <c>push_back()</c></caption>
+            <title>Using <c>push_back()</c></title>
             <program language="cpp" label="ls_mkvectcpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
@@ -69,7 +69,7 @@ int main() {
             of our test functions 10,000 times within a <c>for</c> loop.</p>
 
     <listing xml:id="lst-vectcpp2">
-        <caption>Timing <c>push_back()</c></caption>
+        <title>Timing <c>push_back()</c></title>
         <program xml:id="vectcpp2" interactive="activecode" language="cpp" label="vectcpp2-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
@@ -107,7 +107,7 @@ int main(){
             adequately sized space in memory.</p>
 
     <listing xml:id="lst-vectcpp3">
-        <caption>Reserved Versus Unreserved <c>push_back()</c></caption>
+        <title>Reserved Versus Unreserved <c>push_back()</c></title>
         <program xml:id="vectcpp3" interactive="activecode" language="cpp" label="vectcpp3-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
@@ -293,7 +293,7 @@ int main(){
             that the vector is decreasing in size by 1 each time through the loop.</p>
         
     <listing xml:id="lst_popmeascpp">
-        <caption>Timing of <c>push_back</c> Versus <c>erase</c></caption>
+        <title>Timing of <c>push_back</c> Versus <c>erase</c></title>
         <program xml:id="popbackvserase" interactive="activecode" language="cpp" label="popbackvserase-prog">
             <code>
 #include &lt;iostream&gt;
