@@ -17,7 +17,7 @@
             for or run out of items. If we run out of items, we have discovered that
             the item we were searching for was not present.</p>
         
-        <figure align="center" xml:id="fig-seqsearch">
+        <figure xml:id="fig-seqsearch">
             <caption>Sequential Search of a List of Integers.</caption>
                 <image source="SearchHash/seqsearch.png" width="80%">
                 <description><p>Diagram showing a horizontal sequence of connected boxes containing integers, illustrating a sequential search algorithm. Each box contains a unique number, with values visible in the image including '54', '26', '93', '17', '77', '31', '44', '55', '20', and '65'. A curved arrow labeled 'Start' points to the first box '54', indicating the beginning of the search process. The arrangement suggests that the search will proceed through the list of numbers from left to right.</p></description>
@@ -25,42 +25,16 @@
             </figure>
 
             <p>Both the Python and C++ implementations for this algorithm are shown in
-                <xref ref="seqsearchonepy" text="ActiveCode Python"/> and <xref ref="seqsearchonecpp" text="ActiveCode C++"/> respectively. The function needs the list and the item we
+                <xref ref="seqsearchonepy" /> and <xref ref="seqsearchonecpp" />> respectively. The function needs the list and the item we
                 are looking for and returns a boolean value as to whether it is present.
                 The boolean variable <c>found</c> is initialized to <c>False</c> and is
                 assigned the value <c>True</c> if we discover the item in the list (or vector, in the case of C++).</p>
 
-            <listing xml:id="seqsearchonepy">
-                <caption>Python Implementation</caption>
-                <program interactive="activecode" language="python" label="seqsearchonepy-prog">
-                    <code>
-                    # Python implementation of sequential search
-                    def sequential_search(lst, item):
-                        found = False
-                        for i in range(len(lst)):
-                            if lst[i] == item:
-                                found = True
-                                break
-                        return found
-                    
-                    if __name__ == &quot;__main__&quot;:
-                        lst = [1, 2, 3, 4, 5]
-                        item = 3
-                        if sequential_search(lst, item):
-                            print(&quot;Item found!&quot;)
-                        else:
-                            print(&quot;Item not found.&quot;)
-                    </code>
-                </program>
-            </listing>
-
-
-
-            <listing xml:id="seqsearchonecpp">
-                <caption>C++ Implementation</caption>
-
-                <program xml:id="lst-seqsearchcpp" interactive="activecode" language="cpp" label="lst-seqsearchcpp-prog">
-                    <code>
+            <exploration xml:id="expl-seqsearch">
+                <title>Sequential Search</title>
+                <task xml:id="seqsearchonecpp" label="seqsearchonecpp">
+                    <title>C++ Implementation</title>
+                    <statement><program xml:id="lst-seqsearchcpp" interactive="activecode" language="cpp" label="lst-seqsearchcpp-prog"><code>
             #include &lt;iostream&gt;
             #include &lt;vector&gt;
             using namespace std;
@@ -93,9 +67,32 @@
             
                 return 0;
             }
-                </code>
-            </program>
-        </listing>
+                    </code></program></statement>
+                </task>
+                <task label="tsk-seqsearchpy" xml:id="seqsearchonepy">
+                    <title>Python Implementation</title>
+                    <statement><program interactive="activecode" language="python" label="seqsearchonepy-prog"><code>
+                    # Python implementation of sequential search
+                    def sequential_search(lst, item):
+                        found = False
+                        for i in range(len(lst)):
+                            if lst[i] == item:
+                                found = True
+                                break
+                        return found
+                    
+                    if __name__ == &quot;__main__&quot;:
+                        lst = [1, 2, 3, 4, 5]
+                        item = 3
+                        if sequential_search(lst, item):
+                            print(&quot;Item found!&quot;)
+                        else:
+                            print(&quot;Item not found.&quot;)
+                        </code></program></statement>
+                    </task>
+                </exploration>
+
+
         </introduction>
         <subsection xml:id="search-hash_analysis-of-sequential-search">
             <title>Analysis of Sequential Search</title>
@@ -116,7 +113,7 @@
                 scenarios that can occur. In the best case we will find the item in the
                 first place we look, at the beginning of the list. We will need only one
                 comparison. In the worst case, we will not discover the item until the
-                very last comparison, the <title_reference>nth</title_reference> comparison.</p>
+                very last comparison, the <m>n^{th}</m> comparison.</p>
             <p>What about the average case? On average, we will find the item about
                 halfway into the list; that is, we will compare against
                 <m>\frac{n}{2}</m> items. Recall, however, that as <em>n</em> gets large,
@@ -186,7 +183,7 @@
                 sequential search function.</p>
 
           
-            <figure align="center" xml:id="fig-seqsearch2">
+            <figure xml:id="fig-seqsearch2">
                 <caption>Sequential Search of an Ordered List of Integers.</caption>
                     <image source="SearchHash/seqsearch2.png" width="80%">
                     <description><p>Image of a sequence of connected boxes in a horizontal line, each containing a number, representing a sequential search on an ordered list of integers. The numbers, displayed in ascending order, are '17', '20', '26', '31', '44', '54', '55', '65', '77', and '93'. A curved arrow labeled 'Start' points to the first box with '17', indicating the point where the search begins. The sequence suggests a methodical approach to searching, where each element is checked in order until the desired number is found.</p></description>
@@ -195,7 +192,7 @@
             
 
             <listing xml:id="lst-orderedseq">
-                <caption>Ordered Sequential Search</caption>
+                <title>Ordered Sequential Search</title>
                 <program xml:id="search2_cpp" interactive="activecode" language="cpp" label="search2_cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;

@@ -7,7 +7,7 @@
             <xref ref="fig-insertionsort"/> shows the insertion sorting process. The shaded
             items represent the ordered subvectors as the algorithm makes each pass.</p>
         
-        <figure align="center" xml:id="fig-insertionsort">
+        <figure xml:id="fig-insertionsort">
             <caption>InsertionSort.</caption>
                 <image source="Sort/insertionsort.png" width="50%">
                 <description><p>A step-by-step visual representation of the insertion sort algorithm. The image shows a series of rows with numbers in boxes, illustrating the process of sorting the numbers in ascending order. Each row represents a step in the algorithm, with the text on the right indicating the action taken, such as 'inserted 26' or 'inserted 93'. The sequence begins with the numbers 54, 26, 93, and so on, and gradually transforms into a sorted sequence from left to right as the algorithm progresses. The caption 'Figure 7.5.1. insertionSort' is placed below the image.</p></description>
@@ -30,7 +30,7 @@
             have a sorted subvector of six items.</p>
         
 
-        <figure align="center" xml:id="fig-insertionpass">
+        <figure xml:id="fig-insertionpass">
             <caption><c>InsertionSort</c>: Fifth Pass of the Sort.</caption>
                 <image source="Sort/insertionpass.png" width="50%">
                 <description><p>An educational illustration depicting the fifth pass of the insertion sort algorithm. The diagram shows a series of rows with numerical values in boxes, each row representing a step in the sorting process. Arrows indicate the shifting of numbers to make space for the correctly positioned value. Descriptive text accompanies each step explaining the movement required, such as '93&gt;31 so shift it to the right' and 'Need to insert 31 back into the sorted list'. The final row shows the number 31 being inserted into its correct position in the sequence.</p></description>

@@ -23,21 +23,21 @@
     <exercise label="hashcollisions">
         <statement><p>What creates hash collisions?</p></statement>
         <choices>
-            <choice correct="no" label="a">
-                <statement>when pairs of different hash values are mapped to the same key.</statement>
-                <feedback>Think about what keys refer to and what hash values refer to</feedback>
+            <choice correct="no">
+                <statement><p>when pairs of different hash values are mapped to the same key.</p></statement>
+                <feedback><p>Think about what keys refer to and what hash values refer to</p></feedback>
             </choice>
-            <choice correct="no" label="b">
-                <statement>when pairs of different hash values do not share the same key.</statement>
-                <feedback>Think about what keys refer to and what hash values refer to</feedback>
+            <choice correct="no">
+                <statement><p>when pairs of different hash values do not share the same key.</p></statement>
+                <feedback><p>Think about what keys refer to and what hash values refer to</p></feedback>
             </choice>
-            <choice correct="yes" label="c">
-                <statement>when pairs of different keys are mapped to the same hash value.</statement>
-                <feedback>Correct!</feedback>
+            <choice correct="yes">
+                <statement><p>when pairs of different keys are mapped to the same hash value.</p></statement>
+                <feedback><p>Correct!</p></feedback>
             </choice>
-            <choice correct="no" label="d">
-                <statement>when pairs of different keys do not share the same hash value.</statement>
-                <feedback>Think about what keys refer to and what hash values refer to</feedback>
+            <choice correct="no">
+                <statement><p>when pairs of different keys do not share the same hash value.</p></statement>
+                <feedback><p>Think about what keys refer to and what hash values refer to</p></feedback>
             </choice>
         </choices>
     </exercise>
