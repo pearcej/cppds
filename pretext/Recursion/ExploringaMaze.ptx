@@ -215,7 +215,7 @@ def searchFrom(maze, startRow, startColumn):
             For the data file in <xref ref="lst-exmaze"/> the
             internal representation looks like the following:</p>
         <listing xml:id="lst-exmaze">
-            <caption>Example Maze</caption>
+            <title>Example Maze</title>
             <program language="cpp" label="lst-exmaze-prog"><code>
 {
     &quot;++++++++++++++++++++++&quot;,

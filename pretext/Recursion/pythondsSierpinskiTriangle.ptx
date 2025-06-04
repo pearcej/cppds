@@ -13,7 +13,7 @@
             sharp enough pencil. Before you continue reading, you may want to try
             drawing the Sierpinski triangle yourself, using the method described.</p>
         
-        <figure align="center" xml:id="fig-sierpinski">
+        <figure xml:id="fig-sierpinski">
             <caption>The Sierpinski Triangle.</caption>
                 <image source="Recursion/sierpinski.png" width="50%">
                 <description><p>Image of the Sierpinski Triangle, a fractal composed of colored triangles. 
@@ -160,7 +160,7 @@ main()
             triangles. The function finishes drawing one level at a time; once it is
             finished with the bottom left it moves to the bottom middle, and so on.</p>
         
-        <figure align="center" xml:id="fig-stcalltree">
+        <figure xml:id="fig-stcalltree">
             <caption>Building a Sierpinski Triangle.</caption>
                 <image source="Recursion/stCallTree.png" width="50%">
                 <description><p>Diagram showing the recursive construction of a Sierpinski Triangle using a tree structure. The diagram starts with a single top circle labeled 'top', branching out into three interconnected circles labeled 'left', 'top', and 'right'. Each of these circles further branches out in a similar pattern, with the process repeating for several iterations. The circles decrease in size from top to bottom, representing the fractal's recursive nature. The grayscale shading of the circles suggests depth or iteration levels.</p></description>

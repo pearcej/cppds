@@ -79,7 +79,7 @@ main()
             that now we can simply pop the characters off the stack and concatenate
             them into the final result, <c>&quot;1010&quot;</c>.</p>
         
-        <figure align="center" xml:id="fig-recstack">
+        <figure xml:id="fig-recstack">
             <caption>Strings Placed on the Stack During Conversion.</caption>
                 <image source="Recursion/recstack.png" width="50%">
                 <description><p>Image of a stack with character strings representing the result of a conversion process. The stack shows four blocks, each containing a single character. From top to bottom, the blocks are labeled '1', '0', '1', and '0', aligned vertically above a horizontal line that represents the base of the stack. This illustrates the sequence of characters placed on the stack during a number conversion, presumably from a recursive process.</p></description>
@@ -93,7 +93,7 @@ main()
             the calling function to access. <xref ref="fig-callstack"/> illustrates the
             call stack after the return statement on line 4.</p>
         
-        <figure align="center" xml:id="fig-callstack">
+        <figure xml:id="fig-callstack">
             <caption>Call Stack Generated from <c>toStr(10,2).</c></caption>
                 <image source="Recursion/newcallstack.png" width="50%">
                 <description><p>Diagram illustrating a call stack generated from the function toStr(10,2), which converts the number 10 into a base 2 string. The bottom of the stack shows 'toStr(10/2, 2) + convertString[10%2]', then above it 'toStr(5,2) n = 5 base = 2' with 'toStr(5/2,2) + convertString[5%2]', followed by 'toStr(2,2) n = 2 base = 2' and at the top 'toStr(2/2,2) + convertString[2%2]'. A single character '1' floats above the stack, indicating the start of the conversion process.</p></description>

@@ -82,10 +82,8 @@
             </li>
             <li>
                 <p>Pascal's triangle is a number triangle with numbers arranged in
-                    staggered rows such that</p>
-                <m docname="Recursion/pythondsProgrammingExercises" nowrap="False" number="True" xml:space="preserve">a_{nr} = {n! \over{r! (n-r)!}}
-
-</m>
+                    staggered rows such that
+                    <me>a_{nr} = {n! \over{r! (n-r)!}}</me></p>
                 <p>This equation is the equation for a binomial coefficient. You can
                     build Pascal's triangle by adding the two numbers that are diagonally
                     above a number in the triangle. An example of Pascal's triangle is

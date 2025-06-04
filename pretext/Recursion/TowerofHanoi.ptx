@@ -23,7 +23,7 @@
             this puzzle before, you should try it now. You do not need fancy disks
             and poles<ndash/>a pile of books or pieces of paper will work.</p>
         
-        <figure align="center" xml:id="fig-hanoicpp">
+        <figure xml:id="fig-hanoicpp">
             <caption>An Example Arrangement of Disks for the Tower of Hanoi.</caption>
                 <image source="Recursion/hanoi.png" width="80%">
                 <description><p>Image depicting the initial setup of the Tower of Hanoi puzzle. It shows three vertical poles labeled 'fromPole', 'withPole', and 'toPole' on a horizontal base. The 'fromPole' has three disks stacked on it, with the largest at the bottom and the smallest at the top, while the other two poles are empty. This is a classic configuration for the start of the puzzle, which involves moving the disks to another pole under certain rules.</p></description>
@@ -73,7 +73,7 @@
             Tower of Hanoi puzzle.</p>
         
         <listing xml:id="lst-movetower">
-            <caption><c>moveTower</c> Function</caption>
+            <title><c>moveTower</c> Function</title>
             <program language="cpp" label="lst-movetower-prog"><code>
 int moveTower(int height, char fromPole, char toPole, char withPole){
     if (height &gt;= 1){
