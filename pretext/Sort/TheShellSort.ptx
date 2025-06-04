@@ -16,7 +16,7 @@
             the subvectors, we have moved the items closer to where they actually
             belong.</p>
         
-        <figure align="center" xml:id="fig-incrementsa">
+        <figure xml:id="fig-incrementsa">
             <caption>A Shell Sort with Increments of Three</caption>
                 <image source="Sort/shellsortA.png" width="50%">
                 <description><p>Visual diagram showing three rows of numbers representing sublists in the Shell Sort algorithm with increments of three. Each row contains the same sequence of numbers: 54, 26, 93, 17, 77, 31, 44, 55, 20, categorized into 'sublist 1', 'sublist 2', and 'sublist 3'. This illustrates the initial stage of Shell Sort where the list is divided into sublists based on a specific increment, in this case, three, to be sorted individually.</p></description>
@@ -24,7 +24,7 @@
             </figure>
 
         
-        <figure align="center" xml:id="fig-incrementsb">
+        <figure xml:id="fig-incrementsb">
             <caption>A Shell Sort after Sorting Each subvector</caption>
                 <image source="Sort/shellsortB.png" width="50%">
                 <description><p>Illustration of a Shell Sort algorithm after sorting each subvector. Three rows of numbers in boxes, each labeled as 'sublist 1 sorted', 'sublist 2 sorted', and 'sublist 3 sorted', show the partial sorting within each sublist. Arrows point downwards from these sublists to a final sorted row, demonstrating the result of combining the sorted sublists at increment 3. The numbers in the final row are more ordered compared to the original sublists above.</p></description>
@@ -38,7 +38,7 @@
             this case, we need only four more shifts to complete the process.</p>
         
 
-        <figure align="center" xml:id="fig-incrementsc">
+        <figure xml:id="fig-incrementsc">
             <caption>ShellSort: A Final Insertion Sort with Increment of 1</caption>
                 <image source="Sort/shellsortC.png" width="50%">
                 <description><p>An instructional image of ShellSort's final insertion sort phase with an increment of 1, displaying a series of rows with numerical values in boxes. The top row shows the initial unsorted state of numbers. Subsequent rows depict the sorting process, with arrows indicating the shifting of numbers to insert them into their correct position. Descriptive text such as '1 shift for 20', '2 shifts for 31', and '1 shift for 54' explains the actions taken at each step. The final row shows the numbers in a fully sorted order.</p></description>
@@ -46,7 +46,7 @@
             </figure>
 
 
-        <figure align="center" xml:id="fig-incrementsd">
+        <figure xml:id="fig-incrementsd">
             <caption>Initial Subvectors for a Shell Sort</caption>
                 <image source="Sort/shellsortD.png" width="50%">
                 <description><p>The image illustrates the initial division of a list into subvectors for the Shell Sort algorithm. There are four rows of grey boxes, each representing a sublist, labeled from sublist 1 to sublist 4. Inside each row are the same sequence of numbers: 54, 26, 93, 17, 77, 31, 44, 55, 20, indicating the elements that will be sorted within each sublist.</p></description>

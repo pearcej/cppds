@@ -24,7 +24,7 @@
             <xref ref="search_hash-fig-hashtable1"/> shows a hash table of size <m>m=11</m>.
             In other words, there are <em>m</em> slots in the table, named 0 through 10.</p>
 
-        <figure align="center" xml:id="search_hash-fig-hashtable1">
+        <figure xml:id="search_hash-fig-hashtable1">
             <caption>Hash Table with 11 Empty Slots.</caption>
             <image source="SearchHash/hashtable.png" width="80%">
                 <description><p>Image depicting a hash table data structure with eleven empty slots. The slots
@@ -116,7 +116,7 @@
             <m>\lambda = \frac {numberofitems}{tablesize}</m>. For this example,
             <m>\lambda = \frac {6}{11}</m>.<idx>load factor</idx></p>
         
-        <figure align="center" xml:id="fig-hashtable2">
+        <figure xml:id="fig-hashtable2">
             <caption> Hash Table with Six Items.</caption>
             <image source="SearchHash/hashtable2.png" width="80%">
                 <description><p>Image showing a hash table with eleven slots, numbered from 0 to 10.
@@ -298,7 +298,7 @@ cout&lt;&lt;i&lt;&lt;endl;
                 string and a table size and returns the hash value in the range from 0
                 to <c>tablesize</c>-1.</p>
             
-            <figure align="center" xml:id="fig-stringhash">
+            <figure xml:id="fig-stringhash">
                 <caption>Hashing a String Using Ordinal Values.</caption>
                 <image source="SearchHash/stringhash.png" width="80%">
                     <description><p>Diagram illustrating the process of hashing a string using ordinal values.
@@ -312,7 +312,7 @@ cout&lt;&lt;i&lt;&lt;endl;
             </figure>
             
 <listing xml:id="search-hash_lst-hashfunction1">
-    <caption><c>hash</c> function</caption>
+    <title><c>hash</c> function</title>
 
     <program xml:id="simplehash" interactive="activecode" language="cpp" label="simplehash-prog"><code>
 #include &lt;iostream&gt;
@@ -346,7 +346,7 @@ int main() {
                 one possible way to use the positional value as a weighting factor. The
                 modification to the <c>hash</c> function is left as an exercise.</p>
             
-            <figure align="center" xml:id="fig-stringhash2">
+            <figure xml:id="fig-stringhash2">
                 <caption>Hashing a String Using Ordinal Values with Weighting.</caption>
                     <image source="SearchHash/stringhash2.png" width="80%">
                         <description><p>Image depicting a hashing algorithm that uses ordinal values
@@ -399,7 +399,7 @@ int main() {
                 the next open position. The final value of 20 hashes to slot 9. Since
                 slot 9 is full, we begin to do linear probing. We visit slots 10, 0, 1,
                 and 2, and finally find an empty slot at position 3.</p>
-            <figure align="center" xml:id="fig-linearprobing1">
+            <figure xml:id="fig-linearprobing1">
                 <caption>Collision Resolution with Linear Probing.</caption>
                 <image source="SearchHash/linearprobing1.png" width="80%">
                     <description><p>Image of a hash table illustrating collision resolution with linear probing.
@@ -430,7 +430,7 @@ int main() {
                 finally find an open position. This cluster is shown in
                 <xref ref="fig-clustering"/>.</p>
 
-            <figure align="center" xml:id="fig-clustering">
+            <figure xml:id="fig-clustering">
                 <caption>A Cluster of Items for Slot 0.</caption>
                 <image source="SearchHash/clustering.png" width="80%">
                     <description><p>Image of a hash table with a series of filled and empty slots.
@@ -451,7 +451,7 @@ int main() {
                 resolution is done with a <q>plus 3</q> probe. This means that once a
                 collision occurs, we will look at every third slot until we find one
                 that is empty.</p>
-            <figure align="center" xml:id="fig-linearprobing2">
+            <figure xml:id="fig-linearprobing2">
                 <caption>Collision Resolution Using <q>Plus 3</q>.</caption>
                 <image source="SearchHash/linearprobing2.png" width="80%">
                     <description><p>Image of a hash table with eleven slots, demonstrating collision
@@ -485,7 +485,7 @@ int main() {
                 <xref ref="fig-quadratic"/> shows our example values after they are placed using
                 this technique.</p> 
 
-            <figure align="center" xml:id="fig-quadratic">
+            <figure xml:id="fig-quadratic">
                 <caption>Collision Resolution with Quadratic Probing.</caption>
                 <image source="SearchHash/quadratic.png" width="80%">
                     <description><p>Image of a hash table with eleven numbered slots, illustrating
@@ -509,7 +509,7 @@ int main() {
                 increases. <xref ref="fig-chaining"/> shows the items as they are added to a hash
                 table that uses chaining to resolve collisions.</p>
                 
-            <figure align="center" xml:id="fig-chaining">
+            <figure xml:id="fig-chaining">
                 <caption>Collision Resolution with Chaining.</caption>
                 <image source="SearchHash/chaining.png" width="80%">
                     <description><p>Image of a hash table with eleven slots numbered from 0 to 10,
@@ -634,7 +634,7 @@ int main() {
                 can be as efficient as possible.</p>
     
             <listing xml:id="search-hash_lst-hashtablecodeconstructor">
-                <caption><c>HashTable</c> Class</caption>
+                <title><c>HashTable</c> Class</title>
                 <program language="cpp" label="search-hash_lst-hashtablecodeconstructor-prog"><code>
     class HashTable{
     public:
@@ -803,7 +803,7 @@ def __setitem__(self,key,data):
                 will create a hash table and store some items with integer keys and
                 string data values.</p>
             <listing xml:id="hashtable-output">
-                <caption>Example Use of <c>HashTable</c></caption>
+                <title>Example Use of <c>HashTable</c></title>
                 <program language="cpp" label="hashtable-output-prog"><code>
 int main() {
     HashTable h;
@@ -841,7 +841,7 @@ Output:
                 (<xref ref="hashtable-output2"/>). Note that
                 the value for the key 20 is being replaced.</p>
             <listing xml:id="hashtable-output2">
-                <caption>Continued use of <c>HashTable</c></caption>
+                <title>Continued use of <c>HashTable</c></title>
                 <program language="cpp" label="hashtable-output2-prog"><code>
 ...
 h.put(20,&quot;chicken&quot;);

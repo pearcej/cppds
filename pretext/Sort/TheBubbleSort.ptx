@@ -11,7 +11,7 @@
             the largest value in the array is part of a pair, it will continually be
             moved along until the pass is complete.</p>
         
-        <figure align="center" xml:id="fig-bubblepass">
+        <figure xml:id="fig-bubblepass">
             <caption><c>BubbleSort</c> The First Pass.</caption>
                 <image source="Sort/bubblepass.png" width="50%">
                 <description><p>Illustration of bubble sort algorithm during the first pass. A series of arrays showing the step-by-step process of sorting numbers in ascending order. Starting with the array [54, 26, 93, 17, 77, 31, 44, 55, 20], subsequent arrays demonstrate swapping of elements, marked as 'Exchange', or retention of position, marked as 'No Exchange', to progressively move the highest number, 93, to the correct position at the end of the array after the first pass. The final array in the sequence is [26, 54, 17, 77, 31, 44, 55, 20, 93], with the note '93 in place after first pass' indicating the completion of this sorting stage.</p></description>
@@ -31,14 +31,14 @@
         <pre>temp = alist[i];
 alist[i] = alist[j];
 alist[j] = temp;</pre>
-        <p>will exchange the <title_reference>ith</title_reference> and <title_reference>jth</title_reference> items in the array. Without the
+        <p>will exchange the <m>i^{th}</m> and <m>j^{th}</m> items in the array. Without the
             temporary storage, one of the values would be overwritten.</p>
         <p>Lines 5-7 in <xref ref="lst-bubble-cpp"/> perform the exchange of the <m>i</m> and
             <m>(i+1)th</m> items using the three<ndash/>step procedure described
             earlier. Note that we could also have used the simultaneous assignment
             to swap the items.</p>
         
-        <figure align="center" xml:id="fig-pythonswap">
+        <figure xml:id="fig-pythonswap">
             <caption>Exchanging Two Values in Python.</caption>
                 <image source="Sort/swap.png" width="50%">
                 <description><p>A diagram explaining the process of exchanging two values in a programming language with an

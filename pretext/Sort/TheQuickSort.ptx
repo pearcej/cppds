@@ -18,7 +18,7 @@
             at the same time move other items to the appropriate side of the list,
             either less than or greater than the pivot value.</p>
         
-        <figure align="center" xml:id="fig-splitvalue">
+        <figure xml:id="fig-splitvalue">
             <caption>The First Pivot Value for a Quick Sort.</caption>
                 <image source="Sort/firstsplit.png" width="80%">
                 <description><p>A single row of numbers shown in boxes with the number 54 highlighted and labeled as '54 will be the first pivot value'. This image is used to illustrate the initial step in the Quick Sort algorithm where a pivot value is chosen to partition the list. The rest of the numbers in the row are in lighter boxes and include 26, 93, 17, 77, 31, 44, 55, and 20.</p></description>
@@ -35,7 +35,7 @@
             of 54.</p>
         
 
-        <figure align="center" xml:id="fig-partitiona">
+        <figure xml:id="fig-partitiona">
             <caption>Finding the Split Point for 54.</caption>
                 <image source="Sort/partitionA.png" width="80%">
                 <description><p>A series of diagrams illustrating the process of finding the split point for the number 54 in a Quick Sort algorithm. The diagrams show a row of numbers with two markers, 'leftmark' and 'rightmark', that move towards each other from opposite ends. Each step of the process is annotated with instructions like 'leftmark and rightmark will converge on split point', '26 &lt;54 move to right, exchange 20 and 93, and so on. The movement of the markers and the exchanges of numbers are depicted with arrows and highlighted actions, detailing how the algorithm partitions the data around the pivot. The final diagram shows the leftmark and rightmark crossing over, indicating the split point has been found, and the pivot, 54, is in its correct position.</p></description>
@@ -60,7 +60,7 @@
             value. The list can now be divided at the split point and the quick sort
             can be invoked recursively on the two halves.</p>
         
-        <figure align="center" xml:id="fig-partitionb">
+        <figure xml:id="fig-partitionb">
             <caption>Completing the Partition Process to Find the Split Point for 54.</caption>
                 <image source="SearchHash/partitionB.png" width="80%">
                 <description><p>The image shows the final step in the partitioning process of the Quick Sort algorithm, where the split point for the pivot value 54 is established. Two separate groups of numbers are displayed. The first group to the left includes numbers less than 54: 31, 26, 20, 17, and 44, with the annotation 'quicksort left half'. The second group to the right includes numbers greater than 54: 77, 55, and 93, with the annotation 'quicksort right half'. The number 54 is positioned in the center, labeled '54 is in place', indicating that it is at its correct position in the sorted array.</p></description>

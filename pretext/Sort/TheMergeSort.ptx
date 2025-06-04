@@ -13,14 +13,14 @@
             vector as it is being split by <c>mergeSort</c>. <xref ref="fig-mergesortb"/> shows
             the simple vectors, now sorted, as they are merged back together.</p>
         
-        <figure align="center" xml:id="fig-mergesorta">
+        <figure xml:id="fig-mergesorta">
             <caption>Splitting the vector in a Merge Sort.</caption>
                 <image source="Sort/mergesortA.png" width="80%">
                 <description><p>An illustrative flowchart of the Merge Sort algorithm showing the process of splitting a vector into smaller parts. The chart starts with a single row of numbers at the top: 54, 26, 93, 17, 77, 31, 44, 55, 20, and branches downwards into increasingly smaller groups. Each branch represents a division of the list into two parts, progressively breaking down the numbers into individual elements. The flowchart visually demonstrates how Merge Sort recursively divides a list until each part contains a single element, preparing for the merge phase.</p></description>
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-mergesortb">
+        <figure xml:id="fig-mergesortb">
             <caption>Vectors as They Are Merged Together.</caption>
                 <image source="Sort/mergesortB.png" width="80%">
                 <description><p>A diagram depicting the merging phase of the Merge Sort algorithm. The flowchart shows the combination of divided vectors into a sorted sequence. It starts with smaller groups of numbers at the top, each sorted individually: 26 and 54, 17 and 93, and so on. These groups are then merged into larger sorted sequences through a series of downward-pointing arrows, indicating the order of merging. The process continues until all numbers are combined into a single sorted list at the bottom: 17, 20, 26, 31, 44, 54, 55, 77, 93.</p></description>

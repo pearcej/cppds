@@ -21,7 +21,7 @@
             algorithm can quickly find the value 54. The complete function is shown
             in <xref ref="lst-binary_search_cpp"/>.</p>
             
-        <figure align="center" xml:id="fig-binsearch">
+        <figure xml:id="fig-binsearch">
             <caption>Binary Search of an Ordered vector of Integers.</caption>
                 <image source="SearchHash/binsearch.png" width="80%">
                 <description><p>Diagram of an ordered sequence of boxes containing integers, indicative of a binary search algorithm. The numbers in the boxes are '17', '20', '26', '31', '44', '54', '55', '65', '77', and '93', arranged in ascending order. An arrow labeled 'Start' splits into two, pointing to the middle of the sequence, suggesting the initial step in binary search where the middle element is first compared with the target value.</p></description>
@@ -31,7 +31,7 @@
         <p>A similar implementation can be carried out using vectors in C++.</p>
 
     <listing xml:id="lst-binary_search_cpp">
-        <caption>Binary Search of a vector</caption>
+        <title>Binary Search of a vector</title>
     <program xml:id="binary_search_cpp" interactive="activecode" language="cpp" label="binary_search_cpp-prog">
         <code>
 #include &lt;iostream&gt;
@@ -90,7 +90,7 @@ int main() {
             however this can only be used when new vectors are created.</p>
 
     <listing xml:id="binarysearch-1">
-        <caption>Recursive Binary Search</caption>
+        <title>Recursive Binary Search</title>
     <program xml:id="binary_search_cpp_recursive" interactive="activecode" language="cpp" label="binary_search_cpp_recursive-prog">
         <code>
 #include &lt;iostream&gt;

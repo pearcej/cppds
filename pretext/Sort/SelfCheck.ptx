@@ -5,20 +5,20 @@
         <statement><p>Which of the following sort algorithms are guaranteed to be <m>O(n \log n)</m> even in the worst case?</p></statement>
         <choices>
             <choice>
-                <statement>Shell Sort</statement>
-                <feedback>Incorrect! Shell sort is between <m>O(n)</m> and <m>O(n^2)</m></feedback>
+                <statement><p>Shell Sort</p></statement>
+                <feedback><p>Incorrect! Shell sort is between <m>O(n)</m> and <m>O(n^2)</m></p></feedback>
             </choice>
             <choice>
-                <statement>Quick Sort</statement>
-                <feedback>Incorrect! Quick sort can be <m>O(n \log n)</m>, but if the pivot points are not well chosen and the list is just so, it can be <m>O(n^2)</m>.</feedback>
+                <statement><p>Quick Sort</p></statement>
+                <feedback><p>Incorrect! Quick sort can be <m>O(n \log n)</m>, but if the pivot points are not well chosen and the list is just so, it can be <m>O(n^2)</m>.</p></feedback>
             </choice>
             <choice correct="yes">
-                <statement>Merge Sort</statement>
-                <feedback>Correct! Merge Sort is the only guaranteed <m>O(n \log n)</m> even in the worst case. The cost is that merge sort uses more memory.</feedback>
+                <statement><p>Merge Sort</p></statement>
+                <feedback><p>Correct! Merge Sort is the only guaranteed <m>O(n \log n)</m> even in the worst case. The cost is that merge sort uses more memory.</p></feedback>
             </choice>
             <choice>
-                <statement>Insertion Sort</statement>
-                <feedback>Incorrect! Insertion sort is <m>O(n^2)</m></feedback>
+                <statement><p>Insertion Sort</p></statement>
+                <feedback><p>Incorrect! Insertion sort is <m>O(n^2)</m></p></feedback>
             </choice>
         </choices>
     </exercise>
@@ -38,20 +38,20 @@
         <statement><p>Which sort should you use for best efficiency If you need to sort through 100,000 random items in a list?</p></statement>
         <choices>
             <choice correct="yes">
-                <statement>Merge</statement>
-                <feedback>Correct!</feedback>
+                <statement><p>Merge</p></statement>
+                <feedback><p>Correct!</p></feedback>
             </choice>
             <choice>
-                <statement>Selection</statement>
-                <feedback>Incorrect! Selection sort is inefficient in large lists.</feedback>
+                <statement><p>Selection</p></statement>
+                <feedback><p>Incorrect! Selection sort is inefficient in large lists.</p></feedback>
             </choice>
             <choice>
-                <statement>Bubble</statement>
-                <feedback>Incorrect! Bubble sort works best with mostly sorted lists.</feedback>
+                <statement><p>Bubble</p></statement>
+                <feedback><p>Incorrect! Bubble sort works best with mostly sorted lists.</p></feedback>
             </choice>
             <choice>
-                <statement>Insertion</statement>
-                <feedback>Incorrect! Insertion sort works best with either small or mostly sorted lists.</feedback>
+                <statement><p>Insertion</p></statement>
+                <feedback><p>Incorrect! Insertion sort works best with either small or mostly sorted lists.</p></feedback>
             </choice>
         </choices>
     </exercise>

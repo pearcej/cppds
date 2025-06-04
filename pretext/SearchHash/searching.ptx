@@ -26,7 +26,9 @@ True
             stop), and the third argument value to <c>find</c> is the item
             to locate. If the item is not found, the second argument
             is returned. If it is found, an iterator is returned.</p>
-        <listing xml:id="find-example"><program language="cpp"><code>
+        <listing xml:id="find-example">
+            <title>Using <c>find</c></title>
+            <program language="cpp"><code>
 #include &lt;iostream&gt;
 #include &lt;algorithm&gt;
 #include &lt;vector&gt;
