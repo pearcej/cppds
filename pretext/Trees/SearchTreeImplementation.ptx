@@ -11,7 +11,7 @@
             subtree are less than the key in the root. All of the keys in the right
             subtree are greater than the root.</p>
         
-        <figure align="center" xml:id="bst_fig-simplebst">
+        <figure xml:id="bst_fig-simplebst">
             <caption>A Simple Binary Search Tree.</caption>
             <image source="Trees/simpleBST.png" width="50%">
             <description>
@@ -56,7 +56,7 @@
             miscellaneous functions is shown in <xref ref="bst_lst-bst1"/>.</p>
         
         <listing xml:id="bst_lst-bst1">
-            <caption><c>BinarySearchTree</c> Class and Constructor</caption>
+            <title><c>BinarySearchTree</c> Class and Constructor</title>
             <program language="cpp" label="bst_lst-bst1-prog"><code>
 class BinarySearchTree{
     private:
@@ -97,7 +97,7 @@ class BinarySearchTree{
             are used.</p>
         
         <listing xml:id="bst_lst-bst2">
-            <caption><c>TreeNode</c> Class</caption>
+            <title><c>TreeNode</c> Class</title>
             <program language="cpp" label="bst_lst-bst2-prog"><code>
 class TreeNode{
     public:
@@ -201,7 +201,7 @@ class TreeNode{
             this bug as an exercise for you.</p>
         
         <listing xml:id="bst_lst-bst3" names="lst_bst3">
-            <caption><c>put</c> and <c>_put</c> Methods</caption>
+            <title><c>put</c> and <c>_put</c> Methods</title>
             <program language="cpp" label="bst_lst-bst3-prog"><code>
 void put(int key, string val){
     if (root){
@@ -237,7 +237,7 @@ void _put(int key, string val, TreeNode *currentNode){
             into a binary search tree. The lightly shaded nodes indicate the nodes
             that were visited during the insertion process.</p>
         
-        <figure align="center" xml:id="bst_fig-bstput">
+        <figure xml:id="bst_fig-bstput">
             <caption>Inserting a Node with Key = 19.</caption>
             <image source="Trees/bstput.png" width="80%">
             <description>
@@ -270,7 +270,7 @@ void _put(int key, string val, TreeNode *currentNode){
             from the <c>TreeNode</c> besides the value.</p>
         
         <listing xml:id="bst_lst-bst4" names="bst_lst-bst4">
-            <caption><c>get</c> and <c>_get</c> Methods</caption>
+            <title><c>get</c> and <c>_get</c> Methods</title>
             <program language="cpp" label="bst_lst-bst4-prog"><code>
 string get(int key){
     if (root){
@@ -307,7 +307,7 @@ TreeNode  *_get(int key, TreeNode *currentNode){
             the key is not found the <c>del</c> operator raises an error.</p>
         
         <listing xml:id="bst_lst-bst5" names="lst_bst5">
-            <caption><c>del</c> Method</caption>
+            <title><c>del</c> Method</title>
             <program language="cpp" label="bst_lst-bst5-prog"><code>
 void del(int key){
     if (size &gt; 1){
@@ -348,7 +348,7 @@ void del(int key){
             node in the parent. The code for this case is shown in here.</p>
         
         <listing xml:id="bst_lst-bst6">
-            <caption>Deleting a Node With No Children</caption>
+            <title>Deleting a Node With No Children</title>
             <program language="cpp" label="bst_lst-bst6-prog"><code>
 if (currentNode-&gt;isLeaf()){ //leaf
     if (currentNode == currentNode-&gt;parent-&gt;leftChild){
@@ -360,7 +360,7 @@ if (currentNode-&gt;isLeaf()){ //leaf
 }
             </code></program>
         </listing>
-        <figure align="center" xml:id="bst_fig-bstdel1">
+        <figure xml:id="bst_fig-bstdel1">
             <caption>Deleting Node 16, a Node without Children.</caption>
             <image source="Trees/bstdel1.png" width="80%">
             <description>
@@ -402,7 +402,7 @@ if (currentNode-&gt;isLeaf()){ //leaf
         </ol></p>
 
         <listing xml:id="bst_lst-bst7">
-            <caption>Handling One Child Node</caption>
+            <title>Handling One Child Node</title>
             <program language="cpp" label="bst_lst-bst7-prog"><code>
 else{ // this node has one child
     if (currentNode-&gt;hasLeftChild()){
@@ -442,7 +442,7 @@ else{ // this node has one child
             </code></program>
         </listing>
         
-        <figure align="center" xml:id="bst_fig-bstdel2">
+        <figure xml:id="bst_fig-bstdel2">
             <caption>Deleting Node 25, a Node That Has a Single Child.</caption>
             <image source="Trees/bstdel2.png" width="80%"> 
             <description>
@@ -469,7 +469,7 @@ else{ // this node has one child
             implemented. Once the successor has been removed, we simply put it in
             the tree in place of the node to be deleted.</p>
         
-        <figure align="center" xml:id="bst_fig-bstdel3">
+        <figure xml:id="bst_fig-bstdel3">
             <caption>Deleting Node 5, a Node with Two Children.</caption>
             <image source="Trees/bstdel3.png" width="80%">
             <description>
@@ -495,7 +495,7 @@ else{ // this node has one child
             time re-searching for the key node.</p>
         
         <listing xml:id="bst_lst-bst8" names="lst_bst8">
-            <caption>Deleting a Node With Two Children</caption>
+            <title>Deleting a Node With Two Children</title>
             <program language="cpp" label="bst_lst-bst8-prog"><code>
 else if (currentNode-&gt;hasBothChildren()){ //interior
     TreeNode *succ = currentNode-&gt;findSuccessor();
@@ -536,7 +536,7 @@ else if (currentNode-&gt;hasBothChildren()){ //interior
             subtree until it reaches a node that does not have a left child.</p>
         
         <listing xml:id="bst_lst-bst9" names="lst_bst9">
-            <caption><c>findSuccessor</c>, <c>findMin</c>, and <c>spliceOut</c> Methods</caption>
+            <title><c>findSuccessor</c>, <c>findMin</c>, and <c>spliceOut</c> Methods</title>
             <program language="cpp" label="bst_lst-bst9-prog"><code>
 TreeNode *findSuccessor(){
     TreeNode *succ = nullptr;

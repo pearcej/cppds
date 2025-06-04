@@ -5,7 +5,7 @@
             some real problems. In this section we will look at parse trees. Parse
             trees can be used to represent real-world constructions like sentences or mathematical expressions.</p>
         
-        <figure align="center" xml:id="fig-nlparse">
+        <figure xml:id="fig-nlparse">
             <caption>A Parse Tree for a Simple Sentence.</caption>
                 <image source="Trees/nlParse.png" width="50%">
                 <description><p>Diagram of a parse tree for linguistic analysis. The root of the tree is labeled 'Sentence' which splits into two branches: 'Noun Phrase' and 'Verb Phrase'. The 'Noun Phrase' branch further breaks down into 'Proper Noun', which leads to the word 'Homer'. The 'Verb Phrase' branch divides into 'Verb', leading to the word 'Hit', and another 'Noun Phrase', which further breaks down into 'Proper Noun', leading to the word 'Bart'. The structure illustrates the grammatical relationships in a simple sentence.</p></description>
@@ -15,7 +15,7 @@
             sentence. Representing a sentence as a tree structure allows us to work
             with the individual parts of the sentence by using subtrees.</p>
         
-        <figure align="center" xml:id="fig-meparse">
+        <figure xml:id="fig-meparse">
             <caption>Parse Tree for <m>((7+3)*(5-2))</m>.</caption>
                 <image source="Trees/meParse.png" width="50%">
                 <description><p>Diagram of a parse tree for an arithmetic expression. The root node is an asterisk '*', indicating multiplication. It has two child nodes: on the left, a plus sign '+' connects the numbers 7 and 3, and on the right, a minus sign '-' connects the numbers 5 and 2. This tree represents the mathematical expression ((7 + 3) * (5 - 2)). The image is labeled 'Figure 2: Parse Tree for ((7 + 3) * (5 - 2)).</p></description>
@@ -41,7 +41,7 @@
         
 
 
-        <figure align="center" xml:id="fig-mesimple">
+        <figure xml:id="fig-mesimple">
             <caption>A Simplified Parse Tree for <m>((7+3)*(5-2))</m>.</caption>
                 <image source="Trees/meSimple.png" width="50%">
                 <description><p>Diagram of a simplified parse tree for an arithmetic expression after evaluation. The root node is an asterisk '*', indicating multiplication. It has two child nodes, which are the results of the arithmetic operations: the number 10 on the left, which is the sum of 7 and 3, and the number 3 on the right, which is the result of subtracting 2 from 5. This tree represents the evaluated mathematical expression ((7 + 3) * (5 - 2)). The image is labeled 'Figure 3: A Simplified Parse Tree for ((7 + 3) * (5 - 2)).</p></description>
@@ -102,7 +102,7 @@
             illustrates the structure and contents of the parse tree, as each new
             token is processed.</p>
     
-        <figure align="center" xml:id="parse_fig-bldexpstep">
+        <figure xml:id="parse_fig-bldexpstep">
             <caption>Tracing Parse Tree Construction.</caption>
                 <image source="Trees/buildExp1.png" width="15%">
                 <shortdescription>
