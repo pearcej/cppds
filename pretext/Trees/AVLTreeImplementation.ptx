@@ -144,7 +144,7 @@ class AVLTree:
             is out of balance with a balance factor of -2. To bring this tree into
             balance we will use a left rotation around the subtree rooted at node A.</p>
         
-        <figure align="center" xml:id="fig-unbalsimple">
+        <figure xml:id="fig-unbalsimple">
             <caption>Transforming an Unbalanced Tree Using a Left Rotation.</caption>
             <image source="Trees/simpleunbalanced.png" width="70%"> 
             <description>
@@ -200,7 +200,7 @@ class AVLTree:
             </li>
         </ul></p>
         
-        <figure align="center" xml:id="fig-rightrot1">
+        <figure xml:id="fig-rightrot1">
             <caption>Transforming an Unbalanced Tree Using a Right Rotation.</caption>
             <image source="Trees/rightrotate1.png" width="70%"> 
                 <description>
@@ -239,8 +239,8 @@ class AVLTree:
             it to you to study the code for <c>rotateRight</c>.</p>
 
         <listing xml:id="trees_lst-bothrotations">
-            <caption>Implementation of <c>rotateLeft</c> and <c>rotateRight</c></caption>
-            <program language="cpp" line-numbers="yes" open="yes" label="trees_lst-bothrotations-prog"><code>
+            <title>Implementation of <c>rotateLeft</c> and <c>rotateRight</c></title>
+            <program language="cpp" line-numbers="yes" label="trees_lst-bothrotations-prog"><code>
 void rotateLeft(TreeNode *rotRoot){
     TreeNode *newRoot = rotRoot-&gt;rightChild;
     rotRoot-&gt;rightChild = newRoot-&gt;leftChild;
@@ -275,7 +275,7 @@ void rotateLeft(TreeNode *rotRoot){
             the heights of the new subtrees? The following derivation should
             convince you that these lines are correct.</p>
         
-        <figure align="center" xml:id="trees-avl-fig-bfderive">
+        <figure xml:id="trees-avl-fig-bfderive">
             <caption>A Left Rotation.</caption>
             <image source="Trees/bfderive.png" width="70%"> 
             <description>
@@ -345,7 +345,7 @@ rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(0,newRoot.balanceFactor)
             factor of -2 we should do a left rotation. But, what happens when we do
             the left rotation around A?</p>
         
-        <figure align="center" xml:id="avlimpl_fig-hardrotate">
+        <figure xml:id="avlimpl_fig-hardrotate">
             <caption>An Unbalanced Tree that is More Difficult to Balance.</caption>
             <image source="Trees/hardunbalanced.png" width="20%"> 
             <description>
@@ -363,7 +363,7 @@ rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(0,newRoot.balanceFactor)
             out of balance the other way. If we do a right rotation to correct the
             situation we are right back where we started.</p>
         
-        <figure align="center" xml:id="avlimpl_fig-badrotate">
+        <figure xml:id="avlimpl_fig-badrotate">
             <caption>After a Left Rotation the Tree is Out of Balance in the Other Direction.</caption>
             <image source="Trees/badrotate.png" width="20%"> 
             <description>
@@ -397,7 +397,7 @@ rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(0,newRoot.balanceFactor)
             with a right rotation around node C puts the tree in a position where
             the left rotation around A brings the entire subtree back into balance.</p>
         
-        <figure align="center" xml:id="avlimpl_fig-rotatelr">
+        <figure xml:id="avlimpl_fig-rotatelr">
             <caption>A Right Rotation Followed by a Left Rotation.</caption>
             <image source="Trees/rotatelr.png" width="80%"> 
             <description>
@@ -423,7 +423,7 @@ rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(0,newRoot.balanceFactor)
             line 11.</p>
         
         <listing xml:id="avlimpl_lst-rebalance">
-            <caption>Implementation of <c>rebalance</c></caption>
+            <title>Implementation of <c>rebalance</c></title>
             <program language="cpp" line-numbers="yes" label="avlimpl_lst-rebalance-prog"><code>
 void rebalance(TreeNode *node){
     if (node-&gt;balanceFactor &lt; 0){

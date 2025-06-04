@@ -8,7 +8,7 @@
         <p>Using nodes and references, we might think of the tree as being
             structured like the one shown in <xref ref="fig-treerec"/>.</p>
         
-        <figure align="center" xml:id="fig-treerec">
+        <figure xml:id="fig-treerec">
             <caption>A Simple Tree Using a Nodes and References Approach.</caption>
                 <image source="Trees/treerecs.png" width="50%">
                 <description><p>Illustration of a binary tree structure with three levels. The top level shows a single node labeled 'a' with two pointers 'left' and 'right'. The second level has two nodes: 'b' on the left with its own 'left' and 'right' pointers, and 'c' on the right with pointers also labeled 'left' and 'right'. The third level shows three nodes: 'd' is the left child of 'b' with 'left' and 'right' pointers; 'e' is the right child of 'b' with pointers labeled 'left' and 'right'; 'f' is the right child of 'c' also with 'left' and 'right' pointers. Each pointer is represented by an arrow indicating the direction of the reference.</p></description>

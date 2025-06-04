@@ -12,7 +12,7 @@
                 the tree, which we fill in from left to right. <xref ref="binheap_fig-comptree"/>
                 shows an example of a complete binary tree.</p>
             
-            <figure align="center" xml:id="binheap_fig-comptree">
+            <figure xml:id="binheap_fig-comptree">
                 <caption>A Complete Binary Tree.</caption>
                     <image source="Trees/compTree.png" width="80%">
                     <description>
@@ -54,7 +54,7 @@
                 tree that has the heap order property.</p>
             
 
-            <figure align="center" xml:id="binheap_fig-heaporder">
+            <figure xml:id="binheap_fig-heaporder">
                 <caption>A Complete Binary Tree, along with its Vector Representation.</caption>
                     <image source="Trees/heapOrder.png" width="80%">
                     <description><p>The image depicts a complete binary tree at the top and its corresponding vector representation at the bottom. The binary tree has a root node labeled '5', which branches out to two nodes labeled '9' on the left and '11' on the right. The '9' node further branches into '14' and '18', which in turn have children '33' and '17', and '27', respectively. The '11' node branches into '19' and '21'. Below the binary tree, there is a vector representation with indexed positions from 0 to 11. The values in the vector are arranged as '5', '9', '11', '14', '18', '19', '21', '33', '17', '27', respecting the binary tree's structure. The image is labeled 'Figure 2: A Complete Binary Tree, along with its Vector Representation'.</p></description>
@@ -73,7 +73,7 @@
                 that simple integer division can be used in later methods.</p>
             
             <listing xml:id="binheap_lst-heap1a">
-                <caption><c>BinHeap</c> Class and Constructor</caption>
+                <title><c>BinHeap</c> Class and Constructor</title>
                 <program language="cpp" label="binheap_lst-heap1a-prog"><code>
 class BinHeap{
     private:
@@ -100,9 +100,9 @@ class BinHeap{
                 series of swaps needed to percolate the newly added item up to its
                 proper position in the tree.</p>
             
-            <figure align="center" xml:id="binheap_fig-percup">
+            <figure xml:id="binheap_fig-percup">
                 <caption>Percolate the New Node up to Its Proper Position.</caption>
-                <image source="Trees/percUp.png" width="50%" alt="image"> 
+                <image source="Trees/percUp.png" width="50%"> 
                 <description>
                 <p>
                     Image showing the process of percolating a newly added node to its proper position in a binary heap. The diagram consists of 
@@ -144,7 +144,7 @@ class BinHeap{
                 properly.</p>
             
             <listing xml:id="binheap_lst-heap2">
-                <caption><c>percUp</c> Method</caption>
+                <title><c>percUp</c> Method</title>
                 <program language="cpp" label="binheap_lst-heap2-prog"><code>
 void percUp(int i){
     while ((i / 2) &gt; 0){
@@ -160,7 +160,7 @@ void percUp(int i){
             </listing>
 
             <listing xml:id="binheap_lst-heap3" names="lst_heap3">
-                <caption><c>insert</c> Method</caption>
+                <title><c>insert</c> Method</title>
                 <program language="cpp" label="binheap_lst-heap3-prog"><code>
 void insert(int k){
     this-&gt;heapvector.push_back(k);
@@ -183,9 +183,9 @@ void insert(int k){
                 the series of swaps needed to move the new root node to its proper
                 position in the heap.</p>
             
-            <figure align="center" xml:id="binheap_fig-percdown">
+            <figure xml:id="binheap_fig-percdown">
                 <caption>Percolating the Root Node down the Tree.</caption>
-                <image source="Trees/percDown.png" width="50%" alt="image"> 
+                <image source="Trees/percDown.png" width="50%"> 
                 <description>
                 <p>
                 Image showing the process of percolating the root node down the tree in a binary heap after removing the minimum (root) value. 
@@ -217,7 +217,7 @@ void insert(int k){
                 <xref ref="binheap_lst-heap4"/>.</p>
             
             <listing xml:id="binheap_lst-heap4">
-                <caption><c>percDown</c> and <c>minChild</c> Methods</caption>
+                <title><c>percDown</c> and <c>minChild</c> Methods</title>
                 <program language="cpp" label="binheap_lst-heap4-prog"><code>
 void percDown(int i){
     while ((i*2) &lt;= this-&gt;currentSize){
@@ -251,7 +251,7 @@ int minChild(int i){
                 case <c>percDown</c>.</p>
             
             <listing xml:id="binheap_lst-heap5" names="lst_heap5">
-                <caption><c>delMin</c> Implementation</caption>
+                <title><c>delMin</c> Implementation</title>
                 <program language="cpp" label="binheap_lst-heap5-prog"><code>
 int delMin(){
     if (this-&gt;currentSize &gt; 1){
@@ -289,7 +289,7 @@ int delMin(){
                 to build the entire heap.</p>
             
             <listing xml:id="binheap_lst-heap6">
-                <caption><c>buildHeap</c> Implementation</caption>
+                <title><c>buildHeap</c> Implementation</title>
                 <program language="cpp" label="binheap_lst-heap6-prog"><code>
 void buildheap(vector&lt;int&gt; avector){
     int i = avector.size() / 2;
@@ -302,9 +302,9 @@ void buildheap(vector&lt;int&gt; avector){
 }
                 </code></program>
             </listing>
-            <figure align="center" xml:id="binheap_fig-buildheap">
+            <figure xml:id="binheap_fig-buildheap">
                 <caption>Building a Heap from the vector [9, 6, 5, 2, 3].</caption>
-                <image source="Trees/buildheap.png" width="50%" alt="image"> 
+                <image source="Trees/buildheap.png" width="50%"> 
                 <description>
                   <p>
                     Image showing the process of building a binary heap from the vector [9, 6, 5, 2, 3] using the `buildHeap` algorithm. 

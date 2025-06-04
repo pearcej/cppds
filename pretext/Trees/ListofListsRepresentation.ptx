@@ -219,7 +219,6 @@ insertLeft(getRightChild(getRightChild(x)),'e')
             <p>Write a function <c>buildTree</c> that returns a tree using the list of lists functions that looks like this:</p>
             <image source="Trees/Figures/tree_ex.png" width="50%"/>
 
-    </statement>
     <program xml:id="mctree_2_editor" interactive="activecode" language="python" label="mctree_2_editor-prog">
         <code>
 from test import testEqual
@@ -235,6 +234,7 @@ def main():
 main()
         </code>
     </program>
+    </statement>
 </exercise>
         </note>
     </section>

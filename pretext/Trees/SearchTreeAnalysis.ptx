@@ -33,7 +33,7 @@
             such a tree is shown in <xref ref="fig-skewedtree-analysis"/>. In this case the
             performance of the <c>put</c> method is <m>O(n)</m>.</p>
         
-        <figure align="center" xml:id="fig-skewedtree-analysis">
+        <figure xml:id="fig-skewedtree-analysis">
             <caption>A skewed binary search tree would give poor performance.</caption>
             <image source="Trees/skewedTree.png" width="50%">
                 <description><p>
