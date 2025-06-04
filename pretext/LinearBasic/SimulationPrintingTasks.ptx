@@ -27,7 +27,7 @@
             to be printed. This is equal to the average amount of time a task waits
             in the queue.</p>
         
-        <figure align="center" xml:id="fig-qulabsim">
+        <figure xml:id="fig-qulabsim">
             <caption>Computer Science Laboratory Printing Queue</caption>
             <image source="LinearBasic/simulationsetup.png" width="50%"> 
                 <description>
@@ -127,7 +127,7 @@
                 the printer to idle (line 11) if the task is completed.</p>
 
             <listing xml:id="linear-basic_lst-printer">
-                <caption>The <c>Printer</c> class</caption>
+                <title>The <c>Printer</c> class</title>
                 <program language="cpp" label="linear-basic_lst-printer-prog"><code>
 class Printer {
 public:
@@ -185,7 +185,7 @@ private:
                 printing begins.</p>
             
             <listing xml:id="linear-basic_lst-task">
-                <caption>The <c>Task</c> class</caption>
+                <title>The <c>Task</c> class</title>
                 <program language="cpp" label="linear-basic_lst-task-prog"><code>
 class Task {
 public:
@@ -223,7 +223,7 @@ private:
                 printer.</p>
             
             <listing xml:id="linear-basic_lst-qumainsim">
-                <caption>The main simulation function</caption>
+                <title>The main simulation function</title>
                 <program language="cpp" label="linear-basic_lst-qumainsim-prog"><code>
 void simulation(int numSeconds, int pagesPerMinute) {
     Printer labprinter(pagesPerMinute);

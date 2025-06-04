@@ -31,7 +31,7 @@
             reversal property that signals that a stack is likely to be the
             appropriate data structure for solving the problem.</p>
         
-        <figure align="center" xml:id="fig-decbin">
+        <figure xml:id="fig-decbin">
             <caption>Decimal-to-Binary Conversion</caption>
             <image source="LinearBasic/dectobin.png" width="50%"> 
                 <description>

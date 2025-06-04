@@ -1,15 +1,15 @@
 <?xml version="1.0" ?><section xml:id="linear-basic_the-stack-abstract-data-type">
-    <idx>stack abstract data type</idx> <idx>stack ADT</idx>
         <title>The Stack Abstract Data Type</title>
         <p>The <term>stack abstract data type</term> or <term>stack ADT</term> is defined by the following structure and
             operations. A stack is structured, as described above, as an ordered
             collection of items where items are added to and removed from the end
             called the <q>top.</q> Stacks are ordered LIFO. The stack operations are
-            given below.</p>
+            given below.<idx>stack abstract data type</idx> <idx>stack ADT</idx>
+</p>
         <p><ul>
             <li>
                 <p><c>stack&lt;datatype&gt;</c> creates a new stack that is empty. It needs no parameters
-                    and returns an empty stack. It can only contain a certain type of data. e.g. <title_reference>int</title_reference>, <title_reference>string</title_reference> etc.</p>
+                    and returns an empty stack. It can only contain a certain type of data. e.g. <c>int</c>, <c>string</c> etc.</p>
             </li>
             <li>
                 <p><c>push(item)</c> adds a new item to the top of the stack. It needs the
