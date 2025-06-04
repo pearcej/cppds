@@ -772,7 +772,7 @@ def __eq__(self, other):
             </exploration>
 
             <p>The complete <c>Fraction</c> class, up to this point, is shown in
-                <xref ref="fraction_class_cpp"/>. We leave the remaining arithmetic and relational
+                <xref ref="fraction_class_cpp" />. We leave the remaining arithmetic and relational
                 methods as exercises.</p>
 
 

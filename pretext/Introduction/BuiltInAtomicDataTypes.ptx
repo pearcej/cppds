@@ -250,7 +250,7 @@ main()
       </task>
     </exploration>
     <p>Boolean data objects are also used as results for comparison operators
-                such as equality (==) and greater than (<math>&gt;</math>). In addition,
+                such as equality (==) and greater than (<m>&gt;</m>). In addition,
                 relational operators and logical operators can be combined together to
                 form complex logical questions. <xref ref="introduction_tab-relational"/> shows the relational
                 and logical operators with examples shown in the session that follows.</p>
@@ -269,103 +269,49 @@ main()
           </cell>
         </row>
         <row>
-          <cell>
-                                less than
-                            </cell>
-          <cell>
-            <math>&lt;</math>
-          </cell>
-          <cell>
-                                Less than operator
-                            </cell>
+          <cell>less than</cell>
+          <cell><c>&lt;</c></cell>
+          <cell>Less than operator</cell>
         </row>
         <row>
-          <cell>
-                                greater than
-                            </cell>
-          <cell>
-            <math>&gt;</math>
-          </cell>
-          <cell>
-                                Greater than operator
-                            </cell>
+          <cell>greater than</cell>
+          <cell><c>&gt;</c></cell>
+          <cell>Greater than operator</cell>
         </row>
         <row>
-          <cell>
-                                less than or equal
-                            </cell>
-          <cell>
-            <math>&lt;=</math>
-          </cell>
-          <cell>
-                                Less than or equal to operator
-                            </cell>
+          <cell>less than or equal</cell>
+          <cell><c>&lt;=</c></cell>
+          <cell>Less than or equal to operator</cell>
         </row>
         <row>
-          <cell>
-                                greater than or equal
-                            </cell>
-          <cell>
-            <math>&gt;=</math>
-          </cell>
-          <cell>
-                                Greater than or equal to operator
-                            </cell>
+          <cell>greater than or equal</cell>
+          <cell><c>&gt;=</c></cell>
+          <cell>Greater than or equal to operator</cell>
         </row>
         <row>
-          <cell>
-                                equal
-                            </cell>
-          <cell>
-            <math>==</math>
-          </cell>
-          <cell>
-                                Equality operator
-                            </cell>
+          <cell>equal</cell>
+          <cell><c>==</c></cell>
+          <cell>Equality operator</cell>
         </row>
         <row>
-          <cell>
-                                not equal
-                            </cell>
-          <cell>
-            <math>!=</math>
-          </cell>
-          <cell>
-                                Not equal operator
-                            </cell>
+          <cell>not equal</cell>
+          <cell><c>!=</c></cell>
+          <cell>Not equal operator</cell>
         </row>
         <row>
-          <cell>
-                                logical and
-                            </cell>
-          <cell>
-            <math>&amp;&amp;</math>
-          </cell>
-          <cell>
-                                Both operands true for result to be true
-                            </cell>
+          <cell>logical and</cell>
+          <cell><c>&amp;&amp;</c></cell>
+          <cell>Both operands true for result to be true</cell>
         </row>
         <row>
-          <cell>
-                                logical or
-                            </cell>
-          <cell>
-            <math>||</math>
-          </cell>
-          <cell>
-                                One or the other operand is true for the result to be true
-                            </cell>
+          <cell>logical or</cell>
+          <cell><c>||</c></cell>
+          <cell>One or the other operand is true for the result to be true</cell>
         </row>
         <row>
-          <cell>
-                                logical not
-                            </cell>
-          <cell>
-            <math>!</math>
-          </cell>
-          <cell>
-                                Negates the truth value, false becomes true, true becomes false
-                            </cell>
+          <cell>logical not</cell>
+          <cell><c>!</c></cell>
+          <cell>Negates the truth value, false becomes true, true becomes false</cell>
         </row>
       </tabular>
     </table>
@@ -830,7 +776,7 @@ int main() {
       <p>which is expected because you changed where ptrN is pointing to and
                     NOT the contents of where it is pointing.</p>
       <p>The second <c>cout</c> instruction is a disaster because</p>
-      <ol marker="1">
+      <p><ol marker="1">
         <li>
           <p>You don<rsq/>t know what is stored in location 100 in memory, and</p>
         </li>
@@ -840,7 +786,7 @@ int main() {
             errors, the reason is fairly localized.
           </p>
         </li>
-      </ol>
+      </ol></p>
     </subsubsection>
     <subsubsection xml:id="introduction_the-null-pointer">
       <title>The null pointer</title>

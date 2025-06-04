@@ -115,7 +115,7 @@ print(math.sqrt(16))
             parameters), and what will be returned. The details are hidden inside
             (see <xref ref="fig-procabstraction"/>).</p>
 
-        <figure align="center" xml:id="fig-procabstraction">
+        <figure xml:id="fig-procabstraction">
             <caption>Procedural Abstraction</caption>
                 <image source="Introduction/blackbox.png" width="50%">
                 <description><p>Diagram illustrating the concept of procedural abstraction with a central box labeled 'sqrt()' representing a function. An arrow labeled 'n' points to the box, indicating the input, and another arrow points away from the box, labeled 'square root of n', indicating the output.</p></description>
