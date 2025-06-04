@@ -9,7 +9,7 @@
             are getting all the data they need to reconstruct the song they are
             listening to. <xref ref="fig-bcast1"/> illustrates the broadcast problem.</p>
         
-        <figure align="center" xml:id="fig-bcast1">
+        <figure xml:id="fig-bcast1">
             <caption>The Broadcast Problem.</caption>
                 <image source="Graphs/bcast1.png" width="80%">
                 <description><p>The image illustrates a network graph representing the Broadcast Problem. It features seven nodes labeled A through G, with node A designated as the broadcast host. Directed edges connect the nodes, indicating the flow of the broadcast signal, with weights on the edges representing the cost or time of transmission. Four of the nodes are marked as listeners, depicted with computer icons. These listeners are at the terminus of the broadcast paths, showing the direction and flow of information from the host to the listeners through the network.</p></description>
@@ -63,7 +63,7 @@
             router sees more than one copy of any message, and all the listeners
             that are interested see a copy of the message.</p>
 
-        <figure align="center" xml:id="fig-mst1">
+        <figure xml:id="fig-mst1">
             <caption>Minimum Spanning Tree for the Broadcast Graph.</caption>
                 <image source="Graphs/mst1.png" width="80%">
                 <description><p>This image depicts a network graph titled "Minimum Spanning Tree for the Broadcast Graph". It consists of seven circular nodes labeled A through G, connected by lines which represent the edges of the tree. Each edge is marked with a number indicating the weight or cost associated with that connection. The structure is tree-like, with no cycles, starting from node A and branching out to all other nodes through the path of minimum total weight. Nodes B, C, E, F, and G are connected with the least number of edges to ensure coverage of the entire network, illustrating the concept of a minimum spanning tree in graph theory.</p></description>
@@ -82,12 +82,14 @@
             We define a safe edge as any edge that connects a vertex that is in the
             spanning tree to a vertex that is not in the spanning tree. This ensures
             that the tree will always remain a tree and therefore have no cycles.</p>
-        <p>The Python code to implement Prim's algorithm is shown in <term>Listing 2</term>. Prim's algorithm is similar to Dijkstra's algorithm
+        <p>The Python code to implement Prim's algorithm is shown in <xref ref="lst-prims"/>. Prim's algorithm is similar to Dijkstra's algorithm
             in that they both use a priority queue to select the next vertex to add
             to the growing graph.</p>
-        <paragraphs xml:id="lst-prims"><title><term>Listing 2</term></title></paragraphs>
-        
-        <pre>from pythonds.graphs import PriorityQueue, Graph, Vertex
+
+        <listing xml:id="lst-prims">
+            <title>Prim's algorithm</title>
+            <program language="python" label="lst-prims-py"><code>
+from pythonds.graphs import PriorityQueue, Graph, Vertex
 
 def prim(G,start):
     pq = PriorityQueue()
@@ -103,7 +105,10 @@ def prim(G,start):
           if nextVert in pq and newCost&lt;nextVert.getDistance():
               nextVert.setPred(currentVert)
               nextVert.setDistance(newCost)
-              pq.decreaseKey(nextVert,newCost)</pre>
+              pq.decreaseKey(nextVert,newCost)
+
+            </code></program>
+        </listing>
         <p>The following sequence of figures (<xref ref="fig-mst1"/> through <xref ref="fig-mst1"/>) shows the algorithm in operation on our sample
             tree. We begin with the starting vertex as A. The distances to all the
             other vertices are initialized to infinity. Looking at the neighbors of
@@ -127,46 +132,46 @@ def prim(G,start):
             rest of the algorithm proceeds as you would expect, adding each new node
             to the tree.</p>
 
-        <figure align="center" xml:id="fig-prima">
+        <figure xml:id="fig-prima">
             <caption>Tracing Prim's Algorithm.</caption>
                 <image source="Graphs/prima.png" width="80%">
                 <description><p>This image illustrates the process of Prim's algorithm applied to a graph. The graph has seven circular nodes labeled A through G, connected by lines with numbers indicating the weight of the edges. The algorithm starts at node A and progressively selects the edge with the lowest weight that connects a node inside the tree to a node outside the tree. As a result, the nodes are incrementally connected in a way that keeps the total weight of the tree at a minimum. The letters B, C, D, E, F, and G at the bottom signify the order in which the nodes are added to the growing tree.</p></description>
                 </image>
             </figure>
-        <figure align="center" xml:id="fig-primb">
+        <figure xml:id="fig-primb">
             <caption>Tracing Prim's Algorithm.</caption>
                 <image source="Graphs/primb.png" width="80%">
                 <description><p>The image continues to detail Prim's algorithm, showing a partially completed minimum spanning tree. Nodes A, B, C, E, and F are connected with the shortest edges, marked with their respective weights and dashed lines indicating the edges considered at the current step. The remaining nodes D and G are yet to be connected. The bottom notation "PQ = C, D, E, F, G" lists the nodes in the priority queue awaiting to be connected.</p></description>
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-primc">
+        <figure xml:id="fig-primc">
             <caption>Tracing Prim's Algorithm.</caption>
                 <image source="Graphs/primc.png" width="80%">
                 <description><p>The final image in the sequence demonstrates a further step in Prim's algorithm. The minimum spanning tree now includes all nodes except for G, which is about to be connected. The edges between the nodes are highlighted, and the weights are updated to reflect the shortest paths from the tree to the remaining unconnected nodes. The bottom notation "PQ = D, E, F, G" updates the priority queue.</p></description>
                 </image>
             </figure>
-        <figure align="center" xml:id="fig-primd">
+        <figure xml:id="fig-primd">
             <caption>Tracing Prim's Algorithm.</caption>
                 <image source="Graphs/primd.png" width="80%">
                 <description><p>This image shows a further stage in Prim's algorithm on a graph with seven nodes labeled A through G. The tree is almost complete, with solid lines connecting nodes A to F, and node G about to be connected. Each connection is annotated with the weight of the edge. The priority queue at the bottom, "PQ = E, F, G," lists the nodes considered for the next connection step.</p></description>
                 </image>
             </figure>
-        <figure align="center" xml:id="fig-prime">
+        <figure xml:id="fig-prime">
             <caption>Tracing Prim's Algorithm.</caption>
                 <image source="Graphs/prime.png" width="80%">
                 <description><p>The image depicts the penultimate step in Prim's algorithm, where node G is the only one not yet included in the minimum spanning tree. The graph shows nodes A to F connected with the lowest weight edges, and the priority queue "PQ = F, G" indicates the next nodes to be considered for connection.</p></description>
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-primf">
+        <figure xml:id="fig-primf">
             <caption>Tracing Prim's Algorithm.</caption>
                 <image source="Graphs/primf.png" width="80%">
                 <description><p>The final image represents the completion of Prim's algorithm, where all nodes A through G are connected, forming the minimum spanning tree. Each edge's weight is displayed, reflecting the algorithm's choice of the shortest paths to connect all nodes without forming any cycles. The priority queue at the bottom, "PQ = G," shows the last node that was connected to complete the tree.</p></description>
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-primg">
+        <figure xml:id="fig-primg">
             <caption>Tracing Prim's Algorithm.</caption>
                 <image source="Graphs/primg.png" width="80%">
                 <description><p>This image shows the final step of Prim's algorithm where the minimum spanning tree is completed. All the nodes labeled from A to G are connected with the shortest paths indicated by the edge weights. The distances from the starting node are labeled next to each node with the letter 'd' followed by the distance value. The priority queue (PQ) is empty, indicating that all nodes have been visited and the algorithm is complete.</p></description>
@@ -181,7 +186,7 @@ def prim(G,start):
                 
     <exercise label="primswhims">
         <statement>
-            <figure align="center" xml:id="fig-primsalg">
+            <figure xml:id="fig-primsalg">
                 <caption>Tracing Prim's Algorithm.</caption>
                     <image source="Graphs/primsalg.png" width="50%">
                     <description><p>Undirected graph with five nodes labeled A to E. Edges connect the nodes with the following weights: A-B with 1, A-D with 4, B-C with 2, C-D with 3, D-E with 6, and C-E with 5, forming a pentagon shape with a cross-connection between B and D.</p></description>

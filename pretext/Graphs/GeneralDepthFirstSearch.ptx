@@ -239,35 +239,35 @@ main()
             <xref ref="fig-gdfsl"/><nbsp/> that the algorithm works its way back to the first node,
             setting finish times and coloring vertices black.</p>
     
-        <figure align="center" xml:id="fig-gdfsa">
+        <figure xml:id="fig-gdfsa">
             <caption>Constructing the Depth First Search Tree-10.</caption>
                 <image source="Graphs/gendfsa.png" width="80%">
                 <description><p>A graph with six nodes labeled A through F. Node A is marked as the starting point with a '1' and has directed edges to nodes B and D, showing the initial branching in a depth-first search tree.</p></description>
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-gdfsb">
+        <figure xml:id="fig-gdfsb">
             <caption>Constructing the Depth First Search Tree-11.</caption>
                 <image source="Graphs/gendfsb.png" width="80%">
                 <description><p>The graph extends from Figure 14, showing node B as the next node visited in the search, indicated by a '2'. Nodes E and C are shown as subsequent nodes, but not yet visited.</p></description>
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-gdfsc">
+        <figure xml:id="fig-gdfsc">
             <caption> Constructing the Depth First Search Tree-12.</caption>
                 <image source="Graphs/gendfsc.png" width="80%">
                 <description><p>Continuing the sequence, node C is now marked with a '3', showing the progression of the depth-first search moving to the next unvisited node in the tree.</p></description>
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-gdfsd">
+        <figure xml:id="fig-gdfsd">
             <caption> Constructing the Depth First Search Tree-13.</caption>
                 <image source="Graphs/gendfsd.png" width="80%">
                 <description><p>The graph further expands with node C's child nodes, marked as '3/4', indicating the depth-first search is exploring the deeper levels of the tree</p></description>
                 </image>
             </figure>
 
-        <figure align="center" xml:id="fig-gdfse">
+        <figure xml:id="fig-gdfse">
             <caption> Constructing the Depth First Search Tree-14.</caption>
                 <image source="Graphs/gendfse.png" width="80%">
                 <description><p>Depth-first search progression with node D marked '5', indicating its visit after nodes A, B, and C, and before node E.</p></description>
@@ -275,48 +275,48 @@ main()
             </figure>
         
         
-        <figure align="center" xml:id="fig-gdfsf">
+        <figure xml:id="fig-gdfsf">
             <caption> Constructing the Depth First Search Tree-15.</caption>
                 <image source="Graphs/gendfsf.png" width="80%">
                 <description><p>Node E is visited, labeled '6' in the search sequence, following the exploration from node D in the depth-first search tree.</p></description>
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-gdfsg">
+        <figure xml:id="fig-gdfsg">
             <caption> Constructing the Depth First Search Tree-16.</caption>
                 <image source="Graphs/gendfsg.png" width="80%">
                 <description><p>The search continues with node F now visited, labeled with '7', and an unvisited node is connected to node C with a directed edge.</p></description>
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-gdfsh">
+        <figure xml:id="fig-gdfsh">
             <caption> Constructing the Depth First Search Tree-17.</caption>
                 <image source="Graphs/gendfsh.png" width="80%">
                 <description><p>The final stage of the depth-first search, with nodes F and B marked as '7/8', showing the completion of the tree traversal.</p></description>
                 </image>
             </figure>
 
-        <figure align="center" xml:id="fig-gdfsi">
+        <figure xml:id="fig-gdfsi">
             <caption> Constructing the Depth First Search Tree-18.</caption>
                 <image source="Graphs/gendfsi.png" width="80%">
                 <description><p>A depth-first search tree diagram with nodes A to F, where nodes A, B, and C are sequentially numbered 1 to 3/4, and nodes D, E, and F are numbered 5, 6, and 7/8 respectively, showing the order of traversal.</p></description>
                 </image>
             </figure>
-        <figure align="center" xml:id="fig-gdfsj">
+        <figure xml:id="fig-gdfsj">
             <caption> Constructing the Depth First Search Tree-19.</caption>
                 <image source="Graphs/gendfsj.png" width="80%">
                 <description><p>Continuation of the depth-first search tree, with node E now having two numbers, 6/9, indicating the backtracking process and further search.</p></description>
                 </image>
             </figure>
 
-        <figure align="center" xml:id="fig-gdfsk">
+        <figure xml:id="fig-gdfsk">
             <caption> Constructing the Depth First Search Tree-20.</caption>
                 <image source="Graphs/gendfsk.png" width="80%">
                 <description><p>Further progress in the depth-first search tree, node B is now numbered 2/11, showing that the search has returned to this node after exploring other branches.</p></description>
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-gdfsl">
+        <figure xml:id="fig-gdfsl">
             <caption> Constructing the Depth First Search Tree-21.</caption>
                 <image source="Graphs/gendfsl.png" width="80%">
                 <description><p>The final stage in the depth-first search process with node A labeled as 1/12, completing the full traversal of the search tree.</p></description>
@@ -330,7 +330,7 @@ main()
             and an earlier finish time than their parent. <xref ref="fig-dfstree"/> shows
             the tree constructed by the depth first search algorithm.</p>
         
-        <figure align="center" xml:id="fig-dfstree">
+        <figure xml:id="fig-dfstree">
             <caption> The Resulting Depth First Search Tree.</caption>
                 <image source="Graphs/dfstree.png" width="80%">
                 <description><p>A completed depth first search tree with six nodes labeled A to F. The nodes are interconnected with arrows indicating the path of the search. Each node is annotated with two numbers; the first number represents the order in which the node was first visited, and the second number represents the order in which the final visit occurred, marking the node<rsq/>s completion in the search. Node A is labeled &quot;1/12&quot;, B &quot;2/11&quot;, C &quot;3/4&quot;, D &quot;5/10&quot;, E &quot;6/9&quot;, and F &quot;7/8&quot;. This indicates the starting point of the search at node A, the backtracking steps, and the overall path taken to explore all the nodes.</p></description>
@@ -340,7 +340,7 @@ main()
             Nodes attached to an orange line are connected to the node attached with a brown line.
             This relationship is directional, and mirrors what can be observed above.</p>
 
-        <figure xml:id="graphs_general_depth-dfs-vis" align="center">
+        <figure xml:id="graphs_general_depth-dfs-vis">
             <caption>DFS Visualization</caption>
             <video label="graphs_general_depth-dfs-vis-video" source="Graphs/vis_dfs.mp4" width="80%" preview="Graphs/vis_dfs_thumb.png"/>
         </figure>

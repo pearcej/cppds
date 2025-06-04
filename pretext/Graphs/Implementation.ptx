@@ -18,7 +18,7 @@
             as a <c>friend function</c> within the class definition, but is required to be defined outside of the class. This is specific to <c>operator overloading</c> in C++.</p>
         
         <listing xml:id="lst_vertex" names="graphs_lst-vertex">
-                <caption><c>Vertex</c> Class</caption>
+                <title><c>Vertex</c> Class</title>
                 <program language="cpp" label="lst_vertex-prog"><code>
 class Vertex {
     public:
@@ -76,7 +76,7 @@ ostream &amp;operator&lt;&lt;(ostream &amp;stream, Vertex &amp;vert) {
             of the vertices in the graph.</p>
         
         <listing xml:id="lst_graph" names="graphs_lst-graph">
-                <caption><c>Graph</c> Class</caption>
+                <title><c>Graph</c> Class</title>
                 <program language="cpp" label="lst_graph-prog"><code>
 class Graph {
     public:

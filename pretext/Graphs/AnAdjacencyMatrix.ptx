@@ -9,7 +9,7 @@
             <xref ref="fig-adjmat"/> illustrates the adjacency matrix for the graph in
             <xref ref="fig-dgsimple"/>. A value in a cell represents the weight of the
             edge from vertex <m>v</m> to vertex <m>w</m>.</p>
-        <figure align="center" xml:id="fig-adjmat">
+        <figure xml:id="fig-adjmat">
             <caption>An Adjacency Matrix Representation for a Graph.</caption>
                 <image source="Graphs/adjMat.png" width="80%">
                 <description><p>Image showing an adjacency matrix representation for a graph. The matrix is a square grid labeled from V0 to V5 along both the top row and the left column, representing vertices of the graph. The cells within the matrix are mostly empty, indicating no edge between those vertex pairs, with a few cells filled with numbers indicating the weight of the edge between the vertices. Specifically, V0 has an edge to V1 with a weight of 5. V1 has an edge to V5 with a weight of 4. V2 has an edge to V3 with a weight of 9. V3 has edges to V4 and V5 with weights of 7 and 3, respectively. V4 has an edge to V0 with a weight of 1. V5 has edges to V2 and V4 with weights of 1 and 8, respectively.</p></description>
