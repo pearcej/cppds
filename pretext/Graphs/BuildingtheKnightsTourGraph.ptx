@@ -23,7 +23,7 @@
             column into a linear vertex number similar to the vertex numbers shown
             in <xref ref="fig-knightmoves"/>.</p>
         
-        <listing xml:id="graphs_lst-knighttour1" names="lst_knighttour1">
+        <listing xml:id="graphs_lst-knighttour1">
             <title>Building The Full Knights Tour Graph.</title>
             <program language="cpp" label="graphs_lst-knighttour1-prog"><code>
 Graph knightGraph(int bdSize) {
@@ -49,7 +49,7 @@ Graph knightGraph(int bdSize) {
             helper function (<xref ref="graphs_lst-knighttour2"/>) makes sure that a particular move that is generated is
             still on the board.</p>
     
-        <listing xml:id="graphs_lst-knighttour2" names="lst_knighttour2">
+        <listing xml:id="graphs_lst-knighttour2">
             <title>Generating Legal Moves</title>
             <program language="cpp" label="graphs_lst-knighttour2-prog"><code>
 int coordToNum(int x, int y, int bdSize) {

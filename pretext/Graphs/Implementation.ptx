@@ -17,7 +17,7 @@
             we get a list of its connections, instead of an error. This function must be initialized
             as a <c>friend function</c> within the class definition, but is required to be defined outside of the class. This is specific to <c>operator overloading</c> in C++.</p>
         
-        <listing xml:id="lst_vertex" names="graphs_lst-vertex">
+        <listing xml:id="lst_vertex">
                 <title><c>Vertex</c> Class</title>
                 <program language="cpp" label="lst_vertex-prog"><code>
 class Vertex {
@@ -75,7 +75,7 @@ ostream &amp;operator&lt;&lt;(ostream &amp;stream, Vertex &amp;vert) {
             vertex to another. The <c>getVertices</c> method returns the names of all
             of the vertices in the graph.</p>
         
-        <listing xml:id="lst_graph" names="graphs_lst-graph">
+        <listing xml:id="lst_graph">
                 <title><c>Graph</c> Class</title>
                 <program language="cpp" label="lst_graph-prog"><code>
 class Graph {

@@ -115,7 +115,7 @@ main()
             <c>if</c> statement on line 2 as a check for the base case of <c>branchLen</c>
             getting too small. The C++ equivalent to this function is shown below and exists in <q>Turtle.cpp</q>.</p>
 
-        <listing xml:id="lst-fractree-py" names="lst_fractree">
+        <listing xml:id="lst-fractree-py">
             <title>Fractal Tree</title>
             <program language="python" label="lst-fractree-py-prog"><code>
 def tree(branchLen,t):
@@ -266,11 +266,5 @@ main()
                 </li>
             </ul></p>
 
-    <program xml:id="recursion_sc_3" interactive="activecode" language="cpp" label="recursion_sc_3-prog">
-        <code>
-
-
-        </code>
-    </program>
 </reading-questions>  
     </section>
