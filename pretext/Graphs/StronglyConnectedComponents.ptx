@@ -15,7 +15,7 @@
             huge, so we have limited it to web sites that are no more than 10 links
             away from the CS home page.</p>
 
-        <figure align="center" xml:id="fig-cshome">
+        <figure xml:id="fig-cshome">
             <caption> The Graph Produced by Links from the Luther Computer Science Home Page.</caption>
                 <image source="Graphs/cshome.png" width="95%">
                 <description><p>This image depicts a complex network graph that visualizes the web of links from the Luther Computer Science Home Page. The graph is a cluster of interconnected nodes, each representing a different page or external link. Central nodes like "Luther College History Department" have multiple connections radiating out to related nodes such as "Loyola College in Maryland" and "Iowa State University." Peripheral nodes link to a variety of topics, including "Recreational Sports - Luther College," "Luther College Administration," and "Cornell College - Chemistry." The links create a dense web, illustrating the interconnected nature of the website's structure. The graph is used to demonstrate the relationships and pathways between various academic departments, programs, and external educational institutions.</p></description>
@@ -41,7 +41,7 @@
             graph with three strongly connected components. The strongly connected
             components are identified by the different shaded areas.</p>
         
-        <figure align="center" xml:id="fig-scc1">
+        <figure xml:id="fig-scc1">
             <caption> A Directed Graph with Three Strongly Connected Components.</caption>
                 <image source="Graphs/scc1.png" width="95%">
                 <description><p>The image shows a directed graph composed of three strongly connected components, each highlighted in a separate shaded area. The graph contains nine nodes labeled A through I. Nodes A, B, and C form the first component, with arrows indicating directed edges from A to B, B to A, and B to C. The second component consists of nodes D, E, and G, with directed edges connecting D to E, E to D, and D to G. The third component includes nodes F, H, and I, with edges from F to H, H to I, and I to F. Each component is a self-contained subgraph where every node is reachable from every other node within the same component, illustrating the concept of strong connectivity in graph theory.</p></description>
@@ -51,7 +51,7 @@
             a simplified view of the graph by combining all the vertices in one
             strongly connected component into a single larger vertex. The simplified
             version of the graph in <xref ref="fig-scc1"/> is shown in <xref ref="fig-scc2"/>.</p>
-        <figure align="center" xml:id="fig-scc2">
+        <figure xml:id="fig-scc2">
             <caption> The Reduced Graph.</caption>
                 <image source="Graphs/scc2.png" width="95%">
                 <description><p>The image depicts a simplified or reduced graph consisting of three nodes, which are labeled with the combined letters of the nodes from the strongly connected components they represent. The first node contains the letters "ABDEG," indicating it is a merged node of the first component. The second node is labeled "C," and the third node contains "FHI," representing the second and third components, respectively. There are directed edges from the "ABDEG" node to "C" and from "C" to "FHI," showing the flow between these combined nodes. This reduced graph emphasizes the hierarchical structure and the dependencies between the strongly connected components of the original directed graph.</p></description>
@@ -65,14 +65,14 @@
             is, if there is a directed edge from node A to node B in the original
             graph then <m>G^T</m> will contain and edge from node B to node A.
             <xref ref="fig-transpose1"/> and <xref ref="fig-transpose2"/> show a simple graph and its transposition.</p>
-        <figure align="center" xml:id="fig-transpose1">
+        <figure xml:id="fig-transpose1">
             <caption> A Graph <m>G</m>.</caption>
                 <image source="Graphs/transpose1.png" width="80%">
                 <description><p>The image illustrates a directed graph G with four nodes labeled A, B, C, and D. There is a directed edge from A to B, indicating a one-way relationship, and two other directed edges, one from B to D and another from C to D, suggesting that both B and C can independently reach D.</p></description>
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-transpose2">
+        <figure xml:id="fig-transpose2">
             <caption> Its Transpose <m>G^T</m>.</caption>
                 <image source="Graphs/transpose2.png" width="80%">
                 <description><p>The image shows the transpose of the graph  <m>G^T</m> from Figure 33, where the direction of all the edges in the original graph  G has been reversed. In this transposed graph, there is a directed edge from B to A, and two other directed edges, one from D to B and another from D to C, indicating that D can reach both B and C. This represents the inverse relationships compared to the original graph G.</p></description>
@@ -107,14 +107,14 @@
             finishing times computed for the original graph by the DFS algorithm.
             <xref ref="fig-scc1b"/> shows the starting and finishing times computed by
             running DFS on the transposed graph.</p>
-        <figure align="center" xml:id="fig-scc1a">
+        <figure xml:id="fig-scc1a">
             <caption>Starting and finishing times for the original graph <m>G</m>.</caption>
                 <image source="Graphs/scc1a.png" width="80%">
                 <description><p>The image displays a directed graph G consisting of nine nodes labeled A through I. Each node is annotated with a pair of numbers, representing the finishing times in the format 'start/finish'. The edges indicate the direction of connection between nodes. Solid arrows represent direct connections, while dashed arrows signify connections that are part of the graph but are not the primary path in the context shown. This graph is likely used to demonstrate an algorithmic concept such as Depth-First Search (DFS), where the numbers indicate the order in which nodes are fully processed.</p></description>
                 </image>
             </figure>
 
-        <figure align="center" xml:id="fig-scc1b">
+        <figure xml:id="fig-scc1b">
             <caption>Starting and finishing times for <m>G^T</m>.</caption>
                 <image source="Graphs/scc1b.png" width="80%">
                 <description><p>This image depicts a directed graph, labeled G^T, which is the transpose of a previous graph G. It consists of nine nodes labeled A through I. Each node is marked with two numbers, indicating the finishing times, in a format that suggests the order in which they were processed, with the first number likely representing the start time and the second the finish time. The graph is interconnected with solid and dashed arrows indicating the direction of the edges, where the dashed arrows might represent the reverse of the original connections inG. This graph is typically used to demonstrate concepts such as the calculation of finishing times in a Depth-First Search (DFS) on the transposed graph for algorithms like Kosaraju's or other strong component identification algorithms.</p></description>
@@ -125,7 +125,7 @@
             that we do not provide you with the Python code for the SCC algorithm,
             we leave writing this program as an exercise.</p>
 
-        <figure align="center" xml:id="fig-sccforest">
+        <figure xml:id="fig-sccforest">
             <caption>Strongly Connected Components.</caption>
                 <image source="Graphs/sccforest.png" width="80%">
                 <description><p>The diagram shows a directed graph illustrating the concept of strongly connected components within a network of nodes. Each node is labeled with a letter from A to I and a pair of numbers, which could represent the sequence in which a depth-first search algorithm processed them. The graph is organized with directed edges forming paths between the nodes, suggesting the presence of subgraphs where each node is reachable from every other node within the same subgraph. This kind of representation is commonly used in computer science to illustrate algorithms that identify strongly connected components within a graph, which are maximal sets of vertices with a path to every other vertex in the set.</p></description>

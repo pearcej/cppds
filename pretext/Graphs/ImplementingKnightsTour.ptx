@@ -81,56 +81,56 @@ def knightTour(n,path,u,limit):
             list, <c>path</c> has the values <c>[A,B,D,E,F,C]</c>, which is the the order
             we need to traverse the graph to visit each node exactly once.</p>
         
-        <figure align="center" xml:id="fig-kta">
+        <figure xml:id="fig-kta">
             <caption>Start with node A.</caption>
                 <image source="Graphs/ktdfsa.png" width="80%">
                 <description><p>Graph with node 'fool' as the central node connected to four adjacent nodes labeled 'pool', 'foil', 'foul', and 'cool', each marked with the number '1'. Below the graph is a visual representation of a queue with the nodes 'pool', 'foil', 'foul', and 'cool' lined up in order.</p></description>
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-ktb">
+        <figure xml:id="fig-ktb">
             <caption>Explore B.</caption>
                 <image source="Graphs/ktdfsb.png" width="80%">
                 <description><p>Graph with nodes A, B, C, D, E, and F, with node B highlighted, indicating exploration from node B to nodes A and E.</p></description>
                 </image>
             </figure>
 
-        <figure align="center" xml:id="fig-ktc">
+        <figure xml:id="fig-ktc">
             <caption>Node C is a dead end.</caption>
                 <image source="Graphs/ktdfsc.png" width="80%">
                 <description><p>Graph highlighting node C, showing no further connections, indicating that C is a dead end in the search process.</p></description>
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-ktd">
+        <figure xml:id="fig-ktd">
             <caption>Backtrack to B.</caption>
                 <image source="Graphs/ktdfsd.png" width="80%">
                 <description><p>Graph with a backtrack path from node C to node B, illustrating the step of returning to node B to continue the search.</p></description>
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-kte">
+        <figure xml:id="fig-kte">
             <caption>Explore D.</caption>
                 <image source="Graphs/ktdfse.png" width="80%">
                 <description><p>Graph with node D highlighted, indicating the exploration is continuing from node D to nodes A and E.</p></description>
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-ktf">
+        <figure xml:id="fig-ktf">
             <caption>Explore E.</caption>
                 <image source="Graphs/ktdfsf.png" width="80%">
                 <description><p>Graph focusing on node E, with exploration proceeding from node E to nodes B and D.</p></description>
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-ktg">
+        <figure xml:id="fig-ktg">
             <caption>Explore F.</caption>
                 <image source="Graphs/ktdfsg.png" width="80%">
                 <description><p>Graph with node F highlighted, representing the search exploring potential paths from node F to node C.</p></description>
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-kth">
+        <figure xml:id="fig-kth">
             <caption>Finish.</caption>
                 <image source="Graphs/ktdfsh.png" width="80%">
                 <description><p>Final graph with all nodes no longer highlighted, representing the completion of the depth-first search process.</p></description>
@@ -141,7 +141,7 @@ def knightTour(n,path,u,limit):
             symmetric. With some modification you can make circular tours that start
             and end at the same square.</p>
         
-        <figure align="center" xml:id="fig-completeTour">
+        <figure xml:id="fig-completeTour">
             <caption>A Complete Tour of the Board.</caption>
                 <image source="Graphs/completeTour.png" width="80%">
                 <description><p>Image depicting a graph overlaid on an 8x8 chessboard grid representing a complete Knight's Tour. The nodes, numbered from 0 to 63, correspond to the squares of the chessboard. Lines crisscross the grid, mapping the knight's moves in a sequential path that visits each square exactly once. The complex web of lines indicates the knight's route, creating a Hamiltonian circuit where the start and end points are connected. Captioned 'Figure 11: A Complete Tour of the Board'.</p></description>

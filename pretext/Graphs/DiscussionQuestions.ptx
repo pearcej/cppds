@@ -5,7 +5,7 @@
                 <p>Draw the graph corresponding to the following adjacency matrix.</p>
             </li>
         </ol></p>
-        <figure align="center" xml:id="fig-adjMatEX">
+        <figure xml:id="fig-adjMatEX">
             <caption>Adjacency matrix.</caption>
                 <image source="Graphs/adjMatEX.png" width="80%">
                 <description><p>Adjacency matrix with weighted edges between nodes A to F. A connects to B with 7, to E with 5, and to F with 1. B connects to A with 2, to D with 7, and to E with 3. C connects to B with 2 and to F with 8. D connects to A with 1, to C with 2, and to E with 4. E connects to A with 6 and to C with 5. F connects to A with 1 and to C with 8.</p></description>

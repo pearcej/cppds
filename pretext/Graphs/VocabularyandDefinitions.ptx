@@ -3,7 +3,7 @@
         <p>Now that we have looked at some examples of graphs, we will more
             formally define a graph and its components. We already know some of
             these terms from our discussion of trees.</p>
-        <dl>
+        <p><dl>
             <li>
                 <title>Vertex</title>
                 <idx><h>Graph Components</h><h>vertex</h></idx>
@@ -36,7 +36,7 @@
                         between the two cities.</p>
                 
             </li>
-        </dl>
+        </dl></p>
         <p>With those definitions in hand we can formally define a graph. A graph
             can be represented by <m>G</m> where <m>G =(V,E)</m>. For the
             graph <m>G</m>, <m>V</m> is a set of vertices and <m>E</m> is a
@@ -54,7 +54,7 @@
              (v0,v5,2),(v5,v4,8),(v3,v5,3),(v5,v2,1)
              \end{array} \right\}</me>
         
-        <figure align="center" xml:id="fig-dgsimple">
+        <figure xml:id="fig-dgsimple">
             <caption>A Simple Example of a Directed Graph.</caption>
                 <image source="Graphs/digraph.png" width="80%">
                 <description><p>Diagram representing a simple directed graph with vertices labeled V0 to V5. Arrows indicating direction connect the vertices, with weights on each edge. V0 connects to V4 and V1 with weights 1 and 5, respectively. V1 is connected from V0 and to V5 with weights 5 and 4, respectively. V2 connects from V3 and V5 with weights 9 and 1, respectively. V3 connects to V2 and V5 with weights 9 and 3, respectively, and also to V4 with a weight of 7. V4 connects from V0 and V5 with weights 1 and 8, respectively, and to V3 with a weight of 7. V5, at the center, has incoming edges from V1, V3, and V4 with weights 4, 3, and 8, respectively, and outgoing edges to V2 with a weight of 1.</p></description>
@@ -63,7 +63,7 @@
 
         <p>The example graph in <xref ref="fig-dgsimple"/> helps illustrate two other
             key graph terms:</p>
-        <dl>
+        <p><dl>
             <li>
                 <title>Path</title>
                 <idx><h>Graph Components</h><h>path</h></idx>
@@ -94,6 +94,6 @@
                         as a DAG.</p>
                 
             </li>
-        </dl>
+        </dl></p>
     </section>
 

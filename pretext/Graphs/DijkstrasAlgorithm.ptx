@@ -22,7 +22,7 @@
             correctly as are the predecessor links for each vertex in the graph.</p>
         
         <listing xml:id="graphs_lst-shortpath">
-            <caption>Dijkstra's Algorithm</caption>
+            <title>Dijkstra's Algorithm</title>
             <program language="python" label="graphs_lst-shortpath-prog"><code>
 from pythonds.graphs import PriorityQueue, Graph, Vertex
 
@@ -88,28 +88,28 @@ def dijkstra(aGraph,start):
             <m>z</m> (see see <xref ref="fig-dije"/> and see <xref ref="fig-dijf"/>). However, no additional changes are found and so the
             priority queue is empty and Dijkstra's algorithm exits.</p>
         
-        <figure align="center" xml:id="fig-dija">
+        <figure xml:id="fig-dija">
             <caption>Tracing Dijkstra's Algorithm.</caption>
                 <image source="Graphs/dijkstraa.png" width="80%">
                 <description><p>The image illustrates the initial state of Dijkstra's Algorithm being traced on a weighted graph. The graph includes six nodes: u, v, w, x, y, and z. Node u is marked as the starting point with a tentative distance of zero (d=0), while other nodes are yet to be visited and have undefined distances. Edges connecting the nodes have varying weights, such as the edge from u to x has a weight of 2, and the edge from x to v has a weight of 1. A priority queue (PQ) is depicted at the bottom, currently holding nodes x, v, and w, which will be processed according to the algorithm.</p></description>
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-dijb">
+        <figure xml:id="fig-dijb">
             <caption>Tracing Dijkstra's Algorithm.</caption>
                 <image source="Graphs/dijkstrab.png" width="80%">
                 <description><p>This image further traces Dijkstra's Algorithm on the same weighted graph. The priority queue (PQ) at the bottom has been updated to contain only nodes v and w. Node x has been visited with the shortest distance from u determined (d=1), indicated by a solid line. Other nodes have tentative distances, like node v with a distance of 2 (d=2). Dashed lines indicate unconfirmed paths that are still under consideration.</p></description>
                 </image>
             </figure>
 
-        <figure align="center" xml:id="fig-dijc">
+        <figure xml:id="fig-dijc">
             <caption>Tracing Dijkstra's Algorithm.</caption>
                 <image source="Graphs/dijkstrac.png" width="80%">
                 <description><p>The image continues the progression of Dijkstra's Algorithm on the graph. Node v has now been confirmed with the shortest path from u (d=2) and is connected by solid lines. The priority queue (PQ) at the bottom now includes only node w. Node x shows the confirmed shortest path from u, and node y has a tentative distance of 2 (d=2). The algorithm visually demonstrates the process of finding the shortest paths from a single source to all other nodes in the graph.</p></description>
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-dijd">
+        <figure xml:id="fig-dijd">
             <caption>Tracing Dijkstra's Algorithm.</caption>
                 <image source="Graphs/dijkstrad.png" width="80%">
                 <description><p>The image shows a continuation of Dijkstra's Algorithm on a weighted graph. The graph's nodes u, v, w, x, y, and z are connected by directed edges with weights. Node w is the current focus, indicated by the priority queue (PQ) containing only w. Nodes u, x, and v have confirmed shortest paths with solid lines leading to them, and their distances from the starting node u are marked as d=0, d=1, and d=2, respectively. Dashed lines suggest potential paths still under consideration.</p></description>
@@ -117,7 +117,7 @@ def dijkstra(aGraph,start):
             </figure>
         
 
-        <figure align="center" xml:id="fig-dije">
+        <figure xml:id="fig-dije">
             <caption>Tracing Dijkstra's Algorithm.</caption>
                 <image source="Graphs/dijkstrae.png" width="80%">
                 <description><p>This step in Dijkstra's Algorithm shows node w with a confirmed shortest path from the starting node (d=3). The priority queue (PQ) at the bottom now contains only node z. The graph is further resolved with nodes u, x, v, and y having confirmed shortest paths, displayed with solid lines and distances marked. The algorithm's process is nearing completion, with almost all nodes having the shortest paths determined.</p></description>
@@ -125,7 +125,7 @@ def dijkstra(aGraph,start):
             </figure>
         
 
-        <figure align="center" xml:id="fig-dijf">
+        <figure xml:id="fig-dijf">
             <caption>Tracing Dijkstra's Algorithm.</caption>
                 <image source="Graphs/dijkstraf.png" width="80%">
                 <description><p>The final image depicts the weighted graph after the completion of Dijkstra's Algorithm. All nodes have confirmed shortest paths from the starting node u, which are shown with solid lines. The priority queue (PQ) is now empty, indicating that the algorithm has finished running. Each node has a definitive shortest distance from u (d=0, d=1, d=2, d=3, etc.), and the pathfinding process is complete, showcasing the algorithm's effectiveness in solving the shortest path problem.</p></description>

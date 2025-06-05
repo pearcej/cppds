@@ -11,7 +11,7 @@
             to heat up some syrup. <xref ref="fig-pancakes"/> illustrates this process as
             a graph.</p>
 
-        <figure align="center" xml:id="fig-pancakes">
+        <figure xml:id="fig-pancakes">
             <caption> The Steps for Making Pancakes.</caption>
                 <image source="Graphs/pancakes.png" width="80%">
                 <description><p>A flowchart detailing the steps for making pancakes. The process begins with three separate ingredients: 3/4 cup of milk, 1 egg, and 1 Tbl of oil, converging into a central step labeled '1 cup mix'. From there, the flowchart indicates to 'heat griddle', followed by 'pour 1/4 cup' of the mix onto the griddle. The next step is to 'turn when bubbly', indicating when to flip the pancakes. Two concurrent final steps are 'heat syrup' and 'eat', signifying the end of the pancake-making process. The flowchart effectively outlines the sequence of actions required to make pancakes from the initial ingredient preparation to the final eating stage.</p></description>
@@ -50,7 +50,7 @@
         </ol></p>
         <p><xref ref="fig-pancakesdfs"/> shows the depth first forest constructed by
             <c>dfs</c> on the pancake-making graph shown in <xref ref="fig-pancakes"/>.</p>
-        <figure align="center" xml:id="fig-pancakesdfs">
+        <figure xml:id="fig-pancakesdfs">
             <caption> Result of Depth First Search on the Pancake Graph.</caption>
                 <image source="Graphs/pancakesDFS.png" width="80%">
                 <description><p>The image depicts the result of a depth-first search on a pancake recipe graph. It starts with "3/4 cup milk" at step 1/12, which along with "1 egg" at step 15/16 and "1 Tbl Oil" at step 17/18, feeds into "1 cup mix" at step 2/11. This leads to "heat griddle" at step 13/14, followed by "pour 1/4 cup" at step 3/8. The next action is "turn when bubbly" at step 4/7, and the final steps are "heat syrup" at step 9/10 and "eat" at step 5/6. Each step is represented by an oval, with directed edges showing the sequence of the recipe steps, and numbers indicating the search progression.</p></description>
@@ -61,7 +61,7 @@
             topological sort algorithm to our graph. Now all the ambiguity has been
             removed and we know exactly the order in which to perform the pancake
             making steps.</p>
-        <figure align="center" xml:id="fig-pancakesTS">
+        <figure xml:id="fig-pancakesTS">
             <caption> Result of Depth First Search on the Pancake Graph.</caption>
                 <image source="Graphs/pancakesTS.png" width="95%">
                 <description><p>Alt text for Figure 29: This image shows the result of a topological sort on a directed acyclic graph representing the steps for making pancakes. The sequence begins with "1 Tbl Oil" at step 17/18, followed by "1 egg" at step 15/16, "3/4 cup milk" at step 1/12, and "1 cup mix" at step 2/11. The next steps are "heat griddle" at step 13/14, "heat syrup" at step 9/10, "pour 1/4 cup" at step 3/8, and "turn when bubbly" at step 4/7. The final action is "eat" at step 5/6. Each step is depicted as an oval, connected by directed paths that indicate the order of operations, with numbers denoting the order in the topological sort.</p></description>

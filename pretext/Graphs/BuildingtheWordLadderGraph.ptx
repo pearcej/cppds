@@ -9,7 +9,7 @@
             problem. Notice that the graph is an undirected graph and that the edges
             are unweighted.</p>
         
-        <figure align="center" xml:id="fig-wordladder">
+        <figure xml:id="fig-wordladder">
                 <caption>A Small Word Ladder Graph.</caption>
                     <image source="Graphs/wordgraph.png" width="80%">
                     <description><p>Image of a word ladder graph showing connections between various words. The words 'fool' and 'sage' are highlighted in boxes, suggesting they are the start and end points. From 'fool', lines connect to 'foil', 'foul', 'cool', and 'pool'. From 'pool', there are connections to 'poll', 'pall', and 'pole', and 'pole' connects to 'pale' which in turn connects to 'page', 'sale', and 'sage'. Other words like 'fail', 'fall', and 'pope' are also connected in the graph. The graph demonstrates how each word can be transformed into another word by changing a single letter at a time.</p></description>
@@ -38,7 +38,7 @@
             bucket. Once we have all the words in the appropriate buckets we know
             that all the words in the bucket must be connected.</p>
             
-        <figure align="center" xml:id="fig-wordbucket">
+        <figure xml:id="fig-wordbucket">
                 <caption>Word Buckets for Words That are Different by One Letter.</caption>
                     <image source="Graphs/wordbuckets.png" width="80%">
                     <description><p>Image illustrating word buckets for a group of words that differ by only one letter. There are four buckets, each labeled with a word pattern. The first bucket 'OPE' includes 'POPE', 'ROPE', 'NOPE', 'HOPE', 'LOPE', 'MOPE', and 'COPE'. The second bucket 'P_PE' contains 'POPE', 'PIPE', and 'PAPE'. The third bucket 'PO_E' lists 'POPE', 'POLE', 'PORE', 'POSE', and 'POKE'. The last bucket 'POP' includes 'POPE' and 'POPS'. Each bucket groups words that can be formed by changing the letter represented by the underscore.</p></description>
@@ -53,7 +53,7 @@
             same key in the map. <xref ref="graphs_wordbucket_cpp"/> shows the C++
             code required to build the graph.</p>
 <listing xml:id="graphs_wordbucket_cpp">
-    <caption>Building the Word Bucket Graph</caption>
+    <title>Building the Word Bucket Graph</title>
     <program xml:id="wordbucket_cpp" interactive="activecode" language="cpp" label="wordbucket_cpp-prog">
         <code>
 #include &lt;fstream&gt;
