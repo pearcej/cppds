@@ -170,7 +170,7 @@ def bfs(g,start):
             the shortest word ladder from any word back to fool. The function below (<xref ref="graphs_lst-wordbucket3"/>) shows how to follow the predecessor links to
             print out the word ladder.</p>
         
-        <listing xml:id="graphs_lst-wordbucket3" names="lst_wordbucket3">
+        <listing xml:id="graphs_lst-wordbucket3">
             <title>Printing the Word Bucker</title>
             <program language="cpp" label="graphs_lst-wordbucket3-prog"><code>
 void traverse(Vertex *y) {

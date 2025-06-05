@@ -115,7 +115,7 @@
             <video label="graphs_knighttour-video" source="Graphs/knights_tour_vis.webm" width="80%" preview="Graphs/kt_vis_thumb.png"/>
         </figure>
 
-        <listing xml:id="graphs_lst-avail" names="lst_avail">
+        <listing xml:id="graphs_lst-avail">
             <title>Implementation of <c>orderByAvail</c></title>
             <program language="python" label="graphs_lst-avail-prog"><code>
 def orderByAvail(n):

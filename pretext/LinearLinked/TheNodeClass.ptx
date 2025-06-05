@@ -12,7 +12,7 @@
             <xref ref="id2-fig-node2"/>. The <c>Node</c> class also includes the usual methods
             to access and modify the data and the next reference.</p>
 
-  <listing xml:id="linear-linked_lst-nodeclass" names="lst_nodeclass">
+  <listing xml:id="linear-linked_lst-nodeclass">
     <title><c>Node</c> Class</title>
     <program language="cpp" label="linear-linked_lst-nodeclass-prog"><code>
 #include &lt;iostream&gt;

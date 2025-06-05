@@ -61,7 +61,7 @@ print('right subtree = ', myTree[2])
             tree as the left child of the list we are adding. <xref ref="lst-linsleft"/>
             shows the Python code for inserting a left child.</p>
         
-        <p xml:id="trees_lst-linsleft" names="lst_linsleft"><term>Listing 1</term></p>
+        <p xml:id="trees_lst-linsleft"><term>Listing 1</term></p>
         <pre>def insertLeft(root,newBranch):
     t = root.pop(1)
     if len(t) &gt; 1:
@@ -76,7 +76,7 @@ print('right subtree = ', myTree[2])
             The code for <c>insertRight</c> is similar to <c>insertLeft</c> and is shown
             in <xref ref="lst-linsright"/>.</p>
         
-        <p xml:id="trees_lst-linsright" names="lst_linsright"><term>Listing 2</term></p>
+        <p xml:id="trees_lst-linsright"><term>Listing 2</term></p>
         <pre>def insertRight(root,newBranch):
     t = root.pop(2)
     if len(t) &gt; 1:
@@ -88,7 +88,7 @@ print('right subtree = ', myTree[2])
             access functions for getting and setting the root value, as well as
             getting the left or right subtrees.</p>
         
-        <p xml:id="trees_lst-treeacc" names="lst_treeacc"><term>Listing 3</term></p>
+        <p xml:id="trees_lst-treeacc"><term>Listing 3</term></p>
         <pre>def getRootVal(root):
     return root[0]
 

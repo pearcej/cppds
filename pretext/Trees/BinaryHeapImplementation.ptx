@@ -159,7 +159,7 @@ void percUp(int i){
                 </code></program>
             </listing>
 
-            <listing xml:id="binheap_lst-heap3" names="lst_heap3">
+            <listing xml:id="binheap_lst-heap3">
                 <title><c>insert</c> Method</title>
                 <program language="cpp" label="binheap_lst-heap3-prog"><code>
 void insert(int k){
@@ -250,7 +250,7 @@ int minChild(int i){
                 that once again the hard work is handled by a helper function, in this
                 case <c>percDown</c>.</p>
             
-            <listing xml:id="binheap_lst-heap5" names="lst_heap5">
+            <listing xml:id="binheap_lst-heap5">
                 <title><c>delMin</c> Implementation</title>
                 <program language="cpp" label="binheap_lst-heap5-prog"><code>
 int delMin(){

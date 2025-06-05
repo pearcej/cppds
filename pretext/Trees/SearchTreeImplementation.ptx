@@ -200,7 +200,7 @@ class TreeNode{
             associated with the new key to replace the old value. We leave fixing
             this bug as an exercise for you.</p>
         
-        <listing xml:id="bst_lst-bst3" names="lst_bst3">
+        <listing xml:id="bst_lst-bst3">
             <title><c>put</c> and <c>_put</c> Methods</title>
             <program language="cpp" label="bst_lst-bst3-prog"><code>
 void put(int key, string val){
@@ -269,7 +269,7 @@ void _put(int key, string val, TreeNode *currentNode){
             <c>BinarySearchTree</c> methods that may need to make use of other data
             from the <c>TreeNode</c> besides the value.</p>
         
-        <listing xml:id="bst_lst-bst4" names="bst_lst-bst4">
+        <listing xml:id="bst_lst-bst4">
             <title><c>get</c> and <c>_get</c> Methods</title>
             <program language="cpp" label="bst_lst-bst4-prog"><code>
 string get(int key){
@@ -306,7 +306,7 @@ TreeNode  *_get(int key, TreeNode *currentNode){
             key of the root matches the key that is to be deleted. In either case if
             the key is not found the <c>del</c> operator raises an error.</p>
         
-        <listing xml:id="bst_lst-bst5" names="lst_bst5">
+        <listing xml:id="bst_lst-bst5">
             <title><c>del</c> Method</title>
             <program language="cpp" label="bst_lst-bst5-prog"><code>
 void del(int key){
@@ -494,7 +494,7 @@ else{ // this node has one child
             changes. We could call <c>delete</c> recursively, but then we would waste
             time re-searching for the key node.</p>
         
-        <listing xml:id="bst_lst-bst8" names="lst_bst8">
+        <listing xml:id="bst_lst-bst8">
             <title>Deleting a Node With Two Children</title>
             <program language="cpp" label="bst_lst-bst8-prog"><code>
 else if (currentNode-&gt;hasBothChildren()){ //interior
@@ -535,7 +535,7 @@ else if (currentNode-&gt;hasBothChildren()){ //interior
             method simply follows the <c>leftChild</c> references in each node of the
             subtree until it reaches a node that does not have a left child.</p>
         
-        <listing xml:id="bst_lst-bst9" names="lst_bst9">
+        <listing xml:id="bst_lst-bst9">
             <title><c>findSuccessor</c>, <c>findMin</c>, and <c>spliceOut</c> Methods</title>
             <program language="cpp" label="bst_lst-bst9-prog"><code>
 TreeNode *findSuccessor(){
