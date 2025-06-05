@@ -203,7 +203,7 @@ int main( ) {
     </program></listing>
             <p>For the program in <xref ref="activepassrefcpp"/> to reverse the order of the integers the users types in, the function <c>swap_values(...)</c> must be able to change the values of the arguments. Try removing one or both of the <c>&amp;</c><rsq/>s in this code to see what happens.</p>
         </subsection>
-        <transition/>
+
         <subsection xml:id="introduction_arrays-as-parameters-in-functions">
             <title>Arrays as Parameters in Functions</title>
             <p><idx>array parameters</idx>Functions can be used with <term>array parameters</term> to maintain a structured design.

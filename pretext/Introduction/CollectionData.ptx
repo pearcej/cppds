@@ -511,7 +511,7 @@ main()
             <xref ref="vector_no_reserve_cpp"/>.</p>
 
             <listing xml:id="vector_no_reserve_cpp">
-                <caption><c>reserve</c> is optional</caption>
+                <title><c>reserve</c> is optional</title>
                 <program interactive="activecode" language="cpp" label="vector_no_reserve_cpp-prog"><code>
 //code from above but without the reserve
 #include &lt;iostream&gt;
