@@ -834,26 +834,35 @@ class Airplane: public Vehicle
             </choice>
 </choices>
 
-    </exercise>
-            <note>
-                <title>Self  Check Challenge</title>
-                <p>One of the fundamental building blocks of a computer is something called a flip flop.  It's not something that computer science professors wear on their feet, but rather a kind of circuit that is stable and stores the last piece of data that was put on it.  A simple flip-flop can be made from two <term>NOR</term> gates (a combination <term>OR</term> and <term>NOT</term>) that are tied together as in the following diagram. Create a new gate class, called NorGate. NorGates work like OrGates that have a Not attached to the output. See if you can use your new class to implement this.</p>
-                <image source="Introduction/flipflop.png" width="50%"> 
-                <description>
-                <p>
-                Image showing a simple flip-flop circuit constructed with two NOR gates. The circuit consists of two inputs labeled &quot;Reset&quot; and &quot;Set,&quot; 
-                which feed into the respective NOR gates. The output of the upper NOR gate loops back as an input to the lower NOR gate, while the output 
-                of the lower NOR gate loops back as an input to the upper NOR gate. This feedback loop creates a stable circuit that can store a single bit 
-                of data based on the states of the &quot;Reset&quot; and &quot;Set&quot; inputs.
-                </p>
-                </description>
-                </image>
-                <p>Note if the initial inputs to Reset and Set are both 0 then the output of the flip-flop is 0.  But if the Set input is toggled to 1 then the output becomes 1.  The great thing is that when the set input goes to 0 the output stays 1, until the reset input is toggled to 1 which resets the output of the circuit back to zero.</p>
-            </note>
-
-        </reading-questions>
-        </subsection>
-        <conclusion><p>
-            <!-- extra space before the progress bar -->   
-        </p></conclusion>
-    </section>
+ </exercise>
+</reading-questions>
+</subsection>
+<subsection>
+    <title>Self Check Challenge</title>
+    <p>One of the fundamental building blocks of a computer is something
+        called a flip flop.  It's not something that computer science professors
+        wear on their feet, but rather a kind of circuit that is stable and
+        stores the last piece of data that was put on it.  A simple flip-flop
+        can be made from two <term>NOR</term> gates (a combination
+        <term>OR</term> and <term>NOT</term>) that are tied together as in
+        the following diagram. Create a new gate class, called <c>NorGate</c>.
+        NOR gates work like OR gates that have a NOT gate attached to the
+        output. See if you can use your new class to implement this.</p>
+    <image source="Introduction/flipflop.png" width="50%"> 
+        <description><p>
+            Image showing a simple flip-flop circuit constructed with two NOR gates. The circuit consists of two inputs labeled &quot;Reset&quot; and &quot;Set,&quot; 
+            which feed into the respective NOR gates. The output of the upper NOR gate loops back as an input to the lower NOR gate, while the output 
+            of the lower NOR gate loops back as an input to the upper NOR gate. This feedback loop creates a stable circuit that can store a single bit 
+            of data based on the states of the &quot;Reset&quot; and &quot;Set&quot; inputs.
+        </p></description>
+    </image>
+    <p>Note: if the initial inputs to Reset and Set are both 0 then the output
+        of the flip-flop is 0.  But if the Set input is toggled to 1 then the
+        output becomes 1.  The great thing is that when the set input goes to 0
+        the output stays 1, until the reset input is toggled to 1 which resets
+        the output of the circuit back to zero.</p>
+</subsection>
+<conclusion><p>
+    <!-- extra space before the progress bar -->   
+</p></conclusion>
+</section>
