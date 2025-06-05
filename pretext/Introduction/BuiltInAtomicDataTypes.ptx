@@ -561,7 +561,6 @@ int varN = 100;</pre>
     <p>In C++, variables store values directly, making them faster to reference.</p>
     <p>If in C++, we want to create a reference to a memory location in C++,
                 we must use a special syntax called a <term>pointer</term>.</p>
-    </introduction>
     <exploration label="intro_pointers-ex_print_ptr">
       <title>Printing Pointers</title>
       <task label="print-ptr">
@@ -592,6 +591,7 @@ main()
         </code></program></statement>
       </task>
     </exploration>
+    </introduction>
     <subsubsection xml:id="introduction_pointer-syntax">
       <title>Pointer Syntax</title>
       <p>When declaring a pointer in C++ that will <q>point</q> to the memory address of some
@@ -652,9 +652,8 @@ ptrN = &amp;varN;</pre>
       <p>In other words, <c>varN</c> and <c>*ptrN</c> (note the asterisk in front!) reference the same
                     value in the code above.</p>
       <p>Let<rsq/>s extend the example above to output the value of a variable and its address
-                    in memory: <ellipsis/> _dereferencing.</p>
-      <blockquote>
-        <program xml:id="firstptr" interactive="activecode" language="cpp" label="firstptr-prog">
+                    in memory: <ellipsis/> dereferencing.</p>
+      <program xml:id="firstptr" interactive="activecode" language="cpp" label="firstptr-prog" line-numbers="yes">
           <code>
 //prints a variable by pointer and value
 #include &lt;iostream&gt;
@@ -668,20 +667,22 @@ int main( ) {
     cout &lt;&lt; "varN location: " &lt;&lt; ptrN &lt;&lt; endl;
     cout &lt;&lt; "dereference ptrN: " &lt;&lt; *ptrN &lt;&lt; "endl";
 
-
     return 0;
 }
         </code>
-        </program>
-      </blockquote>
+      </program>
       <exercise label="mc_pntrhlp">
         <statement>
-          <p>If the lines (varN = 50;) and  (cout &lt;&lt; *ptrN &lt;&lt; endl;) were inserted into line 7-8, what would it cout?</p>
+            <p>If the lines following lines were inserted as lines 9-11, what would the program print?</p>
+            <program language="cpp"><code>
+                varN = 50;
+                cout &lt;&lt; *ptrN &lt;&lt; endl;
+            </code></program>
         </statement>
         <choices>
           <choice>
             <statement>
-              <p>varPntr: 100</p>
+              <p>100</p>
             </statement>
             <feedback>
               <p>Not quite, the variable varN no longer equals 100 past line 7!</p>
@@ -689,7 +690,7 @@ int main( ) {
           </choice>
           <choice correct="yes">
             <statement>
-              <p>varPntr: 50</p>
+              <p>50</p>
             </statement>
             <feedback>
               <p>Right!</p>
@@ -697,7 +698,7 @@ int main( ) {
           </choice>
           <choice>
             <statement>
-              <p>varPntr: 150</p>
+              <p>150</p>
             </statement>
             <feedback>
               <p>No, the values do not add together!</p>
@@ -722,14 +723,13 @@ int main( ) {
         </choices>
       </exercise>
       <p>Compiling and running the above code will have the program output the
-                    value in varN,
-                    what is in ptrN (the memory address of varN),
+                    value in <c>varN</c>,
+                    what is in <c>ptrN</c> (the memory address of <c>varN</c>),
                     and what value is located at that
                     memory location.</p>
       <p>The second output sentence is the address of varN, which would most likely be
                     different if you run the program on your machine.</p>
       <p>WARNING: What happens if you forget the ampersand (&amp;) and accidentally assign a raw integer value to a pointer instead of a valid address?</p>
-      <blockquote>
         <program xml:id="cpp_address_error1" interactive="activecode" language="cpp" label="cpp_address_error1-prog">
           <code>
 //showcases what happens when reading from unknown memory locations
@@ -739,9 +739,9 @@ using namespace std;
 int main() {
     int varN = 100;
     int *ptrN = varN; // Note: MISSING AMPERSAND (&amp;)!
-                     // Because we used varN instead of &amp;varN,
-                    // ptrN now holds the integer value 100 as if it were a memory address.
-                   // You might get an error or you might not!
+         // Because we used varN instead of &amp;varN,
+         // ptrN now holds the integer value 100 as if it were a memory address.
+         // You might get an error or you might not!
 
      cout &lt;&lt; "varN value: " &lt;&lt; varN &lt;&lt; endl;
      cout &lt;&lt; "varN location: " &lt;&lt; ptrN &lt;&lt; endl;
@@ -752,7 +752,6 @@ int main() {
 }
         </code>
         </program>
-      </blockquote>
       <p>
         <term>This is BAD, BAD, BAD!</term>
       </p>
@@ -770,21 +769,29 @@ int main() {
       </description>
         </image>
       </figure>
-      <p>If your compiler does not catch that error (the one for this class may),
-                    the first <c>cout</c> instruction outputs:</p>
+      <p>The good news is that every modern compiler catches this error during compilation.
+          While pointers are
+          in fact just integers, the compiler grants them special status as pointers.
+          Integers will never be silently converted to pointers and vice versa:
+          pointers will never be silently converted to integers. Note: you can force the issue
+          using a cast, but that mechanism is outside the scope of this book.</p>
+      <p>If your compiler did not catch that error,
+                    the first <c>cout</c> would print:</p>
       <pre>After changing *ptrN, varN now has: 50</pre>
       <p>which is expected because you changed where ptrN is pointing to and
                     NOT the contents of where it is pointing.</p>
-      <p>The second <c>cout</c> instruction is a disaster because</p>
+      <p>The second <c>cout</c> instruction would be a disaster because</p>
       <p><ol marker="1">
         <li>
           <p>You don<rsq/>t know what is stored in location 100 in memory, and</p>
         </li>
         <li>
-          <p>that location is outside of your segment (area in memory reserved for your program), so the operating system will jump in with a message about a <q>segmentation fault</q>. Although such an error message looks bad,
-            a <q>seg fault</q> is in fact, a helpful error because unlike the elusive logical
-            errors, the reason is fairly localized.
-          </p>
+            <p>that location is likely outside of your segment (area in memory reserved for your program),
+                so the operating system will jump in with a message about a <q>segmentation fault</q>.
+                Although such an error message looks bad,
+                a <q>seg fault</q> is in fact, a helpful error because unlike the elusive logical
+                errors, the reason is fairly localized.
+            </p>
         </li>
       </ol></p>
     </subsubsection>
