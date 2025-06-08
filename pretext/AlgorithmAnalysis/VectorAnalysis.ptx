@@ -354,11 +354,11 @@ int main(){
     <cardsort>
         <match>
             <premise order="1">begin(), end(), size(), index [], index assignment = ,push_back(), pop_back()</premise>
-            <response><m>O(1)</m></response>
+            <response><p><m>O(1)</m></p></response>
         </match>
         <match>
             <premise order="2">reserve(), erase(i), insert(i, item)</premise>
-            <response><m>O(n)</m></response>
+            <response><p><m>O(n)</m></p></response>
         </match>
     </cardsort>
 </exercise>    
