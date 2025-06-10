@@ -322,8 +322,12 @@ main()
                 <title>
                     Reading Questions
                 </title>
-                <p>Take a look at the code below:</p>
-                <program language="cpp"><code>
+    <exercise label="dog_walker">
+        <statement>
+
+        <p>What is the return type of the first function defined in this code?</p>
+
+        <program language="cpp"><code>
 #include &lt;iostream&gt;
 
 using namespace std;
@@ -339,14 +343,8 @@ int main() {
     return 0;
 }
                 </code></program>
-    <exercise label="dog_walker">
-        <statement>
-
-        <p>What is the return type of the first function defined in this code?</p>
-
         </statement>
-<choices>
-
+        <choices>
             <choice correct="yes">
                 <statement>
                     <p>void</p>
@@ -432,8 +430,9 @@ int main() {
 </choices>
 
     </exercise>
-
-    <note>
+            </reading-questions>
+    </subsection>
+    <subsection xml:id="monkey-theorem">
         <title>Self Check</title>
         <p>Here's a self check that really covers everything so far.  You may have
             heard of the infinite monkey theorem?  The theorem states that a monkey
@@ -454,18 +453,15 @@ int main() {
             we will generate a whole new string. To make it easier to follow your program's
             progress this third function should print out the best string generated so far
             and its score every 1000 tries.</p>
-    </note>
-    <note>
+    </subsection>
+    <subsection>
         <title>Self Check Challenge</title>
-        <p>See if you can improve upon the program in the self check by keeping letters
+        <p>See if you can improve upon the program in <xref ref="monkey-theorem" /> by keeping letters
             that are correct and only modifying one character in the best string so far.
             This is a type of algorithm in the class of <q>hill climbing</q> algorithms, that
             is we only keep the result if it is better than the previous one.</p>
-    </note>       
-                
-            </reading-questions>
-        </subsection>
-        <conclusion><p>
-            <!-- extra space before the progress bar -->
-        </p></conclusion>
-    </section>
+    </subsection>
+    <conclusion><p>
+        <!-- extra space before the progress bar -->
+    </p></conclusion>
+</section>
