@@ -782,8 +782,6 @@ int main(){
 </block><block order="8">
 <cline>}</cline>
 </block></blocks></exercise>
-<p>There are 14 commonly used methods for Turtles. Many of them have names that indicate what they do.
-    See if you can match each method description with their names!</p>
 
 <exercise label="cturtle_dnd_1">
     <statement><p>Match the turtle method descriptions to the methods they belong to.</p></statement>
