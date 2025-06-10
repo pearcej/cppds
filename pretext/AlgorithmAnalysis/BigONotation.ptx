@@ -434,7 +434,7 @@ Reading Questions
     
             <p>The Big O of a particular algorithm is <m>O(\log_{2}n)</m>.
                 Given that it takes 2 seconds to complete the algorithm with 3 million inputs;
-                how long would it take with <b>10 million</b> inputs?</p>
+                how long would it take with <em>10 million</em> inputs?</p>
     
         </statement>
     <choices>
