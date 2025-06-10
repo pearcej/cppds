@@ -168,17 +168,13 @@ myfraction = Fraction(3, 5)
             <title>Abstraction and Encapsulation</title>
             <p>Another way to think about fractions is as <q>parts of a whole</q> as shown in the
                 following figure:</p>
-            <blockquote>
-                <image source="Introduction/fractions_partsofwhole.png" width="50%"> 
-                    <description>
-                    <p>
+            <image source="Introduction/fractions_partsofwhole.png" width="50%"> 
+                <description><p>
                         Image showing a visual representation of fractions as &quot;parts of a whole.&quot; The diagram begins with a full circle labeled &quot;1,&quot; 
                         followed by a circle divided into two equal parts labeled &quot;1/2,&quot; then into four parts labeled &quot;1/4,&quot; and finally into 
                         eight parts labeled &quot;1/8.&quot; The sequence visually illustrates how a whole can be divided into progressively smaller fractions.
-                    </p>
-                    </description>
-                </image>
-            </blockquote>
+                </p></description>
+            </image>
             <p><idx>abstraction</idx>Because we are using classes to create abstract data types, we should probably
                 define the term <q>abstract</q> in this context. In object-oriented programming,
                 <term>abstraction</term> requires you to focus solely on the desired properties and behaviors of
