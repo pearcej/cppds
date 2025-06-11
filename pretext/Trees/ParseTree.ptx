@@ -104,43 +104,59 @@
     
         <figure xml:id="parse_fig-bldexpstep">
             <caption>Tracing Parse Tree Construction.</caption>
-                <image source="Trees/buildExp1.png" width="15%">
+            <sbsgroup widths="25%">
+              <sidebyside>
+                <image source="Trees/buildExp1.png" width="25%">
                 <shortdescription>
                 First image of a vertical sequence of diagrams illustrating the construction of a binary search tree with numerical values. 
                 It shows a single circular node, shaded, representing the starting point of the tree.
                 </shortdescription>
                 </image>
+              </sidebyside>
+              <sidebyside>
                 <image source="Trees/buildExp2.png" width="25%">
                 <shortdescription>
                     Second image showing the addition of a new node below the initial node.
                 </shortdescription>
                 </image>
+              </sidebyside>
+              <sidebyside>
                 <image source="Trees/buildExp3.png" width="25%">
                 <shortdescription>
                     Third image showing the tree with an additional node labeled &quot;3&quot;.
                 </shortdescription>
                 </image>
+              </sidebyside>
+              <sidebyside>
                 <image source="Trees/buildExp4.png" width="25%">
                 <shortdescription>
                     Fourth image showing the partially constructed binary parse tree with a root node labeled &quot;+,&quot; two child nodes: the left child labeled &quot;3&quot; and a newly added right child, which is shaded to indicate it is the most recently added node.
                 </shortdescription>
                 </image>
+              </sidebyside>
+              <sidebyside>
                 <image source="Trees/buildExp5.png" width="25%">
                 <shortdescription>
                     Fifth image showing a binary parse tree with a root node labeled &quot;+.&quot; The left child is labeled &quot;3,&quot; the right child is connected to a newly added shaded node, which has a single child below it.
                 </shortdescription>
                 </image>
+              </sidebyside>
+              <sidebyside>
                 <image source="Trees/buildExp6.png" width="25%">
                 <shortdescription>
                     Sixth image showing the binary parse tree with a root node labeled &quot;+.&quot; The left child remains labeled &quot;3,&quot; while the right child is connected to a node that now has a newly added shaded child labeled &quot;4.&quot;
                 </shortdescription>
                 </image>
-                <image source="Trees/buildExp7.png" width="50%">
+              </sidebyside>
+              <sidebyside>
+                <image source="Trees/buildExp7.png" width="25%">
                 <shortdescription>
                     Seventh image showing a binary parse tree with a root node labeled &quot;+.&quot; The left child is labeled &quot;3,&quot; and the right child is labeled &quot;*.&quot; The node labeled &quot;*&quot; has two children: the left child labeled &quot;4&quot; and a newly added shaded right child.
                 </shortdescription>
                 </image>
-                <image source="Trees/buildExp8.png" width="50%">
+              </sidebyside>
+              <sidebyside>
+                <image source="Trees/buildExp8.png" width="25%">
                 <description>
                     <p>
                         A sequence of images showing the steps of completing a binary parse tree representing the construction of a mathematical expression. 
@@ -151,7 +167,8 @@
                     </p>
                 </description>
                 </image>
-            </figure>
+              </sidebyside>
+            </sbsgroup></figure>
 
 
         <p>Using <xref ref="parse_fig-bldexpstep"/>, let's walk through the example step by
