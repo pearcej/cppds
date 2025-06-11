@@ -5,9 +5,9 @@
         <statement><p>Match the method of finding data to its corresponding Big O.</p></statement>
         <feedback><p>Review the analysis of each technique</p></feedback>
         <cardsort>
-            <match><premise order="1">Linear Search</premise><response><m>O(n)</m></response></match>
-            <match><premise order="2">Binary Search</premise><response><m>O(\log n)</m></response></match>
-            <match><premise order="3">Hashing</premise><response><m>O(1)</m></response></match>
+            <match><premise order="1">Linear Search</premise><response><p><m>O(n)</m></p></response></match>
+            <match><premise order="2">Binary Search</premise><response><p><m>O(\log n)</m></p></response></match>
+            <match><premise order="3">Hashing</premise><response><p><m>O(1)</m></p></response></match>
         </cardsort>
     </exercise>
     
