@@ -54,8 +54,8 @@
         <response>To prevent an exception from terminating a program by wrapping the block of code in a try / except construct.</response>
       </match>
       <match>
-        <premise>immutable data type</premise>
-        <response order="6">A data type which cannot be modified.</response>
+        <premise order="6">immutable data type</premise>
+        <response>A data type which cannot be modified.</response>
       </match>
       <match>
         <premise order="7">infinite recursion</premise>
