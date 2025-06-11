@@ -251,7 +251,7 @@ void _put(int key, string val, TreeNode *currentNode){
                 </p>
             </description>
             </image>
-            </figure>
+        </figure>
         <note>
             <title>Self Check</title>
 
@@ -1250,7 +1250,7 @@ main()
             
                         <choice>
                             <statement>
-                                <p><image source="Trees/bintree_a.png" width="50%"><description><p/></description></image></p>
+                                <image source="Trees/bintree_a.png" width="50%"><description><p/></description></image>
                             </statement>
                             <feedback>
                                 <p>Remember, starting at the root keys less than the root must be in the left subtree, while keys greater than the root go in the right subtree.</p>
@@ -1259,7 +1259,7 @@ main()
             
                         <choice correct="yes">
                             <statement>
-                                <p><image source="Trees/bintree_b.png" width="50%"><description><p/></description></image></p>
+                                <image source="Trees/bintree_b.png" width="50%"><description><p/></description></image>
                             </statement>
                             <feedback>
                                 <p>good job.</p>
@@ -1268,7 +1268,7 @@ main()
             
                         <choice>
                             <statement>
-                                <p><image source="Trees/bintree_c.png" width="50%"><description><p/></description></image></p>
+                                <image source="Trees/bintree_c.png" width="50%"><description><p/></description></image>
                             </statement>
                             <feedback>
                                 <p>This looks like a binary tree that satisfies the full tree property needed for a heap.</p>
