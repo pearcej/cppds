@@ -66,6 +66,7 @@
             
         </glossary>
 
+<reading-questions>
     <exercise label="matching_linkedlist0">
         <statement><p>Drag the word on the left to its corresponding definition.</p></statement>
         <feedback><p>Review linked lists and their properties.</p></feedback>
@@ -89,6 +90,7 @@
             <match><premise order="5">unordered linked list</premise><response>A linked list whose elements are not in an order.</response></match>
         </cardsort>
     </exercise>
+</reading-questions>
     <p>
         <!-- extra space before the progress bar -->            
     </p>
