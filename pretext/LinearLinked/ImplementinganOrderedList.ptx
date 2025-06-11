@@ -346,11 +346,11 @@ int main() {
     <feedback><p>Try again!</p></feedback>
     <cardsort>
         <match>
-            <premise order="1"><m>O(1)</m></premise>
+            <premise order="1"><p><m>O(1)</m></p></premise>
             <response>isEmpty, add (unordered linked list)</response>
         </match>
         <match>
-            <premise order="2"><m>O(n)</m></premise>
+            <premise order="2"><p><m>O(n)</m></p></premise>
             <response>length,add, search, and remove(ordered linked list)</response>
         </match>
     </cardsort>
@@ -359,7 +359,7 @@ int main() {
     <exercise label="LinkedListMChoice">
         <statement>
 
-            <p>Q-3: After having read over unordered and ordered linked lists, what do you think a circular linked list would do differently from an ordered or unordered linked list? (Hint: think about the example from the beginning of the chapter.)</p>
+            <p>After having read over unordered and ordered linked lists, what do you think a circular linked list would do differently from an ordered or unordered linked list? (Hint: think about the example from the beginning of the chapter.)</p>
 
         </statement>
 <choices>

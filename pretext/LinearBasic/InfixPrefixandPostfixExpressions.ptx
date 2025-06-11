@@ -571,7 +571,6 @@ main()
                     </code></program></statement>
                 </task>
             </exploration>
-            <transition/>
             <p>A few more results of execution are shown below.</p>
             <pre>&gt;&gt;&gt; infixtopostfix(&quot;( A + B ) * ( C + D )&quot;)
 'A B + C D + *'
