@@ -34,7 +34,7 @@
 
         <exploration xml:id="trees_lst-updbal">
             <title>Implementation of <c>_put</c> and <c>updateBalance</c></title>
-            <task>
+            <task label="task-trees_lst-updbal-prog">
                 <title>C++ Implementation</title>
                 <statement>
             <program line-numbers="yes" language="cpp" label="trees_lst-updbal-prog"><code>
@@ -80,7 +80,7 @@ int updateBalance(TreeNode *node){
 </code></program>
             </statement>
         </task>
-        <task>
+        <task label="task-trees_lst-updbal-prog-py">
             <title>Python Implementation</title>
             <statement>
         <program line-numbers="yes" language="python" label="trees_lst-updbal-prog-py">
