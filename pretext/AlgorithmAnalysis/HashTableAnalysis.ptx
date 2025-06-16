@@ -110,7 +110,7 @@
         hash table.</p>
     <exploration xml:id="expl-hashtable-analysis">
         <title>Hash Table Analysis</title>
-        <task xml:id="lst-hashtable-analysis-cpp">
+        <task xml:id="lst-hashtable-analysis-cpp" label="lst-hashtable-analysis-cpp">
             <title>C++ Implementation</title>
             <statement><program language="cpp" label="HashTableAnalysis-prog"><code>
 #include &lt;iostream&gt;
@@ -148,7 +148,7 @@ return 0;
 }
             </code></program></statement>
         </task>
-        <task xml:id="lst-hashtable-analysis-py">
+        <task xml:id="lst-hashtable-analysis-py" label="lst-hashtable-analysis-py">
             <title>Python Implementation</title>
             <statement><program language="python" label="HashTableAnalysis-prog-2"><code>
 import timeit
