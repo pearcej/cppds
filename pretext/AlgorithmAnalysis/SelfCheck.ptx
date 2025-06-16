@@ -50,19 +50,19 @@
     </feedback>
     <cardsort>
       <match>
-        <premise order="1"><p><m>2^n</m></p></premise>
+        <premise order="1"><m>2^n</m></premise>
         <response>1st</response>
       </match>
       <match>
-        <premise order="2"><p><m>n^2</m></p></premise>
+        <premise order="2"><m>n^2</m></premise>
         <response>2nd</response>
       </match>
       <match>
-        <premise order="3"><p><m>n \log n</m></p></premise>
+        <premise order="3"><m>n \log n</m></premise>
         <response>3rd</response>
       </match>
       <match>
-        <premise order="4"><p><m>\log n</m></p></premise>
+        <premise order="4"><m>\log n</m></premise>
         <response>4th</response>
       </match>
     </cardsort>
