@@ -40,87 +40,90 @@
                 
                     <row>
                         <cell>
-                            index []
+                            <c>at</c>, <c>[]</c>
                         </cell>
                         <cell>
-                            O(1)
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            index assignment =
-                        </cell>
-                        <cell>
-                            O(1)
+                            <m>O(1)</m>
                         </cell>
                     </row>
                     <row>
                         <cell>
-                            push_back()
+                            <c>at</c> and <c>[]</c> assignment
                         </cell>
                         <cell>
-                            typically O(1)
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            pop_back()
-                        </cell>
-                        <cell>
-                            O(1)
+                            <m>O(1)</m>
                         </cell>
                     </row>
                     <row>
                         <cell>
-                            erase(i)
+                            <c>push_back()</c>
                         </cell>
                         <cell>
-                            O(n)
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            insert(i, item)
-                        </cell>
-                        <cell>
-                            O(n)
+                            typically <m>O(1)</m>
                         </cell>
                     </row>
                     <row>
                         <cell>
-                            find(srt, stp, item)
+                            <c>pop_back()</c>
                         </cell>
                         <cell>
-                            O(log n) or O(n)
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            reserve()
-                        </cell>
-                        <cell>
-                            O(n)
+                            <m>O(1)</m>
                         </cell>
                     </row>
                     <row>
                         <cell>
-                            begin()
+                            <c>erase(i)</c>
                         </cell>
                         <cell>
-                            O(1)
-                        </cell>
-                    </row>
-                    <row>
-                        <cell>
-                            end()
-                        </cell>
-                        <cell>
-                            O(1)
+                            <m>O(n)</m>
                         </cell>
                     </row>
                     <row>
                         <cell>
-                            size()               O(1)
+                            <c>insert(i, item)</c>
+                        </cell>
+                        <cell>
+                            <m>O(n)</m>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>find(srt, stp, item)</c>
+                        </cell>
+                        <cell>
+                            <m>O(\log n)</m> or <m>O(n)</m>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>reserve()</c>
+                        </cell>
+                        <cell>
+                            <m>O(n)</m>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>begin()</c>
+                        </cell>
+                        <cell>
+                            <m>O(1)</m>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>end()</c>
+                        </cell>
+                        <cell>
+                            <m>O(1)</m>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell>
+                            <c>size()</c>
+                        </cell>
+                        <cell>
+                            <m>O(1)</m>
                         </cell>
                     </row>
                 
