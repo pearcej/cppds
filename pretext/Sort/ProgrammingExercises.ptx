@@ -7,17 +7,11 @@
                     from this chapter. What is the difference in execution speed?</p>
             </li>
             <li>
-                <p>Implement the bubble sort using simultaneous assignment.</p>
-            </li>
-            <li>
                 <p>A bubble sort can be modified to <q>bubble</q> in both directions. The
                     first pass moves <q>up</q> the list, and the second pass moves <q>down.</q>
                     This alternating pattern continues until no more passes are
                     necessary. Implement this variation and describe under what
                     circumstances it might be appropriate.</p>
-            </li>
-            <li>
-                <p>Implement the selection sort using simultaneous assignment.</p>
             </li>
             <li>
                 <p>Perform a benchmark analysis for a shell sort, using different
