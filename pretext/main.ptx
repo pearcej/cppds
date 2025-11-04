@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pretext xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
 <xi:include href="./bookinfo.ptx"/>
-<book xml:id="cppds2" permid="cppds2">
+<book xml:id="cppds2">
 <title>Problem Solving with Algorithms and Data Structures using C++</title>
 <subtitle>The PreTeXt Interactive Edition</subtitle>
 <xi:include href="./Introduction/toctree.ptx"/>
