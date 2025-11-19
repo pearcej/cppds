@@ -41,6 +41,49 @@ def dijkstra(aGraph,start):
                 pq.decreaseKey(nextVert,newDist)
             </code></program>
         </listing>
+
+        <listing xml:id="graphs_lst-shortpath2">
+            <title>Dijkstra's Algorithm C++</title>
+            <program language="c++" label="graphs_lst-shortpath-prog2"><code><![CDATA[
+#include "Graph.h"
+#include <iostream>
+using namespace std;
+
+std::vector<Node> dijkstra(const std::vector<std::vector<Node>>&amp; graph, int start) {
+    vector<Node> distances;
+    for (int i = 0; i &lt; graph.size(); i++) {
+        distances.push_back(Node(INF, -1));
+    }
+    distances[start] = Node(0, start);
+
+    BinHeapMap pq;
+    pq.insert(0, start);
+
+    while (!pq.isEmpty()) {
+        Node current = pq.delMin();
+        int distance = current.getKey();
+        int vertex = current.getValue();
+
+        if (distance &gt; distances[vertex].getKey()) {
+            continue;
+        }
+
+        for (int i = 0; i &lt; graph[vertex].size(); i++) {
+            Node neighbor = graph[vertex][i];
+
+            int newDistance = distance + neighbor.getKey();
+
+            if (newDistance &lt; distances[neighbor.getValue()].getKey()) {
+                distances[neighbor.getValue()] = Node(newDistance, vertex);
+                pq.insert(newDistance, neighbor.getValue());
+            }
+        }
+        cout &lt;&lt; "" &lt;&lt; endl;
+    }
+   return distances;
+}
+            ]]></code></program>
+        </listing>
         <p>Dijkstra's algorithm uses a priority queue. You may recall that a
             priority queue is based on the heap that we implemented in the Tree Chapter.
             There are a couple of differences between that

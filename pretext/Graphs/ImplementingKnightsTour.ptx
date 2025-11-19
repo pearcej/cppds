@@ -57,6 +57,46 @@ def knightTour(n,path,u,limit):
         else:
             done = True
         return done</pre>
+
+        <listing xml:id="graphs_lst-knights-tour">
+            <title>Knight's Tour Analysis C++</title>
+            <program language="c++" label="graphs_lst-knights-tour"><code><![CDATA[
+bool knightTour(int stepCount, int currentVertex,
+                vector<int>& path, vector<bool>& visited,
+                Graph& ktGraph, int n) {
+    visited[currentVertex] = true;
+    path.push_back(currentVertex);
+
+    if (stepCount == n * n) {
+        return true; // tour complete (recursive base case)
+    }
+
+    vector<int> nbrs = ktGraph.getVertex(currentVertex)->getConnections();
+    for (int nbr : nbrs) {
+        if (!visited[nbr]) {
+            if (knightTour(stepCount + 1, nbr, path, visited, ktGraph, n)) {
+                return true;
+            }
+        }
+    }
+
+    // backtrack
+    visited[currentVertex] = false;
+    path.pop_back();
+    return false;
+}
+
+vector<int> runKnightTour(int start, Graph& ktGraph, int n){
+    vector<int> path;
+    vector<bool> visited(n*n, false);
+
+    if (knightTour(1, start, path, visited, ktGraph, n)){
+        return path; //if there's a successful tour
+    }
+    return {};
+}
+            ]]></code></program>
+        </listing>
         <p>Let's look at a simple example of <c>knightTour</c> in action. You
             can refer to the figures below to follow the steps of the search. For
             this example we will assume that the call to the <c>getConnections</c>
