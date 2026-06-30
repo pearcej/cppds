@@ -14,7 +14,7 @@
             and right subtrees for each node. More formally, we define the balance
             factor for a node as the difference between the height of the left
             subtree and the height of the right subtree.
-        <me>balanceFactor = height(leftSubTree) - height(rightSubTree)</me></p>
+        <md>balanceFactor = height(leftSubTree) - height(rightSubTree)</md></p>
         <p>Using the definition for balance factor given above we say that a
             subtree is left-heavy if the balance factor is greater than zero. If the
             balance factor is less than zero then the subtree is right heavy. If the
@@ -25,7 +25,7 @@
             outside this range we will need to have a procedure to bring the tree
             back into balance. <xref ref="fig-unbal"/> shows an example of an unbalanced,
             right-heavy tree and the balance factors of each node.</p>
-        
+
         <figure xml:id="fig-unbal">
             <caption>An Unbalanced Right-Heavy Tree with Balance Factors.</caption>
         <image source="Trees/unbalanced.png" width="50%">
@@ -42,4 +42,3 @@
         </image>
         </figure>
     </section>
-
