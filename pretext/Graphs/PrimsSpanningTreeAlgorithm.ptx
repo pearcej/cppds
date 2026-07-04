@@ -109,6 +109,90 @@ def prim(G,start):
 
             </code></program>
         </listing>
+
+        <listing xml:id="2nd-prims">
+            <title>Prim's algorithm C++ Implementation</title>
+            <program language="c++" label="2nd-prims-cpp"><code><![CDATA[ 
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <climits>
+#include <unordered_map>
+#include <set>
+#include "prim.h"
+using namespace std;
+
+
+int prims(const unordered_map<int, vector<Edge>>& graph, int start){
+    set<int> notAdded;  //S: nodes not yet in tree
+    set<int> inTree;    //T: nodes in MST
+    vector<pair<int, int>> treeEdges;  //edges that form MST
+
+    unordered_map<int, int> minCost; //minimum cost to connect each node in MST
+    unordered_map<int, int> parent;
+
+    for (auto& v : graph) {
+        notAdded.insert(v.first);
+        minCost[v.first] = INT_MAX;  //minimum cost is set to inf
+        parent[v.first] = -1;  //the initial vertex has no parents
+    }
+
+    minCost[start] = 0; //starting vertex has no cost
+
+    //pq to select next node with the smallest edge
+    priority_queue<Node, vector<Node>, compareWeight> pq;
+    pq.push({start, 0});
+
+    cout<< "Prims starting at node "<< start << "\n\n";
+
+    while (!pq.empty()){ //continue looping until MST is complete
+        Node currentNode = pq.top(); //node with the smallest weight
+        pq.pop(); //remove it from the pq
+        int n = currentNode.vertex; //vertext to be processe
+
+        if(notAdded.find(n) == notAdded.end()) continue;  //skip if processed
+
+        //move from S to T
+        notAdded.erase(n);
+        inTree.insert(n); //add to list of nodes in MST
+
+        //add the connecting edge if not the starting vertex
+        if (parent[n] != -1){
+            treeEdges.push_back({parent[n], n});
+        }
+
+        cout << "Added vertex " << n << " to MST\n";
+        cout << "Current MST edges: ";
+        for (auto& e : treeEdges) cout << "(" << e.first << "," << e.second << ") ";
+        cout << "\n";
+
+        // Explore all neighbors of u
+        for (auto& edge : graph.at(n)) {
+            int v = edge.pointsTo; //neighbor of vertex
+            int weight = edge.weight;
+
+            // Only consider vertices not in MST yet
+            if (notAdded.find(v) != notAdded.end() && weight < minCost[v]) {
+                minCost[v] = weight;
+                parent[v] = n;
+                pq.push({v, weight}); //push v and the weight to pq
+            }
+        }
+    }
+
+    int totalWeight = 0;
+    cout << "\nFinal Minimum Spanning Tree:\n";
+    for (auto& e : treeEdges) { //go through every edge pair (parent, child)
+        int w = minCost[e.second];
+        totalWeight += w;
+        cout << e.first << " - " << e.second << " (weight " << w << ")\n";
+    }
+
+    return totalWeight;
+}
+            ]]></code></program>
+        </listing>
+        
         <p>The following sequence of figures (<xref ref="fig-mst1"/> through <xref ref="fig-mst1"/>) shows the algorithm in operation on our sample
             tree. We begin with the starting vertex as A. The distances to all the
             other vertices are initialized to infinity. Looking at the neighbors of
