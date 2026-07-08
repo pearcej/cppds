@@ -391,15 +391,6 @@ Reading Questions
                 </feedback>
             </choice>
     
-            <choice>
-                <statement>
-                    <p>2.04</p>
-                </statement>
-                <feedback>
-                    <p>Incorrect. Try again.</p>
-                </feedback>
-            </choice>
-    
             <choice correct="yes">
                 <statement>
                     <p>2.04</p>
