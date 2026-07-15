@@ -16,7 +16,17 @@
         <p>We use <c>operator overloading</c> so that when we print our Vertex using the <c>cout &lt;&lt;</c> function
             we get a list of its connections, instead of an error. This function must be initialized
             as a <c>friend function</c> within the class definition, but is required to be defined outside of the class. This is specific to <c>operator overloading</c> in C++.</p>
-        
+        <p>The <c>operator&lt;&lt;</c> function does not follow the same syntax as a normal function. 
+            The <c>&amp;</c> before <c>operator&lt;&lt;</c> indicates that the function returns a reference to an <c>ostream</c> object. 
+            Returning the stream by reference allows multiple output operations to be chained together, such as 
+            <c>cout &lt;&lt; vertex &lt;&lt; endl</c>. 
+            The <c>operator&lt;&lt;</c> portion acts like the function name, meaning this function defines what should happen 
+            when the <c>&lt;&lt;</c> operator is used with a <c>Vertex</c> object.</p>
+        <p>The function is declared as a <c>friend function</c> because <c>operator&lt;&lt;</c> is not a member function of the 
+            <c>Vertex</c> class. Declaring it as a friend allows it to access private members of <c>Vertex</c> if needed. 
+            The parameters are references because passing objects by reference avoids unnecessary copying. 
+            The <c>const</c> keyword is often used with the object parameter (for example, <c>const Vertex &amp;vert</c>) 
+            to indicate that printing the object should not modify it.</p>
         <listing xml:id="lst_vertex">
                 <title><c>Vertex</c> Class</title>
                 <program language="cpp" label="lst_vertex-prog"><code>
