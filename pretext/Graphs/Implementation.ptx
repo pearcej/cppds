@@ -14,9 +14,9 @@
             variable. The <c>getWeight</c> method returns the weight of the edge from
             this vertex to the vertex passed as a parameter.</p>
 
-        <p>We use <c>operator overloading</c> so we can print our <c>Vertex</c> using the <c>cout &lt;&lt;</c> function.</p>
+        <p>We use <term>operator overloading</term> so we can print our <c>Vertex</c> using the <c>cout &lt;&lt;</c> function.</p>
         
-<p>The <c>operator&lt;&lt;</c> function uses operator-overloading syntax rather than a regular function syntax.
+<p>The <c>operator &lt;&lt;</c> function uses operator-overloading syntax rather than a regular function syntax.
 Of course, the <c>&amp;</c> after <c>ostream</c> means the function returns a reference to the output stream.
 Returning the stream by reference allows chaining, such as <c>cout &lt;&lt; vertex &lt;&lt; endl</c>, because each call returns the same stream for the next output operation.
 The <c>operator &lt;&lt;</c> token is the overloaded operator name, so this function defines how <c>&lt;&lt;</c> behaves when used to output a <c>Vertex</c> object.</p>
