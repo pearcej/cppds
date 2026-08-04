@@ -15,14 +15,14 @@
             relative position of each item can be expressed by simply following the
             link from one item to the next.</p>
 
-        <figure align="center" xml:id="fig-idea">
+        <figure xml:id="fig-idea">
             <caption>Items Not Constrained in Their Physical Placement.</caption>
                 <image source="LinearLinked/idea.png" width="50%">
                 <description><p>Image displaying a scattered set of numbers representing items not constrained in their physical placement. The numbers shown are '31' and '17' at the top, '26' to the right, '54' and '77' in the middle, and '93' at the bottom. They are arranged without a discernible pattern or alignment, suggesting a random or unstructured layout.</p></description>
                 </image>
             </figure>
 
-        <figure align="center" xml:id="fig-idea2">
+        <figure xml:id="fig-idea2">
             <caption>Relative Positions Maintained by Explicit Links.</caption>
                 <image source="LinearLinked/idea2.png" width="50%">
                 <description><p>Diagram showing a sequence of numbers connected by arrows, illustrating relative positions maintained by explicit links. The sequence starts with 'Head' pointing to '54', which links to '77', then to '31' labeled '(End)', '17', '26', and finally '93'. The arrows signify the direction of the linkage between the elements, depicting a linked structure. Captioned 'Figure 4.3.2. Relative Positions Maintained by Explicit Links'.</p></description>

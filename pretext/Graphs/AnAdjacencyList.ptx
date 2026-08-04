@@ -9,8 +9,8 @@
             vertices, and the values are the weights. <xref ref="fig-adjlist"/>
             illustrates the adjacency list representation for the graph in
             <xref ref="fig-dgsimple"/>.</p>
-        <figure align="center" xml:id="fig-adjlist">
-            <caption>Three Types of Logic Gates.</caption>
+        <figure xml:id="fig-adjlist">
+            <caption>An Adjacency List Representation for a Graph.</caption>
                 <image source="Graphs/adjlist.png" width="80%">
                 <description><p>Image displaying an adjacency list representation of a graph. The illustration shows a table labeled 'Graph' with a column 'vertList' containing vertices 'V0' through 'V5'. Next to each vertex is a corresponding vertex object, with 'id' representing the vertex ID and 'adj' listing its adjacent vertices along with the edge weights. For example, 'V0' has an adjacent vertex 'V1' with a weight of 5 and 'V5' with a weight of 2, 'V1' is adjacent to 'V2' with a weight of 4, and so on. The bottom of the table states 'numVertices = 6', indicating the total number of vertices in the graph.</p></description>
                 </image>
