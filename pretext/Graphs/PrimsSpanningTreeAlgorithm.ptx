@@ -320,5 +320,8 @@ int prims(const unordered_map<int, vector<Edge>>& graph, int start){
 
     </exercise>
 </reading-questions>
+<conclusion><p>
+    <!-- extra space before the progress bar -->
+</p></conclusion>
 </section>
 

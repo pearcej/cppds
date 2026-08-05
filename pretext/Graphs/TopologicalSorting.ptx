@@ -67,6 +67,8 @@
                 <description><p>Alt text for Figure 29: This image shows the result of a topological sort on a directed acyclic graph representing the steps for making pancakes. The sequence begins with "1 Tbl Oil" at step 17/18, followed by "1 egg" at step 15/16, "3/4 cup milk" at step 1/12, and "1 cup mix" at step 2/11. The next steps are "heat griddle" at step 13/14, "heat syrup" at step 9/10, "pour 1/4 cup" at step 3/8, and "turn when bubbly" at step 4/7. The final action is "eat" at step 5/6. Each step is depicted as an oval, connected by directed paths that indicate the order of operations, with numbers denoting the order in the topological sort.</p></description>
                 </image>
             </figure>
-        
+            <conclusion><p>
+                <!-- extra space before the progress bar -->
+            </p></conclusion>
     </section>
 

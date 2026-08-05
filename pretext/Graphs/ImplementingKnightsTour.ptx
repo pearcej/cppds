@@ -244,7 +244,9 @@ vector<int> runKnightTour(int start, Graph& ktGraph, int n){
         <cline>    <area correct="no">return done</area></cline>
     </areas>
 </exercise>
-       </reading-questions>  
-      
-    </section>
+</reading-questions>  
+    <conclusion><p>
+        <!-- extra space before the progress bar -->
+    </p></conclusion> 
+</section>
 

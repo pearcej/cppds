@@ -19,5 +19,8 @@
             to compactly represent a sparse graph. The adjacency list also allows us
             to easily find all the links that are directly connected to a particular
             vertex.</p>
+            <conclusion><p>
+                <!-- extra space before the progress bar -->
+            </p></conclusion>
     </section>
 

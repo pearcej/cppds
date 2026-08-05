@@ -8,5 +8,8 @@
             recursively if the vertex is white, the loop will execute a maximum of
             once for every edge in the graph or <m>O(E)</m>. So, the total time
             for depth first search is <m>O(V + E)</m>.</p>
+            <conclusion><p>
+                <!-- extra space before the progress bar -->
+            </p></conclusion>
     </section>
 

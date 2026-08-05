@@ -344,5 +344,8 @@ main()
             <caption>DFS Visualization</caption>
             <video label="graphs_general_depth-dfs-vis-video" source="Graphs/vis_dfs.mp4" width="80%" preview="Graphs/vis_dfs_thumb.png"/>
         </figure>
+        <conclusion><p>
+            <!-- extra space before the progress bar -->
+        </p></conclusion>
 
 </section>

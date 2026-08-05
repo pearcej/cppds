@@ -25,5 +25,8 @@
                 <p>Minimum weight spanning trees for broadcasting messages.</p>
             </li>
         </ul></p>
+        <conclusion><p>
+            <!-- extra space before the progress bar -->
+        </p></conclusion>
     </section>
 

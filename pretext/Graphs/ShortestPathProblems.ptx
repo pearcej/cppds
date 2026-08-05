@@ -68,5 +68,8 @@ Routers from One Host to the Next over the Internet</pre>
             first search, except that here we are concerned with the total weight of
             the path rather than the number of hops in the path. It should be noted
             that if all the weights are equal, the problem is the same.</p>
+            <conclusion><p>
+                <!-- extra space before the progress bar -->
+            </p></conclusion>
     </section>
 

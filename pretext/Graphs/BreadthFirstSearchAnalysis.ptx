@@ -20,5 +20,8 @@
         <p>Finally, at least for this problem, there is the time required to build
             the initial graph. We leave the analysis of the <c>buildGraph</c> function
             as an exercise for you.</p>
+            <conclusion><p>
+                <!-- extra space before the progress bar -->
+            </p></conclusion>
     </section>
 
