@@ -22,10 +22,6 @@ along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
 <!-- Testing for Runestone -->
 <publication>
 
-    <source>
-        <directories external="Figures" generated="GenFigs"/>
-    </source>
-
     <html>
         <platform host="runestone"/>
         <!-- knowled checkpoints interfere with ActiveCode problems -->
