@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-    <chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
+<?xml version="1.0" ?><chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
         <title>Linear Linked Structures</title>
-        <xi:include href='./Objectives.ptx' />
-        <xi:include href='./WhatAreLinkedStructures.ptx' />
-        <xi:include href='./ImplementinganUnorderedListLinkedLists.ptx' />
-        <xi:include href='./TheNodeClass.ptx' />
-        <xi:include href='./UnorderedListClass.ptx' />
-        <xi:include href='./ImplementinganOrderedList.ptx' />
-        <xi:include href='./TheOrderedListAbstractDataType.ptx' />
-        <xi:include href='./Summary.ptx' />
-        <xi:include href='./DiscussionQuestions.ptx' />
-        <xi:include href='./ProgrammingExercises.ptx' />
-        <xi:include href='./Glossary.ptx' />
+        <xi:include href="./Objectives.ptx"/>
+        <xi:include href="./WhatAreLinkedStructures.ptx"/>
+        <xi:include href="./ImplementinganUnorderedListLinkedLists.ptx"/>
+        <xi:include href="./TheNodeClass.ptx"/>
+        <xi:include href="./UnorderedListClass.ptx"/>
+        <xi:include href="./ImplementinganOrderedList.ptx"/>
+        <xi:include href="./TheOrderedListAbstractDataType.ptx"/>
+        <xi:include href="./Summary.ptx"/>
+        <xi:include href="./DiscussionQuestions.ptx"/>
+        <xi:include href="./ProgrammingExercises.ptx"/>
+        <xi:include href="./Glossary.ptx"/>
     </chapter>

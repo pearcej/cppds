@@ -1,4 +1,4 @@
-<section xml:id="trees_tree-traversals">
+<?xml version="1.0" ?><section xml:id="trees_tree-traversals">
         <title>Tree Traversals</title>
         <p>Now that we have examined the basic functionality of our
             tree data structure, it is time to look at some additional usage
@@ -12,14 +12,14 @@
             examples where these patterns are useful.</p>
         
 
-        <figure align="center" xml:id="fig-trav-tree">
+        <figure xml:id="fig-trav-tree">
             <caption>Example tree to be traversed.</caption>
                 <image source="Trees/trav_tree.png" width="50%">
                 <description><p>Illustration of a binary tree. The top node is labeled '1', and it splits into two child nodes labeled '3' on the left and '8' on the right. The '3' node further splits into two child nodes labeled '7' on the left and '5' on the right. The '8' node also splits into two children, with '2' on the left and '9' on the right. The nodes are connected by lines indicating the tree structure.</p></description>
                 </image>
             </figure>
 
-        <dl>
+        <p><dl>
             <li>
                 <title>preorder</title>
                 
@@ -28,9 +28,9 @@
                         a recursive preorder traversal of the right subtree.</p>
                 
             </li>
-        </dl>
+        </dl></p>
         
-        <figure align="center" xml:id="fig-pre-order-tree">
+        <figure xml:id="fig-pre-order-tree">
             <caption>Traversal pattern for preorder.</caption>
                 <image source="Trees/pre_order.gif" width="50%">
                 <description><p>Diagram of a binary tree to illustrate the preorder traversal pattern. The tree consists of a root node labeled '1', with a left child labeled '3', which in turn has two children labeled '7' and '5'. The root node also has a right child labeled '8', which has two children labeled '2' and '9'. The nodes '1', '3', '7', '5', '8', and '9' are circled, indicating the order of the preorder traversal. Arrows point from the root node '1' to the left child '3', then to '7', back up through '3' to '5', then to the right child '8', and finally to '9', following the preorder traversal pattern. The image is labeled 'Figure 6: Traversal pattern for preorder'.</p></description>
@@ -38,7 +38,7 @@
             </figure>
 
 
-        <dl>
+        <p><dl>
             <li>
                 <title>inorder</title>
                 
@@ -47,17 +47,17 @@
                         inorder traversal of the right subtree.</p>
                 
             </li>
-        </dl>
+        </dl></p>
         
 
-        <figure align="center" xml:id="fig-in-order-tree">
+        <figure xml:id="fig-in-order-tree">
             <caption>Traversal pattern for inorder.</caption>
                 <image source="Trees/in_order.gif" width="50%">
                 <description><p>Diagram of a binary tree to illustrate the inorder traversal pattern. The tree has a root node at the top labeled '1', which branches out to a left child labeled '3' and a right child labeled '8'. The '3' node has further children labeled '7' and '5', and the '8' node has children labeled '2' and '9'. The nodes are not circled, but the traversal pattern is indicated by a black arrow starting from the '3' node, moving to its left child '7', then up to '3', across to '5', up to '1', then to '8', down to '2', and finally to '9' on the far right. This pattern represents the inorder traversal where you visit the left subtree, the node itself, and then the right subtree.</p></description>
                 </image>
             </figure>
 
-        <dl>
+        <p><dl>
             <li>
                 <title>postorder</title>
                 
@@ -66,10 +66,10 @@
                         root node.</p>
                 
             </li>
-        </dl>
+        </dl></p>
         
 
-        <figure align="center" xml:id="fig-post-order-tree">
+        <figure xml:id="fig-post-order-tree">
             <caption>Traversal pattern for postorder.</caption>
                 <image source="Trees/post_order.gif" width="50%">
                 <description><p>Diagram of a binary tree to illustrate the postorder traversal pattern. The tree structure includes a root node labeled '1' at the top, with a left child labeled '3' and a right child labeled '8'. Node '3' has two children labeled '7' and '5', while node '8' has children labeled '2' and '9'. The traversal pattern is shown with black arrows starting at the leftmost child '7', moving up to '3', across to '5', back to '3', then to the root '1', over to the right child '8', down to '2', and finally to '9'. In postorder traversal, the nodes are visited from the bottom-up, starting with the left subtree, then the right subtree, and ending with the root node.</p></description>
@@ -87,7 +87,7 @@
             traversal algorithm works for trees with any number of children, but we
             will stick with binary trees for now.</p>
  
-        <figure align="center" xml:id="fig-booktree">
+        <figure xml:id="fig-booktree">
             <caption>Representing a Book as a Tree.</caption>
                 <image source="Trees/booktree.png" width="50%">
                 <description><p>Diagram of a hierarchical tree representing the structure of a book. The root node at the top is labeled 'Book', which branches out to two child nodes labeled 'Chapter1' and 'Chapter2'. Each chapter node further divides into sections: 'Chapter1' into 'Section 1.1' and 'Section 1.2', while 'Chapter2' splits into 'Section 2.1' and 'Section 2.2'. Each section node also branches into subsections, with 'Section 1.1' leading to 'Section 1.2.1' and 'Section 1.2.2', and 'Section 2.2' leading to 'Section 2.2.1' and 'Section 2.2.2'. The nodes are connected by lines that represent the tree structure, demonstrating the organizational hierarchy of the book's contents.</p></description>
@@ -124,7 +124,7 @@
             <title>Preorder Traversal</title>
             <task xml:id="lst-preorder1-cpp" label="lst-preorder1-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp" label="lst-preorder1-cpp-prog">C++ Implementation<input>
+                <statement><program language="cpp" label="lst-preorder1-cpp-prog"><code>
 void preorder(BinaryTree *tree){
     if (tree){
         cout &lt;&lt; tree-&gt;getRootVal() &lt;&lt; endl;
@@ -132,17 +132,17 @@ void preorder(BinaryTree *tree){
         preorder(tree-&gt;getRightChild());
     }
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-preorder1-py" label="lst-preorder1-py">
                 <title>Python Implementation</title>
-                <statement><program language="python" label="lst-preorder1-py-prog"><input>
+                <statement><program language="python" label="lst-preorder1-py-prog"><code>
 def preorder(tree):
     if tree:
         print(tree.getRootVal())
         preorder(tree.getLeftChild())
         preorder(tree.getRightChild())
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>We can also implement <c>preorder</c> as a method of the <c>BinaryTree</c>
@@ -157,7 +157,7 @@ def preorder(tree):
             <title>Preorder Traversal as a Method</title>
             <task xml:id="lst-preorder2-cpp" label="lst-preorder2-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp" label="lst-preorder2-cpp-prog">C++ Implementation<input>
+                <statement><program language="cpp" label="lst-preorder2-cpp-prog"><code>
 void preorder(){
     cout &lt;&lt; this-&gt;key &lt;&lt; endl;
     if (this-&gt;leftChild){
@@ -167,18 +167,18 @@ void preorder(){
         this-&gt;rightChild-&gt;preorder();
     }
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-preorder2-py" label="lst-preorder2-py">
                 <title>Python Implementation</title>
-                <statement><program language="python" label="lst-preorder2-py-prog"><input>
+                <statement><program language="python" label="lst-preorder2-py-prog"><code>
 def preorder(self):
     print(self.key)
     if self.leftChild:
         self.leftChild.preorder()
     if self.rightChild:
         self.rightChild.preorder()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>Which of these two ways to implement <c>preorder</c> is best? The answer is
@@ -198,25 +198,25 @@ def preorder(self):
             <title>Postorder Traversal</title>
             <task xml:id="lst-postorder1-cpp" label="lst-postorder1-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp" label="lst-postorder1-cpp-prog">C++ Implementation<input>
+                <statement><program language="cpp" label="lst-postorder1-cpp-prog"><code>
 void postorder(BinaryTree *tree){
-    if (tree != NULL){
+    if (tree != nullptr){
         postorder(tree-&gt;getLeftChild());
         postorder(tree-&gt;getRightChild());
         cout &lt;&lt; tree-&gt;getRootVal() &lt;&lt; endl;
     }
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-postorder1-py" label="lst-postorder1-py">
                 <title>Python Implementation</title>
-                <statement><program language="python" label="lst-postorder1-py-prog"><input>
+                <statement><program language="python" label="lst-postorder1-py-prog"><code>
 def postorder(tree):
     if tree != None:
         postorder(tree.getLeftChild())
         postorder(tree.getRightChild())
         print(tree.getRootVal())
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>We have already seen a common use for the postorder traversal, namely
@@ -231,7 +231,7 @@ def postorder(tree):
             <title>Postorder Evaluation</title>
             <task xml:id="lst-postordereval-cpp" label="lst-postordereval-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp" label="lst-postordereval-cpp-prog"><input>
+                <statement><program language="cpp" label="lst-postordereval-cpp-prog"><code>
 class Operator {
     public:
         int add(int x, int y){
@@ -273,11 +273,11 @@ string evaluate(BinaryTree *parseTree) {
     BinaryTree *rightC = parseTree-&gt;getRightChild();
 
     if (leftC &amp;&amp; rightC) {
-        if (parseTree-&gt;getRootVal() == "+") {
+        if (parseTree-&gt;getRootVal() == &quot;+&quot;) {
             return to_string(Oper.add(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
-        } else if (parseTree-&gt;getRootVal() == "-") {
+        } else if (parseTree-&gt;getRootVal() == &quot;-&quot;) {
             return to_string(Oper.sub(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
-        } else if (parseTree-&gt;getRootVal() == "*") {
+        } else if (parseTree-&gt;getRootVal() == &quot;*&quot;) {
             return to_string(Oper.mul(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
         } else {
             return to_string(Oper.div(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
@@ -291,11 +291,11 @@ int main(){
 
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-postordereval-py" label="lst-postordereval-py">
                 <title>Python Implementation</title>
-                <statement><program language="python" label="lst-postordereval-py-prog"><input>
+                <statement><program language="python" label="lst-postordereval-py-prog"><code>
 def postordereval(tree):
     opers = {'+':operator.add, '-':operator.sub, '*':operator.mul, '/':operator.truediv}
     res1 = None
@@ -307,7 +307,7 @@ def postordereval(tree):
             return opers[tree.getRootVal()](res1,res2)
         else:
             return tree.getRootVal()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>Notice that the form in <xref ref="lst-postorder1-cpp"/> is the same as the form
@@ -326,25 +326,25 @@ def postordereval(tree):
             <title>Inorder Traversal</title>
             <task xml:id="lst-inorder1-cpp" label="lst-inorder1-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp" label="lst-inorder1-cpp-prog"><input>
+                <statement><program language="cpp" label="lst-inorder1-cpp-prog"><code>
 void inorder(BinaryTree *tree){
-    if (tree != NULL){
+    if (tree != nullptr){
         inorder(tree-&gt;getLeftChild());
         cout &lt;&lt; tree-&gt;getRootVal();
         inorder(tree-&gt;getRightChild());
     }
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-inorder1-py" label="lst-inorder1-py">
                 <title>Python Implementation</title>
-                <statement><program language="python" label="lst-inorder1-py-prog"><input>
+                <statement><program language="python" label="lst-inorder1-py-prog"><code>
 def inorder(tree):
   if tree != None:
       inorder(tree.getLeftChild())
       print(tree.getRootVal())
       inorder(tree.getRightChild())
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>If we perform a simple inorder traversal of a parse tree we get our
@@ -360,29 +360,29 @@ def inorder(tree):
             <title>Inorder Traversal</title>
             <task xml:id="lst-printexp-cpp" label="lst-printexp-cpp">
                 <title>C++ Implementation</title>
-                <statement><program language="cpp" label="lst-printexp-cpp-prog"><input>
+                <statement><program language="cpp" label="lst-printexp-cpp-prog"><code>
 string printexp(BinaryTree *tree){
     string sVal;
     if (tree){
-        sVal = "(" + printexp(tree-&gt;getLeftChild());
+        sVal = &quot;(&quot; + printexp(tree-&gt;getLeftChild());
         sVal = sVal + tree-&gt;getRootVal();
-        sVal = sVal + printexp(tree-&gt;getRightChild()) + ")";
+        sVal = sVal + printexp(tree-&gt;getRightChild()) + &quot;)&quot;;
     }
     return sVal;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-printexp-py" label="lst-printexp-py">
                 <title>Python Implementation</title>
-                <statement><program language="python" label="lst-printexp-py-prog"><input>
+                <statement><program language="python" label="lst-printexp-py-prog"><code>
 def printexp(tree):
-  sVal = ""
+  sVal = &quot;&quot;
   if tree:
       sVal = '(' + printexp(tree.getLeftChild())
       sVal = sVal + str(tree.getRootVal())
       sVal = sVal + printexp(tree.getRightChild())+')'
   return sVal
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>Notice that the <c>printexp</c> function as we have implemented it puts
@@ -397,8 +397,23 @@ def printexp(tree):
 <exercise label="treeTraversalTypes">
     <statement><p>Drag the tree traversal to its corresponding pattern.</p></statement>
     <feedback><p>Review the tree traversal patterns.</p></feedback>
-<matches><match order="1"><premise>preorder</premise><response>root, left, right</response></match><match order="2"><premise>inorder</premise><response>left, root, right</response></match><match order="3"><premise>postorder</premise><response>left, right, root</response></match></matches></exercise>
-    <exercise label="question1_1">
+    <cardsort>
+        <match>
+            <premise order="1">preorder</premise>
+            <response>root, left, right</response>
+        </match>
+        <match>
+            <premise order="2">inorder</premise>
+            <response>left, root, right</response>
+        </match>
+        <match>
+            <premise order="3">postorder</premise>
+            <response>left, right, root</response>
+        </match>
+    </cardsort>
+</exercise>
+
+<exercise label="question1_1">
         <statement>
 
         <p>If you print out the data at each node, what would be the result of using
@@ -441,4 +456,3 @@ Section<nbsp/>2.1, Section<nbsp/>2.2.1, Section<nbsp/>2.2.2, Section<nbsp/>2.2, 
     </exercise>
 </reading-questions>
     </section>
-

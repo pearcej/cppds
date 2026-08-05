@@ -1,4 +1,4 @@
-<section xml:id="linear-basic_using-a-queue-in-c">
+<?xml version="1.0" ?><section xml:id="linear-basic_using-a-queue-in-c">
         <title>Using a Queue in C++</title>
         <p>Now we will turn our attention to using the queue data structure
             with the help of the Standard Template Library (STL) in C++.</p>
@@ -18,7 +18,7 @@
             <title>Queue Implementation</title>
             <task xml:id="lst-queuecode1-cpp" label="lst-queuecode1-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="queue1accpp" interactive="activecode" language="cpp" label="queue1accpp-prog"><input>
+                <statement><program xml:id="queue1accpp" interactive="activecode" language="cpp" label="queue1accpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;queue&gt; // Using an STL queue
 
@@ -31,23 +31,23 @@ int main() {
           newQueue.push(8);
           newQueue.push(15);
 
-          cout &lt;&lt; "Queue Empty? " &lt;&lt; newQueue.empty() &lt;&lt; endl;
+          cout &lt;&lt; &quot;Queue Empty? &quot; &lt;&lt; newQueue.empty() &lt;&lt; endl;
 
-          cout &lt;&lt; "Queue Size: " &lt;&lt; newQueue.size() &lt;&lt; endl;
+          cout &lt;&lt; &quot;Queue Size: &quot; &lt;&lt; newQueue.size() &lt;&lt; endl;
 
-          cout &lt;&lt; "Top Element of the Queue: " &lt;&lt; newQueue.front() &lt;&lt; endl;
+          cout &lt;&lt; &quot;Top Element of the Queue: &quot; &lt;&lt; newQueue.front() &lt;&lt; endl;
 
           newQueue.pop();
 
-          cout &lt;&lt; "Top Element of the Queue: " &lt;&lt; newQueue.front() &lt;&lt; endl;
+          cout &lt;&lt; &quot;Top Element of the Queue: &quot; &lt;&lt; newQueue.front() &lt;&lt; endl;
 
           return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-queuecode1-py" label="lst-queuecode1-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="queue1acpy" interactive="activecode" language="python" label="queue1acpy-prog"><input>
+                <statement><program xml:id="queue1acpy" interactive="activecode" language="python" label="queue1acpy-prog"><code>
 class Queue:
     def __init__(self):
         self.items = []
@@ -74,17 +74,17 @@ def main():
     q.push(8)
     q.push(15)
 
-    print("Queue Empty? ", q.isEmpty())
+    print(&quot;Queue Empty? &quot;, q.isEmpty())
 
-    print("Queue Size: ", q.size())
+    print(&quot;Queue Size: &quot;, q.size())
 
-    print("Front Element of the Queue: ", q.front())
+    print(&quot;Front Element of the Queue: &quot;, q.front())
 
     q.pop();
 
-    print("Front Element of the Queue: ", q.front())
+    print(&quot;Front Element of the Queue: &quot;, q.front())
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
     <reading-questions xml:id="rqs-implementing-queue">

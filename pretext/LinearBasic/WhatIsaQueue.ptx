@@ -1,4 +1,4 @@
-<section xml:id="linear-basic_what-is-a-queue">
+<?xml version="1.0" ?><section xml:id="linear-basic_what-is-a-queue">
         <title>What Is a Queue?</title>
         <p>
         <idx>queue</idx>
@@ -21,17 +21,17 @@
             waited the necessary amount of time to get to the front.
             <xref ref="fig-qubasicqueue1"/> shows a simple queue of Python data objects.</p>
         
-        <figure align="center" xml:id="fig-qubasicqueue1"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 1: A queue of strings</caption>
-        <image source="LinearBasic/basicqueue1.png" width="50%">
-            <description>
-                <p>
+            <figure xml:id="fig-qubasicqueue1">
+                <caption>A queue of strings</caption>
+                <image source="LinearBasic/basicqueue1.png" width="50%">
+                    <description><p>
                     The image shows a simple queue of Python data objects. The queue is represented as a horizontal line with items ordered from rear to front. 
-                    The items in the queue are "8.4", "True", "dog", and "4", listed in sequence. 
+                    The items in the queue are &quot;8.4&quot;, &quot;True&quot;, &quot;dog&quot;, and &quot;4&quot;, listed in sequence. 
                     Arrows indicate the flow of the queue, where new items are added at the rear (left) and items are removed from the front (right). 
                     This visually represents the First-In-First-Out (FIFO) behavior of a queue.
-                </p>
-            </description> 
-        </image></figure>
+                    </p></description> 
+                </image>
+            </figure>
         <p>Computer science also has common examples of queues. Our computer
             laboratory has 30 computers networked with a single printer. When
             students want to print, their print tasks <q>get in line</q> with all the

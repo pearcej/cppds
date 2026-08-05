@@ -8,84 +8,84 @@
     <feedback>
       <p>Review classes and their properties</p>
     </feedback>
-    <matches>
-      <match order="1">
-        <premise>binary search</premise>
+    <cardsort>
+      <match>
+        <premise order="1">binary search</premise>
         <response>One repeatedly divides a sorted data structure in half and determines if the item is in one half of it until the item is found or deemed not in the data.</response>
       </match>
-      <match order="10">
-        <premise>load factor</premise>
+      <match>
+        <premise order="10">load factor</premise>
         <response>Its the number of items in a hash table divided by the size of the table.</response>
       </match>
-      <match order="11">
-        <premise>map</premise>
+      <match>
+        <premise order="11">map</premise>
         <response>Associate data type that stores key-data pairs</response>
       </match>
-      <match order="12">
-        <premise>mid-square method</premise>
+      <match>
+        <premise order="12">mid-square method</premise>
         <response>Method for constructing a hash function by squaring the item and then using some portion of the result.</response>
       </match>
-      <match order="13">
-        <premise>open addressing</premise>
+      <match>
+        <premise order="13">open addressing</premise>
         <response>Collision resolution that tries to find the next open slot/address in the hash table.</response>
       </match>
-      <match order="14">
-        <premise>perfect hash function</premise>
+      <match>
+        <premise order="14">perfect hash function</premise>
         <response>Hash function that maps each item to a unique hash slot.</response>
       </match>
-      <match order="15">
-        <premise>quadratic probing</premise>
+      <match>
+        <premise order="15">quadratic probing</premise>
         <response>Variation of linear probing in which rehashing is done using successive squared values.</response>
       </match>
-      <match order="16">
-        <premise>rehashing</premise>
+      <match>
+        <premise order="16">rehashing</premise>
         <response>Putting an item into a hash table after a collision.</response>
       </match>
-      <match order="17">
-        <premise>searching</premise>
+      <match>
+        <premise order="17">searching</premise>
         <response>Algorithmic process of finding a particular item in a collection of items.</response>
       </match>
-      <match order="18">
-        <premise>sequential search</premise>
+      <match>
+        <premise order="18">sequential search</premise>
         <response>Search method in which one follows the underlying ordering of items in a collection of data to find a specific item.</response>
       </match>
-      <match order="19">
-        <premise>slot</premise>
+      <match>
+        <premise order="19">slot</premise>
         <response>Position in a hash table.</response>
       </match>
-      <match order="2">
-        <premise>chaining</premise>
+      <match>
+        <premise order="2">chaining</premise>
         <response>Collision resolution method, in which each slot in a hash table holds a reference to a collection of items.</response>
       </match>
-      <match order="3">
-        <premise>collision</premise>
+      <match>
+        <premise order="3">collision</premise>
         <response>Having two or more items sharing the same slot in a hash table.</response>
       </match>
-      <match order="4">
-        <premise>collision resolution</premise>
+      <match>
+        <premise order="4">collision resolution</premise>
         <response>Systematic method for solving hash table collisions.</response>
       </match>
-      <match order="5">
-        <premise>clustering</premise>
+      <match>
+        <premise order="5">clustering</premise>
         <response>Items being mapped in a hash table near each other resulting in items with collisions being put together.</response>
       </match>
-      <match order="6">
-        <premise>folding method</premise>
+      <match>
+        <premise order="6">folding method</premise>
         <response>Constructing a hash function by dividing the item into equally sized pieces, adding the pieces together to get a hash value, dividing by the size of the hash table, and the remainder becomes the slot for that item.</response>
       </match>
-      <match order="7">
-        <premise>hashing</premise>
+      <match>
+        <premise order="7">hashing</premise>
         <response>Creating a value for an input that can be used to find the input by searching for the value.</response>
       </match>
-      <match order="8">
-        <premise>hash function</premise>
+      <match>
+        <premise order="8">hash function</premise>
         <response>Mapping between an item and its slot in a hash table</response>
       </match>
-      <match order="9">
-        <premise>linear probing</premise>
+      <match>
+        <premise order="9">linear probing</premise>
         <response>Open addressing technique in which each slot is visited one at a time systematically.</response>
       </match>
-    </matches>
+    </cardsort>
   </exercise>
   <p>
     <!-- extra space before the progress bar -->

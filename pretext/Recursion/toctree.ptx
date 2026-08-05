@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
         <title>Recursion</title>
-        <xi:include href='./Objectives.ptx' />
-        <xi:include href='./WhatIsRecursion.ptx' />
-        <xi:include href='./pythondsCalculatingtheSumofaListofNumbers.ptx' />
-        <xi:include href='./TheThreeLawsofRecursion.ptx' />
-        <xi:include href='./pythondsConvertinganIntegertoaStringinAnyBase.ptx' />
-        <xi:include href='./StackFramesImplementingRecursion.ptx' />
-        <xi:include href='./pythondsintro-VisualizingRecursion.ptx' />
-        <xi:include href='./pythondsSierpinskiTriangle.ptx' />
-        <xi:include href='./ComplexRecursiveProblems.ptx' />
-        <xi:include href='./TowerofHanoi.ptx' />
-        <xi:include href='./ExploringaMaze.ptx' />
-        <xi:include href='./DynamicProgramming.ptx' />
-        <xi:include href='./Summary.ptx' />
-        <xi:include href='./SelfCheck.ptx' />
-        <xi:include href='./DiscussionQuestions.ptx' />
-        <xi:include href='./pythondsProgrammingExercises.ptx' />
-        <xi:include href='./Glossary.ptx' />
-        <xi:include href='./Matching.ptx' />
+        <xi:include href="./Objectives.ptx" />
+        <xi:include href="./WhatIsRecursion.ptx" />
+        <xi:include href="./pythondsCalculatingtheSumofaListofNumbers.ptx" />
+        <xi:include href="./TheThreeLawsofRecursion.ptx" />
+        <xi:include href="./pythondsConvertinganIntegertoaStringinAnyBase.ptx" />
+        <xi:include href="./StackFramesImplementingRecursion.ptx" />
+        <xi:include href="./pythondsintro-VisualizingRecursion.ptx" />
+        <xi:include href="./pythondsSierpinskiTriangle.ptx" />
+        <xi:include href="./ComplexRecursiveProblems.ptx" />
+        <xi:include href="./TowerofHanoi.ptx" />
+        <xi:include href="./ExploringaMaze.ptx" />
+        <xi:include href="./DynamicProgramming.ptx" />
+        <xi:include href="./Summary.ptx" />
+        <xi:include href="./SelfCheck.ptx" />
+        <xi:include href="./DiscussionQuestions.ptx" />
+        <xi:include href="./pythondsProgrammingExercises.ptx" />
+        <xi:include href="./Glossary.ptx" />
+        <xi:include href="./Matching.ptx" />
     </chapter>
