@@ -1,6 +1,10 @@
 <!-- Testing for Runestone -->
 <publication>
 
+    <source>
+        <directories external="Figures" generated="GenFigs" />
+    </source>
+
     <html>
         <platform host="web" />
         <!-- knowled checkpoints interfere with ActiveCode problems -->
