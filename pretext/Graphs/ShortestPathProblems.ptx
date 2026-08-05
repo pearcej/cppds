@@ -8,7 +8,7 @@
             computer networking. However, we will talk about how the Internet works
             just enough to understand another very important graph algorithm.</p>
         
-        <figure align="center" xml:id="fig-inet">
+        <figure xml:id="fig-inet">
             <caption>Overview of Connectivity in the Internet.</caption>
                 <image source="Graphs/Internet.png" width="80%">
                 <description><p>This image represents a simplified network diagram, showing an overview of connectivity in the internet. Two routers, labeled as Router A and Router B, serve as the central connection points. Router A is connected to a cloud labeled "Internet," which symbolizes the global network. On the right side of Router A, there are connections leading to a desktop computer and a laptop, representing end-user devices. On the left side of Router B, connected to the same internet cloud, are two server icons, indicating server machines. The diagram visually explains how different types of hardware devices interface with the internet through routers, depicting a basic structure of network connectivity.</p></description>
@@ -54,7 +54,7 @@ Routers from One Host to the Next over the Internet</pre>
             routers as a graph with weighted edges.</p>
 
 
-        <figure align="center" xml:id="fig-network">
+        <figure xml:id="fig-network">
             <caption>Connections and Weights between Routers in the Internet.</caption>
                 <image source="Graphs/routeGraph.png" width="80%">
                 <description><p>The image displays a weighted graph that models the connections and weights between routers in the Internet. The graph consists of six nodes, each representing a router labeled as u, v, w, x, y, and z. The nodes are interconnected by lines that signify the network links between routers. Each line is annotated with a number, representing the weight of the connection, which could indicate the cost, distance, or quality of the link. For instance, router u is connected to router x with a weight of 2, and router x is connected to router v with a weight of 2 and to router y with a weight of 1. This type of graph is typically used to represent the efficiency of data transfer paths in network routing algorithms.</p></description>

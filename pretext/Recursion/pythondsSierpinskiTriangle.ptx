@@ -1,4 +1,4 @@
-<section xml:id="recursion_sierpinski-triangle">
+<?xml version="1.0" ?><section xml:id="recursion_sierpinski-triangle">
         <title>Sierpinski Triangle</title>
         <p>Another fractal that exhibits the property of self-similarity is the
             Sierpinski triangle. An example is shown in <xref ref="fig-sierpinski"/>. The
@@ -13,7 +13,7 @@
             sharp enough pencil. Before you continue reading, you may want to try
             drawing the Sierpinski triangle yourself, using the method described.</p>
         
-        <figure align="center" xml:id="fig-sierpinski">
+        <figure xml:id="fig-sierpinski">
             <caption>The Sierpinski Triangle.</caption>
                 <image source="Recursion/sierpinski.png" width="50%">
                 <description><p>Image of the Sierpinski Triangle, a fractal composed of colored triangles. 
@@ -37,7 +37,7 @@
             <title>Darawing the Sierpinski Triangle</title>
             <task xml:id="lst-st-cpp" label="lst-st-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="first_csierpinksi_tri" interactive="activecode" language="cpp" label="first_csierpinksi_tri-prog"><input>
+                <statement><program xml:id="first_csierpinksi_tri" interactive="activecode" language="cpp" label="first_csierpinksi_tri-prog"><code>
 #include &lt;CTurtle.hpp&gt;
 
 namespace ct = cturtle;
@@ -54,10 +54,10 @@ void draw_triangle(ct::Point a, ct::Point b, ct::Point c, ct::Color color, ct::T
     myTurtle.end_fill();
 }
 
-//getMid already defined as "middle" function in C-Turtle namespace :)
+//getMid already defined as &quot;middle&quot; function in C-Turtle namespace :)
 
 void sierpinski(ct::Point a, ct::Point b, ct::Point c, int degree, ct::Turtle&amp; myTurtle){
-    const std::string colormap[] = {"blue", "red", "green", "white", "yellow", "violet", "orange"};
+    const std::string colormap[] = {&quot;blue&quot;, &quot;red&quot;, &quot;green&quot;, &quot;white&quot;, &quot;yellow&quot;, &quot;violet&quot;, &quot;orange&quot;};
     draw_triangle(a,b,c, {colormap[degree]}, myTurtle);
     if(degree &gt; 0){
         sierpinski(a, ct::middle(a, b), ct::middle(a, c), degree - 1, myTurtle);
@@ -82,11 +82,11 @@ int main() {
     screen.bye();
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-st-py" label="lst-st-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="lst_st" interactive="activecode" language="python" label="lst_st-prog"><input>
+                <statement><program xml:id="lst_st" interactive="activecode" language="python" label="lst_st-prog"><code>
 #Recursive example of the Sierpinski Triangle.
 
 import turtle
@@ -132,7 +132,7 @@ def main():
     myWin.exitonclick()
 
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>The program in <xref ref="lst-st-cpp"/> follows the ideas outlined above. The
@@ -160,7 +160,7 @@ main()
             triangles. The function finishes drawing one level at a time; once it is
             finished with the bottom left it moves to the bottom middle, and so on.</p>
         
-        <figure align="center" xml:id="fig-stcalltree">
+        <figure xml:id="fig-stcalltree">
             <caption>Building a Sierpinski Triangle.</caption>
                 <image source="Recursion/stCallTree.png" width="50%">
                 <description><p>Diagram showing the recursive construction of a Sierpinski Triangle using a tree structure. The diagram starts with a single top circle labeled 'top', branching out into three interconnected circles labeled 'left', 'top', and 'right'. Each of these circles further branches out in a similar pattern, with the process repeating for several iterations. The circles decrease in size from top to bottom, representing the fractal's recursive nature. The grayscale shading of the circles suggests depth or iteration levels.</p></description>
@@ -178,4 +178,3 @@ main()
                 <!-- extra space before the progress bar -->            
             </p></conclusion>
     </section>
-

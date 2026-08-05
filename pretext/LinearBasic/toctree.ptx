@@ -1,27 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
-    <chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US" xml:id="ch-linear-basic">
+<?xml version="1.0" ?><chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US" xml:id="ch-linear-basic">
         <title>Linear Structures</title>
-        <xi:include href='./Objectives.ptx' />
-        <xi:include href='./WhatAreLinearStructures.ptx' />
-        <xi:include href='./WhatisaStack.ptx' />
-        <xi:include href='./TheStackAbstractDataType.ptx' />
-        <xi:include href='./ImplementingaStackCpp.ptx' />
-        <xi:include href='./SimpleBalancedParentheses.ptx' />
-        <xi:include href='./BalancedSymbolsGeneralCase.ptx' />
-        <xi:include href='./ConvertingDecimalNumberstoBinaryNumbers.ptx' />
-        <xi:include href='./InfixPrefixandPostfixExpressions.ptx' />
-        <xi:include href='./WhatIsaQueue.ptx' />
-        <xi:include href='./TheQueueAbstractDataType.ptx' />
-        <xi:include href='./ImplementingaQueueCpp.ptx' />
-        <xi:include href='./SimulationHotPotato.ptx' />
-        <xi:include href='./SimulationPrintingTasks.ptx' />
-        <xi:include href='./WhatIsaDeque.ptx' />
-        <xi:include href='./TheDequeAbstractDataType.ptx' />
-        <xi:include href='./ImplementingaDequeCpp.ptx' />
-        <xi:include href='./PalindromeChecker.ptx' />
-        <xi:include href='./Summary.ptx' />
-        <xi:include href='./DiscussionQuestions.ptx' />
-        <xi:include href='./ProgrammingExercises.ptx' />
-        <xi:include href='./Glossary.ptx' />
-        <xi:include href='./Matching.ptx' />
+        <xi:include href="./Objectives.ptx"/>
+        <xi:include href="./WhatAreLinearStructures.ptx"/>
+        <xi:include href="./WhatisaStack.ptx"/>
+        <xi:include href="./TheStackAbstractDataType.ptx"/>
+        <xi:include href="./ImplementingaStackCpp.ptx"/>
+        <xi:include href="./SimpleBalancedParentheses.ptx"/>
+        <xi:include href="./BalancedSymbolsGeneralCase.ptx"/>
+        <xi:include href="./ConvertingDecimalNumberstoBinaryNumbers.ptx"/>
+        <xi:include href="./InfixPrefixandPostfixExpressions.ptx"/>
+        <xi:include href="./WhatIsaQueue.ptx"/>
+        <xi:include href="./TheQueueAbstractDataType.ptx"/>
+        <xi:include href="./ImplementingaQueueCpp.ptx"/>
+        <xi:include href="./SimulationHotPotato.ptx"/>
+        <xi:include href="./SimulationPrintingTasks.ptx"/>
+        <xi:include href="./WhatIsaDeque.ptx"/>
+        <xi:include href="./TheDequeAbstractDataType.ptx"/>
+        <xi:include href="./ImplementingaDequeCpp.ptx"/>
+        <xi:include href="./PalindromeChecker.ptx"/>
+        <xi:include href="./Summary.ptx"/>
+        <xi:include href="./DiscussionQuestions.ptx"/>
+        <xi:include href="./ProgrammingExercises.ptx"/>
+        <xi:include href="./Glossary.ptx"/>
+        <xi:include href="./Matching.ptx"/>
     </chapter>

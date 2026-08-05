@@ -9,17 +9,17 @@ The **selection sort** improves on the bubble sort by making only one
 exchange for every pass through the first part of the vector.
 We will call this a step.
 In order to do this, a
-selection sort looks for the largest value as it makes a partial pass and, after
+selection sort looks for the smallest or largest value as it makes a partial pass and, after
 completing the partial pass, places it in the proper location, ending the step.
 As with a bubble
-sort, after the first step, the largest item is in the correct place.
-After the second step, the next largest is in place. This process
+sort, after the first step, the smallest or largest item is in the correct place.
+After the second step, the next smallest or largest is in place. This process
 continues and requires :math:`n-1` steps to sort *n* items, since the
 final item must be in place after the :math:`(n-1)` step.
 
 On each step,
-the largest remaining item is selected and then placed in its proper
-location. The first pass places 93, the second pass places 77, the third
+the smallest or largest remaining item is selected and then placed in its proper
+location. In the next example. we will be looking for the largest item. The first pass places 93, the second pass places 77, the third
 places 55, and so on. The function is shown in :ref:`ActiveCode 1 <lst_selectionsortcode_cpp>` .
 
 .. tabbed:: lst_selection_sort

@@ -33,7 +33,7 @@
             such a tree is shown in <xref ref="fig-skewedtree-analysis"/>. In this case the
             performance of the <c>put</c> method is <m>O(n)</m>.</p>
         
-        <figure align="center" xml:id="fig-skewedtree-analysis">
+        <figure xml:id="fig-skewedtree-analysis">
             <caption>A skewed binary search tree would give poor performance.</caption>
             <image source="Trees/skewedTree.png" width="50%">
                 <description><p>
@@ -57,7 +57,21 @@
             work. Since doubling is a constant factor it does not change worst case</p>
 <reading-questions xml:id="rq-search-tree-analysis">
     <title>Reading Question</title>
-<exercise label="stanalysis_1">
-            <statement>
-    <p>The worst-case performance of the del function is O(<BlankNode/><var/>)?   </p></statement><setup><var><condition string="^\s*n\s*$"><feedback><p>Is the correct answer!</p></feedback></condition><condition string="^\s*.*\s*$"><feedback><p>Read carefully the restrictions of the the functions</p></feedback></condition></var></setup></exercise>  </reading-questions>  </section>
+    <exercise label="stanalysis_1">
+        <statement>
+            <p>The worst-case performance of the del function is O(<var/>)?   </p>
+        </statement>
+        <setup>
+            <var>
+                <condition string="^\s*n\s*$">
+                    <feedback><p>Is the correct answer!</p></feedback>
+                </condition>
+                <condition string="^\s*.*\s*$">
+                    <feedback><p>Read carefully the restrictions of the the functions</p></feedback>
+                </condition>
+            </var>
+        </setup>
+    </exercise>
+</reading-questions>
+</section>
 

@@ -1,4 +1,4 @@
-<section xml:id="recursion_dynamic-programming">
+<?xml version="1.0" ?><section xml:id="recursion_dynamic-programming">
         <title>Dynamic Programming</title>
         <p>
             <idx>dynamic programming</idx>
@@ -45,8 +45,8 @@
             a dime plus the number of coins needed to make change for the original
             amount minus ten cents, and so on. So the number of coins needed to make
             change for the original amount can be computed according to the
-            following:</p>
-        <m docname="Recursion/DynamicProgramming" nowrap="False" number="True" xml:space="preserve">numCoins =
+            following:
+        <md>numCoins =
  min
  \begin{cases}
  1 + numCoins(original amount - 1) \\
@@ -54,7 +54,7 @@
  1 + numCoins(original amount - 10) \\
  1 + numCoins(original amount - 25)
  \end{cases}
- \label{eqn_changecpp}</m>
+</md></p>
         <p>The algorithm for doing what we have just described is shown in
             <xref ref="lst-change1-cpp"/>. In line<nbsp/>7 we are checking our base case;
             that is, we are trying to make change in the exact amount of one of our
@@ -73,7 +73,7 @@
             <title>Recursive Change Calculator</title>
             <task xml:id="lst-change1-cpp" label="lst-change1-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-change1-cpp" interactive="activecode" language="cpp" label="prog-change1-cpp-prog"><input>
+                <statement><program xml:id="prog-change1-cpp" interactive="activecode" language="cpp" label="prog-change1-cpp-prog"><code>
 //Recursive example of trying to get the least amount of coins to make up an amount of change.
 
 #include &lt;iostream&gt;
@@ -100,11 +100,11 @@ int main() {
   cout&lt;&lt;recMC_greedy(coinValueList, 63)&lt;&lt;endl; //using the greedy algorithm for the edge case 63 whose optimal solution is 3 coins of 21
   return 0;                                  //but greedy algorithm gives 6 coins which is not the most optimum solution
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-change1-py" label="lst-change1-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-change1-py" interactive="activecode" language="python" label="prog-change1-py-prog"><input>
+                <statement><program xml:id="prog-change1-py" interactive="activecode" language="python" label="prog-change1-py-prog"><code>
 #Recursive example of trying to get the least amount of coins to make up an amount of change.
 
 def recMC_greedy(coinValueList,change):
@@ -122,7 +122,7 @@ def main():
   print(recMC_greedy([1, 5, 10, 21, 25], 63)) #using the greedy algorithm for the edge case 63 whose optimal solution is 3 coins of 21
                                          #but greedy algorithm gives 6 coins which is not the most optimum solution
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>The trouble with the algorithm in <xref ref="lst-change1-cpp"/> is that it is
@@ -143,7 +143,7 @@ main()
             Clearly we are wasting a lot of time and effort recalculating old
             results.</p>
         
-        <figure align="center" xml:id="fig-c1ctcpp">
+        <figure xml:id="fig-c1ctcpp">
             <caption>Call Tree for <xref ref="lst-change1-cpp"/></caption>
                 <image source="Recursion/callTree.png" width="80%">
                 <description><p>Diagram of a call tree for a recursive process, as seen in <xref ref="lst-change1-cpp"/>.
@@ -170,7 +170,7 @@ main()
             <title>Change Calculation With Memoization</title>
             <task xml:id="lst-change2-cpp" label="lst-change2-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-change2-cpp" interactive="activecode" language="cpp" label="prog-change2-cpp-prog"><input>
+                <statement><program xml:id="prog-change2-cpp" interactive="activecode" language="cpp" label="prog-change2-cpp-prog"><code>
 //A different attempt at making the change algorithm.
 
 #include &lt;iostream&gt;
@@ -211,11 +211,11 @@ int main(){
     cout&lt;&lt;recDC(coinValueList, change, knownResults)&lt;&lt;endl;
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-change2-py" label="lst-change2-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-change2-py" interactive="activecode" language="python" label="prog-change2-py-prog"><input>
+                <statement><program xml:id="prog-change2-py" interactive="activecode" language="python" label="prog-change2-py-prog"><code>
 #A different attempt at making the change algorithm.
 
 def recDC(coinValueList, change, knownResults):
@@ -236,7 +236,7 @@ def recDC(coinValueList, change, knownResults):
 def main():
      print(recDC([1, 5, 10, 21, 25], 63, [0]*64))
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>Notice that in line<nbsp/>15 we have added a test to see if our table
@@ -293,14 +293,14 @@ main()
         <p>Either option 1 or 3 will give us a total of two coins which is the
             minimum number of coins for 11 cents.</p>
         
-        <figure align="center" xml:id="fig-dpcoins">
+        <figure xml:id="fig-dpcoins">
             <caption>Minimum Number of Coins Needed to Make.</caption>
                 <image source="Recursion/changeTable.png" width="80%">
                 <description><p>Image of a table representing the minimum number of coins needed to make change. The columns are labeled with the 'Change to Make' values from 1 to 11. The rows correspond to 'Steps of the Algorithm', with each cell filled with the minimum number of coins needed at that step for the corresponding amount of change. Initial rows are partially filled with increasing sequences of numbers, indicating the progression of the algorithm. The bottom rows are blurred and continue with an ellipsis, suggesting the continuation of the process beyond what is shown. </p></description>
                 </image>
             </figure>
         
-        <figure align="center" xml:id="fig-eleven">
+        <figure xml:id="fig-eleven">
             <caption>Three Options to Consider for the Minimum Number of Coins for Eleven Cents.</caption>
                 <image source="Recursion/elevenCents.png" width="80%">
                 <description><p>Image of a curved numerical table representing three options to calculate the minimum number of coins for eleven cents. The table is labeled with numbers from 1 to 5 corresponding to the counts of coins used. Below the table, there are three curved arrows pointing to the number '11' from '11-1', '11-5', and '11-10', indicating the subtraction of 1, 5, and 10 cents from 11 cents to determine the next step in the calculation. The last cell under '11' is labeled with '??' to indicate the unknown minimum number of coins needed.</p></description>
@@ -318,7 +318,7 @@ main()
             <title>Change Calculator Using Dynamic Programming</title>
             <task xml:id="lst-dpchange-cpp" label="lst-dpchange-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-dpchange-cpp" interactive="activecode" language="cpp" label="prog-dpchange-cpp-prog"><input>
+                <statement><program xml:id="prog-dpchange-cpp" interactive="activecode" language="cpp" label="prog-dpchange-cpp-prog"><code>
  //Program that stores the solution for all possible amounts of change up to a given integer.
 
  #include &lt;iostream&gt;
@@ -347,11 +347,11 @@ main()
      cout &lt;&lt; dpMakeChange(coinValueList, change, minCoins) &lt;&lt; endl;
      return 0;
  }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-dpchange-py" label="lst-dpchange-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="lst_change100cpp" interactive="activecode" language="python" label="lst_change100cpp-prog"><input>
+                <statement><program xml:id="lst_change100cpp" interactive="activecode" language="python" label="lst_change100cpp-prog"><code>
 #Program that stores the solution for all possible amounts of change up to a given integer.
 
 def dpMakeChange(coinValueList,change,minCoins):
@@ -368,7 +368,7 @@ def dpMakeChange(coinValueList,change,minCoins):
 def main():
    print(dpMakeChange([1, 5, 10, 21, 25], 63, [0]*64))
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <p>Note that <c>dpMakeChange</c> is not a recursive function, even though we
@@ -409,7 +409,7 @@ main()
             <title>Dynamic Programming With Coin Tracking</title>
             <task xml:id="lst-dpremember-cpp" label="lst-dpremember-cpp">
                 <title>C++ Implementation</title>
-                <statement><program xml:id="prog-dpremember-cpp" interactive="activecode" language="cpp" label="prog-dpremember-cpp-prog"><input>
+                <statement><program xml:id="prog-dpremember-cpp" interactive="activecode" language="cpp" label="prog-dpremember-cpp-prog"><code>
 //Addition to the precious program that finds the types of coins used and the process of doing it.
 
 #include &lt;iostream&gt;
@@ -476,26 +476,26 @@ int main(){
     vector&lt;int&gt; coinsUsed(amnt + 1, 0);
     vector&lt;int&gt; coinCount(amnt + 1, 0);
 
-    cout &lt;&lt; "Making change for " &lt;&lt; amnt &lt;&lt; " requires" &lt;&lt; endl;
-    cout &lt;&lt; dpMakeChange(clist, amnt, minCoins, coinsUsed)&lt;&lt; " coins" &lt;&lt; endl;
-    cout &lt;&lt; "They are: " &lt;&lt; endl;
+    cout &lt;&lt; &quot;Making change for &quot; &lt;&lt; amnt &lt;&lt; &quot; requires&quot; &lt;&lt; endl;
+    cout &lt;&lt; dpMakeChange(clist, amnt, minCoins, coinsUsed)&lt;&lt; &quot; coins&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;They are: &quot; &lt;&lt; endl;
     printCoins(dpMakeChange2(clist, amnt, minCoins, coinsUsed), amnt);
-    cout &lt;&lt; "The used list is as follows: " &lt;&lt; endl;
+    cout &lt;&lt; &quot;The used list is as follows: &quot; &lt;&lt; endl;
     vector&lt;int&gt; coinsUsed2 = dpMakeChange2(clist, amnt, minCoins, coinsUsed);
-    cout &lt;&lt; "[";
+    cout &lt;&lt; &quot;[&quot;;
 
     for (unsigned int i = 0; i&lt;coinsUsed2.size(); i++){
-        cout &lt;&lt; coinsUsed2[i] &lt;&lt; ", ";
+        cout &lt;&lt; coinsUsed2[i] &lt;&lt; &quot;, &quot;;
     }
 
-    cout &lt;&lt; "]" &lt;&lt; endl;
+    cout &lt;&lt; &quot;]&quot; &lt;&lt; endl;
     return 0;
 }
-                </input></program></statement>
+                </code></program></statement>
             </task>
             <task xml:id="lst-dpremember-py" label="lst-dpremember-py">
                 <title>Python Implementation</title>
-                <statement><program xml:id="prog-dpremember-py" interactive="activecode" language="python" label="prog-dpremember-py-prog"><input>
+                <statement><program xml:id="prog-dpremember-py" interactive="activecode" language="python" label="prog-dpremember-py-prog"><code>
 #Addition to the precious program that finds the types of coins used and the process of doing it.
 
 def dpMakeChange(coinValueList,change,minCoins,coinsUsed):
@@ -523,19 +523,18 @@ def main():
     coinsUsed = [0]*(amnt+1)
     coinCount = [0]*(amnt+1)
 
-    print("Making change for",amnt,"requires")
-    print(dpMakeChange(clist,amnt,coinCount,coinsUsed),"coins")
-    print("They are:")
+    print(&quot;Making change for&quot;,amnt,&quot;requires&quot;)
+    print(dpMakeChange(clist,amnt,coinCount,coinsUsed),&quot;coins&quot;)
+    print(&quot;They are:&quot;)
     printCoins(coinsUsed,amnt)
-    print("The used list is as follows:")
+    print(&quot;The used list is as follows:&quot;)
     print(coinsUsed)
 
 main()
-                </input></program></statement>
+                </code></program></statement>
             </task>
         </exploration>
         <conclusion><p>
             <!-- extra space before the progress bar -->            
         </p></conclusion>
     </section>
-    
