@@ -26,5 +26,8 @@
                 <p><c>length()</c> Return the number of key-value pairs stored in the tree.</p>
             </li>
         </ul></p>
+    <conclusion><p> 
+        <!-- extra space before the progress bar -->            
+    </p></conclusion>
     </section>
 
