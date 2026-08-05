@@ -27,5 +27,8 @@
             exchange is a costly operation and the total number of exchanges will
             also be important for evaluating the overall efficiency of the
             algorithm.</p>
+    <conclusion><p>
+        <!-- extra space before the progress bar -->            
+    </p></conclusion>
     </section>
 
