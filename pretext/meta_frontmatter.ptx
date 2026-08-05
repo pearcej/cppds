@@ -27,15 +27,15 @@
     </website>
     <copyright>
       <year>2018<ndash/>present</year>
-      <holder>Bradley N. Miller, David L. Ranum, and Janice L. Pearce</holder>
+      <holder>Janice L. Pearce, Bradley N. Miller, and David L. Ranum</holder>
       <shortlicense>
-        Problem Solving with Algorithms and Data Structures using C++ by Bradley N. Miller, David L. Ranum, and Janice L. Pearce is licensed under a
+        Problem Solving with Algorithms and Data Structures using C++ by Janice L. Pearce, Bradley N. Miller, and David L. Ranum is licensed under a
         <url 
           href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
           visual="creativecommons.org/licenses/by-nc-sa/4.0/">
           Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
         </url>.
-        All product names, logos, and brands are property of their respective owners. All company, product and service names used in this text are for identification purposes only. Use of these names, logos, and brands does not imply endorsement. Many images used in this text are created by the original author, Ryan Tolboom, and licensed under CC-BY-NC-SA except where otherwise noted.
+        All product names, logos, and brands are property of their respective owners. All company, product and service names used in this text are for identification purposes only. Use of these names, logos, and brands does not imply endorsement.
       </shortlicense>
     </copyright>
   </bibinfo>
