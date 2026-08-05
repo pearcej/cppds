@@ -4,23 +4,29 @@
 <frontmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="meta_frontmatter">
 
   <bibinfo>
-    <author>
-      <personname>Bradley N. Miller</personname>
-    </author>
-    <author>
-      <personname>David L. Ranum</personname>
-    </author>
+  
     <author>
       <personname>Dr. Janice L. Pearce</personname>
       <department>Computer Science</department>
       <institution>Berea College</institution>
     </author>
+
+    <author>
+      <personname>Bradley N. Miller</personname>
+      <institution>Luther College</institution>
+    </author>
+
+    <author>
+      <personname>David L. Ranum</personname>
+      <institution>Luther College</institution>
+    </author>
+
     <date><today/></date>
     <website>
       <url href="https://github.com/pearcej/cppds">Repository on Github</url>
     </website>
     <copyright>
-      <year>2025<ndash/>present</year>
+      <year>2018<ndash/>present</year>
       <holder>Bradley N. Miller, David L. Ranum, and Janice L. Pearce</holder>
       <shortlicense>
         Problem Solving with Algorithms and Data Structures using C++ by Bradley N. Miller, David L. Ranum, and Janice L. Pearce is licensed under a
