@@ -8,5 +8,8 @@
             case we are not interested in the exact placement of items in the tree,
             but we are interested in using the binary tree structure to provide for
             efficient searching.</p>
+    <conclusion><p> 
+        <!-- extra space before the progress bar -->            
+    </p></conclusion>
     </section>
 

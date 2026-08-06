@@ -30,5 +30,8 @@
             at the front, and the <term>max heap</term>, in which the largest key value is
             always at the front. In this section we will implement the min heap. We
             leave a max heap implementation as an exercise.</p>
+    <conclusion><p> 
+        <!-- extra space before the progress bar -->            
+    </p></conclusion>
     </section>
 

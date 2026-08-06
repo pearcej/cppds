@@ -239,4 +239,7 @@ main()
                 </code></program></statement>
             </task>
         </exploration>
+    <conclusion><p> 
+        <!-- extra space before the progress bar -->            
+    </p></conclusion>
 </section>

@@ -90,4 +90,7 @@
             equal to a constant(1.44) times the log of the number of nodes in the tree. This
             is great news for searching our AVL tree because it limits the search to
             <m>O(\log{N})</m>.</p>
+    <conclusion><p>
+        <!-- extra space before the progress bar -->            
+    </p></conclusion>
     </section>

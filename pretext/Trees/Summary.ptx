@@ -17,5 +17,8 @@
                 <p>A min heap used to implement a priority queue.</p>
             </li>
         </ul></p>
+    <conclusion><p> 
+        <!-- extra space before the progress bar -->            
+    </p></conclusion>
     </section>
 
