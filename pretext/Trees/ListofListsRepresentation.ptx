@@ -1,4 +1,4 @@
-<section xml:id="trees_list-of-lists-representation">
+<?xml version="1.0" ?><section xml:id="trees_list-of-lists-representation">
         <title>List of Lists Representation</title>
         <p>In a tree represented by a list of lists, we will begin
             with Python's list data structure and write the functions defined above.
@@ -13,7 +13,9 @@
             storage technique, let's look at an example. <xref ref="fig-smalltree"/>
             shows a simple tree and the corresponding list implementation.</p>
         
-        <figure align="center" xml:id="fig-smalltree"><caption xmlns:c="https://www.sphinx-doc.org/" xmlns:changeset="https://www.sphinx-doc.org/" xmlns:citation="https://www.sphinx-doc.org/" xmlns:cpp="https://www.sphinx-doc.org/" xmlns:index="https://www.sphinx-doc.org/" xmlns:js="https://www.sphinx-doc.org/" xmlns:math="https://www.sphinx-doc.org/" xmlns:py="https://www.sphinx-doc.org/" xmlns:rst="https://www.sphinx-doc.org/" xmlns:std="https://www.sphinx-doc.org/">Figure 1: A Small Tree</caption><image source="Trees/Figures/smalltree.png" width="50%"/></figure>
+        <figure xml:id="fig-smalltree">
+            <caption>A Small Tree</caption>
+            <image source="Trees/Figures/smalltree.png" width="50%"/></figure>
         <pre>myTree = ['a',   #root
       ['b',  #left subtree
        ['d', [], []],
@@ -36,13 +38,13 @@
         
 
     <program xml:id="tree_list1" interactive="activecode" language="python" label="tree_list1-prog">
-        <input>
+        <code>
 myTree = ['a', ['b', ['d',[],[]], ['e',[],[]] ], ['c', ['f',[],[]], []] ]
 print(myTree)
 print('left subtree = ', myTree[1])
 print('root = ', myTree[0])
 print('right subtree = ', myTree[2])
-        </input>
+        </code>
     </program>
         <p>Let's formalize this definition of the tree data structure by providing
             some functions that make it easy for us to use lists as trees. Note that
@@ -59,7 +61,7 @@ print('right subtree = ', myTree[2])
             tree as the left child of the list we are adding. <xref ref="lst-linsleft"/>
             shows the Python code for inserting a left child.</p>
         
-        <p xml:id="trees_lst-linsleft" names="lst_linsleft"><term>Listing 1</term></p>
+        <p xml:id="trees_lst-linsleft"><term>Listing 1</term></p>
         <pre>def insertLeft(root,newBranch):
     t = root.pop(1)
     if len(t) &gt; 1:
@@ -74,7 +76,7 @@ print('right subtree = ', myTree[2])
             The code for <c>insertRight</c> is similar to <c>insertLeft</c> and is shown
             in <xref ref="lst-linsright"/>.</p>
         
-        <p xml:id="trees_lst-linsright" names="lst_linsright"><term>Listing 2</term></p>
+        <p xml:id="trees_lst-linsright"><term>Listing 2</term></p>
         <pre>def insertRight(root,newBranch):
     t = root.pop(2)
     if len(t) &gt; 1:
@@ -86,7 +88,7 @@ print('right subtree = ', myTree[2])
             access functions for getting and setting the root value, as well as
             getting the left or right subtrees.</p>
         
-        <p xml:id="trees_lst-treeacc" names="lst_treeacc"><term>Listing 3</term></p>
+        <p xml:id="trees_lst-treeacc"><term>Listing 3</term></p>
         <pre>def getRootVal(root):
     return root[0]
 
@@ -105,7 +107,7 @@ def getRightChild(root):
         
 
     <program xml:id="bin_tree" interactive="activecode" language="python" label="bin_tree-prog">
-        <input>
+        <code>
 def BinaryTree(r):
     return [r, [], []]
 
@@ -152,7 +154,7 @@ def main():
     print(r)
     print(getRightChild(getRightChild(r)))
 main()
-        </input>
+        </code>
     </program>
         <note>
             <title>Self Check</title>
@@ -161,13 +163,13 @@ main()
         <statement>
 
             <p>Q-3: Given the following statements:</p>
-            <program language="python" label="ListofListsRepresentation-prog"><input>
+            <program language="python" label="ListofListsRepresentation-prog"><code>
 x = BinaryTree('a')
 insertLeft(x,'b')
 insertRight(x,'c')
 insertRight(getRightChild(x),'d')
 insertLeft(getRightChild(getRightChild(x)),'e')
-</input></program>
+</code></program>
             <p>Which of the answers is the correct representation of the tree?</p>
 
         </statement>
@@ -217,9 +219,8 @@ insertLeft(getRightChild(getRightChild(x)),'e')
             <p>Write a function <c>buildTree</c> that returns a tree using the list of lists functions that looks like this:</p>
             <image source="Trees/Figures/tree_ex.png" width="50%"/>
 
-    </statement>
     <program xml:id="mctree_2_editor" interactive="activecode" language="python" label="mctree_2_editor-prog">
-        <input>
+        <code>
 from test import testEqual
 
 def buildTree():
@@ -231,9 +232,9 @@ def main():
     testEqual(getRootVal(getRightChild(getLeftChild(ttree))),'d')
     testEqual(getRootVal(getRightChild(getRightChild(ttree))),'f')
 main()
-        </input>
+        </code>
     </program>
+    </statement>
 </exercise>
         </note>
     </section>
-

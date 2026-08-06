@@ -1,4 +1,4 @@
-<section xml:id="introduction_defining-c-functions">
+<?xml version="1.0" ?><section xml:id="introduction_defining-c-functions">
         <title>Defining C++ Functions</title>
         <introduction>
         <p>In general, we can hide the details of any computation by defining
@@ -8,8 +8,8 @@
             value you pass into it.</p>
         
         <listing xml:id="timesTwo">
-            <caption><c>timesTwo</c> Function</caption>
-            <program interactive="activecode" language="cpp" label="timesTwo-prog"><input>
+            <title><c>timesTwo</c> Function</title>
+            <program interactive="activecode" language="cpp" label="timesTwo-prog"><code>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -26,7 +26,7 @@ int main() {
 
     return 0;
 }
-            </input></program>
+            </code></program>
         </listing>
 
         <p>The syntax for this function definition includes the name, <c>timesTwo</c>,
@@ -41,8 +41,8 @@ int main() {
         <p>Let us look at a similar function in <xref ref="timesTwoVoid"/>.</p>
 
         <listing xml:id="timesTwoVoid">
-            <caption><c>timesTwoVoid</c> Function Returns Nothing.</caption>
-            <program interactive="activecode" language="cpp" label="timesTwoVoid-prog"><input>
+            <title><c>timesTwoVoid</c> Function Returns Nothing.</title>
+            <program interactive="activecode" language="cpp" label="timesTwoVoid-prog"><code>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -59,7 +59,7 @@ int main() {
 
     return 0;
 }
-            </input></program>
+            </code></program>
         </listing>
         <p><c>timesTwoVoid</c> behaves very similarly to <c>timesTwo</c>. However, there is one key
             difference between them. Instead of the <c>int</c> in <c>timesTwo</c>, <c>timesTwoVoid</c> has a
@@ -81,10 +81,10 @@ int main() {
             <xref ref="introduction_lst-root"/> also shows the use of the // characters as a comment
             marker. Any characters that follow the // on a line are ignored.</p>
         
-    <listing xml:id="introduction_lst-root" names="lst_root">
-        <caption>Newton's Method for Calculating Square Roots.</caption>
+    <listing xml:id="introduction_lst-root">
+        <title>Newton's Method for Calculating Square Roots.</title>
     <program xml:id="newtonsmethod" interactive="activecode" language="cpp" label="newtonsmethod-prog">
-        <input>
+        <code>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -105,7 +105,7 @@ int main() {
 
       return 0;
 }
-        </input>
+        </code>
     </program></listing>
     </introduction>        
         <subsection xml:id="introduction_parameter-passing-by-value-versus-by-reference">
@@ -118,12 +118,15 @@ int main() {
                 the values of the parameters, the original contents in the memory referenced
                 by the arguments of the calling function do not change.</p>
             <p>Consider the following two function definitions:</p>
-            <pre>void functionExample( int inputVar ) { /*return type void which indicates that
-                                         nothing is being returned*/
+                
+            <program language="cpp"><code>
+void functionExample( int inputVar ) {
+    /* return type void which indicates that
+       nothing is being returned */
     int nextVar = inputVar * 2;
     inputVar = 4;
 
-    cout &lt;&lt; "nextVar = " &lt;&lt; nextVar &lt;&lt; " inputVar = " &lt;&lt; inputVar;
+    cout &lt;&lt; &quot;nextVar = &quot; &lt;&lt; nextVar &lt;&lt; &quot; inputVar = &quot; &lt;&lt; inputVar;
 }
 
 void callingFunction() { /*return type int which indicates
@@ -131,21 +134,26 @@ void callingFunction() { /*return type int which indicates
     int myVar = 10;
 
     functionExample( myVar );
-    cout &lt;&lt; "myVar = " &lt;&lt; myVar;
-}</pre>
+    cout &lt;&lt; &quot;myVar = &quot; &lt;&lt; myVar;
+}
+            </code></program>
+            
             <p>When the function <c>callingFunction()</c> executes, it calls <c>functionExample(...)</c>
                 with the variable <em>myVar</em> having the value 10. Within <c>functionExample(...)</c>,
                 the value of 10 is copied from <em>myVar</em> to the formal parameter <em>inputVar</em>,
                 so the value of <em>nextVar</em> is 10x2, or 20. The next statement changes the contents of <em>inputVar</em> to 4,
                 so the <c>cout</c> statement within this function produces the output:</p>
-            <pre>nextVar = 20 inputVar = 4</pre>
+            <program language="cpp"><code>
+                nextVar = 20 inputVar = 4
+            </code></program>
+            
             <p>Notice what happens when <c>functionExample(...)</c> ends and execution returns to <c>callingFunction()</c>.
                 The contents of <em>myVar</em> is <term>still the same</term>, as the location for <em>myVar</em> differs from where <em>inputVar</em>
                 is stored. Thus, <em>myVar</em> still has the value 10, and the <c>cout</c> statement after the function call will
                 produce the output:</p>
-            <pre>myVar = 10</pre>
+            <program language="cpp"><code>myVar = 10</code></program>
             <p>In other words, any changes to the variables are local to the function, which is exactly what we want.</p>
-            <transition/>
+
             <p>However, there is a problem.</p>
             <p><idx>pass-by-reference</idx>We have seen examples of C++ functions that return no value or a single value.
                 How about when we want the function to return <term>more</term> than one value?
@@ -162,9 +170,9 @@ void callingFunction() { /*return type int which indicates
                 that calls <c>swap_values(...)</c>.</p>
             
     <listing xml:id="activepassrefcpp">
-        <caption>Pass By Reference Example</caption>
+        <title>Pass By Reference Example</title>
     <program interactive="activecode" language="cpp" label="activepassrefcpp-prog">
-        <input>
+        <code>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -185,17 +193,17 @@ int main( ) {
     first_num = 7;
     second_num = 8;
 
-    cout &lt;&lt; "Two numbers before swap function: 1) " &lt;&lt; first_num &lt;&lt; " 2) " &lt;&lt; second_num &lt;&lt; endl;
+    cout &lt;&lt; &quot;Two numbers before swap function: 1) &quot; &lt;&lt; first_num &lt;&lt; &quot; 2) &quot; &lt;&lt; second_num &lt;&lt; endl;
     swap_values(first_num, second_num);
-    cout &lt;&lt; "The numbers after swap function: 1) " &lt;&lt; first_num &lt;&lt; " 2) " &lt;&lt; second_num;
+    cout &lt;&lt; &quot;The numbers after swap function: 1) &quot; &lt;&lt; first_num &lt;&lt; &quot; 2) &quot; &lt;&lt; second_num;
 
     return 0;
 }
-        </input>
+        </code>
     </program></listing>
             <p>For the program in <xref ref="activepassrefcpp"/> to reverse the order of the integers the users types in, the function <c>swap_values(...)</c> must be able to change the values of the arguments. Try removing one or both of the <c>&amp;</c><rsq/>s in this code to see what happens.</p>
         </subsection>
-        <transition/>
+
         <subsection xml:id="introduction_arrays-as-parameters-in-functions">
             <title>Arrays as Parameters in Functions</title>
             <p><idx>array parameters</idx>Functions can be used with <term>array parameters</term> to maintain a structured design.
@@ -207,31 +215,45 @@ int main( ) {
             <p>The following example function returns the average hours worked over the array of
                 integers (note that we need to also pass in the number of elements in that array
                 because the array parameter <em>list[]</em> does not include that information):</p>
-            <pre>double average( int list[], int length ) {
-     // It is correct syntax to omit the array length on the array itself.
+
+            <program language="cpp"><code>
+double average( int list[], int length ) {
+    // It is correct syntax to omit the array length on the array itself.
     double total = 0;
-     //return type double which indicates that a decimal is being returned
+    //return type double which indicates that a decimal is being returned
     int count;
     for( count = 0; count &lt; length; count++ ) {
         total += double(list[count]);
-        };
+    }
     return (total / length);
-}</pre>
+}
+            </code></program>
+
             <p>Array parameters look like pass by value, but they are effectively similar to pass by reference parameters. When they execute, the functions with these parameters do not make private copies of the arrays. Instead, the reference is passed to reduce the impact on memory. Arrays can therefore always be permanently changed when passed as arguments to functions.</p>
             <p>After a call to the following function, each element in the third array argument is equal to the sum of the corresponding two elements in the first and second arguments:</p>
-            <pre>void add_lists( int first[], int second[], int total[], int length ) {
+            
+            <program language="cpp"><code>
+void add_lists( int first[], int second[], int total[], int length ) {
     //return type void which indicates that nothing is returned
     int count;
     for( count = 0; count &lt; length; count++ ) {
         total[count] = first[count] + second[count];
-};}</pre>
+    }
+}
+            </code></program>
+            
             <p>Upon further examination, we can see that the first two arrays do not change values. To prevent ourselves from accidentally modifying any of these arrays, we can add the modifier <c>const</c> in the function head:</p>
-            <pre>void add_lists( const int first[], const int second[], int total[], int length ) {
+
+            <program language="cpp"><code>
+void add_lists( const int first[], const int second[], int total[], int length ) {
     //return type void which indicates that nothing is returned
     int count;
     for( count = 0; count &lt; length; count++ ) {
         total[count] = first[count] + second[count];
-};}</pre>
+    }
+}
+            </code></program>
+            
             <p>These changes would ensure that the compiler will then not accept any statements within the function's definition that potentially modify the elements of the arrays <em>first</em> or <em>second</em>.</p>
         </subsection>
         <subsection xml:id="introduction_function-overloading">
@@ -251,18 +273,18 @@ int main( ) {
                 <title>Example of Overloading</title>
                 <task label="foverload_cpp">
                     <title>C++ Implementation</title>
-                    <statement><program xml:id="foverload_cpp" interactive="activecode" language="cpp" label="foverload_cpp-prog"><input>
+                    <statement><program xml:id="foverload_cpp" interactive="activecode" language="cpp" label="foverload_cpp-prog"><code>
 //showcases function overloading in C++
 #include &lt;iostream&gt;
 using namespace std;
 
 void myfunct(int n) {
-        cout &lt;&lt; "1 parameter: " &lt;&lt; n &lt;&lt;endl;
+        cout &lt;&lt; &quot;1 parameter: &quot; &lt;&lt; n &lt;&lt;endl;
 }
 
 void myfunct(int n, int m) {
-        cout &lt;&lt; "2 parameters: " &lt;&lt; n;
-        cout &lt;&lt; " and " &lt;&lt; m &lt;&lt;endl;
+        cout &lt;&lt; &quot;2 parameters: &quot; &lt;&lt; n;
+        cout &lt;&lt; &quot; and &quot; &lt;&lt; m &lt;&lt;endl;
 }
 
 int main() {
@@ -273,18 +295,18 @@ int main() {
 
     return 0;
 }
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
                 <task label="foverload_py">
                     <title>Python Implementation</title>
-                    <statement><program xml:id="foverload_py" interactive="activecode" language="python" label="foverload_py-prog"><input>
+                    <statement><program xml:id="foverload_py" interactive="activecode" language="python" label="foverload_py-prog"><code>
 #showcases function overloading in Python
 def myfunct(n, m=None):
     if m is None:
-        print("1 parameter: " + str(n))
+        print(&quot;1 parameter: &quot; + str(n))
     else:
-        print("2 parameters: " + str(n), end="")
-        print(" and ", str(m))
+        print(&quot;2 parameters: &quot; + str(n), end=&quot;&quot;)
+        print(&quot; and &quot;, str(m))
 
 def main():
     myfunct(4);
@@ -292,7 +314,7 @@ def main():
     myfunct(100);
 
 main()
-                    </input></program></statement>
+                    </code></program></statement>
                 </task>
             </exploration>
 
@@ -300,34 +322,29 @@ main()
                 <title>
                     Reading Questions
                 </title>
-                <p>Take a look at the code below:</p>
-            <pre>#include &lt;iostream&gt;
-using namespace std;
-
-void dogWalk(int steps){
-
-    for (int step = 0; step &lt; steps; step++){
-        cout &lt;&lt; "dog walked "&lt;&lt; step &lt;&lt; " steps!"&lt;&lt; endl;
-
-    }
-
-}
-
-int main() {
-
-    dogWalk(11);
-
-    return 0;
-
-}</pre>
     <exercise label="dog_walker">
         <statement>
 
         <p>What is the return type of the first function defined in this code?</p>
 
-        </statement>
-<choices>
+        <program language="cpp"><code>
+#include &lt;iostream&gt;
 
+using namespace std;
+
+void dogWalk(int steps){
+    for (int step = 0; step &lt; steps; step++){
+        cout &lt;&lt; &quot;dog walked &quot;&lt;&lt; step &lt;&lt; &quot; steps!&quot;&lt;&lt; endl;
+    }
+}
+
+int main() {
+    dogWalk(11);
+    return 0;
+}
+                </code></program>
+        </statement>
+        <choices>
             <choice correct="yes">
                 <statement>
                     <p>void</p>
@@ -413,8 +430,9 @@ int main() {
 </choices>
 
     </exercise>
-
-    <note>
+            </reading-questions>
+    </subsection>
+    <subsection xml:id="monkey-theorem">
         <title>Self Check</title>
         <p>Here's a self check that really covers everything so far.  You may have
             heard of the infinite monkey theorem?  The theorem states that a monkey
@@ -435,18 +453,15 @@ int main() {
             we will generate a whole new string. To make it easier to follow your program's
             progress this third function should print out the best string generated so far
             and its score every 1000 tries.</p>
-    </note>
-    <note>
+    </subsection>
+    <subsection>
         <title>Self Check Challenge</title>
-        <p>See if you can improve upon the program in the self check by keeping letters
+        <p>See if you can improve upon the program in <xref ref="monkey-theorem" /> by keeping letters
             that are correct and only modifying one character in the best string so far.
             This is a type of algorithm in the class of <q>hill climbing</q> algorithms, that
             is we only keep the result if it is better than the previous one.</p>
-    </note>       
-                
-            </reading-questions>
-        </subsection>
-        <conclusion><p>
-            <!-- extra space before the progress bar -->
-        </p></conclusion>
-    </section>
+    </subsection>
+    <conclusion><p>
+        <!-- extra space before the progress bar -->
+    </p></conclusion>
+</section>

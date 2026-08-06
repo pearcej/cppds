@@ -1,7 +1,7 @@
 <section xml:id="introduction_glossary">
-        <title>Glossary</title>
-        <glossary sorted="False">
-            
+    <title>Glossary</title>
+    <p>The following terms were defined in this chapter.</p>
+    <glossary>
                 <gi>
                     <title>abstract data type/ADT</title>
                     
@@ -422,4 +422,4 @@
         <p>
             <!-- extra space before the progress bar -->
         </p>
-    </section>
+</section>

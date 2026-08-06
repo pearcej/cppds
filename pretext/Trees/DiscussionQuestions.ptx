@@ -64,7 +64,7 @@
             </li>
             <li>
                 <p>Show the function calls needed to build the binary tree in <xref ref="exertree"/>.</p>
-                <figure align="center" xml:id="exertree">
+                <figure xml:id="exertree">
                     <caption>Tree of Programming Languages</caption>
                     <image source="Trees/exerTree.png" width="50%">
                         <description><p>A tree whose root node is language. The language node has two children: compiled and interpreted.
@@ -75,7 +75,7 @@
             </li>
             <li>
                 <p>Given the tree in <xref ref="rotexer1"/>, perform the appropriate rotations to bring it back into balance.</p>
-                <figure align="center" xml:id="rotexer1">
+                <figure xml:id="rotexer1">
                     <caption>Out of Balance Tree</caption>
                     <image source="Trees/rotexer1.png" width="20%">
                         <description><p>
@@ -88,7 +88,7 @@
             </li>
             <li>
                 <p>Using <xref ref="bfderive"/> as a starting point, derive the equation that gives the updated balance factor for node D.</p>
-                <figure align="center" xml:id="bfderive">
+                <figure xml:id="bfderive">
                     <caption>Compute Updated Balance Factor</caption>
                     <image source="Trees/bfderive.png" width="50%"> 
                     <description>

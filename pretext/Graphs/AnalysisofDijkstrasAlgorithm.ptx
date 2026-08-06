@@ -11,5 +11,8 @@
             <c>for</c> loop is executed once for each edge in the
             graph, and within the <c>for</c> loop the call to <c>decreaseKey</c> takes
             time <m>O(E\log(V)).</m> So the combined running time is <m>O((V+E) \log(V)).</m></p>
+            <conclusion><p>
+                <!-- extra space before the progress bar -->
+            </p></conclusion>
     </section>
 

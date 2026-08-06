@@ -1,4 +1,4 @@
-<section xml:id="graphs_implementation">
+<?xml version="1.0" ?><section xml:id="graphs_implementation">
         <title>Implementation</title>
         <p>Using a map, or dictionaries in Python, it is easy to implement the adjacency list. In our implementation of the Graph abstract data type we will
             create two classes (see <xref ref="lst_vertex"/> and <xref ref="lst_graph"/>), <c>Graph</c>, which holds the master list of vertices,
@@ -13,13 +13,23 @@
             the adjacency list, as represented by the <c>connectedTo</c> instance
             variable. The <c>getWeight</c> method returns the weight of the edge from
             this vertex to the vertex passed as a parameter.</p>
-        <p>We use <c>operator overloading</c> so that when we print our Vertex using the <c>cout &lt;&lt;</c> function
-            we get a list of its connections, instead of an error. This function must be initialized
-            as a <c>friend function</c> within the class definition, but is required to be defined outside of the class. This is specific to <c>operator overloading</c> in C++.</p>
+
+        <p>We use <term>operator overloading</term> so we can print our <c>Vertex</c> using the <c>cout &lt;&lt;</c> function.</p>
         
-        <listing xml:id="lst_vertex" names="graphs_lst-vertex">
-                <caption><c>Vertex</c> Class</caption>
-                <program language="cpp" label="lst_vertex-prog"><input>
+<p>The <c>operator &lt;&lt;</c> function uses operator-overloading syntax rather than a regular function syntax.
+Of course, the <c>&amp;</c> after <c>ostream</c> means the function returns a reference to the output stream.
+Returning the stream by reference allows chaining, such as <c>cout &lt;&lt; vertex &lt;&lt; endl</c>, because each call returns the same stream for the next output operation.
+The <c>operator &lt;&lt;</c> token is the overloaded operator name, so this function defines how <c>&lt;&lt;</c> behaves when used to output a <c>Vertex</c> object.</p>
+
+<p>This overload is usually written as a non-member function so that the left operand can be <c>ostream</c>.
+It may be declared as a <c>friend</c> of <c>Vertex</c> when direct access to private data is needed.
+The parameters are passed by reference to avoid unnecessary copying, and the object parameter is typically <c>const</c> (for example, <c>const Vertex&amp; vert</c>) to indicate that output should not modify the object.</p>
+
+        
+        <listing xml:id="lst_vertex">
+
+                <title><c>Vertex</c> Class</title>
+                <program language="cpp" label="lst_vertex-prog"><code>
 class Vertex {
     public:
         int id;
@@ -61,12 +71,12 @@ class Vertex {
 ostream &amp;operator&lt;&lt;(ostream &amp;stream, Vertex &amp;vert) {
     vector&lt;int&gt; connects = vert.getConnections();
     for (unsigned int i = 0; i &lt; connects.size(); i++) {
-        stream &lt;&lt; "( " &lt;&lt; vert.id &lt;&lt; " , " &lt;&lt; connects[i] &lt;&lt; " ) \n";
+        stream &lt;&lt; &quot;( &quot; &lt;&lt; vert.id &lt;&lt; &quot; , &quot; &lt;&lt; connects[i] &lt;&lt; &quot; ) \n&quot;;
     }
 
     return stream;
 }
-                </input></program>
+                </code></program>
         </listing>
         <p>The <c>Graph</c> class, shown in the next listing, contains a map
             that maps vertex names (int) to vertex objects (Vertex). In <xref ref="graphs_an-adjacency-list"/> this
@@ -75,9 +85,9 @@ ostream &amp;operator&lt;&lt;(ostream &amp;stream, Vertex &amp;vert) {
             vertex to another. The <c>getVertices</c> method returns the names of all
             of the vertices in the graph.</p>
         
-        <listing xml:id="lst_graph" names="graphs_lst-graph">
-                <caption><c>Graph</c> Class</caption>
-                <program language="cpp" label="lst_graph-prog"><input>
+        <listing xml:id="lst_graph">
+                <title><c>Graph</c> Class</title>
+                <program language="cpp" label="lst_graph-prog"><code>
 class Graph {
     public:
         map&lt;int, Vertex&gt; vertList;
@@ -97,11 +107,11 @@ class Graph {
         Vertex *getVertex(int n) {
             for (map&lt;int, Vertex&gt;::iterator it = vertList.begin(); it != vertList.end(); ++it) {
                 if (it-&gt;first == n) {
-                    // Forced to use pntr due to possibility of returning NULL
+                    // Forced to use pntr due to possibility of returning nullptr
                     Vertex *vpntr = &amp;vertList[n];
                     return vpntr;
                 } else {
-                    return NULL;
+                    return nullptr;
                 }
             }
         }
@@ -117,11 +127,11 @@ class Graph {
 
         void addEdge(int f, int t, int cost = 0) {
             if (!this-&gt;contains(f)) {
-                cout &lt;&lt; f &lt;&lt; " was not found, adding!" &lt;&lt; endl;
+                cout &lt;&lt; f &lt;&lt; &quot; was not found, adding!&quot; &lt;&lt; endl;
                 this-&gt;addVertex(f);
             }
             if (!this-&gt;contains(t)) {
-                cout &lt;&lt; t &lt;&lt; " was not found, adding!" &lt;&lt; endl;
+                cout &lt;&lt; t &lt;&lt; &quot; was not found, adding!&quot; &lt;&lt; endl;
             }
             vertList[f].addNeighbor(t, cost);
         }
@@ -145,7 +155,7 @@ ostream &amp;operator&lt;&lt;(ostream &amp;stream, Graph &amp;grph) {
 
     return stream;
 }
-                </input></program>
+                </code></program>
         </listing>
         <p>Using the <c>Graph</c> and <c>Vertex</c> classes just defined, the following
             Python session creates the graph in <xref ref="fig-dgsimple"/>. First we
@@ -160,7 +170,7 @@ ostream &amp;operator&lt;&lt;(ostream &amp;stream, Graph &amp;grph) {
                 <title>Directed Graph Implementation</title>
                 <task xml:id="graph_implementation_cpp" label="graph_implementation_cpp">
                         <title>C++ Implementation</title>
-                        <statement><program interactive="activecode" language="cpp" label="graph_implementation_cpp-prog"><input>
+                        <statement><program interactive="activecode" language="cpp" label="graph_implementation_cpp-prog"><code>
 #include &lt;iostream&gt;
 #include &lt;map&gt;
 #include &lt;vector&gt;
@@ -213,7 +223,7 @@ public:
 ostream &amp;operator&lt;&lt;(ostream &amp;stream, Vertex &amp;vert) {
         vector&lt;int&gt; connects = vert.getConnections();
         for (unsigned int i = 0; i &lt; connects.size(); i++) {
-                stream &lt;&lt; "( " &lt;&lt; vert.id &lt;&lt; " , " &lt;&lt; connects[i] &lt;&lt; " ) \n";
+                stream &lt;&lt; &quot;( &quot; &lt;&lt; vert.id &lt;&lt; &quot; , &quot; &lt;&lt; connects[i] &lt;&lt; &quot; ) \n&quot;;
         }
 
         return stream;
@@ -238,17 +248,17 @@ public:
         }
 
                 //Returns the vertex with the specified ID.
-                //Will return NULl if the vertex doesn't exist.
+                //Will return nullptr if the vertex doesn't exist.
         Vertex *getVertex(int n) {
                 for (map&lt;int, Vertex&gt;::iterator it = vertList.begin();
                         it != vertList.end();
                         ++it) {
                         if (it-&gt;first == n) {
-                                // Forced to use pntr due to possibility of returning NULL
+                                // Forced to use pntr due to possibility of returning nullptr
                                 Vertex *vpntr = &amp;vertList[n];
                                 return vpntr;
                         } else {
-                                return NULL;
+                                return nullptr;
                         }
                 }
         }
@@ -267,11 +277,11 @@ public:
                 //Adds an edge between vertices F and T with a weight equivalent to cost.
         void addEdge(int f, int t, int cost = 0) {
                 if (!this-&gt;contains(f)) {
-                        cout &lt;&lt; f &lt;&lt; " was not found, adding!" &lt;&lt; endl;
+                        cout &lt;&lt; f &lt;&lt; &quot; was not found, adding!&quot; &lt;&lt; endl;
                         this-&gt;addVertex(f);
                 }
                 if (!this-&gt;contains(t)) {
-                        cout &lt;&lt; t &lt;&lt; " was not found, adding!" &lt;&lt; endl;
+                        cout &lt;&lt; t &lt;&lt; &quot; was not found, adding!&quot; &lt;&lt; endl;
                 }
                 vertList[f].addNeighbor(t, cost);
         }
@@ -321,11 +331,11 @@ int main() {
 
         return 0;
 }
-                        </input></program></statement>
+                        </code></program></statement>
                 </task>
                 <task xml:id="graph_implementation_py" label="graph_implementation_py">
                         <title>Python Implementation</title>
-                        <statement><program interactive="activecode" language="python" label="graph_implementation_py-prog"><input>
+                        <statement><program interactive="activecode" language="python" label="graph_implementation_py-prog"><code>
 class Vertex:
         # Contructor that specifies the key of the vertex.
         def __init__(self, key):
@@ -410,12 +420,14 @@ def main():
         
         for v in g:
                 for w in v.getConnections():
-                        print("( %s , %s )" % (v.getId(), w.getId()))
+                        print(&quot;( %s , %s )&quot; % (v.getId(), w.getId()))
         
         
 main()
-                        </input></program></statement>
+                        </code></program></statement>
                 </task>
         </exploration>
+        <conclusion><p>
+                <!-- extra space before the progress bar -->
+            </p></conclusion>
 </section>
-

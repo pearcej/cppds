@@ -1,4 +1,4 @@
-<section xml:id="introduction_reviewing-basic-c">
+<?xml version="1.0" ?><section xml:id="introduction_reviewing-basic-c">
         <title>Reviewing Basic C++</title>
         <p>In this section, we will review the programming language C++ and also
             provide some more detailed examples of the ideas from the previous
@@ -16,17 +16,17 @@
         <p>The following is an example of C++ code that writes to the console:</p>
 
     <program xml:id="cpp" interactive="activecode" language="cpp" label="cpp-prog">
-        <input>
+        <code>
 //Outputs strings to command line.
 #include &lt;iostream&gt;
 using namespace std;
 
 int main() {
-    cout &lt;&lt; "Welcome to Problem Solving with" &lt;&lt; endl;
-    cout &lt;&lt; "Algorithms and Data Structures!" &lt;&lt; endl;
+    cout &lt;&lt; &quot;Welcome to Problem Solving with&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;Algorithms and Data Structures!&quot; &lt;&lt; endl;
     return  0;
 }
-        </input>
+        </code>
     </program>
     <p>
         <!-- extra space before the progress bar -->

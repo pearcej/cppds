@@ -29,7 +29,7 @@
             hidden one level deeper. The user is not concerned with the details of
             the implementation.</p>
         
-        <figure align="center" xml:id="fig-adt">
+        <figure xml:id="fig-adt">
             <caption>Abstract Data Type</caption>
                 <image source="Introduction/adt.png" width="50%">
                 <description><p>Concentric circles diagram representing an Abstract Data Type (ADT) structure. The innermost circle is labeled 'Implementation', surrounded by a middle layer labeled 'Operations', and an outer layer labeled 'Interface'. An arrow from the top points to the 'Interface' layer, labeled 'User', illustrating the interaction flow.</p></description>
