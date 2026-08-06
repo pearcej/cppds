@@ -528,14 +528,35 @@ int main(){
                     </code></program></statement>
                 </task>
                 <task xml:id="introduction_lst-addmethod-py-usage" label="introduction_lst-addmethod-py-usage">
-                    <title>Python Usage Example</title>
-                    <statement><program xml:id="addfrac_py" label="addfrac_py" language="python" interactive="activecode"><code>
-f1=Fraction(1,4)
-f2=Fraction(1,2)
-f3=f1+f2
-print(f3)
-                    </code></program></statement>
-                </task>
+    <title>Python Usage Example</title>
+    <statement><program xml:id="addfrac_py" label="addfrac_py" language="python" interactive="activecode"><code>
+class Fraction:
+
+    def __init__(self, top=0, bottom=1):
+        self.num = top
+        self.den = bottom
+
+    def show(self):
+        print(self.num,"/",self.den)
+
+    def __str__(self):
+        return str(self.num)+"/"+str(self.den)
+
+    def __add__(self, other_fraction):
+        new_num = self.num * other_fraction.den + \
+                  other_fraction.num * self.den
+        new_den = self.den * other_fraction.den
+        return Fraction(new_num, new_den)
+
+def main():
+    f1 = Fraction(1, 4)
+    f2 = Fraction(1, 2)
+    f3 = f1 + f2
+    print(f3)
+
+main()
+    </code></program></statement>
+</task>
             </exploration>
             <p>The addition method works as we desire, but a couple of things
                 can be improved. When we use a binary operator like <c>+</c>, we
