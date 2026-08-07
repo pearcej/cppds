@@ -861,6 +861,169 @@ class Airplane: public Vehicle
         output becomes 1.  The great thing is that when the set input goes to 0
         the output stays 1, until the reset input is toggled to 1 which resets
         the output of the circuit back to zero.</p>
+
+    <program xml:id="nor_gate_flipflop_ac" interactive="activecode" language="python" label="nor_gate_flipflop_ac-prog"><code>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+ 
+class LogicGate {
+public:
+    LogicGate(string n) {
+        label = n;
+        output = false;
+        computing = false;   // guards against the feedback loop recursing forever
+    }
+    string getLabel() {
+        return label;
+    }
+    bool getOutput() {
+        if (computing) {
+            // We've looped back to ourselves through a feedback wire --
+            // just hand back the last known value instead of recursing.
+            return output;
+        }
+        computing = true;
+        output = performGateLogic();
+        computing = false;
+        return output;
+    }
+    virtual bool performGateLogic() {
+        cout &lt;&lt; "ERROR! performGateLogic BASE" &lt;&lt; endl;
+        return false;
+    }
+    virtual void setNextPin(LogicGate *source) {
+        cout &lt;&lt; "ERROR! setNextPin BASE" &lt;&lt; endl;
+    }
+protected:
+    string label;
+    bool output;
+    bool computing;
+};
+ 
+// NOTE: unlike the earlier Connector example in this chapter, pins here
+// store a POINTER to the gate feeding them (pinA/pinB), not a frozen
+// bool. That's what lets a wire carry a value that can change later --
+// which a flip-flop's feedback loop needs, since a fixed one-time value
+// (like the earlier AND/OR/NOT circuit used) can't represent a circuit
+// that's meant to keep "remembering" and updating.
+class BinaryGate : public LogicGate {
+public:
+    BinaryGate(string n) : LogicGate(n) {
+        pinA = nullptr;
+        pinB = nullptr;
+    }
+    bool getPinA() {
+        if (pinA == nullptr) {
+            bool v;
+            cout &lt;&lt; "Enter Pin A input for gate " &lt;&lt; getLabel() &lt;&lt; ": ";
+            cin &gt;&gt; v;
+            return v;
+        }
+        return pinA-&gt;getOutput();
+    }
+    bool getPinB() {
+        if (pinB == nullptr) {
+            bool v;
+            cout &lt;&lt; "Enter Pin B input for gate " &lt;&lt; getLabel() &lt;&lt; ": ";
+            cin &gt;&gt; v;
+            return v;
+        }
+        return pinB-&gt;getOutput();
+    }
+    virtual void setNextPin(LogicGate *source) {
+        if (pinA == nullptr) {
+            pinA = source;
+        }
+        else if (pinB == nullptr) {
+            pinB = source;
+        }
+        else {
+            cout &lt;&lt; "ERROR: NO EMPTY PINS" &lt;&lt; endl;
+        }
+    }
+protected:
+    LogicGate *pinA, *pinB;
+};
+ 
+class Connector {
+public:
+    Connector(LogicGate *fgate, LogicGate *tgate) {
+        fromgate = fgate;
+        togate = tgate;
+        tgate-&gt;setNextPin(fromgate);   // just wire it -- no eager evaluation
+    }
+    LogicGate *getFrom() {
+        return fromgate;
+    }
+    LogicGate *getTo() {
+        return togate;
+    }
+private:
+    LogicGate *fromgate, *togate;
+};
+ 
+// A settable input line, so Set/Reset don't need to be re-typed
+// every time the circuit is re-checked.
+class Source : public LogicGate {
+public:
+    Source(string n, bool value) : LogicGate(n) {
+        value_ = value;
+    }
+    void setValue(bool v) {
+        value_ = v;
+    }
+    virtual bool performGateLogic() {
+        return value_;
+    }
+private:
+    bool value_;
+};
+ 
+// TODO: A NOR gate is just an OR gate with the output inverted.
+// Look at how AndGate::performGateLogic was written earlier in the
+// chapter, then write the NOR version.
+class NorGate : public BinaryGate {
+public:
+    NorGate(string n) : BinaryGate(n) {};
+ 
+    virtual bool performGateLogic() {
+        // replace this with your logic
+        return false;
+    }
+};
+ 
+int main() {
+    Source setInput("Set", false);
+    Source resetInput("Reset", false);
+    NorGate norgate1("G1");   // this will be Q
+    NorGate norgate2("G2");   // this will be Q'
+ 
+    // TODO: create Connectors that:
+    //   1. connect resetInput into norgate1
+    //   2. connect setInput into norgate2
+    //   3. connect norgate2's output into norgate1  (feedback)
+    //   4. connect norgate1's output into norgate2  (feedback)
+ 
+    auto show = [&amp;](string step) {
+        bool q, qbar;
+        for (int i = 0; i &lt; 5; i++) {   // let the feedback loop settle
+            q = norgate1.getOutput();
+            qbar = norgate2.getOutput();
+        }
+        cout &lt;&lt; step &lt;&lt; " Q=" &lt;&lt; q &lt;&lt; " Q'=" &lt;&lt; qbar &lt;&lt; endl;
+    };
+ 
+    show("initial ");             // expect Q=0
+    setInput.setValue(true);  show("Set-&gt;1  ");   // expect Q=1
+    setInput.setValue(false); show("Set-&gt;0  ");   // expect Q=1 (still remembers!)
+    resetInput.setValue(true);  show("Reset-&gt;1"); // expect Q=0
+    resetInput.setValue(false); show("Reset-&gt;0"); // expect Q=0 (still remembers!)
+ 
+    return 0;
+}
+    </code></program>
+    
 </subsection>
 <conclusion><p>
     <!-- extra space before the progress bar -->   
