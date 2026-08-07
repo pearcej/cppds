@@ -241,12 +241,15 @@ class LogicGate:
                 functions that the hierarchy needs to use the new class is extremely
                 important for reusing existing code.</p>
             <p>We categorized the logic gates based on the number of input lines. The
-                AND gate has two input lines. The OR gate also has two input lines. NOT
-                gates have one input line. The <c>BinaryGate</c> class will be a subclass
-                of <c>LogicGate</c> and will add two input lines. The <c>UnaryGate</c> class
-                will also subclass <c>LogicGate</c> but will have only a single input line.
-                In computer circuit design, these lines are sometimes called <q>pins</q> so
-                we will use that terminology in our implementation.</p>
+    AND gate has two input lines. The OR gate also has two input lines. NOT
+    gates have one input line. The <c>BinaryGate</c> class will be a subclass
+    of <c>LogicGate</c> and will add two input lines. The <c>UnaryGate</c> class
+    will also subclass <c>LogicGate</c> but will have only a single input line.
+    In computer circuit design, these lines are sometimes called <q>pins</q> so
+    we will use that terminology in our implementation.
+    <xref ref="introduction_lst-binarygateclass"/> shows the C++ and Python
+    implementations of <c>BinaryGate</c>, and <xref ref="introduction_lst-unarygateclass"/>
+    shows the implementations of <c>UnaryGate</c>.</p>
 
                 <exploration xml:id="introduction_expl-binarygateclass">
                         <title>Implementation of <c>BinaryGate</c></title>
@@ -343,16 +346,15 @@ class UnaryGate(LogicGate):
                 return int(input(&quot;Enter Pin input for gate &quot;+ self.getLabel()+&quot;-&gt;&quot;))
                 </code></program></statement></task></exploration>
 
-            <p><xref ref="introduction_lst-binarygateclass"/> and <xref ref="introduction_lst-unarygateclass"/> implement these two
-                classes. The constructors in both of these classes start with an
-                explicit call to the constructor of the parent class using the parent's name
-                method. When creating an instance of the <c>BinaryGate</c> class, we
-                first want to initialize any data items that are inherited from
-                <c>LogicGate</c>. In this case, that means the label for the gate. The
-                constructor then goes on to add the two input lines (<c>pinA</c> and
-                <c>pinB</c>). This is a very common pattern that you should always use when
-                building class hierarchies. Child class constructors need to call parent
-                class constructors and then move on to their own distinguishing data.</p>
+           <p>The constructors in both of these classes start with an
+    explicit call to the constructor of the parent class using the parent's name
+    method. When creating an instance of the <c>BinaryGate</c> class, we
+    first want to initialize any data items that are inherited from
+    <c>LogicGate</c>. In this case, that means the label for the gate. The
+    constructor then goes on to add the two input lines (<c>pinA</c> and
+    <c>pinB</c>). This is a very common pattern that you should always use when
+    building class hierarchies. Child class constructors need to call parent
+    class constructors and then move on to their own distinguishing data.</p>
             <p>The only behavior that the <c>BinaryGate</c> class adds is the ability to
                 get the values from the two input lines. Since these values come from
                 some external place, we will simply ask the user via an input statement
