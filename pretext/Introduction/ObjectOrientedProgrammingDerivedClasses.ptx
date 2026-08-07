@@ -707,8 +707,21 @@ int main() {
     <reading-questions xml:id="rq-oop-derived-classes">
         <title>Reading Questions</title>
         <exercise label="logic-gate-1">
-                <statement>
-        <p>What will the logic gate yield (1 / 0)? <var/>  </p></statement><setup><var><condition number="[0]"><feedback><p>Correct!</p></feedback></condition><condition number="[1]"><feedback><p>Take a closer look at the logic gates.</p></feedback></condition></var></setup></exercise>   
+            <statement>
+                <p>Consider the following circuit, built from the <c>AndGate</c>, <c>OrGate</c>,
+                    and <c>NotGate</c> classes as connected in <xref ref="ooderive_program"/>:</p>
+                <image source="Introduction/desired_circuit.png" width="80%">
+                    <description><p>Circuit diagram illustrating a logical expression with labeled components. Two 'AND' gates, labeled 'gand1' and 'gand2', are connected to an 'OR' gate labeled 'gor3' via lines labeled 'connector'. The output of 'gor3' is then fed into a 'NOT' gate labeled 'gnot4'. The connections suggest the logical operation NOT(AND(a,b)) OR AND(c,d).</p></description>
+                </image>
+                <p>Given the inputs shown in the code (all pins set to 0), what will the logic gate yield (1 / 0)? <var/></p>
+            </statement>
+            <setup>
+                <var>
+                    <condition number="[0]"><feedback><p>Correct!</p></feedback></condition>
+                    <condition number="[1]"><feedback><p>Take a closer look at the logic gates.</p></feedback></condition>
+                </var>
+            </setup>
+        </exercise>
         <exercise label="mc_IS-A_HAS-A">
                 <statement>
         
