@@ -127,14 +127,15 @@ class AVLTree:
 </exploration>
         
         <p>The new <c>updateBalance</c> method is where most of the work is done. The
-            <c>updateBalance</c> method first checks to see if the current node is out
-            of balance enough to require rebalancing (line<nbsp/>23). If that
-            is the case then the rebalancing is done and no further updating to
-            parents is required. If the current node does not require rebalancing
-            then the balance factor of the parent is adjusted. If the balance factor
-            of the parent is non-zero then the algorithm continues to work its way
-            up the tree toward the root by recursively calling <c>updateBalance</c> on
-            the parent.</p>
+        <c>updateBalance</c> method first checks to see if the current node is out of
+        balance enough to require rebalancing (line<nbsp/>23). If that is the case then
+        the rebalancing is done and no further updating to parents is required. If the
+        current node's balance factor is within the allowed range, the algorithm instead
+        moves up to the parent and adjusts the parent's balance factor to reflect the height
+        change caused by the newly added node. If this adjustment brings the parent's balance
+        factor back to zero, the height of the subtree at the parent has not changed, and no
+        further updating is needed. Otherwise, the algorithm continues to work its way up the
+        tree toward the root by recursively calling <c>updateBalance</c> on the parent.</p>
         <p>When a rebalancing of the tree is necessary, how do we do it? Efficient
             rebalancing is the key to making the AVL Tree work well without
             sacrificing performance. In order to bring an AVL Tree back into balance
