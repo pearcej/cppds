@@ -51,9 +51,9 @@ private:
     int key;
     int value;
 public:
-    Node(int key, int value) {
-        this->key = key;
-        this->value = value;
+    Node(int k, int v) {
+        key = k;
+        value = v;
     }
 
     int getKey() const {
