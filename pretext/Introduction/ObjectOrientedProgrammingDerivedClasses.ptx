@@ -169,12 +169,11 @@ int main() {
                 identification and a single output line. In addition, we need methods to
                 allow a user of a gate to ask the gate for its label.</p>
             <p>The other behavior that every logic gate needs is the ability to know
-                its output value. This will require that the gate perform the
+                how to produce its output value. This will require that the gate perform the
                 appropriate logic based on the current input. In order to produce
                 output, the gate needs to know specifically what that logic is. This
                 means calling a method to perform the logic computation. The complete
                 class is shown in <xref ref="introduction_lst-logicgateclass"/>.</p>
-
         <exploration xml:id="introduction_expl-logicgateclass">
                 <title>Complete <c>LogicGate</c> class</title>
                 <task xml:id="introduction_lst-logicgateclass" label="introduction_lst-logicgateclass">
