@@ -39,8 +39,121 @@ def dijkstra(aGraph,start):
                 nextVert.setDistance( newDist )
                 nextVert.setPred(currentVert)
                 pq.decreaseKey(nextVert,newDist)
+            
             </code></program>
         </listing>
+
+                <listing xml:id="graphs_lst-nodeclass">
+            <title>The Node Class C++</title>
+            <program language="c++" label="graphs_lst-nodeclass-prog"><code><![CDATA[
+class Node {
+private:
+    int key;
+    int value;
+public:
+    Node(int k, int v) {
+        key = k;
+        value = v;
+    }
+
+    int getKey() const {
+        return key;
+    }
+
+    int getValue() const {
+        return value;
+    }
+};
+            ]]></code></program>
+        </listing>
+
+        <listing xml:id="graphs_lst-binheapmap">
+            <title>The BinHeapMap Class C++</title>
+            <program language="c++" label="graphs_lst-binheapmap-prog"><code><![CDATA[
+            class BinHeapMap {
+            private:
+                vector<Node> heapvector;
+                int currentSize;
+
+            public:
+                BinHeapMap() {
+                    currentSize = 0;
+                    heapvector.push_back(Node(-1, -1));
+                }
+
+                void insert(int key, int value) {
+                    Node node(key, value);
+                    heapvector.push_back(node);
+                    currentSize = currentSize + 1;
+                    percUp(currentSize);
+                }
+
+                void insert(const Node& node) {
+                    insert(node.getKey(), node.getValue());
+                }
+
+                Node delMin() {
+                    Node retval = heapvector[1];
+                    heapvector[1] = heapvector[currentSize];
+                    currentSize = currentSize - 1;
+                    heapvector.pop_back();
+                    percDown(1);
+                    return retval;
+                }
+
+                bool isEmpty() const {
+                    return currentSize == 0;
+                }
+
+                Node findMin() const {
+                    return heapvector[1];
+                }
+
+            private:
+                void percUp(int i) {
+                    while ((i / 2) > 0) {
+                        if (heapvector[i].getKey() < heapvector[i/2].getKey()) {
+                            Node tmp = heapvector[i/2];
+                            heapvector[i/2] = heapvector[i];
+                            heapvector[i] = tmp;
+                        }
+                        i = i/2;
+                    }
+                }
+
+                void percDown(int i) {
+                    while ((i*2) <= currentSize) {
+                        int mc = minChild(i);
+                        if (heapvector[i].getKey() > heapvector[mc].getKey()) {
+                            Node tmp = heapvector[i];
+                            heapvector[i] = heapvector[mc];
+                            heapvector[mc] = tmp;
+                        }
+                        i = mc;
+                    }
+                }
+
+                int minChild(int i) const {
+                    if (((i*2)+1) > currentSize) {
+                        return i * 2;
+                    }
+                    else {
+                        if (heapvector[i*2].getKey() < heapvector[(i*2)+1].getKey()) {
+                            return i * 2;
+                        }
+                        else {
+                            return (i * 2) + 1;
+                        }
+                    }
+                }
+            };
+                        ]]>
+            </code></program>
+        </listing>
+
+        <p>The <c>Graph.h</c> header referenced below is assumed to contain the
+    <c>Node</c> and <c>BinHeapMap</c> class definitions shown in
+    <xref ref="graphs_lst-nodeclass"/> and <xref ref="graphs_lst-binheapmap"/> above.</p>
 
         <listing xml:id="graphs_lst-shortpath2">
             <title>Dijkstra's Algorithm C++</title>
@@ -99,6 +212,11 @@ vector<Node> dijkstra(const vector<vector<Node>>&amp; graph, int start) {
             addition of the <c>decreaseKey</c> method. As you can see, this method is used when the distance to a vertex that
             is already in the queue is reduced, and thus moves that vertex toward
             the front of the queue.</p>
+        <p>Note that the C++ implementation shown above does not use a
+            <c>decreaseKey</c> method. Instead, it takes a lazy deletion approach:
+            when a vertex's distance is updated, a new entry is simply inserted into
+            the priority queue, and any outdated entries for that vertex are skipped
+            over when they are later removed via <c>delMin</c>.</p>
         <p>Let's walk through an application of Dijkstra's algorithm one vertex at
             a time using the following sequence of figures as our guide. We begin with the vertex
             <m>u</m>. The three vertices adjacent to <m>u</m> are

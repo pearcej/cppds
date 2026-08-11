@@ -348,10 +348,52 @@ main()
                 In C++, we overload an operator by declaring it a <term>friend</term>
                 function in the class definition and giving it a new implementation.
                 <xref ref="expl-overload"/> shows an example of the <c>&lt;&lt;</c> operator being overloaded
-                in the <c>Fraction</c> class.
-                Note that stream operators
-                need to return the address of the stream because of the fact that the
-                stream is changed by the stream operator.</p>
+                in the <c>Fraction</c> class.</p>
+            <p>Three things about this friend function's signature often trip people up, so let's
+                take <c>ostream &amp;operator &lt;&lt; (ostream &amp;stream, const Fraction &amp;frac)</c>
+                apart piece by piece.</p>
+            <p><idx>reference return type</idx><b>Why does the function <em>return</em> a reference (<c>ostream &amp;</c>)?</b>
+                The <c>&amp;</c> immediately after <c>ostream</c> is part of the <em>return type</em>,
+                not the function name. It means the function hands back a reference to the same
+                stream object that was passed in, rather than a brand-new copy of it. This matters
+                because of how chained output works. An expression like</p>
+            <pre>cout &lt;&lt; myfraction &lt;&lt; " is my fraction" &lt;&lt; endl;</pre>
+            <p>is really evaluated left to right as
+                <c>(cout &lt;&lt; myfraction) &lt;&lt; " is my fraction" &lt;&lt; endl;</c>. For the
+                second <c>&lt;&lt;</c> to work, the expression <c>cout &lt;&lt; myfraction</c> must
+                itself produce something that understands <c>&lt;&lt;</c> &#x2014; namely, the stream
+                itself. Returning <c>stream</c> by reference lets that same <c>cout</c> object be
+                reused for the rest of the chain. Returning by value would try to copy the stream
+                instead &#x2014; and a stream represents an actual output destination, like the
+                console or a file, so it doesn't make sense to duplicate it. For this reason,
+                stream types in C++ explicitly disallow copying.</p>
+            <p><idx>operator function name</idx><b>What is <c>operator &lt;&lt;</c>, exactly?</b>
+                It can look like <c>operator</c> is a keyword sitting next to a stray <c>&lt;&lt;</c>
+                symbol, but together <c>operator&lt;&lt;</c> <em>is</em> the name of the function,
+                the same way <c>add</c> or <c>show</c> would be a function name. C++ simply allows
+                function names to be built from the keyword <c>operator</c> followed by an operator
+                symbol. Declaring
+                <c>ostream &amp;operator &lt;&lt; (ostream &amp;stream, const Fraction &amp;frac)</c>
+                is exactly like declaring a two-argument function named <c>operator&lt;&lt;</c> that
+                returns an <c>ostream&amp;</c>. Once it's declared, the compiler automatically calls
+                this function whenever it sees the pattern <c>ostream &lt;&lt; Fraction</c>, so we
+                never call <c>operator&lt;&lt;(...)</c> directly &#x2014; we write
+                <c>stream &lt;&lt; frac</c> instead, and the compiler translates that into the call
+                for us.</p>
+            <p><idx>const reference parameter</idx><b>Why is the second parameter
+                <c>const Fraction &amp;frac</c> instead of just <c>Fraction frac</c>?</b> This
+                <c>&amp;</c> is a completely separate decision from the one on the return type, and
+                it is easy to conflate the two. Here, <c>&amp;</c> makes <c>frac</c> a
+                <term>reference parameter</term>: instead of copying the caller's <c>Fraction</c>
+                object into a new local variable, <c>frac</c> refers directly to the original
+                object passed in. This avoids the cost of making a copy every time we print a
+                fraction. The <c>const</c> keyword is a separate, additional promise layered on top
+                of that reference: it tells the compiler (and anyone reading the code) that this
+                function will not modify the object it refers to. <c>&amp;</c> and <c>const</c>
+                answer two different questions &#x2014; <q>am I working with the original object or
+                a copy?</q> and <q>am I allowed to change it?</q> &#x2014; and they happen to be used
+                together here because printing a fraction should be both efficient (no copy) and
+                safe (no accidental modification).</p>
             <exploration xml:id="expl-overload">
                 <title>Operator Overloading Example</title>
                 <task xml:id="overloaded-cpp" label="overloaded-cpp">
