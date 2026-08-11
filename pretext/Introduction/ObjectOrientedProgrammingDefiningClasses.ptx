@@ -361,10 +361,10 @@ main()
             <p>is really evaluated left to right as
                 <c>(cout &lt;&lt; myfraction) &lt;&lt; " is my fraction" &lt;&lt; endl;</c>. For the
                 second <c>&lt;&lt;</c> to work, the expression <c>cout &lt;&lt; myfraction</c> must
-                itself produce something that understands <c>&lt;&lt;</c> &#x2014; namely, the stream
+                itself produce something that understands <c>&lt;&lt;</c><mdash/>namely, the stream
                 itself. Returning <c>stream</c> by reference lets that same <c>cout</c> object be
                 reused for the rest of the chain. Returning by value would try to copy the stream
-                instead &#x2014; and a stream represents an actual output destination, like the
+                instead<mdash/>and a stream represents an actual output destination, like the
                 console or a file, so it doesn't make sense to duplicate it. For this reason,
                 stream types in C++ explicitly disallow copying.</p>
             <p><idx>operator function name</idx><b>What is <c>operator &lt;&lt;</c>, exactly?</b>
@@ -377,7 +377,7 @@ main()
                 is exactly like declaring a two-argument function named <c>operator&lt;&lt;</c> that
                 returns an <c>ostream&amp;</c>. Once it's declared, the compiler automatically calls
                 this function whenever it sees the pattern <c>ostream &lt;&lt; Fraction</c>, so we
-                never call <c>operator&lt;&lt;(...)</c> directly &#x2014; we write
+                never call <c>operator&lt;&lt;(...)</c> directly<mdash/>we write
                 <c>stream &lt;&lt; frac</c> instead, and the compiler translates that into the call
                 for us.</p>
             <p><idx>const reference parameter</idx><b>Why is the second parameter
@@ -390,8 +390,8 @@ main()
                 fraction. The <c>const</c> keyword is a separate, additional promise layered on top
                 of that reference: it tells the compiler (and anyone reading the code) that this
                 function will not modify the object it refers to. <c>&amp;</c> and <c>const</c>
-                answer two different questions &#x2014; <q>am I working with the original object or
-                a copy?</q> and <q>am I allowed to change it?</q> &#x2014; and they happen to be used
+                answer two different questions<mdash/>"am I working with the original object or
+                a copy?" and "am I allowed to change it?"<mdash/>and they happen to be used
                 together here because printing a fraction should be both efficient (no copy) and
                 safe (no accidental modification).</p>
             <exploration xml:id="expl-overload">
