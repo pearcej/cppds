@@ -663,7 +663,10 @@ main()
                     <p><ul>
                         <li>
                             <p>If the token is an operand, convert it from a string to an integer
-                                and push the value onto the <c>operandStack</c>. (Using the ASCII, you can get this by subtracting 48)</p>
+                                and push the value onto the <c>operandStack</c>. Since operands are
+                                assumed to be single-digit integers, this can be done by subtracting
+                                the character code for <c>'0'</c> (48 in ASCII) from the character's
+                                code, e.g. <c>token[0] - '0'</c>.</p>
                         </li>
                         <li>
                             <p>If the token is an operator, *, /, +, or -, it will need two
