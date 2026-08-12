@@ -169,19 +169,24 @@ void insert(int k){
 }
                 </code></program>
             </listing>
+            
             <p>With the <c>insert</c> method properly defined, we can now look at the
-                <c>delMin</c> method. Since the heap property requires that the root of the
-                tree be the smallest item in the tree, finding the minimum item is easy.
-                The hard part of <c>delMin</c> is restoring full compliance with the heap
-                structure and heap order properties after the root has been removed. We
-                can restore our heap in two steps. First, we will restore the root item
-                by taking the last item in the vector and moving it to the root position.
-                Moving the last item maintains our heap structure property. However, we
-                have probably destroyed the heap order property of our binary heap.
-                Second, we will restore the heap order property by pushing the new root
-                node down the tree to its proper position. <xref ref="binheap_fig-percdown"/> shows
-                the series of swaps needed to move the new root node to its proper
-                position in the heap.</p>
+            <c>delMin</c> method. Since the heap property requires that the root of the
+            tree be the smallest item in the tree, finding the minimum item is easy.
+            The hard part of <c>delMin</c> is restoring full compliance with the heap
+            structure and heap order properties after the root has been removed. We
+            can restore our heap in two steps. First, we will restore the root item
+            by taking the last item in the vector and moving it to the root position.
+            Because a complete binary tree fills every level except possibly the
+            last, and fills that last level from left to right, the last item in the
+            vector always corresponds to the last node of the tree. Removing it from
+            that position and moving it to the root therefore keeps the tree
+            complete, so moving the last item maintains our heap structure property.
+            However, we have probably destroyed the heap order property of our
+            binary heap. Second, we will restore the heap order property by pushing
+            the new root node down the tree to its proper position. <xref ref="binheap_fig-percdown"/> shows
+            the series of swaps needed to move the new root node to its proper
+            position in the heap.</p>
             
             <figure xml:id="binheap_fig-percdown">
                 <caption>Percolating the Root Node down the Tree.</caption>
