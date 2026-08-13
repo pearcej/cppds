@@ -38,7 +38,7 @@
             from the parent subject to some access restrictions.
             These variables and functions become members of the derived class.
             <idx>virtual function</idx><idx>virtual method</idx>A <term>virtual function</term> (also known as a <term>virtual method</term>) is a member function 
-            that is declared within a base class and is designed to be overridden by a 
+            declared within a base class and is meant to be overridden by a 
             derived class. 
             For this in C++, the keyword
             <c>virtual</c> is used.

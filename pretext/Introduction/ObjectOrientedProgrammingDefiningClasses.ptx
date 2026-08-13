@@ -609,8 +609,9 @@ main()
     be overloaded as a <em>member function</em> of its left-hand argument's class;
     otherwise it must be overloaded as a <em>friend function</em>.
     The stream operators (such as <c>&lt;&lt;</c> and <c>&gt;&gt;</c>) always take a stream
-    as their left-hand argument &#x2014; for example, <c>cout &lt;&lt; x</c> &#x2014; so they
-    must be either member functions of the stream class or friend functions.
+    as their left-hand argument<mdash/>for example, <c>cout &lt;&lt; x</c><mdash/>so they
+    must be either member functions of the stream class or friend functions of the
+    class on the right-hand side.
     However, for the <c>+</c> operator on <c>Fraction</c> objects, the left-hand
     argument is a <c>Fraction</c>, not a stream, so we have a choice.
     Let's rewrite the addition operator as a friend function.</p>
