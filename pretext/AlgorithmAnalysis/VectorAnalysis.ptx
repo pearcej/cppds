@@ -27,14 +27,17 @@
             Both of these operations take the same amount of time no matter how
             large the array or vector is. When an operation like this is independent of
             the size of the array or vector they are <m>O(1)</m>.</p>
-        <p>Although not possible with basic arrays, a common programming technique is growing a vector.
+<p>Although not possible with basic arrays, a common programming technique is growing a vector.
             As we have seen, one
             way to create a longer vector is to use the <c>push_back()</c> method.
             The <c>push_back()</c> method is typically <m>O(1)</m>, provided
             there is adequate capacity in the underlying array.</p>
         <p>First we'll use <c>push_back()</c> method.
             <xref ref="ls_mkvectcpp"/> shows the code for
-            making our vector.</p>
+            making our vector. The function <c>test1()</c> starts with an empty vector each time it
+            is called, then loops <c>num</c> times, calling <c>push_back()</c> on each iteration to
+            grow the vector one element at a time. In <c>main()</c>, we call <c>test1()</c> with an
+            argument of 1000, so the loop inside <c>test1()</c> will run 1000 times.</p>
         
         <listing xml:id="ls_mkvectcpp">
             <title>Using <c>push_back()</c></title>
