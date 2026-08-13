@@ -171,7 +171,7 @@ void insert(int k){
             </listing>
             
             <p>With the <c>insert</c> method properly defined, we can now look at the
-            <c>delMin</c> method. Since the heap property requires that the root of the
+            <c>delMin</c> method. Since the heap order property requires that the root of the
             tree be the smallest item in the tree, finding the minimum item is easy.
             The hard part of <c>delMin</c> is restoring full compliance with the heap
             structure and heap order properties after the root has been removed. We
