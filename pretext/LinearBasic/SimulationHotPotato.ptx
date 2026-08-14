@@ -41,7 +41,9 @@
             counting. It will return the name of the last person remaining after
             repetitive counting by <c>num</c>. What happens at that point is up to you.</p>
         <p>To simulate the circle, we will use a queue (see
-            <xref ref="fig-qupotatoqueue"/>). Assume that the child holding the potato will
+            <xref ref="fig-qupotatoqueue"/>). The names are first loaded into the queue in the
+            same order as they appear in the input array, so the first name in the array
+            becomes the front of the queue. Assume that the child holding the potato will
             be at the front of the queue. Upon passing the potato, the simulation
             will simply dequeue and then immediately enqueue that child, putting her
             at the end of the line. She will then wait until all the others have
