@@ -61,7 +61,14 @@ class UnorderedList {
         </description>
         </image>
     </figure>
-
+    <p>
+        In linked lists, we often use pointers to navigate between nodes. The
+        <c>-&gt;</c> operator in C++ provides an efficient way to access members of
+        a structure through a pointer. For example, <c>node-&gt;link</c> is
+        equivalent to <c>(*node).link</c>, but the arrow notation improves
+        readability and reduces syntax clutter. This operator is typically used
+        when working with pointer-based structures like linked lists.
+    </p>
     <p>The <c>isEmpty</c> method, shown in <xref ref="unordered-isempty"/>, simply checks to
         see if the head of the list is a reference to <c>nullptr</c>. The result of
         the boolean expression <c>this-&gt;head==nullptr</c> will only be true if there
