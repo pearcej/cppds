@@ -45,6 +45,22 @@
         important to note that the 1 is certainly significant for
         <m>T(n)</m>. However, as <em>n</em> gets large, our approximation will be
         just as accurate without it.</p>
+    <aside>
+        <title>Big-O, Big-Ω, and Big-Θ</title>
+        <p><idx>big-omega notation</idx><idx>big-theta notation</idx>
+            Big-O notation describes an <term>upper bound</term> on an
+            algorithm's growth rate — it tells us the function will not grow
+            <em>faster</em> than <m>f(n)</m>. Two related notations are sometimes
+            used alongside it. <term>Big-Omega notation</term>, written
+            <m>\Omega(f(n))</m>, describes a <term>lower bound</term>: the
+            algorithm will not grow <em>slower</em> than <m>f(n)</m>. <term>Big-Theta
+            notation</term>, written <m>\Theta(f(n))</m>, describes a
+            <term>tight bound</term>, meaning the function's growth rate matches
+            <m>f(n)</m> from both above and below. In practice, computer
+            scientists often use Big-O even when Big-Theta would be more precise,
+            since knowing the worst case is usually what matters most.
+        </p>
+    </aside>
     <p>As another example, suppose that for some algorithm, the exact number of
         steps is <m>T(n)=5n^{2}+27n+1005</m>. When <em>n</em> is small, say 1 or 2,
         the constant 1005 seems to be the dominant part of the function.
@@ -56,8 +72,6 @@
         coefficient <m>5</m> becomes insignificant as <em>n</em> gets large. We
         would say then that the function <m>T(n)</m> has an order of
         magnitude <m>f(n)=n^{2}</m>, or simply that it is <m>O(n^{2})</m>.</p>
-
-
     <p>Although we do not see this in the summation example, sometimes the
         performance of an algorithm depends on the exact values of the data
         rather than simply the size of the problem. For these kinds of
