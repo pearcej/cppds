@@ -1,12 +1,16 @@
 <section xml:id="trees_avl-tree-performance">
         <title>AVL Tree Performance</title>
-        <p>Before we proceed any further let's look at the result of enforcing this
-            new balance factor requirement. Our claim is that by ensuring that a
-            tree always has a balance factor of -1, 0, or 1 we can get better Big-O
-            performance of key operations. Let us start by thinking about how this
-            balance condition changes the worst-case tree. The worse case performance
-            for binary search trees is <m>O(n)</m> because the worst case "tree"
-            equivalent to a singly linked list (see <xref ref="trees_search-tree-analysis"/>).</p>
+         <p>We now show precisely how much the balance factor requirement helps: it
+            bounds the height of an AVL tree to <m>O(\log{N})</m>, which is what
+            gives AVL trees their performance advantage over an unbalanced binary
+            search tree.</p>
+        <p>Let's look at how enforcing the balance factor requirement bounds the
+            height of the tree. Our claim is that by ensuring that a tree always
+            has a balance factor of -1, 0, or 1 we can get better Big-O
+            performance of key operations. Let us start by thinking about how
+            this balance condition changes the worst-case tree. The worse case
+            performance for binary search trees is <m>O(n)</m> because the worst
+            case "tree" equivalent to a singly linked list (see <xref ref="trees_search-tree-analysis"/>).</p>
         <p>What is the worst case tree which also preserves a balance factor of -1, 0 or 1?
             Another way of asking that question is: how tall of a tree can we create for a given
             number of nodes that also preserves the balanace factor requirements? To answer this,
