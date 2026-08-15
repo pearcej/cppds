@@ -1,5 +1,15 @@
 <?xml version="1.0" ?><section xml:id="trees_binary-heap-implementation">
         <title>Binary Heap Implementation</title>
+
+        <p>
+        To implement the operations we just described, our binary heap must
+        maintain two properties as items are added and removed: the
+        <term>structure property</term> and the <term>heap order property</term>.
+        We'll look at each of these first, along with a vector-based
+        representation of the tree, before implementing the operations
+        themselves in C++.
+       </p>
+
         <subsection xml:id="trees_the-structure-property">
             <title>The Structure Property</title>
             <p><idx>complete binary tree</idx>In order to make our heap work efficiently, we will take advantage of
