@@ -61,7 +61,20 @@ class UnorderedList {
         </description>
         </image>
     </figure>
-
+    <p>
+        In a linked list, nodes have no names or identifiers of their own<mdash/>the
+        only way to reach a node is by following a pointer to it. This means that
+        to access one of its fields, like <c>link</c>, we first have to dereference
+        the pointer to get to the node itself, and only then can we reach inside
+        it. Written directly, this looks like <c>(*node).link</c>: dereference
+        <c>node</c> to get the actual node object, then access its <c>link</c>
+        field. This works, but the parentheses and asterisk add a lot of visual
+        clutter for something we do constantly when working with linked
+        structures. C++ provides the <c>-&gt;</c> operator as a shorthand for exactly
+        this pattern<mdash/><c>node-&gt;link</c> means <q>the <c>link</c> field of the
+        node that <c>node</c> points to,</q> and is universally used in place of
+        <c>(*node).link</c>.
+    </p>
     <p>The <c>isEmpty</c> method, shown in <xref ref="unordered-isempty"/>, simply checks to
         see if the head of the list is a reference to <c>nullptr</c>. The result of
         the boolean expression <c>this-&gt;head==nullptr</c> will only be true if there
