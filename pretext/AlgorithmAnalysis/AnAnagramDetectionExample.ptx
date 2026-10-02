@@ -182,6 +182,9 @@ int main(){
                     <statement><program interactive="activecode" language="python" label="active6py-prog"><code>
 # sorts anagrams in order from a-z, and then compares them
 def anagramSolution2(s1,s2):
+    if len(s1) != len(s2):
+        return False
+
     alist1 = list(s1)
     alist2 = list(s2)
 
