@@ -151,6 +151,9 @@ using namespace std;
 
 // sorts anagrams in order from a-z, and then compares them
 bool anagramsolution2(string s1, string s2){
+    if (s1.length() != s2.length())
+        return false;
+
     sort(s1.begin(), s1.end());
     sort(s2.begin(), s2.end());
 
@@ -179,6 +182,9 @@ int main(){
                     <statement><program interactive="activecode" language="python" label="active6py-prog"><code>
 # sorts anagrams in order from a-z, and then compares them
 def anagramSolution2(s1,s2):
+    if len(s1) != len(s2):
+        return False
+
     alist1 = list(s1)
     alist2 = list(s2)
 
