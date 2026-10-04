@@ -35,7 +35,7 @@
             the entire string is processed and nothing is left on the stack, the
             string is correctly balanced.</p>
         <p>Implementations of this are shown in <xref ref="lst-parcheck2-cpp"/>.
-            The key C++ feature appears in line 38 where we call a helper function, <c>matches</c>, to
+            The key C++ feature appears in line 49 where we call a helper function, <c>matches</c>, to
             assist with symbol-matching. Each symbol that is removed from the stack
             must be checked to see that it matches the current closing symbol. If a
             mismatch occurs, the Boolean variable <c>balanced</c> is set to <c>false</c>.</p>
@@ -61,9 +61,14 @@ bool inString(string symbol, string symbols){
 //matches the symbol in &quot;close&quot;
 bool matches(string open, string close){
     string opens = &quot;({[&quot;;
-    string closers = &quot;)]}&quot;;
-    bool val = inString(open, opens) == inString(close, closers);
-    return val;
+    string closers = &quot;)}]&quot;;
+    size_t openPos = opens.find(open);
+    size_t closePos = closers.find(close);
+    if (openPos == string::npos || closePos == string::npos){
+        // not a parenthesis at all
+        return false;
+    }
+    return openPos == closePos;
 }
 
 // Go through the string pushing opening symbols
@@ -78,8 +83,8 @@ bool parChecker(string symbolString){
     while(index &lt; symbolLength &amp;&amp; balanced){
         string symbol;
         symbol = symbolString[index];
-        string opens = &quot;([{&quot;;
-        string closes = &quot;}])&quot;;
+        string opens = &quot;({[&quot;;
+        string closes = &quot;)}]&quot;;
         if (inString(symbol, opens)){
             s.push(symbol);
         } else if(inString(symbol, closes)){
