@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This frontmatter division contains all content before the -->
+<!-- first chapter.  -->
+<frontmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="meta_frontmatter">
+
+  <bibinfo>
+  
+    <author>
+      <personname>Dr. Janice L. Pearce</personname>
+      <department>Computer Science</department>
+      <institution>Berea College</institution>
+    </author>
+
+    <author>
+      <personname>Bradley N. Miller</personname>
+      <institution>Luther College</institution>
+    </author>
+
+    <author>
+      <personname>David L. Ranum</personname>
+      <institution>Luther College</institution>
+    </author>
+
+    <date><today/></date>
+    <website>
+      <url href="https://github.com/pearcej/cppds">Repository on Github</url>
+    </website>
+    <copyright>
+      <year>2018<ndash/>present</year>
+      <holder>Janice L. Pearce, Bradley N. Miller, and David L. Ranum</holder>
+      <shortlicense>
+        Problem Solving with Algorithms and Data Structures using C++ by Janice L. Pearce, Bradley N. Miller, and David L. Ranum is licensed under a
+        <url 
+          href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          visual="creativecommons.org/licenses/by-nc-sa/4.0/">
+          Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
+        </url>.
+        All product names, logos, and brands are property of their respective owners. All company, product and service names used in this text are for identification purposes only. Use of these names, logos, and brands does not imply endorsement.
+      </shortlicense>
+    </copyright>
+  </bibinfo>
+
+  <titlepage>
+    <titlepage-items/>
+  </titlepage>
+
+  <colophon>
+    <title>Repository and License</title>
+    <colophon-items/>
+  </colophon>
+
+  <acknowledgement>
+      <p>Special acknowledgement is due to <url href="https://www.linkedin.com/in/jwwschadler/" visual="https://www.linkedin.com/in/jwwschadler/">Jesse Walker-Schadler</url> who while just a student in the Berea College Data Structures course had a vision of making graphics in C++ as easy as they are in Python both in terms of both syntax and installations. Over the course of two summers, he realized this vision with the creation in <url href="https://github.com/walkerje/C-Turtle" visual="https://github.com/walkerje/C-Turtle">the open source CTurtle library</url> which provides all of the C++ interactive graphics in this textbook.</p>
+      <p>I would like to thank <url href="https://www.berea.edu/" visual="https://www.berea.edu/">Berea College</url> for the support for student internships and for the Berea College student interns who served as the first editors of this work and who helped to make this version more interactive. You can see their contributions as well as those of others at <url href="https://github.com/pearcej/cppds/forks">github.com/pearcej/cppds/forks</url>.</p>
+      <p>I would like to thank Rob Beezer for the creation of <url href="https://pretextbook.org/" visual="https://pretextbook.org/">PreTeXt</url> which is the authoring platform of this text and for his amazing level of responsiveness in the PreTeXt support channel. Additionally, I am very grateful to Oscar Levin both for his responsiveness in the Runestone Discord channels and for his work in the creation of the PreTeXt converter for <url href="https://pandoc.org/" visual="https://pandoc.org/">Pandoc</url> which made adaptation much less time consuming.</p>
+      <p>Brad Miller deserves a hearty thanks for his work in creating <url href="https://runestone.academy/" visual="https://runestone.academy/">Runestone Academy</url> where this book is hosted, and for his collaborative work with the <url href="https://pretextbook.org/" visual="https://pretextbook.org/">PreTeXt</url> authoring group.</p>
+      <p>We are very grateful to Franklin Beedle Publishers for allowing us to make the original Python version of this interactive textbook freely available. The original online version was dedicated to the memory of our first editor, Jim Leisy, who wanted us to &#8220;change the world.&#8221;</p>
+      <p>Finally, I would like to thank my husband, Bob Fairchild, for his patience and for being my best friend.</p>
+  </acknowledgement>
+
+  <preface xml:id="meta_frontmatter-preface">
+    <title>Preface</title>
+      <paragraphs xml:id="book_purposes">
+        <p>This short ebook is intended to make it easy for anyone with at least some background in Python to transition to programming in C++.</p>
+        <p>This book began in Python as the paper book, <em>Problem Solving with Algorithms and Data Structures Using Python</em>, first published by Franklin Beedle &amp; Associates and written by Brad Miller and David Ranum back in 2005. We are all grateful for the vision of Jim Leisy, who gave permission to take the original Python version of this text and freely publish it online as an interactive textbook.</p>
+        <p>The interactive version was then translated to C++ by Jan Pearce and a team of excellent Berea College students in the summer of 2018. This translation became this interactive text, and Berea College students and many others have been helping to improve this text ever since.</p>
+        <p>Other portions of this book began as web pages written by Jan Pearce as support for a Berea College C++ programming class. Still other sections were newly written by Jan Pearce for this ebook.</p>
+      </paragraphs>
+  </preface>
+
+  <preface xml:id="meta_frontmatter-how-to-use">
+    <title>How to Use This Book</title>
+      <paragraphs xml:id="how_to_use_book">
+        <p>The generic version of this book is located at <url href="https://runestone.academy/ns/books/published/cppds/index.html" visual="https://runestone.academy/ns/books/published/cppds/index.html">runestone.academy/ns/books/published/cppds/index.html</url>.</p>
+        <p>Instructors who wish to use this book go to <url href="https://runestone.academy/" visual="https://runestone.academy/">runestone.academy</url> and make an account using <c>cppds</c> as the base book.</p>
+        <p>Those wishing to report bugs or suggest improvements can do so at <url href="https://github.com/pearcej/cppds/issues" visual="https://github.com/pearcej/cppds/issues">github.com/pearcej/cppds/issues</url>.</p>
+      </paragraphs>
+  </preface>
+
+</frontmatter>
