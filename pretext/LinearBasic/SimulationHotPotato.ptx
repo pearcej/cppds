@@ -37,12 +37,12 @@
             versions of this story. Some count every third man and some allow the
             last man to escape on a horse. In any case, the idea is the same.</p>
         <p>We will implement a general <term>simulation</term> of Hot Potato. Our program
-            will input an array of names and a constant, call it <q>num,</q> to be used for
+            will input a vector of names and a constant, call it <q>num,</q> to be used for
             counting. It will return the name of the last person remaining after
             repetitive counting by <c>num</c>. What happens at that point is up to you.</p>
         <p>To simulate the circle, we will use a queue (see
             <xref ref="fig-qupotatoqueue"/>). The names are first loaded into the queue in the
-            same order as they appear in the input array, so the first name in the array
+            same order as they appear in the input vector, so the first name in the vector
             becomes the front of the queue. Assume that the child holding the potato will
             be at the front of the queue. Upon passing the potato, the simulation
             will simply dequeue and then immediately enqueue that child, putting her
@@ -79,18 +79,22 @@
 #include &lt;iostream&gt;
 #include &lt;queue&gt;
 #include &lt;string&gt;
+#include &lt;vector&gt;
 
 using namespace std;
 
-string hotPotato(string nameArray[], int num) {
+string hotPotato(const vector&lt;string&gt;&amp; names, int num) {
     queue&lt;string&gt; simqueue;
-    int namelsLenght = nameArray-&gt;length();
-    for (int i = 0; i &lt; namelsLenght; i++) {
-        //puts the entire array into a queue.
-        simqueue.push(nameArray[i]);
+
+    //puts all the players in the queue
+    for (size_t i = 0; i &lt; names.size(); i++) {
+        simqueue.push(names[i]);
     }
 
-while (simqueue.size() &gt; 1) { //loop continues until there is one remaining item.
+    //loop continues until there is one remaining item.
+    while (simqueue.size() &gt; 1) {
+
+        //simulate one round
         for (int i = 0; i &lt; num; i++) {
             simqueue.push(simqueue.front());
             simqueue.pop();
@@ -102,9 +106,9 @@ while (simqueue.size() &gt; 1) { //loop continues until there is one remaining i
 }
 
 int main() {
-    string s[] = {&quot;Bill&quot;, &quot;David&quot;, &quot;Susan&quot;, &quot;Jane&quot;, &quot;Kent&quot;, &quot;Brad&quot;};
+    vector&lt;string&gt; players = {&quot;Bill&quot;, &quot;David&quot;, &quot;Susan&quot;, &quot;Jane&quot;, &quot;Kent&quot;, &quot;Brad&quot;};
 
-    cout &lt;&lt; hotPotato(s, 7) &lt;&lt; endl;
+    cout &lt;&lt; hotPotato(players, 7) &lt;&lt; endl;
 
     return 0;
 }
@@ -138,11 +142,11 @@ main()
             </task>
         </exploration>
         <p>Note that in this example the value of the counting constant is greater
-            than the number of names in the array. This is not a problem since the
+            than the number of names in the vector. This is not a problem since the
             queue acts like a circle and counting continues back at the beginning
-            until the value is reached. Also, notice that the array is loaded into
-            the queue such that the first name on the array will be at the front of
-            the queue. <c>Bill</c> in this case is the first item in the array and
+            until the value is reached. Also, notice that the vector is loaded into
+            the queue such that the first name in the vector will be at the front of
+            the queue. <c>Bill</c> in this case is the first item in the vector and
             therefore moves to the front of the queue. A variation of this
             implementation, described in the exercises, allows for a random counter.</p>
     <p>
