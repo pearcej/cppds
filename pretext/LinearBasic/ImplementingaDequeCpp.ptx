@@ -47,7 +47,7 @@ int main() {
     d.pop_front();
 
     cout &lt;&lt; endl &lt;&lt; &quot;Item at the front: &quot; &lt;&lt; d.front() &lt;&lt; endl;
-    cout &lt;&lt; &quot;Itm at the back: &quot; &lt;&lt; d.back() &lt;&lt; endl;
+    cout &lt;&lt; &quot;Item at the back: &quot; &lt;&lt; d.back() &lt;&lt; endl;
     cout &lt;&lt; &quot;Deque Size: &quot; &lt;&lt; d.size() &lt;&lt; endl;
 
     cout &lt;&lt; endl &lt;&lt; &quot;Items in the Deque: &quot; &lt;&lt; endl;
@@ -55,9 +55,11 @@ int main() {
     for(int i = 0; i &lt; dsize2; i++){
         //prints each item in the deque.
         cout &lt;&lt; d.at(i) &lt;&lt; &quot; &quot;;
+    }
+
+    cout &lt;&lt; endl;
 
     return 0;
-    }
 }
                 </code></program></statement>
             </task>
