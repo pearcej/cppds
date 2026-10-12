@@ -23,7 +23,7 @@ class UnorderedList {
 };
         </code></program>
     </listing>
-    <p>Initially when we construct a list, there are no items. The assignment and declaration statment</p>
+    <p>Initially when we construct a list, there are no items. The assignment and declaration statement</p>
     <pre>UnorderedList myList;</pre>
     <p>creates the linked list representation shown in <xref ref="fig-unordered-empty"/>.
         As we discussed in the Node class, the special value <c>nullptr</c> will again be used to state
