@@ -5,7 +5,7 @@ This book began in Python as the paper book, *Problem Solving with Algorithms an
 
 The interactive version was then translated to C++ by Jan Pearce and a team of excellent Berea College students in the summer of 2018. This translation became this interactive text, and Berea College students and many others have been helping to improve this text ever since.
 
-Special acknowledgement is due to  `Jesse Walker-Schadler <https://www.linkedin.com/in/jwwschadler/>`_ who while just a student in the Berea College Data Structures course had a vision of making graphics in C++ as easy as they are in Python both in terms of both syntax and installations.  Over the course of two summers, he realized this vision with the creation in `the open source CTurtle library <https://github.com/walkerje/C-Turtle>`_ which provides all of the C++ interactive graphics in this textbook. 
+Special acknowledgement is due to  `Jesse Walker-Schadler <https://www.linkedin.com/in/jesswwalker/>`_ who while just a student in the Berea College Data Structures course had a vision of making graphics in C++ as easy as they are in Python both in terms of both syntax and installations.  Over the course of two summers, he realized this vision with the creation in `the open source CTurtle library <https://github.com/walkerje/C-Turtle>`_ which provides all of the C++ interactive graphics in this textbook. 
 
 How to use this book
 ====================
