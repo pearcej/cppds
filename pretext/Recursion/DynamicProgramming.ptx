@@ -162,7 +162,7 @@ main()
             minimum, we first check the table to see if a result is already known.
             If there is already a result in the table, we use the value from the
             table rather than recomputing. This technique is called
-            <idx>memorization</idx><term>memoization</term>
+            <idx>memoization</idx><term>memoization</term>
             and is a very useful method for speeding up frequent yet hardware-demanding function calls.
             <xref ref="lst-change2-cpp"/> shows a modified
             algorithm to incorporate our table lookup scheme.</p>
